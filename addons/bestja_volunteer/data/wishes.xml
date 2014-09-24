@@ -1,0 +1,67 @@
+<openerp>
+    <data>
+        <record id="grafika" model="bestja.volunteer.wish">
+            <field name="name">grafika</field>
+        </record>
+
+        <record id="organizacja_imprez" model="bestja.volunteer.wish">
+            <field name="name">organizacja imprez</field>
+        </record>
+
+        <record id="korepetycje" model="bestja.volunteer.wish">
+            <field name="name">korepetycje</field>
+        </record>
+
+        <record id="media_i_marketing" model="bestja.volunteer.wish">
+            <field name="name">media i marketing</field>
+        </record>
+
+        <record id="opieka" model="bestja.volunteer.wish">
+            <field name="name">opieka</field>
+        </record>
+
+        <record id="praca_biurowa" model="bestja.volunteer.wish">
+            <field name="name">praca biurowa</field>
+        </record>
+
+        <record id="programowanie" model="bestja.volunteer.wish">
+            <field name="name">programowanie</field>
+        </record>
+
+        <record id="redakcja" model="bestja.volunteer.wish">
+            <field name="name">redakcja</field>
+        </record>
+
+        <record id="szkolenia_i_doradztwo" model="bestja.volunteer.wish">
+            <field name="name">szkolenia i doradztwo</field>
+        </record>
+
+        <record id="tlumaczenia" model="bestja.volunteer.wish">
+            <field name="name">tłumaczenia</field>
+        </record>
+
+        <record id="zbiorki_zywnosci" model="bestja.volunteer.wish">
+            <field name="name">udział w zbiórkach żywności</field>
+        </record>
+
+        <record id="pozyskiwanie_zywnosci" model="bestja.volunteer.wish">
+            <field name="name">pozyskiwanie żywności</field>
+        </record>
+
+        <record id="praca_w_zespole" model="bestja.volunteer.wish">
+            <field name="name">praca w zespole</field>
+        </record>
+
+        <record id="pozyskiwanie_funduszy" model="bestja.volunteer.wish">
+            <field name="name">pozyskiwanie funduszy</field>
+        </record>
+
+        <record id="praca_w_magazynie" model="bestja.volunteer.wish">
+            <field name="name">praca w magazynie</field>
+        </record>
+
+        <record id="monitoring_odbiorcow" model="bestja.volunteer.wish">
+            <field name="name">monitoring odbiorców żywności</field>
+        </record>
+    </data>
+</openerp>

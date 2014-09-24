@@ -1,0 +1,31 @@
+<openerp>
+    <data>
+        <record id="kategoria_a" model="bestja.volunteer.drivers_license">
+            <field name="name">kategoria A</field>
+        </record>
+
+        <record id="kategoria_b" model="bestja.volunteer.drivers_license">
+            <field name="name">kategoria B</field>
+        </record>
+
+        <record id="kategoria_c" model="bestja.volunteer.drivers_license">
+            <field name="name">kategoria C</field>
+        </record>
+
+        <record id="kategoria_d" model="bestja.volunteer.drivers_license">
+            <field name="name">kategoria D</field>
+        </record>
+
+        <record id="kategoria_be" model="bestja.volunteer.drivers_license">
+            <field name="name">kategoria B+E</field>
+        </record>
+
+        <record id="kategoria_ce" model="bestja.volunteer.drivers_license">
+            <field name="name">kategoria C+E</field>
+        </record>
+
+        <record id="kategoria_de" model="bestja.volunteer.drivers_license">
+            <field name="name">kategoria D+E</field>
+        </record>
+    </data>
+</openerp>

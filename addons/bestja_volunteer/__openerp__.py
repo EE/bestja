@@ -23,6 +23,8 @@
         'templates.xml',
         'data/occupation.xml',
         'data/skills.xml',
+        'data/drivers_license.xml',
+        'data/wishes.xml'
     ],
     # only loaded in demonstration mode
     'demo': [

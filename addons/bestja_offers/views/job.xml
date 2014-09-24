@@ -24,7 +24,7 @@
                     <notebook colspan="4">
                         <page string="Skills">
                             <separator string="Skills" class="oe_inline"  style="display: inline" />
-                            <span class="oe_grey oe_edit_only">Wybierz max. <span id="max_skills"/> umiejętności jakie powinien posiadać wolontariusz</span>
+                            <span class="oe_grey oe_edit_only">Wybierz umiejętności jakie powinien posiadać wolontariusz (max. <span id="max_skills"/> umiejętności)</span>
                             <field name="skills" widget="many2many_checkboxes" />
                             <separator string="Certyficates" class="oe_inline" />
                             <span class="oe_grey oe_edit_only">Wybierz uprawnienia jeżeli są wymagane</span>
@@ -35,6 +35,9 @@
                             </div>
                         </page>
                         <page string="Field of activity">
+                            <separator string="Field of activity" class="oe_inline" />
+                            <span class="oe_grey oe_edit_only">Wybierz czym będzie zajmował się wolontariusz (max. <span id="max_wishes"/> obszary)</span>
+                            <field name="wishes" widget="many2many_checkboxes" />
                         </page>
                         <page string="Description">
                         </page>
