@@ -1,0 +1,25 @@
+<openerp>
+    <data>
+        <record id="view_config_settings" model="ir.ui.view">
+            <field name="model">hr.config.settings</field>
+            <field name="inherit_id" ref="hr.view_human_resources_configuration" />
+            <field name="arch" type="xml">
+                <xpath expr="//group[last()]" position="after">
+                    <group name="offers">
+                        <label for="id" string="Offers"/>
+                        <div>
+                            <div>
+                                <label for="max_skills"/>
+                                <field name="max_skills"/>
+                            </div>
+                            <div>
+                                <label for="max_wishes"/>
+                                <field name="max_wishes"/>
+                            </div>
+                        </div>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</openerp>

@@ -1,0 +1,50 @@
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="bestja_volunteer_form">
+            <field name="name">bestja.volunteer.form</field>
+            <field name="model">hr.job</field>
+            <field name="priority" eval="5"/>
+            <field name="arch" type="xml">
+                <form>
+                    <div class="oe_title">
+                        <h1 class="oe_inline" style="display: inline">
+                            <field name="name" class="oe_inline"/>
+                        </h1>
+                        <span class="oe_grey oe_edit_only">Nadaj ofercie atrakcyjną, przyciągającą uwagę nazwę.</span>
+                        <field name="state" readonly="1" attrs="{'invisible':[('state', '=', 'recruit')]}" class="state_inactive" />
+                        <field name="state" readonly="1" attrs="{'invisible':[('state','!=','recruit')]}" class="state_active" />
+                    </div>
+                    <group>
+                        <field name="vacancies" />
+                        <label for="project"/>
+                        <div><field name="project" class="oe_inline" /> <span class="oe_grey oe_edit_only">Wybierz lub utwórz nowy projekt</span></div>
+                        <label for="user_id" string="Opiekun oferty" />
+                        <div><field name="user_id" class="oe_inline" /> <span class="oe_grey oe_edit_only">Wybierz osobę odpowiedzialną za akcję</span></div>
+                    </group>
+                    <notebook colspan="4">
+                        <page string="Skills">
+                            <separator string="Skills" class="oe_inline"  style="display: inline" />
+                            <span class="oe_grey oe_edit_only">Wybierz max. <span id="max_skills"/> umiejętności jakie powinien posiadać wolontariusz</span>
+                            <field name="skills" widget="many2many_checkboxes" />
+                            <separator string="Certyficates" class="oe_inline" />
+                            <span class="oe_grey oe_edit_only">Wybierz uprawnienia jeżeli są wymagane</span>
+                            <div>
+                                <label for="drivers_license"/><field name="drivers_license" class="oe_inline" /><br/>
+                                <field name="sanepid" /><label for="sanepid"/><br/>
+                                <field name="forklift" /><label for="forklift"/>
+                            </div>
+                        </page>
+                        <page string="Field of activity">
+                        </page>
+                        <page string="Description">
+                        </page>
+                        <page string="Time frame">
+                        </page>
+                        <page string="Localization">
+                        </page>
+                    </notebook>
+                </form>
+            </field>
+        </record>
+    </data>
+</openerp>

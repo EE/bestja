@@ -1,0 +1,51 @@
+<openerp>
+    <data>
+        <record id="dziennikarstwo" model="bestja.volunteer.skill">
+            <field name="name">dziennikarstwo</field>
+        </record>
+
+        <record id="dietetyka" model="bestja.volunteer.skill">
+            <field name="name">dietetyka</field>
+        </record>
+
+        <record id="komunikatywnosc" model="bestja.volunteer.skill">
+            <field name="name">komunikatywność</field>
+        </record>
+
+        <record id="kierowca" model="bestja.volunteer.skill">
+            <field name="name">kierowca</field>
+        </record>
+
+        <record id="fundreising" model="bestja.volunteer.skill">
+            <field name="name">fundreising</field>
+        </record>
+
+        <record id="historia" model="bestja.volunteer.skill">
+            <field name="name">historia</field>
+        </record>
+
+        <record id="matematyka" model="bestja.volunteer.skill">
+            <field name="name">matematyka</field>
+        </record>
+
+        <record id="zarzadzanie" model="bestja.volunteer.skill">
+            <field name="name">zarządzanie</field>
+        </record>
+
+        <record id="informatyka" model="bestja.volunteer.skill">
+            <field name="name">informatyka</field>
+        </record>
+
+        <record id="prawo" model="bestja.volunteer.skill">
+            <field name="name">prawo</field>
+        </record>
+
+        <record id="design" model="bestja.volunteer.skill">
+            <field name="name">design</field>
+        </record>
+
+        <record id="ksiegowosc" model="bestja.volunteer.skill">
+            <field name="name">księgowość</field>
+        </record>
+    </data>
+</openerp>

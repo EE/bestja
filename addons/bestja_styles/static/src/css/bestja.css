@@ -1,0 +1,20 @@
+.state_inactive {
+    color: #3366FF;
+}
+
+.state_active {
+    color: #339966;
+}
+
+.oe_inline + .oe_grey {
+    margin-left: 1em;
+}
+
+.oe_title {
+    margin-bottom: 25px;
+}
+
+.oe_horizontal_separator.oe_inline {
+    display: inline;
+    line-height: 2.5;
+}
