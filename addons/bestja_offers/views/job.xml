@@ -11,35 +11,53 @@
                             <field name="name" class="oe_inline"/>
                         </h1>
                         <span class="oe_grey oe_edit_only">Nadaj ofercie atrakcyjną, przyciągającą uwagę nazwę.</span>
-                        <field name="state" readonly="1" attrs="{'invisible':[('state', '=', 'recruit')]}" class="state_inactive" />
-                        <field name="state" readonly="1" attrs="{'invisible':[('state','!=','recruit')]}" class="state_active" />
+                        <field name="state" readonly="1" attrs="{'invisible':[('state', '=', 'recruit')]}" class="state_inactive"/>
+                        <field name="state" readonly="1" attrs="{'invisible':[('state','!=','recruit')]}" class="state_active"/>
                     </div>
                     <group>
-                        <field name="vacancies" />
+                        <field name="vacancies"/>
                         <label for="project"/>
-                        <div><field name="project" class="oe_inline" /> <span class="oe_grey oe_edit_only">Wybierz lub utwórz nowy projekt</span></div>
-                        <label for="user_id" string="Opiekun oferty" />
-                        <div><field name="user_id" class="oe_inline" /> <span class="oe_grey oe_edit_only">Wybierz osobę odpowiedzialną za akcję</span></div>
+                        <div><field name="project" class="oe_inline"/> <span class="oe_grey oe_edit_only">Wybierz lub utwórz nowy projekt</span></div>
+                        <label for="user_id" string="Opiekun oferty"/>
+                        <div><field name="user_id" class="oe_inline"/> <span class="oe_grey oe_edit_only">Wybierz osobę odpowiedzialną za akcję</span></div>
                     </group>
                     <notebook colspan="4">
                         <page string="Skills">
-                            <separator string="Skills" class="oe_inline"  style="display: inline" />
+                            <separator string="Skills" class="oe_inline"  style="display: inline"/>
                             <span class="oe_grey oe_edit_only">Wybierz umiejętności jakie powinien posiadać wolontariusz (max. <span id="max_skills"/> umiejętności)</span>
-                            <field name="skills" widget="many2many_checkboxes" />
-                            <separator string="Certyficates" class="oe_inline" />
+                            <field name="skills" widget="many2many_checkboxes"/>
+                            <separator string="Certyficates" class="oe_inline"/>
                             <span class="oe_grey oe_edit_only">Wybierz uprawnienia jeżeli są wymagane</span>
                             <div>
-                                <label for="drivers_license"/><field name="drivers_license" class="oe_inline" /><br/>
-                                <field name="sanepid" /><label for="sanepid"/><br/>
-                                <field name="forklift" /><label for="forklift"/>
+                                <label for="drivers_license"/><field name="drivers_license" class="oe_inline"/><br/>
+                                <field name="sanepid"/><label for="sanepid"/><br/>
+                                <field name="forklift"/><label for="forklift"/>
                             </div>
                         </page>
                         <page string="Field of activity">
-                            <separator string="Field of activity" class="oe_inline" />
+                            <separator string="Field of activity" class="oe_inline"/>
                             <span class="oe_grey oe_edit_only">Wybierz czym będzie zajmował się wolontariusz (max. <span id="max_wishes"/> obszary)</span>
-                            <field name="wishes" widget="many2many_checkboxes" />
+                            <field name="wishes" widget="many2many_checkboxes"/>
                         </page>
                         <page string="Description">
+                            <label for="target_group"/>
+                            <field name="target_group" widget="many2many_tags"/>
+                            <label for="desc_aim"/>
+                            <field name="desc_aim" placeholder="Opisz w skrócie czym będzie zajmował się wolontariusz"/>
+                            <label for="desc_expectations"/>
+                            <field name="desc_expectations" placeholder="Jakie będą oczekiwania wobec wolontariusza."/>
+                            <label for="desc_why"/>
+                            <field name="desc_why" placeholder="Opisz dlaczego wolontariusz miałby zaangażować się w tę akcję."/>
+                            <label for="desc_why"/>
+                            <field name="desc_why" placeholder="Opisz dlaczego wolontariusz miałby zaangażować się w tę akcję."/>
+                            <label for="desc_benefits"/>
+                            <field name="desc_benefits" placeholder="Opisz czego nauczy się, jakie zdobędzie kwalifikacje, doświadczenia."/>
+                            <label for="helpee_group"/>
+                            <field name="helpee_group" widget="many2many_tags"/>
+                            <label for="desc_tools"/>
+                            <field name="desc_tools" placeholder="np. napoje, koszulki, przyrządy ogrodnicze."/>
+                            <label for="desc_comments"/>
+                            <field name="desc_comments" placeholder="Wpisz jeśli masz uwagi lub dodatkowe wymagania."/>
                         </page>
                         <page string="Time frame">
                         </page>

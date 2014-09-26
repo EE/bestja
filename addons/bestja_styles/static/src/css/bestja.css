@@ -18,3 +18,11 @@
     display: inline;
     line-height: 2.5;
 }
+
+.oe_form_label_help:after {
+    font-family: FontAwesome;
+    content: "\f05a";
+    font-size: 150%;
+    color: #bbb;
+    padding: 10px;
+}

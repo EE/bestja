@@ -1,0 +1,7 @@
+<openerp>
+    <data>
+        <record id="seniorzy" model="bestja.offers.target_group">
+            <field name="name">seniorzy</field>
+        </record>
+    </data>
+</openerp>
