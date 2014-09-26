@@ -5,6 +5,39 @@ from lxml import etree
 from openerp import models, fields, api, exceptions
 
 
+class Weekday(models.Model):
+    _name = 'bestja.offers.weekday'
+    name = fields.Char()
+
+
+class Daypart(models.Model):
+    _name = 'bestja.offers.daypart'
+    name = fields.Char()
+
+
+class Duration(models.Model):
+    select_kind = [
+        (1, 'okresowa'),
+        (2, 'cykliczna'),
+        (3, 'elastyczna')
+    ]
+    select_interval = [
+        (1, 'tydzień'),
+        (2, '2 tygodnie'),
+        (3, '3 tygodnie'),
+        (4, '4 tygodnie'),
+    ]
+    _name = 'bestja.offers.duration'
+
+    offer = fields.Many2one('hr.job', string="Oferta", required=True)
+    date_start = fields.Date(required=True)
+    date_end = fields.Date()
+    kind = fields.Selection(select_kind)
+    daypart = fields.Many2many('bestja.offers.daypart')
+    hours = fields.Integer()
+    weekday = fields.Many2many('bestja.offers.weekday')
+
+
 class TargetGroup(models.Model):
     """Odbiorca pomocy"""
     _name = 'bestja.offers.target_group'
@@ -13,12 +46,12 @@ class TargetGroup(models.Model):
 
 class Offer(models.Model):
     _inherit = 'hr.job'
-    _states = [
+    select_states = [
         ('open', 'nieopublikowana'),
         ('recruit', 'opublikowana')
     ]
 
-    state = fields.Selection(_states)
+    state = fields.Selection(select_states)
     vacancies = fields.Integer(string="Liczba wakatów")
     project = fields.Many2one('project.project', string="Projekt", required=True)
     skills = fields.Many2many('bestja.volunteer.skill')
@@ -60,6 +93,7 @@ class Offer(models.Model):
     desc_comments = fields.Text(
         string="Uwagi"
     )
+    durations = fields.One2many('bestja.offers.duration', 'offer', string="Terminy akcji")
 
     @api.one
     @api.constrains('skills')

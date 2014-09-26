@@ -60,6 +60,7 @@
                             <field name="desc_comments" placeholder="Wpisz jeśli masz uwagi lub dodatkowe wymagania."/>
                         </page>
                         <page string="Time frame">
+
                         </page>
                         <page string="Localization">
                         </page>
