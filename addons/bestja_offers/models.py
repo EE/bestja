@@ -6,12 +6,12 @@ from openerp import models, fields, api, exceptions
 
 
 class Weekday(models.Model):
-    _name = 'bestja.offers.weekday'
+    _name = 'offers.weekday'
     name = fields.Char()
 
 
 class Daypart(models.Model):
-    _name = 'bestja.offers.daypart'
+    _name = 'offers.daypart'
     name = fields.Char()
 
 
@@ -27,20 +27,20 @@ class Duration(models.Model):
         (3, '3 tygodnie'),
         (4, '4 tygodnie'),
     ]
-    _name = 'bestja.offers.duration'
+    _name = 'offers.duration'
 
     offer = fields.Many2one('hr.job', string="Oferta", required=True)
     date_start = fields.Date(required=True)
     date_end = fields.Date()
     kind = fields.Selection(select_kind)
-    daypart = fields.Many2many('bestja.offers.daypart')
+    daypart = fields.Many2many('offers.daypart')
     hours = fields.Integer()
-    weekday = fields.Many2many('bestja.offers.weekday')
+    weekday = fields.Many2many('offers.weekday')
 
 
 class TargetGroup(models.Model):
     """Odbiorca pomocy"""
-    _name = 'bestja.offers.target_group'
+    _name = 'offers.target_group'
     name = fields.Char()
 
 
@@ -54,18 +54,18 @@ class Offer(models.Model):
     state = fields.Selection(select_states)
     vacancies = fields.Integer(string="Liczba wakatów")
     project = fields.Many2one('project.project', string="Projekt", required=True)
-    skills = fields.Many2many('bestja.volunteer.skill')
-    wishes = fields.Many2many('bestja.volunteer.wish')
-    drivers_license = fields.Many2one('bestja.volunteer.drivers_license', string="Prawa jazdy")
+    skills = fields.Many2many('volunteer.skill')
+    wishes = fields.Many2many('volunteer.wish')
+    drivers_license = fields.Many2one('volunteer.drivers_license', string="Prawa jazdy")
     sanepid = fields.Boolean(string="Badania sanepidu")
     forklift = fields.Boolean(string="Uprawnienia na wózek widłowy")
     target_group = fields.Many2many(
-        'bestja.volunteer.occupation',
+        'volunteer.occupation',
         string="Kto jest adresatem oferty?",
         help="Wybierz grupę docelową np. studenci, emeryci."
     )
     helpee_group = fields.Many2many(
-        'bestja.offers.target_group',
+        'offers.target_group',
         string="Komu wolontariusz może pomóc?",
         help="Wybierz grupę osób, z którymi będzie pracował."
     )
@@ -93,7 +93,7 @@ class Offer(models.Model):
     desc_comments = fields.Text(
         string="Uwagi"
     )
-    durations = fields.One2many('bestja.offers.duration', 'offer', string="Terminy akcji")
+    durations = fields.One2many('offers.duration', 'offer', string="Terminy akcji")
 
     @api.one
     @api.constrains('skills')

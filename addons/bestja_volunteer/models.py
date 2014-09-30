@@ -4,50 +4,50 @@ from openerp import models, fields
 
 
 class VolunteerWish(models.Model):
-    _name = 'bestja.volunteer.wish'
+    _name = 'volunteer.wish'
     name = fields.Char()
 
 
 class VolunteerSkill(models.Model):
-    _name = 'bestja.volunteer.skill'
+    _name = 'volunteer.skill'
     name = fields.Char()
 
 
 class VolunteerCertification(models.Model):
-    _name = 'bestja.volunteer.certification'
+    _name = 'volunteer.certification'
     name = fields.Char()
 
 
 class VolunteerDistrict(models.Model):
-    _name = 'bestja.volunteer.district'
+    _name = 'volunteer.district'
     name = fields.Char()
 
 
 class VolunteerOccupation(models.Model):
-    _name = 'bestja.volunteer.occupation'
+    _name = 'volunteer.occupation'
     name = fields.Char()
 
 
 class VolunteerLanguage(models.Model):
-    _name = 'bestja.volunteer.language'
+    _name = 'volunteer.language'
     name = fields.Char()
 
 
 class DriversLicense(models.Model):
-    _name = 'bestja.volunteer.drivers_license'
+    _name = 'volunteer.drivers_license'
     name = fields.Char()
 
 
 class Volunteer(models.Model):
     _inherit = 'hr.employee'
 
-    wishes = fields.Many2many('bestja.volunteer.wish', ondelete='restrict')
-    skills = fields.Many2many('bestja.volunteer.skill', ondelete='restrict')
-    languages = fields.Many2many('bestja.volunteer.language', ondelete='restrict')
-    certifications = fields.Many2many('bestja.volunteer.certification', ondelete='restrict')
-    district = fields.Many2many('bestja.volunteer.district', ondelete='restrict')
-    occupation = fields.Many2one('bestja.volunteer.occupation', ondelete='restrict')
-    drivers_license = fields.Many2one('bestja.volunteer.drivers_license', ondelete='restrict')
+    wishes = fields.Many2many('volunteer.wish', ondelete='restrict')
+    skills = fields.Many2many('volunteer.skill', ondelete='restrict')
+    languages = fields.Many2many('volunteer.language', ondelete='restrict')
+    certifications = fields.Many2many('volunteer.certification', ondelete='restrict')
+    district = fields.Many2many('volunteer.district', ondelete='restrict')
+    occupation = fields.Many2one('volunteer.occupation', ondelete='restrict')
+    drivers_license = fields.Many2one('volunteer.drivers_license', ondelete='restrict')
     sanepid = fields.Datetime()
     forklift = fields.Datetime()
 

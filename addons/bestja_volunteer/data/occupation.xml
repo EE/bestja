@@ -1,30 +1,30 @@
 <openerp>
     <data>
-        <record id="student" model="bestja.volunteer.occupation">
+        <record id="student" model="volunteer.occupation">
             <field name="name">student</field>
         </record>
 
-        <record id="absolwent" model="bestja.volunteer.occupation">
+        <record id="absolwent" model="volunteer.occupation">
             <field name="name">absolwent</field>
         </record>
 
-        <record id="osoba_pracujaca" model="bestja.volunteer.occupation">
+        <record id="osoba_pracujaca" model="volunteer.occupation">
             <field name="name">osoba pracująca</field>
         </record>
 
-        <record id="wlasna_firma" model="bestja.volunteer.occupation">
+        <record id="wlasna_firma" model="volunteer.occupation">
             <field name="name">posiadam własną firmę</field>
         </record>
 
-        <record id="emeryt" model="bestja.volunteer.occupation">
+        <record id="emeryt" model="volunteer.occupation">
             <field name="name">emeryt lub rencista</field>
         </record>
 
-        <record id="bezrobotny" model="bestja.volunteer.occupation">
+        <record id="bezrobotny" model="volunteer.occupation">
             <field name="name">bezrobotny</field>
         </record>
 
-        <record id="pracownik_uw" model="bestja.volunteer.occupation">
+        <record id="pracownik_uw" model="volunteer.occupation">
             <field name="name">pracownik UW</field>
         </record>
     </data>

@@ -1,24 +1,24 @@
 <openerp>
     <data>
-        <record id="monday" model="bestja.offers.weekday">
+        <record id="monday" model="offers.weekday">
             <field name="name">poniedziałek</field>
         </record>
-        <record id="tuesday" model="bestja.offers.weekday">
+        <record id="tuesday" model="offers.weekday">
             <field name="name">wtorek</field>
         </record>
-        <record id="wednesday" model="bestja.offers.weekday">
+        <record id="wednesday" model="offers.weekday">
             <field name="name">środa</field>
         </record>
-        <record id="thursday" model="bestja.offers.weekday">
+        <record id="thursday" model="offers.weekday">
             <field name="name">czwartek</field>
         </record>
-        <record id="friday" model="bestja.offers.weekday">
+        <record id="friday" model="offers.weekday">
             <field name="name">piątek</field>
         </record>
-        <record id="saturday" model="bestja.offers.weekday">
+        <record id="saturday" model="offers.weekday">
             <field name="name">sobota</field>
         </record>
-        <record id="sunday" model="bestja.offers.weekday">
+        <record id="sunday" model="offers.weekday">
             <field name="name">niedziela</field>
         </record>
     </data>

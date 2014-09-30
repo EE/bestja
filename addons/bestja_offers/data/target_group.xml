@@ -1,16 +1,7 @@
 <openerp>
     <data>
-        <record id="morning" model="bestja.offers.daypart">
-            <field name="name">rano</field>
-        </record>
-        <record id="afternoon" model="bestja.offers.daypart">
-            <field name="name">po południu</field>
-        </record>
-        <record id="evning" model="bestja.offers.daypart">
-            <field name="name">wieczorem</field>
-        </record>
-        <record id="allday" model="bestja.offers.daypart">
-            <field name="name">cały dzień</field>
+        <record id="seniorzy" model="offers.target_group">
+            <field name="name">seniorzy</field>
         </record>
     </data>
 </openerp>

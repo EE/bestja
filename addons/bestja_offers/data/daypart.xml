@@ -1,0 +1,16 @@
+<openerp>
+    <data>
+        <record id="morning" model="offers.daypart">
+            <field name="name">rano</field>
+        </record>
+        <record id="afternoon" model="offers.daypart">
+            <field name="name">po południu</field>
+        </record>
+        <record id="evning" model="offers.daypart">
+            <field name="name">wieczorem</field>
+        </record>
+        <record id="allday" model="offers.daypart">
+            <field name="name">cały dzień</field>
+        </record>
+    </data>
+</openerp>

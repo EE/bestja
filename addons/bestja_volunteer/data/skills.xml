@@ -1,50 +1,50 @@
 <openerp>
     <data>
-        <record id="dziennikarstwo" model="bestja.volunteer.skill">
+        <record id="dziennikarstwo" model="volunteer.skill">
             <field name="name">dziennikarstwo</field>
         </record>
 
-        <record id="dietetyka" model="bestja.volunteer.skill">
+        <record id="dietetyka" model="volunteer.skill">
             <field name="name">dietetyka</field>
         </record>
 
-        <record id="komunikatywnosc" model="bestja.volunteer.skill">
+        <record id="komunikatywnosc" model="volunteer.skill">
             <field name="name">komunikatywność</field>
         </record>
 
-        <record id="kierowca" model="bestja.volunteer.skill">
+        <record id="kierowca" model="volunteer.skill">
             <field name="name">kierowca</field>
         </record>
 
-        <record id="fundreising" model="bestja.volunteer.skill">
+        <record id="fundreising" model="volunteer.skill">
             <field name="name">fundreising</field>
         </record>
 
-        <record id="historia" model="bestja.volunteer.skill">
+        <record id="historia" model="volunteer.skill">
             <field name="name">historia</field>
         </record>
 
-        <record id="matematyka" model="bestja.volunteer.skill">
+        <record id="matematyka" model="volunteer.skill">
             <field name="name">matematyka</field>
         </record>
 
-        <record id="zarzadzanie" model="bestja.volunteer.skill">
+        <record id="zarzadzanie" model="volunteer.skill">
             <field name="name">zarządzanie</field>
         </record>
 
-        <record id="informatyka" model="bestja.volunteer.skill">
+        <record id="informatyka" model="volunteer.skill">
             <field name="name">informatyka</field>
         </record>
 
-        <record id="prawo" model="bestja.volunteer.skill">
+        <record id="prawo" model="volunteer.skill">
             <field name="name">prawo</field>
         </record>
 
-        <record id="design" model="bestja.volunteer.skill">
+        <record id="design" model="volunteer.skill">
             <field name="name">design</field>
         </record>
 
-        <record id="ksiegowosc" model="bestja.volunteer.skill">
+        <record id="ksiegowosc" model="volunteer.skill">
             <field name="name">księgowość</field>
         </record>
     </data>
