@@ -22,11 +22,11 @@
                         <div><field name="user_id" class="oe_inline"/> <span class="oe_grey oe_edit_only">Wybierz osobę odpowiedzialną za akcję</span></div>
                     </group>
                     <notebook colspan="4">
-                        <page string="Skills">
-                            <separator string="Skills" class="oe_inline"  style="display: inline"/>
+                        <page string="Umiejętności">
+                            <separator string="Umiejętności" class="oe_inline"  style="display: inline"/>
                             <span class="oe_grey oe_edit_only">Wybierz umiejętności jakie powinien posiadać wolontariusz (max. <span id="max_skills"/> umiejętności)</span>
                             <field name="skills" widget="many2many_checkboxes"/>
-                            <separator string="Certyficates" class="oe_inline"/>
+                            <separator string="Uprawienia" class="oe_inline"/>
                             <span class="oe_grey oe_edit_only">Wybierz uprawnienia jeżeli są wymagane</span>
                             <div>
                                 <label for="drivers_license"/><field name="drivers_license" class="oe_inline"/><br/>
@@ -34,20 +34,18 @@
                                 <field name="forklift"/><label for="forklift"/>
                             </div>
                         </page>
-                        <page string="Field of activity">
-                            <separator string="Field of activity" class="oe_inline"/>
+                        <page string="Obszar działania">
+                            <separator string="Obszar działania" class="oe_inline"/>
                             <span class="oe_grey oe_edit_only">Wybierz czym będzie zajmował się wolontariusz (max. <span id="max_wishes"/> obszary)</span>
                             <field name="wishes" widget="many2many_checkboxes"/>
                         </page>
-                        <page string="Description">
+                        <page string="Opis akcji">
                             <label for="target_group"/>
                             <field name="target_group" widget="many2many_tags"/>
                             <label for="desc_aim"/>
                             <field name="desc_aim" placeholder="Opisz w skrócie czym będzie zajmował się wolontariusz"/>
                             <label for="desc_expectations"/>
                             <field name="desc_expectations" placeholder="Jakie będą oczekiwania wobec wolontariusza."/>
-                            <label for="desc_why"/>
-                            <field name="desc_why" placeholder="Opisz dlaczego wolontariusz miałby zaangażować się w tę akcję."/>
                             <label for="desc_why"/>
                             <field name="desc_why" placeholder="Opisz dlaczego wolontariusz miałby zaangażować się w tę akcję."/>
                             <label for="desc_benefits"/>
@@ -59,10 +57,10 @@
                             <label for="desc_comments"/>
                             <field name="desc_comments" placeholder="Wpisz jeśli masz uwagi lub dodatkowe wymagania."/>
                         </page>
-                        <page string="Time frame">
+                        <page string="Termin akcji">
 
                         </page>
-                        <page string="Localization">
+                        <page string="Miejsce akcji">
                         </page>
                     </notebook>
                 </form>
