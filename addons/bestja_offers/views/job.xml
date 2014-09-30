@@ -1,11 +1,19 @@
 <openerp>
     <data>
-        <record model="ir.ui.view" id="bestja_volunteer_form">
+        <record model="ir.ui.view" id="bestja_offer_form">
             <field name="name">bestja.volunteer.form</field>
             <field name="model">hr.job</field>
             <field name="priority" eval="5"/>
             <field name="arch" type="xml">
                 <form>
+                    <field name="image" widget="image" class="oe_left"/>
+                    <button class="oe_stat_button oe_right"
+                    icon="fa-file-o"
+                    name="%(hr_recruitment.action_hr_job_applications)d"
+                    context="{'default_user_id': user_id}"
+                    type="action">
+                        <field name="application_count" widget="statinfo" string="aplikacji"/>
+                    </button>
                     <div class="oe_title">
                         <h1 class="oe_inline" style="display: inline">
                             <field name="name" class="oe_inline"/>
@@ -58,7 +66,7 @@
                             <field name="desc_comments" placeholder="Wpisz jeśli masz uwagi lub dodatkowe wymagania."/>
                         </page>
                         <page string="Termin akcji">
-
+                            <field name="durations"/>
                         </page>
                         <page string="Miejsce akcji">
                         </page>

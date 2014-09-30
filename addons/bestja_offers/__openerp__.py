@@ -18,6 +18,7 @@
     # always loaded
     'data': [
         'views/job.xml',
+        'views/duration.xml',
         'views/config.xml',
         'data/daypart.xml',
         'data/target_group.xml',

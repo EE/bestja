@@ -1,25 +1,32 @@
 <openerp>
     <data>
         <record id="monday" model="offers.weekday">
-            <field name="name">poniedziałek</field>
+            <field name="name">pon</field>
+            <field name="full_name">poniedziałek</field>
         </record>
         <record id="tuesday" model="offers.weekday">
-            <field name="name">wtorek</field>
+            <field name="name">wto</field>
+            <field name="full_name">wtorek</field>
         </record>
         <record id="wednesday" model="offers.weekday">
-            <field name="name">środa</field>
+            <field name="name">śro</field>
+            <field name="full_name">środa</field>
         </record>
         <record id="thursday" model="offers.weekday">
-            <field name="name">czwartek</field>
+            <field name="name">czw</field>
+            <field name="full_name">czwartek</field>
         </record>
         <record id="friday" model="offers.weekday">
-            <field name="name">piątek</field>
+            <field name="name">pią</field>
+            <field name="full_name">piątek</field>
         </record>
         <record id="saturday" model="offers.weekday">
-            <field name="name">sobota</field>
+            <field name="name">sob</field>
+            <field name="full_name">sobota</field>
         </record>
         <record id="sunday" model="offers.weekday">
-            <field name="name">niedziela</field>
+            <field name="name">nie</field>
+            <field name="full_name">niedziela</field>
         </record>
     </data>
 </openerp>

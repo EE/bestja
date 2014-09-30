@@ -7,7 +7,8 @@ from openerp import models, fields, api, exceptions
 
 class Weekday(models.Model):
     _name = 'offers.weekday'
-    name = fields.Char()
+    name = fields.Char(size=3)
+    full_name = fields.Char()
 
 
 class Daypart(models.Model):
@@ -16,10 +17,11 @@ class Daypart(models.Model):
 
 
 class Duration(models.Model):
+    _name = 'offers.duration'
     select_kind = [
-        (1, 'okresowa'),
-        (2, 'cykliczna'),
-        (3, 'elastyczna')
+        ('periodic', 'okresowa'),
+        ('cyclic', 'cykliczna'),
+        ('flexible', 'elastyczna')
     ]
     select_interval = [
         (1, 'tydzień'),
@@ -27,15 +29,38 @@ class Duration(models.Model):
         (3, '3 tygodnie'),
         (4, '4 tygodnie'),
     ]
-    _name = 'offers.duration'
 
     offer = fields.Many2one('hr.job', string="Oferta", required=True)
-    date_start = fields.Date(required=True)
-    date_end = fields.Date()
-    kind = fields.Selection(select_kind)
-    daypart = fields.Many2many('offers.daypart')
-    hours = fields.Integer()
-    weekday = fields.Many2many('offers.weekday')
+    date_start = fields.Date(required=True, string="dnia")
+    date_end = fields.Date(string="do dnia")
+    kind = fields.Selection(select_kind, required=True, string="rodzaj akcji")
+    interval = fields.Selection(select_interval, string="powtarzaj co")
+    daypart = fields.Many2many('offers.daypart', string="pora dnia")
+    hours = fields.Integer(string="liczba h")
+    weekday = fields.Many2many('offers.weekday', string="powtarzaj w")
+
+    @api.onchange('kind')
+    def _onchange_kind(self):
+        """
+        Clear fields that are irrelevant to the new kind.
+        """
+        if self.kind not in ('periodic', 'cyclic'):
+            self.weekday = None
+            self.hours = 0
+        if self.kind != 'cyclic':
+            self.interval = None
+            self.daypart = None
+
+    @api.one
+    @api.constrains('date_start', 'date_end')
+    def _check_date_range(self):
+        if not self.date_end:
+            return
+
+        if self.date_end < self.date_start:
+            raise exceptions.ValidationError(
+                "Data końcowa terminu akcji musi być późniejsza od jego daty początkowej!"
+            )
 
 
 class TargetGroup(models.Model):
@@ -93,7 +118,8 @@ class Offer(models.Model):
     desc_comments = fields.Text(
         string="Uwagi"
     )
-    durations = fields.One2many('offers.duration', 'offer', string="Terminy akcji")
+    durations = fields.One2many('offers.duration', 'offer', string="Termin akcji", ondelete='restrict')
+    image = fields.Binary("Photo")
 
     @api.one
     @api.constrains('skills')

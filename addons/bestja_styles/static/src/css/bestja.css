@@ -19,10 +19,27 @@
     line-height: 2.5;
 }
 
+/* (i) icons after labels with help text */
 .oe_form_label_help:after {
     font-family: FontAwesome;
     content: "\f05a";
     font-size: 150%;
     color: #bbb;
     padding: 10px;
+}
+
+/* Fix odoo's horizontal radio buttons */
+.oe_form_field_radio.oe_horizontal div {
+    text-align: center;
+    display: inline-block;
+}
+
+/* Horizontal checkboxes */
+.horizontal_checkboxes div {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+.horizontal_checkboxes input {
+    margin: 0;
 }

@@ -1,0 +1,43 @@
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="offers_duration_tree">
+            <field name="name">offers.duration.tree</field>
+            <field name="model">offers.duration</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="kind"/>
+                    <field name="date_start"/>
+                    <field name="date_end"/>
+                    <field name="weekday" attrs="{'invisible': [('weekday', '=', [])]}" />
+                    <field name="interval"/>
+                    <field name="daypart" attrs="{'invisible': [('daypart', '=', [])]}"/>
+                    <field name="hours"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="offers_duration_form">
+            <field name="name">offers.duration.form</field>
+            <field name="model">offers.duration</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group string="Wybierz termin akcji" col="5">
+                        <field name="date_start"/>
+                        <field name="date_end" class="oe_inline"/>
+                        <span class="oe_grey oe_edit_only">Zostaw puste jeżeli jest to akcja bezterminowa</span>
+                    </group>
+                    <group string="Wybierz rodzaj akcji" col="1">
+                        <field name="kind" nolabel="1" options="{'horizontal': True}" widget="radio"/>
+                    </group>
+                    <separator/>
+                    <group col="2">
+                        <field name="hours" attrs="{'invisible': [('kind', 'not in', ['periodic', 'cyclic'])]}"/>
+                        <field name="weekday" widget="many2many_checkboxes" class="horizontal_checkboxes" attrs="{'invisible': [('kind', 'not in', ['periodic', 'cyclic'])]}" />
+                        <field name="interval" class="oe_inline" attrs="{'invisible': [('kind', '!=', 'cyclic')]}"/>
+                        <field name="daypart" widget="many2many_checkboxes" class="horizontal_checkboxes"  attrs="{'invisible': [('kind', '!=', 'cyclic')]}"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+    </data>
+</openerp>
