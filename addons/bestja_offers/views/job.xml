@@ -6,6 +6,14 @@
             <field name="priority" eval="5"/>
             <field name="arch" type="xml">
                 <form>
+                    <header>
+                        <button name="set_recruit" string="opublikuj" states="open" type="object" class="oe_highlight"/>
+                        <button name="set_open" string="wstrzymaj rekrutacje" states="recruit" type="object" class="oe_highlight"/>
+
+                        <button name="set_template" string="Ustaw jako szablon" type="object" states="open"/>
+                        <button string="Nowa oferta w oparciu o szablon" name="duplicate_template"  type="object" states="template" class="oe_highlight"/>
+                        <button name="set_open" string="Przywróc jako ofertę" type="object" states="template"/>
+                    </header>
                     <field name="image" widget="image" class="oe_left"/>
                     <button class="oe_stat_button oe_right"
                     icon="fa-file-o"
@@ -19,8 +27,7 @@
                             <field name="name" class="oe_inline"/>
                         </h1>
                         <span class="oe_grey oe_edit_only">Nadaj ofercie atrakcyjną, przyciągającą uwagę nazwę.</span>
-                        <field name="state" readonly="1" attrs="{'invisible':[('state', '=', 'recruit')]}" class="state_inactive"/>
-                        <field name="state" readonly="1" attrs="{'invisible':[('state','!=','recruit')]}" class="state_active"/>
+                        <field name="state" readonly="1" class="state_inactive"/>
                     </div>
                     <group>
                         <field name="vacancies"/>

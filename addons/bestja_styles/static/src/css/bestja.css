@@ -43,3 +43,8 @@
 .horizontal_checkboxes input {
     margin: 0;
 }
+
+/* Form Header without form sheet */
+.openerp .oe_form_nosheet header {
+    margin-bottom: 15px;
+}

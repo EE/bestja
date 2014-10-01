@@ -71,12 +71,13 @@ class TargetGroup(models.Model):
 
 class Offer(models.Model):
     _inherit = 'hr.job'
-    select_states = [
+    SELECT_STATES = [
         ('open', 'nieopublikowana'),
-        ('recruit', 'opublikowana')
+        ('recruit', 'opublikowana'),
+        ('template', 'szablon')
     ]
 
-    state = fields.Selection(select_states)
+    state = fields.Selection(SELECT_STATES)
     vacancies = fields.Integer(string="Liczba wakatów")
     project = fields.Many2one('project.project', string="Projekt", required=True)
     skills = fields.Many2many('volunteer.skill')
@@ -121,6 +122,17 @@ class Offer(models.Model):
     durations = fields.One2many('offers.duration', 'offer', string="Termin akcji", ondelete='restrict')
     image = fields.Binary("Photo")
 
+    _sql_constraints = [
+        ('name_company_uniq', 'CHECK(1=1)', ''),  # Overwrite and remove unique name constraint
+    ]
+
+    def __init__(self, pool, cr):
+        """
+        Set the new states again, for them to be fully recognized.
+        """
+        super(Offer, self).__init__(pool, cr)
+        self._columns['state'].selection = self.SELECT_STATES
+
     @api.one
     @api.constrains('skills')
     def _check_skills_no(self):
@@ -134,6 +146,33 @@ class Offer(models.Model):
         max_wishes = self.env.user.company_id.bestja_max_wishes
         if len(self.wishes) > max_wishes:
             raise exceptions.ValidationError("Wybierz maksymalnie {} obszarów działania!".format(max_wishes))
+
+    @api.one
+    def set_template(self):
+        self.state = 'template'
+
+    @api.multi
+    def duplicate_template(self):
+        for offer in self:
+            default = {
+                'name': offer.name,
+                'status': 'open'
+            }
+            copy = offer.copy(default=default)
+
+        # Redirect to the new object (edit form)
+        view_id = self.env.ref('bestja_offers.bestja_offer_form').id
+        return {
+            'name': 'Oferty',
+            'view_type': 'form',
+            'view_mode': 'form',
+            'view_id': view_id,
+            'res_model': 'hr.job',
+            'type': 'ir.actions.act_window',
+            'nodestroy': True,
+            'target': 'inline',
+            'res_id': copy.id,
+        }
 
     @api.model
     def fields_view_get(self, **kwargs):
