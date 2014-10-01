@@ -85,6 +85,9 @@ class Offer(models.Model):
     drivers_license = fields.Many2one('volunteer.drivers_license', string="Prawa jazdy")
     sanepid = fields.Boolean(string="Badania sanepidu")
     forklift = fields.Boolean(string="Uprawnienia na wózek widłowy")
+    provider_latitude = fields.Float (string="GPS DMS") 
+    provider_longitude = fields.Float (string = "GPS DMS")
+    address_field = fields.Char(string="Adres");
     target_group = fields.Many2many(
         'volunteer.occupation',
         string="Kto jest adresatem oferty?",
