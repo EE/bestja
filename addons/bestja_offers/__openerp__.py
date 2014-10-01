@@ -21,6 +21,7 @@
     # always loaded
     'data': [
         'views/job.xml',
+        'views/assets.xml',
         'views/duration.xml',
         'views/config.xml',
         'data/daypart.xml',
