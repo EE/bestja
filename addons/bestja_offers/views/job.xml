@@ -1,7 +1,23 @@
 <openerp>
     <data>
+        <record model="ir.actions.act_window" id="action_hr_job">
+            <field name="name">Oferty</field>
+            <field name="res_model">hr.job</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context" eval="{'search_default_current': True}" />
+        </record>
+        <menuitem parent="base.menu_crm_case_job_req_main" id="hr.menu_hr_job_position" action="action_hr_job" sequence="1"/>
+
+        <record model="ir.actions.act_window" id="action_list_offer_templates">
+            <field name="name">Szablony ofert</field>
+            <field name="res_model">hr.job</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context" eval="{'search_default_template': True}" />
+        </record>
+        <menuitem parent="base.menu_crm_case_job_req_main" id="menu_offer_templates" action="action_list_offer_templates" sequence="1"/>
+
         <record model="ir.ui.view" id="bestja_offer_form">
-            <field name="name">bestja.volunteer.form</field>
+            <field name="name">bestja.offer.form</field>
             <field name="model">hr.job</field>
             <field name="priority" eval="5"/>
             <field name="arch" type="xml">
@@ -79,6 +95,45 @@
                         </page>
                     </notebook>
                 </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="bestja_offer_tree">
+            <field name="name">bestja.offer.tree</field>
+            <field name="model">hr.job</field>
+            <field name="priority" eval="5"/>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="project"/>
+                    <field name="user_id"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="bestja_offer_search">
+            <field name="name">bestja.offer.search</field>
+            <field name="model">hr.job</field>
+            <field name="priority" eval="5"/>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="project"/>
+                    <field name="user_id"/>
+                    <filter name="current" string="W trakcie"
+                                domain="[('state', '=', 'recruit')]"/>
+                    <filter name="template" string="Szablony"
+                                domain="[('state', '=', 'template')]"/>
+                    <group string="Group By">
+                        <filter name="group_by_resposible" string="Projekt"
+                                context="{'group_by': 'project'}"/>
+                        <filter name="group_by_resposible" string="Stan"
+                                context="{'group_by': 'state'}"/>
+                        <filter name="group_by_resposible" string="Osoba odpowiedzialna"
+                                context="{'group_by': 'user_id'}"/>
+                    </group>
+                </search>
             </field>
         </record>
     </data>
