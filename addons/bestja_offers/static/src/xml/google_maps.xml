@@ -2,8 +2,10 @@
 <templates xml:space="preserve">
     <t t-name="WidgetCoordinates">
         <div class="oe_horizontal_separator">Szukaj miejsca akcji</div>
-        <input id="address" type="text"/>
-        <button name="search_address" id="saddress">szukaj</button>
+        <form id="location_form">
+            <input id="address" type="text"/>
+            <button name="search_address" id="saddress">szukaj</button>
+        </form>
         <div id="map-canvas"></div>
     </t>
 </templates>

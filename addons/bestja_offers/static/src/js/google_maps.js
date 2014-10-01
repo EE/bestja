@@ -19,6 +19,23 @@ openerp.bestja_offers = function(instance) {
             this.search_button_event();
             this.marker_drag_event();
             this.notebook_fix();
+
+            this.on("change:effective_readonly", this, this.readonly);
+            this.readonly();
+        },
+
+        /* make the elements active or not,
+        depending if the form is in read only mode */
+        readonly: function() {
+            $form = $('#location_form');
+            if(this.get("effective_readonly")) {
+                this.marker.setDraggable(false);
+                $form.css('visibility', 'hidden');
+            } else {
+                this.marker.setDraggable(true);
+                $form.css('visibility', 'visible');
+            }
+
         },
 
         render: function() {
@@ -31,8 +48,7 @@ openerp.bestja_offers = function(instance) {
 
             /* Marker */
             this.marker = new google.maps.Marker({
-                title: "Złap czerwony marker aby doprecyzować lokalizację",
-                draggable: true
+                title: "Złap czerwony marker aby doprecyzować lokalizację"
             });
 
             /* Map */
