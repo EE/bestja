@@ -92,18 +92,12 @@
                             <field name="durations"/>
                         </page>
                         <page string="Miejsce akcji">
-                             <widget type="google_maps.coordinates" width="600" height="300" id="google_maps_widget"/>
-                            <br/>
-                            <br/>
-                            <br/>
-                            <br/>
-                            <br/>
-                            <table style="width: 400px">
-                            <tr>
-                            <td> <field name="provider_latitude" readonly="1"/></td><td><label for="provider_latitude"/> </td>
-                            <td> <field name="provider_longitude" readonly="1"/></td><td><label for="provider_longitude"/> </td>
-                            </tr>
-                            </table>
+                            <widget type="google_maps.coordinates"/>
+                            <separator/>
+                            <group>
+                                <field name="latitude" readonly="1"/>
+                                <field name="longitude" readonly="1"/>
+                            </group>
                         </page>
                     </notebook>
                 </form>
