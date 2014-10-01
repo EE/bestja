@@ -5,9 +5,9 @@
     'author': "Laboratorium EE",
     'website': "http://www.laboratorium.ee",
     'version': '0.1',
-	'js': ['static/src/js/*.js'],
-	'qweb': ['static/src/xml/*.xml'],
-	'css': ['static/src/css/*.css'],
+    'js': ['static/src/js/*.js'],
+    'qweb': ['static/src/xml/*.xml'],
+    'css': ['static/src/css/*.css'],
 
     # any module necessary for this one to work correctly
     'depends': [
@@ -27,7 +27,7 @@
         'data/daypart.xml',
         'data/target_group.xml',
         'data/weekday.xml',
-		'templates.xml'
+        'templates.xml'
     ],
     # only loaded in demonstration mode
     'demo': [

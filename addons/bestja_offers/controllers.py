@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 from openerp import http
 class BestjaOffers(http.Controller):
-	@http.route('/bestja_offers/', auth='public')
-	def index(self):
-		return http.request.render('bestja_offers.google_map')
+    @http.route('/bestja_offers/', auth='public')
+    def index(self):
+        return http.request.render('bestja_offers.google_map')
 
 # class BestjaOffers(http.Controller):
 #     @http.route('/bestja_offers/bestja_offers/', auth='public')
