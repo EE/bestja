@@ -1,0 +1,12 @@
+<openerp>
+    <data>
+        <template id="assets_backend" name="google_maps assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+			<script type="text/javascript"
+				src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8_eNIDCU7qkBzkh4A02pnpRmPtE3rrI0"/>
+                <script type="text/javascript" src="/bestja_offers/static/src/js/google_maps.js"/>
+                <link rel="stylesheet" href="/bestja_offers/static/src/css/google_maps.css"/>
+            </xpath>
+        </template>
+    </data>
+</openerp>
