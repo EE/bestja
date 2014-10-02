@@ -63,9 +63,9 @@ class Duration(models.Model):
             )
 
 
-class TargetGroup(models.Model):
+class HelpeeGroup(models.Model):
     """Odbiorca pomocy"""
-    _name = 'offers.target_group'
+    _name = 'offers.helpee_group'
     name = fields.Char()
 
 
@@ -76,6 +76,15 @@ class Offer(models.Model):
         ('recruit', 'opublikowana'),
         ('template', 'szablon')
     ]
+
+    @api.model
+    def _default_target_group(self):
+        """All selected by default"""
+        return self.env['volunteer.occupation'].search([])
+
+    @api.model
+    def _default_helpee_group(self):
+        return self.env['offers.helpee_group'].search([])
 
     state = fields.Selection(SELECT_STATES)
     vacancies = fields.Integer(string="Liczba wakatów")
@@ -89,11 +98,13 @@ class Offer(models.Model):
     longitude = fields.Float(string="Długość geograficzna")
     target_group = fields.Many2many(
         'volunteer.occupation',
+        default=_default_target_group,
         string="Kto jest adresatem oferty?",
         help="Wybierz grupę docelową np. studenci, emeryci."
     )
     helpee_group = fields.Many2many(
-        'offers.target_group',
+        'offers.helpee_group',
+        default=_default_helpee_group,
         string="Komu wolontariusz może pomóc?",
         help="Wybierz grupę osób, z którymi będzie pracował."
     )

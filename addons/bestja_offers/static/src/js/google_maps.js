@@ -96,7 +96,7 @@ openerp.bestja_offers = function(instance) {
             var location = {lat: lat, lng: lng};
             this.map.setCenter(location);
             this.marker.setPosition(location);
-            this.map.setZoom(10);
+            this.map.setZoom(15);
         },
 
         /* Set to current form fields value or default */

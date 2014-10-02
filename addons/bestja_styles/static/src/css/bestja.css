@@ -48,3 +48,8 @@
 .openerp .oe_form_nosheet header {
     margin-bottom: 15px;
 }
+
+/* make error messages more visible */
+.ui-state-error.ui-notify-message {
+    background-color: red;
+}

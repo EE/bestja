@@ -25,7 +25,7 @@
         'views/duration.xml',
         'views/config.xml',
         'data/daypart.xml',
-        'data/target_group.xml',
+        'data/helpee_group.xml',
         'data/weekday.xml',
         'templates.xml'
     ],
