@@ -24,6 +24,7 @@
         'views/assets.xml',
         'views/duration.xml',
         'views/config.xml',
+        'views/application.xml',
         'data/daypart.xml',
         'data/helpee_group.xml',
         'data/weekday.xml',
@@ -33,4 +34,6 @@
     'demo': [
         #'demo.xml',
     ],
+    'installable': True,
+    'application': True,
 }

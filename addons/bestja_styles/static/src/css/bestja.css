@@ -53,3 +53,10 @@
 .ui-state-error.ui-notify-message {
     background-color: red;
 }
+
+/* center charts in offers kanban */
+.openerp div.oe_job_justgage {
+    float:none;
+    margin-left: auto;
+    margin-right: auto;
+}

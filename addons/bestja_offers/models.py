@@ -87,7 +87,7 @@ class Offer(models.Model):
         return self.env['offers.helpee_group'].search([])
 
     state = fields.Selection(SELECT_STATES)
-    vacancies = fields.Integer(string="Liczba wakatów")
+    vacancies = fields.Integer(string="Liczba wakatów", default=1)
     project = fields.Many2one('project.project', string="Projekt", required=True)
     skills = fields.Many2many('volunteer.skill')
     wishes = fields.Many2many('volunteer.wish')
@@ -134,6 +134,7 @@ class Offer(models.Model):
     )
     durations = fields.One2many('offers.duration', 'offer', string="Termin akcji", ondelete='restrict')
     image = fields.Binary("Photo")
+    no_of_applications = fields.Integer(compute='_compute_no_of_applications')
 
     _sql_constraints = [
         ('name_company_uniq', 'CHECK(1=1)', ''),  # Overwrite and remove unique name constraint
@@ -161,6 +162,17 @@ class Offer(models.Model):
             raise exceptions.ValidationError("Wybierz maksymalnie {} obszarów działania!".format(max_wishes))
 
     @api.one
+    @api.constrains('vacancies')
+    def _check_vacancies(self):
+        if self.vacancies <= 0:
+            raise exceptions.ValidationError("Liczba wakatów powinna być większa od 0!")
+
+    @api.one
+    @api.depends('application_ids')
+    def _compute_no_of_applications(self):
+        self.no_of_applications = len(self.application_ids)
+
+    @api.one
     def set_template(self):
         self.state = 'template'
 
@@ -183,7 +195,8 @@ class Offer(models.Model):
             'res_model': 'hr.job',
             'type': 'ir.actions.act_window',
             'nodestroy': True,
-            'target': 'inline',
+            'target': 'current',
+            'context': self.env.context,
             'res_id': copy.id,
         }
 
