@@ -12,23 +12,22 @@
     # any module necessary for this one to work correctly
     'depends': [
         'base',
-        'hr_recruitment',
         'project',
         'bestja_volunteer',
-        'bestja_styles'
+        'bestja_base'
     ],
 
     # always loaded
     'data': [
-        'views/job.xml',
+        'config.xml',
+        'views/offer.xml',
         'views/assets.xml',
         'views/duration.xml',
-        'views/config.xml',
-        'views/application.xml',
         'data/daypart.xml',
         'data/helpee_group.xml',
         'data/weekday.xml',
-        'templates.xml'
+        'templates.xml',
+        'menu.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

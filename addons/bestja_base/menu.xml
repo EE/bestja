@@ -1,0 +1,5 @@
+<openerp>
+    <data>
+        <menuitem sequence="0" id="menu_bestja" name="BestJa"/>
+    </data>
+</openerp>

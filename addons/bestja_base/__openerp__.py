@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "BestJa: Styles",
+    'name': "BestJa: Base",
 
-    'summary': """CSS definitions for the BestJa Project""",
+    'summary': """Common definitions for the BestJa project""",
 
     'author': "Laboratorium EE",
     'website': "http://www.laboratorium.ee",
@@ -14,6 +14,8 @@
 
     # always loaded
     'data': [
+        'menu.xml',
+        'config.xml',
         'views/assets.xml',
     ]
 }

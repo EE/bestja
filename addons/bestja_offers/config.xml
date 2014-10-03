@@ -1,12 +1,12 @@
 <openerp>
     <data>
-        <record id="view_config_settings" model="ir.ui.view">
-            <field name="model">hr.config.settings</field>
-            <field name="inherit_id" ref="hr.view_human_resources_configuration" />
+        <record id="view_bestja_offers_configuration" model="ir.ui.view">
+            <field name="model">bestja.config.settings</field>
+            <field name="inherit_id" ref="bestja_base.view_bestja_configuration" />
             <field name="arch" type="xml">
-                <xpath expr="//group[last()]" position="after">
-                    <group name="offers">
-                        <label for="id" string="Offers"/>
+                <xpath expr="//header" position="after">
+                    <group name="offers" string="Oferty">
+                        <label for="id" string="Ograniczenia"/>
                         <div>
                             <div>
                                 <label for="max_skills"/>

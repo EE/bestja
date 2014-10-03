@@ -1,5 +1,0 @@
-<openerp>
-    <data>
-        <delete id="hr_recruitment.menu_crm_case_categ0_act_job" model="ir.ui.menu"/>
-    </data>
-</openerp>

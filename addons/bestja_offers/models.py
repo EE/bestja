@@ -30,7 +30,7 @@ class Duration(models.Model):
         (4, '4 tygodnie'),
     ]
 
-    offer = fields.Many2one('hr.job', string="Oferta", required=True)
+    offer = fields.Many2one('offer', string="Oferta", required=True)
     date_start = fields.Date(required=True, string="dnia")
     date_end = fields.Date(string="do dnia")
     kind = fields.Selection(select_kind, required=True, string="rodzaj akcji")
@@ -70,10 +70,10 @@ class HelpeeGroup(models.Model):
 
 
 class Offer(models.Model):
-    _inherit = 'hr.job'
+    _name = 'offer'
     SELECT_STATES = [
-        ('open', 'nieopublikowana'),
-        ('recruit', 'opublikowana'),
+        ('unpublished', 'nieopublikowana'),
+        ('published', 'opublikowana'),
         ('template', 'szablon')
     ]
 
@@ -86,7 +86,9 @@ class Offer(models.Model):
     def _default_helpee_group(self):
         return self.env['offers.helpee_group'].search([])
 
-    state = fields.Selection(SELECT_STATES)
+    state = fields.Selection(SELECT_STATES, string="Stan")
+    name = fields.Char(string="Nazwa")
+    manager = fields.Many2one('res.users', string="Opiekun oferty")
     vacancies = fields.Integer(string="Liczba wakatów", default=1)
     project = fields.Many2one('project.project', string="Projekt", required=True)
     skills = fields.Many2many('volunteer.skill')
@@ -134,18 +136,6 @@ class Offer(models.Model):
     )
     durations = fields.One2many('offers.duration', 'offer', string="Termin akcji", ondelete='restrict')
     image = fields.Binary("Photo")
-    no_of_applications = fields.Integer(compute='_compute_no_of_applications')
-
-    _sql_constraints = [
-        ('name_company_uniq', 'CHECK(1=1)', ''),  # Overwrite and remove unique name constraint
-    ]
-
-    def __init__(self, pool, cr):
-        """
-        Set the new states again, for them to be fully recognized.
-        """
-        super(Offer, self).__init__(pool, cr)
-        self._columns['state'].selection = self.SELECT_STATES
 
     @api.one
     @api.constrains('skills')
@@ -168,13 +158,16 @@ class Offer(models.Model):
             raise exceptions.ValidationError("Liczba wakatów powinna być większa od 0!")
 
     @api.one
-    @api.depends('application_ids')
-    def _compute_no_of_applications(self):
-        self.no_of_applications = len(self.application_ids)
-
-    @api.one
     def set_template(self):
         self.state = 'template'
+
+    @api.one
+    def set_published(self):
+        self.state = 'published'
+
+    @api.one
+    def set_unpublished(self):
+        self.state = 'unpublished'
 
     @api.multi
     def duplicate_template(self):
@@ -192,7 +185,7 @@ class Offer(models.Model):
             'view_type': 'form',
             'view_mode': 'form',
             'view_id': view_id,
-            'res_model': 'hr.job',
+            'res_model': 'offer',
             'type': 'ir.actions.act_window',
             'nodestroy': True,
             'target': 'current',

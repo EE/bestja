@@ -39,7 +39,7 @@ class DriversLicense(models.Model):
 
 
 class Volunteer(models.Model):
-    _inherit = 'hr.employee'
+    _inherit = 'res.users'
 
     wishes = fields.Many2many('volunteer.wish', ondelete='restrict')
     skills = fields.Many2many('volunteer.skill', ondelete='restrict')

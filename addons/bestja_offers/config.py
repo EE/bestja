@@ -13,8 +13,8 @@ class Company(models.Model):
     bestja_max_wishes = fields.Integer(default=3)
 
 
-class HrConfigSettings(models.TransientModel):
-    _inherit = 'hr.config.settings'
+class BestJaSettings(models.TransientModel):
+    _inherit = 'bestja.config.settings'
 
     max_skills = fields.Integer(
         string="Max number of skills per offer",
@@ -26,7 +26,7 @@ class HrConfigSettings(models.TransientModel):
     )
 
     @api.model
-    def get_default_values(self, fields):
+    def get_default_offers_values(self, fields):
         company = self.env.user.company_id
         return {
             'max_skills': company.bestja_max_skills,
@@ -34,7 +34,7 @@ class HrConfigSettings(models.TransientModel):
         }
 
     @api.one
-    def set_values(self):
+    def set_offers_values(self):
         company = self.env.user.company_id
         company.bestja_max_skills = self.max_skills
         company.bestja_max_wishes = self.max_wishes
