@@ -55,6 +55,21 @@ openerp.bestja_offers = function(instance) {
             this.map = new google.maps.Map($('#map-canvas').get(0));
             this.marker.setMap(this.map);
             this.reset_position();
+
+            /* Autocomplete */
+            // Create the autocomplete object, restricting the search
+            // to geographical location types.
+            var this_address = $("#address").get(0);
+            this.autocomplete = new google.maps.places.Autocomplete(
+               this_address,
+               {types: ['geocode']}
+            );
+            // When the user selects an address from the dropdown,
+            // recenter the map
+            var this_obj = this;
+            google.maps.event.addListener(this.autocomplete, 'place_changed', function() {
+                this_obj.geocode_address($(this_address).val());
+            });
         },
 
         marker_drag_event: function() {
@@ -81,8 +96,6 @@ openerp.bestja_offers = function(instance) {
                     console.log(this)
                     obj.set_map_position(location.lat(), location.lng());
                     obj.update_fields_values(location.lat(), location.lng());
-                } else {
-                    alert("Geocode was not successful for the following reason: " + status);
                 }
             });
         },
