@@ -21,7 +21,7 @@
             <field name="arch" type="xml">
                 <form>
                     <header>
-                        <button name="set_published" string="opublikuj" states="open" type="object" class="oe_highlight"/>
+                        <button name="set_published" string="opublikuj" states="unpublished" type="object" class="oe_highlight"/>
                         <button name="set_unpublished" string="wstrzymaj rekrutację" states="published" type="object" class="oe_highlight"/>
 
                         <button name="set_template" string="Ustaw jako szablon" type="object" states="unpublished"/>

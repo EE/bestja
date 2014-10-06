@@ -86,7 +86,7 @@ class Offer(models.Model):
     def _default_helpee_group(self):
         return self.env['offers.helpee_group'].search([])
 
-    state = fields.Selection(SELECT_STATES, string="Stan")
+    state = fields.Selection(SELECT_STATES, default='unpublished', string="Stan")
     name = fields.Char(string="Nazwa")
     manager = fields.Many2one('res.users', string="Opiekun oferty")
     vacancies = fields.Integer(string="Liczba wakatów", default=1)
