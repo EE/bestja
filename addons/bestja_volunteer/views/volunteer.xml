@@ -1,0 +1,58 @@
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="bestja_volunteer_form">
+            <field name="name">bestja.volunteer.form</field>
+            <field name="model">res.users</field>
+            <field name="priority" eval="5"/>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <field name="image_medium" widget='image' class="oe_left oe_avatar"/>
+                        <div class="oe_title">
+                            <label for="name" string="Imię i nazwisko" class="oe_edit_only"/>
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                        </div>
+                        <notebook colspan="4">
+                            <page string="Kwalifikacje">
+                                <group colspan="4" col="2">
+                                    <field name="occupation" string="Zajęcie"/>
+                                    <field name="skills" string="Umiejętności" widget="many2many_tags"/>
+                                    <field name="languages" string="Języki" widget="many2many_tags"/>
+                                </group>
+                                <group colspan="4" col="2" string="Uprawnienia">
+                                    <field name="drivers_license" string="Prawa jazdy" widget="many2many_tags"/>
+                                    <label for="sanepid" string="Badania Sanepid" />
+                                    <div>
+                                        <field name="sanepid" class="oe_inline" /> <span class="oe_grey"> data ważności (puste = brak badań)</span>
+                                    </div>
+                                    <label for="forklift" string="Uprawnienia na wózek widłowy" />
+                                    <div>
+                                        <field name="forklift" class="oe_inline" /> <span class="oe_grey"> data ważności (puste = brak uprawnień)</span>
+                                    </div>
+                                </group>
+                            </page>
+                            <page string="Zainteresowania">
+                                <field name="wishes" widget="many2many_checkboxes"/>
+                            </page>
+                            <page string="Dane adresowe">
+                                <group col="2">
+                                    <field name="birthdate"/>
+                                    <field name="phone"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_bestja_users">
+            <field name="name">Wolontariusze</field>
+            <field name="res_model">res.users</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="bestja_volunteer_form"/>
+        </record>
+    </data>
+</openerp>

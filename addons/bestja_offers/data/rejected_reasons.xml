@@ -1,0 +1,13 @@
+<openerp>
+    <data>
+        <record id="reason1" model="offers.application.rejected">
+            <field name="name">powód 1</field>
+        </record>
+        <record id="reason2" model="offers.application.rejected">
+            <field name="name">powód 2</field>
+        </record>
+        <record id="programmer" model="offers.application.rejected">
+            <field name="name">programista</field>
+        </record>
+    </data>
+</openerp>

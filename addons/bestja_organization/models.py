@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from openerp import models, fields, api
+from openerp import models, fields
+
 
 class Organization(models.Model):
     _name = 'organization'
@@ -13,22 +14,19 @@ class Organization(models.Model):
     street_address = fields.Char(string="Ulica", required=True)
     city_address = fields.Char(string="Miejscowość", required=True)
     street_number = fields.Char(string="Numer", required=True)
-    postal_code = fields.Char(size=6,string="Kod pocztowy")
-    email = fields.Char(string="E-mail", required=True) 
+    postal_code = fields.Char(size=6, string="Kod pocztowy")
+    email = fields.Char(string="E-mail", required=True)
     phone = fields.Char(size=10, string="Numer Telefonu")
     www = fields.Char(string="WWW")
-    fbfanpage = fields.Char(string="Fanpage na FB") 
+    fbfanpage = fields.Char(string="Fanpage na FB")
     parent = fields.Many2one('organization')
-    
-    coordinator = fields.Many2one('res.users', ondelete='restrict', 
-       string="Koordynator", default=lambda self: self.env.user,
-        groups="bestja_base.bestja_instance_admin") 
-
+    coordinator = fields.Many2one(
+        'res.users', ondelete='restrict',
+        string="Koordynator",
+        default=lambda self: self.env.user,
+        groups="bestja_base.bestja_instance_admin"
+    )
     active = fields.Boolean(default=False)
-   
-
     organization_description = fields.Text(string="Opis Organizacji")
-
     image = fields.Binary("Photo")
-   
-    
+    volunteers = fields.Many2many('res.user', string="Wolontariusze")
