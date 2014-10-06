@@ -17,7 +17,7 @@
         </record>
 
         <record id="fundreising" model="volunteer.skill">
-            <field name="name">fundreising</field>
+            <field name="name">zbieranie funduszy</field>
         </record>
 
         <record id="historia" model="volunteer.skill">
@@ -41,7 +41,7 @@
         </record>
 
         <record id="design" model="volunteer.skill">
-            <field name="name">design</field>
+            <field name="name">projektowanie</field>
         </record>
 
         <record id="ksiegowosc" model="volunteer.skill">

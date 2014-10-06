@@ -22,7 +22,7 @@
                 <form>
                     <header>
                         <button name="set_published" string="opublikuj" states="open" type="object" class="oe_highlight"/>
-                        <button name="set_unpublished" string="wstrzymaj rekrutacje" states="published" type="object" class="oe_highlight"/>
+                        <button name="set_unpublished" string="wstrzymaj rekrutację" states="published" type="object" class="oe_highlight"/>
 
                         <button name="set_template" string="Ustaw jako szablon" type="object" states="unpublished"/>
                         <button string="Nowa oferta w oparciu o szablon" name="duplicate_template"  type="object" states="template" class="oe_highlight"/>
@@ -67,7 +67,7 @@
                             <label for="desc_aim"/>
                             <field name="desc_aim" placeholder="Opisz w skrócie czym będzie zajmował się wolontariusz"/>
                             <label for="desc_expectations"/>
-                            <field name="desc_expectations" placeholder="Jakie będą oczekiwania wobec wolontariusza."/>
+                            <field name="desc_expectations" placeholder="Jakie będą oczekiwania wobec wolontariusza?"/>
                             <label for="desc_why"/>
                             <field name="desc_why" placeholder="Opisz dlaczego wolontariusz miałby zaangażować się w tę akcję."/>
                             <label for="desc_benefits"/>

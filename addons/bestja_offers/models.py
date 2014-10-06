@@ -121,7 +121,7 @@ class Offer(models.Model):
     )
     desc_why = fields.Text(
         string="Jak praca wolontariusza przyczyni się do zmiany?",
-        help="Opisz dlaczego wolontariusz miałby się zaangażować w tą akcję, jaki problem pomoże rozwiązać, komu pomoże. \
+        help="Opisz dlaczego wolontariusz miałby się zaangażować w tę akcję, jaki problem pomoże rozwiązać, komu pomoże. \
         np. Domy starców nie mają funduszy na rewitalizację zieleni, a starsze osoby często przebywają w ogrodzie. \
         Twoja pomoc pozwoli seniorom miło spędzić czas w ogrodzie."
     )
@@ -155,7 +155,7 @@ class Offer(models.Model):
     @api.constrains('vacancies')
     def _check_vacancies(self):
         if self.vacancies <= 0:
-            raise exceptions.ValidationError("Liczba wakatów powinna być większa od 0!")
+            raise exceptions.ValidationError("Liczba wakatów musi być większa od 0!")
 
     @api.one
     def set_template(self):
