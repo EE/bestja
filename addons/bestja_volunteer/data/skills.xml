@@ -16,7 +16,7 @@
             <field name="name">kierowca</field>
         </record>
 
-        <record id="fundreising" model="volunteer.skill">
+        <record id="zbieranie_funduszy" model="volunteer.skill">
             <field name="name">zbieranie funduszy</field>
         </record>
 
@@ -40,7 +40,7 @@
             <field name="name">prawo</field>
         </record>
 
-        <record id="design" model="volunteer.skill">
+        <record id="projektowanie" model="volunteer.skill">
             <field name="name">projektowanie</field>
         </record>
 
