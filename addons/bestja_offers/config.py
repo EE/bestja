@@ -9,8 +9,8 @@ class Company(models.Model):
     """
     _inherit = 'res.company'
 
-    bestja_max_skills = fields.Integer(default=3)
-    bestja_max_wishes = fields.Integer(default=3)
+    bestja_max_skills = fields.Integer(default=3, string="Max number of skills to be chosen per offer")
+    bestja_max_wishes = fields.Integer(default=3, string="Max number of fields of activity to be chosen per offer")
 
 
 class BestJaSettings(models.TransientModel):
@@ -18,11 +18,11 @@ class BestJaSettings(models.TransientModel):
 
     max_skills = fields.Integer(
         string="Max number of skills per offer",
-        help="Maximum number of skills chosen for a single offer"
+        help="Maximum number of skills user can choose while creating an offer"
     )
     max_wishes = fields.Integer(
         string="Max number of fields per offer",
-        help="Maximum number of fields of activity chosen for a single offer"
+        help="Maximum number of fields of activity user can choose while creating an offer"
     )
 
     @api.model
