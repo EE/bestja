@@ -14,7 +14,9 @@
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
+        'data/banki_zywnosci.xml',
+        'security/ir.model.access.csv',
+        'security/security.xml',
         'templates.xml',
 		'views/organization.xml',
         'menu.xml'

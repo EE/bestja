@@ -1,0 +1,100 @@
+<openerp>
+    <data>
+        <record id="bz_slupsk" model="organization.banki_zywnosci">
+            <field name="name">Bank Żywności w Słupsku</field>
+        </record>
+        <record id="bz_pomorski" model="organization.banki_zywnosci">
+            <field name="name">Pomorski Bank Żywności</field>
+        </record>
+        <record id="bz_nowe_bielice" model="organization.banki_zywnosci">
+            <field name="name">Bank Żywności w Nowych Bielicach</field>
+        </record>
+        <record id="bz_elblag" model="organization.banki_zywnosci">
+            <field name="name">Bank Żywności w Elblągu</field>
+        </record>
+        <record id="bz_tczew" model="organization.banki_zywnosci">
+            <field name="name">Bank Żywności w Tczewie</field>
+        </record>
+        <record id="bz_suwalki_bialystok" model="organization.banki_zywnosci">
+            <field name="name">Stowarzyszenie Bank Żywności Suwałki - Białystok</field>
+        </record>
+        <record id="bz_chojnice" model="organization.banki_zywnosci">
+            <field name="name">Stowarzyszenie Bank Żywności w Chojnicach</field>
+        </record>
+        <record id="bz_olsztyn" model="organization.banki_zywnosci">
+            <field name="name">Stowarzyszenie Bank Żywności w Olsztynie</field>
+        </record>
+        <record id="bz_pilski" model="organization.banki_zywnosci">
+            <field name="name"> Związek Stowarzyszeń Pilski Bank Żywności</field>
+        </record>
+        <record id="bz_grudziadz" model="organization.banki_zywnosci">
+            <field name="name">Bank Żywności w Grudziądzu</field>
+        </record>
+        <record id="bz_torun" model="organization.banki_zywnosci">
+            <field name="name">Fundacja Bank Żywności w Toruniu</field>
+        </record>
+        <record id="bz_gorzow" model="organization.banki_zywnosci">
+            <field name="name">Bank Żywności w Gorzowie Wielkopolskim</field>
+        </record>
+        <record id="bz_wielkopolski" model="organization.banki_zywnosci">
+            <field name="name">Związek Stowarzyszeń Wielkopolski Bank Żywności</field>
+        </record>
+        <record id="bz_ciechanow" model="organization.banki_zywnosci">
+            <field name="name">Fundacja Bank Żywności w Ciechanowie</field>
+        </record>
+        <record id="bz_plock" model="organization.banki_zywnosci">
+            <field name="name">Bank Żywności w Płocku - Związek Stowarzyszeń</field>
+        </record>
+        <record id="bz_konin" model="organization.banki_zywnosci">
+            <field name="name">Bank Żywności w Koninie</field>
+        </record>
+        <record id="bz_warszawa" model="organization.banki_zywnosci">
+            <field name="name">Bank Żywności SOS w Warszawie</field>
+        </record>
+        <record id="bz_siedlce" model="organization.banki_zywnosci">
+            <field name="name">Bank Żywności w Siedlcach</field>
+        </record>
+        <record id="bz_leszno" model="organization.banki_zywnosci">
+            <field name="name">Związek Stowarzyszeń Bank Żywności Leszno</field>
+        </record>
+        <record id="bz_lodz" model="organization.banki_zywnosci">
+            <field name="name">Bank Żywności w Łodzi im. Marka Edelmana</field>
+        </record>
+        <record id="bz_radom" model="organization.banki_zywnosci">
+            <field name="name">Radomski Bank Żywności</field>
+        </record>
+        <record id="bz_lublin" model="organization.banki_zywnosci">
+            <field name="name">Bank Żywności w Lublinie</field>
+        </record>
+        <record id="bz_jawor" model="organization.banki_zywnosci">
+            <field name="name">Bank Żywności w Jaworze</field>
+        </record>
+        <record id="bz_wroclaw" model="organization.banki_zywnosci">
+            <field name="name">Bank Żywności w Wrocławiu</field>
+        </record>
+        <record id="bz_opole" model="organization.banki_zywnosci">
+            <field name="name">Bank Żywności w Opolu z siedzibą w Luboszycach</field>
+        </record>
+        <record id="bz_czestochowa" model="organization.banki_zywnosci">
+            <field name="name">Bank Żywności w Częstochowie</field>
+        </record>
+        <record id="bz_kielce" model="organization.banki_zywnosci">
+            <field name="name">Kielecki Bank Żywności</field>
+        </record>
+        <record id="bz_swietokrzyski" model="organization.banki_zywnosci">
+            <field name="name">Świętokrzyski Bank Żywności</field>
+        </record>
+        <record id="bz_tarnobrzeg" model="organization.banki_zywnosci">
+            <field name="name">Tarnobrzeski Bank Żywności</field>
+        </record>
+        <record id="bz_slaski" model="organization.banki_zywnosci">
+            <field name="name">Związek Stowarzyszeń Śląski Bank Żywności</field>
+        </record>
+        <record id="bz_krakow" model="organization.banki_zywnosci">
+            <field name="name">Bank Żywności w Krakowie</field>
+        </record>
+        <record id="bz_rzeszow" model="organization.banki_zywnosci">
+            <field name="name">Podkarpacki Bank Żywności w Rzeszowie</field>
+        </record>
+    </data>
+</openerp>
