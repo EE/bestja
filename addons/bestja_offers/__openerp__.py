@@ -23,7 +23,6 @@
         'config.xml',
         'views/offer.xml',
         'views/assets.xml',
-        'views/duration.xml',
         'data/daypart.xml',
         'data/helpee_group.xml',
         'data/weekday.xml',
