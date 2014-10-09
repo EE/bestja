@@ -13,6 +13,7 @@
     'depends': [
         'base',
         'project',
+        'website',
         'bestja_volunteer',
         'bestja_base'
     ],
