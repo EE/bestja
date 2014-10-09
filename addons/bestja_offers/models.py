@@ -98,6 +98,8 @@ class Offer(models.Model):
     forklift = fields.Boolean(string="Uprawnienia na wózek widłowy")
     latitude = fields.Float(string="Szerokość geograficzna")
     longitude = fields.Float(string="Długość geograficzna")
+    map_city= fields.Char(string="Miasto", required=True)
+    map_district = fields.Char(string="Dzielnica")
     target_group = fields.Many2many(
         'volunteer.occupation',
         default=_default_target_group,
