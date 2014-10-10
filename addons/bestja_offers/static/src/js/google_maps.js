@@ -172,7 +172,6 @@ openerp.bestja_offers = function(instance) {
             }
             
         },
->>>>>>> organization
 
         /* updates fields with latitude and longitude*/
         update_fields_values: function(lat, lng) {
