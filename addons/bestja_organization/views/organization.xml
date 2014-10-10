@@ -21,28 +21,27 @@
                     <field name="image" widget="image" class="oe_left"/>
                     </div>
                     <group>
-                        <field name="krs">organization.krs</field>i
-                        <field name="nip">organization.nip</field>
-                        <field name="regon">organization.regon</field>
-                        <field name="name" class="oe_inline">
-                            organization.name</field>
-                        <field name="street_address" class="oe_inline">organization.street_address</field>
-                        <field name="street_number" class="oe_inline">organization.street_number</field>
-                        <field name="postal_code" class="oe_inline">organization.postal_code</field>
-                        <field name="city_address" class="oe_inline">organization.city_address</field>
+                        <field name="krs" class="oe_inline"/>
+                        <field name="nip" class="oe_inline"/>
+                        <field name="regon" class="oe_inline"/>>
+                        <field name="name" class="oe_inline"/>
+                        <field name="street_address" class="oe_inline"/>
+                        <field name="street_number" class="oe_inline"/>
+                        <field name="postal_code" class="oe_inline"/>
+                        <field name="city_address" class="oe_inline"/>
                         <field name="parent" class="oe_inline"/>
                     </group>
                     <hr/>
                     <group>
-                        <field name="email" class="oe_inline">organization.email</field>
-                        <field name="www" class="oe_inline">organization.www</field>
-                        <field name="fbfanpage" class="oe_inline">organization.fbfanpage</field>
-                        <field name="phone">organization.phone</field>
+                        <field name="email" class="oe_inline"/>o
+                        <field name="www" class="oe_inline"/>
+                        <field name="fbfanpage" class="oe_inline"/>
+                        <field name="phone" class="oe_inline"/>
         
                     </group>
                     <hr/>
                     <group>
-                        <field name="coordinator">organization.coordinator</field>
+                        <field name="coordinator"/>
                         <field name="active"/>
                     </group>
                     <notebook colspan="2">
@@ -52,10 +51,10 @@
                         </page>
                         <page string="Dane Magazynu">
                              <group>
-                             <field name="storage_street">organization.storage_street</field>
-                             <field name="storage_street_number">organization.storage_street_number</field>
-                             <field name="storage_city_address">organization.storage_city_address</field>
-                             <field name="storage_postal_code">organization.storage_postal_code</field>
+                             <field name="storage_street" class="oe_inline"/>
+                             <field name="storage_street_number" class="oe_inline"/>
+                             <field name="storage_city_address" class="oe_inline"/>
+                             <field name="storage_postal_code" class="oe_inline"/>
                             </group>
                         </page>
                     </notebook>
