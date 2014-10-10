@@ -90,6 +90,8 @@
                                 <field name="city" class="oe_inline"/>
                                 <field name="latitude" class="coordinate_fields"/> 
                                 <field name="longitude" class="coordinate_fields"/>
+                                <field name="latitude" readonly="1"/>
+                                <field name="longitude" readonly="1"/>
                             </group>
                         </page>
                     </notebook>

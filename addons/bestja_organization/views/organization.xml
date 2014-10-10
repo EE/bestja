@@ -1,0 +1,80 @@
+<openerp>
+    <data>
+        <record model="ir.actions.act_window" id="action_organization">
+            <field name="name">Organizacje</field>
+            <field name="res_model">organization</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('coordinator.id','=',uid)]</field>
+            <field name="context" eval="{'search_default_current': True}" />
+        </record>
+
+       
+        
+        <record model="ir.ui.view" id="bestja_org_form">
+            <field name="name">bestja.organization.form</field>
+            <field name="model">organization</field> <!-- ????-->
+            <field name="priority" eval="5"/>
+            <field name="arch" type="xml">
+
+                <form>
+                    <div class="oe_title">  
+                        <span class="oe_grey oe_edit_only">Wypełnij dane organizacji i dodaj zdjęcie.</span>
+                    <field name="image" widget="image" class="oe_left"/>
+                    </div>
+                    <group>
+                        <field name="krs">organization.krs</field>i
+                        <field name="nip">organization.nip</field>
+                        <field name="regon">organization.regon</field>
+                        <field name="name" class="oe_inline">
+                            organization.name</field>
+                        <field name="street_address" class="oe_inline">organization.street_address</field>
+                        <field name="street_number" class="oe_inline">organization.street_number</field>
+                        <field name="postal_code" class="oe_inline">organization.postal_code</field>
+                        <field name="city_address" class="oe_inline">organization.city_address</field>
+                        <field name="bank_zywnosci" class="oe_inline">organization.bank_zywnosci</field>
+                    </group>
+                    <hr/>
+                    <group>
+                        <field name="email" class="oe_inline">organization.email</field>
+                        <field name="www" class="oe_inline">organization.www</field>
+                        <field name="fbfanpage" class="oe_inline">organization.fbfanpage</field>
+                        <field name="phone">organization.phone</field>
+        
+                    </group>
+                    <hr/>
+                    <group>
+                        <field name="coordinator">organization.coordinator</field>
+                    </group>
+                    <notebook colspan="2">
+                        <page string="Opis Organizacji">
+                        <span class="oe_grey oe_edit_only">Opisz czym zajmuje się Twoja organizacja.</span>
+                         <field name="organization_description">organization.organization_description</field>
+                        </page>
+                        <page string="Dane Magazynu">
+                             <group>
+                             <field name="storage_street">organization.storage_street</field>
+                             <field name="storage_street_number">organization.storage_street_number</field>
+                             <field name="storage_city_address">organization.storage_city_address</field>
+                             <field name="storage_postal_code">organization.storage_postal_code</field>
+                            </group>
+                        </page>
+                    </notebook>
+				</form>
+			</field>
+		</record>
+
+        <record model="ir.ui.view" id="bestja_organization_tree">
+            <field name="name">bestja.organization.tree</field>
+            <field name="model">organization</field>
+            <field name="priority" eval="5"/>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="state"/>
+                    <field name="coordinator"/>
+                </tree>
+            </field>
+        </record>
+
+	</data>
+</openerp>
