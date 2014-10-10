@@ -140,15 +140,6 @@ openerp.bestja_offers = function(instance) {
             }
             
         },
-        /* obtain from lat-lng the address and set it in the fields*/
-        reverse_geocode_address: function(position){
-            obj = this;
-            this.geocoder.geocode({latLng: position}, function (responses){
-                if (responses && responses.length > 0) {
-                    obj.update_city_district_fields(responses[0]);           
-                }
-            });
-        },
         /* updates city and district from autocomplete if possible*/
         autocomplete_fill_in_address: function(){
             this.update_city_district_fields(this.autocomplete.getPlace());
