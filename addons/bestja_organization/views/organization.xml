@@ -5,7 +5,6 @@
             <field name="res_model">organization</field>
             <field name="view_mode">tree,form</field>
             <field name="domain">[('coordinator.id','=',uid)]</field>
-            <field name="context" eval="{'search_default_current': True}" />
         </record>
 
        
@@ -31,7 +30,7 @@
                         <field name="street_number" class="oe_inline">organization.street_number</field>
                         <field name="postal_code" class="oe_inline">organization.postal_code</field>
                         <field name="city_address" class="oe_inline">organization.city_address</field>
-                        <field name="bank_zywnosci" class="oe_inline">organization.bank_zywnosci</field>
+                        <field name="parent" class="oe_inline"/>
                     </group>
                     <hr/>
                     <group>

@@ -140,29 +140,6 @@ openerp.bestja_offers = function(instance) {
             }
             
         },
-        /* updates city and district from autocomplete if possible*/
-        autocomplete_fill_in_address: function(){
-            this.update_city_district_fields(this.autocomplete.getPlace());
-        },
-       
-        /* sets district and city fields*/ 
-        update_city_district_fields: function(place){
-            this.field_manager.set_values({"map_city": ''});
-            this.field_manager.set_values({"map_district": ''});
-            if (place.address_components){
-                for (var i = 0; i < place.address_components.length; i++){   
-                    if (place.address_components[i].types[0] == 'locality'){
-                        var val = place.address_components[i]['long_name'];
-                        this.field_manager.set_values({"map_city": val});
-                    }
-                    if (place.address_components[i].types[0] == 'sublocality_level_1'){
-                        var val = place.address_components[i]['long_name'];
-                        this.field_manager.set_values({"map_district": val});
-                    }
-                }
-            }
-            
-        },
 
         /* updates fields with latitude and longitude*/
         update_fields_values: function(lat, lng) {

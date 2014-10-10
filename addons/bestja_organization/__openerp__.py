@@ -14,17 +14,15 @@
 
     # always loaded
     'data': [
-        'data/banki_zywnosci.xml',
-        'templates.xml',
         'security/security.xml',
         'security/ir.model.access.csv',
-		'views/organization.xml',
-		'views/login.xml',
+        'views/organization.xml',
+        'views/login.xml',
         'menu.xml'
     ],
     # only loaded in demonstration mode
     'demo': [
-        'demo.xml',
+    #    'demo.xml',
     ],
     'installable': True,
     'application': True,
