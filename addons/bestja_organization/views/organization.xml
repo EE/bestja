@@ -4,6 +4,7 @@
             <field name="name">Organizacje</field>
             <field name="res_model">organization</field>
             <field name="view_mode">tree,form</field>
+            <field name="domain">[('coordinator.id','=',uid)]</field>
             <field name="context" eval="{'search_default_current': True}" />
         </record>
 
@@ -62,6 +63,18 @@
 			</field>
 		</record>
 
+        <record model="ir.ui.view" id="bestja_organization_tree">
+            <field name="name">bestja.organization.tree</field>
+            <field name="model">organization</field>
+            <field name="priority" eval="5"/>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="state"/>
+                    <field name="coordinator"/>
+                </tree>
+            </field>
+        </record>
 
 	</data>
 </openerp>

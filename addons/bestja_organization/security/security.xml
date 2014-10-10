@@ -3,6 +3,11 @@
         <record id="bestja_instance_admin" model="res.groups">
             <field name="name">BestJa Admin Instancji</field>
         </record>
+
+        <record id="bestja_coordinators" model="res.groups">
+            <field name="name">BestJa Koordynatorzy organizacji</field>
+        </record>
+
         <record id="confirmation_of_organization" model="ir.rule">
             <field name="model_id" ref="model_organization"/>
             <field name="groups" eval="[(4, ref('bestja_organization.bestja_instance_admin'))]"/>
@@ -11,9 +16,34 @@
             <field name="perm_create" eval="1"/>
             <field name="perm_unlink" eval="0"/>
             <field name="domain_force">
-                [(user.id,'in',[bestja_instance_admin])]
+            []
             </field>
         </record>
 
+        <record id="permission_to_write_coord" model="ir.rule">
+            <field name="name"> Only coordinator can see organization profiles</field>
+            <field name="model_id" ref="model_organization"/>
+            <field name="groups" eval="[(4, ref('bestja_organization.bestja_coordinators'))]"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_write" eval="1"/>
+            <field name="perm_create" eval="0"/>
+            <field name="perm_unlink" eval="1"/>
+            <field name="domain_force">
+            [('coordinator.id','=',user.id)]
+            </field>
+        </record>
+
+        <record id="permission_to_read_organization" model="ir.rule">
+            <field name="name"> Only coordinator can see organization profiles</field>
+            <field name="model_id" ref="model_organization"/>
+            <field name="groups" eval="[(4, ref('bestja_organization.bestja_coordinators'))]"/>
+            <field name="perm_read" eval="0"/>
+            <field name="perm_write" eval="0"/>
+            <field name="perm_create" eval="1"/>
+            <field name="perm_unlink" eval="0"/>
+            <field name="domain_force">
+            [('coordinator.id','=',user.id)]
+            </field>
+        </record>
     </data>
 </openerp>
