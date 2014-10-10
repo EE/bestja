@@ -27,6 +27,7 @@ openerp.bestja_offers = function(instance) {
         /* make the elements active or not,
         depending if the form is in read only mode */
         readonly: function() {
+
             $form = $('#location_form');
             if(this.get("effective_readonly")) {
                 this.marker.setDraggable(false);
@@ -34,6 +35,8 @@ openerp.bestja_offers = function(instance) {
             } else {
                 this.marker.setDraggable(true);
                 $form.css('visibility', 'visible');
+                // Make the lat lng fields readonly
+                $(".coordinate_fields input").prop('readonly', true);
             }
 
         },
@@ -62,13 +65,14 @@ openerp.bestja_offers = function(instance) {
             var this_address = $("#address").get(0);
             this.autocomplete = new google.maps.places.Autocomplete(
                this_address,
-               {types: ['geocode']}
+               {types: ['establishment', 'geocode']}
             );
             // When the user selects an address from the dropdown,
             // recenter the map
             var this_obj = this;
             google.maps.event.addListener(this.autocomplete, 'place_changed', function() {
                 this_obj.geocode_address($(this_address).val());
+                this_obj.autocomplete_fill_in_address();
             });
         },
 
@@ -78,14 +82,17 @@ openerp.bestja_offers = function(instance) {
                 var position = obj.marker.getPosition();
                 obj.update_fields_values(position.lat(), position.lng());
             });
+            google.maps.event.addDomListener(this.marker, 'dragend', function(){
+                obj.reverse_geocode_address(obj.marker.getPosition());
+            });
         },
 
         search_button_event: function() {
             var obj = this;
-            $('button#saddress').click(function(){
+            $('button#saddress').click(function(event){
+                    event.preventDefault();
                     obj.geocode_address($("#address").val());
-                }
-            );
+            });
         },
 
         geocode_address: function(address){
@@ -96,8 +103,41 @@ openerp.bestja_offers = function(instance) {
                     console.log(this)
                     obj.set_map_position(location.lat(), location.lng());
                     obj.update_fields_values(location.lat(), location.lng());
+                    obj.update_city_district_fields(results[0]);
                 }
             });
+        },
+        /* obtain from lat-lng the address and set it in the fields*/
+        reverse_geocode_address: function(position){
+            obj = this;
+            this.geocoder.geocode({latLng: position}, function (responses){
+                if (responses && responses.length > 0) {
+                    obj.update_city_district_fields(responses[0]);           
+                }
+            });
+        },
+        /* updates city and district from autocomplete if possible*/
+        autocomplete_fill_in_address: function(){
+            this.update_city_district_fields(this.autocomplete.getPlace());
+        },
+       
+        /* sets district and city fields*/ 
+        update_city_district_fields: function(place){
+            this.field_manager.set_values({"city": ''});
+            this.field_manager.set_values({"district": ''});
+            if (place.address_components){
+                for (var i = 0; i < place.address_components.length; i++){   
+                    if (place.address_components[i].types[0] == 'locality'){
+                        var val = place.address_components[i]['long_name'];
+                        this.field_manager.set_values({"city": val});
+                    }
+                    if (place.address_components[i].types[0] == 'sublocality_level_1'){
+                        var val = place.address_components[i]['long_name'];
+                        this.field_manager.set_values({"district": val});
+                    }
+                }
+            }
+            
         },
 
         /* updates fields with latitude and longitude*/

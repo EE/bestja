@@ -86,8 +86,10 @@
                             <widget type="google_maps.coordinates"/>
                             <separator/>
                             <group>
-                                <field name="latitude" readonly="1"/>
-                                <field name="longitude" readonly="1"/>
+                                <field name="district" class="oe_inline"/>
+                                <field name="city" class="oe_inline"/>
+                                <field name="latitude" class="coordinate_fields"/> 
+                                <field name="longitude" class="coordinate_fields"/>
                             </group>
                         </page>
                     </notebook>
