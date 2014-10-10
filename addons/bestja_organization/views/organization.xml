@@ -44,6 +44,7 @@
                     <hr/>
                     <group>
                         <field name="coordinator">organization.coordinator</field>
+                        <field name="active"/>
                     </group>
                     <notebook colspan="2">
                         <page string="Opis Organizacji">
