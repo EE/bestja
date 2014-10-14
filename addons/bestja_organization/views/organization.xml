@@ -4,14 +4,14 @@
             <field name="name">Organizacje</field>
             <field name="res_model">organization</field>
             <field name="view_mode">tree,form</field>
-            <field name="domain">[('coordinator.id','=',uid)]</field>
+            <!---
+            <field name="domain">[('coordinator.id','=',uid), ('active', '=?', False)]</field>
+            -->
         </record>
-
-       
         
         <record model="ir.ui.view" id="bestja_org_form">
             <field name="name">bestja.organization.form</field>
-            <field name="model">organization</field> <!-- ????-->
+            <field name="model">organization</field> 
             <field name="priority" eval="5"/>
             <field name="arch" type="xml">
 
@@ -41,8 +41,8 @@
                     </group>
                     <hr/>
                     <group>
-                        <field name="coordinator"/>
-                        <field name="active"/>
+                        <field name="coordinator" groups="bestja_organization.bestja_instance_admin"/> 
+                        <field name="active" groups="bestja_organization.bestja_instance_admin"/>
                     </group>
                     <notebook colspan="2">
                         <page string="Opis Organizacji">
@@ -58,9 +58,9 @@
                             </group>
                         </page>
                     </notebook>
-				</form>
-			</field>
-		</record>
+                </form>
+            </field>
+        </record>
 
         <record model="ir.ui.view" id="bestja_organization_tree">
             <field name="name">bestja.organization.tree</field>
@@ -69,11 +69,10 @@
             <field name="arch" type="xml">
                 <tree>
                     <field name="name"/>
-                    <field name="state"/>
+                    <field name="active"/>
                     <field name="coordinator"/>
                 </tree>
             </field>
         </record>
-
-	</data>
+    </data>
 </openerp>
