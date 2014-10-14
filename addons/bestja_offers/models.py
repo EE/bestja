@@ -18,53 +18,6 @@ class Daypart(models.Model):
     name = fields.Char()
 
 
-class Duration(models.Model):
-    _name = 'offers.duration'
-    select_kind = [
-        ('periodic', 'okresowa'),
-        ('cyclic', 'cykliczna'),
-        ('flexible', 'elastyczna')
-    ]
-    select_interval = [
-        (1, 'tydzień'),
-        (2, '2 tygodnie'),
-        (3, '3 tygodnie'),
-        (4, '4 tygodnie'),
-    ]
-
-    offer = fields.Many2one('offer', string="Oferta", required=True)
-    date_start = fields.Date(required=True, string="dnia")
-    date_end = fields.Date(string="do dnia")
-    kind = fields.Selection(select_kind, required=True, string="rodzaj akcji")
-    interval = fields.Selection(select_interval, string="powtarzaj co")
-    daypart = fields.Many2many('offers.daypart', string="pora dnia")
-    hours = fields.Integer(string="liczba h")
-    weekday = fields.Many2many('offers.weekday', string="powtarzaj w")
-
-    @api.onchange('kind')
-    def _onchange_kind(self):
-        """
-        Clear fields that are irrelevant to the new kind.
-        """
-        if self.kind not in ('periodic', 'cyclic'):
-            self.weekday = None
-            self.hours = 0
-        if self.kind != 'cyclic':
-            self.interval = None
-            self.daypart = None
-
-    @api.one
-    @api.constrains('date_start', 'date_end')
-    def _check_date_range(self):
-        if not self.date_end:
-            return
-
-        if self.date_end < self.date_start:
-            raise exceptions.ValidationError(
-                "Data końcowa terminu akcji musi być późniejsza od jego daty początkowej!"
-            )
-
-
 class HelpeeGroup(models.Model):
     """Odbiorca pomocy"""
     _name = 'offers.helpee_group'
@@ -73,10 +26,21 @@ class HelpeeGroup(models.Model):
 
 class Offer(models.Model):
     _name = 'offer'
-    SELECT_STATES = [
+    STATES = [
         ('unpublished', 'nieopublikowana'),
         ('published', 'opublikowana'),
         ('template', 'szablon')
+    ]
+    KIND = [
+        ('periodic', 'okresowa'),
+        ('cyclic', 'cykliczna'),
+        ('flexible', 'elastyczna')
+    ]
+    INTERVAL = [
+        (1, 'tydzień'),
+        (2, '2 tygodnie'),
+        (3, '3 tygodnie'),
+        (4, '4 tygodnie'),
     ]
 
     @api.model
@@ -88,7 +52,7 @@ class Offer(models.Model):
     def _default_helpee_group(self):
         return self.env['offers.helpee_group'].search([])
 
-    state = fields.Selection(SELECT_STATES, default='unpublished', string="Stan")
+    state = fields.Selection(STATES, default='unpublished', string="Stan")
     name = fields.Char(string="Nazwa")
     manager = fields.Many2one('res.users', string="Opiekun oferty")
     vacancies = fields.Integer(string="Liczba wakatów", default=1)
@@ -138,8 +102,15 @@ class Offer(models.Model):
     desc_comments = fields.Text(
         string="Uwagi"
     )
-    durations = fields.One2many('offers.duration', 'offer', string="Termin akcji", ondelete='restrict')
     image = fields.Binary("Photo")
+    date_start = fields.Date(required=True, string="dnia")
+    date_end = fields.Date(string="do dnia")
+    kind = fields.Selection(KIND, required=True, string="rodzaj akcji")
+    interval = fields.Selection(INTERVAL, string="powtarzaj co")
+    daypart = fields.Many2many('offers.daypart', string="pora dnia")
+    hours = fields.Integer(string="liczba h")
+    weekday = fields.Many2many('offers.weekday', string="powtarzaj w")
+    remote_work = fields.Boolean(string="praca zdalna")
 
     @api.one
     @api.constrains('skills')
@@ -160,6 +131,31 @@ class Offer(models.Model):
     def _check_vacancies(self):
         if self.vacancies <= 0:
             raise exceptions.ValidationError("Liczba wakatów musi być większa od 0!")
+
+    @api.one
+    @api.constrains('date_start', 'date_end')
+    def _check_date_range(self):
+        if not self.date_end:
+            return
+
+        if self.date_end < self.date_start:
+            raise exceptions.ValidationError(
+                "Data końcowa terminu akcji musi być późniejsza od jego daty początkowej!"
+            )
+
+    @api.onchange('kind')
+    def _onchange_kind(self):
+        """
+        Clear fields that are irrelevant to the new kind.
+        """
+        if self.kind not in ('periodic', 'cyclic'):
+            self.weekday = None
+            self.hours = 0
+        if self.kind != 'cyclic':
+            self.interval = None
+            self.daypart = None
+        if self.kind != 'flexible':
+            self.remote_work = False
 
     @api.one
     def set_template(self):
