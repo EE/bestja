@@ -22,14 +22,10 @@ class Organization(models.Model):
     
     coordinator = fields.Many2one('res.users', ondelete='restrict', 
        string="Koordynator", default=lambda self: self.env.user,
-        groups="bestja_organization.bestja_instance_admin") 
+        groups="bestja_base.bestja_instance_admin") 
 
     active = fields.Boolean(default=False)
    
-    storage_street = fields.Char(string="Ulica")
-    storage_street_number = fields.Char(string="Numer")
-    storage_city_address = fields.Char(string="Miejscowość")
-    storage_postal_code = fields.Integer(size=6,string="Kod pocztowy")
 
     organization_description = fields.Text(string="Opis Organizacji")
 

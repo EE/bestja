@@ -4,9 +4,6 @@
             <field name="name">Organizacje</field>
             <field name="res_model">organization</field>
             <field name="view_mode">tree,form</field>
-            <!---
-            <field name="domain">[('coordinator.id','=',uid), ('active', '=?', False)]</field>
-            -->
         </record>
         
         <record model="ir.ui.view" id="bestja_org_form">
@@ -41,21 +38,13 @@
                     </group>
                     <hr/>
                     <group>
-                        <field name="coordinator" groups="bestja_organization.bestja_instance_admin"/> 
-                        <field name="active" groups="bestja_organization.bestja_instance_admin"/>
+                        <field name="coordinator" groups="bestja_base.bestja_instance_admin"/> 
+                        <field name="active" groups="bestja_base.bestja_instance_admin"/>
                     </group>
                     <notebook colspan="2">
                         <page string="Opis Organizacji">
                         <span class="oe_grey oe_edit_only">Opisz czym zajmuje się Twoja organizacja.</span>
                          <field name="organization_description">organization.organization_description</field>
-                        </page>
-                        <page string="Dane Magazynu">
-                             <group>
-                             <field name="storage_street" class="oe_inline"/>
-                             <field name="storage_street_number" class="oe_inline"/>
-                             <field name="storage_city_address" class="oe_inline"/>
-                             <field name="storage_postal_code" class="oe_inline"/>
-                            </group>
                         </page>
                     </notebook>
                 </form>
