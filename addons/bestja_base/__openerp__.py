@@ -17,5 +17,6 @@
         'menu.xml',
         'config.xml',
         'views/assets.xml',
+        'security/security.xml',
     ]
 }
