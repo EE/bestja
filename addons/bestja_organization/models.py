@@ -6,11 +6,6 @@ class Organization(models.Model):
     _name = 'organization'
     _parent = 'parent'
 
-    STATES_FOR_AUTHORIZATION = [
-        ('waiting', 'Czeka na zatwierdzenie'),
-        ('authorized', 'Potwierdzona')
-    ]
-    state = fields.Selection(STATES_FOR_AUTHORIZATION, default='waiting', string="Stan")
     name = fields.Char(string="Nazwa", required=True)
     krs = fields.Char(string="KRS")
     regon = fields.Char(string="REGON")
@@ -26,9 +21,10 @@ class Organization(models.Model):
     parent = fields.Many2one('organization')
     
     coordinator = fields.Many2one('res.users', ondelete='restrict', 
-       string="Koordynator", default=lambda self: self.env.user, readonly=True) 
+       string="Koordynator", default=lambda self: self.env.user,
+        groups="bestja_organization.bestja_instance_admin") 
 
-    active = fields.Boolean(default=True)
+    active = fields.Boolean(default=False)
    
     storage_street = fields.Char(string="Ulica")
     storage_street_number = fields.Char(string="Numer")
@@ -38,8 +34,5 @@ class Organization(models.Model):
     organization_description = fields.Text(string="Opis Organizacji")
 
     image = fields.Binary("Photo")
+   
     
-    @api.constrains('coordinator')
-    def _check_organizations(self):
-        if (self.coordinator.id != self.env.user.id): 
-            raise ValueError("Możesz zmieniać tylko swoje organizacje!") 
