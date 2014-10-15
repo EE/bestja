@@ -107,6 +107,7 @@ openerp.bestja_offers = function(instance) {
                 }
             });
         },
+        
         /* obtain from lat-lng the address and set it in the fields*/
         reverse_geocode_address: function(position){
             obj = this;
