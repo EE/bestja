@@ -1,2 +1,5 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_bestja_offers_bestja_offers,bestja_offers.bestja_offers,model_bestja_offers_bestja_offers,,1,0,0,0
+access_volunteer_occupation,access_volunteer_occupation,model_volunteer_occupation,,1,1,1,1
+access_volunteer_language,access_volunteer_language,model_volunteer_language,,1,1,1,1
+access_volunteer_skill,access_volunteer_skill,model_volunteer_skill,,1,1,1,1

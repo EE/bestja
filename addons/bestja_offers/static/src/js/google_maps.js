@@ -140,39 +140,6 @@ openerp.bestja_offers = function(instance) {
             }
             
         },
-        /* obtain from lat-lng the address and set it in the fields*/
-        reverse_geocode_address: function(position){
-            obj = this;
-            this.geocoder.geocode({latLng: position}, function (responses){
-                if (responses && responses.length > 0) {
-                    obj.update_city_district_fields(responses[0]);           
-                }
-            });
-        },
-        /* updates city and district from autocomplete if possible*/
-        autocomplete_fill_in_address: function(){
-            this.update_city_district_fields(this.autocomplete.getPlace());
-        },
-       
-        /* sets district and city fields*/ 
-        update_city_district_fields: function(place){
-            this.field_manager.set_values({"map_city": ''});
-            this.field_manager.set_values({"map_district": ''});
-            if (place.address_components){
-                for (var i = 0; i < place.address_components.length; i++){   
-                    if (place.address_components[i].types[0] == 'locality'){
-                        var val = place.address_components[i]['long_name'];
-                        this.field_manager.set_values({"map_city": val});
-                    }
-                    if (place.address_components[i].types[0] == 'sublocality_level_1'){
-                        var val = place.address_components[i]['long_name'];
-                        this.field_manager.set_values({"map_district": val});
-                    }
-                }
-            }
-            
-        },
->>>>>>> organization
 
         /* updates fields with latitude and longitude*/
         update_fields_values: function(lat, lng) {
