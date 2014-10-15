@@ -7,10 +7,19 @@
             <field name="perm_write" eval="1"/>
             <field name="perm_create" eval="1"/>
             <field name="perm_unlink" eval="1"/>
-            <field name="domain_force">
-            []
-            </field>
+           <field name="domain_force">
+           []
+           </field> 
         </record>
-        
+
+        <!-- Record rules are NOT applicable for admin-->
+        <record id="only_coordinated_organizations" model="ir.rule">
+            <field name="model_id" ref="model_organization"/>
+            <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">
+            [('coordinator.id', '=', user.id)]
+            </field>
+        </record> 
     </data>
 </openerp>
