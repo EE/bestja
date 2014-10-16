@@ -12,10 +12,10 @@
     # any module necessary for this one to work correctly
     'depends': [
         'base',
-        'project',
         'website',
         'bestja_volunteer',
-        'bestja_base'
+        'bestja_base',
+        'bestja_project'
     ],
 
     # always loaded
