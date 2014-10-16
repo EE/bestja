@@ -1,9 +1,5 @@
-.state_inactive {
+.state {
     color: #3366FF;
-}
-
-.state_active {
-    color: #339966;
 }
 
 .oe_inline + .oe_grey {
@@ -54,9 +50,11 @@
     background-color: red;
 }
 
-/* center charts in offers kanban */
-.openerp div.oe_job_justgage {
-    float:none;
-    margin-left: auto;
-    margin-right: auto;
+/* smart button with wrappable content */
+.stat_button_wrap, .stat_button_wrap * {
+    white-space: normal !important;
+}
+
+.larger {
+    font-size: 120%;
 }

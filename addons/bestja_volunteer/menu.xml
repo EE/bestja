@@ -1,0 +1,7 @@
+<openerp>
+    <data>
+        <menuitem parent="bestja_base.menu_bestja" id="menu_users" name="Wolontariusze" sequence="100"/>
+        <menuitem parent="menu_users" id="menu_users_profile" action="action_bestja_users" name="Profile [tymczasowe]" sequence="1"/>
+    </data>
+</openerp>
+

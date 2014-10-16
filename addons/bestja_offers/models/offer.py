@@ -4,24 +4,24 @@ from lxml import etree
 
 from openerp import models, fields, api, exceptions
 
-import search
+from .. import search
 
 
 class Weekday(models.Model):
     _name = 'offers.weekday'
-    name = fields.Char(size=3)
-    full_name = fields.Char()
+    name = fields.Char(size=3, required=True)
+    full_name = fields.Char(required=True)
 
 
 class Daypart(models.Model):
     _name = 'offers.daypart'
-    name = fields.Char()
+    name = fields.Char(required=True)
 
 
 class HelpeeGroup(models.Model):
     """Odbiorca pomocy"""
     _name = 'offers.helpee_group'
-    name = fields.Char()
+    name = fields.Char(requred=True)
 
 
 class Offer(models.Model):
@@ -31,12 +31,12 @@ class Offer(models.Model):
         ('published', 'opublikowana'),
         ('template', 'szablon')
     ]
-    KIND = [
+    KIND_CHOICES = [
         ('periodic', 'okresowa'),
         ('cyclic', 'cykliczna'),
         ('flexible', 'elastyczna')
     ]
-    INTERVAL = [
+    INTERVAL_CHOICES = [
         (1, 'tydzień'),
         (2, '2 tygodnie'),
         (3, '3 tygodnie'),
@@ -105,12 +105,16 @@ class Offer(models.Model):
     image = fields.Binary("Photo")
     date_start = fields.Date(required=True, string="dnia")
     date_end = fields.Date(string="do dnia")
-    kind = fields.Selection(KIND, required=True, string="rodzaj akcji")
-    interval = fields.Selection(INTERVAL, string="powtarzaj co")
+    kind = fields.Selection(KIND_CHOICES, required=True, string="rodzaj akcji")
+    interval = fields.Selection(INTERVAL_CHOICES, string="powtarzaj co")
     daypart = fields.Many2many('offers.daypart', string="pora dnia")
     hours = fields.Integer(string="liczba h")
     weekday = fields.Many2many('offers.weekday', string="powtarzaj w")
     remote_work = fields.Boolean(string="praca zdalna")
+    applications = fields.One2many('offers.application', 'offer', string="Aplikacje")
+    application_count = fields.Integer(compute='_application_count')
+    accepted_application_count = fields.Integer(compute='_application_count')
+    accepted_label = fields.Integer(compute='_application_count')
 
     @api.one
     @api.constrains('skills')
@@ -158,6 +162,23 @@ class Offer(models.Model):
             self.remote_work = False
 
     @api.one
+    @api.depends('applications', 'applications.state')
+    def _application_count(self):
+        self.application_count = len(
+            self.applications.search([
+                ('offer', '=', self.id),
+                ('state', '!=', 'rejected')
+            ])
+        )
+        self.accepted_application_count = len(
+            self.applications.search([
+                ('offer', '=', self.id),
+                ('state', '=', 'accepted')
+            ])
+        )
+        self.accepted_label = self.accepted_application_count + 5
+
+    @api.one
     def set_template(self):
         self.state = 'template'
 
@@ -174,21 +195,14 @@ class Offer(models.Model):
         for offer in self:
             default = {
                 'name': offer.name,
-                'status': 'open'
+                'state': 'unpublished'
             }
             copy = offer.copy(default=default)
 
-        # Redirect to the new object (edit form)
-        view_id = self.env.ref('bestja_offers.bestja_offer_form').id
         return {
-            'name': 'Oferty',
-            'view_type': 'form',
             'view_mode': 'form',
-            'view_id': view_id,
             'res_model': 'offer',
             'type': 'ir.actions.act_window',
-            'nodestroy': True,
-            'target': 'current',
             'context': self.env.context,
             'res_id': copy.id,
         }

@@ -21,10 +21,12 @@
     'data': [
         # 'security/ir.model.access.csv',
         'templates.xml',
+        'views/volunteer.xml',
         'data/occupation.xml',
         'data/skills.xml',
         'data/drivers_license.xml',
-        'data/wishes.xml'
+        'data/wishes.xml',
+        'menu.xml'
     ],
     # only loaded in demonstration mode
     'demo': [

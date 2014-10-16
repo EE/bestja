@@ -1,0 +1,219 @@
+<openerp>
+    <data>
+        <!-- Date wizard -->
+        <record model="ir.actions.act_window" id="action_application_meeting_wizard">
+            <field name="name">Ustal datę spotkania</field>
+            <field name="res_model">offers.application.meeting_wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <record model="ir.ui.view" id="bestja_application_form_meeting_wizard">
+            <field name="name">bestja.application.meeting_wizard</field>
+            <field name="model">offers.application.meeting_wizard</field>
+            <field name="arch" type="xml">
+                <form string="Ustal termin spotkania">
+                    <group>
+                        <field name="meeting"/>
+                    </group>
+                    <footer>
+                        <button name="save_date" type="object" string="Zapisz termin" class="oe_highlight"/>
+                        <button special="cancel" string="Anuluj" class="oe_link"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <!-- Rejected reason wizard -->
+        <record model="ir.actions.act_window" id="action_application_rejected_wizard">
+            <field name="name">Podaj powód odrzucenia</field>
+            <field name="res_model">offers.application.rejected_wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <record model="ir.ui.view" id="bestja_application_form_rejected_wizard">
+            <field name="name">bestja.application.rejected_wizard</field>
+            <field name="model">offers.application.rejected_wizard</field>
+            <field name="arch" type="xml">
+                <form string="Podaj powód odrzucenia">
+                    <group>
+                        <field name="reason"/>
+                    </group>
+                    <footer>
+                        <button name="save_reason" type="object" string="Zapisz powód" class="oe_highlight"/>
+                        <button special="cancel" string="Anuluj" class="oe_link"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <!-- Notes reason wizard -->
+        <record model="ir.actions.act_window" id="action_application_notes_wizard">
+            <field name="name">Wpisz notatkę</field>
+            <field name="res_model">offers.application.notes_wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <record model="ir.ui.view" id="bestja_application_form_notes_wizard">
+            <field name="name">bestja.application.notes_wizard</field>
+            <field name="model">offers.application.notes_wizard</field>
+            <field name="arch" type="xml">
+                <form string="Wpisz notatkę">
+                    <group>
+                        <field name="notes"/>
+                    </group>
+                    <footer>
+                        <button name="save_notes" type="object" string="Zapisz notatkę" class="oe_highlight"/>
+                        <button special="cancel" string="Anuluj" class="oe_link"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <!-- Main application views -->
+        <record model="ir.actions.act_window" id="action_list_applications">
+            <field name="name">Aplikacje</field>
+            <field name="res_model">offers.application</field>
+            <field name="view_mode">kanban,form,calendar</field>
+            <field name="priority" eval="5"/>
+            <field name="context">{'search_default_offer': active_id}</field>
+        </record>
+
+        <record model="ir.ui.view" id="bestja_application_search">
+            <field name="name">bestja.application.search</field>
+            <field name="model">offers.application</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name" string="Nazwa"/>
+                    <field name="offer" string="Oferta"/>
+                    <filter name="current" string="Nowe"
+                                domain="[('state', '=', 'new')]"/>
+                    <group string="Group By">
+                        <filter name="group_by_offer" string="Offer"
+                                context="{'group_by': 'offer'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="bestja_application_kanban">
+            <field name="name">bestja.application.kanban</field>
+            <field name="model">offers.application</field>
+            <field name="arch" type="xml">
+                <kanban default_group_by="state" quick_create="false">
+                    <field name="name"/>
+                    <field name="age"/>
+                    <field name="occupation"/>
+                    <field name="phone"/>
+                    <field name="state"/>
+                    <field name="current_meeting"/>
+                    <field name="rejected_reason"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_card oe_kanban_global_click application_kanban_card">
+                                <div class="application_kanban_name">
+                                    <field name="name"/>
+                                </div>
+                                <div class="application_kanban_quality">
+                                    <field name="quality" widget="priority"/>
+                                </div>
+                                <div t-if="record.age.raw_value">
+                                    <field name="age"/> lat
+                                </div>
+                                <div t-if="record.occupation.raw_value">
+                                    <field name="occupation"/>
+                                </div>
+                                <div t-if="record.phone.raw_value" class="application_kanban_phone">
+                                    tel. <field name="phone"/>
+                                </div>
+                                <div t-if="record.state.raw_value == 'meeting' or record.state.raw_value == 'meeting2'" class="application_kanban_meeting">
+                                    <t t-if="record.current_meeting.raw_value">
+                                        Termin spotkania: <field name="current_meeting"/>
+                                        <a name="%(action_application_meeting_wizard)d" type="action">(zmień)</a>
+                                    </t>
+                                    <t t-if="!record.current_meeting.raw_value">
+                                        <a name="%(action_application_meeting_wizard)d" type="action" class="meeting_date_link">Ustal termin spotkania</a>
+                                    </t>
+                                </div>
+                                <div t-if="record.state.raw_value == 'rejected'" class="application_kanban_rejected">
+                                    <t t-if="record.rejected_reason.raw_value">
+                                        Powód odrzucenia: <field name="rejected_reason"/>
+                                        <a name="%(action_application_rejected_wizard)d" type="action">(zmień)</a>
+                                    </t>
+                                    <t t-if="!record.rejected_reason.raw_value">
+                                        <a name="%(action_application_rejected_wizard)d" type="action" class="rejected_link">Podaj powód odrzucenia</a>
+                                    </t>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="bestja_application_calendar">
+            <field name="name">bestja.application.calendar</field>
+            <field name="model">offers.application</field>
+            <field name="arch" type="xml">
+                <calendar date_start="current_meeting" color="offer" quick_add="False">
+                    <field name="name"/>
+                </calendar>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="bestja_application_form">
+            <field name="name">bestja.application.form</field>
+            <field name="model">offers.application</field>
+            <field name="arch" type="xml">
+                <form create="false" edit="false" delete="false">
+                    <header>
+                        <button name="action_accept" string="akceptuj kandydata" type="object" states="new,meeting,meeting2,rejected" class="oe_highlight"/>
+                        <button name="action_reject" string="odrzuć kandydata" states="new,meeting,meeting2,accepted" type="object"/>
+                    </header>
+
+                    <div class="oe_right oe_button_box" name="buttons">
+                         <button class="oe_inline oe_stat_button stat_button_wrap" type="action"
+                            name="%(action_application_meeting_wizard)d" icon="fa-calendar" states="new,meeting,meeting2">
+                            <div attrs="{'invisible': [('current_meeting', '!=', False)]}">Ustal termin spotkania</div>
+                            <div><strong><field name="current_meeting"/></strong></div>
+                        </button>
+                         <button class="oe_inline oe_stat_button stat_button_wrap" type="action" name="%(action_application_notes_wizard)d" icon="fa-files-o">
+                            <field name="notes" invisible="1"/>
+                            <div attrs="{'invisible': [('notes', '!=', False)]}">Dodaj notatkę</div>
+                            <div attrs="{'invisible': [('notes', '=', False)]}"><strong>Zobacz notatkę</strong></div>
+                        </button>
+                    </div>
+                    <field name="image" widget="image" class="oe_left"/>
+                    <div class="oe_title">
+                        <h1><field name="name"/></h1>
+                        <field name="state" readonly="1" class="state"/>
+                        <field name="quality" widget="priority"/>
+                    </div>
+                    <group col="4" class="larger">
+                        <div attrs="{'invisible': [('age', '=', 0)]}">
+                            <field name="age" class="oe_inline"/> lat
+                        </div>
+                        <div attrs="{'invisible': [('phone', '=', False)]}">
+                            tel. <field name="phone" class="oe_inline"/>
+                        </div>
+                        <newline/>
+                        <field name="occupation" nolabel="1" options="{'no_open': True}"/>
+                        <field name="email" nolabel="1"/>
+                        <newline/>
+                        <field name="city" nolabel="1" title="miejsce zamieszkania"/>
+                    </group>
+                    <separator string="Kwalifikacje"/>
+                    <field name="skills" widget="many2many_tags"/>
+                    <separator string="Zainteresowania"/>
+                    <field name="wishes" widget="many2many_tags"/>
+                    <separator string="Uprawnienia"/>
+                    <div attrs="{'invisible': [('drivers_license', '=', [(6, False, [])])]}">Prawo jazdy <field name="drivers_license" widget="many2many_tags" class="oe_inline"/></div>
+                    <div attrs="{'invisible': [('sanepid', '=', False)]}">Badania Sanepid do <field name="sanepid" class="oe_inline"/></div>
+                    <div attrs="{'invisible': [('forklift', '=', False)]}">Uprawnienia na wózek widłowy do <field name="forklift" class="oe_inline"/></div>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</openerp>

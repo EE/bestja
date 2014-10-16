@@ -1,0 +1,6 @@
+<template>
+    <!-- Replace kanban group menu icon -->
+    <t t-extend="KanbanView.group_header">
+        <t t-jquery=".oe_dropdown_kanban .oe_e" t-operation="inner">Ñ</t>
+    </t>
+</template>

@@ -18,5 +18,8 @@
         'config.xml',
         'views/assets.xml',
         'security/security.xml',
+    ],
+    'qweb': [
+        'static/src/xml/*.xml',
     ]
 }

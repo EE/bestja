@@ -21,11 +21,13 @@
     # always loaded
     'data': [
         'config.xml',
+        'views/application.xml',
         'views/offer.xml',
         'views/assets.xml',
         'data/daypart.xml',
         'data/helpee_group.xml',
         'data/weekday.xml',
+        'data/rejected_reasons.xml',
         'templates.xml',
         'menu.xml',
     ],
