@@ -4,17 +4,15 @@
             <field name="name">Organizacje</field>
             <field name="res_model">organization</field>
             <field name="view_mode">tree,form</field>
-            <field name="domain"> [('active', '=?', False)] </field>
+            <field name="domain"> [('active', 'in', (True, False))] </field>
         </record>
-        
+
         <record model="ir.ui.view" id="bestja_org_form">
             <field name="name">bestja.organization.form</field>
-            <field name="model">organization</field> 
-            <field name="priority" eval="5"/>
+            <field name="model">organization</field>
             <field name="arch" type="xml">
-
                 <form>
-                    <div class="oe_title">  
+                    <div class="oe_title">
                         <span class="oe_grey oe_edit_only">Wypełnij dane organizacji i dodaj zdjęcie.</span>
                     <field name="image" widget="image" class="oe_left"/>
                     </div>
@@ -35,11 +33,11 @@
                         <field name="www" class="oe_inline"/>
                         <field name="fbfanpage" class="oe_inline"/>
                         <field name="phone" class="oe_inline"/>
-        
+
                     </group>
                     <hr/>
                     <group>
-                        <field name="coordinator" groups="bestja_base.bestja_instance_admin"/> 
+                        <field name="coordinator" groups="bestja_base.bestja_instance_admin"/>
                         <field name="active" groups="bestja_base.bestja_instance_admin"/>
                     </group>
                     <notebook colspan="2">
@@ -55,7 +53,6 @@
         <record model="ir.ui.view" id="bestja_organization_tree">
             <field name="name">bestja.organization.tree</field>
             <field name="model">organization</field>
-            <field name="priority" eval="5"/>
             <field name="arch" type="xml">
                 <tree>
                     <field name="name"/>
