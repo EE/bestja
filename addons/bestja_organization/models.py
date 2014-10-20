@@ -74,3 +74,9 @@ class Organization(models.Model):
 
         if self.regon and not self.is_gov_id_valid(self.regon, weights):
             raise exceptions.ValidationError("Niepoprawny REGON.")
+
+    @api.one
+    @api.constrains('krs')
+    def _check_krs(self):
+        if self.krs and (len(self.krs) != 10 or not self.krs.isdigit()):
+            raise exceptions.ValidationError("Niepoprawny KRS.")

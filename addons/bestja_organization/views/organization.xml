@@ -13,7 +13,6 @@
             <field name="arch" type="xml">
                 <form>
                     <div class="oe_title">
-                        <span class="oe_grey oe_edit_only">Wypełnij dane organizacji i dodaj zdjęcie.</span>
                     <field name="image" widget="image" class="oe_left"/>
                     </div>
                     <group>
