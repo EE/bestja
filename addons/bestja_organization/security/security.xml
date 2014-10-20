@@ -1,25 +1,16 @@
 <openerp>
     <data>
-        <record id="confirmation_of_organization" model="ir.rule">
+        <record id="admin_access_organization" model="ir.rule">
+            <field name="name">Instance admin has access to all organizations</field>
             <field name="model_id" ref="model_organization"/>
             <field name="groups" eval="[(4, ref('bestja_base.bestja_instance_admin'))]"/>
-            <field name="perm_read" eval="1"/>
-            <field name="perm_write" eval="1"/>
-            <field name="perm_create" eval="1"/>
-            <field name="perm_unlink" eval="1"/>
-           <field name="domain_force">
-           []
-           </field> 
         </record>
 
-        <!-- Record rules are NOT applicable for admin-->
-        <record id="only_coordinated_organizations" model="ir.rule">
+        <record id="my_organizations_only" model="ir.rule">
+            <field name="name">Coordinator has access to her organizations</field>
             <field name="model_id" ref="model_organization"/>
             <field name="groups" eval="[(4, ref('base.group_user'))]"/>
-            <field name="global" eval="True"/>
-            <field name="domain_force">
-            [('coordinator.id', '=', user.id)]
-            </field>
-        </record> 
+            <field name="domain_force">[('coordinator.id', '=', user.id)]</field>
+        </record>
     </data>
 </openerp>

@@ -30,6 +30,7 @@
         'data/rejected_reasons.xml',
         'templates.xml',
         'menu.xml',
+        'workflows.xml'
     ],
     # only loaded in demonstration mode
     'demo': [

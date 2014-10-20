@@ -4,7 +4,7 @@
             <field name="name">Organizacje</field>
             <field name="res_model">organization</field>
             <field name="view_mode">tree,form</field>
-            <field name="domain"> [('active', 'in', (True, False))] </field>
+            <field name="domain">[('active', '=?', False)]</field>
         </record>
 
         <record model="ir.ui.view" id="bestja_org_form">

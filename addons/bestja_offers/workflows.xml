@@ -1,0 +1,50 @@
+<openerp>
+    <data>
+        <record id="application_workflow" model="workflow">
+            <field name="name">offers.application.workflow</field>
+            <field name="osv">offers.application</field>
+            <field name="on_create">True</field>
+        </record>
+
+        <record id="activity_initial" model="workflow.activity">
+            <field name="wkf_id" ref="application_workflow"/>
+            <field name="flow_start">True</field>
+            <field name="name">initial</field>
+            <field name="kind">dummy</field>
+        </record>
+
+        <record id="activity_accepted" model="workflow.activity">
+            <field name="wkf_id" ref="application_workflow"/>
+            <field name="name">accepted</field>
+            <field name="kind">function</field>
+            <field name="action">action_post_accepted()</field>
+        </record>
+
+        <record id="activity_unaccepted" model="workflow.activity">
+            <field name="wkf_id" ref="application_workflow"/>
+            <field name="name">unaccepted</field>
+            <field name="kind">function</field>
+            <field name="action">action_post_unaccepted()</field>
+        </record>
+
+        <record id="trans_initial_to_accepted" model="workflow.transition">
+            <field name="act_from" ref="activity_initial"/>
+            <field name="act_to" ref="activity_accepted"/>
+            <field name="condition">state == 'accepted'</field>
+        </record>
+
+        <record id="trans_accepted_to_unaccepted" model="workflow.transition">
+            <field name="act_from" ref="activity_accepted"/>
+            <field name="act_to" ref="activity_unaccepted"/>
+            <field name="condition">state != 'accepted'</field>
+        </record>
+
+        <record id="trans_unaccepted_to_accepted" model="workflow.transition">
+            <field name="act_from" ref="activity_unaccepted"/>
+            <field name="act_to" ref="activity_accepted"/>
+            <field name="condition">state == 'accepted'</field>
+        </record>
+
+    </data>
+</openerp>
+

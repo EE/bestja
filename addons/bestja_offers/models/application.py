@@ -131,6 +131,30 @@ class Application(models.Model):
             'target': 'new',
         }
 
+    @api.one
+    def action_post_accepted(self):
+        """
+        After application had been accepted,
+        add user to the project and the organization
+        """
+        self.offer.project.write({
+            'members': [(4, self.user.id)]
+        })
+        self.offer.project.organization.write({
+            'volunteers': [(4, self.user.id)]
+        })
+
+    @api.one
+    def action_post_unaccepted(self):
+        """
+        The application had been accepted, but now somebody
+        changed her mind. Remove user from project, but
+        leave her with the organization.
+        """
+        self.offer.project.write({
+            'members': [(3, self.user.id)]
+        })
+
     def _read_group_fill_results(self, cr, uid, domain, groupby, remaining_groupbys,
                                  aggregated_fields, count_field, read_group_result,
                                  read_group_order=None, context=None):

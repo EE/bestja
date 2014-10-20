@@ -69,7 +69,7 @@ class Organization(models.Model):
     @api.constrains('regon')
     def _check_regon(self):
         weights = (8, 9, 2, 3, 4, 5, 6, 7)
-        if len(self.regon) > 9:
+        if self.regon and len(self.regon) > 9:
             weights = (2, 4, 8, 5, 0, 9, 7, 3, 6, 1, 2, 4, 8)
 
         if self.regon and not self.is_gov_id_valid(self.regon, weights):
