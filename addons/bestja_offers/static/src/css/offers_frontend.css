@@ -1,0 +1,109 @@
+.bestja_offers_offer {
+    font-family: 'Open Sans' !important;
+}
+
+.bestja_offers_offer p {
+    font-size: 18px;
+}
+
+.bestja_offers_offer h2 {
+    font-size: 30px;
+}
+
+.bestja_offers_offer .cover {
+    font-size: 18px;
+    background-size: cover;
+    width: 100%;
+    height: 500px;
+    /* TODO this is mock. Remove this. Different offers will have different images.
+     Maybe `background-image` property should be set via JavaScript. */
+    background-image: url('/bestja_offers/static/oferta_gui.jpg');
+}
+
+.bestja_offers_offer .btn-join {
+    height: 50px;
+    width: 200px;
+    font-size: 24px;
+}
+
+.bestja_offers_offer .cover {
+    position: relative;
+}
+
+.bestja_offers_offer .offer_center {
+    margin: 12px 0;
+    text-align: center;
+}
+
+.offer_name, .offer_icons, .offer_info {
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.offer_name, .offer_icons {
+    height: 100px;
+}
+
+.offer_organization {
+    font-size: 16px;
+}
+
+.offer_sidebar {
+    padding-top: 30px;
+}
+
+.offer_map {
+   display: block;    
+   margin: 20px 0;
+   height: 300px;
+   color: #000;
+}
+
+.offer_info {
+    min-height: 130px;
+    right: 0;
+    left: 0;
+    position: relative;
+    display: block;
+}
+
+.offer_icons {
+    display:block;
+    padding-top: 30px;
+}
+
+.offer_icons .offer_icon_container {
+    display: inline-block;
+    width: 31%;
+    height: 50px;
+    text-align: center;
+}
+
+.offer_icons .offer_icon {
+    display: inline-block;
+    background-color: white;
+    width: 50px;
+    height: 50px;
+}
+
+@media screen and (max-width: 1121px) {
+    .offer_icons .offer_icon {
+        width: 42px;
+        height: 42px;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .bestja_offers_offer {
+        margin: 0 10px;
+    }
+    .offer_info {
+        margin-top: 0;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .offer_info {
+        margin-top: -130px;
+        padding: 0 8.33%;
+    }
+}

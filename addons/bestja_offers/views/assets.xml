@@ -12,5 +12,15 @@
             <link rel="stylesheet" href="/bestja_offers/static/src/css/offers.css"/>
             </xpath>
         </template>
+        <template id="assets_frontend" name="frontend offers assets" inherit_id="web.assets_common">
+            <xpath expr="." position="inside">
+
+        	    <!-- Google Maps widget -->
+                <script type="text/javascript" src="/bestja_offers/static/src/js/google_maps_frontend.js"/>
+                <!-- TODO open CSS file below and replace mock of background with appropriate background from backend.-->
+                <link rel="stylesheet" href="/bestja_offers/static/src/css/offers_frontend.css" />
+            </xpath>
+        </template>
+        
     </data>
 </openerp>

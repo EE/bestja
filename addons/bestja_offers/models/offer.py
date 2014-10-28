@@ -74,11 +74,11 @@ class Offer(models.Model):
     drivers_license = fields.Many2one('volunteer.drivers_license', string="Prawa jazdy")
     sanepid = fields.Boolean(string="Badania sanepidu")
     forklift = fields.Boolean(string="Uprawnienia na wózek widłowy")
-    latitude = fields.Float(string="Szerokość geograficzna")
-    longitude = fields.Float(string="Długość geograficzna")
     location_name = fields.Char(string="Nazwa miejsca")
     address = fields.Char(string="Ulica i numer domu")
     city = fields.Char(string="Miasto")
+    latitude = fields.Float(string="Szerokość geograficzna", digits=(7,4))
+    longitude = fields.Float(string="Długość geograficzna", digits=(7,4))
     district = fields.Char(string="Dzielnica")
     no_localization = fields.Boolean(string="Oferta nie ma przypisanej lokalizacji.")
     target_group = fields.Many2many(

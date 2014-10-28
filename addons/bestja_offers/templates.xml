@@ -25,16 +25,105 @@
 
         <template id="bestja_offers.offer">
             <t t-call="website.layout">
-                <h1><t t-esc="offer.name"/></h1>
-                <p>To jest oferta.</p>
-                <p>Wymagane skille:</p>
-                <ul><li t-foreach="offer.skills" t-as="skill">
-                    <t t-esc="skill.name"/>
-                </li></ul>
-                <form method="post" t-attf-action="/offer/{{ slug(offer) }}/apply">
-                    <button type="submit" class="btn btn-primary">Zgłoś się!</button>
-                </form>
+                <link rel="stylesheet" href="/bestja_offers/static/src/css/google_maps.css"/>
+                <script type="text/javascript"
+                        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8_eNIDCU7qkBzkh4A02pnpRmPtE3rrI0&amp;libraries=places&amp;language=pl"/>
+
+                <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans" />
+                <div class="bestja_offers_offer">
+                    <div class="cover">
+                        <section class="row">
+                            <section class="offer_name col-md-5 col-md-offset-1 col-xs-7 col-xs-offset-1">
+                                <h1><t t-esc="offer.name"/></h1>
+                                <p class="offer_organization"><t t-esc="offer.project.organization.name"/></p>
+                            </section>
+
+                            <section class="offer_icons col-md-3 col-md-offset-2 col-xs-4 col-xs-offset-0">
+                                <div class="offer_icon_container"><div class="offer_icon">ico</div></div>
+                                <div class="offer_icon_container"><div class="offer_icon">ico</div></div>
+                                <div class="offer_icon_container"><div class="offer_icon">ico</div></div>
+                            </section>
+                        </section>
+                    </div>
+
+                    <section class="row offer_info">
+                        <section class="col-md-3">
+                            <h2>Gdzie</h2>
+                            <p><t t-esc="offer.city"/> <t t-esc="offer.district"/></p>
+                        </section>
+                        <section class="col-md-3">
+                            <h2>Liczba godzin</h2>
+                            <p><t t-esc="offer.hours"/> / tyg.</p>
+                        </section>
+                        <section class="col-md-3">
+                            <h2>Kontakt</h2>
+                            <p t-if="offer.project.manager.name"><t t-esc="offer.project.manager.name"/></p>
+                            <p>Telefon: 123-456-789</p>
+                        </section>
+                    </section>
+
+                    <t t-call="bestja_offers.join" />
+
+                    <section class="row">
+                        <section class="offer_content col-md-5 col-md-offset-1">
+                            <section t-if="offer.desc_aim">
+                                <h2>Dlaczego potrzebujemy pomocy</h2>
+                                <p>Celem projektu jest: <span t-field="offer.desc_aim"></span></p>
+                            </section>
+                            <section t-if="offer.desc_expectations">
+                                <h2>Jak możesz pomóc</h2>
+                                <p>
+                                    <span t-field="offer.desc_expectations"></span>
+                                </p>
+                            </section>
+                            <section t-if="offer.desc_why">
+                                <h2>Co możesz zmienić</h2>
+                                <p>
+                                    <span t-field="offer.desc_why"></span>
+                                </p>
+                            </section>
+                            <section t-if="offer.desc_benefits">
+                                <h2>Korzyści</h2>
+                                <p>
+                                    <span t-field="offer.desc_benefits"></span>
+                                </p>
+                            </section>
+                            <section t-if="offer.skills">
+                                <h2>Oczekujemy</h2>
+                                <ul><li t-foreach="offer.skills" t-as="skill">
+                                    <t t-esc="skill.name"/>
+                                </li></ul>
+                            </section>
+                            <section>
+                                <h2>Lokalizacja</h2>
+                                <p t-field="offer.city"></p>
+                            </section>
+                        </section>
+                        <section class="col-md-3 col-md-offset-2 offer_sidebar">
+                            <img src="/bestja_offers/static/logo.png" />
+                            <h3><t t-esc="offer.project.organization.name"/></h3>
+                            <p><a t-attf-href="mailto:{{ offer.project.organization.email }}"><t t-esc="offer.project.organization.email"/></a></p>
+                            <h4>Co robimy</h4>
+                            <p><t t-esc="offer.project.organization.organization_description"/></p>
+                        </section>
+                    </section>
+
+                    <section class="row">
+                        <div class="col-md-6 col-md-offset-1">
+                            <div id="offer-map-canvas" class="offer_map"></div>
+                        </div>
+                    </section>
+                    <div id="bestja_offers_offer_location" t-attf-data-lat="{{ offer.latitude }}" t-attf-data-lng="{{ offer.longitude }}"></div>
+
+                    <t t-call="bestja_offers.join" />
+                </div>
             </t>
+        </template>
+
+        <template id="bestja_offers.join">
+            <form class="offer_center" method="post" t-attf-action="/offer/{{ slug(offer) }}/apply">
+                <button type="submit" class="btn btn-primary btn-join">Zgłoś się!</button>
+            </form>
         </template>
 
         <template id="bestja_offers.thankyou">
