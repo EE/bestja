@@ -54,9 +54,18 @@ class Offer(models.Model):
 
     state = fields.Selection(STATES, default='unpublished', string="Stan")
     name = fields.Char(string="Nazwa")
-    manager = fields.Many2one('res.users', string="Opiekun oferty")
     vacancies = fields.Integer(string="Liczba wakatów", default=1)
-    project = fields.Many2one('project.project', string="Projekt", required=True)
+    project = fields.Many2one(
+        'project.project',
+        string="Projekt",
+        required=True,
+        domain=lambda self: [('organization.id', '=', self.env.user.coordinated_org.id)]
+    )
+    organization = fields.Many2one(
+        'organization',
+        string="Organizacja",
+        related='project.organization'
+    )
     skills = fields.Many2many('volunteer.skill')
     wishes = fields.Many2many('volunteer.wish')
     drivers_license = fields.Many2one('volunteer.drivers_license', string="Prawa jazdy")

@@ -36,13 +36,16 @@
                     </group>
                     <hr/>
                     <group>
-                        <field name="coordinator" groups="bestja_base.bestja_instance_admin"/>
+                        <field name="coordinator" options="{'no_create': True}" groups="bestja_base.bestja_instance_admin"/>
                         <field name="active" groups="bestja_base.bestja_instance_admin"/>
                     </group>
                     <notebook colspan="2">
                         <page string="Opis Organizacji">
                         <span class="oe_grey oe_edit_only">Opisz czym zajmuje się Twoja organizacja.</span>
                          <field name="organization_description">organization.organization_description</field>
+                        </page>
+                        <page string="Wolontarusze" attrs="{'invisible': [('volunteers', '=', [(6, False, [])])]}">
+                            <field name="volunteers" readonly="True" />
                         </page>
                     </notebook>
                 </form>

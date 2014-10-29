@@ -1,7 +1,22 @@
 <openerp>
     <data>
+        <!-- Admin group -->
         <record id="bestja_instance_admin" model="res.groups">
             <field name="name">BestJa Admin Instancji</field>
+        </record>
+
+        <!-- Template user for new users signing in via the website -->
+        <record id="bestja_template_user" model="res.users">
+            <field name="name">Bestja Template User</field>
+            <field name="login">bestjatemplate</field>
+            <field name="active" eval="False"/>
+            <field name="groups_id" eval="[(6, 0,  [ref('base.group_portal'), ref('base.group_user')])]"/>
+        </record>
+
+        <!-- make it the default template -->
+        <record id="auth_signup.default_template_user_config" model="ir.config_parameter">
+            <field name="key">auth_signup.template_user_id</field>
+            <field name="value" ref="bestja_template_user"/>
         </record>
     </data>
 </openerp>

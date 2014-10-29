@@ -21,7 +21,12 @@ class Organization(models.Model):
     phone = fields.Char(size=10, string="Numer Telefonu")
     www = fields.Char(string="WWW")
     fbfanpage = fields.Char(string="Fanpage na FB")
-    parent = fields.Many2one('organization')
+    parent = fields.Many2one(
+        'organization',
+        string="Organizacja nadrzędna",
+        domain=[('parent', '=', False)]  # only top-level organizations
+    )
+    children = fields.One2many('organization', inverse_name='parent', string="Organizacje podrzędne")
     volunteers = fields.Many2many('res.users', string="Wolontariusze")
     coordinator = fields.Many2one(
         'res.users', ondelete='restrict',
@@ -29,15 +34,19 @@ class Organization(models.Model):
         default=lambda self: self.env.user,
         groups="bestja_base.bestja_instance_admin"
     )
-    active = fields.Boolean(default=False)
+    active = fields.Boolean(default=False, string="Zaakceptowana")
     organization_description = fields.Text(string="Opis Organizacji")
     image = fields.Binary("Photo")
+
+    _sql_constraints = [
+        ('coordinator_uniq', 'unique(coordinator)', 'Jedna osoba nie może koordynować wielu organizacji!')
+    ]
 
     @api.one
     @api.constrains('email')
     def _check_email(self):
         email = self.email
-        if not re.match(r"^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$", email):
+        if not re.match(r"^[_a-z0-9-]+([.+][_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$", email):
             raise exceptions.ValidationError("Adres e-mail jest niepoprawny.")
 
     @staticmethod

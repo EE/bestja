@@ -1,0 +1,35 @@
+<openerp>
+    <data>
+        <record id="offer_read_rule" model="ir.rule">
+            <field name="name">Offer can be read when its published or by the coordinator</field>
+            <field name="model_id" ref="model_offer"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">[
+                '|',
+                    ('state', '=', 'published'),
+                '|',
+                    ('project.organization.coordinator.id', '=', user.id),
+                    ('project.user_id.id', '=', user.id)
+            ]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+
+        <record id="offer_modify_rule" model="ir.rule">
+            <field name="name">Offer can be modified by the coordinator only</field>
+            <field name="model_id" ref="model_offer"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">[
+                '|',
+                    ('project.organization.coordinator.id', '=', user.id),
+                    ('project.user_id.id', '=', user.id)
+            ]</field>
+            <field name="perm_read" eval="False"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+    </data>
+</openerp>
