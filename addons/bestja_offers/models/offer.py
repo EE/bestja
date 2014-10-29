@@ -3,8 +3,9 @@
 from lxml import etree
 
 from openerp import models, fields, api, exceptions
+from openerp.addons.website.models.website import slug
 
-from .. import search
+from ..search import OffersIndex
 
 
 class Weekday(models.Model):
@@ -249,16 +250,18 @@ class Offer(models.Model):
         # in a record set
         list_names = lambda rset: [r[1] for r in rset.name_get()]
 
-        writer = search.get_writer()
+        writer = OffersIndex.get_writer()
         for offer in self:
             pk = unicode(offer.id)
             if offer.state == 'published':
-                writer.add_document(
+                writer.update_document(
                     pk=pk,
+                    slug=slug(self),
                     name=offer.name,
                     wishes=list_names(offer.wishes),
                     target_group=list_names(offer.target_group),
-                    project=offer.project.name
+                    project=offer.project.name,
+                    organization=offer.project.organization.name
                 )
             else:
                 # Should not be public. Flag as removed from index.
@@ -281,7 +284,7 @@ class Offer(models.Model):
     @api.multi
     def unlink(self):
         val = super(Offer, self).unlink()
-        writer = search.get_writer()
+        writer = OffersIndex.get_writer()
         for offer in self:
             writer.delete_by_term('pk', unicode(offer.id))
         writer.commit()
