@@ -54,6 +54,7 @@
                         <field name="vacancies"/>
                         <label for="project"/>
                         <div><field name="project" class="oe_inline"/> <span class="oe_grey oe_edit_only">Wybierz lub utwórz nowy projekt</span></div>
+                        <field name="date_end"/>
                     </group>
                     <notebook colspan="4">
                         <page string="Umiejętności">
@@ -73,7 +74,7 @@
                             <span class="oe_grey oe_edit_only">Wybierz czym będzie zajmował się wolontariusz (max. <span id="max_wishes"/> obszary)</span>
                             <field name="wishes" widget="many2many_checkboxes"/>
                         </page>
-                        <page string="Opis akcji">
+                        <page string="Opis">
                             <label for="target_group"/>
                             <field name="target_group" widget="many2many_tags" options="{'no_create': True}"/>
                             <label for="desc_aim"/>
@@ -91,12 +92,7 @@
                             <label for="desc_comments"/>
                             <field name="desc_comments" placeholder="Wpisz jeśli masz uwagi lub dodatkowe wymagania."/>
                         </page>
-                        <page string="Termin akcji">
-                            <group string="Wybierz termin akcji" col="5">
-                                <field name="date_start"/>
-                                <field name="date_end" class="oe_inline"/>
-                                <span class="oe_grey oe_edit_only">Zostaw puste jeżeli jest to akcja bezterminowa</span>
-                            </group>
+                        <page string="Termin">
                             <group string="Wybierz rodzaj akcji" col="1">
                                 <field name="kind" nolabel="1" options="{'horizontal': True}" widget="radio"/>
                             </group>
@@ -104,20 +100,30 @@
                             <group col="2">
                                 <field name="hours" attrs="{'invisible': [('kind', 'not in', ['periodic', 'cyclic'])]}"/>
                                 <field name="weekday" widget="many2many_checkboxes" class="horizontal_checkboxes" attrs="{'invisible': [('kind', 'not in', ['periodic', 'cyclic'])]}" />
+                                <field name="daypart" widget="many2many_checkboxes" class="horizontal_checkboxes" attrs="{'invisible': [('kind', 'not in', ['periodic', 'cyclic'])]}"/>
                                 <field name="interval" class="oe_inline" attrs="{'invisible': [('kind', '!=', 'cyclic')]}"/>
-                                <field name="daypart" widget="many2many_checkboxes" class="horizontal_checkboxes"  attrs="{'invisible': [('kind', '!=', 'cyclic')]}"/>
                                 <field name="remote_work" attrs="{'invisible': [('kind', '!=', 'flexible')]}" />
                             </group>
                         </page>
-                        <page string="Miejsce akcji">
-                            <widget type="google_maps.coordinates"/>
-                            <separator/>
-                            <group>
-                                <field name="district" class="oe_inline"/>
-                                <field name="city" class="oe_inline"/>
-                                <field name="latitude" class="coordinate_fields"/>
-                                <field name="longitude" class="coordinate_fields"/>
-                            </group>
+                        <page string="Miejsce">
+                            <field name="no_localization" string="Oferta nie ma przypisanej lokalizacji"/><label for="no_localization"/>
+                                <div attrs="{'invisible': [('no_localization', '=', True)]}">
+                                <separator string="Podaj lokalizację"/>
+                                <separator/>
+                                <widget type="google_maps.coordinates"/>
+                                <separator/>
+                                <group string="Wyświetlany opis miejsca">
+                                    <field name="location_name" string="Nazwa"/>
+                                    <field name="address" string="Ulica, nr domu"/>
+                                    <field name="city"/>
+                                </group>
+                                <separator/>
+                                <group>
+                                    <field name="district"/>
+                                </group>
+                                    <field name="latitude" class="coordinate_fields"/>
+                                    <field name="longitude" class="coordinate_fields"/>
+                            </div>
                         </page>
                     </notebook>
                 </form>

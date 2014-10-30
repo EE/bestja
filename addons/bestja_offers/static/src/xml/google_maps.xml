@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <templates xml:space="preserve">
     <t t-name="WidgetCoordinates">
-        <div class="oe_horizontal_separator oe_edit_only">Szukaj miejsca akcji</div>
         <form id="location_form">
             <input id="address" size="85%" type="text"/>
             <button name="search_address" id="saddress">szukaj</button>

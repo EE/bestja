@@ -165,3 +165,8 @@
 .meeting_date_link, .rejected_link {
   font-weight: bold;
 }
+
+/* Offer form */
+.coordinate_fields {
+  display: none !important;
+}

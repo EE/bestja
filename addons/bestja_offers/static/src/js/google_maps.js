@@ -35,8 +35,6 @@ openerp.bestja_offers = function(instance) {
             } else {
                 this.marker.setDraggable(true);
                 $form.css('visibility', 'visible');
-                // Make the lat lng fields readonly
-                $(".coordinate_fields input").prop('readonly', true);
             }
 
         },
@@ -107,13 +105,13 @@ openerp.bestja_offers = function(instance) {
                 }
             });
         },
-        
+
         /* obtain from lat-lng the address and set it in the fields*/
         reverse_geocode_address: function(position){
             obj = this;
             this.geocoder.geocode({latLng: position}, function (responses){
                 if (responses && responses.length > 0) {
-                    obj.update_city_district_fields(responses[0]);           
+                    obj.update_city_district_fields(responses[0]);
                 }
             });
         },
@@ -121,13 +119,13 @@ openerp.bestja_offers = function(instance) {
         autocomplete_fill_in_address: function(){
             this.update_city_district_fields(this.autocomplete.getPlace());
         },
-       
-        /* sets district and city fields*/ 
+
+        /* sets district and city fields*/
         update_city_district_fields: function(place){
             this.field_manager.set_values({"city": ''});
             this.field_manager.set_values({"district": ''});
             if (place.address_components){
-                for (var i = 0; i < place.address_components.length; i++){   
+                for (var i = 0; i < place.address_components.length; i++){
                     if (place.address_components[i].types[0] == 'locality'){
                         var val = place.address_components[i]['long_name'];
                         this.field_manager.set_values({"city": val});
@@ -138,7 +136,7 @@ openerp.bestja_offers = function(instance) {
                     }
                 }
             }
-            
+
         },
 
         /* updates fields with latitude and longitude*/

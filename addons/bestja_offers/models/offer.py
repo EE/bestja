@@ -74,8 +74,11 @@ class Offer(models.Model):
     forklift = fields.Boolean(string="Uprawnienia na wózek widłowy")
     latitude = fields.Float(string="Szerokość geograficzna")
     longitude = fields.Float(string="Długość geograficzna")
-    city = fields.Char(string="Miasto", required=True)
+    location_name = fields.Char(string="Nazwa miejsca")
+    address = fields.Char(string="Ulica i numer domu")
+    city = fields.Char(string="Miasto")
     district = fields.Char(string="Dzielnica")
+    no_localization = fields.Boolean(string="Oferta nie ma przypisanej lokalizacji.")
     target_group = fields.Many2many(
         'volunteer.occupation',
         default=_default_target_group,
@@ -113,8 +116,7 @@ class Offer(models.Model):
         string="Uwagi"
     )
     image = fields.Binary("Photo")
-    date_start = fields.Date(required=True, string="dnia")
-    date_end = fields.Date(string="do dnia")
+    date_end = fields.Date(string="Do dnia")
     kind = fields.Selection(KIND_CHOICES, required=True, string="rodzaj akcji")
     interval = fields.Selection(INTERVAL_CHOICES, string="powtarzaj co")
     daypart = fields.Many2many('offers.daypart', string="pora dnia")
@@ -165,11 +167,22 @@ class Offer(models.Model):
         if self.kind not in ('periodic', 'cyclic'):
             self.weekday = None
             self.hours = 0
+            self.daypart = None
         if self.kind != 'cyclic':
             self.interval = None
-            self.daypart = None
         if self.kind != 'flexible':
             self.remote_work = False
+
+    @api.onchange('no_localization')
+    def _onchange_no_localization(self):
+        """
+        Clear fields that are irrelevant with no localization.
+        """
+        if self.no_localization is True:
+            self.location_name = False
+            self.address = False
+            self.city = False
+            self.district = False
 
     @api.one
     @api.depends('applications', 'applications.state')
