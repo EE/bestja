@@ -137,12 +137,16 @@ class Application(models.Model):
         After application had been accepted,
         add user to the project and the organization
         """
-        self.offer.project.write({
+        offer = self.offer
+        offer.project.write({
             'members': [(4, self.user.id)]
         })
-        self.offer.project.organization.write({
+        offer.project.organization.write({
             'volunteers': [(4, self.user.id)]
         })
+        # Unpublish if all vacancies filled
+        if offer.accepted_application_count >= offer.vacancies:
+            offer.state = 'archive'
 
     @api.one
     def action_post_unaccepted(self):

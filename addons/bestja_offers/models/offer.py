@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from lxml import etree
+from datetime import date
 
 from openerp import models, fields, api, exceptions
 from openerp.addons.website.models.website import slug
@@ -28,9 +29,10 @@ class HelpeeGroup(models.Model):
 class Offer(models.Model):
     _name = 'offer'
     STATES = [
-        ('unpublished', 'nieopublikowana'),
-        ('published', 'opublikowana'),
-        ('template', 'szablon')
+        ('unpublished', "nieopublikowana"),
+        ('published', "opublikowana"),
+        ('archive', "archiwalna"),
+        ('template', "szablon"),
     ]
     KIND_CHOICES = [
         ('periodic', 'okresowa'),
@@ -117,6 +119,7 @@ class Offer(models.Model):
     )
     image = fields.Binary("Photo")
     date_end = fields.Date(string="Do dnia")
+    remaining_days = fields.Integer(string="Wygasa za", compute='_remaining_days')
     kind = fields.Selection(KIND_CHOICES, required=True, string="rodzaj akcji")
     interval = fields.Selection(INTERVAL_CHOICES, string="powtarzaj co")
     daypart = fields.Many2many('offers.daypart', string="pora dnia")
@@ -126,7 +129,6 @@ class Offer(models.Model):
     applications = fields.One2many('offers.application', 'offer', string="Aplikacje")
     application_count = fields.Integer(compute='_application_count')
     accepted_application_count = fields.Integer(compute='_application_count')
-    accepted_label = fields.Integer(compute='_application_count')
 
     @api.one
     @api.constrains('skills')
@@ -147,17 +149,6 @@ class Offer(models.Model):
     def _check_vacancies(self):
         if self.vacancies <= 0:
             raise exceptions.ValidationError("Liczba wakatów musi być większa od 0!")
-
-    @api.one
-    @api.constrains('date_start', 'date_end')
-    def _check_date_range(self):
-        if not self.date_end:
-            return
-
-        if self.date_end < self.date_start:
-            raise exceptions.ValidationError(
-                "Data końcowa terminu akcji musi być późniejsza od jego daty początkowej!"
-            )
 
     @api.onchange('kind')
     def _onchange_kind(self):
@@ -199,7 +190,15 @@ class Offer(models.Model):
                 ('state', '=', 'accepted')
             ])
         )
-        self.accepted_label = self.accepted_application_count + 5
+
+    @api.one
+    @api.depends('date_end')
+    def _remaining_days(self):
+        if self.date_end is False:
+            self.remaining_days = False
+        else:
+            last_day = fields.Date.from_string(self.date_end)
+            self.remaining_days = (last_day - date.today()).days
 
     @api.one
     def set_template(self):
@@ -302,3 +301,18 @@ class Offer(models.Model):
             writer.delete_by_term('pk', unicode(offer.id))
         writer.commit()
         return val
+
+    @api.multi
+    def read(self, fields=None, load='_classic_read'):
+        """
+        Every time an offer is read check if it didn't expire.
+        """
+        if fields:
+            fields.extend(['remaining_days', 'state'])
+        vals = super(Offer, self).read(fields=fields, load=load)
+        for rec in vals:
+            if rec['state'] == 'published' and rec['remaining_days'] < 0:
+                # Expired! Change the state.
+                self.browse([rec['id']]).state = 'archive'
+                rec['state'] = 'archive'
+        return vals

@@ -32,12 +32,16 @@
             <field name="arch" type="xml">
                 <form>
                     <header>
-                        <button name="set_published" string="opublikuj" states="unpublished" type="object" class="oe_highlight"/>
+                        <button name="set_published" string="opublikuj" type="object" class="oe_highlight" attrs="{'invisible': [
+                            '|',
+                                ('state', 'in', ['published', 'template']),
+                                ('remaining_days', '&lt;', 0)
+                        ]}"/>
+                        <field name="remaining_days" invisible="1"/>
                         <button name="set_unpublished" string="wstrzymaj rekrutację" states="published" type="object" class="oe_highlight"/>
-
-                        <button name="set_template" string="Ustaw jako szablon" type="object" states="unpublished"/>
+                        <button name="set_template" string="Ustaw jako szablon" type="object" states="unpublished,archive"/>
                         <button string="Nowa oferta w oparciu o szablon" name="duplicate_template"  type="object" states="template" class="oe_highlight"/>
-                        <button name="set_open" string="Przywróc jako ofertę" type="object" states="template"/>
+                        <button name="set_unpublished" string="Przywróc jako ofertę" type="object" states="template"/>
                     </header>
                     <field name="image" widget="image" class="oe_left"/>
                     <button class="oe_stat_button oe_right" icon="fa-file-o" name="%(action_list_applications)d" type="action">
@@ -155,11 +159,7 @@
                     <filter name="published" string="Opublikowane"
                                 domain="[('state', '=', 'published')]"/>
                     <filter name="current" string="Aktualne"
-                                domain="[
-                                    '|',
-                                    ('date_end', '&gt;=', (context_today().strftime('%Y-%m-%d'))),
-                                    ('date_end', '=', False)
-                                    ]"/>
+                                domain="[('state', '!=', 'archive')]"/>
                     <group string="Group By">
                         <filter name="group_by_resposible" string="Projekt"
                                 context="{'group_by': 'project'}"/>
@@ -182,7 +182,6 @@
                     <field name="application_count"/>
                     <field name="accepted_application_count"/>
                     <field name="vacancies"/>
-                    <field name="accepted_label"/>
                     <templates>
                         <t t-name="kanban-box">
                             <div t-attf-class="oe_kanban_job oe_kanban_card oe_kanban_global_click">
