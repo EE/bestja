@@ -108,14 +108,14 @@
                                 <field name="interval" class="oe_inline" attrs="{'invisible': [('kind', '!=', 'cyclic')]}"/>
                                 <field name="remote_work" attrs="{'invisible': [('kind', '!=', 'flexible')]}" />
                             </group>
+                            <separator />
+                            <field name="comments_time" string="Uwagi" placeholder="Uwagi odnośnie terminu akcji"/>
                         </page>
                         <page string="Miejsce">
+                            <separator string="Podaj lokalizację"/>
                             <field name="no_localization" string="Oferta nie ma przypisanej lokalizacji"/><label for="no_localization"/>
-                                <div attrs="{'invisible': [('no_localization', '=', True)]}">
-                                <separator string="Podaj lokalizację"/>
-                                <separator/>
-                                <widget type="google_maps.coordinates"/>
-                                <separator/>
+                            <widget type="google_maps.coordinates" attrs="{'invisible': [('no_localization', '=', True)]}"/><!-- the google map widget needs to have its own separate visibility definition, so it can later receive the change:effective_invisible event. -->
+                            <div attrs="{'invisible': [('no_localization', '=', True)]}">
                                 <group string="Wyświetlany opis miejsca">
                                     <field name="location_name" string="Nazwa"/>
                                     <field name="address" string="Ulica, nr domu"/>
@@ -182,6 +182,8 @@
                     <field name="application_count"/>
                     <field name="accepted_application_count"/>
                     <field name="vacancies"/>
+                    <field name="date_end"/>
+                    <field name="remaining_days"/>
                     <templates>
                         <t t-name="kanban-box">
                             <div t-attf-class="oe_kanban_job oe_kanban_card oe_kanban_global_click">
@@ -205,6 +207,24 @@
                                             <field name="project"/>
                                         </div>
 
+                                        <div class="kanban_offer_status_action">
+                                            <t t-if="record.state.raw_value != 'archive'">
+                                                <t t-if="record.state.raw_value != 'archive'">
+                                                    <div>Wygasa
+                                                    <t t-if="record.remaining_days.raw_value &gt; 1">za <span><t t-esc="record.remaining_days.raw_value"/></span> dni</t>
+                                                    <t t-if="record.remaining_days.raw_value == 1"><span>jutro</span></t>
+                                                    <t t-if="record.remaining_days.raw_value == 0"><span>dziś</span></t>
+                                                    </div>
+                                                </t>
+
+                                                <a t-if="record.state.raw_value == 'unpublished'" data-name="set_published" data-type="object" class="oe_kanban_action">opublikuj</a>
+                                                <a t-if="record.state.raw_value == 'published'" data-name="set_unpublished" data-type="object" class="oe_kanban_action">wstrzymaj rekrutację</a>
+                                            </t>
+                                            <t t-if="record.state.raw_value == 'archive'">
+                                                <field name="state"/>
+                                            </t>
+                                        </div>
+
                                     </div>
                                     <div class="oe_applications">
                                         <a name="%(action_list_applications)d" type="action">
@@ -220,11 +240,6 @@
                                                 'label': 'Zatrudniono'
                                             }">
                                         </field>
-                                    </div>
-
-                                    <div class="oe_launch_recruitment">
-                                        <a t-if="record.state.raw_value == 'unpublished'" data-name="set_published" data-type="object" class="oe_kanban_action">Opublikuj</a>
-                                        <a t-if="record.state.raw_value == 'published'" data-name="set_unpublished" data-type="object" class="oe_kanban_action">Wstrzymaj rekrutację</a>
                                     </div>
                                 </div>
                             </div>

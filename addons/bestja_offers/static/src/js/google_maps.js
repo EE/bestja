@@ -21,6 +21,7 @@ openerp.bestja_offers = function(instance) {
             this.notebook_fix();
 
             this.on("change:effective_readonly", this, this.readonly);
+            this.on("change:effective_invisible", this, this.reset_map);
             this.readonly();
         },
 
@@ -159,6 +160,12 @@ openerp.bestja_offers = function(instance) {
             this.set_map_position(lat, lng);
         },
 
+        /* Needed after the element was invisible */
+        reset_map: function() {
+            google.maps.event.trigger(this.map, 'resize');
+            this.reset_position();
+        },
+
         /*
             if the widget is in a notebook we need to trigger resize,
             after it is shown.
@@ -169,8 +176,7 @@ openerp.bestja_offers = function(instance) {
                 var link_id = notebook.attr("aria-labelledby");
                 var obj = this;
                 $("#" + link_id).click(function() {
-                        google.maps.event.trigger(obj.map, 'resize');
-                        obj.reset_position();
+                        obj.reset_map();
                     }
                 );
             }

@@ -57,7 +57,7 @@ class Offer(models.Model):
 
     state = fields.Selection(STATES, default='unpublished', string="Stan")
     name = fields.Char(string="Nazwa")
-    vacancies = fields.Integer(string="Liczba wakatów", default=1)
+    vacancies = fields.Integer(string="Liczba wakatów", requred=True, default=1)
     project = fields.Many2one(
         'project.project',
         string="Projekt",
@@ -69,8 +69,8 @@ class Offer(models.Model):
         string="Organizacja",
         related='project.organization'
     )
-    skills = fields.Many2many('volunteer.skill')
-    wishes = fields.Many2many('volunteer.wish')
+    skills = fields.Many2many('volunteer.skill', required=True)
+    wishes = fields.Many2many('volunteer.wish', required=True)
     drivers_license = fields.Many2one('volunteer.drivers_license', string="Prawa jazdy")
     sanepid = fields.Boolean(string="Badania sanepidu")
     forklift = fields.Boolean(string="Uprawnienia na wózek widłowy")
@@ -84,20 +84,24 @@ class Offer(models.Model):
     target_group = fields.Many2many(
         'volunteer.occupation',
         default=_default_target_group,
+        required=True,
         string="Kto jest adresatem oferty?",
         help="Wybierz grupę docelową np. studenci, emeryci."
     )
     helpee_group = fields.Many2many(
         'offers.helpee_group',
         default=_default_helpee_group,
+        required=True,
         string="Komu wolontariusz może pomóc?",
         help="Wybierz grupę osób, z którymi będzie pracował."
     )
     desc_aim = fields.Text(
+        required=True,
         string="Co jest celem oferty?",
         help="""Opisz w skrócie czym będzie zajmował się wolontariusz. np. Akcja będzie polegała na uporządkowaniu trawnika"""
     )
     desc_expectations = fields.Text(
+        required=True,
         string="Co będzie robił wolontariusz?",
         help="Jakie będą oczekiwania wobec wolontariusza. \
         Co będzie musiał robić? np. Twoim zadaniem będzie grabienie liści, sadzenie trawy i krzewów"""
@@ -109,7 +113,8 @@ class Offer(models.Model):
         Twoja pomoc pozwoli seniorom miło spędzić czas w ogrodzie."
     )
     desc_benefits = fields.Text(
-        string="Jakie korzyści będzie miał wolontariusz?"
+        required=True,
+        string="Korzyści"
     )
     desc_tools = fields.Text(
         string="Co zapewnia Twoja organizacja?"
@@ -118,14 +123,15 @@ class Offer(models.Model):
         string="Uwagi"
     )
     image = fields.Binary("Photo")
-    date_end = fields.Date(string="Do dnia")
+    date_end = fields.Date(string="Termin ważności")
     remaining_days = fields.Integer(string="Wygasa za", compute='_remaining_days')
     kind = fields.Selection(KIND_CHOICES, required=True, string="rodzaj akcji")
     interval = fields.Selection(INTERVAL_CHOICES, string="powtarzaj co")
     daypart = fields.Many2many('offers.daypart', string="pora dnia")
     hours = fields.Integer(string="liczba h")
-    weekday = fields.Many2many('offers.weekday', string="powtarzaj w")
+    weekday = fields.Many2many('offers.weekday', string="dzień tygodnia")
     remote_work = fields.Boolean(string="praca zdalna")
+    comments_time = fields.Text(string="Uwagi dotyczące terminu")
     applications = fields.One2many('offers.application', 'offer', string="Aplikacje")
     application_count = fields.Integer(compute='_application_count')
     accepted_application_count = fields.Integer(compute='_application_count')
@@ -149,6 +155,34 @@ class Offer(models.Model):
     def _check_vacancies(self):
         if self.vacancies <= 0:
             raise exceptions.ValidationError("Liczba wakatów musi być większa od 0!")
+
+    @api.one
+    @api.constrains('kind', 'hours', 'weekday', 'daypart', 'interval')
+    def _check_time(self):
+        if not self.kind == 'flexible':
+            if not self.hours:
+                raise exceptions.ValidationError("Wypełnij pole liczby godzin!")
+            if not self.weekday:
+                raise exceptions.ValidationError("Wypełnij pole dnia tygodnia!")
+            if not self.daypart:
+                raise exceptions.ValidationError("Wypełnij pole pory dnia!")
+            if self.kind == 'cyclic' and not self.interval:
+                raise exceptions.ValidationError("Wypełnij pole \"powtarzaj w\"!")
+
+    @api.one
+    @api.constrains('no_localization', 'location_name', 'address', 'city', 'latitude', 'longitude')
+    def _check_location(self):
+        if self.no_localization:
+            return
+
+        if not self.location_name:
+            raise exceptions.ValidationError("Wypełnij pole nazwy miejsca!")
+        if not self.address:
+            raise exceptions.ValidationError("Wypełnij pole adresu!")
+        if not self.city:
+            raise exceptions.ValidationError("Wypełnij pole miasta!")
+        if not self.latitude or not self.longitude:
+            raise exceptions.ValidationError("Wskaż położenie na mapie!")
 
     @api.onchange('kind')
     def _onchange_kind(self):
@@ -311,7 +345,7 @@ class Offer(models.Model):
             fields.extend(['remaining_days', 'state'])
         vals = super(Offer, self).read(fields=fields, load=load)
         for rec in vals:
-            if rec['state'] == 'published' and rec['remaining_days'] < 0:
+            if rec['state'] in ('published', 'unpublished') and rec['remaining_days'] < 0:
                 # Expired! Change the state.
                 self.browse([rec['id']]).state = 'archive'
                 rec['state'] = 'archive'
