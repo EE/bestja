@@ -30,7 +30,9 @@
         'data/rejected_reasons.xml',
         'templates.xml',
         'menu.xml',
-        'workflows.xml'
+        'workflows.xml',
+        'security/ir.model.access.csv',
+        'security/security.xml'
     ],
     # only loaded in demonstration mode
     'demo': [

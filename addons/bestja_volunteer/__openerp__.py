@@ -15,7 +15,10 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base'],
+    'depends': [
+        'bestja_base',
+        'bestja_organization'
+    ],
 
     # always loaded
     'data': [
@@ -26,7 +29,8 @@
         'data/skills.xml',
         'data/drivers_license.xml',
         'data/wishes.xml',
-        'menu.xml'
+        'menu.xml',
+        'security/ir.model.access.csv'
     ],
     # only loaded in demonstration mode
     'demo': [

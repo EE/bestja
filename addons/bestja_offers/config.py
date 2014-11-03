@@ -2,6 +2,8 @@
 
 from openerp import models, fields, api
 
+from .search import OffersIndex
+
 
 class Company(models.Model):
     """
@@ -38,3 +40,12 @@ class BestJaSettings(models.TransientModel):
         company = self.env.user.company_id
         company.bestja_max_skills = self.max_skills
         company.bestja_max_wishes = self.max_wishes
+
+    @api.multi
+    def action_reindex(self):
+        """
+        Delete old Whoosh index, create a new one,
+        and add all published offers.
+        """
+        OffersIndex.create_index()
+        self.env['offer'].search([('state', '=', 'published')]).whoosh_reindex()

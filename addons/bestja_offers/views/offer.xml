@@ -5,13 +5,24 @@
             <field name="res_model">offer</field>
             <field name="view_mode">kanban,tree,form</field>
             <field name="context" eval="{'search_default_current': True}" />
+            <field name="domain">[
+                ('state', '!=', 'template'),
+                '|',
+                    ('project.organization.coordinator.id', '=', uid),
+                    ('project.user_id.id', '=', uid)
+            ]</field>
         </record>
 
         <record model="ir.actions.act_window" id="action_list_offers_templates">
             <field name="name">Szablony ofert</field>
             <field name="res_model">offer</field>
             <field name="view_mode">tree,form</field>
-            <field name="context" eval="{'search_default_template': True}" />
+            <field name="domain">[
+                ('state', '=', 'template'),
+                '|',
+                    ('project.organization.coordinator.id', '=', uid),
+                    ('project.user_id.id', '=', uid)
+            ]</field>
         </record>
 
         <record model="ir.ui.view" id="bestja_offer_form">
@@ -21,12 +32,16 @@
             <field name="arch" type="xml">
                 <form>
                     <header>
-                        <button name="set_published" string="opublikuj" states="unpublished" type="object" class="oe_highlight"/>
+                        <button name="set_published" string="opublikuj" type="object" class="oe_highlight" attrs="{'invisible': [
+                            '|',
+                                ('state', 'in', ['published', 'template']),
+                                ('remaining_days', '&lt;', 0)
+                        ]}"/>
+                        <field name="remaining_days" invisible="1"/>
                         <button name="set_unpublished" string="wstrzymaj rekrutację" states="published" type="object" class="oe_highlight"/>
-
-                        <button name="set_template" string="Ustaw jako szablon" type="object" states="unpublished"/>
+                        <button name="set_template" string="Ustaw jako szablon" type="object" states="unpublished,archive"/>
                         <button string="Nowa oferta w oparciu o szablon" name="duplicate_template"  type="object" states="template" class="oe_highlight"/>
-                        <button name="set_open" string="Przywróc jako ofertę" type="object" states="template"/>
+                        <button name="set_unpublished" string="Przywróc jako ofertę" type="object" states="template"/>
                     </header>
                     <field name="image" widget="image" class="oe_left"/>
                     <button class="oe_stat_button oe_right" icon="fa-file-o" name="%(action_list_applications)d" type="action">
@@ -43,8 +58,7 @@
                         <field name="vacancies"/>
                         <label for="project"/>
                         <div><field name="project" class="oe_inline"/> <span class="oe_grey oe_edit_only">Wybierz lub utwórz nowy projekt</span></div>
-                        <label for="manager"/>
-                        <div><field name="manager" class="oe_inline"/> <span class="oe_grey oe_edit_only">Wybierz osobę odpowiedzialną za akcję</span></div>
+                        <field name="date_end"/>
                     </group>
                     <notebook colspan="4">
                         <page string="Umiejętności">
@@ -54,7 +68,7 @@
                             <separator string="Uprawienia" class="oe_inline"/>
                             <span class="oe_grey oe_edit_only">Wybierz uprawnienia jeżeli są wymagane</span>
                             <div>
-                                <label for="drivers_license"/><field name="drivers_license" class="oe_inline"/><br/>
+                                <label for="drivers_license"/><field name="drivers_license" options="{'no_create': True}" class="oe_inline"/><br/>
                                 <field name="sanepid"/><label for="sanepid"/><br/>
                                 <field name="forklift"/><label for="forklift"/>
                             </div>
@@ -64,9 +78,9 @@
                             <span class="oe_grey oe_edit_only">Wybierz czym będzie zajmował się wolontariusz (max. <span id="max_wishes"/> obszary)</span>
                             <field name="wishes" widget="many2many_checkboxes"/>
                         </page>
-                        <page string="Opis akcji">
+                        <page string="Opis">
                             <label for="target_group"/>
-                            <field name="target_group" widget="many2many_tags"/>
+                            <field name="target_group" widget="many2many_tags" options="{'no_create': True}"/>
                             <label for="desc_aim"/>
                             <field name="desc_aim" placeholder="Opisz w skrócie czym będzie zajmował się wolontariusz"/>
                             <label for="desc_expectations"/>
@@ -76,18 +90,13 @@
                             <label for="desc_benefits"/>
                             <field name="desc_benefits" placeholder="Opisz czego nauczy się, jakie zdobędzie kwalifikacje, doświadczenia."/>
                             <label for="helpee_group"/>
-                            <field name="helpee_group" widget="many2many_tags"/>
+                            <field name="helpee_group" widget="many2many_tags" options="{'no_create': True}"/>
                             <label for="desc_tools"/>
                             <field name="desc_tools" placeholder="np. napoje, koszulki, przyrządy ogrodnicze."/>
                             <label for="desc_comments"/>
                             <field name="desc_comments" placeholder="Wpisz jeśli masz uwagi lub dodatkowe wymagania."/>
                         </page>
-                        <page string="Termin akcji">
-                            <group string="Wybierz termin akcji" col="5">
-                                <field name="date_start"/>
-                                <field name="date_end" class="oe_inline"/>
-                                <span class="oe_grey oe_edit_only">Zostaw puste jeżeli jest to akcja bezterminowa</span>
-                            </group>
+                        <page string="Termin">
                             <group string="Wybierz rodzaj akcji" col="1">
                                 <field name="kind" nolabel="1" options="{'horizontal': True}" widget="radio"/>
                             </group>
@@ -95,20 +104,30 @@
                             <group col="2">
                                 <field name="hours" attrs="{'invisible': [('kind', 'not in', ['periodic', 'cyclic'])]}"/>
                                 <field name="weekday" widget="many2many_checkboxes" class="horizontal_checkboxes" attrs="{'invisible': [('kind', 'not in', ['periodic', 'cyclic'])]}" />
+                                <field name="daypart" widget="many2many_checkboxes" class="horizontal_checkboxes" attrs="{'invisible': [('kind', 'not in', ['periodic', 'cyclic'])]}"/>
                                 <field name="interval" class="oe_inline" attrs="{'invisible': [('kind', '!=', 'cyclic')]}"/>
-                                <field name="daypart" widget="many2many_checkboxes" class="horizontal_checkboxes"  attrs="{'invisible': [('kind', '!=', 'cyclic')]}"/>
                                 <field name="remote_work" attrs="{'invisible': [('kind', '!=', 'flexible')]}" />
                             </group>
+                            <separator />
+                            <field name="comments_time" string="Uwagi" placeholder="Uwagi odnośnie terminu akcji"/>
                         </page>
-                        <page string="Miejsce akcji">
-                            <widget type="google_maps.coordinates"/>
-                            <separator/>
-                            <group>
-                                <field name="district" class="oe_inline"/>
-                                <field name="city" class="oe_inline"/>
-                                <field name="latitude" class="coordinate_fields"/>
-                                <field name="longitude" class="coordinate_fields"/>
-                            </group>
+                        <page string="Miejsce">
+                            <separator string="Podaj lokalizację"/>
+                            <field name="no_localization" string="Oferta nie ma przypisanej lokalizacji"/><label for="no_localization"/>
+                            <widget type="google_maps.coordinates" attrs="{'invisible': [('no_localization', '=', True)]}"/><!-- the google map widget needs to have its own separate visibility definition, so it can later receive the change:effective_invisible event. -->
+                            <div attrs="{'invisible': [('no_localization', '=', True)]}">
+                                <group string="Wyświetlany opis miejsca">
+                                    <field name="location_name" string="Nazwa"/>
+                                    <field name="address" string="Ulica, nr domu"/>
+                                    <field name="city"/>
+                                </group>
+                                <separator/>
+                                <group>
+                                    <field name="district"/>
+                                </group>
+                                    <field name="latitude" class="coordinate_fields"/>
+                                    <field name="longitude" class="coordinate_fields"/>
+                            </div>
                         </page>
                     </notebook>
                 </form>
@@ -123,7 +142,6 @@
                 <tree>
                     <field name="name"/>
                     <field name="project"/>
-                    <field name="manager"/>
                     <field name="state"/>
                 </tree>
             </field>
@@ -137,24 +155,18 @@
                 <search>
                     <field name="name" string="Nazwa"/>
                     <field name="project" string="Projekt"/>
-                    <field name="manager" string="Opiekun"/>
+                    <field name="organization" string="Organizacja"/>
                     <filter name="published" string="Opublikowane"
                                 domain="[('state', '=', 'published')]"/>
-                    <filter name="template" string="Szablony"
-                                domain="[('state', '=', 'template')]"/>
                     <filter name="current" string="Aktualne"
-                                domain="[
-                                    '|',
-                                    ('date_end', '&gt;=', (context_today().strftime('%Y-%m-%d'))),
-                                    ('date_end', '=', False)
-                                    ]"/>
+                                domain="[('state', '!=', 'archive')]"/>
                     <group string="Group By">
                         <filter name="group_by_resposible" string="Projekt"
                                 context="{'group_by': 'project'}"/>
                         <filter name="group_by_state" string="Stan"
                                 context="{'group_by': 'state'}"/>
-                        <filter name="group_by_manager" string="Opiekun oferty"
-                                context="{'group_by': 'manager'}"/>
+                        <filter name="group_by_organization" string="Organizacja"
+                                context="{'group_by': 'organization'}"/>
                     </group>
                 </search>
             </field>
@@ -169,9 +181,9 @@
                     <field name="name"/>
                     <field name="application_count"/>
                     <field name="accepted_application_count"/>
-                    <field name="manager"/>
                     <field name="vacancies"/>
-                    <field name="accepted_label"/>
+                    <field name="date_end"/>
+                    <field name="remaining_days"/>
                     <templates>
                         <t t-name="kanban-box">
                             <div t-attf-class="oe_kanban_job oe_kanban_card oe_kanban_global_click">
@@ -187,18 +199,30 @@
                                     </ul>
                                 </div>
                                 <div class="oe_kanban_content">
-                                    <t t-if="record.manager.raw_value">
-                                        <img t-att-src="kanban_image('res.users', 'image_medium', record.manager.raw_value[0])" t-att-title="record.manager.value" class="oe_kanban_avatar oe_job_avatar"/>
-                                    </t>
-                                    <t t-if="record.manager.raw_value === false">
-                                        <img t-att-src='_s + "/base/static/src/img/avatar.png"' class="oe_kanban_avatar oe_job_avatar"/>
-                                    </t>
                                     <div class="oe_job_detail">
                                         <div class="kanban_offer_name">
                                             <a type="open"><field name="name"/></a>
                                         </div>
                                         <div class="kanban_offer_project_name">
                                             <field name="project"/>
+                                        </div>
+
+                                        <div class="kanban_offer_status_action">
+                                            <t t-if="record.state.raw_value != 'archive'">
+                                                <t t-if="record.state.raw_value != 'archive'">
+                                                    <div>Wygasa
+                                                    <t t-if="record.remaining_days.raw_value &gt; 1">za <span><t t-esc="record.remaining_days.raw_value"/></span> dni</t>
+                                                    <t t-if="record.remaining_days.raw_value == 1"><span>jutro</span></t>
+                                                    <t t-if="record.remaining_days.raw_value == 0"><span>dziś</span></t>
+                                                    </div>
+                                                </t>
+
+                                                <a t-if="record.state.raw_value == 'unpublished'" data-name="set_published" data-type="object" class="oe_kanban_action">opublikuj</a>
+                                                <a t-if="record.state.raw_value == 'published'" data-name="set_unpublished" data-type="object" class="oe_kanban_action">wstrzymaj rekrutację</a>
+                                            </t>
+                                            <t t-if="record.state.raw_value == 'archive'">
+                                                <field name="state"/>
+                                            </t>
                                         </div>
 
                                     </div>
@@ -216,11 +240,6 @@
                                                 'label': 'Zatrudniono'
                                             }">
                                         </field>
-                                    </div>
-
-                                    <div class="oe_launch_recruitment">
-                                        <a t-if="record.state.raw_value == 'unpublished'" data-name="set_published" data-type="object" class="oe_kanban_action">Opublikuj</a>
-                                        <a t-if="record.state.raw_value == 'published'" data-name="set_unpublished" data-type="object" class="oe_kanban_action">Wstrzymaj rekrutację</a>
                                     </div>
                                 </div>
                             </div>

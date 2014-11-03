@@ -17,6 +17,10 @@
                                 <field name="max_wishes"/>
                             </div>
                         </div>
+                        <label for="id" string="Wyszukiwanie"/>
+                        <div>
+                            <button name="action_reindex" string="przeindeksuj oferty" type="object"/>
+                        </div>
                     </group>
                 </xpath>
             </field>
