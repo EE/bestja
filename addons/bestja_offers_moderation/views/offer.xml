@@ -1,0 +1,33 @@
+<openerp>
+    <data>
+        <record id="bestja_offer_form_moderation" model="ir.ui.view">
+            <field name="model">offer</field>
+            <field name="inherit_id" ref="bestja_offers.bestja_offer_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='set_published']" position="before">
+                    <button name="set_pending" string="Prześlij do akceptacji" type="object" class="oe_highlight" attrs="{'invisible': [
+                            '|',
+                                ('state', 'in', ['published', 'template', 'pending']),
+                                ('remaining_days', '&lt;', 0)
+                        ]}"/>
+                </xpath>
+                <xpath expr="//button[@name='set_unpublished']" position="attributes">
+                    <attribute name="states">published,pending</attribute>
+                </xpath>
+                <xpath expr="//button[@name='set_published']" position="attributes">
+                    <attribute name="groups">bestja_offers_moderation.bestja_offers_moderator</attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_moderate_offers">
+            <field name="name">Oferty do moderacji</field>
+            <field name="res_model">offer</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="groups_id" eval="[(4, ref('bestja_offers_moderator'))]"/>
+            <field name="domain">[
+                ('state', '=', 'pending'),
+            ]</field>
+        </record>
+    </data>
+</openerp>

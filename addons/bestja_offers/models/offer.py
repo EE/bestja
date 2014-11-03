@@ -306,7 +306,6 @@ class Offer(models.Model):
                     name=offer.name,
                     wishes=list_names(offer.wishes),
                     target_group=list_names(offer.target_group),
-                    project=offer.project.name,
                     organization=offer.project.organization.name
                 )
             else:

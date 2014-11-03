@@ -32,7 +32,7 @@
             <field name="arch" type="xml">
                 <form>
                     <header>
-                        <button name="set_published" string="opublikuj" type="object" class="oe_highlight" attrs="{'invisible': [
+                        <button name="set_published" string="Opublikuj" type="object" class="oe_highlight" attrs="{'invisible': [
                             '|',
                                 ('state', 'in', ['published', 'template']),
                                 ('remaining_days', '&lt;', 0)
@@ -68,7 +68,7 @@
                             <separator string="Uprawienia" class="oe_inline"/>
                             <span class="oe_grey oe_edit_only">Wybierz uprawnienia jeżeli są wymagane</span>
                             <div>
-                                <label for="drivers_license"/><field name="drivers_license" options="{'no_create': True}" class="oe_inline"/><br/>
+                                <label for="drivers_license"/><field name="drivers_license" options="{'no_create': True, 'no_open': True}" class="oe_inline"/><br/>
                                 <field name="sanepid"/><label for="sanepid"/><br/>
                                 <field name="forklift"/><label for="forklift"/>
                             </div>
@@ -209,20 +209,16 @@
 
                                         <div class="kanban_offer_status_action">
                                             <t t-if="record.state.raw_value != 'archive'">
-                                                <t t-if="record.state.raw_value != 'archive'">
-                                                    <div>Wygasa
-                                                    <t t-if="record.remaining_days.raw_value &gt; 1">za <span><t t-esc="record.remaining_days.raw_value"/></span> dni</t>
-                                                    <t t-if="record.remaining_days.raw_value == 1"><span>jutro</span></t>
-                                                    <t t-if="record.remaining_days.raw_value == 0"><span>dziś</span></t>
-                                                    </div>
-                                                </t>
+                                                <div>Wygasa
+                                                <t t-if="record.remaining_days.raw_value &gt; 1">za <span><t t-esc="record.remaining_days.raw_value"/></span> dni</t>
+                                                <t t-if="record.remaining_days.raw_value == 1"><span>jutro</span></t>
+                                                <t t-if="record.remaining_days.raw_value == 0"><span>dziś</span></t>
+                                                </div>
+                                            </t>
 
-                                                <a t-if="record.state.raw_value == 'unpublished'" data-name="set_published" data-type="object" class="oe_kanban_action">opublikuj</a>
-                                                <a t-if="record.state.raw_value == 'published'" data-name="set_unpublished" data-type="object" class="oe_kanban_action">wstrzymaj rekrutację</a>
-                                            </t>
-                                            <t t-if="record.state.raw_value == 'archive'">
-                                                <field name="state"/>
-                                            </t>
+                                            <a t-if="record.state.raw_value == 'unpublished'" data-name="set_published" data-type="object" class="oe_kanban_action">opublikuj</a>
+                                            <a t-if="record.state.raw_value == 'published'" data-name="set_unpublished" data-type="object" class="oe_kanban_action">wstrzymaj rekrutację</a>
+                                            <div t-if="record.state.raw_value != 'unpublished' and record.state.raw_value != 'published'" class="state"><field name="state"/></div>
                                         </div>
 
                                     </div>

@@ -3,7 +3,7 @@
         <record id="offer_read_rule" model="ir.rule">
             <field name="name">Offer can be read when its published or by the coordinator</field>
             <field name="model_id" ref="model_offer"/>
-            <field name="global" eval="True"/>
+            <field name="groups" eval="[(4, ref('base.group_user'))]"/>
             <field name="domain_force">[
                 '|',
                     ('state', '=', 'published'),
@@ -20,7 +20,7 @@
         <record id="offer_modify_rule" model="ir.rule">
             <field name="name">Offer can be modified by the coordinator only</field>
             <field name="model_id" ref="model_offer"/>
-            <field name="global" eval="True"/>
+            <field name="groups" eval="[(4, ref('base.group_user'))]"/>
             <field name="domain_force">[
                 '|',
                     ('project.organization.coordinator.id', '=', user.id),
@@ -30,6 +30,17 @@
             <field name="perm_write" eval="True"/>
             <field name="perm_create" eval="True"/>
             <field name="perm_unlink" eval="True"/>
+        </record>
+
+        <record id="offer_application_rule" model="ir.rule">
+            <field name="name">Applications can be viewed and modified by coordinators and project managers only.</field>
+            <field name="model_id" ref="model_offers_application"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">[
+                '|',
+                    ('offer.project.organization.coordinator.id', '=', user.id),
+                    ('offer.project.user_id.id', '=', user.id)
+            ]</field>
         </record>
     </data>
 </openerp>

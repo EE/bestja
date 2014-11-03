@@ -14,7 +14,6 @@ class OffersSchema(fields.SchemaClass):
     wishes = fields.KEYWORD(commas=True)
     target_group = fields.KEYWORD(commas=True)
     organization = fields.TEXT(stored=True, sortable=True)
-    project = fields.STORED()
 
 
 class OffersFacets(object):
