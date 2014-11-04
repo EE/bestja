@@ -42,6 +42,7 @@
                         <button name="set_template" string="Ustaw jako szablon" type="object" states="unpublished,archive"/>
                         <button string="Nowa oferta w oparciu o szablon" name="duplicate_template"  type="object" states="template" class="oe_highlight"/>
                         <button name="set_unpublished" string="Przywróc jako ofertę" type="object" states="template"/>
+                        <button name="show_website_action" string="Zobacz na WWW" type="object" class="oe_link" states="published"/>
                     </header>
                     <field name="image" widget="image" class="oe_left"/>
                     <button class="oe_stat_button oe_right" icon="fa-file-o" name="%(action_list_applications)d" type="action">

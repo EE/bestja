@@ -349,3 +349,11 @@ class Offer(models.Model):
                 self.browse([rec['id']]).state = 'archive'
                 rec['state'] = 'archive'
         return vals
+
+    @api.multi
+    def show_website_action(self):
+        return {
+            'type': 'ir.actions.act_url',
+            'url': '/offer/{}/'.format(slug(self)),
+            'target': 'new',
+        }
