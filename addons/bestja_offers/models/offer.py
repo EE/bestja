@@ -59,7 +59,7 @@ class Offer(models.Model):
     name = fields.Char(string="Nazwa")
     vacancies = fields.Integer(string="Liczba wakatów", requred=True, default=1)
     project = fields.Many2one(
-        'project.project',
+        'bestja.project',
         string="Projekt",
         required=True,
         domain=lambda self: [('organization.id', '=', self.env.user.coordinated_org.id)]

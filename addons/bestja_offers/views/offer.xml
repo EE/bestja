@@ -9,7 +9,7 @@
                 ('state', '!=', 'template'),
                 '|',
                     ('project.organization.coordinator.id', '=', uid),
-                    ('project.user_id.id', '=', uid)
+                    ('project.manager.id', '=', uid)
             ]</field>
         </record>
 
@@ -21,7 +21,7 @@
                 ('state', '=', 'template'),
                 '|',
                     ('project.organization.coordinator.id', '=', uid),
-                    ('project.user_id.id', '=', uid)
+                    ('project.manager.id', '=', uid)
             ]</field>
         </record>
 
@@ -187,7 +187,7 @@
                     <field name="remaining_days"/>
                     <templates>
                         <t t-name="kanban-box">
-                            <div t-attf-class="oe_kanban_job oe_kanban_card oe_kanban_global_click">
+                            <div t-attf-class="oe_kanban_card bestja_kanban_card">
                                 <div class="oe_dropdown_toggle oe_dropdown_kanban oe_custom">
                                     <span class="oe_e">í</span>
                                     <ul class="oe_dropdown_menu">
@@ -199,45 +199,43 @@
                                         </t>
                                     </ul>
                                 </div>
-                                <div class="oe_kanban_content">
-                                    <div class="oe_job_detail">
-                                        <div class="kanban_offer_name">
-                                            <a type="open"><field name="name"/></a>
+                                <div class="bestja_kanban_title">
+                                    <a type="open"><field name="name"/></a>
+                                </div>
+                                <div class="bestja_kanban_subtitle">
+                                    <field name="project"/>
+                                </div>
+
+                                <div class="bestja_kanban_status">
+                                    <t t-if="record.state.raw_value != 'archive'">
+                                        <div>Wygasa
+                                        <t t-if="record.remaining_days.raw_value &gt; 1">za <span><t t-esc="record.remaining_days.raw_value"/></span> dni</t>
+                                        <t t-if="record.remaining_days.raw_value == 1"><span>jutro</span></t>
+                                        <t t-if="record.remaining_days.raw_value == 0"><span>dziś</span></t>
                                         </div>
-                                        <div class="kanban_offer_project_name">
-                                            <field name="project"/>
-                                        </div>
+                                    </t>
 
-                                        <div class="kanban_offer_status_action">
-                                            <t t-if="record.state.raw_value != 'archive'">
-                                                <div>Wygasa
-                                                <t t-if="record.remaining_days.raw_value &gt; 1">za <span><t t-esc="record.remaining_days.raw_value"/></span> dni</t>
-                                                <t t-if="record.remaining_days.raw_value == 1"><span>jutro</span></t>
-                                                <t t-if="record.remaining_days.raw_value == 0"><span>dziś</span></t>
-                                                </div>
-                                            </t>
-
-                                            <a t-if="record.state.raw_value == 'unpublished'" data-name="set_published" data-type="object" class="oe_kanban_action">opublikuj</a>
-                                            <a t-if="record.state.raw_value == 'published'" data-name="set_unpublished" data-type="object" class="oe_kanban_action">wstrzymaj rekrutację</a>
-                                            <div t-if="record.state.raw_value != 'unpublished' and record.state.raw_value != 'published'" class="state"><field name="state"/></div>
-                                        </div>
-
+                                    <a t-if="record.state.raw_value == 'unpublished'" data-name="set_published" data-type="object" class="oe_kanban_action">opublikuj</a>
+                                    <a t-if="record.state.raw_value == 'published'" data-name="set_unpublished" data-type="object" class="oe_kanban_action">wstrzymaj rekrutację</a>
+                                    <div t-if="record.state.raw_value != 'unpublished' and record.state.raw_value != 'published'" class="state">
+                                        <field name="state"/>
                                     </div>
-                                    <div class="oe_applications">
-                                        <a name="%(action_list_applications)d" type="action">
-                                            <span><t t-esc="record.application_count.raw_value"/></span> aplikacji
-                                        </a>
-                                    </div>
+                                </div>
 
-                                    <div class="oe_job_justgage">
-                                        <field name="accepted_application_count" widget="gauge"
-                                            style="margin-top:7px; width:160px; height: 120px;"
-                                            options="{
-                                                'max_field': 'vacancies',
-                                                'label': 'Zatrudniono'
-                                            }">
-                                        </field>
-                                    </div>
+
+                                <div class="bestja_kanban_related">
+                                    <a name="%(action_list_applications)d" type="action">
+                                        <span><t t-esc="record.application_count.raw_value"/></span> aplikacji
+                                    </a>
+                                </div>
+
+                                <div class="bestja_kanban_justgage">
+                                    <field name="accepted_application_count" widget="gauge"
+                                        options="{
+                                            'max_field': 'vacancies',
+                                            'label': 'Zatrudniono'
+                                        }">
+                                    </field>
                                 </div>
                             </div>
                         </t>

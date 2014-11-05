@@ -1,14 +1,186 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
+        <!-- Actions -->
+        <record model="ir.actions.act_window" id="action_list_projects">
+            <field name="name">Projekty</field>
+            <field name="res_model">bestja.project</field>
+            <field name="view_mode">kanban,tree,form</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_list_tasks">
+            <field name="name">Zadania</field>
+            <field name="res_model">bestja.task</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'search_default_project': active_id}</field>
+        </record>
+
+        <!-- Projects -->
         <record model="ir.ui.view" id="bestja_project_form">
-            <field name="name">project.project.form</field>
-            <field name="model">project.project</field>
-            <field name="inherit_id" ref="project.edit_project" />
+            <field name="name">bestja.project.form</field>
+            <field name="model">bestja.project</field>
             <field name="arch" type="xml">
-                <xpath expr="//field[@name='partner_id']" position="replace">
+                <form>
+                    <sheet>
+                        <button class="oe_stat_button oe_right" icon="fa-briefcase" name="%(action_list_tasks)d" type="action">
+                            <field name="tasks_count" widget="statinfo" string="zadań"/>
+                        </button>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1 class="oe_inline">
+                                <field name="name"/>
+                            </h1>
+                        </div>
+                        <group col="2">
+                            <field name="organization" options="{'no_create': True}"/>
+                            <field name="manager" options="{'no_create': True}"/>
+                        </group>
+                        <group col="2" string="Termin">
+                            <field name="date_start"/>
+                            <field name="date_stop"/>
+                        </group>
+
+                        <separator string="Wolontariusze"/>
+                        <field colspan="4" name="members" widget="many2many_kanban">
+                            <kanban quick_create="false" create="true" delete="true">
+                                <field name="name"/>
+                                <templates>
+                                    <t t-name="kanban-box">
+                                        <div style="position: relative">
+                                            <a t-if="!read_only_mode" type="delete" style="position: absolute; right: 0; padding: 4px; diplay: inline-block">X</a>
+                                            <div class="oe_module_vignette">
+                                                <img t-att-src="kanban_image('res.users', 'image_small', record.id.value)" class="oe_avatar oe_kanban_avatar_smallbox"/>
+                                                <div class="oe_module_desc">
+                                                    <field name="name"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </t>
+                                </templates>
+                            </kanban>
+                        </field>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="bestja_project_tree">
+            <field name="name">bestja.project.tree</field>
+            <field name="model">bestja.project</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
                     <field name="organization"/>
-                </xpath>
+                    <field name="tasks_count"/>
+                </tree>
+            </field>
+        </record>
+
+       <record id="bestja_project_kanban" model="ir.ui.view">
+            <field name="name">bestja.project.kanban</field>
+            <field name="model">bestja.project</field>
+            <field name="arch" type="xml">
+                <kanban class="oe_background_grey">
+                    <field name="name"/>
+                    <field name="organization"/>
+                    <field name="tasks_count"/>
+                    <field name="done_tasks_count"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_card bestja_kanban_card">
+                                <div class="bestja_kanban_title">
+                                    <a type="open"><field name="name"/></a>
+                                </div>
+
+                                <div class="bestja_kanban_subtitle">
+                                    <field name="organization"/>
+                                </div>
+
+                                <div class="bestja_kanban_related">
+                                    <a name="%(action_list_tasks)d" type="action">
+                                        <span><t t-esc="record.tasks_count.raw_value"/></span> zadań
+                                    </a>
+                                </div>
+
+                                <div class="bestja_kanban_justgage" t-if="record.tasks_count.raw_value > 0">
+                                    <field name="done_tasks_count" widget="gauge"
+                                        options="{
+                                            'max_field': 'tasks_count',
+                                            'label': 'zakończone'
+                                        }">
+                                    </field>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <!-- Tasks -->
+        <record model="ir.ui.view" id="bestja_task_form">
+            <field name="name">bestja.task.form</field>
+            <field name="model">bestja.task</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="set_in_progress" string="rozpocznij" type="object" class="oe_highlight" states="new,done"/>
+                        <button name="set_done" string="zakończ" type="object" class="oe_highlight" states="in_progress"/>
+                    </header>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only"/>
+                        <h1 class="oe_inline">
+                            <field name="name"/>
+                        </h1>
+                        <field name="state" readonly="1" class="state"/>
+                    </div>
+                    <group col="2">
+                        <field name="project" readonly="1"/>
+                        <field name="user" options="{'no_create': True}"/>
+                    </group>
+                    <group col="2" string="Termin realizacji zadania">
+                        <field name="date_start"/>
+                        <field name="date_stop"/>
+                    </group>
+                    <separator/>
+                    <label for="description"/>
+                    <field name="description" placeholder="Wpisz szczegółowy opis zadania"/>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="bestja_tasks_search">
+            <field name="name">bestja.task.search</field>
+            <field name="model">bestja.task</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name" string="Nazwa"/>
+                    <field name="project" string="Project"/>
+                    <field name="user" string="Wykonawca"/>
+                    <filter name="current" string="Nowe"
+                                domain="[('state', '=', 'new')]"/>
+                    <group string="Group By">
+                        <filter name="group_by_state" string="Status"
+                                context="{'group_by': 'state'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="bestja_task_tree">
+            <field name="name">bestja.task.tree</field>
+            <field name="model">bestja.task</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="project"/>
+                    <field name="user"/>
+                    <field name="state"/>
+                </tree>
             </field>
         </record>
     </data>

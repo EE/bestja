@@ -1,0 +1,6 @@
+<openerp>
+    <data>
+        <menuitem parent="bestja_base.menu_bestja" id="menu_project" name="Projekty" sequence="2"/>
+        <menuitem parent="menu_project" id="menu_project_projects" action="action_list_projects" sequence="1"/>
+    </data>
+</openerp>

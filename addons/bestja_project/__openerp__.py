@@ -6,14 +6,15 @@
     'website': "http://www.laboratorium.ee",
     'version': '0.1',
     'depends': [
-        'bestja_base',  # This dependency is redundant, but we need to load it first because of monkeypatches.
+        'bestja_base',
         'base',
-        'project',
-        'bestja_organization'
+        'bestja_organization',
+        'bestja_volunteer',
     ],
 
     'data': [
-        'views/project.xml'
+        'views/project.xml',
+        'menu.xml',
     ],
     'demo': [
     ],

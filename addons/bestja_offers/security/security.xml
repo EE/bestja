@@ -9,7 +9,7 @@
                     ('state', '=', 'published'),
                 '|',
                     ('project.organization.coordinator.id', '=', user.id),
-                    ('project.user_id.id', '=', user.id)
+                    ('project.manager.id', '=', user.id)
             ]</field>
             <field name="perm_read" eval="True"/>
             <field name="perm_write" eval="False"/>
@@ -24,7 +24,7 @@
             <field name="domain_force">[
                 '|',
                     ('project.organization.coordinator.id', '=', user.id),
-                    ('project.user_id.id', '=', user.id)
+                    ('project.manager.id', '=', user.id)
             ]</field>
             <field name="perm_read" eval="False"/>
             <field name="perm_write" eval="True"/>
