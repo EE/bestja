@@ -1,0 +1,85 @@
+.survey {
+    margin: 40px;
+}
+
+.ee_check_result, .ee_question, .alert {
+    margin: 15px 0;
+}
+
+.ee_question {
+    font-size: 25px;
+}
+
+.alert {
+    transition: 0.5s all;
+}
+
+.ee_answercontainer:nth-child(3n+0) .ee_answer {
+    background-color: rgba(255, 0, 0, 0.4);
+}
+
+ .ee_answercontainer:nth-child(3n+1) .ee_answer {
+    background-color: rgba(0, 255, 0, 0.4);
+}
+
+ .ee_answercontainer:nth-child(3n+2) .ee_answer {
+    background-color: rgba(0, 0, 255, 0.4);
+}
+
+.ee_results > label {
+    display: block;
+}
+
+.ee_answers .ee_checkbox{
+    top: 4px;
+}
+
+.ee_checkbox {
+    position: relative;
+    display: inline-block;
+    border: 1px solid #aaa;
+    width: 28px;
+    border-radius: 8px;
+    transition: 0.3s all;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.ee_checkbox_active {
+    background-color: #1990d5;
+}
+
+.ee_checkbox_active .ee_checkbox_toggle {
+    left: 12px!important;
+}
+
+.ee_checkbox, .ee_checkbox_toggle {
+    height: 16px;
+}
+
+.ee_checkbox_toggle {
+    position: absolute;
+    border-radius: 50%;
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    top: -1px;
+    left: 0px;
+    width: 15px;
+    transition: 0.3s all;
+}
+
+.ee_checkbox_label {
+    color: #666;
+    margin-left: 15px;
+    margin-right: -5px;
+    font-size: 12px;
+}
+
+.ee_correct, .ee_wrong {
+    display: none;
+    margin-left: 10px;
+}
+
+.ee_quiz_result .label {
+    margin: 0 4px;
+}

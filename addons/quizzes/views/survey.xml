@@ -1,0 +1,59 @@
+<openerp><data>
+    <template id="javascripts_survey" inherit_id="website.layout">
+        <xpath expr="//body" position="inside">
+            <script src="/quizzes/static/src/js/survey.js"></script>
+            <link rel="stylesheet" href="/quizzes/static/src/css/survey.css" />
+        </xpath>
+
+    </template>
+
+    <template id="survey_snippet" name="survey_snippet" inherit_id="website.snippets">
+        <xpath expr="//div[@id='snippet_content']" position="inside">
+            <div class="oe_snippet" >
+                <div class="oe_snippet_thumbnail">
+                    <img class="oe_snippet_thumbnail_img" src="/website/static/src/img/blocks/block_quotes_slider.png"/>
+                    <span class="oe_snippet_thumbnail_title">Quiz</span>
+                </div>
+
+                <section class="oe_snippet_body survey">
+                    <div class="container"><div class="row">
+
+                    <div class="ee_question">Enter question here...</div>
+                    <t t-set="answer_count" t-value="4" />
+                    <section class="ee_answers" t-att-data-answer_count="answer_count" ee_contenteditable="false">
+
+                    <div t-foreach="range(answer_count)" t-as="answer" class="ee_answer_row" >
+                        <input class="ee_answer ee_onlynormalmode" ee_contenteditable="false" type="radio" name="ee_answer"/>
+                        <label class="ee_answer_text" ee_contenteditable="true">Enter answer here...</label>
+                        <span class="ee_checkbox_label ee_onlyeditmode" ee_contenteditable="false">correct:</span>
+                        <div class="ee_checkbox ee_onlyeditmode" ee_contenteditable="false">
+                            <div class="ee_checkbox_toggle" ee_contenteditable="false"></div>
+                        </div>
+                        <span class="ee_correct label label-success">OK</span>
+                        <span class="ee_wrong label label-danger">Wrong</span>
+                    </div>
+                    </section>
+                    <section class="ee_quiz_result" ></section>
+
+
+                    </div></div>
+                </section>
+
+            </div>
+        </xpath>
+    </template>
+
+
+    <template id="survey_snippet_options" inherit_id="website.snippet_options">
+        <xpath expr="." position="inside">
+            <div data-snippet-option-id="survey_snippet"
+                 data-selector=".survey"
+                 data-selector-children=".abc">
+
+            </div>
+
+        </xpath>
+
+    </template>
+
+</data></openerp>
