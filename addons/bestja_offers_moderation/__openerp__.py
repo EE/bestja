@@ -7,8 +7,8 @@
     'version': '0.1',
     'depends': ['base', 'bestja_offers'],
     'data': [
-        'views/offer.xml',
         'security/security.xml',
+        'views/offer.xml',
         'menu.xml'
     ],
 }
