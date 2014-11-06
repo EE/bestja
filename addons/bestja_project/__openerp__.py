@@ -13,6 +13,7 @@
     ],
 
     'data': [
+        'security/ir.model.access.csv',
         'views/project.xml',
         'menu.xml',
     ],
