@@ -5,7 +5,6 @@ from openerp import models, fields, api
 
 class Project(models.Model):
     _name = 'bestja.project'
-    _inherit = ['mail.thread']
 
     name = fields.Char(required=True, string="Nazwa")
     organization = fields.Many2one(
