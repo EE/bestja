@@ -12,39 +12,45 @@
             <field name="model">organization</field>
             <field name="arch" type="xml">
                 <form>
+                    <field name="image" widget="image" class="oe_left" options='{"preview_image": "image_medium"}'/>
                     <div class="oe_title">
-                    <field name="image" widget="image" class="oe_left"/>
+                        <label for="name" class="oe_edit_only"/>
+                        <h1>
+                            <field name="name" class="oe_inline"/>
+                        </h1>
                     </div>
-                    <group>
-                        <field name="krs" class="oe_inline"/>
-                        <field name="nip" class="oe_inline"/>
-                        <field name="regon" class="oe_inline"/>>
-                        <field name="name" class="oe_inline"/>
-                        <field name="street_address" class="oe_inline"/>
-                        <field name="street_number" class="oe_inline"/>
-                        <field name="postal_code" class="oe_inline"/>
-                        <field name="city_address" class="oe_inline"/>
-                        <field name="parent" class="oe_inline"/>
+                    <group string="Adres" class="medium_input">
+                        <field name="street_address"/>
+                        <field name="street_number" class="short_input"/>
+                        <field name="postal_code" class="short_input"/>
+                        <field name="city_address"/>
+                        <field name="parent"/>
                     </group>
-                    <hr/>
-                    <group>
-                        <field name="email" class="oe_inline"/>o
-                        <field name="www" class="oe_inline"/>
-                        <field name="fbfanpage" class="oe_inline"/>
-                        <field name="phone" class="oe_inline"/>
-
+                    <group string="Dane rejestrowe" class="short_input">
+                        <field name="krs"/>
+                        <field name="nip"/>
+                        <field name="regon"/>
                     </group>
-                    <hr/>
-                    <group>
-                        <field name="coordinator" options="{'no_create': True}" groups="bestja_base.bestja_instance_admin"/>
-                        <field name="active" groups="bestja_base.bestja_instance_admin"/>
+                    <group string="Kontakt" class="medium_input">
+                        <field name="email"/>
+                        <field name="www"/>
+                        <field name="fbfanpage"/>
+                        <label for="phone"/>
+                        <div>
+                        <field name="phone" class="short_input oe_inline"/> wewn.
+                        <field name="phone_extension" class="short_input"/>
+                        </div>
+                    </group>
+                    <group string="Administracja" groups="bestja_base.bestja_instance_admin" class="medium_input">
+                        <field name="coordinator" options="{'no_create': True}"/>
+                        <field name="active"/>
                     </group>
                     <notebook colspan="2">
                         <page string="Opis Organizacji">
                         <span class="oe_grey oe_edit_only">Opisz czym zajmuje się Twoja organizacja.</span>
                          <field name="organization_description">organization.organization_description</field>
                         </page>
-                        <page string="Wolontarusze" attrs="{'invisible': [('volunteers', '=', [(6, False, [])])]}">
+                        <page string="Ludzie" attrs="{'invisible': [('volunteers', '=', [(6, False, [])])]}">
                             <field name="volunteers" readonly="True" />
                         </page>
                     </notebook>

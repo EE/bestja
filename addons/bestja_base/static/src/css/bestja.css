@@ -10,6 +10,10 @@
     margin-bottom: 25px;
 }
 
+.oe_title h1 input[type="text"] {
+  width: 600px !important;
+}
+
 .oe_horizontal_separator.oe_inline {
     display: inline;
     line-height: 2.5;
@@ -106,4 +110,15 @@
 
 .bestja_kanban_status {
     margin-top: 15px;
+}
+
+/* form inputs */
+.medium_input .oe_form_field,
+.medium_input.oe_form_field {
+  width: 300px !important;
+}
+
+.short_input .oe_form_field,
+.short_input.oe_form_field {
+  width: 100px !important;
 }

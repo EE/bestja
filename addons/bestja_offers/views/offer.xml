@@ -44,15 +44,15 @@
                         <button name="set_unpublished" string="Przywróc jako ofertę" type="object" states="template"/>
                         <button name="show_website_action" string="Zobacz na WWW" type="object" class="oe_link" states="published"/>
                     </header>
-                    <field name="image" widget="image" class="oe_left"/>
+                    <field name="image" widget="image" class="oe_left" options='{"preview_image": "image_medium"}'/>
                     <button class="oe_stat_button oe_right" icon="fa-file-o" name="%(action_list_applications)d" type="action">
                         <field name="application_count" widget="statinfo" string="aplikacji"/>
                     </button>
                     <div class="oe_title">
-                        <h1 class="oe_inline" style="display: inline">
-                            <field name="name" class="oe_inline"/>
+                        <label for="name" class="oe_edit_only"/>
+                        <h1>
+                            <field name="name"/>
                         </h1>
-                        <span class="oe_grey oe_edit_only">Nadaj ofercie atrakcyjną, przyciągającą uwagę nazwę.</span>
                         <field name="state" readonly="1" class="state"/>
                     </div>
                     <group>
