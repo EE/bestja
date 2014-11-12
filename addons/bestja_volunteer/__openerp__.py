@@ -17,7 +17,6 @@
     # any module necessary for this one to work correctly
     'depends': [
         'bestja_base',
-        'bestja_organization'
     ],
 
     # always loaded

@@ -9,11 +9,11 @@
         'bestja_base',
         'base',
         'bestja_organization',
-        'bestja_volunteer',
     ],
 
     'data': [
         'security/ir.model.access.csv',
+        'security/security.xml',
         'views/project.xml',
         'menu.xml',
     ],

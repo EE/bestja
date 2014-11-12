@@ -107,3 +107,9 @@ class Organization(models.Model):
         self.clean_field_value('krs')
         if self.krs and (len(self.krs) != 10 or not self.krs.isdigit()):
             raise exceptions.ValidationError("Niepoprawny KRS.")
+
+
+class UserWithOrganization(models.Model):
+    _inherit = 'res.users'
+
+    coordinated_org = fields.One2many('organization', inverse_name='coordinator')

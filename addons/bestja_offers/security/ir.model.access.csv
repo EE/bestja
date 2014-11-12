@@ -1,7 +1,8 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_offers,offers,model_offer,,1,0,0,0
 access_offers,offers,model_offer,base.group_user,1,1,1,1
-access_application,application,model_offers_application,,1,1,1,1
+access_application,application,model_offers_application,,0,0,1,0
+access_application,application,model_offers_application,base.group_user,1,1,1,1
 access_weekday,weekday,model_offers_weekday,,1,0,0,0
 access_daypart,daypart,model_offers_daypart,,1,0,0,0
 access_helpee_group,helpee_group,model_offers_helpee_group,,1,0,0,0

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from openerp import models, fields, api
+from openerp import models, fields
 
 
 class VolunteerWish(models.Model):
@@ -50,7 +50,6 @@ class Volunteer(models.Model):
     drivers_license = fields.Many2many('volunteer.drivers_license', ondelete='restrict')
     sanepid = fields.Date()
     forklift = fields.Date()
-    coordinated_org = fields.One2many('organization', inverse_name='coordinator')
 
     street = fields.Char()
     zip_code = fields.Char(size=6)
