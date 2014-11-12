@@ -33,9 +33,17 @@
                 <div class="bestja_offers_offer">
                     <div class="cover">
                         <section class="row">
-                            <section class="offer_name col-md-5 col-md-offset-1 col-xs-7 col-xs-offset-1">
+                            <section class="offer_name col-md-3 col-md-offset-1 col-xs-7 col-xs-offset-1">
                                 <h1><t t-esc="offer.name"/></h1>
-                                <p class="offer_organization"><t t-esc="offer.project.organization.name"/></p>
+
+                                <p class="offer_organization"><t t-esc="offer.project.organization.name"/>
+
+                                </p>
+
+                            </section>
+
+                            <section class="offer_share col-md-2">
+                            <t t-call="bestja_offers.share" />
                             </section>
 
                             <section class="offer_icons col-md-3 col-md-offset-2 col-xs-4 col-xs-offset-0">
@@ -94,10 +102,18 @@
                                     <t t-esc="skill.name"/>
                                 </li></ul>
                             </section>
-                            <section>
+
+                            <div class="row">
+                            <section class="col-md-8">
                                 <h2>Lokalizacja</h2>
                                 <p t-field="offer.city"></p>
+                            </section >
+                            <section class="ee_bottom_share col-md-4">
+                                <t t-call="bestja_offers.share" />
                             </section>
+                            </div>
+
+
                         </section>
                         <section class="col-md-3 col-md-offset-2 offer_sidebar">
                             <img src="/bestja_offers/static/logo.png" />
@@ -116,6 +132,7 @@
                     <div id="bestja_offers_offer_location" t-attf-data-lat="{{ offer.latitude }}" t-attf-data-lng="{{ offer.longitude }}"></div>
 
                     <t t-call="bestja_offers.join" />
+
                 </div>
             </t>
         </template>
@@ -133,6 +150,33 @@
                 <p>Wkrótce ktoś się z Tobą skontaktuje.</p>
                 <p><a href="/search/">Powrót do wyszukiwarki</a></p>
             </t>
+        </template>
+
+        <template id="bestja_offers.share">
+            <span class="ee_share">
+
+            <t t-set="url" t-valuef="http://{{ request.httprequest.host}}{{ request.httprequest.path }}" />
+            <t t-set="title" t-value="offer.name" />
+
+            <a target="_Blank"
+                class="oe_share_facebook"
+                t-attf-href="https://www.facebook.com/sharer/sharer.php?u={{ url }}"><i class="fa fa-facebook-square"></i></a>
+            <a target="_Blank"
+                class="oe_share_twitter"
+                t-attf-href="https://twitter.com/intent/tweet?text={{ title }}&amp;url={{ url }}">
+                <i class="fa fa-twitter"></i></a>
+            <a target="_Blank"
+                class="oe_share_linkedin"
+                t-attf-href="http://www.linkedin.com/shareArticle?mini=true&amp;url={{ url }}&amp;title={{ title }}"><i class="fa fa-linkedin"></i></a>
+            <a target="_Blank"
+                class="oe_share_google"
+                t-attf-href="https://plus.google.com/share?url={{ url }}">
+                <i class="fa fa-google-plus-square"></i>
+            </a>
+            <a t-attf-href="mailto:?body={{ url }}&amp;subject={{ title }}"><i class="fa fa-envelope-o"></i></a>
+
+            </span>
+
         </template>
     </data>
 </openerp>

@@ -35,11 +35,23 @@
     text-align: center;
 }
 
-.offer_name, .offer_icons, .offer_info {
+.ee_share {
+    font-size: 26px;
+}
+
+.ee_bottom_share {
+    margin-top: 50px;
+}
+
+.offer_share {
+    line-height: 400%;
+}
+
+.offer_name, .offer_icons, .offer_info, .offer_share {
     background: rgba(255, 255, 255, 0.8);
 }
 
-.offer_name, .offer_icons {
+.offer_name, .offer_icons, .bestja_offers_offer .offer_share {
     height: 100px;
 }
 
@@ -52,7 +64,7 @@
 }
 
 .offer_map {
-   display: block;    
+   display: block;
    margin: 20px 0;
    height: 300px;
    color: #000;
