@@ -43,6 +43,25 @@
                     ('project.manager.id', '=', user.id),
                     ('user.id', '=', user.id)
             ]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+
+        <record id="task_rule_unlink" model="ir.rule">
+            <field name="name">Only project managers and organization coordinators may remove tasks.</field>
+            <field name="model_id" ref="model_bestja_task"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">[
+                '|',
+                    ('project.organization.coordinator.id', '=', user.id),
+                    ('project.manager.id', '=', user.id),
+            ]</field>
+            <field name="perm_read" eval="False"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="True"/>
         </record>
     </data>
 </openerp>
