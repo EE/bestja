@@ -24,7 +24,6 @@
                         <field name="street_number" class="short_input"/>
                         <field name="postal_code" class="short_input"/>
                         <field name="city_address"/>
-                        <field name="parent"/>
                     </group>
                     <group string="Dane rejestrowe" class="short_input">
                         <field name="krs"/>

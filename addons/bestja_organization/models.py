@@ -7,7 +7,6 @@ from openerp import models, fields, api, exceptions
 
 class Organization(models.Model):
     _name = 'organization'
-    _parent = 'parent'
 
     name = fields.Char(string="Nazwa", required=True)
     krs = fields.Char(string="KRS")
@@ -22,12 +21,6 @@ class Organization(models.Model):
     phone_extension = fields.Char(size=10, string="Numer wewnętrzny")
     www = fields.Char(string="WWW")
     fbfanpage = fields.Char(string="Fanpage na FB")
-    parent = fields.Many2one(
-        'organization',
-        string="Organizacja nadrzędna",
-        domain=[('parent', '=', False)]  # only top-level organizations
-    )
-    children = fields.One2many('organization', inverse_name='parent', string="Organizacje podrzędne")
     volunteers = fields.Many2many('res.users', string="Wolontariusze")
     coordinator = fields.Many2one(
         'res.users', ondelete='restrict',
