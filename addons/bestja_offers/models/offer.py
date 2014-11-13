@@ -77,8 +77,8 @@ class Offer(models.Model):
     location_name = fields.Char(string="Nazwa miejsca")
     address = fields.Char(string="Ulica i numer domu")
     city = fields.Char(string="Miasto")
-    latitude = fields.Float(string="Szerokość geograficzna", digits=(7,4))
-    longitude = fields.Float(string="Długość geograficzna", digits=(7,4))
+    latitude = fields.Float(string="Szerokość geograficzna", digits=(7, 4))
+    longitude = fields.Float(string="Długość geograficzna", digits=(7, 4))
     district = fields.Char(string="Dzielnica")
     no_localization = fields.Boolean(string="Oferta nie ma przypisanej lokalizacji.")
     target_group = fields.Many2many(
@@ -296,7 +296,8 @@ class Offer(models.Model):
         # in a record set
         list_names = lambda rset: [r[1] for r in rset.name_get()]
 
-        writer = OffersIndex.get_writer()
+        index = OffersIndex(dbname=self.env.cr.dbname)
+        writer = index.get_writer()
         for offer in self:
             pk = unicode(offer.id)
             if offer.state == 'published':
@@ -329,7 +330,8 @@ class Offer(models.Model):
     @api.multi
     def unlink(self):
         val = super(Offer, self).unlink()
-        writer = OffersIndex.get_writer()
+        index = OffersIndex(dbname=self.env.cr.dbname)
+        writer = index.get_writer()
         for offer in self:
             writer.delete_by_term('pk', unicode(offer.id))
         writer.commit()

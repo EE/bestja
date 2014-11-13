@@ -47,5 +47,6 @@ class BestJaSettings(models.TransientModel):
         Delete old Whoosh index, create a new one,
         and add all published offers.
         """
-        OffersIndex.create_index()
+        index = OffersIndex(dbname=self.env.cr.dbname)
+        index.create_index()
         self.env['offer'].search([('state', '=', 'published')]).whoosh_reindex()

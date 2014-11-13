@@ -80,10 +80,18 @@ class OffersFacets(object):
 
 
 class OffersIndex(object):
-    INDEX_NAME = 'offers'
+    INDEX_PREFIX = 'offers'
 
-    @classmethod
-    def index_dir(cls):
+    def __init__(self, dbname):
+        self.dbname = dbname
+
+    def index_name(self):
+        return '{prefix}_{db}'.format(
+            prefix=self.INDEX_PREFIX,
+            db=self.dbname
+        )
+
+    def index_dir(self):
         """
         Get / create a directory for storing the index.
         This is in line with where odoo keeps its data
@@ -98,21 +106,17 @@ class OffersIndex(object):
             os.chmod(d, 0700)
         return d
 
-    @classmethod
-    def create_index(cls):
-        return index.create_in(cls.index_dir(), schema=OffersSchema(), indexname=cls.INDEX_NAME)
+    def create_index(self):
+        return index.create_in(self.index_dir(), schema=OffersSchema(), indexname=self.index_name())
 
-    @classmethod
-    def get_index(cls):
-        dirname = cls.index_dir()
-        if not index.exists_in(dirname, indexname=cls.INDEX_NAME):
-            return cls.create_index()
-        return index.open_dir(dirname, indexname=cls.INDEX_NAME)
+    def get_index(self):
+        dirname = self.index_dir()
+        if not index.exists_in(dirname, indexname=self.index_name()):
+            return self.create_index()
+        return index.open_dir(dirname, indexname=self.index_name())
 
-    @classmethod
-    def get_writer(cls):
-        return writing.AsyncWriter(cls.get_index())
+    def get_writer(self):
+        return writing.AsyncWriter(self.get_index())
 
-    @classmethod
-    def get_parser(cls):
+    def get_parser(self):
         return SimpleParser('name', schema=OffersSchema())

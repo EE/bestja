@@ -12,16 +12,16 @@ class Search(http.Controller):
     def search(self, q='', **kwargs):
         # Get params as a real MultiDict
         args = http.request.httprequest.args
+        index = OffersIndex(dbname=http.request.session.db)
 
         if q:
-            query = OffersIndex.get_parser().parse(q)
+            query = index.get_parser().parse(q)
         else:
             query = whoosh.query.Every()  # Get all results
 
-        index = OffersIndex.get_index()
         facets = OffersFacets()
 
-        with index.searcher() as s:
+        with index.get_index().searcher() as s:
             response = s.search(
                 query,
                 groupedby=facets.facets,
