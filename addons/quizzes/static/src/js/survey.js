@@ -3,6 +3,7 @@
 
     function hideStateElements($container) {
         $container.find('.ee_quiz_result').text('');
+        $container.find('*').removeClass('ee_correct ee_wrong');
     }
     website.snippet.animationRegistry.survey_snippet = website.snippet.Animation.extend({
         selector: '.survey',
@@ -16,6 +17,20 @@
                     .appendTo($el.find('.ee_quiz_result'));
             }
 
+            function displayMotivationalMessage(trials) {
+                var messages = [
+                    ':)))))',
+                    ':)))',
+                    ':))',
+                    ':)',
+                ]
+                $el.find('.ee_motivational_message').text(messages[trials]);
+            }
+
+            function colorizeAnswer() {
+                $(this).next().addClass(checkCorrect(this)? 'ee_correct' : 'ee_wrong');
+            }
+
             var $el = this.$el;
 
             var answerCount = $el.find('.ee_answers').data('answer_count');
@@ -25,11 +40,25 @@
 
             if (!editable_mode) {
                 $el.find('.ee_answer').on('click', function (e) {
-                    if ($(this).data('answered')) {
+                    if ($(this).data('answered') || $(this).attr('disabled')) {
                         return;
                     }
                     if (trials < answerCount) {
-                        displayResult(checkCorrect(this));
+
+                        var correct = checkCorrect(this), $controlsToDisable;
+
+                        if (correct) {
+                            displayMotivationalMessage(trials);
+                            $controlsToDisable = $el.find('.ee_answer');
+                        } else {
+                            $controlsToDisable = $(this);
+                        }
+
+                        $controlsToDisable
+                            .each(colorizeAnswer)
+                            .attr('disabled', 'true');
+
+                        displayResult(correct);
                         trials++;
                     }
                     $(this).data('answered', true);
@@ -64,6 +93,7 @@
             var $target = this.$target;
             $target.find('.ee_onlyeditmode').show();
             $target.find('.ee_onlynormalmode').hide();
+
             var checkboxes = this.$target.find('.ee_checkbox');
             checkboxes.off();
             checkboxes.unbind();

@@ -34,6 +34,19 @@
     top: 4px;
 }
 
+.ee_answer_text {
+    transition: 0.3s all;
+}
+
+.ee_answer_text.ee_correct {
+    color: green!important;
+}
+
+.ee_answer_text.ee_wrong {
+    color: red!important;
+}
+
+
 .ee_checkbox {
     position: relative;
     display: inline-block;
@@ -75,10 +88,6 @@
     font-size: 12px;
 }
 
-.ee_correct, .ee_wrong {
-    display: none;
-    margin-left: 10px;
-}
 
 .ee_quiz_result .label {
     margin: 0 4px;

@@ -29,11 +29,10 @@
                         <div class="ee_checkbox ee_onlyeditmode" ee_contenteditable="false">
                             <div class="ee_checkbox_toggle" ee_contenteditable="false"></div>
                         </div>
-                        <span class="ee_correct label label-success">OK</span>
-                        <span class="ee_wrong label label-danger">Wrong</span>
                     </div>
                     </section>
                     <section class="ee_quiz_result" ></section>
+                    <h3 class="ee_motivational_message"></h3>
 
 
                     </div></div>
