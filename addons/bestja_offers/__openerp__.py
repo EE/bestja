@@ -1,7 +1,12 @@
 # -*- coding: utf-8 -*-
 {
     'name': "Bestja: Job Offers",
-    'summary': """Adding and displaying job offers""",
+    'summary': "Adding and displaying job offers",
+    'description': """
+BestJa Job Offers
+===================
+This module deals with creating job offers, publishing them on the website,
+receiving and managing user applications.""",
     'author': "Laboratorium EE",
     'website': "http://www.laboratorium.ee",
     'version': '0.1',

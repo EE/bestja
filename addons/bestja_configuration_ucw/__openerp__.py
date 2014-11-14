@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 {
     'name': "Bestja: UCW",
-    'summary': """Installation configuration for UCW""",
-    'description': """Installation configuration for Uniwersyteckie Centrum Wolontariatu""",
+    'summary': "Installation configuration for UCW",
+    'description': "Installation configuration for Uniwersyteckie Centrum Wolontariatu",
     'author': "Laboratorium EE",
     'website': "http://www.laboratorium.ee",
     'version': '0.1',

@@ -2,6 +2,11 @@
 {
     'name': "Bestja: Projects",
     'summary': "Project management in BestJa",
+    'description': """
+BestJa Project management
+=========================
+Define projects and assign users to tasks.
+""",
     'author': "Laboratorium EE",
     'website': "http://www.laboratorium.ee",
     'version': '0.1',

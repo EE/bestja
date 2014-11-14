@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 {
     'name': "Bestja: FBŻ",
-    'summary': """Installation configuration for FPBŻ""",
-    'description': """Installation configuration for Federacja Polskich Banków Żywności""",
+    'summary': "Installation configuration for FPBŻ",
+    'description': "Installation configuration for Federacja Polskich Banków Żywności",
     'author': "Laboratorium EE",
     'website': "http://www.laboratorium.ee",
     'version': '0.1',

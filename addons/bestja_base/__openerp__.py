@@ -1,21 +1,21 @@
 # -*- coding: utf-8 -*-
 {
     'name': "BestJa: Base",
+    'summary': "Common definitions for the BestJa project",
+    'description': """
+BestJa Project Base
+===================
+This module is not very useful all by itself, but it contains common
+definitions used by other BestJa modules.
 
-    'summary': """Common definitions for the BestJa project""",
-
+It includes (among other things) the BestJa menu and CSS definitions. """,
     'author': "Laboratorium EE",
     'website': "http://www.laboratorium.ee",
-
     'version': '0.1',
-
-    # any module necessary for this one to work correctly
     'depends': [
         'base',
         'auth_signup'
     ],
-
-    # always loaded
     'data': [
         'menu.xml',
         'config.xml',
