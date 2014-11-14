@@ -1,0 +1,6 @@
+<openerp>
+    <data>
+        <menuitem parent="bestja_base.menu_bestja" id="menu_files" name="Baza wiedzy" sequence="10"/>
+        <menuitem parent="menu_files" id="menu_files_file" action="action_file" sequence="1"/>
+    </data>
+</openerp>

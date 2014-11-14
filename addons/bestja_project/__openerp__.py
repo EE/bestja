@@ -19,6 +19,7 @@ Define projects and assign users to tasks.
     'data': [
         'security/ir.model.access.csv',
         'security/security.xml',
+        'views/task.xml',
         'views/project.xml',
         'menu.xml',
     ],

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record model="ir.actions.act_window" id="action_file">
+            <field name="name">Baza Wiedzy</field>
+            <field name="res_model">bestja.file</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <record model="ir.ui.view" id="bestja_file_form">
+            <field name="name">bestja.file.form</field>
+            <field name="model">bestja.file</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1 class="oe_inline">
+                                <field name="name"/>
+                            </h1>
+                        </div>
+                        <group col="2">
+                            <field name="category" options="{'no_open': True}"/>
+                            <label for="attachment"/>
+                            <div>
+                                <field name="attachment" filename="filename"/>
+                                <div class="oe_grey oe_text_right oe_edit_only">Max. wielkość pliku do <strong>25 MB</strong></div>
+                            </div>
+                            <field name="filename" invisible="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="bestja_file_tree">
+            <field name="name">bestja.file.tree</field>
+            <field name="model">bestja.file</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="category"/>
+                    <field name="create_date" string="data dodania"/>
+                    <field name="write_date" string="data aktualizacji"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="bestja_file_search">
+            <field name="name">bestja.file.search</field>
+            <field name="model">bestja.file</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name" string="Nazwa"/>
+                    <field name="category" string="Kategoria"/>
+                    <filter name="my_files" string="Dodane przeze mnie"
+                                domain="[
+                                    '|',
+                                        ('create_uid', '=', uid),
+                                        ('write_uid', '=', uid)]"/>
+                    <group string="Group By">
+                        <filter name="group_by_category" string="Kategoria"
+                                context="{'group_by': 'category'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+    </data>
+</openerp>

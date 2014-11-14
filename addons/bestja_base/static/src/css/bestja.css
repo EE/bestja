@@ -122,3 +122,8 @@
 .short_input.oe_form_field {
   width: 100px !important;
 }
+
+/* binary widget - make the input full width */
+.oe_form_field_binary td, .oe_form_field_binary input {
+  width: 100%;
+}

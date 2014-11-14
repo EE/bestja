@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_file_users,file,model_bestja_file,base.group_user,1,0,0,0
+access_file_admin,file,model_bestja_file,bestja_base.bestja_instance_admin,1,1,1,1

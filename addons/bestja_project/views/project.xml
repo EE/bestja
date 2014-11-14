@@ -1,21 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
-        <!-- Actions -->
         <record model="ir.actions.act_window" id="action_list_projects">
             <field name="name">Projekty</field>
             <field name="res_model">bestja.project</field>
             <field name="view_mode">kanban,tree,form</field>
         </record>
 
-        <record model="ir.actions.act_window" id="action_list_tasks">
-            <field name="name">Zadania</field>
-            <field name="res_model">bestja.task</field>
-            <field name="view_mode">tree,form</field>
-            <field name="context">{'search_default_project': active_id}</field>
-        </record>
-
-        <!-- Projects -->
         <record model="ir.ui.view" id="bestja_project_form">
             <field name="name">bestja.project.form</field>
             <field name="model">bestja.project</field>
@@ -114,69 +105,6 @@
                         </t>
                     </templates>
                 </kanban>
-            </field>
-        </record>
-
-        <!-- Tasks -->
-        <record model="ir.ui.view" id="bestja_task_form">
-            <field name="name">bestja.task.form</field>
-            <field name="model">bestja.task</field>
-            <field name="arch" type="xml">
-                <form>
-                    <header>
-                        <button name="set_in_progress" string="rozpocznij" type="object" class="oe_highlight" states="new,done"/>
-                        <button name="set_done" string="zakończ" type="object" class="oe_highlight" states="in_progress"/>
-                    </header>
-                    <div class="oe_title">
-                        <label for="name" class="oe_edit_only"/>
-                        <h1 class="oe_inline">
-                            <field name="name"/>
-                        </h1>
-                        <field name="state" readonly="1" class="state"/>
-                    </div>
-                    <group col="2">
-                        <field name="project" readonly="1"/>
-                        <field name="user" options="{'no_create': True}"/>
-                    </group>
-                    <group col="2" string="Termin realizacji zadania">
-                        <field name="date_start"/>
-                        <field name="date_stop"/>
-                    </group>
-                    <separator/>
-                    <label for="description"/>
-                    <field name="description" placeholder="Wpisz szczegółowy opis zadania"/>
-                </form>
-            </field>
-        </record>
-
-        <record model="ir.ui.view" id="bestja_tasks_search">
-            <field name="name">bestja.task.search</field>
-            <field name="model">bestja.task</field>
-            <field name="arch" type="xml">
-                <search>
-                    <field name="name" string="Nazwa"/>
-                    <field name="project" string="Project"/>
-                    <field name="user" string="Wykonawca"/>
-                    <filter name="current" string="Nowe"
-                                domain="[('state', '=', 'new')]"/>
-                    <group string="Group By">
-                        <filter name="group_by_state" string="Status"
-                                context="{'group_by': 'state'}"/>
-                    </group>
-                </search>
-            </field>
-        </record>
-
-        <record model="ir.ui.view" id="bestja_task_tree">
-            <field name="name">bestja.task.tree</field>
-            <field name="model">bestja.task</field>
-            <field name="arch" type="xml">
-                <tree>
-                    <field name="name"/>
-                    <field name="project"/>
-                    <field name="user"/>
-                    <field name="state"/>
-                </tree>
             </field>
         </record>
     </data>
