@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+        <record id="user_administrator" model="res.users">
+            <field name="name">Administrator</field>
+            <field name="login">administrator</field>
+            <field name="groups_id" eval="[(6, 0,  [ref('base.group_user'), ref('bestja_base.bestja_instance_admin')])]"/>
+        </record>
+        <function model="res.users" name="_set_password" eval="[ref('user_administrator'), 'administrator']"/> <!-- uid, password -->
+
+        <record id="user_koordynator1" model="res.users">
+            <field name="name">Koordynator organizacji</field>
+            <field name="login">koordynator1</field>
+        </record>
+        <function model="res.users" name="_set_password" eval="[ref('user_koordynator1'), 'koordynator1']"/>
+
+        <record id="user_koordynator2" model="res.users">
+            <field name="name">Anna Koordynatorka</field>
+            <field name="login">koordynator2</field>
+            <field name="occupation" ref="absolwent"/>
+            <field name="skills" eval="[(6, 0, [ref('dziennikarstwo'), ref('zbieranie_funduszy')])]"/>
+            <field name="languages" eval="[(6, 0, [ref('polish'), ref('czech'), ref('slovak')])]"/>
+            <field name="drivers_license" eval="[(6, 0, [ref('kategoria_b')])]"/>
+        </record>
+        <function model="res.users" name="_set_password" eval="[ref('user_koordynator2'), 'koordynator2']"/>
+
+        <record id="user_wolontariusz1" model="res.users">
+            <field name="name">Jan Nowak</field>
+            <field name="login">wolontariusz1</field>
+            <field name="occupation" ref="student"/>
+            <field name="skills" eval="[(6, 0, [ref('kierowca')])]"/>
+            <field name="languages" eval="[(6, 0, [ref('english')])]"/>
+            <field name="drivers_license" eval="[(6, 0, [ref('kategoria_b'), ref('kategoria_c')])]"/>
+            <field name="birthdate">1990-06-10</field>
+        </record>
+        <function model="res.users" name="_set_password" eval="[ref('user_wolontariusz1'), 'wolontariusz1']"/>
+
+        <record id="user_wolontariusz2" model="res.users">
+            <field name="name">Joanna Kolorowa</field>
+            <field name="login">wolontariusz2</field>
+            <field name="occupation" ref="wlasna_firma"/>
+            <field name="skills" eval="[(6, 0, [ref('dziennikarstwo')])]"/>
+            <field name="languages" eval="[(6, 0, [ref('english')])]"/>
+            <field name="wishes" eval="[(6, 0, [ref('grafika'), ref('programowanie'), ref('praca_w_zespole')])]"/>
+            <field name="birthdate">1985-11-19</field>
+        </record>
+        <function model="res.users" name="_set_password" eval="[ref('user_wolontariusz2'), 'wolontariusz2']"/>
+
+        <record id="user_wolontariusz3" model="res.users">
+            <field name="name">Piotr Bystry</field>
+            <field name="login">wolontariusz3</field>
+            <field name="occupation" ref="emeryt"/>
+            <field name="skills" eval="[(6, 0, [ref('matematyka'), ref('ksiegowosc')])]"/>
+            <field name="languages" eval="[(6, 0, [ref('french')])]"/>
+            <field name="drivers_license" eval="[(6, 0, [ref('kategoria_b')])]"/>
+            <field name="wishes" eval="[(6, 0, [ref('organizacja_imprez'), ref('praca_biurowa'), ref('szkolenia_i_doradztwo')])]"/>
+            <field name="birthdate">1948-10-01</field>
+        </record>
+        <function model="res.users" name="_set_password" eval="[ref('user_wolontariusz3'), 'wolontariusz3']"/>
+    </data>
+</openerp>

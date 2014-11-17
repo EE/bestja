@@ -1,0 +1,23 @@
+<openerp>
+    <data>
+        <record id="polish" model="volunteer.language">
+            <field name="name">polski</field>
+        </record>
+
+        <record id="english" model="volunteer.language">
+            <field name="name">angielski</field>
+        </record>
+
+        <record id="czech" model="volunteer.language">
+            <field name="name">czeski</field>
+        </record>
+
+        <record id="slovak" model="volunteer.language">
+            <field name="name">słowacki</field>
+        </record>
+
+        <record id="french" model="volunteer.language">
+            <field name="name">francuski</field>
+        </record>
+    </data>
+</openerp>

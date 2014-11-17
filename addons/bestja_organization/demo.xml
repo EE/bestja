@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+        <record id="org_cheese" model="organization">
+            <field name="name">Stowarzyszenie Miłośników Sera Korycińskiego</field>
+            <field name="street_address">Korycińska</field>
+            <field name="street_number">15</field>
+            <field name="postal_code">02-822</field>
+            <field name="city_address">Korycin</field>
+            <field name="nip">5451722525</field>
+            <field name="email">silasera@korycin.pl</field>
+            <field name="phone">503988777</field>
+            <field name="coordinator" ref="bestja_volunteer.user_koordynator1"/>
+            <field name="active" eval="True"/>
+            <field name="organization_description">Stowarzyszenie Miłośników Sera Korycińskiego to organizacja regionalna zajmująca się promowaniem lokalnej kuchni i produktów regionalnych. Lobbujemy na rzecz wpisania sera korycińskiego na listę produktów chronionych.</field>
+        </record>
+
+        <record id="org_tatar" model="organization">
+            <field name="name">Cięciwa - klub tatarski</field>
+            <field name="street_address">Tuhaj Beja</field>
+            <field name="street_number">24</field>
+            <field name="postal_code">03-466</field>
+            <field name="city_address">Tatarzyny</field>
+            <field name="nip">5429607078</field>
+            <field name="email">klub.tatarski@gmail.com</field>
+            <field name="phone">606098484</field>
+            <field name="www">klub.tatarski.pl</field>
+            <field name="coordinator" ref="bestja_volunteer.user_koordynator2"/>
+            <field name="active" eval="True"/>
+            <field name="organization_description">Dbamy o zachowanie tradycji tatarskiej- strzelamy z łuków, jeździmy na koniach i pijemy kumys.</field>
+            <field name="volunteers" eval="[(6, 0, [ref('bestja_volunteer.user_wolontariusz1'), ref('bestja_volunteer.user_wolontariusz3')])]"/>
+        </record>
+    </data>
+</openerp>

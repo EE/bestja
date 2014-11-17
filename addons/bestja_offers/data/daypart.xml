@@ -6,7 +6,7 @@
         <record id="afternoon" model="offers.daypart">
             <field name="name">po południu</field>
         </record>
-        <record id="evning" model="offers.daypart">
+        <record id="evening" model="offers.daypart">
             <field name="name">wieczorem</field>
         </record>
         <record id="allday" model="offers.daypart">

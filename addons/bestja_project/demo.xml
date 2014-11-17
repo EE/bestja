@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+        <!-- Projects -->
+        <record id="project_cheese" model="bestja.project">
+            <field name="name">Stowarzyszenie Miłośników Sera Korycińskiego</field>
+            <field name="organization" ref="bestja_organization.org_cheese"/>
+            <field name="manager" ref="bestja_volunteer.user_koordynator1"/>
+            <field name="date_start" eval="time.strftime('%Y-%m-17')"/>
+            <field name="date_stop" eval="time.strftime('%Y-%m-20')"/>
+        </record>
+
+        <record id="project_bow" model="bestja.project">
+            <field name="name">Tworzenie łuków krymskich</field>
+            <field name="organization" ref="bestja_organization.org_tatar"/>
+            <field name="manager" ref="bestja_volunteer.user_koordynator2"/>
+            <field name="date_start" eval="time.strftime('%Y-%m-15')"/>
+            <field name="date_stop" eval="time.strftime('%Y-%m-28')"/>
+            <field name="volunteers" eval="[(6, 0, [ref('bestja_volunteer.user_wolontariusz1'), ref('bestja_volunteer.user_wolontariusz3')])]"/>
+        </record>
+
+        <record id="project_horse" model="bestja.project">
+            <field name="name">Zimowe wyścigi konne</field>
+            <field name="organization" ref="bestja_organization.org_tatar"/>
+            <field name="manager" ref="bestja_volunteer.user_koordynator2"/>
+            <field name="date_start" eval="time.strftime('%Y-%m-01')"/>
+            <field name="date_stop" eval="time.strftime('%Y-%m-28')"/>
+        </record>
+
+        <!-- Tasks -->
+        <record id="task_typology" model="bestja.task">
+            <field name="name">warsztaty teoretyczne - typologia łuków</field>
+            <field name="date_start" eval="time.strftime('%Y-%m-15')"/>
+            <field name="date_stop" eval="time.strftime('%Y-%m-19')"/>
+            <field name="project" ref="project_bow"/>
+            <field name="description">Warsztaty z typologii łuków:
+- łuk mongolski
+- łuk avarów
+- łuk węgierski
+- łuk turecki
+- łuk hunów</field>
+        </record>
+
+        <record id="task_war" model="bestja.task">
+            <field name="name">warsztaty - wyprawy wojenne</field>
+            <field name="date_start" eval="time.strftime('%Y-%m-18')"/>
+            <field name="date_stop" eval="time.strftime('%Y-%m-23')"/>
+            <field name="project" ref="project_bow"/>
+            <field name="description">Historia wypraw wojennych. Trzy typy:
+
+Walne (sefer) – ich liczebność wynosiła zwykle powyżej dziesięciu tysięcy wojowników, którymi dowodził chan, któryś z jego zastępców lub jakiś ważny dostojnik, a podejmowane były na życzenie sułtana, prośbę dyplomatów z innych krajów lub w celach politycznych. Sięgały najgłębiej terytorium wroga i wyrządzały najwięcej szkód.
+
+Średnie (czapuł – pol. czambuł) – miały od tysiąca do kilku tysięcy Tatarów, wyruszały pod wodzą beja lub mirzy.
+
+Małe (besz-basz – pol. pięć głów) – wywołane były głównie głodem, klęskami żywiołowymi (np. susza, powódź) albo masowym zdychaniem bydła. Większość z nich dokonywana była przez koczowniczych Nogajów z wybrzeży Morza Czarnego. Brało w nich udział od kilkudziesięciu do tysiąca ludzi, odbywały się często bez wiedzy i pozwolenia chana czy tureckiego sułtana.</field>
+        </record>
+
+        <record id="task_chord" model="bestja.task">
+            <field name="name">produkcja cięciw</field>
+            <field name="date_start" eval="time.strftime('%Y-%m-15')"/>
+            <field name="date_stop" eval="time.strftime('%Y-%m-28')"/>
+            <field name="project" ref="project_bow"/>
+        </record>
+
+        <record id="task_skin" model="bestja.task">
+            <field name="name">produkcja skórek na rękojeści</field>
+            <field name="date_start" eval="time.strftime('%Y-%m-15')"/>
+            <field name="date_stop" eval="time.strftime('%Y-%m-18')"/>
+            <field name="project" ref="project_bow"/>
+        </record>
+
+        <record id="task_saddle" model="bestja.task">
+            <field name="name">siodła o niższych łękach - testy</field>
+            <field name="date_start" eval="time.strftime('%Y-%m-01')"/>
+            <field name="date_stop" eval="time.strftime('%Y-%m-25')"/>
+            <field name="project" ref="project_horse"/>
+        </record>
+    </data>
+</openerp>

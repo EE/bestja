@@ -33,7 +33,7 @@
         </record>
 
         <record id="offer_application_rule" model="ir.rule">
-            <field name="name">Applications can be viewed and modified by coordinators and project managers only.</field>
+            <field name="name">Applications can be modified by coordinators and project managers only.</field>
             <field name="model_id" ref="model_offers_application"/>
             <field name="groups" eval="[(4, ref('base.group_user'))]"/>
             <field name="domain_force">[
@@ -41,17 +41,21 @@
                     ('offer.project.organization.coordinator.id', '=', user.id),
                     ('offer.project.manager.id', '=', user.id),
             ]</field>
-            <field name="perm_read" eval="True"/>
+            <field name="perm_read" eval="False"/>
             <field name="perm_write" eval="True"/>
             <field name="perm_create" eval="False"/>
             <field name="perm_unlink" eval="True"/>
         </record>
 
         <record id="offer_application_rule" model="ir.rule">
-            <field name="name">Applications can be read by applicants themselves (needed by workflows to work!).</field>
+            <field name="name">Applications can be read by managers, coordinators and applicants themselves (needed by workflows to work!).</field>
             <field name="model_id" ref="model_offers_application"/>
             <field name="groups" eval="[(4, ref('base.group_user'))]"/>
             <field name="domain_force">[
+                '|',
+                    ('offer.project.organization.coordinator.id', '=', user.id),
+                '|',
+                    ('offer.project.manager.id', '=', user.id),
                     ('user.id', '=', user.id),
             ]</field>
             <field name="perm_read" eval="True"/>

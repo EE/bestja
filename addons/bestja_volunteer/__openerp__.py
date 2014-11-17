@@ -14,11 +14,16 @@ specify their experiences, interests etc.
     'version': '0.1',
     'depends': [
         'bestja_base',
+        'auth_crypt',
+    ],
+    'demo': [
+        'demo.xml',
     ],
     'data': [
         'views/volunteer.xml',
         'data/occupation.xml',
         'data/skills.xml',
+        'data/languages.xml',
         'data/drivers_license.xml',
         'data/wishes.xml',
         'menu.xml',

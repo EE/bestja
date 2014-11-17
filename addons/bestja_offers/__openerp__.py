@@ -13,8 +13,6 @@ receiving and managing user applications.""",
     'js': ['static/src/js/*.js'],
     'qweb': ['static/src/xml/*.xml'],
     'css': ['static/src/css/*.css'],
-
-    # any module necessary for this one to work correctly
     'depends': [
         'base',
         'website',
@@ -22,8 +20,6 @@ receiving and managing user applications.""",
         'bestja_base',
         'bestja_project'
     ],
-
-    # always loaded
     'data': [
         'config.xml',
         'views/application.xml',
@@ -37,11 +33,10 @@ receiving and managing user applications.""",
         'menu.xml',
         'workflows.xml',
         'security/ir.model.access.csv',
-        'security/security.xml'
+        'security/security.xml',
     ],
-    # only loaded in demonstration mode
     'demo': [
-        #'demo.xml',
+        'demo.xml',
     ],
     'installable': True,
     'application': True,

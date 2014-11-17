@@ -20,4 +20,7 @@ who need to accept them first.
         'views/offer.xml',
         'menu.xml'
     ],
+    'demo': [
+        'demo.xml',
+    ],
 }
