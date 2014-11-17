@@ -18,5 +18,8 @@
             <field name="key">auth_signup.template_user_id</field>
             <field name="value" ref="bestja_template_user"/>
         </record>
+
+        <!-- allow user sign-up by default -->
+        <function model="ir.config_parameter" name="set_param" eval="('auth_signup.allow_uninvited', True)" />
     </data>
 </openerp>
