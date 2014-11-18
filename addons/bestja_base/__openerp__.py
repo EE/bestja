@@ -14,7 +14,8 @@ It includes (among other things) the BestJa menu and CSS definitions. """,
     'version': '0.1',
     'depends': [
         'base',
-        'auth_signup'
+        'auth_signup',
+        'mail',
     ],
     'data': [
         'menu.xml',
