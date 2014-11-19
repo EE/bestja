@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from openerp import models, fields
+from openerp import models, fields, api
 
 
 class VolunteerWish(models.Model):
@@ -58,3 +58,15 @@ class Volunteer(models.Model):
     email = fields.Char('Email')
     phone = fields.Char('Phone')
     birthdate = fields.Date()
+
+    @api.model
+    def set_default_language(self, lang_code):
+        """
+        Set default language for all new users.
+        If the language is not already loaded
+        (for example using `--load-language` option)
+        it will be ignored.
+        """
+        lang = self.env['res.lang'].search([('code', '=', lang_code)])
+        if lang:
+            self.env['ir.values'].set_default('res.partner', 'lang', lang_code)

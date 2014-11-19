@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data noupdate="1">
+        <!-- Force Polish as the default language for all new users.
+        This is a bit hackish, but we need this for our demo instances.
+        Sorry. -->
+        <function model="res.users" name="set_default_language" eval="['pl_PL']"/>
+
+        <!-- Users -->
         <record id="user_administrator" model="res.users">
             <field name="name">Administrator</field>
             <field name="login">administrator</field>
