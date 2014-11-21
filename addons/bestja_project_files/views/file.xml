@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="bestja_project_file_form">
+            <field name="name">bestja.project_file.form</field>
+            <field name="model">bestja.file</field>
+            <field name="mode">primary</field>
+            <field name="priority">20</field>
+            <field name="inherit_id" ref="bestja_files.bestja_file_form"/>
+            <field name="arch" type="xml">
+                <field name="category" position="before">
+                    <field name="project" required="1"/>
+                </field>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="bestja_project_file_tree">
+            <field name="name">bestja.project_file.tree</field>
+            <field name="model">bestja.file</field>
+            <field name="mode">primary</field>
+            <field name="priority">20</field>
+            <field name="inherit_id" ref="bestja_files.bestja_file_tree"/>
+
+            <field name="arch" type="xml">
+                <field name="category" position="after">
+                    <field name="organization"/>
+                </field>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="bestja_project_file_search">
+            <field name="name">bestja.project_file.search</field>
+            <field name="model">bestja.file</field>
+            <field name="inherit_id" ref="bestja_files.bestja_file_search"/>
+            <field name="arch" type="xml">
+                <group>
+                    <filter name="group_by_project" string="Projekt"
+                                context="{'group_by': 'project'}"/>
+                </group>
+                <search>
+                    <field name="project" string="Project"/>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_project_file">
+            <field name="name">Pliki projektowe</field>
+            <field name="res_model">bestja.file</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="bestja_project_file_search"/>
+            <field name="context">{
+                'search_default_project': active_id,
+                'search_default_group_by_project': not active_id,
+            }</field>
+            <field name="domain">[
+                ('project', '!=', False),
+            ]</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="bestja_files.action_file">
+            <field name="domain">[
+                ('project', '=', False),
+            ]</field>
+        </record>
+
+        <!-- Link the action to our custom views -->
+        <record model="ir.actions.act_window.view" id="action_project_file_tree">
+            <field eval="1" name="sequence"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="bestja_project_file_tree"/>
+            <field name="act_window_id" ref="action_project_file"/>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="action_project_file_form">
+            <field eval="2" name="sequence"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="bestja_project_file_form"/>
+            <field name="act_window_id" ref="action_project_file"/>
+        </record>
+    </data>
+</openerp>

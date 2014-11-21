@@ -13,9 +13,11 @@
             <field name="arch" type="xml">
                 <form>
                     <sheet>
-                        <button class="oe_stat_button oe_right" icon="fa-briefcase" name="%(action_list_tasks)d" type="action">
-                            <field name="tasks_count" widget="statinfo" string="zadań"/>
-                        </button>
+                        <div class="oe_right one_button_width oe_button_box" name="buttons">
+                            <button class="oe_stat_button" icon="fa-briefcase" name="%(action_list_tasks)d" type="action">
+                                <field name="tasks_count" widget="statinfo" string="zadań"/>
+                            </button>
+                        </div>
                         <div class="oe_title">
                             <label for="name" class="oe_edit_only"/>
                             <h1 class="oe_inline">

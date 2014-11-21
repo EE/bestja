@@ -24,6 +24,5 @@ This module allow users to add new organizations
     'demo': [
         'demo.xml',
     ],
-    'installable': True,
     'application': True,
 }

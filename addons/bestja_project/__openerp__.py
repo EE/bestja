@@ -26,6 +26,5 @@ Define projects and assign users to tasks.
     'demo': [
         'demo.xml',
     ],
-    'installable': True,
     'application': True,
 }

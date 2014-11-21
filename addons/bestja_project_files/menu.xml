@@ -1,0 +1,5 @@
+<openerp>
+    <data>
+        <menuitem parent="bestja_files.menu_files" id="menu_project_file" action="action_project_file" sequence="4"/>
+    </data>
+</openerp>

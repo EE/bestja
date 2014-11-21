@@ -59,6 +59,12 @@
     white-space: normal !important;
 }
 
+/* sometimes we want smart button container to
+have horizontal space for one button only */
+.openerp .oe_button_box.one_button_width {
+  width: 132px;
+}
+
 .larger {
     font-size: 120%;
 }
@@ -127,3 +133,14 @@
 .oe_form_field_binary td, .oe_form_field_binary input {
   width: 100%;
 }
+
+/* "Save as..." button in binary widgets are confusing. */
+.oe_form_binary_file_save_data {
+  display: none;
+}
+
+/* "Clear" is also not always useful */
+.no_clear_button .oe_form_binary_file_clear {
+  display: none;
+}
+

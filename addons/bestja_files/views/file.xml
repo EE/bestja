@@ -2,7 +2,7 @@
 <openerp>
     <data>
         <record model="ir.actions.act_window" id="action_file">
-            <field name="name">Baza Wiedzy</field>
+            <field name="name">Pliki ogólne</field>
             <field name="res_model">bestja.file</field>
             <field name="view_mode">tree,form</field>
         </record>
@@ -22,7 +22,7 @@
                             <field name="category" options="{'no_open': True}"/>
                             <label for="attachment"/>
                             <div>
-                                <field name="attachment" filename="filename"/>
+                                <field name="attachment" filename="filename" class="no_clear_button"/>
                                 <div class="oe_grey oe_text_right oe_edit_only">Max. wielkość pliku do <strong>25 MB</strong></div>
                             </div>
                             <field name="filename" invisible="1"/>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="bestja_project_form">
+            <field name="name">bestja.project.form</field>
+            <field name="model">bestja.project</field>
+            <field name="inherit_id" ref="bestja_project.bestja_project_form"/>
+            <field name="arch" type="xml">
+                <div name="buttons">
+                    <button class="oe_stat_button oe_right"
+                        icon="fa-folder-open" name="%(action_project_file)d"
+                        type="action">
+                            <field name="file_count" widget="statinfo" string="plików"/>
+                    </button>
+                </div>
+            </field>
+        </record>
+    </data>
+</openerp>

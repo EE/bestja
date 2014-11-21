@@ -8,7 +8,7 @@
 
         <!-- remove the "Your Odoo is not supported" notification and other messages from OpenERP S.A. This also stops the tracking of our users. -->
         <template id="assets_mail_backend" inherit_id="mail.assets_backend">
-            <!-- mail module's mail.js expect `openerp_announcement` to exists, so we need to provide an empty implementation instead. -->
+            <!-- mail module's mail.js expects `openerp_announcement` to exists, so we need to provide an empty implementation instead. -->
             <xpath expr="//script[@src='/mail/static/src/js/announcement.js']" position="replace">
                 <script type="text/javascript">var openerp_announcement = function(){};</script>
             </xpath>

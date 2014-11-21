@@ -21,6 +21,5 @@ Cool, huh?""",
         'menu.xml',
         'security/ir.model.access.csv',
     ],
-    'installable': True,
     'application': True,
 }

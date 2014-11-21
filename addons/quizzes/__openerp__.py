@@ -17,6 +17,5 @@ to the website.""",
     'data': [
         'views/survey.xml',
     ],
-    'installable': True,
     'application': True,
 }

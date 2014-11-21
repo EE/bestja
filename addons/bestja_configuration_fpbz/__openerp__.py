@@ -17,6 +17,5 @@
         'bestja_files',
         'quizzes',
     ],
-    'installable': True,
     'application': True,
 }

@@ -17,6 +17,5 @@
         'bestja_files',
         'bestja_offers_moderation',
     ],
-    'installable': True,
     'application': True,
 }

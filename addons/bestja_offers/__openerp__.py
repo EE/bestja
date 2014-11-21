@@ -38,6 +38,5 @@ receiving and managing user applications.""",
     'demo': [
         'demo.xml',
     ],
-    'installable': True,
     'application': True,
 }
