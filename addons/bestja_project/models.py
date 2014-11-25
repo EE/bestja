@@ -29,7 +29,6 @@ class Project(models.Model):
     )
     manager = fields.Many2one(
         'res.users',
-        required=True,
         domain=current_members,
         string="Menadżer projektu",
     )
