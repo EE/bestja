@@ -5,6 +5,7 @@ from openerp import models, fields, api
 
 class Project(models.Model):
     _name = 'bestja.project'
+    _inherit = ['mail.thread']
 
     def current_members(self):
         """
@@ -17,7 +18,11 @@ class Project(models.Model):
         except KeyError:
             # most likely a new project, use organization the user coordinates
             organization = self.env.user.coordinated_org
-        return [('id', 'in', organization.volunteers.ids)]
+        return [
+            '|',  # noqa odoo-domain indent
+                ('id', 'in', organization.volunteers.ids),
+                ('coordinated_org', '=', organization.id),
+            ]
 
     name = fields.Char(required=True, string="Nazwa")
     organization = fields.Many2one(
@@ -32,8 +37,16 @@ class Project(models.Model):
         domain=current_members,
         string="Menadżer projektu",
     )
-    date_start = fields.Date(required=True, string="od dnia")
-    date_stop = fields.Date(required=True, string="do dnia")
+    date_start = fields.Date(
+        required=True,
+        string="od dnia",
+        track_visibility='onchange',
+    )
+    date_stop = fields.Date(
+        required=True,
+        string="do dnia",
+        track_visibility='onchange',
+    )
     members = fields.Many2many(
         'res.users',
         relation='project_members_rel',

@@ -20,7 +20,7 @@
 }
 
 /* (i) icons after labels with help text */
-.oe_form_label_help:after {
+.oe_form_editable .oe_form_label_help:after {
     font-family: FontAwesome;
     content: "\f05a";
     font-size: 150%;
