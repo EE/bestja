@@ -26,7 +26,12 @@
                     </div>
                     <group string="Adres" class="medium_input">
                         <field name="street_address"/>
-                        <field name="street_number" class="short_input"/>
+                        <label for="street_number"/>
+                        <div>
+                            <field name="street_number" class="short_input oe_inline"/>
+                            mieszk.
+                            <field name="apartment_number" class="short_input"/>
+                        </div>
                         <field name="postal_code" class="short_input"/>
                         <field name="city_address"/>
                     </group>
