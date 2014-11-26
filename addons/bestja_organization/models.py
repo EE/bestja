@@ -7,6 +7,10 @@ from openerp import models, fields, api, exceptions
 
 class Organization(models.Model):
     _name = 'organization'
+    _inherit = ['protected_fields.mixin']
+    _protected_fields = ['state', 'coordinator']
+    _permitted_groups = ['bestja_base.instance_admin']
+
     STATES = [
         ('pending', "oczekująca na akceptację"),
         ('approved', "zaakceptowana"),

@@ -12,6 +12,7 @@ This module allow users to add new organizations
     'version': '0.1',
     'depends': [
         'base',
+        'protected_fields',
         'bestja_base',
         'bestja_volunteer',
     ],
