@@ -10,7 +10,7 @@
         <record id="user_administrator" model="res.users">
             <field name="name">Administrator</field>
             <field name="login">administrator</field>
-            <field name="groups_id" eval="[(6, 0,  [ref('base.group_user'), ref('bestja_base.bestja_instance_admin')])]"/>
+            <field name="groups_id" eval="[(6, 0,  [ref('base.group_user'), ref('bestja_base.instance_admin')])]"/>
         </record>
         <function model="res.users" name="_set_password" eval="[ref('user_administrator'), 'administrator']"/> <!-- uid, password -->
 

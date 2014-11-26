@@ -12,12 +12,17 @@
             <field name="model">organization</field>
             <field name="arch" type="xml">
                 <form>
+                    <header>
+                        <button name="set_approved" string="Zaakceptuj" states="pending,rejected" type="object" groups="bestja_base.instance_admin" class="oe_highlight"/>
+                        <button name="set_rejected" string="Odrzuć" states="pending" type="object" groups="bestja_base.instance_admin"/>
+                    </header>
                     <field name="image" widget="image" class="oe_left" options='{"preview_image": "image_medium"}'/>
                     <div class="oe_title">
                         <label for="name" class="oe_edit_only"/>
                         <h1>
                             <field name="name" class="oe_inline"/>
                         </h1>
+                        <field name="state" readonly="1" class="state" attrs="{'invisible': [('state', '=', 'approved')]}"/>
                     </div>
                     <group string="Adres" class="medium_input">
                         <field name="street_address"/>
@@ -40,16 +45,15 @@
                         <field name="phone_extension" class="short_input"/>
                         </div>
                     </group>
-                    <group string="Administracja" groups="bestja_base.bestja_instance_admin" class="medium_input">
+                    <group string="Administracja" groups="bestja_base.instance_admin" class="medium_input">
                         <field name="coordinator" options="{'no_create': True}"/>
-                        <field name="active"/>
                     </group>
                     <notebook colspan="2">
                         <page string="Opis Organizacji">
                         <span class="oe_grey oe_edit_only">Opisz czym zajmuje się Twoja organizacja.</span>
                          <field name="organization_description">organization.organization_description</field>
                         </page>
-                        <page string="Ludzie" attrs="{'invisible': [('volunteers', '=', [(6, False, [])])]}">
+                        <page string="Ludzie" states="accepted">
                             <field name="volunteers" readonly="True" />
                         </page>
                     </notebook>
@@ -61,10 +65,10 @@
             <field name="name">bestja.organization.tree</field>
             <field name="model">organization</field>
             <field name="arch" type="xml">
-                <tree>
+                <tree fonts="bold:coordinator_uid == uid">
                     <field name="name"/>
-                    <field name="active"/>
-                    <field name="coordinator"/>
+                    <field name="state"/>
+                    <field name="coordinator_uid" invisible="1"/>
                 </tree>
             </field>
         </record>

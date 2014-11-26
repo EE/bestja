@@ -3,7 +3,7 @@
         <record id="admin_access_organization" model="ir.rule">
             <field name="name">Instance admin has access to all organizations</field>
             <field name="model_id" ref="model_organization"/>
-            <field name="groups" eval="[(4, ref('bestja_base.bestja_instance_admin'))]"/>
+            <field name="groups" eval="[(4, ref('bestja_base.instance_admin'))]"/>
         </record>
 
         <record id="my_organizations_only" model="ir.rule">

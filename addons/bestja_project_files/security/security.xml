@@ -3,7 +3,7 @@
         <record id="admin_access_files" model="ir.rule">
             <field name="name">Instance admin has full access to non-project files</field>
             <field name="model_id" ref="model_bestja_file"/>
-            <field name="groups" eval="[(4, ref('bestja_base.bestja_instance_admin'))]"/>
+            <field name="groups" eval="[(4, ref('bestja_base.instance_admin'))]"/>
             <field name="domain_force">[
                 ('project', '=', False),
             ]</field>

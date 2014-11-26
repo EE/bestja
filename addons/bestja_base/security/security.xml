@@ -1,7 +1,7 @@
 <openerp>
     <data>
         <!-- Admin group -->
-        <record id="bestja_instance_admin" model="res.groups">
+        <record id="instance_admin" model="res.groups">
             <field name="name">BestJa Admin Instancji</field>
         </record>
 

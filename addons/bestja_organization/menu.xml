@@ -1,6 +1,6 @@
 <openerp>
     <data>
-        <menuitem parent="bestja_base.menu_bestja" id="menu_organizations" name="Organizacja" sequence="2"/>
+        <menuitem parent="bestja_base.menu_bestja" id="menu_organizations" name="Organizacje" sequence="1"/>
         <menuitem parent="menu_organizations" id="menu_add_organization" name="Organizacje" action="action_organization" sequence="1"/>
     </data>
 </openerp>

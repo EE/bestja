@@ -7,8 +7,18 @@ from openerp import models, fields, api, exceptions
 
 class Organization(models.Model):
     _name = 'organization'
+    STATES = [
+        ('pending', "oczekująca na akceptację"),
+        ('approved', "zaakceptowana"),
+        ('rejected', "odrzucona"),
+    ]
 
     name = fields.Char(string="Nazwa", required=True)
+    state = fields.Selection(
+        STATES,
+        default='pending',
+        string="Stan",
+    )
     krs = fields.Char(string="KRS")
     regon = fields.Char(string="REGON")
     nip = fields.Char(required=True, string="NIP")
@@ -26,19 +36,33 @@ class Organization(models.Model):
         'res.users', ondelete='restrict',
         string="Koordynator",
         default=lambda self: self.env.user,
-        groups="bestja_base.bestja_instance_admin"
     )
+    coordinator_uid = fields.Integer(compute='_compute_coordinator_uid')
     active = fields.Boolean(
-        default=False,
-        groups="bestja_base.bestja_instance_admin",
-        string="Zaakceptowana"
+        compute='_compute_active',
+        store=True,
     )
     organization_description = fields.Text(string="Opis Organizacji")
     image = fields.Binary("Photo")
 
     _sql_constraints = [
-        ('coordinator_uniq', 'unique(coordinator)', 'Jedna osoba nie może koordynować wielu organizacji!')
+        ('coordinator_uniq', 'unique(coordinator)', 'Jedna osoba nie może koordynować wielu organizacji!'),
+        ('nip_uniq', 'unique(nip)', 'Istnieje już organizacja z takim numerem NIP!'),
+
     ]
+
+    @api.one
+    @api.depends('state')
+    def _compute_active(self):
+        self.active = (self.state == 'approved')
+
+    @api.one
+    @api.depends('coordinator')
+    def _compute_coordinator_uid(self):
+        """
+        Needed for `fonts` attribute on the tree view.
+        """
+        self.coordinator_uid = self.coordinator.id
 
     @api.one
     @api.constrains('email')
@@ -100,6 +124,14 @@ class Organization(models.Model):
         self.clean_field_value('krs')
         if self.krs and (len(self.krs) != 10 or not self.krs.isdigit()):
             raise exceptions.ValidationError("Niepoprawny KRS.")
+
+    @api.one
+    def set_approved(self):
+        self.state = 'approved'
+
+    @api.one
+    def set_rejected(self):
+        self.state = 'rejected'
 
 
 class UserWithOrganization(models.Model):

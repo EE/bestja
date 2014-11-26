@@ -6,7 +6,7 @@
         </record>
 
         <!-- Give instance admins moderator permissions -->
-        <record id="bestja_base.bestja_instance_admin" model="res.groups">
+        <record id="bestja_base.instance_admin" model="res.groups">
             <field name="implied_ids" eval="[(4, ref('bestja_offers_moderator'))]"/>
         </record>
 
