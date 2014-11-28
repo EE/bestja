@@ -11,7 +11,7 @@
             <field name="email">silasera@korycin.pl</field>
             <field name="phone">503988777</field>
             <field name="coordinator" ref="bestja_volunteer.user_koordynator1"/>
-            <field name="active" eval="True"/>
+            <field name="state">approved</field>
             <field name="organization_description">Stowarzyszenie Miłośników Sera Korycińskiego to organizacja regionalna zajmująca się promowaniem lokalnej kuchni i produktów regionalnych. Lobbujemy na rzecz wpisania sera korycińskiego na listę produktów chronionych.</field>
         </record>
 
@@ -26,7 +26,7 @@
             <field name="phone">606098484</field>
             <field name="www">klub.tatarski.pl</field>
             <field name="coordinator" ref="bestja_volunteer.user_koordynator2"/>
-            <field name="active" eval="True"/>
+            <field name="state">approved</field>
             <field name="organization_description">Dbamy o zachowanie tradycji tatarskiej- strzelamy z łuków, jeździmy na koniach i pijemy kumys.</field>
             <field name="volunteers" eval="[(6, 0, [ref('bestja_volunteer.user_wolontariusz1'), ref('bestja_volunteer.user_wolontariusz3')])]"/>
         </record>

@@ -56,9 +56,9 @@
                     <notebook colspan="2">
                         <page string="Opis Organizacji">
                         <span class="oe_grey oe_edit_only">Opisz czym zajmuje się Twoja organizacja.</span>
-                         <field name="organization_description">organization.organization_description</field>
+                         <field name="organization_description"/>
                         </page>
-                        <page string="Ludzie" states="accepted">
+                        <page string="Ludzie" states="approved">
                             <field name="volunteers" readonly="True" />
                         </page>
                     </notebook>
