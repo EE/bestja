@@ -1,0 +1,5 @@
+<openerp>
+    <data>
+        <menuitem parent="bestja_offers.menu_offers" id="menu_offers_all" action="action_offers_all" sequence="5" groups="bestja_offers_moderation.offers_moderator"/>
+    </data>
+</openerp>

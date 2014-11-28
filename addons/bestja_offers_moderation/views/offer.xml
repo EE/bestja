@@ -15,7 +15,7 @@
                     <attribute name="states">published,pending</attribute>
                 </xpath>
                 <xpath expr="//button[@name='set_published']" position="attributes">
-                    <attribute name="groups">bestja_offers_moderation.bestja_offers_moderator</attribute>
+                    <attribute name="groups">bestja_offers_moderation.offers_moderator</attribute>
                 </xpath>
             </field>
         </record>
@@ -24,7 +24,7 @@
             <field name="name">Oferty do moderacji</field>
             <field name="res_model">offer</field>
             <field name="view_mode">kanban,tree,form</field>
-            <field name="groups_id" eval="[(4, ref('bestja_offers_moderator'))]"/>
+            <field name="groups_id" eval="[(4, ref('offers_moderator'))]"/>
             <field name="domain">[
                 ('state', '=', 'pending'),
             ]</field>

@@ -1,7 +1,7 @@
 <openerp>
     <data>
         <record model="ir.actions.act_window" id="action_list_offers">
-            <field name="name">Oferty</field>
+            <field name="name">Moje Oferty</field>
             <field name="res_model">offer</field>
             <field name="view_mode">kanban,tree,form</field>
             <field name="context" eval="{'search_default_current': True}" />

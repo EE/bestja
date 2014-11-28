@@ -1,0 +1,23 @@
+<openerp>
+    <data>
+        <record id="offer_application_mod_rule" model="ir.rule">
+            <field name="name">STAGE 1: Applications can be accessed by moderators.</field>
+            <field name="model_id" ref="model_offers_application"/>
+            <field name="groups" eval="[(4, ref('bestja_offers_moderation.offers_moderator'))]"/>
+            <field name="domain_force">[
+                ('preliminary', '=', True),
+            ]</field>
+        </record>
+        <record id="bestja_offers.offer_application_rule" model="ir.rule">
+            <field name="name">STAGE 2: Applications can be accessed by coordinators and project managers only.</field>
+            <field name="model_id" ref="model_offers_application"/>
+            <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+            <field name="domain_force">[
+                ('preliminary', '=', False),
+                '|',
+                    ('offer.project.organization.coordinator.id', '=', user.id),
+                    ('offer.project.manager.id', '=', user.id),
+            ]</field>
+        </record>
+    </data>
+</openerp>

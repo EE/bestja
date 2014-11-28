@@ -43,6 +43,9 @@ class Search(http.Controller):
 class Offer(http.Controller):
     @http.route('/offer/<model("offer"):offer>', auth='public', website=True)
     def offer(self, offer):
+        offer = offer.sudo()
+        if offer.state != 'published':
+            return http.request.not_found()
         return http.request.render('bestja_offers.offer', {
             'offer': offer,
         })
@@ -53,7 +56,7 @@ class Offer(http.Controller):
         methods=['POST']
     )
     def apply(self, offer):
-        http.request.env['offers.application'].create({
+        http.request.env['offers.application'].sudo().create({
             'user': http.request.env.user.id,
             'offer': offer.id,
         })

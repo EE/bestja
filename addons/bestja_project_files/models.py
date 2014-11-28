@@ -9,14 +9,9 @@ class File(models.Model):
     project = fields.Many2one('bestja.project', string="Projekt")
     organization = fields.Many2one(
         'organization',
-        compute='_compute_organization',
-        string="Organizacja"
+        string="Organizacja",
+        related='project.organization'
     )
-
-    @api.one
-    @api.depends('project')
-    def _compute_organization(self):
-        self.organization = self.project.organization
 
 
 class Project(models.Model):

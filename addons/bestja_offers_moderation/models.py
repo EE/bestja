@@ -3,7 +3,7 @@ from lxml import etree
 
 from openerp import models, fields, api, SUPERUSER_ID
 
-from ..bestja_offers.models import Offer
+from openerp.addons.bestja_offers.models import Offer
 
 
 class OfferWithModeration(models.Model):
@@ -22,8 +22,8 @@ class OfferWithModeration(models.Model):
         Returns a boolean value indicating whether current user
         is an offer moderator.
         """
-        moderators = self.env.ref('bestja_offers_moderation.bestja_offers_moderator')
-        return moderators.id in self.env.user.groups_id.ids
+        return self.env['res.users'] \
+            .has_group('bestja_offers_moderation.offers_moderator')
 
     @api.one
     def set_pending(self):
