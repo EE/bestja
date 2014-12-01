@@ -300,7 +300,7 @@ class Offer(models.Model):
 
         index = OffersIndex(dbname=self.env.cr.dbname)
         writer = index.get_writer()
-        for offer in self:
+        for offer in self.sudo():
             pk = unicode(offer.id)
             if offer.state == 'published':
                 writer.update_document(
@@ -309,6 +309,7 @@ class Offer(models.Model):
                     name=offer.name,
                     wishes=list_names(offer.wishes),
                     target_group=list_names(offer.target_group),
+                    organization=self.organization.name,
                 )
             else:
                 # Should not be public. Flag as removed from index.
