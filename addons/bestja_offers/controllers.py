@@ -1,5 +1,6 @@
 #-*- coding: utf-8 -*-
 import whoosh
+from psycopg2 import IntegrityError
 
 from openerp import http
 from openerp.addons.website.models.website import slug
@@ -50,16 +51,22 @@ class Offer(http.Controller):
             'offer': offer,
         })
 
-    @http.route(
-        '/offer/<model("offer"):offer>/apply',
-        auth='user',
-        methods=['POST']
-    )
+    @http.route('/offer/<model("offer"):offer>/apply', auth='user')
     def apply(self, offer):
-        http.request.env['offers.application'].sudo().create({
-            'user': http.request.env.user.id,
-            'offer': offer.id,
-        })
+        if http.request.httprequest.method != 'POST':
+            return http.local_redirect('/offer/{}'.format(slug(offer)))
+        try:
+            http.request.env['offers.application'].sudo().create({
+                'user': http.request.env.user.id,
+                'offer': offer.id,
+            })
+        except IntegrityError:
+            # can't use the usual `http.request.env.cr` style,
+            # because `env` queries db and everything explodes
+            http.request._cr.rollback()
+            # Unique constraint.
+            # Should this redirect user to a page with a different message?
+
         return http.local_redirect('/offer/{}/thankyou'.format(slug(offer)))
 
     @http.route('/offer/<model("offer"):offer>/thankyou', auth='user', website=True)

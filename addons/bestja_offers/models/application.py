@@ -68,7 +68,7 @@ class Application(models.Model):
     notes = fields.Text()
 
     _sql_constraints = [
-        ('user_offer_uniq', 'unique(user,offer)', 'User can apply for an offer only once!')
+        ('user_offer_uniq', 'unique("user", "offer")', 'User can apply for an offer only once!')
     ]
 
     @api.one

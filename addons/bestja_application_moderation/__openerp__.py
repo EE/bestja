@@ -15,6 +15,7 @@ The second stage is handled by the recruiting organization itself.""",
     'version': '0.1',
     'depends': [
         'base',
+        'bestja_offers',
         'bestja_offers_moderation',
     ],
     'data': [

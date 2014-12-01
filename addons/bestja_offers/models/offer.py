@@ -98,7 +98,8 @@ class Offer(models.Model):
     desc_aim = fields.Text(
         required=True,
         string="Co jest celem oferty?",
-        help="""Opisz w skrócie czym będzie zajmował się wolontariusz. np. Akcja będzie polegała na uporządkowaniu trawnika"""
+        help="Opisz w skrócie czym będzie zajmował się wolontariusz. \
+        np. Akcja będzie polegała na uporządkowaniu trawnika"
     )
     desc_expectations = fields.Text(
         required=True,
@@ -108,7 +109,8 @@ class Offer(models.Model):
     )
     desc_why = fields.Text(
         string="Jak praca wolontariusza przyczyni się do zmiany?",
-        help="Opisz dlaczego wolontariusz miałby się zaangażować w tę akcję, jaki problem pomoże rozwiązać, komu pomoże. \
+        help="Opisz dlaczego wolontariusz miałby się zaangażować w tę akcję, \
+        jaki problem pomoże rozwiązać, komu pomoże. \
         np. Domy starców nie mają funduszy na rewitalizację zieleni, a starsze osoby często przebywają w ogrodzie. \
         Twoja pomoc pozwoli seniorom miło spędzić czas w ogrodzie."
     )

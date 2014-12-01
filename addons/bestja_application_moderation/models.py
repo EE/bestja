@@ -9,6 +9,15 @@ class Application(models.Model):
     # preliminary -> first stage of recruitment
     preliminary = fields.Boolean(default=True)
 
+    def _auto_init(self, cr, context=None):
+        # Overwrite sql constraints from parent.
+        # Done here as a workaround for issue #3957 in Odoo
+        # https://github.com/odoo/odoo/issues/3957
+        self._sql_constraints = [
+            ('user_offer_uniq', 'unique("user", "offer", "preliminary")', 'User can apply for an offer only once!')
+        ]
+        super(Application, self)._auto_init(cr, context)
+
     @api.model
     def create(self, vals):
         record = super(Application, self).create(vals)

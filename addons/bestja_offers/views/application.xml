@@ -77,7 +77,6 @@
             <field name="name">Aplikacje</field>
             <field name="res_model">offers.application</field>
             <field name="view_mode">kanban,form,calendar</field>
-            <field name="priority" eval="5"/>
             <field name="context">{'search_default_offer': active_id}</field>
         </record>
 

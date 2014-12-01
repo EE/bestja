@@ -233,7 +233,7 @@
                                     <field name="accepted_application_count" widget="gauge"
                                         options="{
                                             'max_field': 'vacancies',
-                                            'label': 'Zatrudniono'
+                                            'label': 'Zaakceptowano'
                                         }">
                                     </field>
                                 </div>

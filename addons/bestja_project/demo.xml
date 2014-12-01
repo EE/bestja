@@ -3,7 +3,7 @@
     <data noupdate="1">
         <!-- Projects -->
         <record id="project_cheese" model="bestja.project">
-            <field name="name">Stowarzyszenie Miłośników Sera Korycińskiego</field>
+            <field name="name">Zjazd Miłośników Sera Korycińskiego</field>
             <field name="organization" ref="bestja_organization.org_cheese"/>
             <field name="manager" ref="bestja_volunteer.user_koordynator1"/>
             <field name="date_start" eval="time.strftime('%Y-%m-17')"/>
