@@ -16,17 +16,17 @@ TestType = collections.namedtuple(
 )
 
 
-PHANTOMJS_LIBRARY = """
+PHANTOMJS_LIBRARY_HEAD = """
 function assert(value) {
-    if (value) {
-        console.log("ok");
-    }
-    else {
+    if (!value) {
         console.log("error");
     }
 }
 """
 
+PHANTOMJS_LIBRARY_FOOT = """
+;console.log("ok");
+"""
 
 def phantomjs_run(self, filepath):
     with open(filepath, 'r') as f:
@@ -40,10 +40,14 @@ def phantomjs_run(self, filepath):
     # It is mandatory to specify url_path.
     # For other possible parameters, refer to the definition of function phantom_js
     # in the HttpCase class.
-    kwargs = dict(re.findall(r'^\s*//\s*PhantomArg:\s*(\w*)\s*=\s*([^\s]*)\s*', script_contents))
+    kwargs = dict(re.findall(r'\s*//\s*PhantomArg:\s*(\w*)\s*=\s*([^\s]*)\s*', script_contents))
     url_path = kwargs.pop('url_path')
 
-    return self.phantom_js(url_path, code=PHANTOMJS_LIBRARY + script_contents, **kwargs)
+    return self.phantom_js(
+        url_path,
+        code=PHANTOMJS_LIBRARY_HEAD + script_contents + PHANTOMJS_LIBRARY_FOOT,
+        **kwargs
+    )
 
 
 class ExternalTestsMetaclass(type):
