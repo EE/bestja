@@ -36,17 +36,23 @@ class ProtectedFieldsMixin(models.AbstractModel):
         return any(res_users.has_group(group) for group in groups)
 
     @api.model
-    def _check_field_permissions(self, vals):
+    def _check_field_permissions(self, vals, permitted_vals=None):
+        if permitted_vals is None:
+            permitted_vals = {}
+
         if not self._is_permitted():
             for field_name in self._protected_fields:
-                if field_name in vals:
+                if field_name in vals \
+                        and permitted_vals.get(field_name) != vals[field_name]:
                     raise exceptions.AccessError(
                         "You don't have permissions to modify the {} field!".format(field_name)
                     )
 
     @api.model
     def create(self, vals):
-        self._check_field_permissions(vals)
+        # default values are permitted upon creation
+        defaults = self.default_get(vals)
+        self._check_field_permissions(vals, permitted_vals=defaults)
         record = super(ProtectedFieldsMixin, self).create(vals)
         return record
 
