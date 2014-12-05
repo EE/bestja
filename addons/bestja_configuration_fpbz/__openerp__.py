@@ -15,6 +15,7 @@
         'bestja_project',
         'bestja_offers',
         'bestja_files',
+        'email_confirmation',
         'quizzes',
     ],
     'application': True,

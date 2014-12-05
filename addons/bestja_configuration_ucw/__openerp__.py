@@ -17,6 +17,7 @@
         'bestja_files',
         'bestja_offers_moderation',
         'bestja_application_moderation',
+        'email_confirmation',
     ],
     'application': True,
 }

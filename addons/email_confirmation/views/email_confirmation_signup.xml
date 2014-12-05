@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <template id="email_confirmation.signup" inherit_id="auth_signup.signup" name="Signup with alerts">
+             <xpath expr="//form[@class='oe_signup_form']" position="before">
+                <div t-if="message">
+                    <p class="alert alert-success" t-if="message">
+                        <t t-esc="message"/>
+                    </p>
+                </div>
+             </xpath>
+        </template>
+    </data>
+</openerp>
