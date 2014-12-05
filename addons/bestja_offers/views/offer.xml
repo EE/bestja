@@ -117,14 +117,14 @@
                             <field name="no_localization" string="Oferta nie ma przypisanej lokalizacji"/><label for="no_localization"/>
                             <widget type="google_maps.coordinates" attrs="{'invisible': [('no_localization', '=', True)]}"/><!-- the google map widget needs to have its own separate visibility definition, so it can later receive the change:effective_invisible event. -->
                             <div attrs="{'invisible': [('no_localization', '=', True)]}">
-                                <group string="Wyświetlany opis miejsca">
+                                <group string="Wyświetlany opis miejsca" class="medium_input">
                                     <field name="location_name" string="Nazwa"/>
                                     <field name="address" string="Ulica, nr domu"/>
                                     <field name="city"/>
                                 </group>
                                 <separator/>
                                 <group>
-                                    <field name="district"/>
+                                    <field name="district" class="medium_input"/>
                                 </group>
                                     <field name="latitude" class="coordinate_fields"/>
                                     <field name="longitude" class="coordinate_fields"/>
