@@ -7,7 +7,10 @@ from openerp import models, fields, api, exceptions
 
 class Organization(models.Model):
     _name = 'organization'
-    _inherit = ['protected_fields.mixin']
+    _inherit = [
+        'protected_fields.mixin',
+        'ir.needaction_mixin',
+    ]
     _protected_fields = ['state', 'coordinator']
     _permitted_groups = ['bestja_base.instance_admin']
 
@@ -137,6 +140,16 @@ class Organization(models.Model):
     @api.one
     def set_rejected(self):
         self.state = 'rejected'
+
+    @api.model
+    def _needaction_domain_get(self):
+        """
+        Show pending organizations count in menu - only for admins.
+        """
+        if not any(self.env['res.users'] \
+            .has_group(group) for group in self._permitted_groups):
+            return False
+        return [('state', '=', 'pending'), ('active', '=?', False)]
 
 
 class UserWithOrganization(models.Model):
