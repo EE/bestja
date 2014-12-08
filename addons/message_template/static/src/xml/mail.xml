@@ -1,0 +1,9 @@
+<template>
+    <!-- Replace kanban group menu icon -->
+    <t t-extend="mail.thread.message">
+        <!-- You shouldn't be able to reply to system messages -->
+        <t t-jquery=".oe_reply" t-operation="replace">
+            <span class='oe_reply' t-if="widget.options.show_reply_button and widget.subtype != 'System Message'"><a title="Reply" class="oe_e">(</a></span>
+        </t>
+    </t>
+</template>

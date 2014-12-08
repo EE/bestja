@@ -20,7 +20,8 @@ This module allow users to add new organizations
         'security/security.xml',
         'security/ir.model.access.csv',
         'views/organization.xml',
-        'menu.xml'
+        'messages.xml',
+        'menu.xml',
     ],
     'demo': [
         'demo.xml',

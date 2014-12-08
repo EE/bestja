@@ -4,6 +4,16 @@
             <field name="name">Organizacje</field>
             <field name="res_model">organization</field>
             <field name="view_mode">tree,form</field>
+            <!--
+            the rule with =? is always true,
+            but it deactivates the built-in active rule.
+            -->
+            <field name="domain">[
+                ('active', '=?', False),
+                '|',
+                    ('state', '=', 'approved'),
+                    ('coordinator.id', '=', uid),
+                ]</field>
         </record>
 
         <record model="ir.actions.act_window" id="action_accept_organization">

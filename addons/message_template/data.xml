@@ -1,0 +1,15 @@
+<openerp>
+    <data>
+        <!-- Default messages sender -->
+        <record id="user_messages" model="res.users">
+            <field name="name">System Message</field>
+            <field name="login">user_messages</field>
+        </record>
+
+        <record id="subtype_system_message" model="mail.message.subtype">
+            <field name="name">System Message</field>
+            <field name="default" eval="False"/>
+            <field name="description">Message sent from system user.</field>
+        </record>
+    </data>
+</openerp>

@@ -5,7 +5,7 @@ from openerp import models, fields, api
 
 class Project(models.Model):
     _name = 'bestja.project'
-    _inherit = ['mail.thread']
+    _inherit = ['message_template.mixin']
 
     def current_members(self):
         """
@@ -40,12 +40,10 @@ class Project(models.Model):
     date_start = fields.Date(
         required=True,
         string="od dnia",
-        track_visibility='onchange',
     )
     date_stop = fields.Date(
         required=True,
         string="do dnia",
-        track_visibility='onchange',
     )
     members = fields.Many2many(
         'res.users',
@@ -68,9 +66,37 @@ class Project(models.Model):
             ('state', '=', 'done')
         ])
 
+    @api.model
+    def create(self, vals):
+        record = super(Project, self).create(vals)
+        record.send(
+            template='bestja_project.msg_manager',
+            recipients=record.manager,
+        )
+        return record
+
+    @api.multi
+    def write(self, vals):
+        old_manager = None
+        if 'manager' in vals:
+            # Manager changed. Keep the old one.
+            old_manager = self.manager
+        val = super(Project, self).write(vals)
+        if old_manager:
+            self.send(
+                template='bestja_project.msg_manager',
+                recipients=self.manager,
+            )
+            self.send(
+                template='bestja_project.msg_manager_changed',
+                recipients=old_manager,
+            )
+        return val
+
 
 class Task(models.Model):
     _name = 'bestja.task'
+    _inherit = ['message_template.mixin']
     _order = 'state desc'
     STATES = [
         ('new', "nowe"),
@@ -112,6 +138,45 @@ class Task(models.Model):
     @api.one
     def set_done(self):
         self.state = 'done'
+        self.send(
+            template='bestja_project.msg_task_done_user',
+            recipients=self.user,
+        )
+
+        if self.project.manager:
+            recipient = self.project.manager
+        else:
+            recipient = self.project.organization.coordinator
+        self.send(
+            template='bestja_project.msg_task_done_manager',
+            recipients=[recipient, ]
+        )
+
+    @api.model
+    def create(self, vals):
+        record = super(Task, self).create(vals)
+        record.send(
+            template='bestja_project.msg_task',
+            recipients=record.user,
+        )
+        return record
+
+    @api.multi
+    def write(self, vals):
+        old_user = None
+        if 'user' in vals:
+            old_user = self.user
+        val = super(Task, self).write(vals)
+        if old_user:
+            self.send(
+                template='bestja_project.msg_task',
+                recipients=self.user,
+            )
+            self.send(
+                template='bestja_project.msg_task_changed',
+                recipients=old_user,
+            )
+        return val
 
 
 class UserWithProjects(models.Model):

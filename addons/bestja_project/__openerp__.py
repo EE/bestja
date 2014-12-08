@@ -21,6 +21,7 @@ Define projects and assign users to tasks.
         'security/security.xml',
         'views/task.xml',
         'views/project.xml',
+        'messages.xml',
         'menu.xml',
     ],
     'demo': [

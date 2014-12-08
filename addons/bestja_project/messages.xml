@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="msg_manager" model="message_template">
+            <field name="subject">Zostałeś manadżerem projektu</field>
+            <field name="body"><![CDATA[
+                Właśnie zostałeś manadżerem projektu ${record.name} (${record.date_start} - ${record.date_stop})
+            ]]></field>
+            <field name="model">bestja.project</field>
+        </record>
+
+        <record id="msg_manager_changed" model="message_template">
+            <field name="subject">Zmiana managera</field>
+            <field name="body"><![CDATA[
+                Nie jesteś już managerem projektu ${record.name} (${record.date_start} - ${record.date_stop})<br/>
+                <br/>
+                Skontaktuj się z koordynatorem: ${record.organization.coordinator.name}.
+            ]]></field>
+            <field name="model">bestja.project</field>
+        </record>
+
+        <record id="msg_task" model="message_template">
+            <field name="subject">Nowe zadanie</field>
+            <field name="body"><![CDATA[
+                Mam dla Ciebie nowe zadanie w ramach projektu ${record.project.name}.
+            ]]></field>
+            <field name="model">bestja.task</field>
+        </record>
+
+        <record id="msg_task_changed" model="message_template">
+            <field name="subject">Zadanie anulowane</field>
+            <field name="body"><![CDATA[
+                Niestety zadanie "${record.name}" zostało anulowane.
+            ]]></field>
+            <field name="model">bestja.task</field>
+        </record>
+
+        <record id="msg_task_done_user" model="message_template">
+            <field name="subject">Dziękujemy!</field>
+            <field name="body"><![CDATA[
+                Super, że nam pomogłeś. Dziękujemy za Twoje zaangażowanie.
+            ]]></field>
+            <field name="model">bestja.task</field>
+        </record>
+
+        <record id="msg_task_done_manager" model="message_template">
+            <field name="subject">Zadanie ukończone</field>
+            <field name="body"><![CDATA[
+                Zadanie "${record.name}" realizowane przez ${record.user.name} zostało zakończone.
+            ]]></field>
+            <field name="model">bestja.task</field>
+        </record>
+    </data>
+</openerp>

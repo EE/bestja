@@ -10,6 +10,7 @@ class Organization(models.Model):
     _inherit = [
         'protected_fields.mixin',
         'ir.needaction_mixin',
+        'message_template.mixin',
     ]
     _protected_fields = ['state', 'coordinator']
     _permitted_groups = ['bestja_base.instance_admin']
@@ -136,18 +137,39 @@ class Organization(models.Model):
     @api.one
     def set_approved(self):
         self.state = 'approved'
+        self.send(
+            template='bestja_organization.msg_approved',
+            recipients=self.coordinator,
+        )
 
     @api.one
     def set_rejected(self):
         self.state = 'rejected'
+        self.send(
+            template='bestja_organization.msg_rejected',
+            recipients=self.coordinator,
+        )
+
+    @api.model
+    def create(self, vals):
+        record = super(Organization, self).create(vals)
+        record.send(
+            template='bestja_organization.msg_registered',
+            recipients=record.coordinator,
+        )
+        record.send_group(
+            template='bestja_organization.msg_registered_admin',
+            group='bestja_base.instance_admin',
+        )
+        return record
 
     @api.model
     def _needaction_domain_get(self):
         """
         Show pending organizations count in menu - only for admins.
         """
-        if not any(self.env['res.users'] \
-            .has_group(group) for group in self._permitted_groups):
+        if not any(self.env['res.users']
+                   .has_group(group) for group in self._permitted_groups):
             return False
         return [('state', '=', 'pending'), ('active', '=?', False)]
 
