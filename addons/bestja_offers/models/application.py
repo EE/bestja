@@ -8,6 +8,7 @@ from openerp import models, fields, api
 class ApplicationRejectedReason(models.Model):
     _name = 'offers.application.rejected'
     name = fields.Char(required=True)
+    description = fields.Text(required=True)
 
 
 class Application(models.Model):
@@ -15,9 +16,11 @@ class Application(models.Model):
     Volunteer's request to work for an organization.
     """
     _name = 'offers.application'
+    _inherit = ['message_template.mixin']
     _inherits = {
         'res.users': 'user'
     }
+
     STATES = [
         ('new', 'Nowa aplikacja'),
         ('meeting', 'Pierwsze spotkanie'),
@@ -132,6 +135,15 @@ class Application(models.Model):
         }
 
     @api.one
+    def set_rejected_reason(self, reason):
+        self.rejected_reason = reason
+        self.send(
+            template='bestja_offers.msg_application_rejected',
+            recipients=self.user,
+            record_name=self.offer.name,
+        )
+
+    @api.one
     def action_post_accepted(self):
         """
         After application had been accepted,
@@ -147,6 +159,12 @@ class Application(models.Model):
         # Unpublish if all vacancies filled
         if offer.accepted_application_count >= offer.vacancies:
             offer.state = 'archive'
+        # Send a message
+        self.send(
+            template='bestja_offers.msg_application_accepted',
+            recipients=self.user,
+            record_name=self.offer.name,
+        )
 
     @api.one
     def action_post_unaccepted(self):

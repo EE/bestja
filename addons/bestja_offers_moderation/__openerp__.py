@@ -18,7 +18,8 @@ who need to accept them first.
     'data': [
         'security/security.xml',
         'views/offer.xml',
-        'menu.xml'
+        'menu.xml',
+        'messages.xml',
     ],
     'demo': [
         'demo.xml',

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="msg_application_accepted" model="message_template">
+            <field name="subject">Zgłoszenie zaakceptowane!</field>
+            <field name="body"><![CDATA[
+                Zaakceptowano Twoje zgłoszenie w "${record.offer.name}". Wkrótce otrzymasz szczegóły zadania.
+            ]]></field>
+            <field name="model">offers.application</field>
+        </record>
+
+        <record id="msg_application_rejected" model="message_template">
+            <field name="subject">Zgłoszenie odrzucone</field>
+            <field name="body"><![CDATA[
+                Niestety tym razem się nie udało.<br/>
+                <br/>
+                ${record.rejected_reason.description}
+            ]]></field>
+            <field name="model">offers.application</field>
+        </record>
+    </data>
+</openerp>

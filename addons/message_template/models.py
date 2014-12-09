@@ -12,7 +12,7 @@ class MessageTemplate(models.Model):
     model = fields.Char()
 
     @api.one
-    def send(self, recipients, sender=None, record=None):
+    def send(self, recipients, sender=None, record=None, record_name=None):
         recipient_partners = []
         for recipient in recipients:
             recipient_partners.append(
@@ -33,8 +33,8 @@ class MessageTemplate(models.Model):
             'author_id': sender.partner_id.id,
             'partner_ids': recipient_partners,
             'model': self.model,
-            'res_id': record.id,
-            'record_name': record.name if record else None,
+            'res_id': record and record.id,
+            'record_name': record_name or (record and record.name),
             'subject': self.subject,
             'body': body_rendered,
             'template': self.id,
@@ -42,12 +42,17 @@ class MessageTemplate(models.Model):
         })
 
     @api.multi
-    def send_group(self, group, sender=None, record=None):
+    def send_group(self, group, sender=None, record=None, record_name=None):
         """
         Send a message to all users in a group `group`.
         """
         group_obj = self.env.ref(group)
-        self.send(group_obj.users, sender, record)
+        self.send(
+            recipients=group_obj.users,
+            sender=sender,
+            record=record,
+            record_name=record_name,
+        )
 
 
 class MessageTemplateMixin(models.AbstractModel):
@@ -59,19 +64,21 @@ class MessageTemplateMixin(models.AbstractModel):
     _name = 'message_template.mixin'
 
     @api.one
-    def send(self, template, recipients, sender=None):
+    def send(self, template, recipients, sender=None, record_name=None):
         return self.env.ref(template).send(
             recipients=recipients,
             sender=sender,
             record=self,
+            record_name=record_name,
         )
 
     @api.one
-    def send_group(self, template, group, sender=None):
+    def send_group(self, template, group, sender=None, record_name=None):
         return self.env.ref(template).send_group(
             group=group,
             sender=sender,
             record=self,
+            record_name=record_name,
         )
 
     @api.multi

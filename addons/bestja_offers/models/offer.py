@@ -355,9 +355,13 @@ class Offer(models.Model):
         return vals
 
     @api.multi
+    def get_public_url(self):
+        return '/offer/{}/'.format(slug(self))
+
+    @api.multi
     def show_website_action(self):
         return {
             'type': 'ir.actions.act_url',
-            'url': '/offer/{}/'.format(slug(self)),
+            'url': self.get_public_url(),
             'target': 'new',
         }

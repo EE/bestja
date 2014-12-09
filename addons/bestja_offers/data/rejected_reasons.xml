@@ -2,12 +2,21 @@
     <data>
         <record id="reason1" model="offers.application.rejected">
             <field name="name">powód 1</field>
+            <field name="description">
+                Mimo, że jesteś wspaniałym kandydatem pierwszy powód spowodował, że nie możemy Cię przyjąć.
+            </field>
         </record>
         <record id="reason2" model="offers.application.rejected">
             <field name="name">powód 2</field>
+            <field name="description">
+                Drugi powód spowodował, że Cię nie przyjęliśmy. Bardzo nam przykro z tego powodu.
+            </field>
         </record>
         <record id="programmer" model="offers.application.rejected">
             <field name="name">programista</field>
+            <field name="description">
+                Jesteś programistą. Nie chcemy tu takich jak ty.
+            </field>
         </record>
     </data>
 </openerp>

@@ -38,7 +38,7 @@
             <field name="arch" type="xml">
                 <form string="Podaj powód odrzucenia">
                     <group>
-                        <field name="reason"/>
+                        <field name="reason" options="{'no_create': True, 'no_open': True}"/>
                     </group>
                     <footer>
                         <button name="save_reason" type="object" string="Zapisz powód" class="oe_highlight"/>

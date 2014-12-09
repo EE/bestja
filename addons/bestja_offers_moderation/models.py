@@ -11,6 +11,7 @@ class OfferWithModeration(models.Model):
     _inherit = [
         'offer',
         'ir.needaction_mixin',
+        'message_template.mixin',
     ]
     STATES = Offer.STATES + [
         ('pending', "oczekująca na akceptację"),
@@ -28,6 +29,21 @@ class OfferWithModeration(models.Model):
     @api.one
     def set_pending(self):
         self.state = 'pending'
+        self.send_group(
+            template='bestja_offers_moderation.msg_pending_admin',
+            group='bestja_offers_moderation.offers_moderator',
+        )
+
+    @api.one
+    def set_published(self):
+        if self.is_moderator():
+            previous_state = self.state
+            self.state = 'published'
+            if previous_state == 'pending':
+                self.send(
+                    template='bestja_offers_moderation.msg_approved',
+                    recipients=self.sudo().project.responsible_user,
+                )
 
     @api.one
     def set_pending_if_needed(self):

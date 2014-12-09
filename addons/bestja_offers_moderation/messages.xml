@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="msg_pending_admin" model="message_template">
+            <field name="subject">Nowa oferta do zaakceptowania</field>
+            <field name="body"><![CDATA[
+                Czeka na ciebie jedna oferta do zaakceptowania, "${record.name}", dodana przez "${record.organization.name}".
+            ]]></field>
+            <field name="model">offer</field>
+        </record>
+
+        <record id="msg_approved" model="message_template">
+            <field name="subject">Oferta zaakceptowana</field>
+            <field name="body"><![CDATA[
+                Twoja oferta została zaakceptowana. <a href="${record.get_public_url()}">Zobacz na www</a>.
+            ]]></field>
+            <field name="model">offer</field>
+        </record>
+    </data>
+</openerp>

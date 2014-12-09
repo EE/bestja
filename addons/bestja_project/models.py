@@ -37,6 +37,11 @@ class Project(models.Model):
         domain=current_members,
         string="Menadżer projektu",
     )
+    responsible_user = fields.Many2one(
+        'res.users',
+        string="Osoba odpowiedzialna",
+        compute='_responsible_user'
+    )
     date_start = fields.Date(
         required=True,
         string="od dnia",
@@ -56,6 +61,14 @@ class Project(models.Model):
     tasks = fields.One2many('bestja.task', 'project', string="Zadania")
     tasks_count = fields.Integer(compute='_tasks_count', string="Liczba zadań")
     done_tasks_count = fields.Integer(compute='_tasks_count', string="Liczba skończonych zadań")
+
+    @api.one
+    @api.depends('manager', 'organization.coordinator')
+    def _responsible_user(self):
+        if self.manager:
+            self.responsible_user = self.manager
+        else:
+            self.responsible_user = self.organization.coordinator
 
     @api.one
     @api.depends('tasks')
@@ -142,14 +155,9 @@ class Task(models.Model):
             template='bestja_project.msg_task_done_user',
             recipients=self.user,
         )
-
-        if self.project.manager:
-            recipient = self.project.manager
-        else:
-            recipient = self.project.organization.coordinator
         self.send(
             template='bestja_project.msg_task_done_manager',
-            recipients=[recipient, ]
+            recipients=self.responsible_user,
         )
 
     @api.model

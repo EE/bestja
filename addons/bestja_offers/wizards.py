@@ -47,7 +47,7 @@ class ApplicationRejectedWizard(ApplicationWizardMixin, models.TransientModel):
 
     @api.one
     def save_reason(self):
-        self.application.rejected_reason = self.reason
+        self.application.set_rejected_reason(self.reason)
 
 
 class ApplicationNotesWizard(ApplicationWizardMixin, models.TransientModel):

@@ -34,6 +34,7 @@ receiving and managing user applications.""",
         'workflows.xml',
         'security/ir.model.access.csv',
         'security/security.xml',
+        'messages.xml',
     ],
     'demo': [
         'demo.xml',
