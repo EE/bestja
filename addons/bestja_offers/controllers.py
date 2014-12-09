@@ -72,3 +72,32 @@ class Offer(http.Controller):
     @http.route('/offer/<model("offer"):offer>/thankyou', auth='user', website=True)
     def thankyou(self, offer):
         return http.request.render('bestja_offers.thankyou')
+
+    @http.route(
+        '/offer/<model("offer"):offer>/meeting/<any(accepted,rejected):resolution>/',
+        auth='user',
+        website=True,
+    )
+    def meeting_confirmation(self, offer, resolution, time=None):
+        """
+        Allow applicants to accept/reject suggested meeting times.
+        """
+        application = http.request.env['offers.application'].sudo().search([
+            ('offer.id', '=', offer.id),
+            ('user.id', '=', http.request.env.user.id),
+            ('current_meeting', '=', time),
+        ])
+        if not application:
+            return http.request.not_found()
+
+        application.current_meeting_state = resolution
+
+        application.send(
+            template='bestja_offers.msg_application_meeting_' + resolution,
+            recipients=application.offer.project.responsible_user,
+        )
+
+        return http.request.render('bestja_offers.meeting_confirmation', {
+            'application': application,
+            'resolution': resolution,
+        })

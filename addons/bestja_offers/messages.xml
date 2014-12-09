@@ -18,5 +18,34 @@
             ]]></field>
             <field name="model">offers.application</field>
         </record>
+
+        <record id="msg_application_meeting" model="message_template">
+            <field name="subject">Zaproszenie na spotkanie</field>
+            <field name="body"><![CDATA[
+                Zgłosiłeś się na ofertę "${record.offer.name}". Chcielibyśmy Cię lepiej poznać.
+
+                <ul>
+                    <li><a target="_blank" href="${record.get_meeting_confirmation_link('accepted')}">Potwierdź termin spotkania</a></li>
+                    <li><a target="_blank" href="${record.get_meeting_confirmation_link('rejected')}">Odrzuć termin spotkania</a></li>
+                </ul>
+            ]]></field>
+            <field name="model">offers.application</field>
+        </record>
+
+        <record id="msg_application_meeting_accepted" model="message_template">
+            <field name="subject">Spotkanie zaakceptowane</field>
+            <field name="body"><![CDATA[
+                Spotkanie z ${record.user.name} (${record.current_meeting}) zostało potwierdzone.
+            ]]></field>
+            <field name="model">offers.application</field>
+        </record>
+
+        <record id="msg_application_meeting_rejected" model="message_template">
+            <field name="subject">Spotkanie odrzucone</field>
+            <field name="body"><![CDATA[
+                Spotkanie z ${record.user.name} (${record.current_meeting}) zostało odrzucone.
+            ]]></field>
+            <field name="model">offers.application</field>
+        </record>
     </data>
 </openerp>

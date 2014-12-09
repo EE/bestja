@@ -107,6 +107,7 @@
                     <field name="phone"/>
                     <field name="state"/>
                     <field name="current_meeting"/>
+                    <field name="current_meeting_state"/>
                     <field name="rejected_reason"/>
                     <templates>
                         <t t-name="kanban-box">
@@ -129,6 +130,8 @@
                                 <div t-if="record.state.raw_value == 'meeting' or record.state.raw_value == 'meeting2'" class="application_kanban_meeting">
                                     <t t-if="record.current_meeting.raw_value">
                                         Termin spotkania: <field name="current_meeting"/>
+                                        <i t-if="record.current_meeting_state.raw_value=='accepted'" class="fa fa-check status-accepted"></i>
+                                        <i t-if="record.current_meeting_state.raw_value=='rejected'" class="fa fa-times status-rejected"></i>
                                         <a name="%(action_application_meeting_wizard)d" type="action">(zmień)</a>
                                     </t>
                                     <t t-if="!record.current_meeting.raw_value">

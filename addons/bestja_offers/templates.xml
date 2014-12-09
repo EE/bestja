@@ -152,6 +152,14 @@
             </t>
         </template>
 
+        <template id="bestja_offers.meeting_confirmation">
+            <t t-call="website.layout">
+                <h1>Dziękujemy!</h1>
+                <p>Informacja została zapisana.</p>
+                <p>To spotkanie jest teraz <t t-if="resolution == 'accepted'">zaakceptowane</t><t t-if="resolution == 'rejected'">odrzucone</t>.</p>
+            </t>
+        </template>
+
         <template id="bestja_offers.share">
             <span class="ee_share">
 

@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from datetime import date
+from urllib import quote_plus
 
 from openerp import models, fields, api
 
@@ -41,6 +42,11 @@ class Application(models.Model):
         ('3', 'Dobra'),
         ('4', 'Doskonała')
     ]
+    MEETING_STATES = [
+        ('pending', 'Oczekujące'),
+        ('accepted', 'Potwierdzone'),
+        ('rejected', 'Odrzucone'),
+    ]
 
     # The way to specify all possible groups for particular grouping in kanban
     @api.model
@@ -62,6 +68,13 @@ class Application(models.Model):
     age = fields.Integer(compute='compute_age')
     meeting = fields.Datetime()
     meeting2 = fields.Datetime()
+    meeting1_state = fields.Selection(MEETING_STATES, default='pending')
+    meeting2_state = fields.Selection(MEETING_STATES, default='pending')
+    current_meeting_state = fields.Selection(
+        MEETING_STATES,
+        compute='compute_current_meeting',
+        inverse='inverse_current_meeting_state',
+    )
     current_meeting = fields.Datetime(
         compute='compute_current_meeting',
         inverse='inverse_current_meeting',
@@ -89,10 +102,20 @@ class Application(models.Model):
     def compute_current_meeting(self):
         if self.state == 'meeting':
             self.current_meeting = self.meeting
+            self.current_meeting_state = self.meeting1_state
         elif self.state == 'meeting2':
             self.current_meeting = self.meeting2
+            self.current_meeting_state = self.meeting2_state
         else:
             self.current_meeting = False
+            self.current_meeting_state = False
+
+    @api.one
+    def inverse_current_meeting_state(self):
+        if self.state == 'meeting2':
+            self.meeting2_state = self.current_meeting_state
+        else:
+            self.meeting1_state = self.current_meeting_state
 
     @api.one
     def inverse_current_meeting(self):
@@ -103,6 +126,16 @@ class Application(models.Model):
         elif self.state == 'new':
             self.meeting = self.current_meeting
             self.state = 'meeting'
+
+        # Reset the meeting state
+        self.current_meeting_state = 'pending'
+
+        # Send message about the meeting
+        self.send(
+            template='bestja_offers.msg_application_meeting',
+            recipients=self.user,
+            record_name=self.offer.name,
+        )
 
     def search_current_meeting(self, operator, value):
         return [
@@ -195,4 +228,16 @@ class Application(models.Model):
         return super(Application, self)._read_group_fill_results(
             cr, uid, domain, groupby, remaining_groupbys, aggregated_fields,
             count_field, read_group_result, read_group_order, context
+        )
+
+    @api.multi
+    def get_meeting_confirmation_link(self, resolution):
+        """
+        Applicants can use this url to confirm a meeting.
+        resolution -- one of 'accepted', 'rejected'
+        """
+        return '{}meeting/{}/?time={}'.format(
+            self.offer.get_public_url(),
+            resolution,
+            quote_plus(self.current_meeting),
         )

@@ -28,3 +28,11 @@
 .kanban_offer_status_action {
   margin-top: 1em;
 }
+
+.application_kanban_meeting .status-accepted {
+    color: green;
+}
+
+.application_kanban_meeting .status-rejected {
+    color: red;
+}
