@@ -148,6 +148,7 @@ class Organization(models.Model):
         self.send(
             template='bestja_organization.msg_rejected',
             recipients=self.coordinator,
+            sender=self.env.user,
         )
 
     @api.model

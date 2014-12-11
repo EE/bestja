@@ -183,6 +183,7 @@ class Task(models.Model):
             self.send(
                 template='bestja_project.msg_task_changed',
                 recipients=old_user,
+                sender=self.env.user,
             )
         return val
 

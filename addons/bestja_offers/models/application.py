@@ -174,6 +174,7 @@ class Application(models.Model):
             template='bestja_offers.msg_application_rejected',
             recipients=self.user,
             record_name=self.offer.name,
+            sender=self.env.user,
         )
 
     @api.one

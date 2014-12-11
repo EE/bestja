@@ -43,6 +43,7 @@ class OfferWithModeration(models.Model):
                 self.send(
                     template='bestja_offers_moderation.msg_approved',
                     recipients=self.sudo().project.responsible_user,
+                    sender=self.env.user,
                 )
 
     @api.one

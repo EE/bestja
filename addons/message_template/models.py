@@ -19,7 +19,7 @@ class MessageTemplate(models.Model):
                 (4, recipient.partner_id.id)
             )
 
-        subtype = False
+        subtype = None
         if not sender:
             sender = self.env.ref('message_template.user_messages')
             subtype = self.env.ref('message_template.subtype_system_message')
@@ -38,7 +38,7 @@ class MessageTemplate(models.Model):
             'subject': self.subject,
             'body': body_rendered,
             'template': self.id,
-            'subtype_id': subtype.id
+            'subtype_id': subtype and subtype.id
         })
 
     @api.multi
