@@ -5,16 +5,6 @@ from openerp import models, fields, api
 from .search import OffersIndex
 
 
-class Company(models.Model):
-    """
-    Add global configuration options to the company object (any other ideas?)
-    """
-    _inherit = 'res.company'
-
-    bestja_max_skills = fields.Integer(default=3, string="Max number of skills to be chosen per offer")
-    bestja_max_wishes = fields.Integer(default=3, string="Max number of fields of activity to be chosen per offer")
-
-
 class BestJaSettings(models.TransientModel):
     _inherit = 'bestja.config.settings'
 
@@ -29,17 +19,17 @@ class BestJaSettings(models.TransientModel):
 
     @api.model
     def get_default_offers_values(self, fields):
-        company = self.env.user.company_id
+        conf = self.env['ir.config_parameter']
         return {
-            'max_skills': company.bestja_max_skills,
-            'max_wishes': company.bestja_max_wishes,
+            'max_skills': int(conf.get_param('bestja_offers.max_skills')),
+            'max_wishes': int(conf.get_param('bestja_offers.max_wishes')),
         }
 
     @api.one
     def set_offers_values(self):
-        company = self.env.user.company_id
-        company.bestja_max_skills = self.max_skills
-        company.bestja_max_wishes = self.max_wishes
+        conf = self.env['ir.config_parameter']
+        conf.set_param('bestja_offers.max_skills', str(self.max_skills))
+        conf.set_param('bestja_offers.max_wishes', str(self.max_wishes))
 
     @api.multi
     def action_reindex(self):

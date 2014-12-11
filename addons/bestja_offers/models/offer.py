@@ -141,14 +141,14 @@ class Offer(models.Model):
     @api.one
     @api.constrains('skills')
     def _check_skills_no(self):
-        max_skills = self.env.user.company_id.bestja_max_skills
+        max_skills = int(self.env['ir.config_parameter'].get_param('bestja_offers.max_skills'))
         if len(self.skills) > max_skills:
             raise exceptions.ValidationError("Wybierz maksymalnie {} umiejętności!".format(max_skills))
 
     @api.one
     @api.constrains('wishes')
     def _check_wishes_no(self):
-        max_wishes = self.env.user.company_id.bestja_max_wishes
+        max_wishes = int(self.env['ir.config_parameter'].get_param('bestja_offers.max_wishes'))
         if len(self.wishes) > max_wishes:
             raise exceptions.ValidationError("Wybierz maksymalnie {} obszarów działania!".format(max_wishes))
 
@@ -276,14 +276,14 @@ class Offer(models.Model):
             return view
 
         doc = etree.XML(view['arch'])
-        company = self.env.user.company_id
+        conf = self.env['ir.config_parameter']
 
         span_skills = doc.xpath("//span[@id='max_skills']")
         span_wishes = doc.xpath("//span[@id='max_wishes']")
         if span_skills:
-            span_skills[0].text = str(company.bestja_max_skills)
+            span_skills[0].text = conf.get_param('bestja_offers.max_skills')
         if span_wishes:
-            span_wishes[0].text = str(company.bestja_max_wishes)
+            span_wishes[0].text = conf.get_param('bestja_offers.max_wishes')
 
         view['arch'] = etree.tostring(doc)
         return view

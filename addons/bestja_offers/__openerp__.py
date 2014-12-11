@@ -21,7 +21,7 @@ receiving and managing user applications.""",
         'bestja_project'
     ],
     'data': [
-        'config.xml',
+        'views/config.xml',
         'views/application.xml',
         'views/offer.xml',
         'views/assets.xml',
@@ -35,6 +35,7 @@ receiving and managing user applications.""",
         'security/ir.model.access.csv',
         'security/security.xml',
         'messages.xml',
+        'data.xml',
     ],
     'demo': [
         'demo.xml',

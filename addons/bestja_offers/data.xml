@@ -1,0 +1,14 @@
+<openerp>
+    <data noupdate="1">
+        <!-- default config values -->
+        <record id="default_max_skills" model="ir.config_parameter">
+            <field name="key">bestja_offers.max_skills</field>
+            <field name="value">3</field>
+        </record>
+
+        <record id="default_max_wishes" model="ir.config_parameter">
+            <field name="key">bestja_offers.max_wishes</field>
+            <field name="value">3</field>
+        </record>
+    </data>
+</openerp>
