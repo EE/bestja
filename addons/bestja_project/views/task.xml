@@ -13,10 +13,11 @@
             <field name="model">bestja.task</field>
             <field name="arch" type="xml">
                 <form>
-                    <header>
+                    <header attrs="{'invisible': [('user_assigned_task', '=', False)]}">
                         <button name="set_in_progress" string="rozpocznij" type="object" class="oe_highlight" states="new,done"/>
                         <button name="set_done" string="zakończ" type="object" class="oe_highlight" states="in_progress"/>
                     </header>
+                    <field name="user_assigned_task" invisible="1"/>
                     <div class="oe_title">
                         <label for="name" class="oe_edit_only"/>
                         <h1 class="oe_inline">

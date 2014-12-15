@@ -134,6 +134,9 @@ class Task(models.Model):
         domain=current_project_members,
         string="Wykonawca zadania",
     )
+    user_assigned_task = fields.Boolean(
+        compute='_user_assigned_task'
+    )
     date_start = fields.Date(required=True, string="od dnia")
     date_stop = fields.Date(required=True, string="do dnia")
     description = fields.Text(string="Opis zadania")
@@ -143,6 +146,14 @@ class Task(models.Model):
         ondelete='cascade',
         string="Projekt",
     )
+
+    @api.one
+    def _user_assigned_task(self):
+        """ 
+        Checks if current user == user responsible for task,
+        for hiding and unhiding button "rozpocznij" 
+        """
+        self.user_assigned_task = (self.env.user.id == self.user.id)
 
     @api.one
     def set_in_progress(self):
@@ -157,7 +168,7 @@ class Task(models.Model):
         )
         self.send(
             template='bestja_project.msg_task_done_manager',
-            recipients=self.responsible_user,
+            recipients=self.project.responsible_user,
         )
 
     @api.model
