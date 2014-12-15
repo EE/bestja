@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="bestja_org_form">
+            <field name="name">bestja.organization.form</field>
+            <field name="model">organization</field>
+            <field name="inherit_id" ref="bestja_organization.bestja_org_form"/>
+            <field name="arch" type="xml">
+                <!-- Remove groups restrictions.
+                     The visibility will be now handled in model's
+                     fields_view_get() -->
+                <button name="set_approved" position="attributes">
+                    <attribute name="groups"/>
+                </button>
+                <button name="set_rejected" position="attributes">
+                    <attribute name="groups"/>
+                </button>
+                <group name="address">
+                    <field name="parent" options="{'no_create': True}"/>
+                </group>
+            </field>
+        </record>
+    </data>
+</openerp>

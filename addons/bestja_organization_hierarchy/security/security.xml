@@ -1,0 +1,54 @@
+<openerp>
+    <data>
+        <record id="child_organizations" model="ir.rule">
+            <field name="name">Coordinator has access to her children organizations.</field>
+            <field name="model_id" ref="model_organization"/>
+            <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+            <field name="domain_force">[
+                ('parent.coordinator.id', '=', user.id),
+            ]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+        <record id="show_master_organization" model="ir.rule">
+            <field name="name">Everyone sees the master organization</field>
+            <field name="model_id" ref="model_organization"/>
+            <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+            <!--
+                Watch out for a hack! Here it comes!
+                Usually ref() function is directly available when Odoo
+                safe_eval()s contents of model fields. It turns out that this doesn't work in case or record rules.
+                And I badly need the ref() function here. Ups.
+                That's why I get to ref() via the user model,
+                which happens to be available.
+                In reality this doesn't have anything to do with
+                the user model, and would usually be written as:
+
+                    ('id', '=', ref('master_org'))
+            -->
+            <field name="domain_force">[
+                ('id', '=', user.env.ref('bestja_organization_hierarchy.master_org').id),
+            ]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+
+        <record id="show_middle_organizations" model="ir.rule">
+            <field name="name">Everyone sees organizations on the II level</field>
+            <field name="model_id" ref="model_organization"/>
+            <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+            <field name="domain_force">[
+                ('parent.id', '=', user.env.ref('bestja_organization_hierarchy.master_org').id),
+            ]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+    </data>
+</openerp>

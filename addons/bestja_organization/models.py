@@ -151,28 +151,34 @@ class Organization(models.Model):
             sender=self.env.user,
         )
 
-    @api.model
-    def create(self, vals):
-        record = super(Organization, self).create(vals)
-        record.send(
+    @api.one
+    def send_registration_messages(self):
+        self.send(
             template='bestja_organization.msg_registered',
-            recipients=record.coordinator,
+            recipients=self.coordinator,
         )
-        record.send_group(
+
+        self.send_group(
             template='bestja_organization.msg_registered_admin',
             group='bestja_base.instance_admin',
         )
+
+    @api.model
+    def create(self, vals):
+        record = super(Organization, self).create(vals)
+        record.send_registration_messages()
         return record
 
     @api.model
     def _needaction_domain_get(self):
         """
-        Show pending organizations count in menu - only for admins.
+        Show pending organizations count in menu.
         """
-        if not any(self.env['res.users']
-                   .has_group(group) for group in self._permitted_groups):
-            return False
-        return [('state', '=', 'pending'), ('active', '=?', False)]
+        return [
+            ('state', '=', 'pending'),
+            ('active', '=?', False),
+            ('coordinator', '!=', self.env.user.id),
+        ]
 
 
 class UserWithOrganization(models.Model):

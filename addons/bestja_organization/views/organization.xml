@@ -13,7 +13,7 @@
                 '|',
                     ('state', '=', 'approved'),
                     ('coordinator.id', '=', uid),
-                ]</field>
+            ]</field>
         </record>
 
         <record model="ir.actions.act_window" id="action_accept_organization">
@@ -21,7 +21,10 @@
             <field name="res_model">organization</field>
             <field name="view_mode">tree,form</field>
             <field name="groups_id" eval="[(4, ref('bestja_base.instance_admin'))]"/>
-            <field name="domain">[('state', '=','pending'), ('active', '=?', False)]</field>
+            <field name="domain">[
+                ('state', '=','pending'),
+                ('active', '=?', False),
+            ]</field>
         </record>
 
         <record model="ir.ui.view" id="bestja_org_form">
@@ -41,7 +44,7 @@
                         </h1>
                         <field name="state" readonly="1" class="state" attrs="{'invisible': [('state', '=', 'approved')]}"/>
                     </div>
-                    <group string="Adres" class="medium_input">
+                    <group string="Adres" name="address" class="medium_input">
                         <field name="street_address"/>
                         <label for="street_number"/>
                         <div>

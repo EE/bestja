@@ -1,0 +1,104 @@
+<openerp>
+    <data>
+        <record id="user_podlasie" model="res.users">
+            <field name="name">Podlasie Koordynator</field>
+            <field name="login">podlasiekoordynator</field>
+            <field name="groups_id" eval="[(6, 0,  [ref('base.group_user')])]"/>
+        </record>
+        <function model="res.users" name="_set_password" eval="[ref('user_podlasie'), 'podlasiekoordynator']"/> <!-- uid, password -->
+
+        <record id="master_org" model="organization">
+            <field name="name">Podlaska organizacja regionalna</field>
+            <field name="street_address">Białostocka</field>
+            <field name="street_number">15</field>
+            <field name="apartment_number">3</field>
+            <field name="postal_code">00-338</field>
+            <field name="city_address">Białystok</field>
+            <field name="nip">4184384313</field>
+            <field name="email">podlasieatakuje@gmail.com</field>
+            <field name="phone">85 668 98 89</field>
+            <field name="www">www.podlasieatakuje.pl</field>
+            <field name="coordinator" ref="user_podlasie"/>
+            <field name="state">approved</field>
+            <field name="organization_description">Podlasie atakuje! to nowoczesna organizacja regionalna, która dba o mądrą promocję jednego z najpiękniejszych województw w Polsce.</field>
+        </record>
+
+        <record id="user_puszczyk" model="res.users">
+            <field name="name">Puszczyk Koordynator</field>
+            <field name="login">puszczykkoordynator</field>
+            <field name="groups_id" eval="[(6, 0,  [ref('base.group_user')])]"/>
+        </record>
+        <function model="res.users" name="_set_password" eval="[ref('user_puszczyk'), 'puszczykkoordynator']"/> <!-- uid, password -->
+
+        <record id="org_puszczyk" model="organization">
+            <field name="name">Puszczyk w puszczy</field>
+            <field name="street_address">Kniejowa</field>
+            <field name="street_number">4</field>
+            <field name="postal_code">04-777</field>
+            <field name="city_address">Supraśl</field>
+            <field name="nip">2328076494</field>
+            <field name="email">puszczyk@gmail.com</field>
+            <field name="phone">85 225 67 89</field>
+            <field name="www">www.puszczyk.pl</field>
+            <field name="coordinator" ref="user_puszczyk"/>
+            <field name="parent" ref="master_org"/>
+            <field name="state">approved</field>
+            <field name="organization_description">Regionalne stowarzyszenie ochrony puszczyków żyjących w Puszczy Knyszyńskiej.</field>
+        </record>
+
+        <record id="user_baba" model="res.users">
+            <field name="name">Baba Koordynator</field>
+            <field name="login">babakoordynator</field>
+            <field name="groups_id" eval="[(6, 0,  [ref('base.group_user')])]"/>
+        </record>
+        <function model="res.users" name="_set_password" eval="[ref('user_baba'), 'babakoordynator']"/> <!-- uid, password -->
+
+        <record id="org_baba" model="organization">
+            <field name="name">Baby</field>
+            <field name="street_address">Ziemniaczana</field>
+            <field name="street_number">13</field>
+            <field name="apartment_number">3</field>
+            <field name="postal_code">00-663</field>
+            <field name="city_address">Hajnówka</field>
+            <field name="nip">4329934558</field>
+            <field name="email">baby@gmail.com</field>
+            <field name="phone">85 225 69 22</field>
+            <field name="www">www.baby.pl</field>
+            <field name="coordinator" ref="user_baba"/>
+            <field name="parent" ref="master_org"/>
+            <field name="state">approved</field>
+            <field name="organization_description">Klub Gospodyń Wiejskich specjalizujący się w produkcji i sprzedaży oryginalnej podlaskiej baby ziemniaczanej. Zdobywczynie 3 złotych medali na Międzynarodowej Wystawie Kuchni Regionalnych REGIO ITALIO 2014.</field>
+        </record>
+
+        <record id="user_duch" model="res.users">
+            <field name="name">Duch Koordynator</field>
+            <field name="login">duchkoordynator</field>
+            <field name="groups_id" eval="[(6, 0,  [ref('base.group_user')])]"/>
+        </record>
+        <function model="res.users" name="_set_password" eval="[ref('user_duch'), 'duchkoordynator']"/> <!-- uid, password -->
+
+        <record id="org_duch" model="organization">
+            <field name="name">Duch puszczy</field>
+            <field name="street_address">Dystylarniowa</field>
+            <field name="street_number">34</field>
+            <field name="postal_code">08-680</field>
+            <field name="city_address">Bimbrówka Wielka</field>
+            <field name="nip">5843030118</field>
+            <field name="email">braha@bimbrownicy.com</field>
+            <field name="phone">+48 660 922 422</field>
+            <field name="www">www.bimbrownicy.pl</field>
+            <field name="coordinator" ref="user_duch"/>
+            <field name="parent" ref="master_org"/>
+            <field name="state">approved</field>
+            <field name="organization_description">Duch puszczy, księżycówka, świtezianka, deptana, prymucha, bukwica – to podlaskie specjały destylacyjne. Stowarzyszenie mieszkańców Duch puszczy to organizacja turystyczno-kulturalna promująca bogatą tradycję destylarską Podlasia. Organizacja działa na rzecz wprowadzenia zmian w polskich ustawodawstwie dopuszczających legalną produkcję samogonu.</field>
+        </record>
+
+        <record id="bestja_organization.org_cheese" model="organization">
+            <field name="parent" ref="org_baba"/>
+        </record>
+
+        <record id="bestja_organization.org_tatar" model="organization">
+            <field name="parent" ref="org_duch"/>
+        </record>
+    </data>
+</openerp>

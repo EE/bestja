@@ -1,5 +1,4 @@
 <template>
-    <!-- Replace kanban group menu icon -->
     <t t-extend="mail.thread.message">
         <!-- You shouldn't be able to reply to system messages -->
         <t t-jquery=".oe_reply" t-operation="replace">

@@ -1,0 +1,11 @@
+<openerp>
+    <data>
+        <!--
+        Remove rule binding the item to instance administrator group only.
+        The item should be also visible to organization coordinators.
+        -->
+        <record id="bestja_organization.menu_accept_organization" model="ir.ui.menu">
+            <field name="groups_id" eval="[(5, 0, 0)]"/>
+        </record>
+    </data>
+</openerp>

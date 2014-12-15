@@ -5,7 +5,7 @@
 
     'description': """
 Project Files
-=========================
+=============
 Adds an ability to add files to projects and to
 later browse all project files in one place.
     """,
