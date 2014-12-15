@@ -1,26 +1,36 @@
 # -*- coding: utf-8 -*-
 
+import urllib
+import urlparse
+
 from openerp import api, models
 from openerp.addons.auth_signup.res_users import now
-import werkzeug
 
 
 class Partner(models.Model):
     _inherit = 'res.partner'
 
     @api.multi
-    def _get_signup_url_for_action(self,  action=None, view_type=None, menu_id=None, res_id=None, model=None):
+    def _get_signup_url_for_action(self, action=None, view_type=None, menu_id=None, res_id=None, model=None):
         """ redirect added """
         urls = super(Partner, self)._get_signup_url_for_action(action, view_type, menu_id, res_id, model)
         redirect = self.env.context.get('redirect')
         if not redirect:
             return urls
         for partner_id, url in urls.iteritems():
-            url = werkzeug.urls.url_parse(urls[partner_id])
-            querydict = url.decode_query()
-            querydict['redirect'] = redirect
-            url = url.replace(query=werkzeug.url_encode(querydict))
-            urls[partner_id] = url.to_url()
+            if url:
+                url = urlparse.urlparse(urls[partner_id])
+                querydict = urlparse.parse_qs(url.query)
+                querydict['redirect'] = redirect
+                new_url = urlparse.urlunparse((
+                    url.scheme,
+                    url.netloc,
+                    url.path,
+                    url.params,
+                    urllib.urlencode(querydict, doseq=True),
+                    url.fragment,
+                ))
+                urls[partner_id] = new_url
         return urls
 
 
