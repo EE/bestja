@@ -34,6 +34,13 @@ class Application(models.Model):
         if users.sudo(coordinator.id).has_group(group) or \
                 (manager and users.sudo(manager.id).has_group(group)):
             record_sudo.preliminary = False
+        if record.preliminary:
+            # when application has just been created
+            # send message to admin about new application
+            record.send_group(
+                template='bestja_application_moderation.msg_new_application_admin',
+                group='bestja_offers_moderation.offers_moderator',
+            )
         return record
 
     @api.one
@@ -45,10 +52,16 @@ class Application(models.Model):
                 'offer': self.offer.id,
                 'preliminary': False,
             })
-            # Send message that user was moved to the second stage 
+            # Send message that user was moved to the second stage, to user
             self.send(
                 template='bestja_application_moderation.msg_application_second_stage',
                 recipients=self.user,
+                record_name=self.offer.name,
+            )
+            # send info to coordinator about new application
+            self.send(
+                template='bestja_application_moderation.msg_new_application_admin',
+                recipients=self.sudo().offer.project.responsible_user,
                 record_name=self.offer.name,
             )
         else:
