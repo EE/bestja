@@ -49,9 +49,10 @@
         </record>
 
         <record model="ir.actions.act_window" id="action_bestja_users">
-            <field name="name">Wolontariusze</field>
+            <field name="name">Użytkownicy</field>
             <field name="res_model">res.users</field>
             <field name="view_mode">tree,form</field>
+            <field name="domain">[('id', '!=', 1)]</field><!-- not superuser -->
         </record>
 
         <record model="ir.ui.view" id="bestja_volunteer_tree">

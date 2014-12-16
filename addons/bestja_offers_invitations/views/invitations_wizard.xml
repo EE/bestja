@@ -1,0 +1,43 @@
+<openerp>
+    <data>
+        <!-- used by the many2many field below -->
+        <record model="ir.ui.view" id="offer_tree">
+            <field name="name">bestja.offer.tree</field>
+            <field name="model">offer</field>
+            <field name="priority" eval="30"/>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="organization"/>
+                    <field name="project"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="invitation_wizard_form">
+            <field name="name">invitation.wizard</field>
+            <field name="model">bestja.invitation_wizard</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="users" readonly="1" widget="many2many_tags"/>
+                        <field name="offers" context="{'tree_view_ref' : 'bestja_offers_invitations.offer_tree'}"/>
+                    </group>
+                    <footer>
+                        <button name="send_invites" type="object" string="Wyślij zaproszenia" class="oe_highlight"/>
+                        <button special="cancel" string="Anuluj" class="oe_link"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <!-- Add the menu to the contextual menu for res.users -->
+        <act_window id="launch_invitation_wizard"
+                    name="Zaproś na oferty"
+                    src_model="res.users"
+                    res_model="bestja.invitation_wizard"
+                    view_mode="form"
+                    target="new"
+                    key2="client_action_multi"/>
+    </data>
+</openerp>

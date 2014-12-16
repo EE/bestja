@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="msg_offer_invitation" model="message_template">
+            <field name="subject">Zaproszenie na ofertę</field>
+            <field name="body"><![CDATA[
+                Wybraliśmy dla Ciebie ofertę. <a href="${record.get_public_url()}">Sprawdź szczegóły</a> i podejmij wyzwanie!
+            ]]></field>
+            <field name="model">offer</field>
+        </record>
+    </data>
+</openerp>
