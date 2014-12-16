@@ -30,7 +30,7 @@
                     ('id', '=', ref('master_org'))
             -->
             <field name="domain_force">[
-                ('id', '=', user.env.ref('bestja_organization_hierarchy.master_org').id),
+                ('id', '=', user.env.ref('bestja_organization_hierarchy.master_org') and user.env.ref('bestja_organization_hierarchy.master_org').id),
             ]</field>
             <field name="perm_read" eval="True"/>
             <field name="perm_write" eval="False"/>
@@ -43,7 +43,7 @@
             <field name="model_id" ref="model_organization"/>
             <field name="groups" eval="[(4, ref('base.group_user'))]"/>
             <field name="domain_force">[
-                ('parent.id', '=', user.env.ref('bestja_organization_hierarchy.master_org').id),
+                ('parent.id', '=', user.env.ref('bestja_organization_hierarchy.master_org') and user.env.ref('bestja_organization_hierarchy.master_org').id),
             ]</field>
             <field name="perm_read" eval="True"/>
             <field name="perm_write" eval="False"/>
