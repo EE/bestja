@@ -14,7 +14,7 @@
             <field name="arch" type="xml">
                 <form>
                     <header attrs="{'invisible': [('user_assigned_task', '=', False)]}">
-                        <button name="set_in_progress" string="rozpocznij" type="object" class="oe_highlight" states="new,done"/>
+                        <button name="set_in_progress" string="rozpocznij" type="object" class="oe_highlight" states="new"/>
                         <button name="set_done" string="zakończ" type="object" class="oe_highlight" states="in_progress"/>
                     </header>
                     <field name="user_assigned_task" invisible="1"/>

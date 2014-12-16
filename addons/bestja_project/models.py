@@ -139,6 +139,8 @@ class Task(models.Model):
     )
     date_start = fields.Date(required=True, string="od dnia")
     date_stop = fields.Date(required=True, string="do dnia")
+    date_button_click_start = fields.Datetime(string="data rozpoczęcia")
+    date_button_click_stop = fields.Datetime(string="data zakończenia")
     description = fields.Text(string="Opis zadania")
     project = fields.Many2one(
         'bestja.project',
@@ -149,19 +151,21 @@ class Task(models.Model):
 
     @api.one
     def _user_assigned_task(self):
-        """ 
+        """
         Checks if current user == user responsible for task,
-        for hiding and unhiding button "rozpocznij" 
+        for hiding and unhiding button "rozpocznij"
         """
         self.user_assigned_task = (self.env.user.id == self.user.id)
 
     @api.one
     def set_in_progress(self):
         self.state = 'in_progress'
+        self.date_button_click_start = fields.Datetime.now()
 
     @api.one
     def set_done(self):
         self.state = 'done'
+        self.date_button_click_stop = fields.Datetime.now()
         self.send(
             template='bestja_project.msg_task_done_user',
             recipients=self.user,
