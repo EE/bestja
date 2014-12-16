@@ -45,6 +45,12 @@ class Application(models.Model):
                 'offer': self.offer.id,
                 'preliminary': False,
             })
+            # Send message that user was moved to the second stage 
+            self.send(
+                template='bestja_application_moderation.msg_application_second_stage',
+                recipients=self.user,
+                record_name=self.offer.name,
+            )
         else:
             super(Application, self).action_post_accepted()
 

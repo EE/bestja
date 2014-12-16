@@ -21,6 +21,7 @@ The second stage is handled by the recruiting organization itself.""",
     'data': [
         'views/offer.xml',
         'menu.xml',
+        'messages.xml',
         'security/security.xml',
     ],
 }

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="msg_application_second_stage" model="message_template">
+            <field name="subject">Zgłoszenie zaakceptowane!</field>
+            <field name="body"><![CDATA[
+                Twoje zgłoszenie do "${record.offer.name}" przeszło pierwszy etap rekrutacji.
+                Wkrótce otrzymasz szczegóły dalszego postępowania.
+            ]]></field>
+            <field name="model">offers.application</field>
+        </record>
+    </data>
+</openerp>
