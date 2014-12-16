@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from lxml import etree
 
-from openerp import models, fields, api, exceptions
+from openerp import models, fields, api, exceptions, SUPERUSER_ID
 
 
 class Organization(models.Model):
@@ -9,31 +9,39 @@ class Organization(models.Model):
     _parent_name = 'parent'
 
     def allowed_parents(self):
-        master_org = self.env.ref(
-            'bestja_organization_hierarchy.master_org',
-            raise_if_not_found=False,
-        )
         if self.env['res.users'].has_group('bestja_base.instance_admin'):
-            return [
-                '|',
-                ('parent.id', '=', master_org.id),
-                ('id', '=', master_org.id),
-            ]
-        return [('parent.id', '=', master_org.id)]
+            return [('level', '<=', 1)]
+        return [('level', '=', 1)]
 
     parent = fields.Many2one(
         'organization',
         domain=allowed_parents,
         string="Organizacja nadrzędna",
     )
+    level = fields.Integer(
+        compute='_compute_level',
+        store=True,
+        string="Poziom w hierarchii organizacji"
+    )
+
+    @api.one
+    @api.depends('parent', 'parent.parent')
+    def _compute_level(self):
+        """
+        Level of organization hierarchy. 0 = root level.
+        """
+        if not self.parent:
+            self.level = 0
+        else:
+            self.level = self.parent.level + 1
 
     @api.one
     @api.constrains('parent')
     def _check_parent(self):
         """
-        Only admin is able to add primary (parentless) organizations.
+        Only super admin is able to add primary (parentless) organizations.
         """
-        if self.env['res.users'].has_group('bestja_base.instance_admin'):
+        if self.env.user.id == SUPERUSER_ID:
             return
         if not self.parent:
             raise exceptions.ValidationError("Wybierz organizację nadrzędną!")

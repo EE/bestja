@@ -7,7 +7,7 @@
         </record>
         <function model="res.users" name="_set_password" eval="[ref('user_podlasie'), 'podlasiekoordynator']"/> <!-- uid, password -->
 
-        <record id="master_org" model="organization">
+        <record id="org_podlasie" model="organization">
             <field name="name">Podlaska organizacja regionalna</field>
             <field name="street_address">Białostocka</field>
             <field name="street_number">15</field>
@@ -21,6 +21,7 @@
             <field name="coordinator" ref="user_podlasie"/>
             <field name="state">approved</field>
             <field name="organization_description">Podlasie atakuje! to nowoczesna organizacja regionalna, która dba o mądrą promocję jednego z najpiękniejszych województw w Polsce.</field>
+            <field name="level">0</field>
         </record>
 
         <record id="user_puszczyk" model="res.users">
@@ -41,7 +42,7 @@
             <field name="phone">85 225 67 89</field>
             <field name="www">www.puszczyk.pl</field>
             <field name="coordinator" ref="user_puszczyk"/>
-            <field name="parent" ref="master_org"/>
+            <field name="parent" ref="org_podlasie"/>
             <field name="state">approved</field>
             <field name="organization_description">Regionalne stowarzyszenie ochrony puszczyków żyjących w Puszczy Knyszyńskiej.</field>
         </record>
@@ -65,7 +66,7 @@
             <field name="phone">85 225 69 22</field>
             <field name="www">www.baby.pl</field>
             <field name="coordinator" ref="user_baba"/>
-            <field name="parent" ref="master_org"/>
+            <field name="parent" ref="org_podlasie"/>
             <field name="state">approved</field>
             <field name="organization_description">Klub Gospodyń Wiejskich specjalizujący się w produkcji i sprzedaży oryginalnej podlaskiej baby ziemniaczanej. Zdobywczynie 3 złotych medali na Międzynarodowej Wystawie Kuchni Regionalnych REGIO ITALIO 2014.</field>
         </record>
@@ -88,7 +89,7 @@
             <field name="phone">+48 660 922 422</field>
             <field name="www">www.bimbrownicy.pl</field>
             <field name="coordinator" ref="user_duch"/>
-            <field name="parent" ref="master_org"/>
+            <field name="parent" ref="org_podlasie"/>
             <field name="state">approved</field>
             <field name="organization_description">Duch puszczy, księżycówka, świtezianka, deptana, prymucha, bukwica – to podlaskie specjały destylacyjne. Stowarzyszenie mieszkańców Duch puszczy to organizacja turystyczno-kulturalna promująca bogatą tradycję destylarską Podlasia. Organizacja działa na rzecz wprowadzenia zmian w polskich ustawodawstwie dopuszczających legalną produkcję samogonu.</field>
         </record>
