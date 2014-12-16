@@ -29,7 +29,7 @@ class Organization(models.Model):
     )
     krs = fields.Char(string="KRS")
     regon = fields.Char(string="REGON")
-    nip = fields.Char(required=True, string="NIP")
+    nip = fields.Char(string="NIP")
     street_address = fields.Char(string="Ulica", required=True)
     city_address = fields.Char(string="Miejscowość", required=True)
     street_number = fields.Char(string="Numer budynku", required=True)
