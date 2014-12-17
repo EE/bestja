@@ -52,12 +52,18 @@
                             mieszk.
                             <field name="apartment_number" class="short_input"/>
                         </div>
-                        <field name="postal_code" class="short_input"/>
+                        <label for="postal_code"/>
+                        <div>
+                        <field name="postal_code" class="short_input"/><span class="oe_grey oe_edit_only">format 00-000</span> 
+                        </div>
                         <field name="city_address"/>
                     </group>
                     <group string="Dane rejestrowe" class="short_input">
                         <field name="krs"/>
-                        <field name="nip"/>
+                        <label for="nip"/>
+                        <div>
+                            <field name="nip"/><span class="oe_grey oe_edit_only">format 000-00-00-000</span>
+                        </div>
                         <field name="regon"/>
                     </group>
                     <group string="Kontakt" class="medium_input">
@@ -66,8 +72,9 @@
                         <field name="fbfanpage"/>
                         <label for="phone"/>
                         <div>
-                        <field name="phone" class="short_input oe_inline"/> wewn.
-                        <field name="phone_extension" class="short_input"/>
+                            <field name="phone" class="short_input oe_inline"/>
+                             wewn.
+                            <field name="phone_extension" class="short_input"/>
                         </div>
                     </group>
                     <group string="Administracja" groups="bestja_base.instance_admin" class="medium_input">
