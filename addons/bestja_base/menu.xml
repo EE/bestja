@@ -4,5 +4,6 @@
         <!-- Add Messages menu item to BestJa -->
         <menuitem name="Messaging" id="mail.mail_feeds" parent="bestja_base.menu_bestja" sequence="0"/>
         <delete id="mail.mail_feeds_main" model="ir.ui.menu"/>
+        <delete id="mail.mail_tomefeeds" model="ir.ui.menu"/>
     </data>
 </openerp>
