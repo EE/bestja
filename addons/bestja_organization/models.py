@@ -2,7 +2,7 @@
 import re
 from operator import mul
 
-from openerp import models, fields, api, exceptions
+from openerp import tools, models, fields, api, exceptions
 
 
 class Organization(models.Model):
@@ -52,13 +52,24 @@ class Organization(models.Model):
         store=True,
     )
     organization_description = fields.Text(string="Opis Organizacji")
-    image = fields.Binary("Photo")
+    image = fields.Binary()
+    image_medium = fields.Binary(compute='compute_image_medium', inverse='inverse_image_medium', store=True)
 
     _sql_constraints = [
         ('coordinator_uniq', 'unique(coordinator)', 'Jedna osoba nie może koordynować wielu organizacji!'),
         ('nip_uniq', 'unique(nip)', 'Istnieje już organizacja z takim numerem NIP!'),
 
     ]
+
+    @api.multi
+    @api.depends('image')
+    def compute_image_medium(self):
+        self.image_medium = tools.image_resize_image_medium(self.image)
+
+    @api.one
+    @api.depends('image_medium')
+    def inverse_image_medium(self):
+        self.image = tools.image_resize_image_big(self.image_medium)
 
     @api.one
     @api.depends('state')
