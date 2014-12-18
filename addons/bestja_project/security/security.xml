@@ -1,5 +1,15 @@
 <openerp>
     <data>
+        <!-- managers group -->
+        <record id="managers" model="res.groups">
+            <field name="name">BestJa Menadżer Projektów</field>
+        </record>
+
+        <!-- coordinators are implied to be managers  -->
+        <record id="bestja_organization.coordinators" model="res.groups">
+            <field name="implied_ids" eval="[(4, ref('managers'))]"/>
+        </record>
+
         <record id="project_read_rule" model="ir.rule">
             <field name="name">Projects can be viewed by its managers, its members and organization coordinators.</field>
             <field name="model_id" ref="model_bestja_project"/>

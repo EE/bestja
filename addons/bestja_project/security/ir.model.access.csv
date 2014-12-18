@@ -1,4 +1,5 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_project,project,model_bestja_project,base.group_user,1,1,1,1
+access_project_all,project,model_bestja_project,base.group_user,1,0,0,0
+access_project_manager,project,model_bestja_project,bestja_project.managers,1,1,1,1
 access_task_all,task_all,model_bestja_task,base.group_user,1,1,1,1
 

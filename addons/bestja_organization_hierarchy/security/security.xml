@@ -3,14 +3,10 @@
         <record id="child_organizations" model="ir.rule">
             <field name="name">Coordinator has access to her children organizations.</field>
             <field name="model_id" ref="model_organization"/>
-            <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+            <field name="groups" eval="[(4, ref('bestja_organization.coordinators'))]"/>
             <field name="domain_force">[
                 ('parent.coordinator.id', '=', user.id),
             ]</field>
-            <field name="perm_read" eval="True"/>
-            <field name="perm_write" eval="True"/>
-            <field name="perm_create" eval="True"/>
-            <field name="perm_unlink" eval="True"/>
         </record>
 
         <record id="show_master_organization" model="ir.rule">

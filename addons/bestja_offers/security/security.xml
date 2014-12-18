@@ -1,24 +1,7 @@
 <openerp>
     <data>
-        <record id="offer_read_rule" model="ir.rule">
-            <field name="name">Offer can be read when its published or by the coordinator</field>
-            <field name="model_id" ref="model_offer"/>
-            <field name="groups" eval="[(4, ref('base.group_user'))]"/>
-            <field name="domain_force">[
-                '|',
-                    ('state', '=', 'published'),
-                '|',
-                    ('project.organization.coordinator.id', '=', user.id),
-                    ('project.manager.id', '=', user.id)
-            ]</field>
-            <field name="perm_read" eval="True"/>
-            <field name="perm_write" eval="False"/>
-            <field name="perm_create" eval="False"/>
-            <field name="perm_unlink" eval="False"/>
-        </record>
-
-        <record id="offer_modify_rule" model="ir.rule">
-            <field name="name">Offer can be modified by the coordinator only</field>
+        <record id="offer_access_rule" model="ir.rule">
+            <field name="name">Offer can be accessed by the coordinator and project manager only.</field>
             <field name="model_id" ref="model_offer"/>
             <field name="groups" eval="[(4, ref('base.group_user'))]"/>
             <field name="domain_force">[
@@ -26,14 +9,10 @@
                     ('project.organization.coordinator.id', '=', user.id),
                     ('project.manager.id', '=', user.id)
             ]</field>
-            <field name="perm_read" eval="False"/>
-            <field name="perm_write" eval="True"/>
-            <field name="perm_create" eval="True"/>
-            <field name="perm_unlink" eval="True"/>
         </record>
 
         <record id="offer_application_rule" model="ir.rule">
-            <field name="name">Applications can be accessed by coordinators and project managers only.</field>
+            <field name="name">Application can be accessed by the coordinator and project manager only.</field>
             <field name="model_id" ref="model_offers_application"/>
             <field name="groups" eval="[(4, ref('base.group_user'))]"/>
             <field name="domain_force">[

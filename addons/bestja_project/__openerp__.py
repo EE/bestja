@@ -17,12 +17,12 @@ Define projects and assign users to tasks.
     ],
 
     'data': [
-        'security/ir.model.access.csv',
         'security/security.xml',
         'views/task.xml',
         'views/project.xml',
         'messages.xml',
         'menu.xml',
+        'security/ir.model.access.csv',
     ],
     'demo': [
         'demo.xml',

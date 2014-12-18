@@ -19,6 +19,7 @@ who need to accept them first.
         'security/security.xml',
         'views/offer.xml',
         'menu.xml',
+        'security/ir.model.access.csv',
         'messages.xml',
     ],
     'demo': [

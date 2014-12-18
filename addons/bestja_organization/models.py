@@ -45,6 +45,7 @@ class Organization(models.Model):
         'res.users', ondelete='restrict',
         string="Koordynator",
         default=lambda self: self.env.user,
+        domain="['|', ('coordinated_org', '=', id), ('coordinated_org', '=', False)]",
     )
     coordinator_uid = fields.Integer(compute='_compute_coordinator_uid')
     active = fields.Boolean(
@@ -178,7 +179,17 @@ class Organization(models.Model):
     def create(self, vals):
         record = super(Organization, self).create(vals)
         record.send_registration_messages()
+        record.coordinator.sync_coordinators_group()
         return record
+
+    @api.multi
+    def write(self, vals):
+        old_coordinator = self.coordinator
+        val = super(Organization, self).write(vals)
+        if 'coordinator' in vals:
+            self.coordinator.sync_coordinators_group()
+            old_coordinator.sync_coordinators_group()
+        return val
 
     @api.model
     def _needaction_domain_get(self):
@@ -196,3 +207,14 @@ class UserWithOrganization(models.Model):
     _inherit = 'res.users'
 
     coordinated_org = fields.One2many('organization', inverse_name='coordinator')
+
+    @api.one
+    def sync_coordinators_group(self):
+        """
+        Add / remove user from the coordinators group, based on whether
+        she have an active organization associated.
+        """
+        self.sync_group(
+            group=self.env.ref('bestja_organization.coordinators'),
+            domain=[('coordinated_org.active', '=', True)],
+        )

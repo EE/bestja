@@ -70,3 +70,15 @@ class Volunteer(models.Model):
         lang = self.env['res.lang'].search([('code', '=', lang_code)])
         if lang:
             self.env['ir.values'].set_default('res.partner', 'lang', lang_code)
+
+    @api.one
+    def sync_group(self, group, domain):
+        """
+        if the current user satisfies the domain `domain` she should be a member
+        of a group `group`. Otherwise she should be removed.
+        """
+        results = self.search_count(domain + [('id', '=', self.id)])
+        command = 4 if results else 3  # add if true else remove
+        self.sudo().write({
+            'groups_id': [(command, group.id)],
+        })

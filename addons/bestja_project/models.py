@@ -86,6 +86,7 @@ class Project(models.Model):
             template='bestja_project.msg_manager',
             recipients=record.manager,
         )
+        record.manager.sync_manager_groups()
         return record
 
     @api.multi
@@ -104,6 +105,8 @@ class Project(models.Model):
                 template='bestja_project.msg_manager_changed',
                 recipients=old_manager,
             )
+            self.manager.sync_manager_groups()
+            old_manager.sync_manager_groups()
         return val
 
 
@@ -213,3 +216,19 @@ class UserWithProjects(models.Model):
         column2='project',
         string="Projekty"
     )
+
+    managed_projects = fields.One2many(
+        'bestja.project',
+        inverse_name='manager'
+    )
+
+    @api.one
+    def sync_manager_groups(self):
+        """
+        Add / remove user from the managers group, based on whether
+        she manages a project.
+        """
+        self.sync_group(
+            group=self.env.ref('bestja_project.managers'),
+            domain=[('managed_projects', '!=', False)],
+        )
