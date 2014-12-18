@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from openerp import models, fields, api
+from openerp import models, fields, api, exceptions
 
 
 class ApplicationWizardMixin():
@@ -32,6 +32,8 @@ class ApplicationMeetingWizard(ApplicationWizardMixin, models.TransientModel):
 
     @api.one
     def save_date(self):
+        if self.meeting and self.meeting <= fields.Datetime.now():
+            raise exceptions.ValidationError("Data spotkania musi być w przyszłości!")
         self.application.current_meeting = self.meeting
 
 

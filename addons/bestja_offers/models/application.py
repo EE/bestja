@@ -3,7 +3,7 @@
 from datetime import date
 from urllib import quote_plus
 
-from openerp import models, fields, api
+from openerp import models, fields, api, exceptions
 
 
 class ApplicationRejectedReason(models.Model):
@@ -104,6 +104,8 @@ class Application(models.Model):
             self.current_meeting = self.meeting
             self.current_meeting_state = self.meeting1_state
         elif self.state == 'meeting2':
+            if self.meeting2 and self.meeting2 <= self.meeting:
+                raise exceptions.ValidationError("Drugie spotkanie musi odbyć się po pierwszym!")
             self.current_meeting = self.meeting2
             self.current_meeting_state = self.meeting2_state
         else:
