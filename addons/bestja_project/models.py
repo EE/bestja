@@ -42,11 +42,11 @@ class Project(models.Model):
         string="Osoba odpowiedzialna",
         compute='_responsible_user'
     )
-    date_start = fields.Date(
+    date_start = fields.Datetime(
         required=True,
         string="od dnia",
     )
-    date_stop = fields.Date(
+    date_stop = fields.Datetime(
         required=True,
         string="do dnia",
     )
@@ -137,8 +137,8 @@ class Task(models.Model):
     user_assigned_task = fields.Boolean(
         compute='_user_assigned_task'
     )
-    date_start = fields.Date(required=True, string="od dnia")
-    date_stop = fields.Date(required=True, string="do dnia")
+    date_start = fields.Datetime(required=True, string="od dnia")
+    date_stop = fields.Datetime(required=True, string="do dnia")
     date_button_click_start = fields.Datetime(string="data rozpoczęcia")
     date_button_click_stop = fields.Datetime(string="data zakończenia")
     description = fields.Text(string="Opis zadania")

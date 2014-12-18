@@ -27,7 +27,7 @@
                     </div>
                     <group col="2">
                         <field name="project" readonly="1"/>
-                        <field name="user" options="{'no_create': True}"/>
+                        <field name="user" options="{'no_create': True}" class="medium_input"/>
                     </group>
                     <group col="2" string="Termin realizacji zadania">
                         <field name="date_start"/>
