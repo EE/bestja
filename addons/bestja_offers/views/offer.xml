@@ -107,16 +107,17 @@
                                 <field name="weekday" widget="many2many_checkboxes" class="horizontal_checkboxes" attrs="{'invisible': [('kind', 'not in', ['periodic', 'cyclic'])]}" />
                                 <field name="daypart" widget="many2many_checkboxes" class="horizontal_checkboxes" attrs="{'invisible': [('kind', 'not in', ['periodic', 'cyclic'])]}"/>
                                 <field name="interval" class="oe_inline" attrs="{'invisible': [('kind', '!=', 'cyclic')]}"/>
-                                <field name="remote_work" attrs="{'invisible': [('kind', '!=', 'flexible')]}" />
                             </group>
                             <separator />
                             <field name="comments_time" string="Uwagi" placeholder="Uwagi odnośnie terminu akcji"/>
                         </page>
                         <page string="Miejsce">
                             <separator string="Podaj lokalizację"/>
-                            <field name="no_localization" string="Oferta nie ma przypisanej lokalizacji"/><label for="no_localization"/>
-                            <widget type="google_maps.coordinates" attrs="{'invisible': [('no_localization', '=', True)]}"/><!-- the google map widget needs to have its own separate visibility definition, so it can later receive the change:effective_invisible event. -->
-                            <div attrs="{'invisible': [('no_localization', '=', True)]}">
+                            <field name="localization" nolabel="1" options="{'vertical': True}" widget="radio"/>
+                            <br/>
+                            <br/>
+                            <widget type="google_maps.coordinates" attrs="{'invisible': [('localization', '!=', 'assigned')]}"/><!-- the google map widget needs to have its own separate visibility definition, so it can later receive the change:effective_invisible event. -->
+                            <div attrs="{'invisible': [('localization', '!=', 'assigned')]}">
                                 <group string="Wyświetlany opis miejsca" class="medium_input">
                                     <field name="location_name" string="Nazwa"/>
                                     <field name="address" string="Ulica, nr domu"/>

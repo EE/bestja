@@ -40,6 +40,11 @@ class Offer(models.Model):
         ('cyclic', 'cykliczna'),
         ('flexible', 'elastyczna')
     ]
+    LOCALIZATION_CHOICES = [
+        ('assigned', 'Oferta ma przypisaną lokalizację.'),
+        ('no_localization', 'Oferta nie ma przypisanej lokalizacji, np. kierowca.'),
+        ('remote', 'To jest praca zdalna, np. grafik.')
+    ]
     INTERVAL_CHOICES = [
         (1, 'tydzień'),
         (2, '2 tygodnie'),
@@ -89,7 +94,6 @@ class Offer(models.Model):
     latitude = fields.Float(string="Szerokość geograficzna", digits=(7, 4))
     longitude = fields.Float(string="Długość geograficzna", digits=(7, 4))
     district = fields.Char(string="Dzielnica")
-    no_localization = fields.Boolean(string="Oferta nie ma przypisanej lokalizacji.")
     target_group = fields.Many2many(
         'volunteer.occupation',
         default=_default_target_group,
@@ -142,11 +146,11 @@ class Offer(models.Model):
     daypart = fields.Many2many('offers.daypart', string="pora dnia")
     hours = fields.Integer(string="liczba h")
     weekday = fields.Many2many('offers.weekday', string="dzień tygodnia")
-    remote_work = fields.Boolean(string="praca zdalna")
     comments_time = fields.Text(string="Uwagi dotyczące terminu")
     applications = fields.One2many('offers.application', 'offer', string="Aplikacje")
     application_count = fields.Integer(compute='_application_count')
     accepted_application_count = fields.Integer(compute='_application_count')
+    localization = fields.Selection(LOCALIZATION_CHOICES, required=True, string="rodzaj lokalizacji", default="assigned")
 
     @api.one
     @api.constrains('skills')
@@ -182,9 +186,9 @@ class Offer(models.Model):
                 raise exceptions.ValidationError("Wypełnij pole \"powtarzaj w\"!")
 
     @api.one
-    @api.constrains('no_localization', 'location_name', 'address', 'city', 'latitude', 'longitude')
+    @api.constrains('location_name', 'address', 'city', 'latitude', 'longitude')
     def _check_location(self):
-        if self.no_localization:
+        if self.localization != 'assigned':
             return
 
         if not self.location_name:
@@ -207,15 +211,13 @@ class Offer(models.Model):
             self.daypart = None
         if self.kind != 'cyclic':
             self.interval = None
-        if self.kind != 'flexible':
-            self.remote_work = False
 
-    @api.onchange('no_localization')
-    def _onchange_no_localization(self):
+    @api.onchange('localization')
+    def _onchange_localization(self):
         """
         Clear fields that are irrelevant with no localization.
         """
-        if self.no_localization is True:
+        if self.localization != 'assigned':
             self.location_name = False
             self.address = False
             self.city = False
