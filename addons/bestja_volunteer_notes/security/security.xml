@@ -1,0 +1,20 @@
+<openerp>
+    <data>
+
+        <record id="note_admins_rule" model="ir.rule">
+            <field name="name">Instance admins have access to all notes.</field>
+            <field name="model_id" ref="model_bestja_volunteer_note"/>
+            <field name="groups" eval="[(4, ref('bestja_base.instance_admin'))]"/>
+        </record>
+
+        <record id="note_coordinators_rule" model="ir.rule">
+            <field name="name">Coordinators have access to notes from their organizations.</field>
+            <field name="model_id" ref="model_bestja_volunteer_note"/>
+            <field name="groups" eval="[(4, ref('bestja_organization.coordinators'))]"/>
+            <field name="domain_force">[
+                    ('organization.id', '!=', False),
+                    ('organization.id', '=', user.coordinated_org.id),
+            ]</field>
+        </record>
+    </data>
+</openerp>

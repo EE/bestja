@@ -3,7 +3,7 @@
         <record model="ir.ui.view" id="bestja_volunteer_form">
             <field name="name">bestja.volunteer.form</field>
             <field name="model">res.users</field>
-            <field name="priority" eval="50"/>
+            <field name="priority" eval="0"/>
             <field name="arch" type="xml">
                 <form>
                     <sheet>
@@ -29,7 +29,7 @@
                                     </div>
                                     <label for="forklift" string="Uprawnienia na wózek widłowy" />
                                     <div>
-                                        <field name="forklift" class="oe_inline" /> <span class="oe_grey"> data ważności (puste = brak uprawnień)</span>
+                                        <field name="forklift" class="oe_inline" /> <span class="oe_grey">data ważności (puste = brak uprawnień)</span>
                                     </div>
                                 </group>
                             </page>

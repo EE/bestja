@@ -1,0 +1,16 @@
+.volunteer_notes {
+    width: 826px;
+    padding: 16px;
+    margin:0 auto;
+}
+
+.volunteer_notes .note {
+    width: 826px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+}
+
+.volunteer_notes .notes_field {
+    margin-top: 10px;
+}

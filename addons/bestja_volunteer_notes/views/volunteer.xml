@@ -1,0 +1,64 @@
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="add_volunteer_note_form_modal">
+            <field name="name">bestja.volunteer_note.form</field>
+            <field name="model">bestja.volunteer_note</field>
+            <field name="arch" type="xml">
+                <form string="Ustal termin spotkania">
+                    <group>
+                        <field name="user" readonly="1"/>
+                        <field name="body"/>
+                    </group>
+                    <footer>
+                        <button name="save_note" type="object"  string="Zapisz notatkę" class="oe_highlight"/>
+                        <button special="cancel" string="Anuluj" class="oe_link"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="add_volunteer_note_action">
+            <field name="name">Dodaj notatkę</field>
+            <field name="res_model">bestja.volunteer_note</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="add_volunteer_note_form_modal"/>
+            <field name="target">new</field>
+        </record>
+
+        <record model="ir.ui.view" id="volunteer_form_with_notes">
+            <field name="name">bestja.volunteer.form</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="bestja_volunteer.bestja_volunteer_form" />
+            <field name="arch" type="xml">
+                <form>
+                    <div class="volunteer_notes" groups="bestja_base.instance_admin,bestja_organization.coordinators">
+                        <separator string="Notatki"/>
+                        <button type="action" name="%(add_volunteer_note_action)d" string="Dodaj notatkę"/>
+                        <field class="notes_field" name="notes" widget="many2many_kanban" readonly="1">
+                            <kanban>
+                                <field name="body"/>
+                                <field name="organization"/>
+                                <field name="create_date"/>
+                                <field name="create_uid"/>
+                                <templates>
+                                    <t t-name="kanban-box">
+                                        <div class="note">
+                                            <field name="body"/>
+                                                <div class="oe_grey">
+                                                    <field name="create_uid"/>
+                                                <t t-if="record.organization.raw_value">
+                                                    z <field name="organization"/>
+                                                </t>
+                                                <em>(<field name="create_date"/>)</em>
+                                            </div>
+                                        </div>
+                                    </t>
+                                </templates>
+                            </kanban>
+                        </field>
+                    </div>
+                </form>
+            </field>
+        </record>
+    </data>
+</openerp>

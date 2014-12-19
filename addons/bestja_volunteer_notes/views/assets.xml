@@ -1,0 +1,9 @@
+<openerp>
+    <data>
+        <template id="assets_backend" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <link rel="stylesheet" href="/bestja_volunteer_notes/static/src/css/notes.css"/>
+            </xpath>
+        </template>
+    </data>
+</openerp>

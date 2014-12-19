@@ -11,6 +11,7 @@
         'base',
         'bestja_base',
         'bestja_volunteer',
+        'bestja_volunteer_notes',
         'bestja_organization',
         'bestja_organization_hierarchy',
         'bestja_project',
