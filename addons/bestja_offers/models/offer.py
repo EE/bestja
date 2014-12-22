@@ -15,11 +15,6 @@ class Weekday(models.Model):
     full_name = fields.Char(required=True)
 
 
-class Daypart(models.Model):
-    _name = 'offers.daypart'
-    name = fields.Char(required=True)
-
-
 class HelpeeGroup(models.Model):
     """Odbiorca pomocy"""
     _name = 'offers.helpee_group'
@@ -143,14 +138,19 @@ class Offer(models.Model):
     remaining_days = fields.Integer(string="Wygasa za", compute='_remaining_days')
     kind = fields.Selection(KIND_CHOICES, required=True, string="rodzaj akcji")
     interval = fields.Selection(INTERVAL_CHOICES, string="powtarzaj co")
-    daypart = fields.Many2many('offers.daypart', string="pora dnia")
+    daypart = fields.Many2many('volunteer.daypart', string="pora dnia")
     hours = fields.Integer(string="liczba h")
     weekday = fields.Many2many('offers.weekday', string="dzień tygodnia")
     comments_time = fields.Text(string="Uwagi dotyczące terminu")
     applications = fields.One2many('offers.application', 'offer', string="Aplikacje")
     application_count = fields.Integer(compute='_application_count')
     accepted_application_count = fields.Integer(compute='_application_count')
-    localization = fields.Selection(LOCALIZATION_CHOICES, required=True, string="rodzaj lokalizacji", default="assigned")
+    localization = fields.Selection(
+        LOCALIZATION_CHOICES,
+        required=True,
+        string="rodzaj lokalizacji",
+        default="assigned"
+    )
 
     @api.one
     @api.constrains('skills')

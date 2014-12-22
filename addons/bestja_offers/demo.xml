@@ -35,7 +35,7 @@
             <field name="kind">periodic</field>
             <field name="hours">40</field>
             <field name="weekday" eval="[(6, 0, [ref('monday'), ref('tuesday'), ref('wednesday'), ref('thursday'), ref('friday')])]"/>
-            <field name="daypart" eval="[(6, 0, [ref('morning'), ref('afternoon'), ref('evening')])]"/>
+            <field name="daypart" eval="[(6, 0, [ref('bestja_volunteer.morning'), ref('bestja_volunteer.afternoon'), ref('bestja_volunteer.evening')])]"/>
             <field name="project" ref="bestja_project.project_horse"/>
             <field name="skills" eval="[(6, 0, [ref('bestja_volunteer.zbieranie_funduszy')])]"/>
             <field name="wishes" eval="[(6, 0, [ref('bestja_volunteer.organizacja_imprez'), ref('bestja_volunteer.praca_biurowa')])]"/>

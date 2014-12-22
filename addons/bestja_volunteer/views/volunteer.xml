@@ -66,6 +66,35 @@
             </field>
         </record>
 
+        <record model="ir.ui.view" id="bestja_volunteer_search">
+            <field name="name">bestja.volunteer.search</field>
+            <field name="model">res.users</field>
+            <field name="priority" eval="5"/>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name" string="Nazwa"/>
+                    <field name="wishes"/>
+                    <group string="Pora dnia">
+                        <filter name="morning" string="rano"
+                                domain="[('daypart', '=', 'morning')]"/>
+                        <filter name="afternoon" string="po południu"
+                                domain="[('daypart', '=', 'afternoon')]"/>
+                        <filter name="evening" string="wieczorem"
+                                domain="[('daypart', '=', 'evening')]"/>
+                        <filter name="allday" string="cały dzień"
+                                domain="[('daypart', '=', 'allday')]"/>
+                    </group>
+                    <group string="mailing">
+                        <filter name="mail_none" string="chce otrzymywać maile"
+                                domain="[('notify_email', '=', 'always')]"/>
+                        <filter name="mail_always" string="nie chce otrzymywać maili
+"
+                                domain="[('notify_email', '=', 'none')]"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
         <!-- Link the action to our custom views -->
         <record model="ir.actions.act_window.view" id="action_bestja_users_tree">
             <field eval="1" name="sequence"/>

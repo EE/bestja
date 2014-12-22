@@ -1,0 +1,16 @@
+<openerp>
+    <data>
+        <record id="morning" model="volunteer.daypart">
+            <field name="name">rano</field>
+        </record>
+        <record id="afternoon" model="volunteer.daypart">
+            <field name="name">po południu</field>
+        </record>
+        <record id="evening" model="volunteer.daypart">
+            <field name="name">wieczorem</field>
+        </record>
+        <record id="allday" model="volunteer.daypart">
+            <field name="name">cały dzień</field>
+        </record>
+    </data>
+</openerp>

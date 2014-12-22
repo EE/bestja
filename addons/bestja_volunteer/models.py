@@ -38,10 +38,15 @@ class DriversLicense(models.Model):
     name = fields.Char()
 
 
+class Daypart(models.Model):
+    _name = 'volunteer.daypart'
+    name = fields.Char(required=True)
+
+
 class Volunteer(models.Model):
     _inherit = 'res.users'
 
-    wishes = fields.Many2many('volunteer.wish', ondelete='restrict')
+    wishes = fields.Many2many('volunteer.wish', string="Zainteresowania", ondelete='restrict')
     skills = fields.Many2many('volunteer.skill', ondelete='restrict')
     languages = fields.Many2many('volunteer.language', ondelete='restrict')
     certifications = fields.Many2many('volunteer.certification', ondelete='restrict')
@@ -58,6 +63,8 @@ class Volunteer(models.Model):
     email = fields.Char('Email')
     phone = fields.Char('Phone')
     birthdate = fields.Date()
+
+    daypart = fields.Many2many('volunteer.daypart', string="pora dnia")
 
     @api.model
     def set_default_language(self, lang_code):
