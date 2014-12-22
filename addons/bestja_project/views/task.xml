@@ -4,7 +4,7 @@
         <record model="ir.actions.act_window" id="action_list_tasks">
             <field name="name">Zadania</field>
             <field name="res_model">bestja.task</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">tree,form,calendar</field>
             <field name="context">{'search_default_project': active_id}</field>
         </record>
 
@@ -68,6 +68,16 @@
                     <field name="user"/>
                     <field name="state"/>
                 </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="bestja_task_calendar">
+            <field name="name">bestja.task.calendar</field>
+            <field name="model">bestja.task</field>
+            <field name="arch" type="xml">
+                <calendar date_start="date_start" date_end="date_stop" color="project" quick_add="False">
+                    <field name="name"/>
+                </calendar>
             </field>
         </record>
     </data>
