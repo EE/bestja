@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 
-from openerp import models, fields, api
+from openerp import models, fields, api, exceptions
+from openerp.addons.auth_signup.res_users import SignupError
+import re
 
 
 class VolunteerWish(models.Model):
@@ -92,3 +94,30 @@ class Volunteer(models.Model):
         self.sudo().write({
             'groups_id': [(command, group.id)],
         })
+
+    def check_password_rules(self, password):
+        """ Returns true if password is incorrect """
+        if (len(password) < 6 or not re.search('[a-zA-Z]+', password)
+                or password.islower() or password.isupper()):
+                return True
+        return False
+
+    @api.model
+    def signup(self, values, token=None):
+        """
+            Added for password validation: at least 6 characters, any letters,
+            any uppercase letter, not only lowercase.
+            You can't do it using constraints, as password is hashed in the database.
+        """
+        if self.check_password_rules(values.get('password')):
+            raise SignupError("Hasło powinno zawierać co najmniej 6 znaków, w tym litery różnej wielkości!")
+        return super(Volunteer, self).signup(values, token)
+
+    @api.model
+    def change_password(self, old_passwd, new_passwd):
+        """
+            For changing password in preferences.
+        """
+        if self.check_password_rules(new_passwd):
+            raise exceptions.ValidationError("Hasło powinno zawierać co najmniej 6 znaków, w tym litery różnej wielkości!")
+        return super(Volunteer, self).change_password(old_passwd, new_passwd)
