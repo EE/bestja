@@ -1,0 +1,6 @@
+<template>
+    <!-- Remove button import -->
+    <t t-extend="ListView.buttons">
+        <t t-jquery="span.oe_alternative" class="oe_list_button_import" t-operation="replace"/>
+    </t>
+</template>
