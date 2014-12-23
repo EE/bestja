@@ -19,6 +19,10 @@ class Application(models.Model):
         super(Application, self)._auto_init(cr, context)
 
     @api.model
+    def send_message_new(self, record):
+        return
+
+    @api.model
     def create(self, vals):
         record = super(Application, self).create(vals)
         record_sudo = record.sudo()

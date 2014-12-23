@@ -87,6 +87,20 @@ class Application(models.Model):
         ('user_offer_uniq', 'unique("user", "offer")', 'User can apply for an offer only once!')
     ]
 
+    @api.model
+    def send_message_new(self, record):
+        record.send(
+            template='bestja_offers.msg_new_application',
+            recipients=record.sudo().offer.project.responsible_user,
+            record_name=record.offer.name,
+        )
+
+    @api.model
+    def create(self, vals):
+        record = super(Application, self).create(vals)
+        self.send_message_new(record)
+        return record
+
     @api.one
     @api.depends('birthdate')
     def compute_age(self):

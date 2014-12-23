@@ -9,6 +9,14 @@
             <field name="model">offers.application</field>
         </record>
 
+        <record id="msg_new_application" model="message_template">
+            <field name="subject">Nowe Zgłoszenie!</field>
+            <field name="body"><![CDATA[
+                Nowe zgłoszenie do "${record.offer.name}".
+            ]]></field>
+            <field name="model">offers.application</field>
+        </record>
+
         <record id="msg_application_rejected" model="message_template">
             <field name="subject">Zgłoszenie odrzucone</field>
             <field name="body"><![CDATA[
