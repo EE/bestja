@@ -1,0 +1,6 @@
+<template>
+    <!-- Remove suggestions from menu -->
+    <t t-extend="mail.wall.sidebar">
+        <t t-jquery=".oe_suggestions_groups" t-operation="replace"/>
+    </t>
+</template>
