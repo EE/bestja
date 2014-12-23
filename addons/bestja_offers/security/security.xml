@@ -7,7 +7,7 @@
             <field name="domain_force">[
                 '|',
                     ('project.organization.coordinator.id', '=', user.id),
-                    ('project.manager.id', '=', user.id)
+                    ('project.manager.id', '=', user.id),
             ]</field>
         </record>
 
@@ -19,6 +19,15 @@
                 '|',
                     ('offer.project.organization.coordinator.id', '=', user.id),
                     ('offer.project.manager.id', '=', user.id),
+            ]</field>
+        </record>
+
+        <record id="offer_public_rule" model="ir.rule">
+            <field name="name">Published offers are... public.</field>
+            <field name="model_id" ref="model_offer"/>
+            <field name="groups" eval="[(4, ref('base.group_user'), ref('base.group_public'))]"/>
+            <field name="domain_force">[
+                ('state', '=', 'published'),
             ]</field>
         </record>
     </data>

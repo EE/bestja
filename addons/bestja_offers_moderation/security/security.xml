@@ -19,5 +19,15 @@
             <field name="perm_create" eval="False"/>
             <field name="perm_unlink" eval="False"/>
         </record>
+
+        <record id="application_modify_rule" model="ir.rule">
+            <field name="name">Applications can be viewed by the moderator</field>
+            <field name="model_id" ref="bestja_offers.model_offers_application"/>
+            <field name="groups" eval="[(4, ref('offers_moderator'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
     </data>
 </openerp>
