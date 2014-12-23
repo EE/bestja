@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from openerp import models, fields, api
+from openerp import models, fields, api, exceptions
 
 
 class Project(models.Model):
@@ -109,6 +109,16 @@ class Project(models.Model):
             old_manager.sync_manager_groups()
         return val
 
+    @api.one
+    @api.constrains('date_start', 'date_stop')
+    def _check_project_dates(self):
+        """
+            Date of the beginning of the project needs to be
+            before the end
+        """
+        if (self.date_start > self.date_stop):
+            raise exceptions.ValidationError("Data rozpoczęcia projektu musi być przed datą zakończenia.")
+
 
 class Task(models.Model):
     _name = 'bestja.task'
@@ -140,8 +150,8 @@ class Task(models.Model):
     user_assigned_task = fields.Boolean(
         compute='_user_assigned_task'
     )
-    date_start = fields.Date(required=True, string="od dnia")
-    date_stop = fields.Date(required=True, string="do dnia")
+    date_start = fields.Datetime(required=True, string="od dnia")
+    date_stop = fields.Datetime(required=True, string="do dnia")
     date_button_click_start = fields.Datetime(string="data rozpoczęcia")
     date_button_click_stop = fields.Datetime(string="data zakończenia")
     description = fields.Text(string="Opis zadania")
@@ -204,6 +214,18 @@ class Task(models.Model):
                 sender=self.env.user,
             )
         return val
+
+    @api.one
+    @api.constrains('date_start', 'date_stop')
+    def _check_task_dates(self):
+        """
+            Date of the beginning of the task needs to be
+            before the end and should be within project dates.
+        """
+        if (self.date_start > self.date_stop):
+            raise exceptions.ValidationError("Data rozpoczęcia zadania musi być przed datą zakończenia.")
+        if (self.project.date_start > self.date_start or self.project.date_stop < self.date_stop):
+            raise exceptions.ValidationError("Zadanie musi odbywać się podczas trwania projektu.")
 
 
 class UserWithProjects(models.Model):
