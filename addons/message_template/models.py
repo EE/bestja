@@ -98,6 +98,13 @@ class MessageTemplateMixin(models.AbstractModel):
         """
         return self.env['mail.thread'].message_redirect_action()
 
+    @api.multi
+    def message_post(self, *args, **kwargs):
+        """
+        Used by the messages module to reply in a thread.
+        """
+        return self.env['mail.thread'].message_post(*args, **kwargs)
+
 
 class MailMessage(models.Model):
     _inherit = 'mail.message'

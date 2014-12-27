@@ -258,3 +258,12 @@ class Application(models.Model):
             resolution,
             quote_plus(self.current_meeting),
         )
+
+
+class UserWithApplications(models.Model):
+    _inherit = 'res.users'
+
+    applications = fields.One2many(
+        'offers.application',
+        inverse_name='user'
+    )

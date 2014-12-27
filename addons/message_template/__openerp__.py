@@ -19,6 +19,7 @@ simple API.""",
     'data': [
         'data.xml',
         'security/ir.model.access.csv',
+        'security/security.xml',
     ],
     'qweb': [
         'static/src/xml/mail.xml',

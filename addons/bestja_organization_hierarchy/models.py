@@ -89,10 +89,10 @@ class Organization(models.Model):
     def send_registration_messages(self):
         self.send(
             template='bestja_organization.msg_registered',
-            recipients=self.coordinator,
+            recipients=self.sudo().coordinator,
         )
         if self.parent:
             self.send(
                 template='bestja_organization.msg_registered_admin',
-                recipients=self.parent.coordinator,
+                recipients=self.sudo().parent.coordinator,
             )

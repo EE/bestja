@@ -40,7 +40,13 @@ class Organization(models.Model):
     phone_extension = fields.Char(size=10, string="Numer wewnętrzny")
     www = fields.Char(string="WWW")
     fbfanpage = fields.Char(string="Fanpage na FB")
-    volunteers = fields.Many2many('res.users', string="Wolontariusze")
+    volunteers = fields.Many2many(
+        'res.users',
+        relation='organization_volunteers_rel',
+        column1='organization',
+        column2='volunteer',
+        string="Wolontariusze"
+    )
     coordinator = fields.Many2one(
         'res.users', ondelete='restrict',
         string="Koordynator",
@@ -207,6 +213,13 @@ class UserWithOrganization(models.Model):
     _inherit = 'res.users'
 
     coordinated_org = fields.One2many('organization', inverse_name='coordinator')
+    organizations = fields.Many2many(
+        'res.users',
+        relation='organization_volunteers_rel',
+        column1='volunteer',
+        column2='organization',
+        string="Organizacje"
+    )
 
     @api.one
     def sync_coordinators_group(self):

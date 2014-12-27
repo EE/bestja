@@ -30,5 +30,19 @@
                 ('state', '=', 'published'),
             ]</field>
         </record>
+
+        <record id="applicants_managers_rule" model="ir.rule">
+            <field name="name">Project managers can see applicants to their projects.</field>
+            <field name="model_id" ref="base.model_res_users"/>
+            <field name="groups" eval="[(4, ref('bestja_project.managers'))]"/>
+            <field name="domain_force">[('applications.offer.project.manager.id', '=', user.id)]</field>
+        </record>
+
+        <record id="applicants_coordinators_rule" model="ir.rule">
+            <field name="name">Coordinators can see applicants to their organizations.</field>
+            <field name="model_id" ref="base.model_res_users"/>
+            <field name="groups" eval="[(4, ref('bestja_organization.coordinators'))]"/>
+            <field name="domain_force">[('applications.offer.project.organization.coordinator.id', '=', user.id)]</field>
+        </record>
     </data>
 </openerp>

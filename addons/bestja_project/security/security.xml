@@ -73,5 +73,19 @@
             <field name="perm_create" eval="False"/>
             <field name="perm_unlink" eval="True"/>
         </record>
+
+        <record id="coordinator_users_rule" model="ir.rule">
+            <field name="name">Project managers see people in their projects</field>
+            <field name="model_id" ref="base.model_res_users"/>
+            <field name="groups" eval="[(4, ref('bestja_project.managers'))]"/>
+            <field name="domain_force">[('projects.manager.id', '=', user.id)]</field>
+        </record>
+
+        <record id="users_coordinator_rule" model="ir.rule">
+            <field name="name">Users can see their project managers</field>
+            <field name="model_id" ref="base.model_res_users"/>
+            <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+            <field name="domain_force">[('managed_projects', 'in', user.projects.ids)]</field>
+        </record>
     </data>
 </openerp>

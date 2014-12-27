@@ -28,6 +28,7 @@ specify their experiences, interests etc.
         'data/drivers_license.xml',
         'data/wishes.xml',
         'menu.xml',
-        'security/ir.model.access.csv'
+        'security/ir.model.access.csv',
+        'security/security.xml',
     ],
 }

@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
+        <record model="ir.actions.act_window" id="bestja_organization.action_organization">
+            <field name="domain">[
+                ('active', '=?', False),
+                '|',
+                    ('coordinator.id', '=', uid),
+                    ('parent.coordinator.id', '=', uid),
+            ]</field>
+        </record>
+
         <record model="ir.ui.view" id="bestja_org_form">
             <field name="name">bestja.organization.form</field>
             <field name="model">organization</field>

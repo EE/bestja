@@ -10,9 +10,7 @@
             -->
             <field name="domain">[
                 ('active', '=?', False),
-                '|',
-                    ('state', '=', 'approved'),
-                    ('coordinator.id', '=', uid),
+                ('coordinator.id', '=', uid),
             ]</field>
         </record>
 
@@ -54,7 +52,7 @@
                         </div>
                         <label for="postal_code"/>
                         <div>
-                        <field name="postal_code" class="short_input"/><span class="oe_grey oe_edit_only">format 00-000</span> 
+                        <field name="postal_code" class="short_input"/><span class="oe_grey oe_edit_only">format 00-000</span>
                         </div>
                         <field name="city_address"/>
                     </group>

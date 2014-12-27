@@ -17,5 +17,33 @@
             <field name="groups" eval="[(4, ref('base.group_user'))]"/>
             <field name="domain_force">[('coordinator.id', '=', user.id)]</field>
         </record>
+
+        <record id="organization_members_rule" model="ir.rule">
+            <field name="name">Users have access to organizations they are members of</field>
+            <field name="model_id" ref="model_organization"/>
+            <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+            <field name="domain_force">[('volunteers', '=', user.id)]</field>
+        </record>
+
+        <record id="coordinator_users_rule" model="ir.rule">
+            <field name="name">Coordinators see people in their organizations</field>
+            <field name="model_id" ref="base.model_res_users"/>
+            <field name="groups" eval="[(4, ref('bestja_organization.coordinators'))]"/>
+            <field name="domain_force">[('organizations', '=', user.coordinated_org.id)]</field>
+        </record>
+
+        <record id="coordinator_coordinators_rule" model="ir.rule">
+            <field name="name">Coordinators can see other coordinators</field>
+            <field name="model_id" ref="base.model_res_users"/>
+            <field name="groups" eval="[(4, ref('bestja_organization.coordinators'))]"/>
+            <field name="domain_force">[('coordinated_org', '!=', False)]</field>
+        </record>
+
+        <record id="users_coordinator_rule" model="ir.rule">
+            <field name="name">Users can see their organization coordinator</field>
+            <field name="model_id" ref="base.model_res_users"/>
+            <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+            <field name="domain_force">[('coordinated_org', 'in', user.organizations.ids)]</field>
+        </record>
     </data>
 </openerp>

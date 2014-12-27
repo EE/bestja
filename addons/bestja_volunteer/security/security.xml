@@ -1,0 +1,16 @@
+<openerp>
+    <data>
+        <record id="users_admin_rule" model="ir.rule">
+            <field name="name">Instance admin has access to all users.</field>
+            <field name="model_id" ref="model_res_users"/>
+            <field name="groups" eval="[(4, ref('bestja_base.instance_admin'))]"/>
+        </record>
+
+        <record id="users_self_rule" model="ir.rule">
+            <field name="name">Normal users do not have access to other users (this rule may be relaxed in other modules).</field>
+            <field name="model_id" ref="model_res_users"/>
+            <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+            <field name="domain_force">[('id', '=', user.id)]</field>
+        </record>
+    </data>
+</openerp>
