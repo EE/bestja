@@ -64,6 +64,9 @@ class Volunteer(models.Model):
     phone = fields.Char('Phone')
     birthdate = fields.Date()
 
+    curriculum_vitae = fields.Binary(string="CV")
+    cv_filename = fields.Char()
+
     daypart = fields.Many2many('volunteer.daypart', string="pora dnia")
 
     @api.model

@@ -32,6 +32,14 @@
                                         <field name="forklift" class="oe_inline" /> <span class="oe_grey">data ważności (puste = brak uprawnień)</span>
                                     </div>
                                 </group>
+                                 <group col="2">
+                                 <label for="curriculum_vitae"/>
+                                 <div>
+                                     <field name="curriculum_vitae" filename="cv_filename" class="no_clear_button medium_input"/>
+                                     <div class="oe_grey oe_edit_only">Dodaj swoje CV (max. wielkość pliku do <strong>25 MB</strong>)</div>
+                                 </div>
+                                 <field name="cv_filename" invisible="1"/>
+                                 </group>
                             </page>
                             <page string="Zainteresowania">
                                 <field name="wishes" widget="many2many_checkboxes"/>
