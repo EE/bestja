@@ -45,6 +45,11 @@ class Daypart(models.Model):
     name = fields.Char(required=True)
 
 
+class Voivodeship(models.Model):
+    _name = 'volunteer.voivodeship'
+    name = fields.Char()
+
+
 class Volunteer(models.Model):
     _inherit = 'res.users'
 
@@ -58,16 +63,40 @@ class Volunteer(models.Model):
     sanepid = fields.Date()
     forklift = fields.Date()
 
-    street = fields.Char()
-    zip_code = fields.Char(size=6)
-    city = fields.Char()
-    country = fields.Many2one('res.country', ondelete='restrict')
+    # mailing address
+    street_gov = fields.Char(string="Ulica", groups='bestja_base.instance_admin')
+    street_number_gov = fields.Char(string="Numer budynku", groups='bestja_base.instance_admin')
+    apt_number_gov = fields.Char(string="mieszk.", groups='bestja_base.instance_admin')
+    zip_code_gov = fields.Char(size=6, string="Kod pocztowy", groups='bestja_base.instance_admin')
+    city_gov = fields.Char(string="Miejscowość", groups='bestja_base.instance_admin')
+    voivodeship_gov = fields.Many2one('volunteer.voivodeship', string="Województwo", groups='bestja_base.instance_admin')
+    country_gov = fields.Many2one('res.country', ondelete='restrict', string="Kraj", groups='bestja_base.instance_admin')
     email = fields.Char('Email')
     phone = fields.Char('Phone')
     birthdate = fields.Date()
 
     curriculum_vitae = fields.Binary(string="CV")
     cv_filename = fields.Char()
+
+    different_addresses = fields.Boolean(
+        default=False,
+        string="Adres zamieszkania jest inny niż zameldowania",
+        groups='bestja_base.instance_admin')
+    # address of residence
+    street = fields.Char(string="Ulica", groups='bestja_base.instance_admin')
+    street_number = fields.Char(string="Numer budynku", groups='bestja_base.instance_admin')
+    apt_number = fields.Char(string="mieszk.", groups='bestja_base.instance_admin')
+    zip_code = fields.Char(size=6, string="Kod pocztowy", groups='bestja_base.instance_admin')
+    city = fields.Char(string="Miejscowość", groups='bestja_base.instance_admin')
+    voivodeship = fields.Many2one(
+        'volunteer.voivodeship',
+        string="Województwo",
+        groups='bestja_base.instance_admin')
+    country = fields.Many2one(
+        'res.country',
+        ondelete='restrict',
+        string="Kraj",
+        groups='bestja_base.instance_admin')
 
     daypart = fields.Many2many('volunteer.daypart', string="pora dnia")
     daypart_comments = fields.Text(string="Uwagi")
@@ -122,3 +151,23 @@ class Volunteer(models.Model):
         if self.check_password_rules(new_passwd):
             raise exceptions.ValidationError("Hasło powinno zawierać co najmniej 6 znaków, w tym litery różnej wielkości!")
         return super(Volunteer, self).change_password(old_passwd, new_passwd)
+
+    @api.onchange('different_addresses')
+    def equal_addresses(self):
+        """ If adres zamieszkania = adres zameldowania
+            delete values from adres zameldowania"""
+        if self.different_addresses is False:
+            self.street = None
+            self.street_number = None
+            self.apt_number = None
+            self.zip_code = None
+            self.city = None
+            self.country = None
+
+    @api.one
+    @api.constrains('voivodeship', 'voivodeship_gov', 'country', 'country_gov')
+    def voivodeship_not_in_poland(self):
+        """If the chosen country is not Poland, voivodeship should be None"""
+        if ((self.country.code != 'PL' and self.voivodeship)
+                or (self.country_gov.code != 'PL' and self.voivodeship_gov)):
+            raise exceptions.ValidationError("Województwa dotyczą tylko Polski!")

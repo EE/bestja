@@ -44,17 +44,45 @@
                             <page string="Zainteresowania">
                                 <field name="wishes" widget="many2many_checkboxes"/>
                             </page>
-                            <page string="Dane adresowe">
-                                <group col="2">
-                                    <field name="birthdate"/>
-                                    <field name="phone"/>
+                            <page string="Dane">
+                                <group colspan="4" col="2" class="medium_input">
+                                    <field name="email" string="Adres e-mail"/>
+                                    <field name="phone" string="Numer tel."/>
+                                    <field name="birthdate" string="Data ur."/>
+                                </group>
+                                <group string="Adres zamieszkania" class="medium_input" groups="bestja_base.instance_admin">
+                                    <field name="street"/>
+                                    <label for="street_number"/>
+                                    <div>
+                                        <field name="street_number" class="short_input oe_inline"/>
+                                        mieszk.
+                                        <field name="apt_number" class="short_input"/>
+                                    </div>
+                                    <field name="zip_code"/>
+                                    <field name="city"/>
+                                    <field name="voivodeship" widget="many2one"/>
+                                    <field name="country"/>
+                                </group>
+                                <field name="different_addresses"/><label for="different_addresses"/>
+                                <group colspan="4" col="2" string="Adres zameldowania" class="medium_input" attrs="{'invisible': [('different_addresses', '==', False)]}" groups="bestja_base.instance_admin">
+                                    <field name="street_gov"/>
+                                    <label for="street_number_gov"/>
+                                    <div>
+                                        <field name="street_number_gov" class="short_input oe_inline"/>
+                                        mieszk.
+                                        <field name="apt_number_gov" class="short_input"/>
+                                    </div>
+                                    <field name="zip_code_gov"/>
+                                    <field name="city_gov"/>
+                                    <field name="voivodeship_gov" widget="many2one"/>
+                                    <field name="country_gov"/>
                                 </group>
                             </page>
                             <page string="Moja dostępność">
                                 <group colspan="4" col="2" string="Moja Dostępność">
                                     <label for="daypart" string="Pora dnia"/>
                                     <div>
-                                        <span class="oe_grey oe_edit_only"> 
+                                        <span class="oe_grey oe_edit_only">
                                             Powiedz nam kiedy masz wolny czas, a my postaramy się go wypełnić nowymi wyzwaniami.
                                         </span>
                                         <field name="daypart" string="Pora dnia" widget="many2many_checkboxes"/>

@@ -27,6 +27,7 @@ specify their experiences, interests etc.
         'data/daypart.xml',
         'data/drivers_license.xml',
         'data/wishes.xml',
+        'data/voivodeship.xml',
         'menu.xml',
         'security/ir.model.access.csv',
         'security/security.xml',
