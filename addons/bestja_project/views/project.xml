@@ -5,6 +5,11 @@
             <field name="name">Projekty</field>
             <field name="res_model">bestja.project</field>
             <field name="view_mode">kanban,tree,form</field>
+            <field name="domain">[
+                '|',
+                    ('organization.coordinator.id', '=', uid),
+                    ('manager.id', '=', uid),
+            ]</field>
         </record>
 
         <record model="ir.ui.view" id="bestja_project_form">

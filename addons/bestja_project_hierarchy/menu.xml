@@ -1,0 +1,5 @@
+<openerp>
+    <data>
+        <menuitem parent="bestja_project.menu_project" id="menu_project_invites" action="action_list_invites" groups="bestja_organization.coordinators" sequence="2"/>
+    </data>
+</openerp>

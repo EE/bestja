@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <!-- Invitation wizard -->
+        <record model="ir.actions.act_window" id="action_invitation_wizard">
+            <field name="name">Zaproś organizacje</field>
+            <field name="res_model">bestja.project.invitation_wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <record model="ir.ui.view" id="invitation_wizard_form">
+            <field name="name">bestja.project.invitation_wizard</field>
+            <field name="model">bestja.project.invitation_wizard</field>
+            <field name="arch" type="xml">
+                <form string="Zaproś organizacje">
+                    <group>
+                        <field name="project" readonly="1"/>
+                        <field name="organizations" widget="many2many_tags" options="{'no_create': True}"/>
+                        <field name="description"/>
+                    </group>
+                    <footer>
+                        <button name="invite" type="object" string="Zaproś wybrane organizacje" class="oe_highlight"/>
+                        <button special="cancel" string="Anuluj" class="oe_link"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="invitation_form">
+            <field name="name">bestja.project.invitation.form</field>
+            <field name="model">bestja.project.invitation</field>
+            <field name="arch" type="xml">
+                <form create="false" delete="false" edit="false">
+                    <header>
+                        <button string="Dołącz do projektu" name="accept_invitation" type="object" states="pending" class="oe_highlight"/>
+                    </header>
+                    <h1>Zaproszenie do projektu</h1>
+                    <field name="state" readonly="1" class="state"/>
+                    <group cols="2">
+                        <field name="project"/>
+                        <field name="parent_organization"/>
+                    </group>
+                    <field name="description"/>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="invitation_tree">
+            <field name="name">bestja.project.invitation.tree</field>
+            <field name="model">bestja.project.invitation</field>
+            <field name="arch" type="xml">
+                <tree create="false" delete="false" edit="false">
+                    <field name="project"/>
+                    <field name="parent_organization"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="invitation_search">
+            <field name="name">bestja.project.invitation.search</field>
+            <field name="model">bestja.project.invitation</field>
+            <field name="arch" type="xml">
+                <search>
+                    <filter name="pending" string="Oczekujące"
+                                domain="[('state', '=', 'pending')]"/>
+                </search>
+            </field>
+        </record>
+
+
+        <record model="ir.actions.act_window" id="action_list_invites">
+            <field name="name">Zaproszenia</field>
+            <field name="res_model">bestja.project.invitation</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('organization.coordinator', '=', uid)]</field>
+            <field name="context" eval="{'search_default_pending': True}" />
+
+        </record>
+    </data>
+</openerp>

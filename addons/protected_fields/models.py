@@ -19,7 +19,7 @@ class ProtectedFieldsMixin(models.AbstractModel):
     _permitted_user_ids = [SUPERUSER_ID, ]
     _permitted_groups = []
 
-    @api.model
+    @api.multi
     def _is_permitted(self):
         """
         Is the current user permitted to modify protected fields?
@@ -35,7 +35,7 @@ class ProtectedFieldsMixin(models.AbstractModel):
         groups = self._permitted_groups
         return any(res_users.has_group(group) for group in groups)
 
-    @api.model
+    @api.multi
     def _check_field_permissions(self, vals, permitted_vals=None):
         if permitted_vals is None:
             permitted_vals = {}
@@ -52,12 +52,13 @@ class ProtectedFieldsMixin(models.AbstractModel):
     def create(self, vals):
         # default values are permitted upon creation
         defaults = self.default_get(vals)
-        self._check_field_permissions(vals, permitted_vals=defaults)
         record = super(ProtectedFieldsMixin, self).create(vals)
+        record._check_field_permissions(vals, permitted_vals=defaults)
         return record
 
     @api.multi
     def write(self, vals):
         self._check_field_permissions(vals)
-        record = super(ProtectedFieldsMixin, self).write(vals)
-        return record
+        success = super(ProtectedFieldsMixin, self).write(vals)
+        self._check_field_permissions(vals)
+        return success

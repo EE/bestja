@@ -10,36 +10,28 @@
             <field name="implied_ids" eval="[(4, ref('managers'))]"/>
         </record>
 
-        <record id="project_read_rule" model="ir.rule">
-            <field name="name">Projects can be viewed by its managers, its members and organization coordinators.</field>
+        <record id="project_managers_rule" model="ir.rule">
+            <field name="name">Projects can be accessed by its managers and organization coordinators.</field>
             <field name="model_id" ref="model_bestja_project"/>
-            <field name="global" eval="True"/>
+            <field name="groups" eval="[(4, ref('base.group_user'))]"/>
             <field name="domain_force">[
                 '|',
                     ('organization.coordinator.id', '=', user.id),
-                '|',
                     ('manager.id', '=', user.id),
-                    ('id', 'in', user.projects.ids),
+            ]</field>
+        </record>
+
+        <record id="project_members_rule" model="ir.rule">
+            <field name="name">Projects can be viewed by its members.</field>
+            <field name="model_id" ref="model_bestja_project"/>
+            <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+            <field name="domain_force">[
+                ('id', 'in', user.projects.ids),
             ]</field>
             <field name="perm_read" eval="True"/>
             <field name="perm_write" eval="False"/>
             <field name="perm_create" eval="False"/>
             <field name="perm_unlink" eval="False"/>
-        </record>
-
-        <record id="project_write_rule" model="ir.rule">
-            <field name="name">Projects can be changed by its managers and organization coordinators.</field>
-            <field name="model_id" ref="model_bestja_project"/>
-            <field name="global" eval="True"/>
-            <field name="domain_force">[
-                '|',
-                    ('organization.coordinator.id', '=', user.id),
-                    ('manager.id', '=', user.id),
-            ]</field>
-            <field name="perm_read" eval="False"/>
-            <field name="perm_write" eval="True"/>
-            <field name="perm_create" eval="True"/>
-            <field name="perm_unlink" eval="True"/>
         </record>
 
         <record id="task_rule" model="ir.rule">

@@ -149,7 +149,7 @@ class Offer(models.Model):
         LOCALIZATION_CHOICES,
         required=True,
         string="rodzaj lokalizacji",
-        default="assigned"
+        default="assigned",
     )
 
     @api.one

@@ -7,9 +7,11 @@ class Project(models.Model):
     _name = 'bestja.project'
     _inherit = ['message_template.mixin']
 
-    def current_members(self):
+    def guess_organization(self):
         """
-        Limit to members of the current organization only.
+        Which organization this project belongs to.
+        For use with methods used with the `default`
+        field attributes.
         """
         try:
             # try to use organization configured in the current project
@@ -18,6 +20,13 @@ class Project(models.Model):
         except KeyError:
             # most likely a new project, use organization the user coordinates
             organization = self.env.user.coordinated_org
+        return organization
+
+    def current_members(self):
+        """
+        Limit to members of the current organization only.
+        """
+        organization = self.guess_organization()
         return [
             '|',  # noqa odoo-domain indent
                 ('id', 'in', organization.volunteers.ids),
@@ -27,7 +36,7 @@ class Project(models.Model):
     name = fields.Char(required=True, string="Nazwa")
     organization = fields.Many2one(
         'organization',
-        default=api.model(lambda self: self.env.user.coordinated_org),
+        default=lambda self: self.env.user.coordinated_org,
         required=True,
         string="Organizacja",
         domain=lambda self: [('coordinator', '=', self.env.user.id)],
@@ -82,11 +91,12 @@ class Project(models.Model):
     @api.model
     def create(self, vals):
         record = super(Project, self).create(vals)
-        record.send(
-            template='bestja_project.msg_manager',
-            recipients=record.manager,
-        )
-        record.manager.sync_manager_groups()
+        if record.manager:
+            record.send(
+                template='bestja_project.msg_manager',
+                recipients=record.manager,
+            )
+            record.manager.sync_manager_groups()
         return record
 
     @api.multi
@@ -252,3 +262,12 @@ class UserWithProjects(models.Model):
             group=self.env.ref('bestja_project.managers'),
             domain=[('managed_projects', '!=', False)],
         )
+
+
+class OrganizationWithProjects(models.Model):
+    _inherit = 'organization'
+
+    projects = fields.One2many(
+        'bestja.project',
+        inverse_name='organization'
+    )

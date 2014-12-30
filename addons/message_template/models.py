@@ -34,7 +34,7 @@ class MessageTemplate(models.Model):
             'partner_ids': recipient_partners,
             'model': self.model,
             'res_id': record and record.id,
-            'record_name': record_name or (record and record.name),
+            'record_name': record_name or (record and record.display_name),
             'subject': self.subject,
             'body': body_rendered,
             'template': self.id,

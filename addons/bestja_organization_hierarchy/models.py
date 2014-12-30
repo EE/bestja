@@ -7,6 +7,8 @@ from openerp import models, fields, api, exceptions, SUPERUSER_ID
 class Organization(models.Model):
     _inherit = 'organization'
     _parent_name = 'parent'
+    _order = 'parent_left'
+    _parent_store = True
 
     def allowed_parents(self):
         if self.env['res.users'].has_group('bestja_base.instance_admin'):
@@ -16,17 +18,25 @@ class Organization(models.Model):
     parent = fields.Many2one(
         'organization',
         domain=allowed_parents,
+        index=True,
+        ondelete='restrict',
         string="Organizacja nadrzędna",
     )
+    parent_left = fields.Integer(index=True)
+    parent_right = fields.Integer(index=True)
+    children = fields.One2many(
+        'organization',
+        inverse_name='parent',
+    )
     level = fields.Integer(
-        compute='_compute_level',
+        compute='compute_level',
         store=True,
         string="Poziom w hierarchii organizacji"
     )
 
     @api.one
     @api.depends('parent', 'parent.parent')
-    def _compute_level(self):
+    def compute_level(self):
         """
         Level of organization hierarchy. 0 = root level.
         """
@@ -53,7 +63,7 @@ class Organization(models.Model):
         """
         return self.parent.id == self.env.user.coordinated_org.id
 
-    @api.model
+    @api.multi
     def _is_permitted(self):
         """
         Allow parent coordinators to modify protected fields
