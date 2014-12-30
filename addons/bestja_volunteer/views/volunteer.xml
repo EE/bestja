@@ -50,6 +50,20 @@
                                     <field name="phone"/>
                                 </group>
                             </page>
+                            <page string="Moja dostępność">
+                                <group colspan="4" col="2" string="Moja Dostępność">
+                                    <label for="daypart" string="Pora dnia"/>
+                                    <div>
+                                        <span class="oe_grey oe_edit_only"> 
+                                            Powiedz nam kiedy masz wolny czas, a my postaramy się go wypełnić nowymi wyzwaniami.
+                                        </span>
+                                        <field name="daypart" string="Pora dnia" widget="many2many_checkboxes"/>
+                                    </div>
+                                </group>
+                                <group colspan="4" col="2" string="Uwagi">
+                                    <field name="daypart_comments" placeholder="Uwagi do dostępności"/>
+                                </group>
+                            </page>
                         </notebook>
                     </sheet>
                 </form>
