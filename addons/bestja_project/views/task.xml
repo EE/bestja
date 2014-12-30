@@ -75,7 +75,7 @@
             <field name="name">bestja.task.calendar</field>
             <field name="model">bestja.task</field>
             <field name="arch" type="xml">
-                <calendar date_start="date_start" date_end="date_stop" color="project" quick_add="False">
+                <calendar date_start="date_start" date_stop="date_stop" color="project" quick_add="False">
                     <field name="name"/>
                 </calendar>
             </field>
