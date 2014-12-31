@@ -224,8 +224,6 @@ class Task(models.Model):
         """
         if (self.date_start > self.date_stop):
             raise exceptions.ValidationError("Data rozpoczęcia zadania musi być przed datą zakończenia.")
-        if (self.project.date_start > self.date_start or self.project.date_stop < self.date_stop):
-            raise exceptions.ValidationError("Zadanie musi odbywać się podczas trwania projektu.")
 
 
 class UserWithProjects(models.Model):
