@@ -19,6 +19,7 @@
         'bestja_files',
         'email_confirmation',
         'quizzes',
+        'bestja_organization_warehouse'
     ],
     'application': True,
 }

@@ -1,0 +1,21 @@
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="bestja_org_form">
+            <field name="name">bestja.organization.form2</field>
+            <field name="model">organization</field>
+            <field name="inherit_id" ref="bestja_organization.bestja_org_form"/>
+            <field name="arch" type="xml">
+                 <xpath expr="//group[@string='Kontakt']" position="after">
+                    <field name="store_address_different"/>
+                    <label for="store_address_different"/>
+                    <group colspan="2" attrs="{'invisible': [('store_address_different', '==', False)]}" class="medium_input">
+                        <field name="store_street"/>
+                        <field name="store_street_number"/>
+                        <field name="store_zip_code"/>
+                        <field name="store_city"/>
+                    </group>
+                 </xpath>
+             </field>
+         </record>
+     </data>
+ </openerp>
