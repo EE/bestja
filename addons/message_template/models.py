@@ -26,7 +26,10 @@ class MessageTemplate(models.Model):
 
         # Enable resolution of ${variables} inside body
         body_template = mako_template_env.from_string(tools.ustr(self.body))
-        body_rendered = body_template.render({'record': record})
+        body_rendered = body_template.render({
+            'record': record,
+            'context': self.env.context,
+        })
 
         self.env['mail.message'].sudo().create({
             'type': 'comment',

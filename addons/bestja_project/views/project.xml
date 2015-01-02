@@ -22,6 +22,9 @@
                             <button class="oe_stat_button" icon="fa-briefcase" name="%(action_list_tasks)d" type="action">
                                 <field name="tasks_count" widget="statinfo" string="zadań"/>
                             </button>
+                            <button class="oe_inline oe_stat_button" type="action" name="%(action_project_message)d" icon="fa-envelope" groups="bestja_project.managers">
+                                <div>Wiadomość</div>
+                            </button>
                         </div>
                         <div class="oe_title">
                             <label for="name" class="oe_edit_only"/>

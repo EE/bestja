@@ -19,6 +19,14 @@
             <field name="model">bestja.project</field>
         </record>
 
+        <record id="msg_project_message" model="message_template">
+            <field name="subject">Wiadomość projektowa</field>
+            <field name="body"><![CDATA[
+                ${context.message}
+            ]]></field>
+            <field name="model">bestja.project</field>
+        </record>
+
         <record id="msg_task" model="message_template">
             <field name="subject">Czeka na Ciebie nowe zadanie!</field>
             <field name="body"><![CDATA[

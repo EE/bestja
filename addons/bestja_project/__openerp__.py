@@ -18,6 +18,7 @@ Define projects and assign users to tasks.
 
     'data': [
         'security/security.xml',
+        'views/message.xml',
         'views/task.xml',
         'views/project.xml',
         'messages.xml',
