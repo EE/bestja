@@ -11,10 +11,16 @@ class ProjectMessage(models.TransientModel):
     project = fields.Many2one(
         'bestja.project',
         string="Projekt",
+        required=True,
         default=lambda self: self.env.context['active_id'],
     )
-    content = fields.Text(string="Treść")
-    recipients = fields.Selection(RECIPIENTS_CHOICES, default='members', string="Odbiorcy")
+    content = fields.Text(string="Treść", required=True)
+    recipients = fields.Selection(
+        RECIPIENTS_CHOICES,
+        default='members',
+        require=True,
+        string="Odbiorcy",
+    )
 
     @api.one
     def send_button(self):
@@ -27,9 +33,9 @@ class ProjectMessage(models.TransientModel):
         self.project.check_access_rights('write')
         self.project.check_access_rule('write')
 
-        for member in recipients:
+        for recipient in recipients:
             self.project.with_context(message=self.content).send(
                 template='bestja_project.msg_project_message',
-                recipients=recipients,
+                recipients=recipient,
                 sender=self.env.user,
             )

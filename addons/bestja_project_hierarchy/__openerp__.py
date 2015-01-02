@@ -20,6 +20,7 @@ projects.
     'data': [
         'views/invitation.xml',
         'views/project.xml',
+        'views/message.xml',
         'menu.xml',
         'messages.xml',
         'security/ir.model.access.csv',

@@ -1,0 +1,13 @@
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="project_message_form">
+            <field name="model">bestja.project.message_wizard</field>
+            <field name="inherit_id" ref="bestja_project.project_message_form"/>
+            <field name="arch" type="xml">
+                <field name="recipients" position="attributes">
+                    <attribute name="readonly"/> <!-- remove the attribute - no longer readonly -->
+                </field>
+            </field>
+        </record>
+    </data>
+</openerp>
