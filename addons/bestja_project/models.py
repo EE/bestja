@@ -146,7 +146,7 @@ class Task(models.Model):
         active_id = self.env.context.get('active_id')
         if active_id is None:
             return []
-        project = self.env['bestja.project'].browse([active_id])
+        project = self.env['bestja.project'].sudo().browse([active_id])
         return [('id', 'in', project.members.ids)]
 
     name = fields.Char(required=True, string="Nazwa zadania")
@@ -212,7 +212,7 @@ class Task(models.Model):
         if 'user' in vals:
             old_user = self.user
         val = super(Task, self).write(vals)
-        if old_user:
+        if old_user is not None:
             self.send(
                 template='bestja_project.msg_task',
                 recipients=self.user,

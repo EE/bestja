@@ -132,6 +132,7 @@ class Project(models.Model):
     invitations = fields.One2many(
         'bestja.project.invitation',
         inverse_name='project',
+        groups="bestja_project.managers",
     )
     parent_invitation = fields.Many2one(
         'bestja.project.invitation',

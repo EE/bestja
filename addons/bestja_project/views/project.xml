@@ -7,8 +7,10 @@
             <field name="view_mode">kanban,tree,form</field>
             <field name="domain">[
                 '|',
-                    ('organization.coordinator.id', '=', uid),
-                    ('manager.id', '=', uid),
+                    ('organization.coordinator', '=', uid),
+                '|',
+                    ('manager', '=', uid),
+                    ('members', '=', uid),
             ]</field>
         </record>
 

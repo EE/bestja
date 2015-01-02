@@ -12,7 +12,7 @@
                 </field>
 
                 <group string="Termin" position="after">
-                    <group string="Zaproszone organizacje" attrs="{'invisible': [('organization_level', '&gt;=', 2)]}">
+                    <group string="Zaproszone organizacje" attrs="{'invisible': [('organization_level', '&gt;=', 2)]}" groups="bestja_project.managers">
                         <field name="invitations" options="{'creatable': False}" nolabel="1" colspan="4">
                             <tree create="false" edit="false">
                                 <field name="organization"/>
