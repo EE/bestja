@@ -74,7 +74,7 @@ class OfferWithModeration(models.Model):
         """
         Hide "send to moderation" button from moderators.
         """
-        view = super(Offer, self).fields_view_get(**kwargs)
+        view = super(OfferWithModeration, self).fields_view_get(**kwargs)
         if 'view_type' in kwargs and kwargs['view_type'] != 'form':
             return view
 
