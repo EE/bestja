@@ -95,7 +95,7 @@ class Offer(http.Controller):
         application.send(
             template='bestja_offers.msg_application_meeting_' + resolution,
             recipients=application.offer.project.responsible_user,
-            sender=self.env.user,
+            sender=http.request.env.user,
         )
 
         return http.request.render('bestja_offers.meeting_confirmation', {
