@@ -15,6 +15,7 @@
         'bestja_organization',
         'bestja_organization_hierarchy',
         'bestja_project',
+        'bestja_project_hierarchy',
         'bestja_offers',
         'bestja_files',
         'email_confirmation',
