@@ -14,3 +14,25 @@ class Message(models.Model):
         """
         company = self.env.user.company_id
         return (company.name, company.email)
+
+
+class Website(models.Model):
+    _inherit = 'website'
+
+    @api.one
+    def set_language(self, lang_code):
+        """
+        Set language for a website.
+        If the language is not already loaded
+        (for example using `--load-language` option)
+        it will be ignored.
+        """
+        # TODO:
+        # I expect we will have a separate "bestja_website" module
+        # in the future. This code should be moved there.
+        lang = self.env['res.lang'].search([('code', '=', lang_code)])
+        if lang:
+            self.write({
+                'language_ids': [(6, 0, [lang.id])],
+                'default_lang_id': lang.id,
+            })

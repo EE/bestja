@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+        <!-- Force Polish as the default language for the default website.
+        This is a bit hackish, but we need this for our demo instances.
+        Sorry. -->
+        <function model="website" name="set_language" eval="[ref('website.default_website'), 'pl_PL']"/>
+    </data>
+</openerp>

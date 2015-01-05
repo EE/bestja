@@ -17,6 +17,7 @@ It includes (among other things) the BestJa menu and CSS definitions. """,
         'auth_signup',
         'mail',
         'message_template',
+        'website',
     ],
     'data': [
         'menu.xml',
@@ -26,5 +27,8 @@ It includes (among other things) the BestJa menu and CSS definitions. """,
     ],
     'qweb': [
         'static/src/xml/*.xml',
-    ]
+    ],
+    'demo': [
+        'demo.xml',
+    ],
 }
