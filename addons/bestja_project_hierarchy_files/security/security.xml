@@ -1,0 +1,18 @@
+<openerp>
+    <data>
+        <record id="project_files_read_access" model="ir.rule">
+            <field name="name">Project files can be viewed by project managers and organization of child projects coordinators.</field>
+            <field name="model_id" ref="bestja_project_files.model_bestja_file"/>
+            <field name="groups" eval="[(4, ref('bestja_project.managers'))]"/>
+            <field name="domain_force">[
+                '|',
+                    ('project.children.organization.coordinator.id', '=', user.id),
+                    ('project.children.manager.id', '=', user.id),
+            ]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+    </data>
+</openerp>
