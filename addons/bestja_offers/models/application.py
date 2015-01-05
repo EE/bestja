@@ -203,7 +203,7 @@ class Application(models.Model):
         offer.project.write({
             'members': [(4, self.user.id)]
         })
-        offer.project.organization.write({
+        offer.sudo().project.organization.write({
             'volunteers': [(4, self.user.id)]
         })
         # Unpublish if all vacancies filled
