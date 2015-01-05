@@ -26,5 +26,8 @@
 
         <!-- allow user sign-up by default -->
         <function model="ir.config_parameter" name="set_param" eval="('auth_signup.allow_uninvited', True)" />
+
+        <!-- Allow user-triggered password reset by default. -->
+        <function model="ir.config_parameter" name="set_param" eval="('auth_signup.reset_password', True)" />
     </data>
 </openerp>
