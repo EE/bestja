@@ -1,0 +1,218 @@
+@charset "utf-8";
+
+.open_sans_font{
+    font-family: "Open Sans" !important;
+}
+
+.arial_font{
+    font-family: "Arial Regular, Arial" !important;
+}
+
+.orange_text{
+    color: #FF9900;
+}
+
+/* centered columns styles */
+.row-centered {
+    text-align: center;
+}
+.col-centered {
+    display: inline-block;
+    float: none;
+    /* reset the text-align */
+    text-align: left;
+    /* inline-block space fix */
+    margin-right: -4px;
+}
+
+/* end of centered columns styles */
+
+/* Main snippet */
+.main_top_white_text{
+    color: white;
+    font-style: normal;
+    margin-left: 7%;
+    margin-top: 95px;
+}
+
+.main_top_white_text h1{
+    font-size: 48px;
+}
+
+.main_top_white_text h3{
+    font-size: 26px;
+    margin-left: 20px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.main_top_white_text h2{
+    font-size: 32px;
+    margin-left: 20px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.main_top_photo_text{
+    background: url('http://lorempixel.com/g/1280/724/')
+        no-repeat; min-height: 70%;
+    position: relative;
+    color: #FFFFFF;
+}
+
+.mouse_img{
+    width: 89px;
+    height: 90px;
+    margin-left: 4px;
+}
+
+.choose_place{
+    font-weight: bold;
+    height: 55px;
+    background-color: white;
+    font-size: 22px;
+}
+
+.direction_down{
+    display: inline-block;
+    -ms-transform: rotate(270deg); /* IE 9 */
+    -webkit-transform: rotate(270deg); /* Chrome, Safari, Opera */
+    transform: rotate(270deg);
+    -o-transform: rotate(270deg);
+    font-size: 36px;
+    color: #000000;
+    text-align: center;
+}
+/* End of main snippet */
+
+/* Snippet: Why is it worth to do with us */
+.why_is_it_worth h1{
+    font-size: 40px;
+}
+
+.why_is_it_worth h3{
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.why_is_it_worth h4{
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.why_is_it_worth span{
+    font-size: 48px;
+}
+
+.why_is_it_worth button{
+    min-width: 290px;
+    background-color: #EC8D17;
+    color: #FFFFFF;
+    font-size: 20px;
+}
+/* End of snippet: Why it is worth to do with us */
+
+/* Snippet: a big quote */
+.quote_div blockquote p{
+    font-size: 28px;
+    font-style: italic;
+}
+/* End of snippet: a big quote */
+
+/* Snippet: volunteers newsletter */
+.volunteers_newsletter{
+
+}
+/* End of snippet: volunteers newsletter */
+
+
+/* Snippet: volunteeres pictures */
+.meet_our_volunteers button{
+    min-width: 290px;
+    background-color: #EC8D17;
+    color: #FFFFFF;
+    font-size: 20px;
+}
+/* End of snippet: volunteeres pictures */
+
+/* Footer */
+#footer_icons li{
+    list-style: none;
+    float: left;
+    margin-left: 30px;
+}
+
+#footer_icons li a{
+    background-image: url('/bestja_frontend_fpbz/static/src/img/stopka_ikonki.png');
+    display: block;
+}
+
+#footer_icons li a.facebook{
+    background-position: 0 0;
+    width: 35px;
+    height: 45px;
+}
+
+#footer_icons li a.youtube{
+    background-position: -173px 0;
+    width: 43px;
+    height: 45px;
+}
+
+.footer_div{
+    background-color: #000000;
+    min-height: 100px;
+    padding-top: 25px;
+}
+
+.footer_div a{
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.footer_div h4 a{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.col-footer{
+    width:33.3%;
+    min-width: 290px;
+    float: left;
+}
+
+.copyrights p{
+    font-size: 12px;
+    padding-right: 20px;
+}
+
+.white_footer_text{
+    color: white;
+}
+
+.footer_div span{
+    margin-left: 12px;
+    margin-right: 12px;
+}
+
+@media screen and (max-width: 991px) {
+    .col-footer {
+        float: none !important;
+        margin: 0 auto;
+        padding-bottom: 20px;
+        min-height: 70px;
+    }
+
+    .copyrights{
+        text-align: center;
+    }
+
+    .copyrights p{
+        padding-right: 0;
+    }
+
+    #footer_icons{
+        margin-left: 20px;
+    }
+}
+/* End of footer */

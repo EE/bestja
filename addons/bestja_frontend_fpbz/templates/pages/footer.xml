@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <template id="new_footer" inherit_id="website.layout" name="New Footer">
+            <xpath expr="//footer" position="replace">
+                <footer>
+                    <div class="container-fluid footer_div">
+                        <div class="row clearfix">
+                            <div class="col-footer text-center">
+                                <ul id="footer_icons">
+                                    <li>
+                                        <a class="facebook" href="http://facebook.com"></a>
+                                    </li>
+                                    <li>
+                                        <a class="youtube" href="http://youtube.com"></a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-footer text-center">
+                                <h4><a href="http://www.wolontariat.bankizywnosci.pl/">O nas</a>
+                                    <a href="http://www.wolontariat.bankizywnosci.pl/">Kontakt</a></h4>
+                            </div>
+                            <div class="col-footer text-right copyrights arial_font">
+                                <div>
+                                    <p class="orange_text">© 2014, Federacja Banków Żywności</p>
+                                    <p><a href="http://www.wolontariat.bankizywnosci.pl/">Regulamin</a> <span class="white_footer_text">|</span>
+                                        <a href="http://www.wolontariat.bankizywnosci.pl/">Polityka prywatności</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </xpath>
+        </template>
+    </data>
+</openerp>
