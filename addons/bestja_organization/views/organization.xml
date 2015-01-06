@@ -83,8 +83,12 @@
                         <span class="oe_grey oe_edit_only">Opisz czym zajmuje się Twoja organizacja.</span>
                          <field name="organization_description"/>
                         </page>
-                        <page string="Ludzie" states="approved">
-                            <field name="volunteers" readonly="True" />
+                        <page string="Ludzie" states="approved" groups="bestja_organization.coordinators,bestja_base.instance_admin">
+                            <field name="volunteers" readonly="True">
+                                <tree>
+                                    <field name="name"/>
+                                </tree>
+                            </field>
                         </page>
                     </notebook>
                 </form>
