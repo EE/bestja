@@ -113,16 +113,9 @@ class Project(models.Model):
     _inherit = 'bestja.project'
     _parent_name = 'parent'
 
-    def available_parents(self):
-        """
-        Limit to projects I've been invited to.
-        """
-        organization = self.guess_organization()
-        return [('invitations.organization', '=', organization.id)]
-
     parent = fields.Many2one(
         'bestja.project',
-        domain=available_parents,
+        domain="[('invitations.organization', '=', organization)]",
         string="Projekt nadrzędny",
     )
     children = fields.One2many(
