@@ -16,6 +16,16 @@ class Message(models.Model):
         return '{} <{}>'.format(company.name, company.email)
 
 
+class StopSpying(models.Model):
+    _inherit = 'publisher_warranty.contract'
+
+    @api.multi
+    def update_notification(*args, **kwargs):
+        # This method is used by Odoo to phone home to OpenERP S.A.
+        # No more.
+        return True
+
+
 class Website(models.Model):
     _inherit = 'website'
 
