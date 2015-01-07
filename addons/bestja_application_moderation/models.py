@@ -54,22 +54,21 @@ class Application(models.Model):
                 raise exceptions.ValidationError("Nie masz uprawnień aby wykonać tę akcję!")
 
             # "Move" to the second stage of recruitment
-            self.sudo().create({
+            application = self.sudo().create({
                 'user': self.user.id,
                 'offer': self.offer.id,
                 'preliminary': False,
             })
             # Send message that user was moved to the second stage, to user
-            self.send(
+            application.send(
                 template='bestja_application_moderation.msg_application_second_stage',
                 recipients=self.user,
                 record_name=self.offer.name,
             )
             # send info to coordinator about new application
-            self.send(
+            application.send(
                 template='bestja_application_moderation.msg_new_application_admin',
                 recipients=self.sudo().offer.project.responsible_user,
-                record_name=self.offer.name,
             )
         else:
             super(Application, self).action_post_accepted()

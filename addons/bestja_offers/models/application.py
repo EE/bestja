@@ -92,7 +92,6 @@ class Application(models.Model):
         record.send(
             template='bestja_offers.msg_new_application',
             recipients=record.sudo().offer.project.responsible_user,
-            record_name=record.offer.name,
         )
 
     @api.model
