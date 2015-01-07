@@ -69,8 +69,17 @@ class Volunteer(models.Model):
     apt_number_gov = fields.Char(string="mieszk.", groups='bestja_base.instance_admin')
     zip_code_gov = fields.Char(size=6, string="Kod pocztowy", groups='bestja_base.instance_admin')
     city_gov = fields.Char(string="Miejscowość", groups='bestja_base.instance_admin')
-    voivodeship_gov = fields.Many2one('volunteer.voivodeship', string="Województwo", groups='bestja_base.instance_admin')
-    country_gov = fields.Many2one('res.country', ondelete='restrict', string="Kraj", groups='bestja_base.instance_admin')
+    voivodeship_gov = fields.Many2one(
+        'volunteer.voivodeship',
+        string="Województwo",
+        groups='bestja_base.instance_admin'
+    )
+    country_gov = fields.Many2one(
+        'res.country',
+        ondelete='restrict',
+        string="Kraj",
+        groups='bestja_base.instance_admin'
+    )
     email = fields.Char('Email')
     phone = fields.Char('Phone')
     birthdate = fields.Date()
@@ -125,49 +134,65 @@ class Volunteer(models.Model):
             'groups_id': [(command, group.id)],
         })
 
-    def check_password_rules(self, password):
-        """ Returns true if password is incorrect """
-        if (len(password) < 6 or not re.search('[a-zA-Z]+', password)
-                or password.islower() or password.isupper()):
-                return True
-        return False
+    @staticmethod
+    def is_password_safe(password):
+        """
+        Does password follow the security rules?
+        """
+        return len(password) > 6 and re.search('[a-zA-Z]+', password) \
+            and not password.islower() and not password.isupper()
 
     @api.model
     def signup(self, values, token=None):
         """
-            Added for password validation: at least 6 characters, any letters,
-            any uppercase letter, not only lowercase.
-            You can't do it using constraints, as password is hashed in the database.
+        Added for password validation: at least 6 characters, any letters,
+        any uppercase letter, not only lowercase.
+        You can't do it using constraints, as password is hashed in the database.
         """
-        if self.check_password_rules(values.get('password')):
+        if not self.is_password_safe(values.get('password')):
             raise SignupError("Hasło powinno zawierać co najmniej 6 znaków, w tym litery różnej wielkości!")
         return super(Volunteer, self).signup(values, token)
 
     @api.model
     def change_password(self, old_passwd, new_passwd):
         """
-            For changing password in preferences.
+        For changing password in preferences.
         """
-        if self.check_password_rules(new_passwd):
-            raise exceptions.ValidationError("Hasło powinno zawierać co najmniej 6 znaków, w tym litery różnej wielkości!")
+        if not self.is_password_safe(new_passwd):
+            raise exceptions.ValidationError(
+                "Hasło powinno zawierać co najmniej 6 znaków, w tym litery różnej wielkości!"
+            )
         return super(Volunteer, self).change_password(old_passwd, new_passwd)
 
     @api.onchange('different_addresses')
     def equal_addresses(self):
-        """ If adres zamieszkania = adres zameldowania
-            delete values from adres zameldowania"""
-        if self.different_addresses is False:
-            self.street = None
-            self.street_number = None
-            self.apt_number = None
-            self.zip_code = None
-            self.city = None
-            self.country = None
+        """
+        If mailing address is the same as address of residence
+        than it should be empty.
+        """
+        if not self.different_addresses:
+            self.street_gov = None
+            self.street_number_gov = None
+            self.apt_number_gov = None
+            self.zip_code_gov = None
+            self.city_gov = None
+            self.country_gov = None
+            self.voivodeship_gov = None
 
-    @api.one
-    @api.constrains('voivodeship', 'voivodeship_gov', 'country', 'country_gov')
-    def voivodeship_not_in_poland(self):
-        """If the chosen country is not Poland, voivodeship should be None"""
-        if ((self.country.code != 'PL' and self.voivodeship)
-                or (self.country_gov.code != 'PL' and self.voivodeship_gov)):
-            raise exceptions.ValidationError("Województwa dotyczą tylko Polski!")
+    @api.onchange('country', 'country_gov')
+    def onchange_country(self):
+        """
+        If the chosen country is not Poland, reset voivodeship
+        """
+        if self.country.code != 'PL':
+            self.voivodeship = None
+        if self.country_gov.code != 'PL':
+            self.voivodeship_gov = None
+
+        return {
+            'domain': {
+                # [] = full list; [('id', '=', False)] = empty list
+                'voivodeship': [] if self.country.code == 'PL' else [('id', '=', False)],
+                'voivodeship_gov': [] if self.country_gov.code == 'PL' else [('id', '=', False)]
+            }
+        }

@@ -60,8 +60,8 @@
                                     </div>
                                     <field name="zip_code"/>
                                     <field name="city"/>
-                                    <field name="voivodeship" widget="many2one"/>
-                                    <field name="country"/>
+                                    <field name="voivodeship" options="{'no_create': True, 'no_open': True}"/>
+                                    <field name="country" options="{'no_create': True, 'no_open': True}"/>
                                 </group>
                                 <field name="different_addresses"/><label for="different_addresses"/>
                                 <group colspan="4" col="2" string="Adres zameldowania" class="medium_input" attrs="{'invisible': [('different_addresses', '==', False)]}" groups="bestja_base.instance_admin">
@@ -74,8 +74,8 @@
                                     </div>
                                     <field name="zip_code_gov"/>
                                     <field name="city_gov"/>
-                                    <field name="voivodeship_gov" widget="many2one"/>
-                                    <field name="country_gov"/>
+                                    <field name="voivodeship_gov" options="{'no_create': True, 'no_open': True}"/>
+                                    <field name="country_gov" options="{'no_create': True, 'no_open': True}"/>
                                 </group>
                             </page>
                             <page string="Moja dostępność">
