@@ -49,9 +49,10 @@ class Application(models.Model):
 
     @api.one
     def action_post_accepted(self):
-        if not self.env['res.users'].has_group('bestja_offers_moderation.offers_moderator'):
-            raise exceptions.ValidationError("Nie masz uprawnień aby wykonać tę akcję!")
         if self.preliminary:
+            if not self.env['res.users'].has_group('bestja_offers_moderation.offers_moderator'):
+                raise exceptions.ValidationError("Nie masz uprawnień aby wykonać tę akcję!")
+
             # "Move" to the second stage of recruitment
             self.sudo().create({
                 'user': self.user.id,
