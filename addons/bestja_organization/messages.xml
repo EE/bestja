@@ -4,15 +4,15 @@
         <record id="msg_registered" model="message_template">
             <field name="subject">Dziękujemy za rejestrację organizacji!</field>
             <field name="body"><![CDATA[
-                W ciągu 3 dni skontaktujemy się, żeby umówić się na spotkanie.
+                Drugi krok za Tobą! Daj nam chwilę, żebyśmy mogli poznać bliżej Twoją organizację. Skontaktujemy się z Tobą w ciągu 7 dni i umówimy na spotkanie.
             ]]></field>
             <field name="model">organization</field>
         </record>
 
         <record id="msg_registered_admin" model="message_template">
-            <field name="subject">Rejestracja nowej organizacji</field>
+            <field name="subject">Organizacja czeka na Twoją akceptację</field>
             <field name="body"><![CDATA[
-                Zobacz szczegóły i potwierdź rejestrację organizacji w ciągu x dni.<br/><br/>
+                Zobacz szczegóły i skontaktuj się z organizacją w ciągu 7 dni.<br/><br/>
                 Dane organizacji:<br/>
                 <strong>Nazwa:</strong> ${record.name}<br/>
                 <strong>Koordynator:</strong> ${record.coordinator.name}<br/>
@@ -22,21 +22,24 @@
         </record>
 
         <record id="msg_rejected" model="message_template">
-            <field name="subject">Organizacja została odrzucona</field>
+            <field name="subject">Rejestracja organizacji nie przebiegła pomyślnie</field>
             <field name="body"><![CDATA[
-                Niestety organizacja nie została zaakceptowana.
+                Dziękuję za chęć rejestracji swojej organizacji!<br/><br/>
+                Niestety nie spełnia ona niektórych warunków, które przyjęliśmy w naszym systemie.
+                W celu dokładniejszego wyjaśnienia sytuacji i ustalenia ewentualnej innej formy współpracy zachęcam do bezpośredniego kontaktu ze mną.
             ]]></field>
             <field name="model">organization</field>
         </record>
 
         <record id="msg_approved" model="message_template">
-            <field name="subject">Organizacja została zaakceptowana</field>
+            <field name="subject">Twoja organizacja została zaakceptowana!</field>
             <field name="body"><![CDATA[
-                Twoja organizacja właśnie została zaakceptowana.
+                Dzięki Twojej aktywności Twoja organizacja dołączyła do naszej społeczności!
 
                 <ul>
-                    <li><a href="#">Przeczytaj poradnik</a></li>
-                    <li><a href="#id=${record.id}&view_type=form&model=organization">Profil organizacji</a></li>
+                    <li><a href="#">Przeczytaj poradnik, jak tworzyć ciekawe oferty</a></li>
+                    <li><a href="#id=${record.id}&view_type=form&model=organization">Uzupełnij profil organizacji</a></li>
+                    Dodaj swój pierwszy projekt!
                 </ul>
             ]]></field>
             <field name="model">organization</field>

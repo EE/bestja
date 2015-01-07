@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <openerp>
     <data>
-    
+
         <!-- Email template for user email confirmation-->
         <record id="user_confirmation_email" model="email.template">
             <field name="name">User confirmation email</field>
             <field name="model_id" ref="base.model_res_users"/>
             <field name="email_from"><![CDATA[${object.company_id.name} <${(object.company_id.email)|safe}>]]></field>
             <field name="email_to">${object.email|safe}</field>
-            <field name="subject">Potwierdzenie rejestracji</field>
+            <field name="subject">Pierwszy krok – potwierdzenie rejestracji</field>
             <field name="body_html"><![CDATA[
-                <p>Witamy w Odoo!</p>
+
                 <p>Aby móc korzystać z systemu, aktywuj konto klikając w następujący <a href="${object.signup_url}">link</a>.</p>
-                <p>W razie problemów, skontaktuj się z Administratorem.</p>]]>
+                <p>Zignoruj tę wiadomość, jeśli nie rejestrowałeś się w serwisie.</p>]]>
             </field>
         </record>
-    
+
     </data>
 </openerp>
