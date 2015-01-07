@@ -13,7 +13,7 @@ class Message(models.Model):
         company e-mail address.
         """
         company = self.env.user.company_id
-        return (company.name, company.email)
+        return '{} <{}>'.format(company.name, company.email)
 
 
 class Website(models.Model):
