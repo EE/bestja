@@ -33,10 +33,9 @@ class Application(models.Model):
         coordinator = record_sudo.offer.organization.coordinator
         manager = record_sudo.offer.project.manager
         group = 'bestja_offers_moderation.offers_moderator'
-        users = self.env['res.users']
 
-        if users.sudo(coordinator.id).has_group(group) or \
-                (manager and users.sudo(manager.id).has_group(group)):
+        if self.sudo(coordinator.id).user_has_groups(group) or \
+                (manager and self.sudo(manager.id).user_has_groups(group)):
             record_sudo.preliminary = False
         if record.preliminary:
             # when application has just been created
@@ -50,7 +49,7 @@ class Application(models.Model):
     @api.one
     def action_post_accepted(self):
         if self.preliminary:
-            if not self.env['res.users'].has_group('bestja_offers_moderation.offers_moderator'):
+            if not self.user_has_groups('bestja_offers_moderation.offers_moderator'):
                 raise exceptions.ValidationError("Nie masz uprawnień aby wykonać tę akcję!")
 
             # "Move" to the second stage of recruitment

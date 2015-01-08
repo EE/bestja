@@ -11,7 +11,7 @@ class Organization(models.Model):
     _parent_store = True
 
     def allowed_parents(self):
-        if self.env['res.users'].has_group('bestja_base.instance_admin'):
+        if self.user_has_groups('bestja_base.instance_admin'):
             return [('level', '<=', 1)]
         return [('level', '=', 1)]
 
@@ -86,8 +86,7 @@ class Organization(models.Model):
         # TODO: because of the issue with conditional hiding
         # of view buttons, for now coordinators see those buttons
         # for ALL organizations - not only those they can moderate.
-        if not (self.env.user.coordinated_org
-                or self.env['res.users'].has_group('bestja_base.instance_admin')):
+        if not (self.env.user.coordinated_org or self.user_has_groups('bestja_base.instance_admin')):
             buttons = doc.xpath("//header/button")
             for button in buttons:
                 button.getparent().remove(button)

@@ -23,8 +23,7 @@ class OfferWithModeration(models.Model):
         Returns a boolean value indicating whether current user
         is an offer moderator.
         """
-        return self.env['res.users'] \
-            .has_group('bestja_offers_moderation.offers_moderator')
+        return self.user_has_groups('bestja_offers_moderation.offers_moderator')
 
     @api.one
     def set_pending(self):
