@@ -53,15 +53,28 @@ class Voivodeship(models.Model):
 class Volunteer(models.Model):
     _inherit = 'res.users'
 
-    wishes = fields.Many2many('volunteer.wish', string="Zainteresowania", ondelete='restrict')
-    skills = fields.Many2many('volunteer.skill', ondelete='restrict')
-    languages = fields.Many2many('volunteer.language', ondelete='restrict')
-    certifications = fields.Many2many('volunteer.certification', ondelete='restrict')
-    district = fields.Many2many('volunteer.district', ondelete='restrict')
-    occupation = fields.Many2one('volunteer.occupation', ondelete='restrict')
-    drivers_license = fields.Many2many('volunteer.drivers_license', ondelete='restrict')
-    sanepid = fields.Date()
-    forklift = fields.Date()
+    wishes = fields.Many2many(
+        'volunteer.wish',
+        string="Zainteresowania",
+        ondelete='restrict',
+        groups="bestja_base.instance_admin",
+    )
+    skills = fields.Many2many('volunteer.skill', groups="bestja_base.instance_admin", ondelete='restrict')
+    languages = fields.Many2many('volunteer.language', groups="bestja_base.instance_admin", ondelete='restrict')
+    certifications = fields.Many2many(
+        'volunteer.certification',
+        groups="bestja_base.instance_admin",
+        ondelete='restrict'
+    )
+    district = fields.Many2many('volunteer.district', groups="bestja_base.instance_admin", ondelete='restrict')
+    occupation = fields.Many2one('volunteer.occupation', groups="bestja_base.instance_admin", ondelete='restrict')
+    drivers_license = fields.Many2many(
+        'volunteer.drivers_license',
+        groups="bestja_base.instance_admin",
+        ondelete='restrict'
+    )
+    sanepid = fields.Date(groups="bestja_base.instance_admin")
+    forklift = fields.Date(groups="bestja_base.instance_admin")
 
     # mailing address
     street_gov = fields.Char(string="Ulica", groups='bestja_base.instance_admin')
@@ -80,17 +93,18 @@ class Volunteer(models.Model):
         string="Kraj",
         groups='bestja_base.instance_admin'
     )
-    email = fields.Char('Email')
-    phone = fields.Char('Phone')
-    birthdate = fields.Date()
+    email = fields.Char('Email', groups="bestja_base.instance_admin")
+    phone = fields.Char('Phone', groups="bestja_base.instance_admin")
+    birthdate = fields.Date(groups="bestja_base.instance_admin")
 
-    curriculum_vitae = fields.Binary(string="CV")
-    cv_filename = fields.Char()
+    curriculum_vitae = fields.Binary(string="CV", groups="bestja_base.instance_admin")
+    cv_filename = fields.Char(groups="bestja_base.instance_admin")
 
     different_addresses = fields.Boolean(
         default=False,
+        groups='bestja_base.instance_admin',
         string="Adres zamieszkania jest inny niż zameldowania",
-        groups='bestja_base.instance_admin')
+    )
     # address of residence
     street = fields.Char(string="Ulica", groups='bestja_base.instance_admin')
     street_number = fields.Char(string="Numer budynku", groups='bestja_base.instance_admin')
@@ -99,16 +113,17 @@ class Volunteer(models.Model):
     city = fields.Char(string="Miejscowość", groups='bestja_base.instance_admin')
     voivodeship = fields.Many2one(
         'volunteer.voivodeship',
+        groups='bestja_base.instance_admin',
         string="Województwo",
-        groups='bestja_base.instance_admin')
+    )
     country = fields.Many2one(
         'res.country',
         ondelete='restrict',
+        groups='bestja_base.instance_admin',
         string="Kraj",
-        groups='bestja_base.instance_admin')
-
-    daypart = fields.Many2many('volunteer.daypart', string="pora dnia")
-    daypart_comments = fields.Text(string="Uwagi")
+    )
+    daypart = fields.Many2many('volunteer.daypart', groups="bestja_base.instance_admin", string="pora dnia")
+    daypart_comments = fields.Text(string="Uwagi", groups="bestja_base.instance_admin")
 
     @api.model
     def set_default_language(self, lang_code):

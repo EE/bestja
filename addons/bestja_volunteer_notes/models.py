@@ -6,7 +6,11 @@ from openerp import models, fields, api
 class VolunteerWithNotes(models.Model):
     _inherit = 'res.users'
 
-    notes = fields.One2many('bestja.volunteer_note', inverse_name='user')
+    notes = fields.One2many(
+        'bestja.volunteer_note',
+        inverse_name='user',
+        groups="bestja_base.instance_admin,bestja_organization.coordinators",
+    )
 
 
 class VolunteerNote(models.Model):

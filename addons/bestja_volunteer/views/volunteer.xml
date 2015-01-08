@@ -15,7 +15,7 @@
                             </h1>
                         </div>
                         <notebook colspan="4">
-                            <page string="Kwalifikacje">
+                            <page id="page_skills" string="Kwalifikacje" groups="bestja_base.instance_admin">
                                 <group colspan="4" col="2">
                                     <field name="occupation" string="Zajęcie"/>
                                     <field name="skills" string="Umiejętności" widget="many2many_tags"/>
@@ -41,16 +41,16 @@
                                  <field name="cv_filename" invisible="1"/>
                                  </group>
                             </page>
-                            <page string="Zainteresowania">
+                            <page id="page_wishes" string="Zainteresowania" groups="bestja_base.instance_admin">
                                 <field name="wishes" widget="many2many_checkboxes"/>
                             </page>
-                            <page string="Dane">
+                            <page id="page_address" string="Dane" groups="bestja_base.instance_admin">
                                 <group colspan="4" col="2" class="medium_input">
                                     <field name="email" string="Adres e-mail"/>
                                     <field name="phone" string="Numer tel."/>
                                     <field name="birthdate" string="Data ur."/>
                                 </group>
-                                <group string="Adres zamieszkania" class="medium_input" groups="bestja_base.instance_admin">
+                                <group string="Adres zamieszkania" class="medium_input">
                                     <field name="street"/>
                                     <label for="street_number"/>
                                     <div>
@@ -64,7 +64,7 @@
                                     <field name="country" options="{'no_create': True, 'no_open': True}"/>
                                 </group>
                                 <field name="different_addresses"/><label for="different_addresses"/>
-                                <group colspan="4" col="2" string="Adres zameldowania" class="medium_input" attrs="{'invisible': [('different_addresses', '==', False)]}" groups="bestja_base.instance_admin">
+                                <group colspan="4" col="2" string="Adres zameldowania" class="medium_input" attrs="{'invisible': [('different_addresses', '==', False)]}">
                                     <field name="street_gov"/>
                                     <label for="street_number_gov"/>
                                     <div>
@@ -78,7 +78,7 @@
                                     <field name="country_gov" options="{'no_create': True, 'no_open': True}"/>
                                 </group>
                             </page>
-                            <page string="Moja dostępność">
+                            <page id="page_availability" string="Moja dostępność" groups="bestja_base.instance_admin">
                                 <group colspan="4" col="2" string="Moja Dostępność">
                                     <label for="daypart" string="Pora dnia"/>
                                     <div>

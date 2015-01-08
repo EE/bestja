@@ -21,6 +21,7 @@ Define projects and assign users to tasks.
         'views/message.xml',
         'views/task.xml',
         'views/project.xml',
+        'views/volunteer.xml',
         'messages.xml',
         'menu.xml',
         'security/ir.model.access.csv',

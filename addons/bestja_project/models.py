@@ -251,6 +251,26 @@ class UserWithProjects(models.Model):
         )
 
 
+class UserPermissions(models.Model):
+    """Give managers access to certain fields on user model"""
+    _inherit = 'res.users'
+
+    # List of fields managers should have access to
+    available_fields = [
+        'wishes', 'skills', 'languages', 'certifications', 'district', 'occupation',
+        'drivers_license', 'sanepid', 'forklift', 'street_gov', 'street_number_gov',
+        'apt_number_gov', 'zip_code_gov', 'city_gov', 'voivodeship_gov', 'country_gov',
+        'email', 'phone', 'birthdate', 'curriculum_vitae', 'cv_filename', 'different_addresses',
+        'street', 'street_number', 'apt_number', 'zip_code', 'city', 'voivodeship',
+        'country', 'daypart', 'daypart_comments',
+    ]
+
+    def __init__(self, pool, cr):
+        super(UserPermissions, self).__init__(pool, cr)
+        for field in self.available_fields:
+            self._fields[field].groups = 'bestja_base.instance_admin,bestja_project.managers'
+
+
 class OrganizationWithProjects(models.Model):
     _inherit = 'organization'
 

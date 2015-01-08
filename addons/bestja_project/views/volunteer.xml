@@ -1,0 +1,22 @@
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="bestja_volunteer_form">
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="bestja_volunteer.bestja_volunteer_form"/>
+            <field name="arch" type="xml">
+                <page id="page_skills" position="attributes">
+                    <attribute name="groups">bestja_base.instance_admin,bestja_project.managers</attribute>
+                </page>
+                <page id="page_wishes" position="attributes">
+                    <attribute name="groups">bestja_base.instance_admin,bestja_project.managers</attribute>
+                </page>
+                <page id="page_availability" position="attributes">
+                    <attribute name="groups">bestja_base.instance_admin,bestja_project.managers</attribute>
+                </page>
+                <page id="page_address" position="attributes">
+                    <attribute name="groups">bestja_base.instance_admin,bestja_project.managers</attribute>
+                </page>
+            </field>
+        </record>
+    </data>
+</openerp>
