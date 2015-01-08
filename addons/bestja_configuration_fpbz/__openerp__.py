@@ -22,5 +22,8 @@
         'quizzes',
         'bestja_organization_warehouse'
     ],
+    'data': [
+        'data.xml',
+    ],
     'application': True,
 }
