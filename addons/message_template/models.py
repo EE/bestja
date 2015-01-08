@@ -108,6 +108,13 @@ class MessageTemplateMixin(models.AbstractModel):
         """
         return self.env['mail.thread'].message_post(*args, **kwargs)
 
+    @api.model
+    def _get_access_link(self, mail, partner):
+        """
+        Used to generate a link to the associated object in e-mail notification.
+        """
+        return self.env['mail.thread']._get_access_link(mail, partner)
+
 
 class MailMessage(models.Model):
     _inherit = 'mail.message'
