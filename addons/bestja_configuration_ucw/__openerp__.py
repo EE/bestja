@@ -19,7 +19,6 @@
         'bestja_offers_invitations',
         'bestja_files',
         'bestja_application_moderation',
-        'email_confirmation',
     ],
     'data': [
         'data.xml',

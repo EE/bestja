@@ -9,3 +9,4 @@ access_volunteer_drivers_license,volunteer_drivers_license,model_volunteer_drive
 access_daypart,daypart,model_volunteer_daypart,base.group_user,1,0,0,0
 access_volunteer_voivodeship,volunteer_voivodeship,model_volunteer_voivodeship,base.group_user,1,0,0,0
 user_admin_access,user_admin_access,model_res_users,bestja_base.instance_admin,1,1,0,0
+partner_admin_access,partner_admin_access,base.model_res_partner,bestja_base.instance_admin,1,1,0,0

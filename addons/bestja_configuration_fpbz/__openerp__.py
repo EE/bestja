@@ -18,7 +18,6 @@
         'bestja_project_hierarchy',
         'bestja_offers',
         'bestja_files',
-        'email_confirmation',
         'quizzes',
         'bestja_organization_warehouse'
     ],

@@ -3,7 +3,7 @@
 import urllib
 import urlparse
 
-from openerp import api, models
+from openerp import api, models, fields
 from openerp.addons.auth_signup.res_users import now
 
 
@@ -37,6 +37,13 @@ class Partner(models.Model):
 class Users(models.Model):
     _inherit = "res.users"
 
+    STATES = [
+        ('active', 'aktywny'),
+        ('not_activated', 'nieaktywowany')
+    ]
+
+    active_state = fields.Selection(STATES, default='active', store=True, string="Stan")
+
     @api.model
     def authenticate_after_confirmation(self, values, token=None):
         if token:
@@ -48,6 +55,7 @@ class Users(models.Model):
             user = self.env['res.users'].search([('partner_id', '=', partner.id), ('active', '=', False)])
             if user:
                 user.active = True
+                user.active_state = 'active'
 
     @api.model
     def create(self, values):
@@ -55,6 +63,7 @@ class Users(models.Model):
         # user is not active yet, he needs to click a link in the email
         if self.env.context.get('confirm_signup'):
             user.active = False
+            user.active_state = 'not_activated'
             user.partner_id.signup_prepare(signup_type="authenticate", expiration=now(days=+1))
             redirect_url = self.env.context.get('redirect')
             template = self.with_context(redirect=redirect_url).env.ref('email_confirmation.user_confirmation_email')

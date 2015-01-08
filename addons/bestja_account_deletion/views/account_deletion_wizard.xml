@@ -1,0 +1,30 @@
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="delete_password_wizard_form">
+            <field name="name">delete_password.wizard</field>
+            <field name="model">bestja.delete_account_wizard</field>
+            <field name="arch" type="xml">
+                <form>
+                    <h3>Czy na pewno chcesz usunąć poniższe konta użytkowników?</h3><br/>
+                    <group>
+                        <field name="users" readonly="1" widget="many2many_tags"/>
+                    </group>
+                    <footer>
+                        <button name="delete_account" type="object" string="Tak, chcę usunąć" class="oe_highlight"/>
+                        lub
+                        <button special="cancel" string="Nie usuwaj" class="oe_link"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <!-- Add the menu to the contextual menu for res.users -->
+        <act_window id="launch_account_deletion_wizard"
+                    name="Usuwanie konta"
+                    src_model="res.users"
+                    res_model="bestja.delete_account_wizard"
+                    view_mode="form"
+                    target="new"
+                    key2="client_action_multi"/>
+    </data>
+</openerp>
