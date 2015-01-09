@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 from openerp import models, fields, api
-from openerp.addons.bestja_project.wizards import ProjectMessage
 
 
 class InvitationWizard(models.TransientModel):
@@ -57,11 +56,7 @@ class InvitationWizard(models.TransientModel):
 class HierarchicalProjectMessage(models.TransientModel):
     _inherit = 'bestja.project.message_wizard'
 
-    RECIPIENTS_CHOICES = ProjectMessage.RECIPIENTS_CHOICES + [
-        ('child_managers', "Menadżerowie podprojektów"),
-    ]
-
-    recipients = fields.Selection(RECIPIENTS_CHOICES)
+    recipients = fields.Selection(selection_add=[('child_managers', "Menadżerowie podprojektów")])
 
     @api.one
     def send_button(self):
