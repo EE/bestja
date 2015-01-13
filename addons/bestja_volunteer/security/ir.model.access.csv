@@ -1,8 +1,6 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_volunteer_wish,volunteer_wish,model_volunteer_wish,base.group_user,1,0,0,0
 access_volunteer_skill,volunteer_skill,model_volunteer_skill,base.group_user,1,0,0,0
-access_volunteer_certification,volunteer_certification,model_volunteer_certification,base.group_user,1,0,0,0
-access_volunteer_district,volunteer_district,model_volunteer_district,base.group_user,1,0,0,0
 access_volunteer_occupation,volunteer_occupation,model_volunteer_occupation,base.group_user,1,0,0,0
 access_volunteer_language,volunteer_language,model_volunteer_language,base.group_user,1,0,0,0
 access_volunteer_drivers_license,volunteer_drivers_license,model_volunteer_drivers_license,base.group_user,1,0,0,0

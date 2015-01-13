@@ -31,7 +31,7 @@
             <field name="inherit_id" ref="bestja_volunteer.bestja_volunteer_form" />
             <field name="arch" type="xml">
                 <form>
-                    <div class="volunteer_notes" groups="bestja_base.instance_admin,bestja_organization.coordinators">
+                    <div class="volunteer_notes" groups="bestja_base.instance_admin,bestja_organization.coordinators" attrs="{'invisible': [('user_access_level', 'not in', ['admin', 'privileged'])]}">
                         <separator string="Notatki"/>
                         <button type="action" name="%(add_volunteer_note_action)d" string="Dodaj notatkę"/>
                         <field class="notes_field" name="notes" widget="many2many_kanban" readonly="1">

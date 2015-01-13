@@ -13,7 +13,7 @@ class Message(models.Model):
         company e-mail address.
         """
         company = self.env.user.company_id
-        return '{} <{}>'.format(company.name, company.email)
+        return u'{} <{}>'.format(company.name, company.email)
 
 
 class StopSpying(models.Model):

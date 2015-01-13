@@ -11,44 +11,50 @@
                         <div class="oe_title">
                             <label for="name" string="Imię i nazwisko" class="oe_edit_only"/>
                             <h1>
-                                <field name="name"/>
+                                <field name="name" readonly="1"/>
                             </h1>
+                            <field name="user_access_level" invisible="1"/>
                         </div>
                         <notebook colspan="4">
-                            <page id="page_skills" string="Kwalifikacje" groups="bestja_base.instance_admin">
+                            <page string="Kwalifikacje" attrs="{'invisible': [('user_access_level', 'not in', ['owner', 'admin', 'privileged'])]}">
+                                <separator  string="Kwalifikacje" class="oe_inline"/>
+                                <span class="oe_grey oe_edit_only">(wybierz wiele)</span>
                                 <group colspan="4" col="2">
-                                    <field name="occupation" string="Zajęcie"/>
-                                    <field name="skills" string="Umiejętności" widget="many2many_tags"/>
-                                    <field name="languages" string="Języki" widget="many2many_tags"/>
+                                    <field name="occupation" options="{'no_create': True, 'no_open': True}"/>
+                                    <field name="skills" widget="many2many_tags" options="{'no_create': True, 'no_open': True}"/>
+                                    <field name="languages" widget="many2many_tags" options="{'no_create': True, 'no_open': True}"/>
                                 </group>
                                 <group colspan="4" col="2" string="Uprawnienia">
-                                    <field name="drivers_license" string="Prawa jazdy" widget="many2many_tags"/>
+                                    <field name="drivers_license" widget="many2many_tags" options="{'no_create': True, 'no_open': True}"/>
                                     <label for="sanepid" string="Badania Sanepid" />
                                     <div>
-                                        <field name="sanepid" class="oe_inline" /> <span class="oe_grey"> data ważności (puste = brak badań)</span>
+                                        <field name="sanepid" class="oe_inline" placeholder="DD.MM.YYYY"/> <span class="oe_grey oe_edit_only">wpisz datę ważności lub pozostaw puste</span>
                                     </div>
                                     <label for="forklift" string="Uprawnienia na wózek widłowy" />
                                     <div>
-                                        <field name="forklift" class="oe_inline" /> <span class="oe_grey">data ważności (puste = brak uprawnień)</span>
+                                        <field name="forklift" class="oe_inline" placeholder="DD.MM.YYYY"/> <span class="oe_grey oe_edit_only">wpisz datę ważności lub pozostaw puste</span>
                                     </div>
                                 </group>
-                                 <group col="2">
-                                 <label for="curriculum_vitae"/>
-                                 <div>
-                                     <field name="curriculum_vitae" filename="cv_filename" class="no_clear_button medium_input"/>
-                                     <div class="oe_grey oe_edit_only">Dodaj swoje CV (max. wielkość pliku do <strong>25 MB</strong>)</div>
-                                 </div>
-                                 <field name="cv_filename" invisible="1"/>
-                                 </group>
+
+                                <separator string="CV"/>
+                                <div class="oe_edit_only oe_grey">Dodając CV pozwalasz nam lepiej Cię poznać i zaoferować oferty specjalnie dla Ciebie.</div>
+                                <group col="2">
+                                    <label for="curriculum_vitae"/>
+                                    <div>
+                                        <field name="curriculum_vitae" filename="cv_filename" class="no_clear_button medium_input"/>
+                                        <div class="oe_grey oe_edit_only">Dodaj swoje CV (max. wielkość pliku do <strong>25 MB</strong>)</div>
+                                    </div>
+                                    <field name="cv_filename" invisible="1"/>
+                                </group>
                             </page>
-                            <page id="page_wishes" string="Zainteresowania" groups="bestja_base.instance_admin">
+                            <page string="Zainteresowania" attrs="{'invisible': [('user_access_level', 'not in', ['owner', 'admin', 'privileged'])]}">
+                                <separator string="Zainteresowania"/>
                                 <field name="wishes" widget="many2many_checkboxes"/>
                             </page>
-                            <page id="page_address" string="Dane" groups="bestja_base.instance_admin">
-                                <group colspan="4" col="2" class="medium_input">
-                                    <field name="email" string="Adres e-mail"/>
-                                    <field name="phone" string="Numer tel."/>
-                                    <field name="birthdate" string="Data ur."/>
+                            <page string="Dane Kontaktowe" attrs="{'invisible': [('user_access_level', 'not in', ['owner', 'admin', 'privileged'])]}">
+                                <group colspan="4" col="2" class="medium_input" string="Kontakt">
+                                    <field name="email"/>
+                                    <field name="phone" class="short_input"/>
                                 </group>
                                 <group string="Adres zamieszkania" class="medium_input">
                                     <field name="street"/>
@@ -78,18 +84,27 @@
                                     <field name="country_gov" options="{'no_create': True, 'no_open': True}"/>
                                 </group>
                             </page>
-                            <page id="page_availability" string="Moja dostępność" groups="bestja_base.instance_admin">
-                                <group colspan="4" col="2" string="Moja Dostępność">
-                                    <label for="daypart" string="Pora dnia"/>
-                                    <div>
-                                        <span class="oe_grey oe_edit_only">
-                                            Powiedz nam kiedy masz wolny czas, a my postaramy się go wypełnić nowymi wyzwaniami.
-                                        </span>
-                                        <field name="daypart" string="Pora dnia" widget="many2many_checkboxes"/>
-                                    </div>
+                            <page string="Dane osobowe" attrs="{'invisible': [('user_access_level', 'not in', ['owner', 'admin', 'privileged'])]}">
+                                <separator string="Dane osobowe"/>
+                                <div class="oe_edit_only oe_grey">Bedą potrzebne do podpisania umowy i zawarcia ubezpieczenia zdrowotnego</div>
+                                <group class="medium_input">
+                                    <field name="birthdate"/>
+                                    <field name="sex" widget="radio"/>
+                                    <field name="place_of_birth" placeholder="wpisz miejscowość"/>
+                                    <field name="citizenship" options="{'no_create': True, 'no_open': True}"/>
+                                    <field name="document_id_kind" attrs="{'invisible': [('user_access_level', 'not in', ['owner', 'admin'])]}"/>
+                                    <field name="document_id" class="short_input" attrs="{'invisible': [('user_access_level', 'not in', ['owner', 'admin'])]}"/>
+                                    <field name="pesel" placeholder="11 cyfr" attrs="{'invisible': [('user_access_level', 'not in', ['owner', 'admin'])]}"/>
+                                </group>
+                            </page>
+                            <page string="Moja dostępność" attrs="{'invisible': [('user_access_level', 'not in', ['owner', 'admin', 'privileged'])]}">
+                                <separator string="Dostępność czasowa"/>
+                                <div class="oe_edit_only oe_grey">Powiedz nam, kiedy masz wolny czas.</div>
+                                <group colspan="4" col="2">
+                                    <field name="daypart" widget="many2many_checkboxes"/>
                                 </group>
                                 <group colspan="4" col="2" string="Uwagi">
-                                    <field name="daypart_comments" placeholder="Uwagi do dostępności"/>
+                                    <field name="daypart_comments" placeholder="Wpisz dodatkowe informacje odnośnie Twojej dostępności czasowej lub pozostaw pole puste."/>
                                 </group>
                             </page>
                         </notebook>
@@ -97,6 +112,23 @@
                 </form>
             </field>
         </record>
+
+        <record model="ir.ui.view" id="bestja_volunteer_form_modal">
+            <field name="name">bestja.volunteer.form_modal</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="bestja_volunteer_form"/>
+            <field name="mode">primary</field>
+            <field name="arch" type="xml">
+                <form>
+                    <footer>
+                        <button name="preference_save" type="object" string="Zapisz" class="oe_highlight"/>
+                        lub
+                        <button name="preference_cancel" string="Anuluj" special="cancel" class="oe_link"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
 
         <record model="ir.actions.act_window" id="action_bestja_users">
             <field name="name">Użytkownicy</field>
@@ -144,6 +176,11 @@
                     </group>
                 </search>
             </field>
+        </record>
+
+        <!-- attach the modal form view to the "Preferences" action -->
+        <record id="base.action_res_users_my_view2" model="ir.actions.act_window.view">
+            <field name="view_id" ref="bestja_volunteer_form_modal"/>
         </record>
 
         <!-- Link the action to our custom views -->

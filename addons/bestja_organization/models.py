@@ -214,12 +214,18 @@ class UserWithOrganization(models.Model):
 
     coordinated_org = fields.One2many('organization', inverse_name='coordinator')
     organizations = fields.Many2many(
-        'res.users',
+        'organization',
         relation='organization_volunteers_rel',
         column1='volunteer',
         column2='organization',
         string="Organizacje"
     )
+
+    def __init__(self, pool, cr):
+        super(UserWithOrganization, self).__init__(pool, cr)
+        self.add_permitted_fields(level='all', fields={'coordinated_org'})
+        self.add_permitted_fields(level='owner', fields={'organizations'})
+        self.add_permitted_fields(level='privileged', fields={'organizations'})
 
     @api.one
     def sync_coordinators_group(self):
@@ -231,3 +237,15 @@ class UserWithOrganization(models.Model):
             group=self.env.ref('bestja_organization.coordinators'),
             domain=[('coordinated_org.active', '=', True)],
         )
+
+    @api.one
+    @api.depends('organizations')
+    def compute_user_access_level(self):
+        """
+        Access level that the current (logged in) user has for the object.
+        Either "owner", "admin", "privileged" or None.
+        """
+        super(UserWithOrganization, self).compute_user_access_level()
+        if not self.user_access_level and self.user_has_groups('bestja_organization.coordinators') \
+                and (self.env.user.coordinated_org.id in self.sudo().organizations.ids):
+            self.user_access_level = 'privileged'

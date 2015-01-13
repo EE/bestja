@@ -12,6 +12,10 @@ class VolunteerWithNotes(models.Model):
         groups="bestja_base.instance_admin,bestja_organization.coordinators",
     )
 
+    def __init__(self, pool, cr):
+        super(VolunteerWithNotes, self).__init__(pool, cr)
+        self.add_permitted_fields(level='privileged', fields={'notes'})
+
 
 class VolunteerNote(models.Model):
     _name = 'bestja.volunteer_note'
