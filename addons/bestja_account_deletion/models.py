@@ -8,6 +8,7 @@ class Volunteer(models.Model):
     _inherit = 'res.users'
 
     active_state = fields.Selection(selection_add=[('deleted', 'usunięty')])
+    reason_for_deleting_account = fields.Text()
 
     @api.one
     def delete_account(self):

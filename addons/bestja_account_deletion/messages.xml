@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="msg_report_account_deletion_to_admin" model="message_template">
+            <field name="subject">Usunięcie konta</field>
+            <field name="body"><![CDATA[
+            Proszę o usunięcie mojego konta. Chcę je usunąć, bo:
+            ${record.reason_for_deleting_account}.
+            ]]></field>
+            <field name="model">res.users</field>
+        </record>
+    </data>
+</openerp>

@@ -51,7 +51,11 @@ class Voivodeship(models.Model):
 
 
 class Volunteer(models.Model):
-    _inherit = 'res.users'
+    _name = 'res.users'
+    _inherit = [
+        'res.users',
+        'message_template.mixin'
+    ] 
 
     wishes = fields.Many2many(
         'volunteer.wish',

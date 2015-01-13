@@ -1,0 +1,37 @@
+<openerp>
+    <data>
+        <record model="ir.actions.act_window" id="create_account_deletion_wizard">
+            <field name="name">Czy na pewno chcesz usunąć konto?</field>
+            <field name="res_model">bestja.report_account_deletion_wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <!-- Adding Delete Account in Preferences -->
+        <record model="ir.ui.view" id="view_users_form_simple_modif2">
+            <field name="name">bestja.volunteer.delete_account</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_form_simple_modif"/>
+            <field name="arch" type="xml">
+                <button name='preference_change_password' position="after">
+                    <button name="%(create_account_deletion_wizard)d" type="action" string="Usuń konto" class="oe_link"/>
+                 </button>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="report_account_deletion_wizard_form">
+            <field name="name">bestja.report_account_deletion.wizard</field>
+            <field name="model">bestja.report_account_deletion_wizard</field>
+            <field name="arch" type="xml">
+                <form>
+                    <label for="reason"/><br/>
+                    <field name="reason" class="medium_input"/> 
+                    <footer>
+                        <button name="report_delete_account" type="object" string="Tak, na pewno chcę usunąć" class="oe_highlight"/>
+                        <button special="cancel" string="Nie usuwaj" class="oe_link"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+    </data>
+</openerp>

@@ -51,7 +51,7 @@ class MessageTemplate(models.Model):
         """
         group_obj = self.env.ref(group)
         self.send(
-            recipients=group_obj.users,
+            recipients=group_obj.sudo().users,
             sender=sender,
             record=record,
             record_name=record_name,
