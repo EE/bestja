@@ -71,7 +71,11 @@ class Offer(models.Model):
         'bestja.project',
         string="Projekt",
         required=True,
-        domain=lambda self: [('organization.id', '=', self.env.user.coordinated_org.id)]
+        domain=lambda self: [
+            '|',
+            ('organization.id', '=', self.env.user.coordinated_org.id),
+            ('manager.id', '=', self.env.user.id),
+        ]
     )
     organization = fields.Many2one(
         'organization',
