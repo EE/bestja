@@ -40,6 +40,8 @@ class OfferWithModeration(models.Model):
                     recipients=self.sudo().project.responsible_user,
                     sender=self.env.user,
                 )
+        else:
+            self.set_pending()
 
     @api.one
     def set_pending_if_needed(self):
