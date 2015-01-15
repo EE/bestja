@@ -52,6 +52,12 @@ class Volunteer(models.Model):
         'message_template.mixin'
     ]
 
+    EMAIL_NOTIFICATIONS = [
+        ('always', 'Tak, chcę otrzymywać wszystkie powiadomienia'),
+        ('none', 'Nie chcę otrzymywać żadnych powiadomień'),
+    ]
+
+    notify_email = fields.Selection(EMAIL_NOTIFICATIONS, help=None)
     wishes = fields.Many2many(
         'volunteer.wish',
         string="zainteresowania",
@@ -161,7 +167,7 @@ class Volunteer(models.Model):
             'street_gov', 'street_number_gov', 'apt_number_gov', 'zip_code_gov',
             'city_gov', 'voivodeship_gov', 'country_gov', 'different_addresses',
             'street', 'street_number', 'apt_number', 'zip_code', 'city', 'voivodeship',
-            'country', 'pesel', 'document_id_kind', 'document_id',
+            'country', 'pesel', 'document_id_kind', 'document_id', 'notify_email'
         }
     }
     # Add fields whitelisted for the owner in base.res_users

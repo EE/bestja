@@ -7,15 +7,17 @@
             <field name="target">new</field>
         </record>
 
-        <!-- Adding Delete Account in Preferences -->
-        <record model="ir.ui.view" id="view_users_form_simple_modif2">
+        <!-- Adding Delete Account in Volunteer Preferences -->
+        <record model="ir.ui.view" id="bestja_volunteer_form_deletion">
             <field name="name">bestja.volunteer.delete_account</field>
             <field name="model">res.users</field>
-            <field name="inherit_id" ref="base.view_users_form_simple_modif"/>
+            <field name="inherit_id" ref="bestja_volunteer.bestja_volunteer_form"/>
             <field name="arch" type="xml">
-                <button name='preference_change_password' position="after">
+                <field name='notify_email' position="after">
+                    <separator string="Usuwanie konta"/>
+                    <div class="oe_edit_only oe_grey">Utracisz wszystkie dane i nie będziesz mógł ich przywrócić.</div>
                     <button name="%(create_account_deletion_wizard)d" type="action" string="Usuń konto" class="oe_link"/>
-                 </button>
+                 </field>
             </field>
         </record>
 

@@ -107,6 +107,14 @@
                                     <field name="daypart_comments" placeholder="Wpisz dodatkowe informacje odnośnie Twojej dostępności czasowej lub pozostaw pole puste."/>
                                 </group>
                             </page>
+                            <page string="Ustawienia konta" attrs="{'invisible': [('user_access_level', 'not in', ['owner'])]}">
+                                <separator string="Zmiana hasła"/>
+                                <div class="oe_edit_only oe_grey">Zmienisz je w kolejnym kroku</div>
+                                <button name="preference_change_password" type="object" string="zmień hasło" class="oe_link"/>
+                                <separator string="Powiadomienia email"/>
+                                <div class="oe_edit_only oe_grey">Wybierz czy chcesz być informowany o wszystkich zdarzeniach na adres email.</div>
+                                <field name="notify_email" widget="radio" readonly="0"/> 
+                            </page>
                         </notebook>
                     </sheet>
                 </form>

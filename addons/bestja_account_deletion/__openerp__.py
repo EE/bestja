@@ -11,6 +11,7 @@ Bestja Instance Admin can deactivate user and remove her personal data.""",
     'version': '0.1',
     'depends': [
         'bestja_base',
+        'bestja_volunteer',
     ],
     'data': [
         'views/account_deletion_wizard.xml',
