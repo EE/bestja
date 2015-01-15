@@ -19,6 +19,7 @@
         'bestja_offers_invitations',
         'bestja_files',
         'bestja_application_moderation',
+        'bestja_ucw_permissions',
     ],
     'data': [
         'data.xml',
