@@ -158,7 +158,7 @@ class Volunteer(models.Model):
             'street_gov', 'street_number_gov', 'apt_number_gov', 'zip_code_gov',
             'city_gov', 'voivodeship_gov', 'country_gov', 'different_addresses',
             'street', 'street_number', 'apt_number', 'zip_code', 'city', 'voivodeship',
-            'country',
+            'country', 'active_state',
         },
         'owner': {  # Fields accessible to the owner (i.e. the user herself)
             'wishes', 'skills', 'languages', 'occupation', 'drivers_license', 'sanepid',
@@ -167,7 +167,7 @@ class Volunteer(models.Model):
             'street_gov', 'street_number_gov', 'apt_number_gov', 'zip_code_gov',
             'city_gov', 'voivodeship_gov', 'country_gov', 'different_addresses',
             'street', 'street_number', 'apt_number', 'zip_code', 'city', 'voivodeship',
-            'country', 'pesel', 'document_id_kind', 'document_id', 'notify_email'
+            'country', 'pesel', 'document_id_kind', 'document_id', 'notify_email', 'active_state',
         }
     }
     # Add fields whitelisted for the owner in base.res_users

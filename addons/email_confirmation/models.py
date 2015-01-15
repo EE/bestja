@@ -37,7 +37,7 @@ class Partner(models.Model):
 class Users(models.Model):
     _inherit = "res.users"
 
-    STATES = [
+    STATUS = [
         ('active', 'aktywny'),
         ('not_activated', 'nieaktywowany')
     ]
