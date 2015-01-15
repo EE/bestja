@@ -50,7 +50,7 @@ class Volunteer(models.Model):
     _inherit = [
         'res.users',
         'message_template.mixin'
-    ] 
+    ]
 
     wishes = fields.Many2many(
         'volunteer.wish',
@@ -275,13 +275,18 @@ class Volunteer(models.Model):
         pass
 
     @api.model
-    def fields_view_get(self, **kwargs):
+    def fields_view_get(self, view_id=None, view_type='form', toolbar=False, submenu=False):
         """
         Force user preferences modal fields to be in edit mode.
         """
-        view = super(Volunteer, self).fields_view_get(**kwargs)
+        view = super(Volunteer, self).fields_view_get(
+            view_id=view_id,
+            view_type=view_type,
+            toolbar=toolbar,
+            submenu=submenu,
+        )
         modal_view = self.env.ref('bestja_volunteer.bestja_volunteer_form_modal')
-        if kwargs.get('view_id') != modal_view.id:
+        if view_id != modal_view.id:
             return view
 
         doc = etree.XML(view['arch'])
