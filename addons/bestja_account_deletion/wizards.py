@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from openerp import models, fields, api
+from .models import Volunteer
 
 
 class Wizard(models.TransientModel):
@@ -23,7 +24,8 @@ class Wizard(models.TransientModel):
 class ReportWizard(models.TransientModel):
     _name = 'bestja.report_account_deletion_wizard'
 
-    reason = fields.Text(string="Dlaczego chcesz usunąć konto?", required=True)
+    reason = fields.Selection(Volunteer.REASONS, string="Dlaczego chcesz usunąć konto?", required=True)
+    reason_description = fields.Text()
 
     @api.one
     def report_delete_account(self):
@@ -31,6 +33,8 @@ class ReportWizard(models.TransientModel):
         When user wants to delete account, he reports this to admin.
         """
         self.env.user.reason_for_deleting_account = self.reason
+        if (self.reason == 'else'):
+            self.env.user.reason_other_description = self.reason_description
         self.env.user.send_group(
             template='bestja_account_deletion.msg_report_account_deletion_to_admin',
             group='bestja_base.instance_admin',
