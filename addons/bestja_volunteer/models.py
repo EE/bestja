@@ -229,7 +229,7 @@ class Volunteer(models.Model):
             if level == 'admin':
                 continue
             available_fields = self.permitted_fields['all'] | \
-                self.permitted_fields.get(level, {})
+                self.permitted_fields.get(level, set())
 
             for field_name in fields_dict:
                 if field_name not in available_fields:
