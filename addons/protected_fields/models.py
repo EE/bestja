@@ -31,7 +31,7 @@ class ProtectedFieldsMixin(models.AbstractModel):
             return True
 
         # Group permissions
-        return self.user_has_groups(','.join(self._permitted_groups))
+        return bool(self._permitted_groups) and self.user_has_groups(','.join(self._permitted_groups))
 
     @api.multi
     def _check_field_permissions(self, vals, permitted_vals=None):
