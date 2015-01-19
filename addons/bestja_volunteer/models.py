@@ -57,7 +57,7 @@ class Volunteer(models.Model):
         ('none', 'Nie chcę otrzymywać żadnych powiadomień'),
     ]
 
-    notify_email = fields.Selection(EMAIL_NOTIFICATIONS, help=None)
+    notify_email = fields.Selection(EMAIL_NOTIFICATIONS, default='always', help=None)
     wishes = fields.Many2many(
         'volunteer.wish',
         string="zainteresowania",
