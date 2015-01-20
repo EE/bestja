@@ -16,7 +16,7 @@ class MessageTemplate(models.Model):
         recipient_partners = []
         for recipient in recipients:
             recipient_partners.append(
-                (4, recipient.partner_id.id)
+                (4, recipient.sudo().partner_id.id)
             )
 
         subtype = None
@@ -33,7 +33,7 @@ class MessageTemplate(models.Model):
 
         self.env['mail.message'].sudo().create({
             'type': 'comment',
-            'author_id': sender.partner_id.id,
+            'author_id': sender.sudo().partner_id.id,
             'partner_ids': recipient_partners,
             'model': self.model,
             'res_id': record and record.id,
