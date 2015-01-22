@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record model="ir.actions.act_window" id="action_list_templates">
+            <field name="name">Szablony raportów</field>
+            <field name="res_model">bestja_requests.template</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.ui.view" id="templates_form">
+            <field name="name">bestja_requests.template.form</field>
+            <field name="model">bestja_requests.template</field>
+            <field name="arch" type="xml">
+                <form>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only"/>
+                        <h1 class="oe_inline">
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <field name="organization" options="{'no_create': True}"/>
+                    </group>
+                    <field name="items">
+                        <tree editable="true">
+                            <field name="name"/>
+                        </tree>
+                    </field>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="templates_tree">
+            <field name="name">bestja_requests.template.tree</field>
+            <field name="model">bestja_requests.template</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="organization"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+</openerp>

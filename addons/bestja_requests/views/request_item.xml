@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record model="ir.actions.act_window" id="action_requests_item_stats">
+            <field name="name">Statystyki potrzeb</field>
+            <field name="res_model">bestja_requests.item</field>
+            <field name="view_mode">graph</field>
+            <field name="domain">[
+                ('request.state', '!=', 'draft'),
+            ]</field>
+            <field name="context">{
+                'search_default_parent_project': active_id,
+                'search_default_accepted': True,
+            }</field>
+        </record>
+
+        <record model="ir.ui.view" id="request_item_graph">
+            <field name="name">bestja_requests.item.graph</field>
+            <field name="model">bestja_requests.item</field>
+            <field name="arch" type="xml">
+                <graph type="pivot">
+                    <field name="organization"/>
+                    <field name="template_item" type="col"/>
+                    <field name="quantity" type="measure"/>
+                </graph>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="request_item_search">
+            <field name="name">bestja_requests.item.search</field>
+            <field name="model">bestja_requests.item</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="parent_project"/>
+                    <field name="organization"/>
+                    <filter name="pending" string="Oczekujące"
+                        domain="[('request.state', '=', 'pending')]"/>
+                    <filter name="accepted" string="Zaakceptowane"
+                        domain="[('request.state', '=', 'accepted')]"/>
+                    <filter name="rejected" string="Odrzucone"
+                        domain="[('request.state', '=', 'rejected')]"/>
+                </search>
+            </field>
+        </record>
+    </data>
+</openerp>

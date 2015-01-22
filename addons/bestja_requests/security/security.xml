@@ -1,0 +1,179 @@
+<openerp>
+    <data>
+        <record id="templates_own_read_rule" model="ir.rule">
+            <field name="name">Managers / coordinators can see and create their own templates.</field>
+            <field name="model_id" ref="model_bestja_requests_template"/>
+            <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+            <field name="domain_force">[
+                '|',
+                    ('organization.coordinator', '=', user.id),
+                    ('organization.projects.manager', '=', user.id),
+            ]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+
+        <record id="templates_own_modify_rule" model="ir.rule">
+            <field name="name">Request template can not be modified after it has been used.</field>
+            <field name="model_id" ref="model_bestja_requests_template"/>
+            <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+            <field name="domain_force">[
+                ('projects', '=', False),
+                '|',
+                    ('organization.coordinator', '=', user.id),
+                    ('organization.projects.manager', '=', user.id),
+            ]</field>
+            <field name="perm_read" eval="False"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+        <record id="templates_child_rule" model="ir.rule">
+            <field name="name">Managers / coordinators of child projects can see templates they are meant to use.</field>
+            <field name="model_id" ref="model_bestja_requests_template"/>
+            <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+            <field name="domain_force">[
+                '|',
+                    ('projects.children.manager', '=', user.id),
+                    ('projects.children.organization.coordinator', '=', user.id),
+            ]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+
+        <record id="template_items_own_read_rule" model="ir.rule">
+            <field name="name">Managers / coordinators can see and create their own template items.</field>
+            <field name="model_id" ref="model_bestja_requests_template_item"/>
+            <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+            <field name="domain_force">[
+                '|',
+                    ('template.organization.coordinator', '=', user.id),
+                    ('template.organization.projects.manager', '=', user.id),
+            ]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+
+        <record id="template_items_own_modify_rule" model="ir.rule">
+            <field name="name">Request template items can not be modified after the template has been used.</field>
+            <field name="model_id" ref="model_bestja_requests_template_item"/>
+            <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+            <field name="domain_force">[
+                ('template.projects', '=', False),
+                '|',
+                    ('template.organization.coordinator', '=', user.id),
+                    ('template.organization.projects.manager', '=', user.id),
+            ]</field>
+            <field name="perm_read" eval="False"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+        <record id="template_items_parent_rule" model="ir.rule">
+            <field name="name">Managers / coordinators of child projects can see template items they are meant to use.</field>
+            <field name="model_id" ref="model_bestja_requests_template_item"/>
+            <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+            <field name="domain_force">[
+                '|',
+                    ('template.projects.children.manager', '=', user.id),
+                    ('template.projects.children.organization.coordinator', '=', user.id),
+            ]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+
+        <record id="request_own_read_rule" model="ir.rule">
+            <field name="name">Managers / coordinators can see and create their own requests.</field>
+            <field name="model_id" ref="model_bestja_requests_request"/>
+            <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+            <field name="domain_force">[
+                '|',
+                    ('project.manager', '=', user.id),
+                    ('project.organization.coordinator', '=', user.id),
+            ]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+
+        <record id="request_own_modify_rule" model="ir.rule">
+            <field name="name">Managers / coordinators can modify their own requests, as long as they haven't been accepted.</field>
+            <field name="model_id" ref="model_bestja_requests_request"/>
+            <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+            <field name="domain_force">[
+                ('state', '!=', 'accepted'),
+                '|',
+                    ('project.manager', '=', user.id),
+                    ('project.organization.coordinator', '=', user.id),
+            ]</field>
+            <field name="perm_read" eval="False"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+        <record id="request_parent_rule" model="ir.rule">
+            <field name="name">Managers / coordinators of parent projects can access the requests.</field>
+            <field name="model_id" ref="model_bestja_requests_request"/>
+            <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+            <field name="domain_force">[
+                '|',
+                    ('parent_project.manager', '=', user.id),
+                    ('parent_project.organization.coordinator', '=', user.id),
+            ]</field>
+        </record>
+
+        <record id="request_item_own_read_rule" model="ir.rule">
+            <field name="name">Managers / coordinators can see and create their own requests items.</field>
+            <field name="model_id" ref="model_bestja_requests_item"/>
+            <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+            <field name="domain_force">[
+                '|',
+                    ('request.project.manager', '=', user.id),
+                    ('request.project.organization.coordinator', '=', user.id),
+            ]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+
+        <record id="request_item_own_modify_rule" model="ir.rule">
+            <field name="name">Managers / coordinators can modify their own requests item, as long as the request haven't been accepted.</field>
+            <field name="model_id" ref="model_bestja_requests_item"/>
+            <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+            <field name="domain_force">[
+                ('request.state', '!=', 'accepted'),
+                '|',
+                    ('request.project.manager', '=', user.id),
+                    ('request.project.organization.coordinator', '=', user.id),
+            ]</field>
+            <field name="perm_read" eval="False"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+        <record id="request_item_parent_rule" model="ir.rule">
+            <field name="name">Managers / coordinators of parent projects can access the request items.</field>
+            <field name="model_id" ref="model_bestja_requests_item"/>
+            <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+            <field name="domain_force">[
+                '|',
+                    ('request.parent_project.manager', '=', user.id),
+                    ('request.parent_project.organization.coordinator', '=', user.id),
+            ]</field>
+        </record>
+    </data>
+</openerp>

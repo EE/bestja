@@ -38,33 +38,36 @@
                             <field name="organization" options="{'no_create': True}"/>
                             <field name="manager" options="{'no_create': True}"/>
                         </group>
-                        <group col="2" string="Termin">
+                        <group col="4" string="Termin">
                             <field name="date_start"/>
                             <field name="date_stop"/>
                         </group>
-
-                        <group string="Zespół" groups="bestja_project.managers">
-                            <field colspan="4" name="members" nolabel="1" widget="many2many_kanban">
-                                <kanban quick_create="false" create="true" delete="true">
-                                    <field name="name"/>
-                                    <templates>
-                                        <t t-name="kanban-box">
-                                            <div style="position: relative">
-                                                <a t-if="!read_only_mode" type="delete" style="position: absolute; right: 0; padding: 4px; diplay: inline-block">X</a>
-                                                <div class="oe_module_vignette">
-                                                    <a type="open">
-                                                        <img t-att-src="kanban_image('res.users', 'image_small', record.id.value)" class="oe_avatar oe_kanban_avatar_smallbox"/>
-                                                    </a>
-                                                    <div class="oe_module_desc">
-                                                        <a type="open"><field name="name"/></a>
+                        <notebook>
+                            <page string="Zespół">
+                                <group string="Zespół" groups="bestja_project.managers">
+                                    <field colspan="4" name="members" nolabel="1" widget="many2many_kanban">
+                                        <kanban quick_create="false" create="true" delete="true">
+                                            <field name="name"/>
+                                            <templates>
+                                                <t t-name="kanban-box">
+                                                    <div style="position: relative">
+                                                        <a t-if="!read_only_mode" type="delete" style="position: absolute; right: 0; padding: 4px; diplay: inline-block">X</a>
+                                                        <div class="oe_module_vignette">
+                                                            <a type="open">
+                                                                <img t-att-src="kanban_image('res.users', 'image_small', record.id.value)" class="oe_avatar oe_kanban_avatar_smallbox"/>
+                                                            </a>
+                                                            <div class="oe_module_desc">
+                                                                <a type="open"><field name="name"/></a>
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            </div>
-                                        </t>
-                                    </templates>
-                                </kanban>
-                            </field>
-                        </group>
+                                                </t>
+                                            </templates>
+                                        </kanban>
+                                    </field>
+                                </group>
+                            </page>
+                        </notebook>
                     </sheet>
                 </form>
             </field>

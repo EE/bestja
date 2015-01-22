@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="msg_request_pending" model="message_template">
+            <field name="subject">Nowy raport potrzeb</field>
+            <field name="body"><![CDATA[
+                Organizacja ${record.project.organization.name} przysłała nowy raport zapotrzebowań do projektu ${record.parent_project.name}.
+            ]]></field>
+            <field name="model">bestja_requests.request</field>
+        </record>
+
+        <record id="msg_request_rejected" model="message_template">
+            <field name="subject">Raport potrzeb został odrzucony</field>
+            <field name="body"><![CDATA[
+                Raport potrzeb do projektu ${record.sudo().project.name} został odrzucony. Popraw go i wyślij ponownie.
+            ]]></field>
+            <field name="model">bestja_requests.request</field>
+        </record>
+
+        <record id="msg_call_for_requests" model="message_template">
+            <field name="subject">Przyślij raport potrzeb</field>
+            <field name="body"><![CDATA[
+                Przyślij raport potrzeb do projektu ${record.name} poprzez menu "Moje raporty potrzeb".
+            ]]></field>
+            <field name="model">bestja.project</field>
+        </record>
+    </data>
+</openerp>

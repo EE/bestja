@@ -11,18 +11,23 @@
                     <field name="parent" options="{'no_create': True}" attrs="{'invisible': [('organization_level', '=', 0)]}"/>
                 </field>
 
-                <group string="Termin" position="after">
-                    <group string="Zaproszone organizacje" attrs="{'invisible': [('organization_level', '&gt;=', 2)]}" groups="bestja_project.managers">
-                        <field name="invitations" options="{'creatable': False}" nolabel="1" colspan="4">
-                            <tree create="false" edit="false">
-                                <field name="organization"/>
-                                <field name="state"/>
-                                <field name="accepted_time"/>
-                            </tree>
-                        </field>
-                        <button name="%(action_invitation_wizard)d" type="action" string="Zaproś organizacje" class="oe_edit_only"/>
-                    </group>
-                </group>
+                <notebook>
+                    <page string="Zapraszanie organizacji">
+                        <group string="Zaproszone organizacje" attrs="{'invisible': [('organization_level', '&gt;=', 2)]}" groups="bestja_project.managers">
+                            <field name="invitations" options="{'creatable': False}" nolabel="1" colspan="4">
+                                <tree create="false" edit="false">
+                                    <field name="organization"/>
+                                    <field name="state"/>
+                                    <field name="accepted_time"/>
+                                </tree>
+                            </field>
+                            <button name="%(action_invitation_wizard)d" type="action" string="Zaproś organizacje" class="oe_edit_only"/>
+                        </group>
+                    </page>
+                    <page id="page_reports" string="Raporty">
+                        <separator string="Konfiguracja raportów"/>
+                    </page>
+                </notebook>
             </field>
         </record>
     </data>

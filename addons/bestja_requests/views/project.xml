@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="bestja_project_form">
+            <field name="model">bestja.project</field>
+            <field name="inherit_id" ref="bestja_project_hierarchy.bestja_project_form"/>
+            <field name="arch" type="xml">
+                <page id="page_reports">
+                    <group>
+                        <field name="request_template" attrs="{'invisible': [('organization_level', '&gt;=', 2)]}"/>
+                    </group>
+                </page>
+            </field>
+        </record>
+
+        <record id="stats_chooser_kanban" model="ir.ui.view">
+             <field name="name">bestja.requests.stats_chooser</field>
+             <field name="model">bestja.project</field>
+             <field name="priority">30</field>
+             <field name="arch" type="xml">
+                 <kanban class="oe_background_grey">
+                     <field name="name"/>
+                     <templates>
+                         <t t-name="kanban-box">
+                            <div class="oe_kanban_card">
+                               <a name="%(action_requests_item_stats)d" type="action"><field name="name"/></a>
+                            </div>
+                         </t>
+                     </templates>
+                 </kanban>
+             </field>
+         </record>
+
+        <record model="ir.actions.act_window" id="action_stats_chooser">
+            <field name="name">Statystyki potrzeb</field>
+            <field name="res_model">bestja.project</field>
+            <field name="view_mode">kanban</field>
+            <field name="view_id" ref="stats_chooser_kanban"/>
+            <field name="domain">[
+            ('request_template', '!=', False),
+            '|',
+                ('organization.coordinator', '=', uid),
+                ('manager', '=', uid),
+            ]</field>
+        </record>
+    </data>
+</openerp>

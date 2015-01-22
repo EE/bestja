@@ -40,10 +40,12 @@ class Organization(models.Model):
         """
         Level of organization hierarchy. 0 = root level.
         """
-        if not self.parent:
-            self.level = 0
-        else:
-            self.level = self.parent.level + 1
+        parent = self.parent
+        i = 0
+        while parent:
+            parent = parent.parent
+            i += 1
+        self.level = i
 
     @api.one
     @api.constrains('parent')

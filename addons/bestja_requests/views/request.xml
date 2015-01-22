@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record model="ir.actions.act_window" id="action_my_requests">
+            <field name="name">Moje raporty potrzeb</field>
+            <field name="res_model">bestja_requests.request</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[
+                '|',
+                    ('project.organization.coordinator', '=', uid),
+                    ('project.manager', '=', uid),
+            ]</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_received_requests">
+            <field name="name">Nadesłane raporty</field>
+            <field name="res_model">bestja_requests.request</field>
+            <field name="view_mode">tree,form,graph</field>
+            <field name="context" eval="{'search_default_pending': True}" />
+            <field name="domain">[
+                ('state', '!=', 'draft'),
+                '|',
+                    ('parent_project.organization.coordinator', '=', uid),
+                    ('parent_project.manager', '=', uid),
+            ]</field>
+        </record>
+
+        <record model="ir.ui.view" id="request_search">
+            <field name="name">bestja_requests.request.search</field>
+            <field name="model">bestja_requests.request</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="parent_project"/>
+                    <field name="organization"/>
+                    <filter name="draft" string="Szkic"
+                                domain="[('state', '=', 'draft')]"/>
+                    <filter name="pending" string="Oczekujące"
+                                domain="[('state', '=', 'pending')]"/>
+                    <filter name="accepted" string="Zaakceptowane"
+                                domain="[('state', '=', 'accepted')]"/>
+                    <filter name="rejected" string="Odrzucone"
+                                domain="[('state', '=', 'rejected')]"/>
+                    <group string="Group By">
+                        <filter name="group_by_project" string="Projekt"
+                                context="{'group_by': 'parent_project'}"/>
+                        <filter name="group_by_state" string="Stan"
+                                context="{'group_by': 'state'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="request_form">
+            <field name="name">bestja_requests.request.form</field>
+            <field name="model">bestja_requests.request</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <field name="user_can_moderate" invisible="1"/>
+                        <button name="set_pending" string="Wyślij do akceptacji" type="object" class="oe_highlight" attrs="{'invisible': [
+                            '|',
+                                ('state', 'in', ['pending', 'accepted']),
+                            '|',
+                                ('id', '=', False),
+                                ('user_can_moderate', '=', True),
+                        ]}"/>
+                        <button name="set_accepted" string="Akceptuj" type="object" class="oe_highlight" attrs="{'invisible': [
+                            '|',
+                                ('state', '=', 'accepted'),
+                                ('user_can_moderate', '=', False),
+                        ]}"/>
+                        <button name="set_rejected" string="Odrzuć" type="object" attrs="{'invisible': [
+                            '|',
+                                ('state', '=', 'rejected'),
+                                ('user_can_moderate', '=', False),
+                        ]}"/>
+                    </header>
+                    <div class="oe_edit_only oe_grey" attrs="{'invisible': [('id', '!=', False)]}">Wybierz projekt, do którego chcesz stworzyć zapotrzebowanie na materiały promocyjne.</div>
+                    <group>
+                        <field name="project" options="{'no_create': True}" attrs="{'readonly': [('id', '!=', False)]}"/>
+                        <field name="state" readonly="1" attrs="{'invisible': [('id', '=', False)]}"/>
+                    </group>
+                    <field name="id" invisible="1"/>
+                    <button string="Kontynuuj ▶" class="oe_edit_only" type="object" name="continue_action" attrs="{'invisible': [('id', '!=', False)]}"/>
+                    <div attrs="{'invisible': [('id', '=', False)]}">
+                        <separator string="Lista potrzeb"/>
+                        <field name="items">
+                            <tree editable="true">
+                                <field name="template_item" options="{'no_create': True, 'no_open': True}"/>
+                                <field name="quantity"/>
+                                <field name="parent_project" invisible="1"/>
+                            </tree>
+                        </field>
+                        <group string="Dodatkowe informacje">
+                            <field name="manager" readonly="1"/>
+                            <field name="manager_phone" readonly="1"/>
+                            <field name="comments"/>
+                        </group>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="request_tree">
+            <field name="name">bestja_requests.request.tree</field>
+            <field name="model">bestja_requests.request</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="organization"/>
+                    <field name="parent_project"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+</openerp>

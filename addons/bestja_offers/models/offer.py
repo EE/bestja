@@ -24,6 +24,7 @@ class HelpeeGroup(models.Model):
 class Offer(models.Model):
     _name = 'offer'
     _inherit = ['message_template.mixin']
+    _order = 'id desc'
     STATES = [
         ('unpublished', "nieopublikowana"),
         ('published', "opublikowana"),

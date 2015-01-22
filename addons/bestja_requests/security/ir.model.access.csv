@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_bestja_requests_template,access_bestja_requests_template,model_bestja_requests_template,bestja_project.managers,1,1,1,1
+access_bestja_requests_item,access_bestja_requests_item,model_bestja_requests_item,bestja_project.managers,1,1,1,1
+access_bestja_template_item,access_bestja_template_item,model_bestja_requests_template_item,bestja_project.managers,1,1,1,1
+access_bestja_requests_request,access_bestja_requests_request,model_bestja_requests_request,bestja_project.managers,1,1,1,1

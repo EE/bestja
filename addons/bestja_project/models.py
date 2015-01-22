@@ -5,6 +5,7 @@ from openerp import models, fields, api, exceptions
 class Project(models.Model):
     _name = 'bestja.project'
     _inherit = ['message_template.mixin']
+    _order = 'id desc'
 
     def current_members(self):
         """
