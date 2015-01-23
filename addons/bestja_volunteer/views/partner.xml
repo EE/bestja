@@ -1,0 +1,27 @@
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="bestja_partner_form">
+            <field name="name">res.partner.form</field>
+            <field name="model">res.partner</field>
+            <field name="priority" eval="0"/>
+            <field name="arch" type="xml">
+                <form>
+                    <h1><field name="name"/></h1>
+                    <!--
+                    Sometimes Odoo links to the "res.partner" form, instead of
+                    linking to the "res.users" form (i.e. the user profile) for the
+                    related user. For example the "mail" module links to
+                    author's / recipient's "partner" form, not their "user" form.
+                    Since "users" and "partners" are completely separate models, it
+                    is hard to change this behavior without rewriting every view
+                    that links to a partner form.
+                    That's why we do a client side redirect from partner form to
+                    user form using a custom "x2x_redirect" widget. This may not be
+                    ideal, but it is way easier than the alternatives.
+                    -->
+                    <field name="user_ids" widget="x2x_redirect"/>
+                </form>
+            </field>
+        </record>
+    </data>
+</openerp>

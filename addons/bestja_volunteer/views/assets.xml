@@ -1,0 +1,9 @@
+<openerp>
+    <data>
+        <template id="assets_backend" name="volunteer assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <script type="text/javascript" src="/bestja_volunteer/static/src/js/redirect_widget.js"/>
+            </xpath>
+        </template>
+    </data>
+</openerp>

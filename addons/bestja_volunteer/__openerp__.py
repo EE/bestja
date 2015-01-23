@@ -19,8 +19,11 @@ specify their experiences, interests etc.
     'demo': [
         'demo.xml',
     ],
+    'js': ['static/src/js/*.js'],
     'data': [
         'views/volunteer.xml',
+        'views/partner.xml',
+        'views/assets.xml',
         'data/occupation.xml',
         'data/skills.xml',
         'data/languages.xml',
