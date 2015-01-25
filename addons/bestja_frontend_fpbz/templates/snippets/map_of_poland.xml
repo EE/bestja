@@ -8,11 +8,11 @@
                         <img class="oe_snippet_thumbnail_img" src="/bestja_frontend_fpbz/static/src/img/snippets/s_map_of_poland.png"/>
                         <span class="oe_snippet_thumbnail_title">Map of Poland</span>
                     </div>
-                    
+
                     <section class="oe_snippet_body">
                         <div id="map_of_poland_section" class="container-fluid map_of_poland_section">
                             <div class="container-fluid">
-                                <div class="row">                                    
+                                <div class="row">
                                     <div class="col-md-7 mt16 map_of_poland_container">
                                         <img src="/bestja_frontend_fpbz/static/src/img/content/wolontariat-mapa-02.svg"/>
                                     </div>
@@ -22,7 +22,7 @@
                                             <h2>
                                                 <a class="color_orange">
                                                     <strong>Dowiedz się więcej</strong>
-                                                </a> lub 
+                                                </a> lub
                                                 <a class="color_orange">
                                                     <strong>zostań organizacją partnerską</strong>
                                                 </a>

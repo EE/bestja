@@ -8,7 +8,7 @@
                         <img class="oe_snippet_thumbnail_img" src="/bestja_frontend_fpbz/static/src/img/snippets/s_block_features_grid.png"/>
                         <span class="oe_snippet_thumbnail_title">Meet volunteers</span>
                     </div>
-                    
+
                     <section class="oe_snippet_body mt16 mb16">
                         <div class="container-fluid meet_our_volunteers">
                             <div class="row row-centered">
@@ -17,24 +17,24 @@
                                 </div>
                                 <div class="col-md-10 centered">
                                     <div class="col-md-4 centered">
-                                        <img class="img img-rounded img-responsive" 
-                                             src="http://placekitten.com/g/480/480"/>
+                                        <img class="img img-rounded img-responsive"
+                                             src="http://lorempixel.com/g/480/480"/>
                                         <h3 class="mt16 mb16">Zbieram żywność w lokalnym sklepie</h3>
                                         <p class="mt16 mb16">
                                             Magda, Stowarzyszenie Monar, Warszawa
                                         </p>
                                     </div>
                                     <div class="col-md-4 centered">
-                                        <img class="img img-rounded img-responsive" 
-                                             src="http://placekitten.com/g/480/480"/>
+                                        <img class="img img-rounded img-responsive"
+                                             src="http://lorempixel.com/g/480/480"/>
                                         <h3 class="mt16 mb16">Jestem grafikiem w banku w Warszawie</h3>
                                         <p class="mt16 mb16">
                                             Magda, Stowarzyszenie Monar, Warszawa
                                         </p>
                                     </div>
                                     <div class="col-md-4 centered">
-                                        <img class="img img-rounded img-responsive" 
-                                             src="http://placekitten.com/g/480/480"/>
+                                        <img class="img img-rounded img-responsive"
+                                             src="http://lorempixel.com/g/480/480"/>
                                         <h3 class="mt16 mb16">Obsługuję wózek widłowy w magazynie</h3>
                                         <p class="mt16 mb16">
                                             McCormik
@@ -44,7 +44,7 @@
                                 <div class="col-md-1 centered nav_right">
                                     <img src="/bestja_frontend_fpbz/static/src/img/content/nastepny-01.svg" />
                                 </div>
-                            </div>                            
+                            </div>
                         </div>
                     </section>
                 </div>

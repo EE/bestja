@@ -10,18 +10,13 @@
     'css': ['static/src/css/custom.css'],
     'depends': ['website'],
 
-    # assets
     'data': [
+    # assets
         'views/assets.xml',
-        
-    # pages
-        'templates/pages/title.xml',
-        'templates/pages/home_page.xml',
-        'templates/pages/footer.xml',
-        'templates/pages/become_partner.xml',
-        
+
     # snippets
         'templates/snippets/main_top_white_text.xml',
+        'templates/snippets/big_title.xml',
         'templates/snippets/why_act_with_us.xml',
         'templates/snippets/map_of_poland.xml',
         'templates/snippets/quote_div.xml',

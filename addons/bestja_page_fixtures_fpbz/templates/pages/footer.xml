@@ -3,17 +3,17 @@
     <data>
         <template id="new_footer" inherit_id="website.layout" name="New footer">
             <xpath expr="//footer" position="replace">
-                <footer>
+                <footer id="footer_container">
                     <div class="container-fluid footer_div">
                         <div class="row clearfix">
                             <div class="col-md-5 footer_logo_container">
-                                <a class="footer_logo" href="http://www.wolontariat.bankizywnosci.pl/"></a>
+                                <a class="footer_logo" href="http://www.bankizywnosci.pl/"></a>
                                 <ul class="footer_contact">
                                     <li class="mt8 mb8">
-                                        <a href="http://www.wolontariat.bankizywnosci.pl/">Kontakt</a>
+                                        <a href="/page/contactus">Kontakt</a>
                                     </li>
                                     <li class="mt8 mb8">
-                                        <a href="http://www.wolontariat.bankizywnosci.pl/">Regulamin</a>
+                                        <a href="/page/regulations">Regulamin</a>
                                     </li>
                                     <li class="mt8 mb8">
                                         <a href="http://www.wolontariat.bankizywnosci.pl/">Polityka prywatności</a>
@@ -27,17 +27,17 @@
                             <div class="col-md-5 mt16 footer_icons_container">
                                 <ul class="col-md-12 footer_icons">
                                     <li>
-                                        <a class="facebook" href="http://facebook.com"></a>
+                                        <a class="facebook" t-att-href="website.social_facebook"></a>
                                     </li>
                                     <li>
-                                        <a class="twitter" href="http://facebook.com"></a>
+                                        <a class="twitter" t-att-href="website.social_twitter"></a>
                                     </li>
                                     <li>
-                                        <a class="youtube" href="http://youtube.com"></a>
+                                        <a class="youtube" t-att-href="website.social_youtube"></a>
                                     </li>
                                 </ul>
                                 <div class="copyrights">
-                                    <p>© 2015,<span t-field="res_company.name"/></p>
+                                    <a href="http://www.wolontariat.bankizywnosci.pl/">© 2015,<span t-field="res_company.name"/></a>
                                 </div>
                             </div>
                         </div>

@@ -1,9 +1,11 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
-        <template id="assets_frontend" name="bestja_frontend_fpbz assets" inherit_id="website.assets_frontend">
+        <template id="assets_frontend" inherit_id="website.assets_frontend" name="bestja_frontend_fpbz assets like css, js" >
             <xpath expr="." position="inside">
                 <link rel="stylesheet" href="/bestja_frontend_fpbz/static/src/css/custom.css"/>
+                <link rel="stylesheet" href="/bestja_frontend_fpbz/static/src/css/footer.css"/>
+                <script type="text/javascript" src="/bestja_frontend_fpbz/static/src/js/custom.js"></script>
             </xpath>
         </template>
     </data>

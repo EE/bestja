@@ -8,19 +8,19 @@
                         <img class="oe_snippet_thumbnail_img" src="/bestja_frontend_fpbz/static/src/img/snippets/s_block_big_picture.png"/>
                         <span class="oe_snippet_thumbnail_title">Top Big Photo</span>
                     </div>
-                    
+
                     <section class="oe_snippet_body oe_dark">
-                        <div class="container-fluid">
+                        <div class="container-fluid top-section-container">
                             <div class="row">
                                 <div class="col-md-12 main_top_photo_text">
-                                    <div class="mb64 main_top_white_text open_sans_condensedbold">
+                                    <div class="mb32 main_top_white_text open_sans_bold">
                                         <h1 class="mt64 mb32 text-center">Rocznie w Polsce marnuje się <span class="differentiator_1">9 mln</span> ton jedzenia</h1>
                                         <h1 class="text-center">
                                             <span class="differentiator_1">2,5 mln</span> osób nie ma dostępu do pełnowartościowej żywności</h1>
                                         <h1 class="text-center">Pomóż nam to zmienić!</h1>
                                     </div>
                                     <div class="text-center">
-                                        <h1 class="mt64 mb64 text-center text-uppercase color_orange open_sans_condensedbold choose_place">
+                                        <h1 class="mt64 mb64 text-center text-uppercase color_orange open_sans_bold choose_place">
                                             wybierz swoją miejscowość</h1>
                                     </div>
                                 </div>
@@ -31,6 +31,11 @@
                                 </div>
                             </div>
                         </div>
+                        <script>
+                            // Background picture will fit viewport
+                            var height = window.innerHeight - document.getElementsByClassName('navbar-static-top')[0].offsetHeight - 50;
+                            document.getElementsByClassName('main_top_photo_text')[0].style.height = height + "px";
+                        </script>
                     </section>
                 </div>
             </xpath>

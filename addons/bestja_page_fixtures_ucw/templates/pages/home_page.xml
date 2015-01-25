@@ -96,7 +96,7 @@
                         <script>
                             // Background picture will fit viewport
                             var height = window.innerHeight - document.getElementsByClassName('navbar-static-top')[0].offsetHeight - 30;
-                            if(window.innerHeight > 1920){
+                            if(window.innerHeight > 1080){
                                 document.getElementsByClassName('carousel')[0].style.height = "1080px";
                             } else {
                                 document.getElementsByClassName('carousel')[0].style.height = height + "px";

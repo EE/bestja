@@ -1,17 +1,72 @@
 @charset "utf-8";
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,700,300,600,400&subset=latin,latin-ext);
 
-
 /* Common css */
-body{
-    font-family: "Open Sans";
+#wrap, section{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
 }
 
-.open_sans_condensedbold{
-    font-family: "Open Sans";
+.open_sans_bold{
+    font-family: 'Open Sans', sans-serif;
     font-weight: 700;
 }
 
+section .container-fluid{
+    margin-left: 80px;
+    margin-right: 80px;
+}
+
+@media screen and (max-width: 991px) {
+    section .container-fluid{
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+section .top-section-container{
+    margin-left: 0;
+    margin-right: 0;
+}
+
+h1, .h1{
+    font-size: 36px;
+}
+
+h2, .h2{
+    font-size: 24px;
+    font-weight: bold;
+}
+
+h3, .h3{
+    font-size: 20px;
+}
+
+h4, .h4{
+    font-size: 18px;
+}
+
+h5, .h5{
+    font-size: 16px;
+}
+
+h6, .h6{
+    font-size: 14px;
+}
+
+/* Navbar font modification */
+.navbar-static-top{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+}
+
+.dropdown-menu > li > a{
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* End of Navbar font modification */
+/* End of Common css */
 .color_orange{
     color: #F29000;
 }
@@ -45,62 +100,74 @@ body{
 }
 
 .main_top_white_text h1{
-    font-size: 36pt;
+    font-size: 36px;
 }
 
 .differentiator_1{
-    font-size: 46pt;
+    font-size: 46px;
+}
+
+.choose_place{
+    border: 1px solid #F29000;
+    display: inline-block;
+    padding: 10px;
 }
 
 @media screen and (max-width: 991px) {
+    .main_top_white_text{
+        margin-top: 0;
+    }
+
     .main_top_white_text h1, .choose_place{
-        font-size: 26pt;
+        font-size: 26px;
     }
 
     .differentiator_1{
-        font-size: 36pt;
+        font-size: 36px;
     }
 }
 
 @media screen and (max-width: 767px) {
     .main_top_white_text h1, .choose_place{
-        font-size: 20pt;
+        font-size: 22px;
     }
 
     .differentiator_1{
-        font-size: 26pt;
+        font-size: 26px;
     }
 }
 
 @media screen and (max-width: 480px) {
+    #down_arrow_scroll{
+        display: none;
+    }
+
     .main_top_white_text h1, .choose_place{
-        font-size: 12pt;
+        font-size: 20px;
     }
 
     .differentiator_1{
-        font-size: 16pt;
+        font-size: 22px;
     }
 }
 
 .main_top_photo_text{
-    background: url('http://placekitten.com/g/1920/1080') 
-        no-repeat 50% 50%;
+    background: #777777 url('http://lorempixel.com/g/1920/1080')
+        no-repeat 50% 0%;
     background-size: auto auto;
     position: relative;
     color: #FFFFFF;
     max-width: 100%;
-    height: auto;
 }
 
-.mouse_img{
-    width: 89px;
-    height: 90px;
+.arrow_img{
+    width: 5%;
     margin-left: 4px;
 }
 
-.mouse_div{
+#down_arrow_scroll{
     position: absolute;
-    bottom: 0;
+    bottom: 10px;
     width: 100%;
     margin-bottom: 20px;
 }
@@ -124,25 +191,24 @@ body{
 
 /* Section title snippet */
 .section_title{
-    font-size: 56pt;
-    color: #F29000;
+    color: #777777;
 }
 
 @media screen and (max-width: 991px) {
     .section_title{
-        font-size: 46pt;
+        font-size: 30px;
     }
 }
 
 @media screen and (max-width: 767px) {
     .section_title{
-        font-size: 40pt;
+        font-size: 26px;
     }
 }
 
 @media screen and (max-width: 480px) {
     .section_title{
-        font-size: 32pt;
+        font-size: 22px;
     }
 }
 /* End of Section title snippet */
@@ -150,52 +216,70 @@ body{
 /* Section Join Us */
 .join_us button{
     min-width: 350px;
-    background-color: #EC8D17;
+    background-color: #3c4049;
     color: #FFFFFF;
-    font-size: 26pt;
+    font-size: 26px;
     font-weight: 700;
     border-radius: 80px 80px 80px 80px;
     -moz-border-radius: 80px 80px 80px 80px;
     -webkit-border-radius: 80px 80px 80px 80px;
-    padding-left: 130px; 
+    padding-left: 130px;
     padding-right: 130px;
+}
+
+.join_us button:hover{
+    background-color: #db901f;
+    color: #3c4049;
 }
 /* End of Section Join Us */
 
 /* Carousel navigation buttons */
 .nav_left, .nav_right{
-    display: table-cell;
-    vertical-align: middle !important;
-    height: 100%;
-    margin: auto 0;
-    text-align: center;
+    float: left;
+    text-indent: -9999px;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    margin: 80px 2px 0 0;
 }
-.nav_left img, .nav_right img{
-    width: 60px;
+.nav_left{
+    background: url("/bestja_frontend_fpbz/static/src/img/content/poprzedni-01.svg") no-repeat scroll left top transparent;
+}
+
+.nav_right{
+    background: url("/bestja_frontend_fpbz/static/src/img/content/nastepny-01.svg") no-repeat scroll left top transparent;
 }
 /* End of Carousel navigation buttons */
 
 /* Snippet: Why is it worth to act with us */
-.column_with_icons{
-    width: 220px;
+.data_of_acts h2{
+    font-weight: 300;
 }
 
 .why_act_with_us span{
-    font-size: 36pt;
+    font-size: 28px;
     font-weight: 700;
-}
-
-.why_act_with_us h2{
-    font-size: 30pt;
 }
 
 .data_icons{
     float: left;
-    width: 140px;
-    height: 120px;
-    margin: 40px;
-    margin-right: 80px;
+    width: 60%;
+    height: 60%;
+    margin: 30px;
+    margin-right: 70px;
     display: block;
+}
+
+@media screen and (max-width: 991px) {
+
+}
+
+@media screen and (max-width: 767px) {
+
+}
+
+@media screen and (max-width: 480px) {
+
 }
 
 .why_act_with_us button{
@@ -207,12 +291,11 @@ body{
 /* End of snippet: Why is it worht to act with us */
 
 /* Snippet: Map with cities with places where we can help */
+text:hover{
+    color: #db901f;
+}
 .map_of_poland_section{
     margin-bottom: 40px;
-}
-
-.map_of_poland_section h2{
-    font-size: 30pt;
 }
 
 .map_of_poland_section a, .map_of_poland_section a:hover{
@@ -236,6 +319,10 @@ body{
     left: 0;
 }
 
+.description_of_map_container p{
+    font-size: 18px;
+}
+
 @media screen and (max-width: 991px) {
     .map_of_poland_container{
         text-align: center;
@@ -253,14 +340,14 @@ body{
     }
 }
 
-.map_of_poland_container img{
-    max-width: 600px;    
+.map_object{
+    max-width: 600px;
 }
 /* End of snippet: Map with cities with places where we can help */
 
 /* Snippet: a big quote */
 .quote_div blockquote{
-    font-size: 36pt;
+    font-size: 24px;
     font-style: italic;
     padding-left: 20px;
     padding-right: 20px;
@@ -269,33 +356,27 @@ body{
     border: 0;
     margin: 0 auto;
 }
-
-.big_apostrophe_before, .big_apostrophe_after{
-    font-weight: 700; 
-    font-style: normal; 
-    font-size: 80pt;
+.quote_div blockquote:before{
+    content: "„";
+    font-weight: 700;
+    font-style: normal;
+    font-size: 50pt;
     color: #F29000;
+    line-height: 50px;
 }
 
-.big_apostrophe_before{
-    height: 50%;
-    position: absolute;
-    top: 0; 
-    left: 0;
-    margin-top: -40px; 
-}
-
-
-.big_apostrophe_after{
-    position: absolute;
-    bottom: 0; 
-    right: 0;
-    margin-bottom: -20px; 
+.quote_div blockquote:after{
+    content: "”";
+    font-weight: 700;
+    font-style: normal;
+    font-size: 50pt;
+    color: #F29000;
+    line-height: 50px;
 }
 
 .description_under_quote{
     display: block;
-    font-size: 26pt;
+    font-size: 24px;
     color: #F29000;
     margin-left: 23px;
 }
@@ -304,14 +385,14 @@ body{
 /* Snippet: volunteers newsletter */
 .recrutation_step_number{
     display: block;
-    width: 100px;
-    font-size: 48pt;
+    width: 70px;
+    font-size: 50px;
     font-weight: 700;
-    color: #F29000;
+    color: #777777;
     border-radius: 100%;
     -moz-border-radius: 100%;
     -webkit-border-radius: 100%;
-    border: 2px solid #F29000;
+    border: 2px solid #777777;
     margin: 0 auto;
 }
 
@@ -322,31 +403,50 @@ body{
 }
 
 .volunteers_newsletter h3{
-    font-size: 36pt;
+    font-size: 24px;
     font-weight: 700;
 }
 
 .volunteers_newsletter p{
-    font-size: 30pt;
+    font-size: 18px;
+    color: #777777;
 }
 /* End of snippet: volunteers newsletter */
 
 
 /* Snippet: volunteeres pictures */
-.meet_our_volunteers div{
-    vertical-align: top;
-}
-
 .meet_our_volunteers h3{
-    font-size: 30pt;
+    font-size: 24px;
     font-weight: 700;
     color: #F29000;
     text-align: left;
 }
 
 .meet_our_volunteers p{
-    font-size: 24pt;
+    font-size: 18px;
     text-align: left;
+    color: #777777;
+}
+
+#viewport{
+    width: 1000px;
+    height: 450px;
+    overflow: hidden;
+}
+
+#viewport ul{
+    position: relative;
+    width: 2000px;
+}
+
+#viewport li{
+    display: block;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 300px;
+    height: 420px;
+    float: left;
+    list-style: none;
 }
 /* End of snippet: volunteeres pictures */
 
@@ -356,32 +456,28 @@ body{
 }
 
 .the_tasks_of_coordinator h4, .the_tasks_of_volunteer h4{
-    font-size: 26pt;
+    font-size: 18px;
     font-weight: 700;
     text-align: left;
 }
 /* End of Tasks snippet*/
 
 /* Become partner top snippet */
-.become_partner h2{
-    font-size: 40pt;
-}
-
-@media screen and (max-width: 1400px) {
+@media screen and (max-width: 992px) {
     .become_partner h2{
-        font-size: 30pt;
+        font-size: 22px;
     }
 }
 
 @media screen and (max-width: 767px) {
     .become_partner h2{
-        font-size: 20pt;
+        font-size: 20px;
     }
 }
 
 @media screen and (max-width: 480px) {
     .become_partner h2{
-        font-size: 16pt;
+        font-size: 16px;
     }
 }
 
@@ -394,7 +490,7 @@ body{
 
 /* What partner receives snippet */
 .what_partner_receives li, .advantages_of_application li{
-    font-size: 26pt;
+    font-size: 24px;
     list-style: none;
 }
 
@@ -403,161 +499,179 @@ body{
 }
 /* End of What partner receives snippet */
 
-/* Footer */
-.footer_logo_container{
-    text-align: left;
+/* Offers snippet */
+.date_of_the_offer, .content_of_the_offer{
+    background-color: #F0F0F0;
+    height: 175px;
 }
 
-@media screen and (max-width: 991px) {
-    .footer_logo_container{
-        text-align: center;
-    }
+.offer_where{
+    padding: 25px;
 }
 
-.footer_logo{
-    display: inline-block;
-    background-image: url('/bestja_frontend_fpbz/static/src/img/content/bz-logo-02-white.svg');
-    background-repeat: no-repeat;
-    width: 250px;
-    height: 80px;
-    margin-left: 20px;
+.offers_day_of_the_week{
+    font-size: 16px;
+    color: #6C6C6C;
 }
 
-@media screen and (max-width: 991px) {
-    .footer_logo{
-        margin-left: 10px;
-    }
+.offers_the_day{
+    font-size: 40px;
+    color: #3C4049;
+    margin-top: calc(23% - 40px);
+    margin-bottom: calc(23% - 40px);
 }
 
-.footer_icons_container{
-    text-align: right;
+.offers_the_month{
+    font-size: 16px;
+    color: #3C4049;
+    margin-top: calc(23% - 16px);
+    margin-bottom: calc(23% - 16px);
 }
 
-@media screen and (max-width: 991px) {
-    .footer_icons_container{
-        text-align: center;
-    }
+.date_of_the_offer p{
+    margin-top: calc(15% - 26px);
+    margin-bottom: calc(15% - 26px);
 }
 
-.footer_icons li{
-    display: inline-block;
-    list-style: none;
-    margin-left: 25px;
-    margin-right: 25px;
-    text-align: right;
-    margin-bottom: 20px;
-}
-
-@media screen and (max-width: 991px) {
-    .footer_icons li{
-        text-align: center;
-        float: none;
-    }
-}
-
-.footer_icons li a.facebook{
-    background-image: url('/bestja_frontend_fpbz/static/src/img/content/facebook-02-white.svg');
-    display: inline-block;
-    background-repeat: no-repeat;
-    width: 45px;
-    height: 45px;
-    vertical-align: middle;
-    margin-left: 7px;
-}
-
-.footer_icons li a.twitter{
-    background-image: url('/bestja_frontend_fpbz/static/src/img/content/twitter-02-white.svg');
-    display: inline-block;
-    background-repeat: no-repeat;
-    width: 45px;
-    height: 45px;
-    vertical-align: middle;
-}
-
-.footer_icons li a.youtube{
-    background-image: url('/bestja_frontend_fpbz/static/src/img/content/youtube-02-white.svg');
-    display: inline-block;
-    background-repeat: no-repeat;
-    width: 45px;
-    height: 45px;
-    vertical-align: middle;
-}
-
-.footer_div{
-    background-color: #F39100;
-    min-height: 100px;
-    padding-top: 25px;
-}
-
-.footer_div a{
-    color: #FFFFFF;
+.title_of_the_offer a{
+    color: #DB901F;
     text-decoration: none;
+    cursor: pointer;
+    font-size: 22px;
 }
 
-.footer_div h4 a{
-    margin-left: 20px;
-    margin-right: 20px;
+.title_of_the_offer a:hover{
+    color: #F9A426;
 }
 
-.copyrights p{
-    font-size: 14pt;
-    color: #FFFFFF;
+.organization_name a{
+    color: #6C6C6C;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.organization_name a:hover{
+    color: #3C4049;
+}
+
+.offer_where{
     text-align: right;
+    color: #3C4049;
+    font-size: 14px;
 }
 
-@media screen and (max-width: 991px) {
-    .copyrights p{
-        text-align: center;
-    }
-}
-
-.white_footer_text{
-    color: white;
-}
-
-.footer_div span{
-    margin-left: 12px;
-    margin-right: 12px;
-}
-
-.footer_contact{
-    padding: 0;
-}
-
-.footer_contact li{
+.offer_how_long, .offer_place{
     display: inline-block;
-    list-style: none;
-    margin-bottom: 20px;
+    color: #3C4049;
 }
 
-.footer_contact li, .footer_contact li a{
-    color: #FFFFFF;
-    font-size: 14pt;
-    margin-left: 10px;
+.offer_place:before, .offer_how_long:before{
+    float: left;
+    content: "";
+    display: block;
+    width: 20px;
+    height: 20px;
+    margin-left: 20px;
+    margin-right: 10px;
+}
+
+.offer_place:before{
+    background: #F9A426 url('/bestja_frontend_fpbz/static/src/img/content/miejsce-01.svg');
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+}
+
+.offer_how_long:before{
+    background: #F9A426 url('/bestja_frontend_fpbz/static/src/img/content/czas-01.svg');
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+
+}
+
+@media screen and (max-width: 1199px) {
+    .date_of_the_offer, .content_of_the_offer{
+        height: 200px;
+    }
+
+    .offer_where{
+        padding: 20px;
+    }
 }
 
 @media screen and (max-width: 991px) {
-    .copyrights{
-        text-align: center;
+    .date_of_the_offer, .content_of_the_offer{
+        height: 150px;
     }
 
-    .copyrights p{
-        padding-right: 0;
+    .content_of_the_offer h2{
+        margin-top: 10px;
+    }
+
+    .offer_where{
+        padding: 10px;
     }
 }
-/* End of footer */
 
-
-
-/* Navbar font modification*/
-
-.navbar-static-top{
-    font-size: 24pt;
+@media screen and (max-width: 767px) {
+    .date_of_the_offer, .content_of_the_offer{
+        height: 200px;
+    }
 }
 
-.dropdown-menu > li > a{
-    font-size: 14pt;
-    font-weight: 600;
+@media screen and (max-width: 480px) {
+    .title_of_the_offer a{
+        font-size: 18px;
+    }
+
+    .organization_name a, .offer_where p{
+        font-size: 14px;
+    }
+
+    .offer_where{
+        padding: 0;
+    }
+
+    .offer_place, .offer_how_long{
+        float: left;
+        text-align: left;
+    }
+
+    .offer_place{
+        width: 70%;
+    }
+
+    .offer_how_long{
+        width: 30%;
+    }
+}
+/* End of Offers snippet */
+
+/* Regulations site */
+.regulations p{
+    font-size: 20px;
+    text-indent: 26px;
 }
 
-/* End of Navbar font modification*/
+.regulations_nav{
+    position: fixed;
+}
+
+.regulations_nav li{
+    float: none;
+}
+
+@media screen and (max-width: 991px) {
+    .regulations_nav{
+        position: relative;
+    }
+    .regulations_nav li, .regulations_nav li + li{
+        float: left;
+        margin-top: 8px;
+    }
+
+    .regulations_nav > li > a{
+        display: inline-block;
+    }
+}
+/* End of Regulations site */

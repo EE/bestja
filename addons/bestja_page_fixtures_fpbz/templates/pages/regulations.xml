@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <template id="website.regulations" name="Site about application regulations" page="True">
+            <t t-call="website.layout">
+                <div id="wrap" class="oe_structure oe_empty">
+                    <section class="oe_snippet_body">
+                        <div class="container-fluid regulations">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <ul class="nav nav-pills nav-stacked regulations_nav">
+                                        <li>
+                                            <a href="#wstep">Wstęp</a>
+                                        </li>
+                                        <li>
+                                            <a href="#definicje">Definicje</a>
+                                        </li>
+                                        <li>
+                                            <a href="#postanowienia">Postanowienia ogólne</a>
+                                        </li>
+                                        <li>
+                                            <a href="#paragraf">Paragraf IV</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-9">
+                                    <h1 class="text-center mt48 mb48 section_title">
+                                        <strong>REGULAMIN APLIKACJI</strong>
+                                    </h1>
+                                    <h2 id="wstep" class="mt48 mb48">
+                                        <strong>Wstęp</strong>
+                                    </h2>
+                                    <p>Aplikacja znajdująca się na stronie <a href="http://www.wolontariat.bankizywnosci.pl">
+                                            http://www.wolontariat.bankizywnosci.pl</a> została zaprojektowana w celach niekomercyjnych,
+                                        by ułatwić wolontariuszom dostęp do Ofert nieodpłatnych świadczeń w Bankach Żywności
+                                        zlokalizowanych na terenie całej Polski oraz w Federacji Polskich Banków Żywności w Warszawie.</p>
+                                    <p>Korzystanie z Aplikacji dozwolone jest w zakresie objętym niniejszym Regulaminem.
+                                        Wszystkie osoby korzystające z Aplikacji zobowiązane są przestrzegać postanowień Regulaminu.</p>
+                                    <p>Regulamin oraz Polityka Prywatności zamieszczone na stronie:
+                                        <a href="http://www.bankizywnosci.pl/35/wolontariat.html">http://www.bankizywnosci.pl/35/wolontariat.html</a>
+                                        są prawnie wiążącymi dokumentami określającymi warunki korzystania z Aplikacji.</p>
+                                    <p>Prosimy o zapoznanie się z Regulaminem i Polityką Prywatności, gdyż korzystanie z Aplikacji oznacza ich akceptację.</p>
+                                    <h2 id="definicje" class="mt48 mb48">
+                                        <strong>Definicje</strong>
+                                    </h2>
+                                    <h3>W Regulaminie używane są następujące pojęcia i definicje:</h3>
+                                    <p> </p>
+                                    <p>Aplikacja – serwis internetowy dostępny pod adresem: <a href="http://www.wolontariat.bankizywnosci.pl">
+                                            http://www.wolontariat.bankizywnosci.pl</a>,</p>
+                                    <p>Moduł e-learningu – funkcjonalność Aplikacji skierowana do Użytkowników, przeznaczona do celów szkoleniowych
+                                        z zakresu wolontariatu i działalności Federacji,</p>
+                                    <p>Administrator – podmiot zarządzający Aplikacją, czyli Federacja Polskich Banków Żywności,</p>
+                                    <p>Federacja – Federacja Polskich Banków Żywności,</p>
+                                    <p>Bank – jeden spośród działających w Polsce Banków Żywności,</p>
+                                    <p>Banki – wszystkie działające w Polsce Banki Żywności, które zamieszczają oferty w Aplikacji</p>
+                                    <p>Banki Żywności, Federacja – organizacje pozarządowe uprawnione do zamieszczania ofert w aplikacji,</p>
+                                    <p>Oferta – ogłoszenie o możliwości angażowania się w działania konkretnego Banku Żywności,</p>
+                                    <p>Partner – organizacja/osoba prawna rejestrująca się w Aplikacji w celu nawiązania współpracy z Bankiem
+                                        Żywności, w szczególności organizowania zbiórek żywności,</p>
+                                    <p>Wolontariusz – osoba fizyczna, która w swoim imieniu aplikuje na konkretną ofertę zamieszczoną w Aplikacji,</p>
+                                    <p>Użytkownik – osoba fizyczna lub przedstawiciel organizacji/osoby prawnej korzystający z Aplikacji w celu
+                                        zapoznania się z ofertami świadczeń woluntarystycznych.</p>
+                                    <h2 id="postanowienia" class="mt48 mb48">
+                                        <strong>Postanowienia ogólne</strong>
+                                    </h2>
+                                    <p>Niniejszy Regulamin określa zasady korzystania z Aplikacji znajdującej się pod adresem
+                                        <a href="http://www.wolontariat.bankizywnosci.pl">http://www.wolontariat.bankizywnosci.pl</a>,
+                                        zawierającego oferty dla wolontariuszy zamieszczone przez Banki oraz Federację oraz
+                                        Moduł e-learningu.</p>
+                                    <p>Aplikacja jest administrowana przez Federację Polskich Banków Żywności z siedzibą w Warszawie,
+                                        przy al. Solidarności 101 (kod pocztowy 00-144), KRS 0000063599, NIP: 524-21-02-362,
+                                        REGON 012813018 zwaną dalej Administratorem bądź Federacją.</p>
+                                    <p>Aplikacja powstała, by ułatwić osobom fizycznym i osobom prawnym angażowanie się w działania
+                                        ograniczające niedożywienie i propagujące niemarnowanie żywności.</p>
+                                    <p>Korzystanie z Aplikacji jest nieodpłatne.</p>
+                                    <p>Korzystanie z serwisu oznacza zobowiązanie się do przestrzegania postanowień niniejszego
+                                        Regulaminu.</p>
+                                    <h2 id="paragraf" class="mt48 mb48">
+                                        <strong>Paragraf IV</strong>
+                                    </h2>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+                                        non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </t>
+        </template>
+        <record id="regulations" model="website.menu">
+            <field name="name">Zostań partnerem</field>
+            <field name="url">/page/regulations</field>
+        </record>
+    </data>
+</openerp>

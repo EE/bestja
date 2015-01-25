@@ -16,7 +16,7 @@
                     </section>
                     <section class="oe_snippet_body">
                         <div class="container-fluid become_partner">
-                            <div class="row">                                
+                            <div class="row">
                                 <div class="col-md-6 mt16">
                                     <table class="data_of_acts">
                                         <tr>
@@ -26,27 +26,25 @@
                                         </tr>
                                         <tr>
                                             <td>
-                                                <h2>Włącz się w ogólnopolskie i regionalne programy przeprowadzając 
+                                                <h2>Włącz się w ogólnopolskie i regionalne programy przeprowadzając
                                                     zbiórkę żywności w lokalnym sklepie.</h2>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>  
+                                            <td>
                                                 <h2>Możesz mieć wpływ na dostęp do pełnowartościowego jedzenia!</h2>
                                             </td>
                                         </tr>
                                     </table>
                                 </div>
                                 <div class="col-md-6 mt16">
-                                    <img class="img img-responsive shadow mb16" 
-                                         src="http://placekitten.com/g/900/600"/>
+                                    <img class="img img-responsive shadow mb16"
+                                         src="http://lorempixel.com/g/900/600"/>
                                 </div>
-                                <div class="row">                                
-                                    <h2 class="col-md-12 mt16 become_partner_link">
-                                        <small><a class="color_orange" href="http://www.wolontariat.bankizywnosci.pl/">Kto może zostać partnerem?</a></small>
-                                    </h2>
+                                <div class="col-md-12 mt16 become_partner_link">
+                                        <p class="color_orange">Kto może zostać partnerem?</p>
                                 </div>
-                            </div>                            
+                            </div>
                         </div>
                     </section>
                     <section class="oe_snippet_body mt16 mb16">
@@ -63,7 +61,8 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <h1 class="text-center mt48 mb48 section_title">
-                                        Co otrzymasz jako <strong>partner</strong></h1>
+                                        Co otrzymasz jako <strong>partner</strong>
+                                    </h1>
                                 </div>
                             </div>
                         </div>
@@ -109,17 +108,19 @@
                         <div class="container-fluid become_partner">
                             <div class="row">
                                 <div class="col-md-6 mt16">
-                                    <img class="img img-responsive shadow mb16" 
-                                         src="http://placekitten.com/g/900/600"/>
+                                    <img class="img img-responsive shadow mb16"
+                                         src="http://lorempixel.com/g/900/600"/>
                                 </div>
                                 <div class="col-md-6 mt16">
-                                    <h2>„Jako koordynator wolontariatu korzystam z aplikacji, 
-                                        która ułatwia mi rekrutację wolontariuszy, przydzielanie 
+                                    <h2>„Jako koordynator wolontariatu korzystam z aplikacji,
+                                        która ułatwia mi rekrutację wolontariuszy, przydzielanie
                                         zadań i monitorowanie stopnia ich wykonania.
-                                        Dzięki aplikacji koordynowanie grupy wolontariuszy 
+                                        Dzięki aplikacji koordynowanie grupy wolontariuszy
                                         jest proste i nie zajmuje wcale dużo czasu.”</h2>
-                                        <h2>
-                                            <small><strong>Ewa</strong>, wolontariusz Banku Żywności w Warszawie</small></h2>
+                                    <h2>
+                                        <small>
+                                            <strong>Ewa</strong>, wolontariusz Banku Żywności w Warszawie</small>
+                                    </h2>
                                 </div>
                             </div>
                         </div>
@@ -174,11 +175,9 @@
                             <div class="row">
                                 <div class="col-md-offset-1 col-md-10">
                                     <blockquote>
-                                        <span class="big_apostrophe_before">”</span>
-                                        Dla mnie największą zaletą aplikacji jest możliwość prostej 
-                                        i szybkiej sprawozdawczości. Mogę też przeprowadzać rekrutację 
+                                        Dla mnie największą zaletą aplikacji jest możliwość prostej
+                                        i szybkiej sprawozdawczości. Mogę też przeprowadzać rekrutację
                                         i zlecać im zadania. To mi ułatwia pracę.
-                                        <span class="big_apostrophe_after">„</span>
                                     </blockquote>
                                     <span class="description_under_quote">
                                         <strong>Ola</strong>, koordynator, Organizacja Pomoc Dzieciom, Słupsk
@@ -257,38 +256,30 @@
                                 </div>
                                 <div class="col-md-10 centered">
                                     <div class="col-md-3 centered">
-                                        <div class="media_iframe_video" data-src="//www.youtube.com/embed/cnFcCyyyCWA?autoplay=0" style="">
-                                            <div class="css_editable_mode_display"> </div>
-                                            <iframe allowfullscreen="allowfullscreen" frameborder="0" src="//www.youtube.com/embed/cnFcCyyyCWA?autoplay=0"/>
-                                        </div>
+                                        <img class="img img-rounded img-responsive"
+                                                 src="http://lorempixel.com/g/480/480"/>
                                         <h4 class="mt16 mb16">Zadania koordynatora w czasie organizacji zbiórki</h4>
                                     </div>
                                     <div class="col-md-3 centered">
-                                        <div class="media_iframe_video" data-src="//www.youtube.com/embed/BdkoPAjtMSk?autoplay=0" style="-webkit-animation-play-state: paused; -webkit-transition: none; transition: none">
-                                            <div class="css_editable_mode_display"> </div>
-                                            <iframe allowfullscreen="allowfullscreen" frameborder="0" src="//www.youtube.com/embed/BdkoPAjtMSk?autoplay=0"/>
-                                        </div>
+                                        <img class="img img-rounded img-responsive"
+                                                 src="http://lorempixel.com/g/480/480"/>
                                         <h4 class="mt16 mb16">Cechy ważne dla koordynatora zbiórki</h4>
                                     </div>
                                     <div class="col-md-3 centered">
-                                        <div class="media_iframe_video" data-src="//www.youtube.com/embed/Lg1vPEswWDg?autoplay=0" style="-webkit-animation-play-state: paused; -webkit-transition: none; transition: none">
-                                            <div class="css_editable_mode_display"> </div>
-                                            <iframe allowfullscreen="allowfullscreen" frameborder="0" src="//www.youtube.com/embed/Lg1vPEswWDg?autoplay=0"/>
-                                        </div>
+                                        <img class="img img-rounded img-responsive"
+                                                 src="http://lorempixel.com/g/480/480"/>
                                         <h4 class="mt16 mb16">Kilka kroków skutecznej rekrutacji</h4>
                                     </div>
                                     <div class="col-md-3 centered">
-                                        <div class="media_iframe_video" data-src="//www.youtube.com/embed/iLmK1Mg4Y5A?autoplay=0" style="-webkit-animation-play-state: paused; -webkit-transition: none; transition: none">
-                                            <div class="css_editable_mode_display"> </div>
-                                            <iframe allowfullscreen="allowfullscreen" frameborder="0" src="//www.youtube.com/embed/iLmK1Mg4Y5A?autoplay=0"/>
-                                        </div>
+                                        <img class="img img-rounded img-responsive"
+                                                 src="http://lorempixel.com/g/480/480"/>
                                         <h4 class="mt16 mb16">Szkolenia wolontariuszy</h4>
                                     </div>
                                 </div>
                                 <div class="col-md-1 centered nav_right">
                                     <img src="/bestja_frontend_fpbz/static/src/img/content/nastepny-01.svg" />
                                 </div>
-                            </div>                            
+                            </div>
                         </div>
                     </section>
                 </div>

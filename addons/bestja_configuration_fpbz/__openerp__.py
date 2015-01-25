@@ -26,6 +26,7 @@
         'bestja_organization_warehouse',
         'bestja_age_verification',
         'bestja_frontend_fpbz',
+        'bestja_page_fixtures_fpbz',
     ],
     'data': [
         'data.xml',
