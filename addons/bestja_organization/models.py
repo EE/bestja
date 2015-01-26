@@ -31,7 +31,7 @@ class Organization(models.Model):
     regon = fields.Char(string="REGON")
     nip = fields.Char(string="NIP")
     street_address = fields.Char(string="Ulica", required=True)
-    city_address = fields.Char(string="Miejscowość", required=True)
+    city = fields.Char(string="Miejscowość", required=True)
     street_number = fields.Char(string="Numer budynku", required=True)
     apartment_number = fields.Char(string="Numer mieszkania")
     postal_code = fields.Char(size=6, required=True, string="Kod pocztowy")

@@ -54,7 +54,7 @@
                         <div>
                         <field name="postal_code" class="short_input"/><span class="oe_grey oe_edit_only">format 00-000</span>
                         </div>
-                        <field name="city_address"/>
+                        <field name="city"/>
                     </group>
                     <group string="Dane rejestrowe" class="short_input">
                         <field name="krs"/>

@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_bestja_offers_by_org_bestja_offers_by_org,bestja_offers_by_org.bestja_offers_by_org,model_bestja_offers_by_org_bestja_offers_by_org,,1,0,0,0

@@ -1,0 +1,15 @@
+<openerp>
+    <data>
+        <template id="list">
+            <t t-call="website.layout">
+                <ul>
+                    <li t-foreach="offers" t-as="offer">
+                        <a t-attf-href="{{ offer.get_public_url() }}">
+                            <t t-esc="offer.display_name"/>
+                        </a>
+                    </li>
+                </ul>
+            </t>
+        </template>
+    </data>
+</openerp>

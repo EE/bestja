@@ -13,7 +13,7 @@
             <field name="street_number">15</field>
             <field name="apartment_number">3</field>
             <field name="postal_code">00-338</field>
-            <field name="city_address">Białystok</field>
+            <field name="city">Białystok</field>
             <field name="nip">4184384313</field>
             <field name="email">podlasieatakuje@gmail.com</field>
             <field name="phone">85 668 98 89</field>
@@ -36,7 +36,7 @@
             <field name="street_address">Kniejowa</field>
             <field name="street_number">4</field>
             <field name="postal_code">04-777</field>
-            <field name="city_address">Supraśl</field>
+            <field name="city">Supraśl</field>
             <field name="nip">2328076494</field>
             <field name="email">puszczyk@gmail.com</field>
             <field name="phone">85 225 67 89</field>
@@ -60,7 +60,7 @@
             <field name="street_number">13</field>
             <field name="apartment_number">3</field>
             <field name="postal_code">00-663</field>
-            <field name="city_address">Hajnówka</field>
+            <field name="city">Hajnówka</field>
             <field name="nip">4329934558</field>
             <field name="email">baby@gmail.com</field>
             <field name="phone">85 225 69 22</field>
@@ -83,7 +83,7 @@
             <field name="street_address">Dystylarniowa</field>
             <field name="street_number">34</field>
             <field name="postal_code">08-680</field>
-            <field name="city_address">Bimbrówka Wielka</field>
+            <field name="city">Bimbrówka Wielka</field>
             <field name="nip">5843030118</field>
             <field name="email">braha@bimbrownicy.com</field>
             <field name="phone">+48 660 922 422</field>

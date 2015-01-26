@@ -6,7 +6,7 @@
             <field name="street_address">Korycińska</field>
             <field name="street_number">15</field>
             <field name="postal_code">02-822</field>
-            <field name="city_address">Korycin</field>
+            <field name="city">Korycin</field>
             <field name="nip">5451722525</field>
             <field name="email">silasera@korycin.pl</field>
             <field name="phone">503988777</field>
@@ -20,7 +20,7 @@
             <field name="street_address">Tuhaj Beja</field>
             <field name="street_number">24</field>
             <field name="postal_code">03-466</field>
-            <field name="city_address">Tatarzyny</field>
+            <field name="city">Tatarzyny</field>
             <field name="nip">5429607078</field>
             <field name="email">klub.tatarski@gmail.com</field>
             <field name="phone">606098484</field>

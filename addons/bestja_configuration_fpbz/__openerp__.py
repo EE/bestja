@@ -18,6 +18,7 @@
         'bestja_project_hierarchy',
         'bestja_requests',
         'bestja_offers',
+        'bestja_offers_by_org',
         'bestja_files',
         'quizzes',
         'bestja_organization_warehouse'
