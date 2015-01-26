@@ -1,8 +1,5 @@
 # -*- coding: utf-8 -*-
-
 from openerp import models, fields, api
-
-from .search import OffersIndex
 
 
 class BestJaSettings(models.TransientModel):
@@ -30,13 +27,3 @@ class BestJaSettings(models.TransientModel):
         conf = self.env['ir.config_parameter']
         conf.set_param('bestja_offers.max_skills', str(self.max_skills))
         conf.set_param('bestja_offers.max_wishes', str(self.max_wishes))
-
-    @api.multi
-    def action_reindex(self):
-        """
-        Delete old Whoosh index, create a new one,
-        and add all published offers.
-        """
-        index = OffersIndex(dbname=self.env.cr.dbname)
-        index.create_index()
-        self.env['offer'].search([('state', '=', 'published')]).whoosh_reindex()

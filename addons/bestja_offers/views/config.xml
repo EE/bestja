@@ -4,7 +4,7 @@
             <field name="model">bestja.config.settings</field>
             <field name="inherit_id" ref="bestja_base.view_bestja_configuration" />
             <field name="arch" type="xml">
-                <xpath expr="//header" position="after">
+                <form>
                     <group name="offers" string="Oferty">
                         <label for="id" string="Ograniczenia"/>
                         <div>
@@ -17,12 +17,8 @@
                                 <field name="max_wishes"/>
                             </div>
                         </div>
-                        <label for="id" string="Wyszukiwanie"/>
-                        <div>
-                            <button name="action_reindex" string="przeindeksuj oferty" type="object"/>
-                        </div>
                     </group>
-                </xpath>
+                </form>
             </field>
         </record>
     </data>

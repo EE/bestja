@@ -1,0 +1,26 @@
+<openerp>
+    <data>
+        <template id="bestja_offers.search">
+            <t t-call="website.layout">
+                <form method="get" action="">
+                <input type="text" name="q" t-att-value="q" />
+                <button type="submit">Szukaj!</button>
+                <div t-foreach="facets" t-as="facet">
+                    <strong><t t-esc="facet['display_name']"/>:</strong><br/>
+                    <t t-foreach="facet['groups']" t-as="group">
+                        <label><input type="checkbox" t-att-value="group['value']" t-att-name="facet['html_name']" t-att-checked="'checked' if group['checked'] else None"/>
+                        <t t-esc="group['value']"/> (<t t-esc="group['count']"/>)
+                        </label><br/>
+                    </t>
+                </div>
+                </form>
+                <t t-if="results is not None">
+                    <p><t t-esc="count"/> results.</p>
+                    <ul><li t-foreach="results" t-as="result">
+                        <a t-attf-href="/offer/{{ result['slug'] }}"><t t-esc="result['name']"/> (<t t-esc="result['organization']"/>)</a>
+                    </li></ul>
+                </t>
+            </t>
+        </template>
+    </data>
+</openerp>
