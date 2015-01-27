@@ -169,50 +169,54 @@
             <field name="model">offers.application</field>
             <field name="arch" type="xml">
                 <form create="false" edit="false" delete="false">
-                    <header>
-                        <button name="action_accept" string="akceptuj kandydata" type="object" states="new,meeting,meeting2,rejected" class="oe_highlight"/>
-                        <button name="action_reject" string="odrzuć kandydata" states="new,meeting,meeting2,accepted" type="object"/>
-                    </header>
+                    <field name="id" invisible="1"/>
+                    <div attrs="{'invisible': [('id', '!=', False)]}">Nie wybrano aplikacji.</div>
+                    <div attrs="{'invisible': [('id', '=', False)]}">
+                        <header>
+                            <button name="action_accept" string="akceptuj kandydata" type="object" states="new,meeting,meeting2,rejected" class="oe_highlight"/>
+                            <button name="action_reject" string="odrzuć kandydata" states="new,meeting,meeting2,accepted" type="object"/>
+                        </header>
 
-                    <div class="oe_right oe_button_box" name="buttons">
-                         <button class="oe_inline oe_stat_button stat_button_wrap" type="action"
-                            name="%(action_application_meeting_wizard)d" icon="fa-calendar" states="new,meeting,meeting2">
-                            <div attrs="{'invisible': [('current_meeting', '!=', False)]}">Ustal termin spotkania</div>
-                            <div><strong><field name="current_meeting"/></strong></div>
-                        </button>
-                         <button class="oe_inline oe_stat_button stat_button_wrap" type="action" name="%(action_application_notes_wizard)d" icon="fa-files-o">
-                            <field name="notes" invisible="1"/>
-                            <div attrs="{'invisible': [('notes', '!=', False)]}">Dodaj notatkę</div>
-                            <div attrs="{'invisible': [('notes', '=', False)]}"><strong>Zobacz notatkę</strong></div>
-                        </button>
-                    </div>
-                    <field name="image" widget="image" class="oe_left oe_avatar" options='{"preview_image": "image_medium"}'/>
-                    <div class="oe_title">
-                        <h1><field name="name"/></h1>
-                        <field name="state" readonly="1" class="state"/>
-                        <field name="quality" widget="priority"/>
-                    </div>
-                    <group col="4" class="larger">
-                        <div attrs="{'invisible': [('age', '=', 0)]}">
-                            <field name="age" class="oe_inline"/> lat
+                        <div class="oe_right oe_button_box" name="buttons">
+                             <button class="oe_inline oe_stat_button stat_button_wrap" type="action"
+                                name="%(action_application_meeting_wizard)d" icon="fa-calendar" states="new,meeting,meeting2">
+                                <div attrs="{'invisible': [('current_meeting', '!=', False)]}">Ustal termin spotkania</div>
+                                <div><strong><field name="current_meeting" readonly="1"/></strong></div>
+                            </button>
+                             <button class="oe_inline oe_stat_button stat_button_wrap" type="action" name="%(action_application_notes_wizard)d" icon="fa-files-o">
+                                <field name="notes" invisible="1"/>
+                                <div attrs="{'invisible': [('notes', '!=', False)]}">Dodaj notatkę</div>
+                                <div attrs="{'invisible': [('notes', '=', False)]}"><strong>Zobacz notatkę</strong></div>
+                            </button>
                         </div>
-                        <div attrs="{'invisible': [('phone', '=', False)]}">
-                            tel. <field name="phone" class="oe_inline"/>
+                        <field name="image" readonly="1" widget="image" class="oe_left oe_avatar" options='{"preview_image": "image_medium"}'/>
+                        <div class="oe_title">
+                            <h1><field readonly="1" name="name"/></h1>
+                            <field name="state" readonly="1" class="state"/>
+                            <field name="quality" widget="priority"/>
                         </div>
-                        <newline/>
-                        <field name="occupation" nolabel="1" options="{'no_open': True}"/>
-                        <field name="email" nolabel="1"/>
-                        <newline/>
-                        <field name="city" nolabel="1" title="miejsce zamieszkania"/>
-                    </group>
-                    <separator string="Kwalifikacje"/>
-                    <field name="skills" widget="many2many_tags"/>
-                    <separator string="Zainteresowania"/>
-                    <field name="wishes" widget="many2many_tags"/>
-                    <separator string="Uprawnienia"/>
-                    <div attrs="{'invisible': [('drivers_license', '=', [(6, False, [])])]}">Prawo jazdy <field name="drivers_license" widget="many2many_tags" class="oe_inline"/></div>
-                    <div attrs="{'invisible': [('sanepid', '=', False)]}">Badania Sanepid do <field name="sanepid" class="oe_inline"/></div>
-                    <div attrs="{'invisible': [('forklift', '=', False)]}">Uprawnienia na wózek widłowy do <field name="forklift" class="oe_inline"/></div>
+                        <group col="4" class="larger">
+                            <div attrs="{'invisible': [('age', '=', 0)]}">
+                                <field name="age" readonly="1" class="oe_inline"/> lat
+                            </div>
+                            <div attrs="{'invisible': [('phone', '=', False)]}">
+                                tel. <field name="phone" readonly="1" class="oe_inline"/>
+                            </div>
+                            <newline/>
+                            <field name="occupation" readonly="1" nolabel="1" options="{'no_open': True}"/>
+                            <field name="email" readonly="1" nolabel="1"/>
+                            <newline/>
+                            <field name="city" readonly="1" nolabel="1" title="miejsce zamieszkania"/>
+                        </group>
+                        <separator string="Kwalifikacje"/>
+                        <field name="skills" readonly="1" widget="many2many_tags"/>
+                        <separator string="Zainteresowania"/>
+                        <field name="wishes" readonly="1" widget="many2many_tags"/>
+                        <separator string="Uprawnienia"/>
+                        <div attrs="{'invisible': [('drivers_license', '=', [(6, False, [])])]}">Prawo jazdy <field readonly="1" name="drivers_license" widget="many2many_tags" class="oe_inline"/></div>
+                        <div attrs="{'invisible': [('sanepid', '=', False)]}">Badania Sanepid do <field name="sanepid" readonly="1" class="oe_inline"/></div>
+                        <div attrs="{'invisible': [('forklift', '=', False)]}">Uprawnienia na wózek widłowy do <field name="forklift" readonly="1" class="oe_inline"/></div>
+                    </div>
                 </form>
             </field>
         </record>
