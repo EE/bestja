@@ -9,19 +9,26 @@ class OffersByOrg(http.Controller):
             return http.request.not_found()
 
         if city_slug == 'root':
+            organization = http.request.env['organization'].sudo().search([
+                ('level', '=', 0),
+            ])
             offers = http.request.env['offer'].sudo().search([
                 ('state', '=', 'published'),
-                ('project.organization.level', '=', 0),
+                ('project.organization', '=', organization.id),
             ])
         else:
+            organization = http.request.env['organization'].sudo().search([
+                ('level', '=', 1),
+                ('city_slug', '=', city_slug)
+            ])
             offers = http.request.env['offer'].sudo().search([
                 ('state', '=', 'published'),
-                ('project.organization.level', '!=', 0),
                 '|',  # noqa
-                    ('project.organization.city_slug', '=', city_slug),
-                    ('project.organization.parent.city_slug', '=', city_slug),
+                    ('project.organization', '=', organization.id),
+                    ('project.organization.parent', '=', organization.id),
             ])
 
         return http.request.render('bestja_offers_by_org.list', {
             'offers': offers,
+            'organization': organization,
         })

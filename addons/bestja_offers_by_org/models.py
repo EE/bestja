@@ -7,7 +7,7 @@ from openerp.addons.website.models.website import slugify
 class Offer(models.Model):
     _inherit = 'organization'
 
-    city_slug = fields.Char(compute='compute_city_slug', store=True)
+    city_slug = fields.Char(compute='compute_city_slug', store=True, index=True)
 
     @api.one
     @api.depends('city')

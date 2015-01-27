@@ -1,6 +1,6 @@
 <openerp>
     <data>
-        <template id="bestja_offers.offer">
+        <template id="bestja_offers.offer" name="Oferta">
             <t t-call="website.layout">
                 <link rel="stylesheet" href="/bestja_offers/static/src/css/google_maps.css"/>
                 <script type="text/javascript"
@@ -114,13 +114,13 @@
             </t>
         </template>
 
-        <template id="bestja_offers.join">
+        <template id="bestja_offers.join" name="Zgłoś się">
             <form class="offer_center" method="post" t-attf-action="/offer/{{ slug(offer) }}/apply">
                 <button type="submit" class="btn btn-primary btn-join">Zgłoś się!</button>
             </form>
         </template>
 
-        <template id="bestja_offers.thankyou">
+        <template id="bestja_offers.thankyou" name="Dziękujemy za zgłoszenie">
             <t t-call="website.layout">
                 <h1>Dziękujemy!</h1>
                 <p>Dziękujemy za zgłoszenie.</p>
@@ -129,7 +129,7 @@
             </t>
         </template>
 
-        <template id="bestja_offers.meeting_confirmation">
+        <template id="bestja_offers.meeting_confirmation" name="Dziękujemy za odpowiedź">
             <t t-call="website.layout">
                 <h1>Dziękujemy!</h1>
                 <p>Informacja została zapisana.</p>

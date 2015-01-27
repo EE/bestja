@@ -1,8 +1,9 @@
 <openerp>
     <data>
-        <template id="list">
-            <t t-call="website.layout" name="Oferty">
-                <h1><t t-esc="organization.display_name"/> (<t t-esc="organization.city"/>)</h1>
+        <template id="list" name="Oferty">
+            <t t-call="website.layout">
+                <h1 t-if="category">Kategoria "<t t-esc="category.display_name"/>"</h1>
+                <h1 t-if="not category">Wszystkie oferty</h1>
                 <ul>
                     <li t-foreach="offers" t-as="offer">
                         <a t-attf-href="{{ offer.get_public_url() }}">

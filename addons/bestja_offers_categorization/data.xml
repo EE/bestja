@@ -1,0 +1,23 @@
+<openerp>
+    <data noupdate="1">
+        <record id="category_education" model="bestja.offer_category">
+            <field name="name">wolontariat edukacyjny</field>
+            <field name="slug">edukacyjny</field>
+        </record>
+
+        <record id="category_action" model="bestja.offer_category">
+            <field name="name">wolontariat akcyjny</field>
+            <field name="slug">akcyjny</field>
+        </record>
+
+        <record id="category_support" model="bestja.offer_category">
+            <field name="name">wolontariat pomocowy</field>
+            <field name="slug">pomocowy</field>
+        </record>
+
+        <record id="category_project" model="bestja.offer_category">
+            <field name="name">wolontariat projektowy</field>
+            <field name="slug">projektowy</field>
+        </record>
+    </data>
+</openerp>

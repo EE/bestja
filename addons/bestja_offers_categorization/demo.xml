@@ -1,0 +1,11 @@
+<openerp>
+    <data noupdate="1">
+        <record id="bestja_offers.offer_cheese" model="offer">
+            <field name="category" ref="category_education"/>
+        </record>
+
+        <record id="bestja_offers.offer_picnic" model="offer">
+            <field name="category" ref="category_support"/>
+        </record>
+    </data>
+</openerp>

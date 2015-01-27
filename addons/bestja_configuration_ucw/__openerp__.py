@@ -17,6 +17,7 @@
         'bestja_offers',
         'bestja_offers_moderation',
         'bestja_offers_invitations',
+        'bestja_offers_categorization',
         'bestja_files',
         'bestja_application_moderation',
         'bestja_ucw_permissions',
