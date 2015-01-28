@@ -41,10 +41,14 @@ class AuthSignupHome(openerp.addons.web.controllers.main.Home):
         if 'error' not in qcontext and request.httprequest.method == 'POST':
             try:
                 self.do_signup(qcontext)
-                qcontext['message'] = "Na twój e-mail został przesłany link aktywacyjny. Kliknij go, aby móc się zalogować."
-                """do not login user here"""
+                qcontext['message'] = \
+                    "Na twój e-mail został przesłany link aktywacyjny. Kliknij go, aby móc się zalogować."
+                # do not login user here
             except (SignupError, AssertionError), e:
-                qcontext['error'] = _(e.message)
+                message = e.message
+                if message.startswith('duplicate key value violates unique constraint "res_users_login_key"'):
+                    message = "Podany adres e-mail jest już używany."
+                qcontext['error'] = _(message)
 
         return request.render('auth_signup.signup', qcontext)
 
@@ -53,5 +57,9 @@ class AuthSignupHome(openerp.addons.web.controllers.main.Home):
         values = {key: qcontext.get(key) for key in ('login', 'name', 'password')}
         assert all(values.values()), "The form was not properly filled in."
         assert values.get('password') == qcontext.get('confirm_password'), "Podane hasła się różnią."
-        request.env['res.users'].sudo().with_context(redirect=qcontext.get('redirect'), no_reset_password=True, confirm_signup=True).signup(values, qcontext.get('token'))
+        request.env['res.users'].sudo().with_context(
+            redirect=qcontext.get('redirect'),
+            no_reset_password=True,
+            confirm_signup=True
+        ).signup(values, qcontext.get('token'))
         request.cr.commit()
