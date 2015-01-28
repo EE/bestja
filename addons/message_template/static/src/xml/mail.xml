@@ -5,4 +5,9 @@
             <span class='oe_reply' t-if="widget.options.show_reply_button and widget.subtype != 'System Message'"><a title="Reply" class="oe_e">(</a></span>
         </t>
     </t>
+    <t t-extend="mail.compose_message">
+        <!-- remove the "Open the full mail composer". It blows up,
+            since we do not support all e-mail related features in Odoo -->
+        <t t-jquery=".oe_full" t-operation="replace"/>
+    </t>
 </template>
