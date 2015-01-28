@@ -85,7 +85,14 @@ class Volunteer(models.Model):
     )
     sanepid = fields.Date(string="badania sanepidu")
     forklift = fields.Date(string="uprawnienia na wózek widłowy")
-    email = fields.Char(string="adres email")
+    # 'email' field from partner is hidden by group permissions,
+    # this field is a proxy, without the group restrictions.
+    user_email = fields.Char(
+        string="adres email",
+        required=True,
+        compute='_compute_user_email',
+        inverse='_inverse_user_email',
+    )
     phone = fields.Char(string="numer tel.")
     birthdate = fields.Date(string="data urodzenia")
     curriculum_vitae = fields.Binary(string="CV")
@@ -153,7 +160,7 @@ class Volunteer(models.Model):
         },
         'privileged': {  # Fields accessible to privileged users (coordinators, managers)
             'wishes', 'skills', 'languages', 'occupation', 'drivers_license', 'sanepid',
-            'forklift', 'email', 'phone', 'birthdate', 'curriculum_vitae', 'cv_filename',
+            'forklift', 'user_email', 'phone', 'birthdate', 'curriculum_vitae', 'cv_filename',
             'daypart', 'daypart_comments', 'sex', 'place_of_birth', 'citizenship',
             'street_gov', 'street_number_gov', 'apt_number_gov', 'zip_code_gov',
             'city_gov', 'voivodeship_gov', 'country_gov', 'different_addresses',
@@ -162,7 +169,7 @@ class Volunteer(models.Model):
         },
         'owner': {  # Fields accessible to the owner (i.e. the user herself)
             'wishes', 'skills', 'languages', 'occupation', 'drivers_license', 'sanepid',
-            'forklift', 'email', 'phone', 'birthdate', 'curriculum_vitae', 'cv_filename',
+            'forklift', 'user_email', 'phone', 'birthdate', 'curriculum_vitae', 'cv_filename',
             'daypart', 'daypart_comments', 'sex', 'place_of_birth', 'citizenship',
             'street_gov', 'street_number_gov', 'apt_number_gov', 'zip_code_gov',
             'city_gov', 'voivodeship_gov', 'country_gov', 'different_addresses',
@@ -269,6 +276,21 @@ class Volunteer(models.Model):
     #######################################
     # / Fields permissions code ends here #
     #######################################
+
+    @api.one
+    @api.depends('partner_id.email')
+    def _compute_user_email(self):
+        self.user_email = self.sudo().partner_id.email
+
+    @api.one
+    def _inverse_user_email(self):
+        # There is no reason for self.user_email to ever be blank,
+        # as the field is required.
+        # The conditional statement is needed, because all fields are initialized
+        # to False during user creation, and we don't want to propagate this to
+        # the `email` field on the partner object (clearing it in the process).
+        if self.user_email:
+            self.sudo().partner_id.email = self.user_email
 
     @api.model
     def _get_group(self):

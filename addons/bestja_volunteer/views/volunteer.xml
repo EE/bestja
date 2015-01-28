@@ -53,7 +53,7 @@
                             </page>
                             <page string="Dane Kontaktowe" attrs="{'invisible': [('user_access_level', 'not in', ['owner', 'admin', 'privileged'])]}">
                                 <group colspan="4" col="2" class="medium_input" string="Kontakt">
-                                    <field name="email"/>
+                                    <field name="user_email"/>
                                     <field name="phone" class="short_input"/>
                                 </group>
                                 <group string="Adres zamieszkania" class="medium_input">
@@ -113,7 +113,7 @@
                                 <button name="preference_change_password" type="object" string="zmień hasło" class="oe_link"/>
                                 <separator string="Powiadomienia email"/>
                                 <div class="oe_edit_only oe_grey">Wybierz czy chcesz być informowany o wszystkich zdarzeniach na adres email.</div>
-                                <field name="notify_email" widget="radio" readonly="0"/> 
+                                <field name="notify_email" widget="radio" readonly="0"/>
                             </page>
                         </notebook>
                     </sheet>
