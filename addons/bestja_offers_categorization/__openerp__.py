@@ -4,7 +4,7 @@
     'summary': "Adds categories to offers",
     'description': """
 BestJa Job Offers Categorization
-========================
+================================
 Adds categories to offers and allows users to browse offers by category.""",
     'author': "Laboratorium EE",
     'website': "http://www.laboratorium.ee",
