@@ -366,7 +366,7 @@ class Volunteer(models.Model):
         """
         Does password follow the security rules?
         """
-        return len(password) > 6 and re.search('[a-zA-Z]+', password) \
+        return len(password) >= 6 and re.search('[a-zA-Z]+', password) \
             and not password.islower() and not password.isupper()
 
     @api.model
