@@ -12,15 +12,20 @@ class OffersByOrg(http.Controller):
             organization = http.request.env['organization'].sudo().search([
                 ('level', '=', 0),
             ])
-            offers = http.request.env['offer'].sudo().search([
-                ('state', '=', 'published'),
-                ('project.organization', '=', organization.id),
-            ])
         else:
             organization = http.request.env['organization'].sudo().search([
                 ('level', '=', 1),
                 ('city_slug', '=', city_slug)
             ])
+        if not organization:
+            return http.request.not_found()
+
+        if city_slug == 'root':
+            offers = http.request.env['offer'].sudo().search([
+                ('state', '=', 'published'),
+                ('project.organization', '=', organization.id),
+            ])
+        else:
             offers = http.request.env['offer'].sudo().search([
                 ('state', '=', 'published'),
                 '|',  # noqa
