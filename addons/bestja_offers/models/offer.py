@@ -55,14 +55,6 @@ class Offer(models.Model):
     def _default_helpee_group(self):
         return self.env['offers.helpee_group'].search([])
 
-    @api.multi
-    def compute_image_medium(self):
-        self.image_medium = tools.image_resize_image_medium(self.image)
-
-    @api.one
-    def inverse_image_medium(self):
-        self.image = tools.image_resize_image_big(self.image_medium)
-
     state = fields.Selection(STATES, default='unpublished', string="Stan")
     name = fields.Char(string="Nazwa")
     vacancies = fields.Integer(string="Liczba wakatów", requred=True, default=1)
@@ -135,8 +127,6 @@ class Offer(models.Model):
     desc_comments = fields.Text(
         string="Uwagi"
     )
-    image = fields.Binary()
-    image_medium = fields.Binary(compute='compute_image_medium', inverse='inverse_image_medium', store=True)
     date_end = fields.Date(string="Termin ważności")
     remaining_days = fields.Integer(string="Wygasa za", compute='_remaining_days')
     kind = fields.Selection(KIND_CHOICES, required=True, string="rodzaj akcji")

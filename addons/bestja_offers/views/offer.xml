@@ -44,7 +44,6 @@
                         <button name="set_unpublished" string="Przywróc jako ofertę" type="object" states="template"/>
                         <button name="show_website_action" string="Zobacz na WWW" type="object" class="oe_link" states="published"/>
                     </header>
-                    <field name="image_medium" widget="image" class="oe_left oe_avatar"/>
                     <button class="oe_stat_button oe_right" icon="fa-file-o" name="%(action_list_applications)d" type="action">
                         <field name="application_count" widget="statinfo" string="aplikacji"/>
                     </button>
