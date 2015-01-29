@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="pieczywo" model="bestja.commodity_group">
+            <field name="code">01</field>
+            <field name="name">Pieczywo, ciasta</field>
+        </record>
+        <record id="biszkopty" model="bestja.commodity_group">
+            <field name="code">02</field>
+            <field name="name">Biszkopty, sucharki</field>
+        </record>
+        <record id="kawa" model="bestja.commodity_group">
+            <field name="code">03</field>
+            <field name="name">Kawa cykoria herbata</field>
+        </record>
+        <record id="muesli" model="bestja.commodity_group">
+            <field name="code">04</field>
+            <field name="name">Muesli, zboża</field>
+        </record>
+        <record id="czekolada" model="bestja.commodity_group">
+            <field name="code">06</field>
+            <field name="name">Czekolada i słodycze</field>
+        </record>
+        <record id="desery" model="bestja.commodity_group">
+            <field name="code">08</field>
+            <field name="name">Kremy - desery</field>
+        </record>
+        <record id="mleko" model="bestja.commodity_group">
+            <field name="code">09</field>
+            <field name="name">Mleko</field>
+        </record>
+        <record id="maki" model="bestja.commodity_group">
+            <field name="code">10</field>
+            <field name="name">Mąki - pure</field>
+        </record>
+        <record id="makarony" model="bestja.commodity_group">
+            <field name="code">11</field>
+            <field name="name">Makarony - ryż - kuskus</field>
+        </record>
+        <record id="suszone" model="bestja.commodity_group">
+            <field name="code">12</field>
+            <field name="name">Owoce, warzywa suszone</field>
+        </record>
+        <record id="zupy" model="bestja.commodity_group">
+            <field name="code">13</field>
+            <field name="name">Zupy</field>
+        </record>
+        <record id="przyprawy" model="bestja.commodity_group">
+            <field name="code">14</field>
+            <field name="name">Przyprawy, sosy</field>
+        </record>
+        <record id="oleje" model="bestja.commodity_group">
+            <field name="code">17</field>
+            <field name="name">Oleje, tłuszcze</field>
+        </record>
+        <record id="cukier" model="bestja.commodity_group">
+            <field name="code">19</field>
+            <field name="name">Cukier</field>
+        </record>
+        <record id="przetwory_owoce" model="bestja.commodity_group">
+            <field name="code">20</field>
+            <field name="name">Przetwory z owoców</field>
+        </record>
+        <record id="przetwory_warzywa" model="bestja.commodity_group">
+            <field name="code">21</field>
+            <field name="name">Przetwory z warzyw</field>
+        </record>
+        <record id="konserwy_rybne" model="bestja.commodity_group">
+            <field name="code">22</field>
+            <field name="name">Konserwy rybne</field>
+        </record>
+        <record id="konserwy_miesne" model="bestja.commodity_group">
+            <field name="code">23</field>
+            <field name="name">Konserwy mięsne</field>
+        </record>
+        <record id="dania_gotowe" model="bestja.commodity_group">
+            <field name="code">24</field>
+            <field name="name">Dania gotowe</field>
+        </record>
+        <record id="odzywki_dla_dzieci" model="bestja.commodity_group">
+            <field name="code">25</field>
+            <field name="name">Odżywki dla dzieci</field>
+        </record>
+        <record id="napoje_wody" model="bestja.commodity_group">
+            <field name="code">28</field>
+            <field name="name">Napoje i wody sodowe</field>
+        </record>
+        <record id="owoce_mrozone" model="bestja.commodity_group">
+            <field name="code">30</field>
+            <field name="name">Owoce mrożone</field>
+        </record>
+        <record id="warzywa_mrozone" model="bestja.commodity_group">
+            <field name="code">31</field>
+            <field name="name">Warzywa mrożone</field>
+        </record>
+        <record id="ryby_mrozone" model="bestja.commodity_group">
+            <field name="code">32</field>
+            <field name="name">Ryby, skorupiaki mrożone</field>
+        </record>
+        <record id="mieso_mrozone" model="bestja.commodity_group">
+            <field name="code">33</field>
+            <field name="name">Mięso, drób mrożone</field>
+        </record>
+        <record id="dania_gotowe_mrozone" model="bestja.commodity_group">
+            <field name="code">34</field>
+            <field name="name">Dania gotowe mrożone</field>
+        </record>
+        <record id="kremy_mrozone" model="bestja.commodity_group">
+            <field name="code">35</field>
+            <field name="name">Kremy i desery mrożone</field>
+        </record>
+        <record id="sery" model="bestja.commodity_group">
+            <field name="code">43</field>
+            <field name="name">Sery - produkty mleczne</field>
+        </record>
+        <record id="owoce_swieze" model="bestja.commodity_group">
+            <field name="code">44</field>
+            <field name="name">Owoce świeże</field>
+        </record>
+        <record id="warzywa swieze" model="bestja.commodity_group">
+            <field name="code">45</field>
+            <field name="name">Warzywa świeże</field>
+        </record>
+        <record id="mieso_swieze" model="bestja.commodity_group">
+            <field name="code">46</field>
+            <field name="name">Mięso, drób, wędliny świeże</field>
+        </record>
+        <record id="dania_gotowe_swieze" model="bestja.commodity_group">
+            <field name="code">47</field>
+            <field name="name">Dania gotowe świeże</field>
+        </record>
+        <record id="ryby" model="bestja.commodity_group">
+            <field name="code">49</field>
+            <field name="name">Ryby</field>
+        </record>
+        <record id="srodki_czystosci" model="bestja.commodity_group">
+            <field name="code">51</field>
+            <field name="name">Środki czystości</field>
+        </record>
+        <record id="srodki_higieny" model="bestja.commodity_group">
+            <field name="code">67</field>
+            <field name="name">Środki higieny</field>
+        </record>
+        <record id="rozne" model="bestja.commodity_group">
+            <field name="code">99</field>
+            <field name="name">Różne</field>
+        </record>
+    </data>
+</openerp>

@@ -1,0 +1,74 @@
+<openerp>
+    <data>
+
+        <record model="ir.actions.act_window" id="action_detailed_reports_item_summary">
+            <field name="name">Zbiorcze raporty szczegółowe</field>
+            <field name="res_model">bestja.report_entry</field>
+            <field name="view_mode">graph</field>
+            <field name="domain">[
+                ('detailed_report.state', '!=', 'draft'),
+            ]</field>
+            <field name="context">{
+                'search_default_accepted': True,
+            }</field>
+        </record>
+        
+        <record model="ir.ui.view" id="report_entry_graph">
+            <field name="name">bestja.report_entry.graph</field>
+            <field name="model">bestja.report_entry</field>
+            <field name="arch" type="xml">
+                <graph type="pivot">
+                    <field name="interested_organization"/>
+                    <field name="commodity" type="col"/>
+                    <field name="tonnage" type="measure"/>
+                </graph>
+            </field>
+        </record>
+        
+        <record model="ir.ui.view" id="bestja_report_entry_search">
+            <field name="name">bestja.report_entry.search</field>
+            <field name="model">bestja.report_entry</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="interested_organization"/>
+                    <filter name="sent" string="Oczekujące"
+                    domain="[('detailed_report.state', '=', 'sent')]"/>
+                    <filter name="accepted" string="Zaakceptowane"
+                    domain="[('detailed_report.state', '=', 'accepted')]"/>
+                    <filter name="rejected" string="Odrzucone"
+                    domain="[('detailed_report.state', '=', 'rejected')]"/>
+                </search>
+            </field>
+        </record>
+        
+        <record id="project_detailed_summary_kanban" model="ir.ui.view">
+             <field name="name">bestja.project.detailed_summary</field>
+             <field name="model">bestja.project</field>
+             <field name="priority">30</field>
+             <field name="arch" type="xml">
+                 <kanban class="oe_background_grey">
+                     <field name="name"/>
+                     <templates>
+                         <t t-name="kanban-box">
+                            <div class="oe_kanban_card">
+                               <a name="%(action_detailed_reports_item_summary)d" type="action"><field name="name"/></a>
+                            </div>
+                         </t>
+                     </templates>
+                 </kanban>
+             </field>
+         </record>
+
+        <record model="ir.actions.act_window" id="action_bestja_detailed_report_summary">
+            <field name="name">Zbiorcze raporty szczegółowe</field>
+            <field name="res_model">bestja.project</field>
+            <field name="view_mode">kanban</field>
+            <field name="view_id" ref="project_detailed_summary_kanban"/>
+            <field name="domain">[
+            '|',
+                ('organization.coordinator', '=', uid),
+                ('manager', '=', uid),
+            ]</field>
+        </record>
+    </data>
+</openerp>
