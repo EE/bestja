@@ -132,7 +132,7 @@ class Offer(models.Model):
     kind = fields.Selection(KIND_CHOICES, required=True, string="rodzaj akcji")
     interval = fields.Selection(INTERVAL_CHOICES, string="powtarzaj co")
     daypart = fields.Many2many('volunteer.daypart', string="pora dnia")
-    hours = fields.Integer(string="liczba h")
+    hours = fields.Integer(string="liczba h/tyg.")
     weekday = fields.Many2many('offers.weekday', string="dzień tygodnia")
     comments_time = fields.Text(string="Uwagi dotyczące terminu")
     applications = fields.One2many('offers.application', 'offer', string="Aplikacje")
