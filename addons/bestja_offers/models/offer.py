@@ -176,11 +176,9 @@ class Offer(models.Model):
             raise exceptions.ValidationError("Liczba wakatów musi być większa od 0!")
 
     @api.one
-    @api.constrains('kind', 'hours', 'weekday', 'daypart', 'interval')
+    @api.constrains('kind', 'weekday', 'daypart', 'interval')
     def _check_time(self):
         if not self.kind == 'flexible':
-            if not self.hours:
-                raise exceptions.ValidationError("Wypełnij pole liczby godzin!")
             if not self.weekday:
                 raise exceptions.ValidationError("Wypełnij pole dnia tygodnia!")
             if not self.daypart:
