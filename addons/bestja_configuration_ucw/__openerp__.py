@@ -12,7 +12,6 @@
         'bestja_base',
         'bestja_volunteer',
         'bestja_volunteer_notes',
-        'bestja_account_deletion',
         'bestja_organization',
         'bestja_project',
         'bestja_offers',
@@ -22,6 +21,7 @@
         'bestja_files',
         'bestja_application_moderation',
         'bestja_ucw_permissions',
+        'bestja_frontend_ucw',
     ],
     'data': [
         'data.xml',

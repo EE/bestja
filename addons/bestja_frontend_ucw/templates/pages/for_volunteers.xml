@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <template id="website.for_volunteers" name="Site about laws and responsibilities of volunteers" page="True">
+            <t t-call="website.layout">
+                <div id="wrap" class="oe_structure oe_empty">
+                    <section class="oe_snippet_body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h1 class="text-center mt48 mb48 section_title">
+                                        PRAWA I OBOWIĄZKI WOLONTARIUSZA</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="oe_snippet_body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h3 class="mt48 mb48 section_title">
+                                        Organizacja, na rzecz której pracujesz, musi poinformować Cię 
+                                        o wszystkich przysługujących Ci prawach i o Twoich obowiązkach. 
+                                        Prawa wolontariuszy określa art. 42 ustawy o działalności pożytku 
+                                        publicznego i wolontariacie z dn. 24 kwietnia 2003 r. (Dz.U. 2003 
+                                        Nr 96 poz. 873 z póź. zm.). Regulacje te powstały po to, żeby 
+                                        zagwarantować bezpieczeństwo pracy wolontariuszom i organizacjom 
+                                        oraz wyeliminować nieprawidłowości.</h3>
+                                    <h2 class="mt48 mb48 section_title">
+                                        Prawa wolontariusza</h2>
+                                    <hr />
+                                    <h3>
+                                        <strong>Porozumienie o wykonywaniu świadczeń wolontarystycznych</strong>
+                                    </h3>
+                                    <h3 class="mt48 mb48 section_title">
+                                        Każdy wolontariusz powinien zawrzeć z organizacją porozumienie 
+                                        dotyczące zakresu obowiązków i okresu odbywania wolontariatu. 
+                                        Porozumienie musi mieć formę pisemną, jeśli wolontariusz zostaje 
+                                        „zatrudniony” na dłużej niż 30 dni. Jeżeli wolontariusz pełni 
+                                        świadczenie w organizacji krócej, porozumienie w formie pisemnej 
+                                        nie jest wymagane, ale powinno zostać podpisane na życzenie wolontariusza.</h3>
+                                    <h3>
+                                        <strong>Ubezpieczenie od odpowiedzialności cywilnej (OC)</strong>
+                                    </h3>
+                                    <h3 class="mt48 mb48 section_title">
+                                        Przepisy prawne dotyczące wolontariatu nie regulują kwestii 
+                                        ubezpieczenia OC. Należy jednak pamiętać, że skoro wolontariusz 
+                                        jest stroną umowy cywilnoprawnej, jaką jest porozumienie, może 
+                                        odpowiadać za niewykonanie lub nienależyte wykonanie pracy, a także 
+                                        za czyny niedozwolone. Jeśli rodzaj świadczonego wolontariatu tego 
+                                        wymaga, możesz poprosić organizację, dla której pracujesz, by 
+                                        zapewniła Ci takie ubezpieczenie.</h3>
+                                    <h3>
+                                        <strong>Ubezpieczenie od następstw nieszczęśliwych wypadków (NNW)</strong>
+                                    </h3>
+                                    <h3 class="mt48 mb48 section_title">
+                                        Organizacja ma obowiązek wykupić ubezpieczenie NNW, jeśli wolontariusz 
+                                        będzie „zatrudniony” krócej niż 30 dni. Jeżeli praca będzie trwać dłużej, 
+                                        nie trzeba samodzielnie ubezpieczać wolontariusza, ponieważ podlega 
+                                        ubezpieczeniu NNW z mocy ustawy o ubezpieczeniu społecznym z tytułu 
+                                        wypadków przy pracy i chorób zawodowych z dn. 30.10.2002 r. 
+                                        (Dz.U. 2002 Nr 199 poz. 1673 z póź. zm.).</h3>
+                                    <h3>
+                                        <strong>Zaświadczenie</strong>
+                                    </h3>
+                                    <h3 class="mt48 mb48 section_title">
+                                        Organizacja, dla której pracujesz ma obowiązek, na Twoją prośbę, 
+                                        wystawić Ci pisemne zaświadczenie o odbytym wolontariacie, w którym 
+                                        zawarte będą informacje o tym, ile godzin przepracowałeś i co należało 
+                                        do Twoich obowiązków. Może także wystawić Ci opinię.</h3>
+                                    <h3>
+                                        <strong>Warunki pracy</strong>
+                                    </h3>
+                                    <h3 class="mt48 mb48 section_title">
+                                        Organizacja ma obowiązek zapewnienia Ci odpowiednich warunków pracy, 
+                                        tak by odbywała się ona zgodnie z przepisami BHP. Masz także prawo 
+                                        do informacji o wszelkim ryzyku, jakie niesie wykonywana praca dla 
+                                        Twojego zdrowia i bezpieczeństwa.</h3>
+                                    <h3>
+                                        <strong>Diety i zwrot kosztów podróży</strong>
+                                    </h3>
+                                    <h3 class="mt48 mb48 section_title">
+                                        Jeśli organizacja wysyła Cię do pełnienia wolontariatu w inne miejsce, 
+                                        to ma obowiązek traktować Cię jak pracownika etatowego, co oznacza, 
+                                        że powinna pokryć koszty przejazdu i diety. Z tego obowiązku 
+                                        wolontariusz może pisemnie zwolnić organizację.</h3>
+                                    <h2>Obowiązki wolontariusza</h2>
+                                    <hr />
+                                    <h3 class="mt48 mb48 section_title">
+                                        Ustawa nie nakłada na wolontariuszy jakiś szczególnych obowiązków. 
+                                        Na pewno masz obowiązek wykonywania zadań z należytą starannością 
+                                        – jesteś odpowiedzialny za swoją pracę i w razie nieprawidłowości 
+                                        ponosisz konsekwencje. Przy wykonywaniu niektórych prac wolontariusz 
+                                        także jest zobowiązany do posiadania określonych kwalifikacji, jeśli 
+                                        wynika to z odrębnych przepisów (np. wolontariat medyczny pełni 
+                                        wykwalifikowana pielęgniarka).</h3>                                        
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </t>
+        </template>
+        <record id="for_volunteers" model="website.menu">
+            <field name="name">dla wolontariuszy</field>
+            <field name="url">/page/for_volunteers</field>
+        </record>
+    </data>
+</openerp>
