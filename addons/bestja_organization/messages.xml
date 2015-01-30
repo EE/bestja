@@ -36,11 +36,7 @@
             <field name="body"><![CDATA[
                 Dzięki Twojej aktywności Twoja organizacja dołączyła do naszej społeczności!
 
-                <ul>
-                    <li><a href="#">Przeczytaj poradnik, jak tworzyć ciekawe oferty</a></li>
-                    <li><a href="#id=${record.id}&view_type=form&model=organization">Uzupełnij profil organizacji</a></li>
-                    Dodaj swój pierwszy projekt!
-                </ul>
+                <li><a href="${link_to(record)}">Uzupełnij profil organizacji</a></li>
             ]]></field>
             <field name="model">organization</field>
         </record>

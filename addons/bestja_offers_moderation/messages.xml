@@ -12,7 +12,7 @@
         <record id="msg_approved" model="message_template">
             <field name="subject">Oferta zaakceptowana</field>
             <field name="body"><![CDATA[
-                Twoja oferta została zaakceptowana. <a href="${record.get_public_url()}">Zobacz na www</a>.
+                Twoja oferta została zaakceptowana. <a href="${base_url}${record.get_public_url()}">Zobacz na www</a>.
             ]]></field>
             <field name="model">offer</field>
         </record>

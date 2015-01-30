@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from urlparse import urljoin
 
 from openerp import models, fields, api, tools
 from openerp.addons.email_template.email_template import mako_template_env
@@ -24,11 +25,22 @@ class MessageTemplate(models.Model):
             sender = self.env.ref('message_template.user_messages')
             subtype = self.env.ref('message_template.subtype_system_message')
 
+        base_url = self.env['ir.config_parameter'].get_param('web.base.url')
+
+        def link_to(record):
+            """
+            Create an absolute link to the given record.
+            """
+            path = '/web#id={}&model={}'.format(record.id, record._name)
+            return urljoin(base_url, path)
+
         # Enable resolution of ${variables} inside body
         body_template = mako_template_env.from_string(tools.ustr(self.body))
         body_rendered = body_template.render({
             'record': record,
             'context': self.env.context,
+            'base_url': base_url,
+            'link_to': link_to,
         })
 
         self.env['mail.message'].sudo().create({
