@@ -35,13 +35,17 @@ class MessageTemplate(models.Model):
             return urljoin(base_url, path)
 
         # Enable resolution of ${variables} inside body
-        body_template = mako_template_env.from_string(tools.ustr(self.body))
-        body_rendered = body_template.render({
+        template_context = {
             'record': record,
             'context': self.env.context,
             'base_url': base_url,
             'link_to': link_to,
-        })
+            'site_name': self.env.user.company_id.name,
+        }
+        body_template = mako_template_env.from_string(tools.ustr(self.body))
+        body_rendered = body_template.render(template_context)
+        subject_template = mako_template_env.from_string(tools.ustr(self.subject))
+        subject_rendered = subject_template.render(template_context)
 
         self.env['mail.message'].sudo().create({
             'type': 'comment',
@@ -50,7 +54,7 @@ class MessageTemplate(models.Model):
             'model': self.model,
             'res_id': record and record.id,
             'record_name': record_name or (record and record.display_name),
-            'subject': self.subject,
+            'subject': subject_rendered,
             'body': body_rendered,
             'template': self.id,
             'subtype_id': subtype and subtype.id
