@@ -51,33 +51,21 @@
 
                     <section class="row">
                         <section class="offer_content col-md-5 col-md-offset-1">
-                            <section t-if="offer.desc_aim">
-                                <h2>Dlaczego potrzebujemy pomocy</h2>
-                                <p>Celem projektu jest: <span t-field="offer.desc_aim"></span></p>
+                            <h2>Dlaczego potrzebujemy pomocy</h2>
+                            <section t-if="offer.description">
+                                <p>Celem projektu jest: <span t-field="offer.description"></span></p>
                             </section>
-                            <section t-if="offer.desc_expectations">
+                            <section t-if="offer.expectations">
                                 <h2>Jak możesz pomóc</h2>
                                 <p>
-                                    <span t-field="offer.desc_expectations"></span>
+                                    <span t-field="offer.expectations"></span>
                                 </p>
                             </section>
-                            <section t-if="offer.desc_why">
-                                <h2>Co możesz zmienić</h2>
-                                <p>
-                                    <span t-field="offer.desc_why"></span>
-                                </p>
-                            </section>
-                            <section t-if="offer.desc_benefits">
+                            <section t-if="offer.benefits">
                                 <h2>Korzyści</h2>
                                 <p>
-                                    <span t-field="offer.desc_benefits"></span>
+                                    <span t-field="offer.benefits"></span>
                                 </p>
-                            </section>
-                            <section t-if="offer.skills">
-                                <h2>Oczekujemy</h2>
-                                <ul><li t-foreach="offer.skills" t-as="skill">
-                                    <t t-esc="skill.name"/>
-                                </li></ul>
                             </section>
 
                             <div class="row">

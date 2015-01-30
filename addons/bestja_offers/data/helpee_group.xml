@@ -1,7 +1,0 @@
-<openerp>
-    <data>
-        <record id="seniorzy" model="offers.helpee_group">
-            <field name="name">seniorzy</field>
-        </record>
-    </data>
-</openerp>

@@ -79,22 +79,16 @@
                             <field name="wishes" widget="many2many_checkboxes"/>
                         </page>
                         <page string="Opis">
-                            <label for="target_group"/>
-                            <field name="target_group" widget="many2many_tags" options="{'no_create': True}"/>
-                            <label for="desc_aim"/>
-                            <field name="desc_aim" placeholder="Opisz w skrócie czym będzie zajmował się wolontariusz"/>
-                            <label for="desc_expectations"/>
-                            <field name="desc_expectations" placeholder="Jakie będą oczekiwania wobec wolontariusza?"/>
-                            <label for="desc_why"/>
-                            <field name="desc_why" placeholder="Opisz dlaczego wolontariusz miałby zaangażować się w tę akcję."/>
-                            <label for="desc_benefits"/>
-                            <field name="desc_benefits" placeholder="Opisz czego nauczy się, jakie zdobędzie kwalifikacje, doświadczenia."/>
-                            <label for="helpee_group"/>
-                            <field name="helpee_group" widget="many2many_tags" options="{'no_create': True}"/>
-                            <label for="desc_tools"/>
-                            <field name="desc_tools" placeholder="np. napoje, koszulki, przyrządy ogrodnicze."/>
-                            <label for="desc_comments"/>
-                            <field name="desc_comments" placeholder="Wpisz jeśli masz uwagi lub dodatkowe wymagania."/>
+                            <label for="description"/>
+                            <field name="description" placeholder="Opisz w skrócie czym będzie zajmował się wolontariusz"/>
+                            <label for="expectations"/>
+                            <field name="expectations" placeholder="Jakie będą oczekiwania wobec wolontariusza?"/>
+                            <label for="benefits"/>
+                            <field name="benefits" placeholder="Opisz czego nauczy się, jakie zdobędzie kwalifikacje, doświadczenia."/>
+                            <label for="tools"/>
+                            <field name="tools" placeholder="np. napoje, koszulki, przyrządy ogrodnicze."/>
+                            <label for="comments"/>
+                            <field name="comments" placeholder="Wpisz jeśli masz uwagi lub dodatkowe wymagania."/>
                         </page>
                         <page string="Termin">
                             <group string="Wybierz rodzaj akcji" col="1">

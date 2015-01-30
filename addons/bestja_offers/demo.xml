@@ -10,16 +10,15 @@
             <field name="project" ref="bestja_project.project_cheese"/>
             <field name="skills" eval="[(6, 0, [ref('bestja_volunteer.dziennikarstwo'), ref('bestja_volunteer.komunikatywnosc'), ref('bestja_volunteer.zbieranie_funduszy')])]"/>
             <field name="wishes" eval="[(6, 0, [ref('bestja_volunteer.organizacja_imprez'), ref('bestja_volunteer.media_i_marketing')])]"/>
-            <field name="desc_aim">Organizacja corocznego wydarzenia lokalnego - Dni Sera</field>
-            <field name="desc_expectations">- przygotowanie planu promocji
+            <field name="description">Organizacja corocznego wydarzenia lokalnego - Dni Sera</field>
+            <field name="expectations">- przygotowanie planu promocji
 - kontakt z podwykonawcami
 - przygotowanie notek prasowych
 - obsługa medialna wydarzenia
 - współpraca z lokalnymi partnerami</field>
-            <field name="desc_why">wprowadzenie nowych, ciekawych pomysłów na promocję wydarzenia lokalnego</field>
-            <field name="desc_benefits">- obsługa medialna imprezy lokalnej
+            <field name="benefits">- obsługa medialna imprezy lokalnej
 - nauka organizacji wydarzeń kulturalnych</field>
-            <field name="desc_tools">napoje, laptopy, telefony komórkowe, strefę organizatorów, upominki regionalne</field>
+            <field name="tools">napoje, laptopy, telefony komórkowe, strefę organizatorów, upominki regionalne</field>
             <field name="location_name">Dom Kultury</field>
             <field name="address">Korycińska 10</field>
             <field name="city">Korycin</field>
@@ -39,10 +38,10 @@
             <field name="project" ref="bestja_project.project_horse"/>
             <field name="skills" eval="[(6, 0, [ref('bestja_volunteer.zbieranie_funduszy')])]"/>
             <field name="wishes" eval="[(6, 0, [ref('bestja_volunteer.organizacja_imprez'), ref('bestja_volunteer.praca_biurowa')])]"/>
-            <field name="desc_aim">Zebranie środków na organizację corocznego pikniku wielokulturowego</field>
-            <field name="desc_expectations">- tworzył plan akcji fundraisingowej
+            <field name="description">Zebranie środków na organizację corocznego pikniku wielokulturowego</field>
+            <field name="expectations">- tworzył plan akcji fundraisingowej
 - koordynował zbiórkę </field>
-            <field name="desc_benefits">- doświadczenie w tworzeniu akcji fundraising</field>
+            <field name="benefits">- doświadczenie w tworzeniu akcji fundraising</field>
             <field name="location_name">Kruszyniany</field>
             <field name="address">Tatatarska Jurta 3</field>
             <field name="city">Kruszyniany</field>

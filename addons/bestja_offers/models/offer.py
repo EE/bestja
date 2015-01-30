@@ -3,7 +3,7 @@
 from lxml import etree
 from datetime import date
 
-from openerp import tools, models, fields, api, exceptions
+from openerp import models, fields, api, exceptions
 from openerp.addons.website.models.website import slug
 
 
@@ -11,12 +11,6 @@ class Weekday(models.Model):
     _name = 'offers.weekday'
     name = fields.Char(size=3, required=True)
     full_name = fields.Char(required=True)
-
-
-class HelpeeGroup(models.Model):
-    """Odbiorca pomocy"""
-    _name = 'offers.helpee_group'
-    name = fields.Char(requred=True)
 
 
 class Offer(models.Model):
@@ -84,49 +78,11 @@ class Offer(models.Model):
     latitude = fields.Float(string="Szerokość geograficzna", digits=(7, 4))
     longitude = fields.Float(string="Długość geograficzna", digits=(7, 4))
     district = fields.Char(string="Dzielnica")
-    target_group = fields.Many2many(
-        'volunteer.occupation',
-        default=_default_target_group,
-        required=True,
-        string="Kto jest adresatem oferty?",
-        help="Wybierz grupę docelową np. studenci, emeryci."
-    )
-    helpee_group = fields.Many2many(
-        'offers.helpee_group',
-        default=_default_helpee_group,
-        required=True,
-        string="Komu wolontariusz może pomóc?",
-        help="Wybierz grupę osób, z którymi będzie pracował."
-    )
-    desc_aim = fields.Text(
-        required=True,
-        string="Co jest celem oferty?",
-        help="Opisz w skrócie czym będzie zajmował się wolontariusz. \
-        np. Akcja będzie polegała na uporządkowaniu trawnika"
-    )
-    desc_expectations = fields.Text(
-        required=True,
-        string="Co będzie robił wolontariusz?",
-        help="Jakie będą oczekiwania wobec wolontariusza. \
-        Co będzie musiał robić? np. Twoim zadaniem będzie grabienie liści, sadzenie trawy i krzewów"""
-    )
-    desc_why = fields.Text(
-        string="Jak praca wolontariusza przyczyni się do zmiany?",
-        help="Opisz dlaczego wolontariusz miałby się zaangażować w tę akcję, \
-        jaki problem pomoże rozwiązać, komu pomoże. \
-        np. Domy starców nie mają funduszy na rewitalizację zieleni, a starsze osoby często przebywają w ogrodzie. \
-        Twoja pomoc pozwoli seniorom miło spędzić czas w ogrodzie."
-    )
-    desc_benefits = fields.Text(
-        required=True,
-        string="Korzyści"
-    )
-    desc_tools = fields.Text(
-        string="Co zapewnia Twoja organizacja?"
-    )
-    desc_comments = fields.Text(
-        string="Uwagi"
-    )
+    description = fields.Text(required=True, string="Na czym będzie polegała Twoja praca")
+    expectations = fields.Text(required=True, string="Czego oczekujemy")
+    benefits = fields.Text(required=True, string="Co oferujemy")
+    tools = fields.Text(string="Co zapewniamy")
+    comments = fields.Text(string="Uwagi")
     date_end = fields.Date(string="Termin ważności")
     remaining_days = fields.Integer(string="Wygasa za", compute='_remaining_days')
     kind = fields.Selection(KIND_CHOICES, required=True, string="rodzaj akcji")
