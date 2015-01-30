@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <template id="website.team" name="Site about" page="True">
+            <t t-call="website.layout">
+                <div id="wrap" class="oe_structure oe_empty">
+                    <section class="oe_snippet_body">
+                        <div class="container-fluid full-section-container">
+                            <div class="container">
+                                <div class="row text-center">
+                                    <div class="col-md-12">
+                                        <h1 class="mt64 mb64">
+                                            ZESPÓŁ</h1>                      
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="oe_snippet_body">
+                        <div class="container-fluid full-section-container">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-12 team_site">
+                                        <div class="row">
+                                            <div class="col-lg-4 col-md-4 col-xs-12 col-sm-12">
+                                                <img src="http://lorempixel.com/g/640/960" 
+                                                     alt=""/>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6 col-xs-12 col-sm-12">
+                                                <h2>Katarzyna Żakowska</h2>
+                                                <p>Dyrektor Uniwersyteckiego Centrum Wolontariatu</p>
+                                                <p>Uniwersytet Warszawski  nie tylko edukuje, ale 
+                                                    też kształtuje i choć czasem irytuje – jest częścią 
+                                                    mojego życia już od wielu lat. To moje miejsce. 
+                                                    Dlaczego Centrum Wolontariatu? Może dlatego, że: 
+                                                    lubię widzieć pół szklanki pełne, a nie puste; nie 
+                                                    lubię stwierdzenia “nie da się”; lubię ciekawych ludzi; 
+                                                    nie lubię leniuchów; lubię cieszyć się z drobiazgów; 
+                                                    nie lubię ludzi małostkowych; nie lubię “much w nosie” 
+                                                    – swoim i innych; lubię się śmiać.</p>
+                                            </div>
+                                        </div>
+                                        <div class="row mt48">
+                                            <div class="col-lg-4 col-md-4 col-xs-12 col-sm-12">
+                                                <img src="http://lorempixel.com/g/640/960" 
+                                                         alt=""/>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6 col-xs-12 col-sm-12">
+                                                <h2>Katarzyna Kucharska</h2>
+                                                <p>Zanim związałam się z Uniwersyteckim Centrum 
+                                                    Wolontariatu współpracowałam z Fundacją Res 
+                                                    Publica im H. Krzeczkowskiego, gdzie koordynowałam 
+                                                    Projekt Programu Praktyk oraz byłam członkinią 
+                                                    zespołu badawczego DNA Miasta. Ukończyłam dwa 
+                                                    semestralne kursy antropologii miejskiej na 
+                                                    Univeristeit van Amsterdam. Podczas kilkumiesięcznego 
+                                                    pobytu na Uniwersytecie Ludowym w Danii uczęszczałam 
+                                                    na międzykulturowe zajęcia o współczesnej Danii 
+                                                    oraz praktyczno-teoretyczny kurs z zakresu sztuki 
+                                                    nowoczesnej. Od wielu lat interesuje się zagadnieniem 
+                                                    legend miejskich – porównuje ich treści oraz przyglądam 
+                                                    się jak funkcjonują w świadomości mieszkańców miast.</p>
+                                            </div>
+                                        </div>
+                                        <div class="row mt48 mb64">
+                                            <div class="col-lg-4 col-md-4 col-xs-12 col-sm-12">
+                                                <img class="img-left alignleft wp-image-481" 
+                                                         src="http://lorempixel.com/g/640/960" 
+                                                         alt=""/>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6 col-xs-12 col-sm-12">
+                                                <h2>Gaweł Pasek</h2>
+                                                <p>Z Uniwerkiem jestem związany od czasów studiów na 
+                                                    kulturoznawstwie. Angażowałem się w działalność 
+                                                    studenckich kół naukowych, przewodniczyłem Sekcji 
+                                                    Filmu i współtworzyłem liczne wydarzenia kulturalne 
+                                                    dla społeczności akademickiej.</p>
+                                                <p>Lubię pracę projektową, twórczą i wymagającą – 
+                                                    to właśnie zapewnia mi Uniwersyteckie Centrum Wolontariatu.</p>
+                                                <p>Prywatnie pasjonują mnie wszelkie formy audiowizualne. 
+                                                    Kończę też studia z produkcji filmowej na łódzkiej filmówce.</p>
+                                                <p></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </t>
+        </template>
+        <record id="team_page" model="website.menu">
+            <field name="name">Zespół</field>
+            <field name="url">/page/team</field>
+        </record>
+    </data>
+</openerp>

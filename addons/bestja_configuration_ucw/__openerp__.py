@@ -10,7 +10,6 @@
     'depends': [
         'base',
         'bestja_base',
-        'bestja_blog_customization',
         'bestja_volunteer',
         'bestja_volunteer_notes',
         'bestja_account_deletion',
@@ -23,7 +22,10 @@
         'bestja_files',
         'bestja_application_moderation',
         'bestja_ucw_permissions',
-        'bestja_age_verification',
+        'signup_age_verification',
+        'bestja_frontend_ucw',
+        'bestja_page_fixtures_ucw',
+		
     ],
     'data': [
         'data.xml',

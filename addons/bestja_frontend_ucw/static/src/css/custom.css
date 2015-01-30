@@ -1,0 +1,432 @@
+@charset "utf-8";
+@import url(http://fonts.googleapis.com/css?family=Ubuntu:300,400,700,300italic,400italic,700italic&subset=latin,latin-ext);
+
+/* Common css */
+#top_menu li:first-child{
+    display: none;
+}
+
+#wrap, section{
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.ubuntu_bold{
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 700;
+}
+
+a{
+    color: #F59A1E;
+    text-decoration: none;
+}
+
+a:hover, a:focus{
+    color: #982582;
+    text-decoration: none;
+}
+
+.button_orange{
+    background-color: #F59A1E;
+    color: #FFFFFF;
+    padding-left: 35px;
+    padding-right: 35px;
+    border-radius: 0;
+    height: 60px;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.button_orange:hover{
+    background-color: #982582;
+    color: #FFFFFF;
+}
+
+
+@media screen and (max-width: 991px) {
+    section .container-fluid{
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+.carousel_container{
+    position: relative;
+    max-width: 100%;
+}
+
+h1, .h1{
+    font-size: 36px;
+    font-weight: 700;
+}
+
+h2, .h2{
+    font-size: 24px;
+    font-weight: 700;
+}
+
+h3, .h3{
+    font-size: 18px;
+}
+
+h4, .h4{
+    font-size: 12px;
+}
+/* Navbar font modification */
+
+.navbar-static-top{
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 16px;
+}
+
+.dropdown-menu > li > a{
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* End of Navbar font modification */
+/* End of Common css */
+.color_orange{
+    color: #F59A1E;
+}
+
+.background_color_orange{
+    background-color: #F59A1E;
+}
+
+.color_green{
+    color: #009D93;
+}
+
+.background_color_green{
+    background-color: #009D93;
+}
+
+.color_violet{
+    color: #982582;
+}
+
+.background_color_violet{
+    background-color: #982582;
+    color: #FFFFFF;
+}
+
+.color_white{
+    color: #FFFFFF;
+}
+
+.background_color_grey{
+    background-color: #E8E8E8;
+}
+
+.orange_section{
+    background: url('http://lorempixel.com/g/1920/768') no-repeat 50% 50%;
+    background-size: auto auto;
+    color: #FFFFFF;
+}
+
+.violet_section{
+    background: url('http://bestja.d3.laboratorium.ee/img/zostan_wolontariuszem1200x413.jpg') no-repeat 50% 0%;
+    background-size: 150% auto;
+    color: #FFFFFF;
+}
+
+.violet_section_about_us{
+    background: url('http://bestja.d3.laboratorium.ee/img/1920/onas_1920x400.jpg') no-repeat 50% 0%;
+    background-size: 140% 140%;
+    color: #FFFFFF;
+}
+
+.violet_section_development{
+    background: url('http://bestja.d3.laboratorium.ee/img/medium/zostan_wolontariuszem2_1920x434.jpg') no-repeat 50% 0%;
+    background-size: auto 120%;
+    color: #FFFFFF;
+}
+
+.violet_section_join_us{
+    background: url('http://bestja.d3.laboratorium.ee/img/medium/zostan_wolontariuszem3.jpg') no-repeat 50% 0%;
+    background-size: auto auto;
+    color: #FFFFFF;
+}
+
+.violet_checklist li{
+    list-style: none;
+}
+
+.violet_checklist li span{
+    float: left;
+    padding: 10px;
+    background-color: #982582;
+    font-size: 30px;
+    color: #FFFFFF;
+    margin-right: 30px;
+    clear:left;
+}
+
+.grey_section{
+    background: #E8E8E8;
+    color: #000000;
+}
+
+.green_section{
+    background: #009D93;
+    color: #FFFFFF;
+}
+
+/* Centered columns styles */
+.row-centered {
+    text-align: center;
+}
+
+.col-centered {
+    display: inline-block;
+    float: none;
+    /* reset the text-align */
+    text-align: left;
+    /* inline-block space fix */
+    margin-right: -4px;
+}
+/* End of Centered columns styles */
+/* End of Common css */
+
+/* UCW Theme module description */
+.theme_description{
+    overflow: hidden;
+}
+/* End of UCW Theme module description */
+.carousel_title h1{
+    text-align: center;
+    line-height: 1.4em;  
+    color: #FFFFFF;
+    position: absolute;
+    top: 40%;  
+    left: 0;  
+    right: 0;  
+    bottom: 0;  
+}
+
+div.carousel .carousel-indicators li {
+    background-color: #000 \9;
+    background-color: rgba(0, 0, 0, 1);
+    border: 0;
+}
+
+div.carousel .carousel-indicators .active {
+    background-color: #fff;
+}
+
+.carousel-caption {
+    right: 0;
+    left: 0;
+    bottom: 0;
+    padding-bottom: 80px;
+    letter-spacing: 3px;
+    background-color: rgba(0,0,0,0.5);
+}
+
+@font-face {
+    font-family: 'Glyphicons Halflings';
+
+    src: url('./fonts/glyphicons-halflings-regular.eot');
+    src: url('./fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('./fonts/glyphicons-halflings-regular.woff') format('woff'), url('./fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('./fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+}
+
+.glyphicon-menu-left:before {
+    content: "\e257";
+}
+
+.glyphicon-menu-right:before {
+    content: "\e258";
+}
+
+.carousel-control .glyphicon-menu-left,
+.carousel-control .glyphicon-menu-right {
+    position: absolute;
+    top: 50%;
+    z-index: 5;
+    display: inline-block;
+}
+.carousel-control .glyphicon-menu-left {
+    left: 50%;
+    margin-left: -10px;
+}
+.carousel-control .glyphicon-menu-right {
+    right: 50%;
+    margin-right: -10px;
+}
+
+@media screen and (min-width: 768px) {
+    .carousel-control .glyphicon-menu-left,
+    .carousel-control .glyphicon-menu-right {
+        width: 30px;
+        height: 30px;
+        margin-top: -15px;
+        font-size: 50px;
+    }
+    .carousel-control .glyphicon-menu-left {
+        margin-left: -15px;
+    }
+    .carousel-control .glyphicon-menu-right{
+        margin-right: -15px;
+    }
+}
+
+.carry_out{
+    background: url('http://bestja.d3.laboratorium.ee/img/SG2_1200x494.jpg') 
+        no-repeat 50% 50%;
+    color: #FFFFFF;
+}
+
+.what_to_do{
+    color: #FFFFFF;
+    position: absolute;
+    left: 50px;
+    bottom: 20px;
+    width: 40%;
+    z-index: 2;
+}
+
+@media screen and (max-width: 991px) {
+    .what_to_do{    
+        left: 90px;    
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .what_to_do{    
+        left: 70px;
+    }
+}
+
+.ucw-grid-ico{
+    position: absolute !important;
+    top: 50%;
+    width: 50% !important;
+    margin: -25% 0 0 25%;
+    opacity: 0;
+}
+
+.quote_div{
+    height: 222px;
+    padding: 35px;
+}
+
+.quote_div2{
+    height: 222px;
+    padding: 35px;
+}
+
+.quote_div h2, .quote_div2 h2{
+    font-weight: 400;
+    line-height: 1.5em;
+}
+
+.quote_div p, .quote_div2 p{
+    font-size: 18px;
+    position: absolute;
+    right: 100px;
+    bottom: 10px;
+}
+
+.like_write li{
+    list-style: none;
+}
+
+.like_write span{
+    float: left;
+}
+
+.like_write h2{
+    font-weight: normal;
+}
+
+.like_write img{
+    width: 120px;
+    margin-right: 40px;
+}
+
+.nav-pills > li.active > a, .nav-pills > li.active > a:focus{
+    background-color: #982582;
+    border-radius: 0;
+}
+
+.nav-pills > li.active > a:hover{
+    background-color: #009d93;
+}
+
+.nav-pills > li > a, .nav-pills > li > a:focus{
+    background-color: #EEEEEE;
+    color: #696969;
+    border-radius: 0;
+}
+
+.nav-pills > li > a:hover{
+    background-color: #009d93;
+    color: #FFFFFF;
+}
+
+.regulations_nav{
+    position: fixed;
+}
+
+.regulations_nav li{
+    margin-right: 40%;
+}
+
+.regulations_nav > li.active > a, .regulations_nav > li.active > a:focus{
+    background-color: #F59A1E;
+    border-radius: 0;
+}
+
+.regulations_nav > li.active > a:hover{
+    background-color: #982582;
+}
+
+.regulations_nav > li > a, .regulations_nav > li > a:focus{
+    background-color: #FFFFFF;
+    color: #000000;
+    border-radius: 0;
+}
+
+.regulations_nav > li > a:hover{
+    background-color: #982582;
+    color: #FFFFFF;
+}
+
+@media screen and (max-width: 991px) {
+    .regulations_nav{
+        position: relative;
+    }
+    .regulations_nav li, .regulations_nav li + li{
+        float: left;
+        margin-top: 8px;
+        margin-right: 25px;
+    }
+
+    .regulations_nav > li > a{
+        display: inline-block;
+    }
+}
+
+.background_number{
+    position: absolute;
+    font-size: 200px;
+    font-weight: bold;
+    opacity: 0.1;
+    top: -50px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+@media (max-width: 767px) {
+    .background_number{
+        font-size: 150px;
+    }
+}
+
+.team_site img{
+    max-height: 400px;
+    max-width: 450px;
+}

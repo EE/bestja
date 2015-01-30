@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="260px" height="260px" viewBox="0 0 260 260" enable-background="new 0 0 260 260" xml:space="preserve">
+<g id="Layer_2">
+	<rect y="0" style="fill:#009D94;" width="260" height="260"/>
+	</g>
+<g id="Layer_1" transform="rotate(-45, 326, 246)">
+	<path id="path3192" fill="#FFFFFF" stroke="#039D94" stroke-width="7" stroke-linejoin="bevel" stroke-miterlimit="1" d="
+		M151.537,2.715L290.23,141.409l92.463-92.463L243.999-89.748L151.537,2.715z"/>
+	<path id="path3196" fill="#FFFFFF" stroke="#039D94" stroke-width="7" stroke-linejoin="bevel" stroke-miterlimit="1" d="
+		M290.23,141.409L151.537,2.715l123.283,0l15.41,15.41L290.23,141.409z"/>
+	<path id="path3198" fill="#FFFFFF" stroke="#039D94" stroke-width="7" stroke-linejoin="bevel" stroke-miterlimit="1" d="
+		M243.999-89.748L382.693,48.946L274.819,33.535l-15.41-15.41L243.999-89.748z"/>
+</g>
+</svg>

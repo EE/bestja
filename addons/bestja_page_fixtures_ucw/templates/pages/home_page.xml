@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <template id="new_home_page" inherit_id="website.homepage" name="Homepage">
+            <xpath expr="//div[@id='wrap']" position="replace">
+                <div id="wrap" class="oe_structure oe_empty">
+                    
+                    <section>
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-12 hidden-xs carousel_container">
+                                    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                                        <!-- Indicators -->
+                                        <ol class="carousel-indicators">
+                                            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                                            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                                            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                                            <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+                                            <li data-target="#carousel-example-generic" data-slide-to="4"></li>
+                                        </ol>
+                                        
+                                        <!-- Wrapper for slides -->
+                                        <div class="carousel-inner oe_snippet_body" role="listbox">
+                                            <div class="item active" style="background: url('http://lorempixel.com/g/1920/1080') 50% 0% no-repeat;">
+                                                <div class="carousel-caption">
+                                                    Zimowa wałówka! Zbiórka karmy na UW!
+                                                </div>
+                                                <div class="carousel_title">
+                                                    <div>
+                                                        <h1>
+                                                        Use your professional skills <br />
+                                                        to make a difference1</h1>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="item" style="background: url('http://lorempixel.com/g/1920/1080') 50% 0% no-repeat;">                                                
+                                                <div class="carousel-caption">
+                                                    Zimowa wałówka! Zbiórka karmy na UW!
+                                                </div>
+                                                <div class="carousel_title">
+                                                    <h1>
+                                                        Use your professional skills <br />
+                                                        to make a difference2
+                                                    </h1>
+                                                </div>
+                                            </div>
+                                            <div class="item" style="background: url('http://lorempixel.com/g/1920/1080') 50% 0% no-repeat;">
+                                                <div class="carousel-caption">
+                                                    Zimowa wałówka! Zbiórka karmy na UW!
+                                                </div>
+                                                <div class="carousel_title">
+                                                    <h1>
+                                                        Use your professional skills <br />
+                                                        to make a difference3
+                                                    </h1>
+                                                </div>
+                                            </div>
+                                            <div class="item" style="background: url('http://lorempixel.com/g/1920/1080') 50% 0% no-repeat;">
+                                                <div class="carousel-caption">
+                                                    Zimowa wałówka! Zbiórka karmy na UW!
+                                                </div>
+                                                <div class="carousel_title">
+                                                    <h1>
+                                                        Use your professional skills <br />
+                                                        to make a difference4
+                                                    </h1>
+                                                </div>
+                                            </div>
+                                            <div class="item" style="background: url('http://lorempixel.com/g/1920/1080') 50% 0% no-repeat;">
+                                                <div class="carousel-caption">
+                                                    Zimowa wałówka! Zbiórka karmy na UW!
+                                                </div>
+                                                <div class="carousel_title">
+                                                    <h1>
+                                                        Use your professional skills <br />
+                                                        to make a difference5
+                                                    </h1>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Controls -->
+                                        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                                            <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
+                                            <span class="sr-only">Previous</span>
+                                        </a>
+                                        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                                            <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+                                            <span class="sr-only">Next</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <script>
+                            // Background picture will fit viewport
+                            var height = window.innerHeight - document.getElementsByClassName('navbar-static-top')[0].offsetHeight - 30;
+                            document.getElementsByClassName('carousel')[0].style.height = height + "px";
+                            
+                        </script>
+                    </section>
+                    <section class="oe_snippet_body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h1 class="text-center mt128 mb32">
+                                        Wybierz co chciałbyś robić</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="oe_snippet_body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-3 col-sm-6 col-xs-6">
+                                    <a class="color_white" href="/offers/category/edukacyjny">
+                                        <p class="what_to_do">chcę dzielić się wiedzą</p>
+                                        <img id="category1" class="img img-responsive shadow mb16" 
+                                             src="http://bestja.d3.laboratorium.ee/img/chcewiedziecwiecej_off.jpg"/>
+                                    </a>
+                                </div>
+                                <div class="col-md-3 col-sm-6 col-xs-6">
+                                    <a class="color_white" href="/offers/category/akcyjny">
+                                        <p class="what_to_do">chcę działać</p>
+                                        <img id="category2" class="img img-responsive shadow mb16" 
+                                             src="http://bestja.d3.laboratorium.ee/img/chcedzialac_off.jpg"/>
+                                    </a>
+                                </div>
+                                <div class="col-md-3 col-sm-6 col-xs-6">
+                                    <a class="color_white" href="/offers/category/pomocowy">
+                                        <p class="what_to_do">chcę pomagać</p>
+                                        <img id="category3" class="img img-responsive shadow mb16 pict3" 
+                                             src="http://bestja.d3.laboratorium.ee/img/chcepomagac_off.jpg"/>                                        
+                                    </a>
+                                </div>
+                                <div class="col-md-3 col-sm-6 col-xs-6">
+                                    <a class="color_white" href="/offers/category/projektowy">
+                                        <p class="what_to_do">chcę się rozwijać</p>
+                                        <img id="category4" class="img img-responsive shadow mb16 pict4" 
+                                             src="http://bestja.d3.laboratorium.ee/img/chcsierozwijac_off.jpg"/>                                        
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p>Twoja organizacja chciałaby do nas dołączyć? 
+                                        <a class="color_orange" href="/page/for_organizations">dowiedz się więcej</a> 
+                                        lub <a class="color_orange" href="/web/signup">zarejestruj organizację</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container">
+                            <div class="row text-center mt64 mb64">
+                                <div class="col-md-12">
+                                    <form action="/offers/category/">
+                                        <button class="btn btn-lg text-center mt32 mb32 button_orange" type="submit">ZOBACZ WSZYTKIE OFERTY</button>
+                                    </form>
+                                </div>                            
+                            </div>                            
+                        </div>                            
+                    </section>
+                    <section class="oe_snippet_body carry_out">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h1 class="mt64 mb64">
+                                        Realizuj się dzięki projektom badawczym
+                                    </h1>
+                                    <p>Wolontariat badawczy to szansa na realizację
+                                        własnych projektów badawczych.
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing 
+                                        elit, sed do eiusmod tempor incididunt ut labore 
+                                        et dolore magna aliqua. Ut enim ad minim veniam, 
+                                        quis nostrud exercitation ullamco laboris nisi 
+                                        ut aliquip ex ea commodo consequat.</p>
+                                    <p class="mt32 mb64">
+                                        <a href="/page/wolontariat_badawczy">więcej o wolontariacie badawczym</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="oe_snippet_body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h1 class="text-center mt128 mb32">
+                                        Wolontariat pomaga rozwijać<br />
+                                        kompetencje zawodowe</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="oe_snippet_body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-8 col-sm-12">
+                                    <div class="background_color_green quote_div">
+                                        <h2 class="color_white">
+                                            <em>"Robię to dla samej siebie. Zdobywam doświadczenie, które będę mogła wykorzystać pracując zawodowo. "</em>
+                                        </h2>
+                                        <p class="color_white">Ola, koordynator projektów miejskich</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 hidden-xs hidden-sm">
+                                    <img src="http://bestja.d3.laboratorium.ee/img/cytat1_222x222px.jpg"/>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="oe_snippet_body">
+                        <div class="container">
+                            <div class="row text-center mt64 mb64">
+                                <div class="col-md-12">
+                                    <form action="/web/signup">
+                                        <button class="btn btn-lg text-center mt32 mb32 button_orange" type="submit">DOŁĄCZ TERAZ</button>
+                                    </form>
+                                
+                                    <a class="color_orange text-center" href="">więcej o wolontariacie</a>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="oe_snippet_body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12 hidden-xs">
+                                    <div id="photostack-1" class="photostack">
+                                        <div>
+                                            <figure>
+                                                <a href="#" class="current photostack-img">
+                                                    <img src="http://lorempixel.com/g/350/350" alt="img05"/>
+                                                </a>
+                                                <figcaption>
+                                                    <h2 class="photostack-title">Zdjęcie 5</h2>
+                                                    <div class="photostack-back">
+                                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+                                                    </div>
+                                                </figcaption>
+                                            </figure>
+                                            <figure>
+                                                <a href="#" class="current photostack-img">
+                                                    <img src="http://lorempixel.com/g/350/350" alt="img02"/>
+                                                </a>
+                                                <figcaption>
+                                                    <h2 class="photostack-title">Zdjęcie 2</h2>
+                                                    <div class="photostack-back">
+                                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+                                                    </div>
+                                                </figcaption>
+                                            </figure>
+                                            <figure>
+                                                <a href="#" class="photostack-img">
+                                                    <img src="http://lorempixel.com/g/350/350" alt="img03"/>
+                                                </a>
+                                                <figcaption>
+                                                    <h2 class="photostack-title">Zdjęcie 3</h2>
+                                                    <div class="photostack-back">
+                                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+                                                    </div>
+                                                </figcaption>
+                                            </figure>
+                                            <figure>
+                                                <a href="#" class="photostack-img">
+                                                    <img src="http://lorempixel.com/g/350/350" alt="img01"/>
+                                                </a>
+                                                <figcaption>
+                                                    <h2 class="photostack-title">Zdjęcie 1</h2>
+                                                    <div class="photostack-back">
+                                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+                                                    </div>
+                                                </figcaption>
+                                            </figure>
+                                            <figure>
+                                                <a href="#" class="photostack-img">
+                                                    <img src="http://lorempixel.com/g/350/350" alt="img04"/>
+                                                </a>
+                                                <figcaption>
+                                                    <h2 class="photostack-title">Zdjęcie 4</h2>
+                                                    <div class="photostack-back">
+                                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+                                                    </div>
+                                                </figcaption>
+                                            </figure>
+                                            <figure>
+                                                <a href="#" class="photostack-img">
+                                                    <img src="http://lorempixel.com/g/350/350" alt="img06"/>
+                                                </a>
+                                                <figcaption>
+                                                    <h2 class="photostack-title">Zdjęcie 6</h2>
+                                                    <div class="photostack-back">
+                                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+                                                    </div>
+                                                </figcaption>
+                                            </figure>
+                                            <figure>
+                                                <a href="#" class="photostack-img">
+                                                    <img src="http://lorempixel.com/g/350/350" alt="img07"/>
+                                                </a>
+                                                <figcaption>
+                                                    <h2 class="photostack-title">Zdjęcie 7</h2>
+                                                    <div class="photostack-back">
+                                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+                                                    </div>
+                                                </figcaption>
+                                            </figure>
+                                        </div>
+                                        <script src="/bestja_frontend_ucw/static/src/js/modernizr.min.js"></script>
+                                        <script src="/bestja_frontend_ucw/static/src/js/classie.js"></script>
+                                        <script src="/bestja_frontend_ucw/static/src/js/photostack.js"></script>
+                                        <script>
+                                            // [].slice.call( document.querySelectorAll( '.photostack' ) ).forEach( function( el ) { new Photostack( el ); } );
+			
+                                            new Photostack( document.getElementById( 'photostack-1' ), {
+                                            callback : function( item ) {
+                                            }
+                                            } );			
+                                        </script>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </xpath>
+        </template>
+    </data>
+</openerp>

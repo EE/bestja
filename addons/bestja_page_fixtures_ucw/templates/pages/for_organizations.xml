@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <template id="website.for_organizations" name="Site about" page="True">
+            <t t-call="website.layout">
+                <div id="wrap" class="oe_structure oe_empty">
+                    <section class="oe_snippet_body violet_section">
+                        <div class="container-fluid full-section-container mb48 join_us_and_work">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-6 col-md-offset-6 col-sm-12">
+                                        <h1 class="mt64 mb64">
+                                            Dołącz i współpracuj<br />
+                                            z wolontariuszami
+                                        </h1>
+                                        <p class="mb16">Uniwersyteckie Centrum Wolontariatu pośredniczy 
+                                            pomiędzy wolontariuszami a ogranizacjami
+                                            deklarującymi chęć ich przyjęcia, zapewnia
+                                            im zadania do wykonania oraz opiekę koordynatora.</p>
+                                                                                        
+                                        <p>Hac, odio allquet est! Montes duis lectus pellentesque 
+                                            in, placerat sit sociis a penatibus, odio
+                                            dis? Est, turpis urna, risus, sit magna dolor?
+                                            Nunc nec a tristigue eu, in egestas.</p>
+                                        <form action="/web/signup">
+                                            <button class="btn btn-lg text-center mt32 mb32 button_orange" type="submit">DOŁĄCZ TERAZ</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="oe_snippet_body">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h1 class="text-center mt48 mb48 section_title">
+                                        Pomoc w rekrutacji wolontariuszy</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="oe_snippet_body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-8 col-sm-12">
+                                    <div class="background_color_green quote_div">
+                                        <h2 class="color_white">
+                                            <em>"Robię to dla samej siebie. Zdobywam doświadczenie, 
+                                                które będę mogła wykorzystać pracując zawodowo. "</em>
+                                        </h2>
+                                        <p class="color_white">Ola, koordynator projektów miejskich</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 hidden-xs hidden-sm">
+                                    <img src="http://bestja.d3.laboratorium.ee/img/cytat1_222x222px.jpg"/>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="oe_snippet_body">
+                        <div class="container">
+                            <div class="row text-center mt32 mb128">
+                                <div class="col-md-12">
+                                    <form action="/web/signup">
+                                        <button class="btn btn-lg text-center mt32 mb32 button_orange" type="submit">DOŁĄCZ TERAZ</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="oe_snippet_body grey_section mb16">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h1 class="text-center mt48 mb48 section_title">
+                                        Co otrzymujesz jako partner UCW</h1>
+                                </div>
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-md-5 col-md-offset-1 mb16">
+                                            <ul class="violet_checklist">
+                                                <li class="mb64">
+                                                    <span class="glyphicon glyphicon-ok" /> <p>Wsparcie merytoryczne dotyczące
+                                                    współpracy z wolontariuszami.</p></li>
+                                                <li class="mb64">
+                                                    <span class="glyphicon glyphicon-ok" /> <p>Możliwość skorzystania z sali do
+                                                    prowadzenia spotkań i szkoleń dla
+                                                    wolontariuszy.</p></li>
+                                                <li class="mb64">
+                                                    <span class="glyphicon glyphicon-ok" /> <p>Wyselekcjonowanych przez UCW
+                                                    wolontariuszy.</p></li>                                                
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-5 mb16">
+                                            <ul class="violet_checklist">
+                                                <li class="mb64">
+                                                    <span class="glyphicon glyphicon-ok" /> <p>Prestiż dzięki współpracy z jednostką
+                                                    Uniwersytetu Warszawskiego.</p></li>
+                                                <li class="mb64">
+                                                    <span class="glyphicon glyphicon-ok" /> <p>Radość i satysfakcję ze współpracy.</p></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container">
+                            <div class="row text-center mt32 mb16">
+                                <div class="col-md-12">
+                                    <form action="/web/signup">
+                                        <button class="btn btn-lg text-center mt32 mb32 button_orange" type="submit">DOŁĄCZ TERAZ</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="oe_snippet_body green_section">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h1 class="text-center mt48 mb48 section_title color_white">
+                                        Kolejne kroki współpracy</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container">
+                            <div class="row mt16">
+                                <div class="col-md-3 col-sm-6 col-xs-16 text-center mb64 step_of_registration">
+                                    <p class="background_number">1</p>
+                                    <h2 class="mt32 mb32" style="z-index: 2;">Rejestracja organizacji</h2>
+                                    <p class="mt16 mb8" style="z-index: 2;">Dodanie organizacji <br />
+                                        to tylko chwila.</p>
+                                </div>
+                                <div class="col-md-3 col-sm-6 col-xs-16 text-center mb64 step_of_registration">
+                                    <p class="background_number">2</p>
+                                    <h2 class="mt32 mb32" style="z-index: 2;">Spotkanie</h2>
+                                    <p class="mt16 mb8" style="z-index: 2;">Omówimy wspólnie<br />
+                                        zasady współpracy.</p>
+                                </div>
+                                <div class="col-md-3 col-sm-6 col-xs-16 text-center mb64 step_of_registration">
+                                    <p class="background_number">3</p>
+                                    <h2 class="mt32 mb32" style="z-index: 2;">Rekrutacja</h2>
+                                    <p class="mt16 mb8" style="z-index: 2;">Przeprowadzimy dla Ciebie <br/>
+                                        rekrutację i otrzymasz <br />listę ochotników</p>
+                                </div>
+                                <div class="col-md-3 col-sm-6 col-xs-16 text-center mb64 step_of_registration">
+                                    <p class="background_number">4</p>
+                                    <h2 class="mt32 mb32" style="z-index: 2;">Twoja opinia</h2>
+                                    <p class="mt16 mb8" style="z-index: 2;">Jesteśmy ciekawi Twojej opinii<br />
+                                        o naszej współpracy.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="oe_snippet_body mt64">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h1 class="text-center mt48 mb48 section_title">
+                                        Aplikacja do zarządzania wolontariatem<br />
+                                        to oszczędność czasu</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="oe_snippet_body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-8 col-sm-12">
+                                    <div class="background_color_green quote_div">
+                                        <h2 class="color_white">
+                                            <em>"Robię to dla samej siebie. Zdobywam doświadczenie, 
+                                                które będę mogła wykorzystać pracując zawodowo. "</em>
+                                        </h2>
+                                        <p class="color_white">Ola, koordynator projektów miejskich</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 hidden-xs hidden-sm">
+                                    <img src="http://bestja.d3.laboratorium.ee/img/cytat1_222x222px.jpg"/>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="oe_snippet_body grey_section mt128">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h1 class="text-center mt48 mb48 section_title">
+                                        Co zyskasz korzystając z aplikacji<br />
+                                        do zarządzania wolontariatem</h1>
+                                </div>
+                                <div class="container-fluid what_partner_receives">
+                                    <div class="row">
+                                        <div class="col-md-5 col-md-offset-1 mb16">
+                                            <ul class="violet_checklist">
+                                                <li class="mb64">
+                                                    <span class="glyphicon glyphicon-ok" /> <p>Wsparcie merytoryczne dotyczące
+                                                    współpracy z wolontariuszami.</p></li>
+                                                <li class="mb64">
+                                                    <span class="glyphicon glyphicon-ok" /> <p>Możliwość skorzystania z sali do
+                                                    prowadzenia spotkań i szkoleń dla
+                                                    wolontariuszy.</p></li>
+                                                <li class="mb64">
+                                                    <span class="glyphicon glyphicon-ok" /> <p>Wyselekcjonowanych przez UCW
+                                                    wolontariuszy.</p></li>                                                
+                                                <li class="mb64">
+                                                    <span class="glyphicon glyphicon-ok" /> <p>Lepsze możliwości znalezienia 
+                                                    wolontariuszy.</p></li>                                                
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-5 mb16">
+                                            <ul class="violet_checklist">
+                                                <li class="mb64">
+                                                    <span class="glyphicon glyphicon-ok" /> <p>Prestiż dzięki współpracy z jednostką
+                                                    Uniwersytetu Warszawskiego.</p></li>
+                                                <li class="mb64">
+                                                    <span class="glyphicon glyphicon-ok" /> <p>Radość i satysfakcję ze współpracy.</p></li>
+                                                <li class="mb64">
+                                                    <span class="glyphicon glyphicon-ok" /> <p>Przyspieszenie organizacji.</p></li>
+                                                <li class="mb64">
+                                                    <span class="glyphicon glyphicon-ok" /> <p>Oszczędność czasu.</p></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="oe_snippet_body mt64">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h1 class="mt48 mb48 section_title">
+                                        Kto może korzystać z pomocy wolontariuszy</h1>
+                                    <h3>Hac, odio aliquet est! Montes duis lectus pellentesque in, placerat sit sociis a penatibus,
+                                        odio dis? Est, turpis urna, risus, sit magna dolor? Nunc nec a tristique eu, in egestas, nascetur 
+                                        sociis integer dolor non integer risus auctor odio ut turpis turpis, aenean platea
+                                        porttitor, et ac non. Ridiculus, tincidunt porttitor massa? Adipiscing nisi? Porta purus.
+                                        Dolor! Amet! Risus etiam, eu mattis lundium in velit, et, tristique adipiscing, vel et mauris
+                                        nisi? Cras et magna, dolor. Cum.</h3>
+                                    <h3>Aenean quis. Nec, turpis porttitor nec! Magnis. In elementum cursus. Vut, tincidunt, penatibus, 
+                                        egestas risus porta diam! Platea, dolor et vut augue aliquam odio integer purus eu, a,
+                                        est ac, sit pellentesque habitasse ac, sed placerat lectus etiam? Nunc massa porta enim.
+                                        Lundium lundium dis. Nisi urna purus! Lorem turpis scelerisque porttitor turpis enim!
+                                        Nascetur! Adipiscing nascetur, vel, augue dignissim duis amet nisi lundium adipiscing nunc
+                                        rhoncus porta purus pulvinar ultricies mauris tristique magna, lacus eros.</h3>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="container">
+                            <div class="row mt32 mb128">
+                                <div class="col-md-12 text-center">
+                                    <form action="/web/signup">
+                                        <button class="btn btn-lg text-center mt32 mb32 button_orange" type="submit">DOŁĄCZ TERAZ</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </t>
+        </template>
+        <record id="for_organizations_menu" model="website.menu">
+            <field name="name">dla organizacji</field>
+            <field name="url">/page/for_organizations</field>
+            <field name="parent_id" ref="website.main_menu"/>
+            <field name="sequence" type="int">21</field>
+        </record>
+    </data>
+</openerp>
