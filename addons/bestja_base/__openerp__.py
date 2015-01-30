@@ -23,6 +23,7 @@ It includes (among other things) the BestJa menu and CSS definitions. """,
     'data': [
         'menu.xml',
         'config.xml',
+        'templates.xml',
         'views/assets.xml',
         'security/security.xml',
     ],
