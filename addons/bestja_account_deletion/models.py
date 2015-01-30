@@ -16,7 +16,7 @@ class Volunteer(models.Model):
         ('else', 'Inny (wpisz powód)'),
     ]
     active_state = fields.Selection(selection_add=[('deleted', 'usunięty')])
-    reason_for_deleting_account = fields.Selection(REASONS, string="Dlaczego chcesz usunąć konto?", required=True)
+    reason_for_deleting_account = fields.Selection(REASONS, string="Dlaczego chcesz usunąć konto?")
     reason_other_description = fields.Text()
 
     @api.one
@@ -37,7 +37,7 @@ class Volunteer(models.Model):
                     'cv_filename': '',
                     'active_state': 'deleted',
                     'active': False,
-                    'pesel' : '',
-                    'document_id_kind' : None,
-                    'document_id' : '',
+                    'pesel': '',
+                    'document_id_kind': None,
+                    'document_id': '',
                     })
