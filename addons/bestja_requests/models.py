@@ -116,6 +116,7 @@ class Request(models.Model):
         ('accepted', 'zaakceptowane'),
         ('rejected', 'odrzucone'),
     ]
+    _protected_fields = ['state']
 
     state = fields.Selection(STATES, default='draft', string="Stan")
     name = fields.Char(
