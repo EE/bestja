@@ -150,6 +150,7 @@ class Application(models.Model):
             template='bestja_offers.msg_application_meeting',
             recipients=self.user,
             record_name=self.offer.name,
+            sender=self.env.user,
         )
 
     def search_current_meeting(self, operator, value):
