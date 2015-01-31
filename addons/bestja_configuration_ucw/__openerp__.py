@@ -9,7 +9,6 @@
     'category': 'Specific Industry Applications',
     'depends': [
         'base',
-        'website_blog',
         'bestja_base',
         'bestja_volunteer',
         'bestja_volunteer_notes',
