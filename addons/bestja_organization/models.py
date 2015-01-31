@@ -155,6 +155,7 @@ class Organization(models.Model):
     @api.one
     def set_approved(self):
         self.state = 'approved'
+        self.coordinator.sync_coordinators_group()
         self.send(
             template='bestja_organization.msg_approved',
             recipients=self.coordinator,
@@ -163,6 +164,7 @@ class Organization(models.Model):
     @api.one
     def set_rejected(self):
         self.state = 'rejected'
+        self.coordinator.sync_coordinators_group()
         self.send(
             template='bestja_organization.msg_rejected',
             recipients=self.coordinator,
