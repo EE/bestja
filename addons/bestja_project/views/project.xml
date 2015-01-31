@@ -12,6 +12,11 @@
                     ('manager', '=', uid),
                     ('members', '=', uid),
             ]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Aby zrekrutować wolontariuszy dla swojej organizacji, załóż nowy projekt
+                </p>
+            </field>
         </record>
 
         <record model="ir.ui.view" id="bestja_project_form">

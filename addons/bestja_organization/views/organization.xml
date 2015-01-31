@@ -12,6 +12,11 @@
                 ('active', '=?', False),
                 ('coordinator.id', '=', uid),
             ]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Zostań organizatorem wolontariatu! Sprawdź w bazie wiedzy, jakie trzeba spełnić warunki, a następnie utwórz organizację
+                </p>
+            </field>
         </record>
 
         <record model="ir.actions.act_window" id="action_organization_all">
@@ -30,6 +35,11 @@
                 ('state', '=','pending'),
                 ('active', '=?', False),
             ]</field>
+            <field name="help" type="html">
+                <p>
+                    W tym folderze będą przechowywane aplikacje organizacji oczekujące na akceptację administratora. Zaglądaj tu często, aby nie dać im czekać.
+                </p>
+            </field>
         </record>
 
         <record model="ir.ui.view" id="bestja_org_form">

@@ -55,6 +55,11 @@
             <field name="domain">[
                 ('project', '!=', False),
             ]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Masz wartościowe materiały, którymi chcesz się podzielić w projekcie? Dodaj je do bazy
+                </p>
+            </field>
         </record>
 
         <record model="ir.actions.act_window" id="bestja_files.action_file">
