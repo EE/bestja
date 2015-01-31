@@ -117,6 +117,15 @@
             </t>
         </template>
 
+        <template id="bestja_offers.duplicate_application" name="Ponowne zgłoszenie">
+            <t t-call="website.layout">
+                <h1>Nic dwa razy się nie zdarza!</h1>
+                <p>Nie można dwa razy aplikować na tę samą ofertę.
+Sprawdź inne możliwości działania!</p>
+                <p><a href="/">Powrót do strony głównej</a></p>
+            </t>
+        </template>
+
         <template id="bestja_offers.meeting_confirmation" name="Dziękujemy za odpowiedź">
             <t t-call="website.layout">
                 <h1>Dziękujemy!</h1>

@@ -15,7 +15,7 @@ class Offer(http.Controller):
             'offer': offer,
         })
 
-    @http.route('/offer/<model("offer"):offer>/apply', auth='user')
+    @http.route('/offer/<model("offer"):offer>/apply', auth='user', website=True)
     def apply(self, offer):
         if http.request.httprequest.method != 'POST':
             return http.local_redirect('/offer/{}'.format(slug(offer)))
@@ -28,8 +28,7 @@ class Offer(http.Controller):
             # can't use the usual `http.request.env.cr` style,
             # because `env` queries db and everything explodes
             http.request._cr.rollback()
-            # Unique constraint.
-            # Should this redirect user to a page with a different message?
+            return http.request.render('bestja_offers.duplicate_application')
 
         return http.local_redirect('/offer/{}/thankyou'.format(slug(offer)))
 
