@@ -32,6 +32,7 @@ specify their experiences, interests etc.
         'data/wishes.xml',
         'data/voivodeship.xml',
         'menu.xml',
+        'messages.xml',
         'security/ir.model.access.csv',
         'security/security.xml',
     ],

@@ -25,7 +25,9 @@ class AuthSignupHome(openerp.addons.web.controllers.main.Home):
                 request.cr.commit()
 
                 response = super(AuthSignupHome, self).web_login(*args, **kw)
-                response.qcontext['message'] = "Twoje konto zostało poprawnie aktywowane. Możesz się zalogować."
+                response.qcontext['message'] = """
+                Witamy się w naszej społeczności! Udało Ci się pomyślnie zarejestrować do naszego systemu.
+                """
                 return response
             except (SignupError, AssertionError), e:
                 qcontext['error'] = _(e.message)
@@ -41,8 +43,12 @@ class AuthSignupHome(openerp.addons.web.controllers.main.Home):
         if 'error' not in qcontext and request.httprequest.method == 'POST':
             try:
                 self.do_signup(qcontext)
-                qcontext['message'] = \
-                    "Na twój e-mail został przesłany link aktywacyjny. Kliknij go, aby móc się zalogować."
+                qcontext['message'] = """
+                Dziękujemy za rejestrację!<br/><br/>
+                To mały krok dla Ciebie, ale wielki skok dla nas!<br/>
+                Nasza społeczność się powieksza!<br/><br/>
+                <strong>Potwierdź rejestrację klikając w link, który otrzymasz w mailu.</strong>
+                """
                 # do not login user here
             except (SignupError, AssertionError), e:
                 message = e.message

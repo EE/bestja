@@ -299,6 +299,18 @@ class Volunteer(models.Model):
         pass
 
     @api.model
+    def authenticate_after_confirmation(self, values, token=None):
+        """
+        Send welcome message after user account is authenticated
+        """
+        user = super(Volunteer, self).authenticate_after_confirmation(values, token)
+        if user:
+            self.env.ref('bestja_volunteer.welcome_msg').send(
+                recipients=user,
+            )
+        return user
+
+    @api.model
     def fields_view_get(self, view_id=None, view_type='form', toolbar=False, submenu=False):
         """
         Force user preferences modal fields to be in edit mode.

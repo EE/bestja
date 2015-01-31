@@ -48,7 +48,11 @@ class Users(models.Model):
     def authenticate_after_confirmation(self, values, token=None):
         if token:
             # signup with a token: find the corresponding partner id
-            partner = self.env['res.partner']._signup_retrieve_partner(token, check_validity=True, raise_exception=True)
+            partner = self.env['res.partner']._signup_retrieve_partner(
+                token,
+                check_validity=True,
+                raise_exception=True,
+            )
             # invalidate signup token
             partner.write({'signup_token': False, 'signup_type': False, 'signup_expiration': False})
             # activate user
@@ -56,6 +60,7 @@ class Users(models.Model):
             if user:
                 user.active = True
                 user.active_state = 'active'
+                return user
 
     @api.model
     def create(self, values):

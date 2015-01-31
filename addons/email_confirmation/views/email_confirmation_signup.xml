@@ -5,7 +5,7 @@
              <xpath expr="//form[@class='oe_signup_form']" position="before">
                 <div t-if="message">
                     <p class="alert alert-success" t-if="message">
-                        <t t-esc="message"/>
+                        <t t-raw="message"/>
                     </p>
                 </div>
              </xpath>
