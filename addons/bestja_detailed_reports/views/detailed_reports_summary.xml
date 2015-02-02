@@ -2,7 +2,7 @@
     <data>
 
         <record model="ir.actions.act_window" id="action_detailed_reports_item_summary">
-            <field name="name">Zbiorcze raporty szczegółowe</field>
+            <field name="name">Statystyki raportów</field>
             <field name="res_model">bestja.report_entry</field>
             <field name="view_mode">graph</field>
             <field name="domain">[
@@ -12,25 +12,25 @@
                 'search_default_accepted': True,
             }</field>
         </record>
-        
+
         <record model="ir.ui.view" id="report_entry_graph">
             <field name="name">bestja.report_entry.graph</field>
             <field name="model">bestja.report_entry</field>
             <field name="arch" type="xml">
                 <graph type="pivot">
-                    <field name="interested_organization"/>
+                    <field name="responsible_organization"/>
                     <field name="commodity" type="col"/>
                     <field name="tonnage" type="measure"/>
                 </graph>
             </field>
         </record>
-        
+
         <record model="ir.ui.view" id="bestja_report_entry_search">
             <field name="name">bestja.report_entry.search</field>
             <field name="model">bestja.report_entry</field>
             <field name="arch" type="xml">
                 <search>
-                    <field name="interested_organization"/>
+                    <field name="responsible_organization"/>
                     <filter name="sent" string="Oczekujące"
                     domain="[('detailed_report.state', '=', 'sent')]"/>
                     <filter name="accepted" string="Zaakceptowane"
@@ -40,7 +40,7 @@
                 </search>
             </field>
         </record>
-        
+
         <record id="project_detailed_summary_kanban" model="ir.ui.view">
              <field name="name">bestja.project.detailed_summary</field>
              <field name="model">bestja.project</field>
@@ -60,11 +60,13 @@
          </record>
 
         <record model="ir.actions.act_window" id="action_bestja_detailed_report_summary">
-            <field name="name">Zbiorcze raporty szczegółowe</field>
+            <field name="name">Statystyki raportów</field>
             <field name="res_model">bestja.project</field>
             <field name="view_mode">kanban</field>
             <field name="view_id" ref="project_detailed_summary_kanban"/>
             <field name="domain">[
+            ('use_detailed_reports', '=', True),
+            ('organization_level', '&lt;=', 1),
             '|',
                 ('organization.coordinator', '=', uid),
                 ('manager', '=', uid),

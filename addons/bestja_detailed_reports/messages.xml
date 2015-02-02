@@ -14,7 +14,7 @@
             <field name="body"><![CDATA[
                 Raport szczegółowy do projektu ${record.sudo().project.name} został odrzucony. Popraw go i wyślij ponownie.
             ]]></field>
-            <field name="model">bestja_requests.request</field>
+            <field name="model">bestja_detailed_reports.detailed_report</field>
         </record>
 
     </data>

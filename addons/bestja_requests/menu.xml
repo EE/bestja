@@ -1,6 +1,6 @@
 <openerp>
     <data>
-        <menuitem parent="bestja_base.menu_bestja" id="menu_requests" name="Raporty potrzeb" sequence="5" groups="bestja_project.managers"/>
+        <menuitem parent="bestja_base.menu_bestja" id="menu_requests" name="Raporty potrzeb" sequence="15" groups="bestja_project.managers"/>
         <menuitem parent="menu_requests" id="menu_requests_my" action="action_my_requests" sequence="3"/>
         <menuitem parent="menu_requests" id="menu_requests_received" action="action_received_requests" sequence="4"/>
         <menuitem parent="menu_requests" id="menu_requests_templates" action="action_list_templates" sequence="5"/>

@@ -5,36 +5,32 @@
         <record model="ir.ui.view" id="bestja_detailed_report">
             <field name="name">bestja.detailed_report.form</field>
             <field name="model">bestja.detailed_report</field>
-            <field name="priority" eval="0"/>
             <field name="arch" type="xml">
                 <form>
+                    <field name="id" invisible="1"/>
+                    <field name="user_can_moderate" invisible="1"/>
                     <header>
-                        <field name="id" invisible="1"/>
-                        <field name="user_can_moderate" invisible="1"/>
-                        <div attrs="{'invisible': [('id', '=', False)]}">
-                            <button name="set_sent" string="Wyślij raport" states="draft" type="object" class="oe_highlight" attrs="{'invisible': [
-                                '|',
-                                    ('state', 'in', ['sent', 'accepted']),
-                                '|',
-                                    ('id', '=', False),
-                                    ('user_can_moderate', '=', True),
-                            ]}"/>
-                            <button name="set_accepted" string="Zaakceptuj" type="object" class="oe_highlight" attrs="{'invisible': [
-                                '|',
-                                    ('state', '=', 'accepted'),
-                                    ('user_can_moderate', '=', False),
-                            
-                           ]}"/>
-                            <button name="set_rejected" string="Odrzuć" type="object" attrs="{'invisible': [
-                                '|',
-                                    ('state', '=', 'rejected'),
-                                    ('user_can_moderate', '=', False),
-                            ]}"/>
-                        </div>
+                        <button name="set_sent" string="Wyślij raport" type="object" class="oe_highlight" attrs="{'invisible': [
+                            '|',
+                                ('state', '!=', 'draft'),
+                            '|',
+                                ('id', '=', False),
+                                ('user_can_moderate', '=', True),
+                        ]}"/>
+                        <button name="set_accepted" string="Zaakceptuj" type="object" class="oe_highlight" attrs="{'invisible': [
+                            '|',
+                                ('state', '=', 'accepted'),
+                                ('user_can_moderate', '=', False),
+                       ]}"/>
+                        <button name="set_rejected" string="Odrzuć" type="object" attrs="{'invisible': [
+                            '|',
+                                ('state', '=', 'rejected'),
+                                ('user_can_moderate', '=', False),
+                        ]}"/>
+                        <a href="/bestja_detailed_reports/static/grupy_towarowe.pdf" target="_blank" attrs="{'invisible': [('id', '=', False)]}">Pobierz opis grup towarowych</a>
                     </header>
                     <div attrs="{'invisible': [('id', '=', False)]}">
-                    <separator string="Lista zebranych produktów" class="oe inline"/>
-                    <a href="/bestja_detailed_reports/static/grupy_towarowe.pdf">Pobierz opis grup towarowych</a> 
+                        <separator string="Lista zebranych produktów" class="oe inline"/>
                     </div>
                     <div class="oe_edit_only oe_grey" attrs="{'invisible': [('id', '!=', False)]}">Wybierz projekt, do którego chcesz stworzyć raport szczegółowy.</div>
                     <group attrs="{'invisible': [('id', '!=', False)]}">
@@ -47,20 +43,19 @@
                         </div>
                         <br/><br/><br/>
                         <div>
-                        Aby dodać grupy towarowe pojedynczo, naciśnij "dodaj grupę towarową" i wybierz ją z listy. Aby dodać wszystkie grupy, naciśnij "dodaj wszystkie grupy".<br/>
-                        Możesz zapisać raport, aby do niego wrócić. Po kliknięciu przycisku "Wyślij raport" nie ma możliwości zmiany wprowadzonych danych. Dlatego przed wysłaniem raportu należy 
-                        upewnić się, że wszystkie komórki zawierają prawidłowe dane.<br/>
-                        Klikając na przycisk "Pobierz opis grup towarowych" można dowiedzieć się jakie produkty należą do danej kategorii.
+                            <p>Aby dodać grupy towarowe pojedynczo, naciśnij "dodaj grupę towarową" i wybierz ją z listy. Aby dodać wszystkie grupy, naciśnij "dodaj wszystkie grupy".</p>
+                            <p>Możesz zapisać raport, aby do niego wrócić. Po kliknięciu przycisku "Wyślij raport" nie ma możliwości zmiany wprowadzonych danych. Dlatego przed wysłaniem raportu należy upewnić się, że wszystkie komórki zawierają prawidłowe dane.</p>
+                            <p>Klikając na przycisk "Pobierz opis grup towarowych" można dowiedzieć się jakie produkty należą do danej kategorii.</p>
                         </div>
                         <field name="report_entries" options="{'no_create': True}">
                             <tree editable="true" >
                                 <field name="commodity_code" readonly="1"/>
                                 <field name="commodity"/>
                                 <field name="tonnage"/>
-                                <field name="interested_organization" invisible="1"/>
+                                <field name="responsible_organization" invisible="1"/>
                             </tree>
                         </field>
-                        <button string="dodaj wszystkie grupy" class="oe_link" type="object" name="add_all_commodity_groups" states="draft"/>
+                        <button string="dodaj wszystkie grupy" class="oe_link oe_edit_only" type="object" name="add_all_commodity_groups"/>
                     </div>
                 </form>
             </field>
@@ -76,7 +71,7 @@
                 ('project.manager', '=', uid),
             ]</field>
         </record>
-        
+
         <record model="ir.ui.view" id="bestja_detailed_reports_tree">
             <field name="name">bestja.detailed_reports.tree</field>
             <field name="model">bestja.detailed_report</field>
@@ -87,7 +82,7 @@
                 </tree>
             </field>
         </record>
-        
+
         <!-- For sent reports -->
         <record model="ir.ui.view" id="bestja_detailed_reports_sent_tree">
             <field name="name">bestja.detailed_reports.tree</field>
@@ -101,9 +96,9 @@
                 </tree>
             </field>
         </record>
-        
+
         <record model="ir.actions.act_window" id="action_bestja_detailed_report_sent">
-            <field name="name">Nadesłane raporty szczegółowe</field>
+            <field name="name">Nadesłane raporty</field>
             <field name="res_model">bestja.detailed_report</field>
             <field name="view_mode">tree,form</field>
             <field name="view_id" ref="bestja_detailed_reports_sent_tree"/>
@@ -115,17 +110,17 @@
                     ('parent_project.manager', '=', uid),
             ]</field>
         </record>
-        
+
         <record model="ir.ui.view" id="detailed_report_search">
             <field name="name">bestja.detailed_report.search</field>
             <field name="model">bestja.detailed_report</field>
             <field name="arch" type="xml">
                 <search>
-                    <field name="interested_organization"/>
+                    <field name="responsible_organization"/>
                     <field name="organization"/>
                     <filter name="draft" string="Szkic"
                                 domain="[('state', '=', 'draft')]"/>
-                    <filter name="pending" string="Oczekujące"
+                    <filter name="sent" string="Oczekujące"
                                 domain="[('state', '=', 'sent')]"/>
                     <filter name="accepted" string="Zaakceptowane"
                                 domain="[('state', '=', 'accepted')]"/>
@@ -133,7 +128,7 @@
                                 domain="[('state', '=', 'rejected')]"/>
                     <group string="Group By">
                         <filter name="group_by_project" string="Projekt"
-                                context="{'group_by': 'interested_organization'}"/>
+                                context="{'group_by': 'responsible_organization'}"/>
                         <filter name="group_by_state" string="Stan"
                                 context="{'group_by': 'state'}"/>
                     </group>

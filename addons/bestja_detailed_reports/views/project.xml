@@ -3,11 +3,13 @@
     <data>
         <record model="ir.ui.view" id="bestja_project_form">
             <field name="model">bestja.project</field>
-            <field name="inherit_id" ref="bestja_requests.bestja_project_form"/>
+            <field name="inherit_id" ref="bestja_project_hierarchy.bestja_project_form"/>
             <field name="arch" type="xml">
-                <field name="request_template" position="after">
-                    <field name="use_detailed_reports"/> 
-                </field>
+                <page id="page_reports">
+                    <div attrs="{'invisible': [('parent', '!=', False)]}">
+                        <field name="enable_detailed_reports"/><label for="enable_detailed_reports"/>
+                    </div>
+                </page>
             </field>
         </record>
     </data>

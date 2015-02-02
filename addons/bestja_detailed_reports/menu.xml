@@ -1,10 +1,8 @@
 <openerp>
     <data>
-        <menuitem parent="bestja_base.menu_bestja" id="menu_detailed_reports" name="Raporty szczegółowe" sequence="10" groups="bestja_project.managers"/>
-        <menuitem parent="menu_detailed_reports" id="menu_detailed_reports_profile" action="action_bestja_detailed_reports" name="Moje raporty szczegółowe" sequence="1" groups="bestja_project.managers"/>
-        <menuitem parent="menu_detailed_reports" id="menu_detailed_reports_sent" action="action_bestja_detailed_report_sent"
-             name="Nadesłane raporty" sequence="1" groups="bestja_project.managers"/> 
-        <menuitem parent="menu_detailed_reports" id="menu_detailed_reports_summary" action="action_bestja_detailed_report_summary"
-             name="Zbiorcze raporty szczegółowe" sequence="1" groups="bestja_project.managers"/> 
+        <menuitem parent="bestja_base.menu_bestja" id="menu_detailed_reports" name="Raporty szczegółowe" sequence="16" groups="bestja_project.managers"/>
+        <menuitem parent="menu_detailed_reports" id="menu_detailed_reports_profile" action="action_bestja_detailed_reports" sequence="1" groups="bestja_project.managers"/>
+        <menuitem parent="menu_detailed_reports" id="menu_detailed_reports_sent" action="action_bestja_detailed_report_sent" sequence="2" groups="bestja_project.managers"/>
+        <menuitem parent="menu_detailed_reports" id="menu_detailed_reports_summary" action="action_bestja_detailed_report_summary" sequence="3" groups="bestja_project.managers"/>
     </data>
 </openerp>

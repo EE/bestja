@@ -12,8 +12,8 @@
                 </field>
 
                 <notebook>
-                    <page string="Zapraszanie organizacji">
-                        <group string="Zaproszone organizacje" attrs="{'invisible': [('organization_level', '&gt;=', 2)]}" groups="bestja_project.managers">
+                    <page string="Zapraszanie organizacji" attrs="{'invisible': [('organization_level', '&gt;=', 2)]}">
+                        <group string="Zaproszone organizacje" groups="bestja_project.managers">
                             <field name="invitations" options="{'creatable': False}" nolabel="1" colspan="4">
                                 <tree create="false" edit="false">
                                     <field name="organization"/>
@@ -24,7 +24,7 @@
                             <button name="%(action_invitation_wizard)d" type="action" string="Zaproś organizacje" class="oe_edit_only"/>
                         </group>
                     </page>
-                    <page id="page_reports" string="Raporty">
+                    <page id="page_reports" string="Raporty" attrs="{'invisible': [('organization_level', '&gt;=', 2)]}">
                         <separator string="Konfiguracja raportów"/>
                     </page>
                 </notebook>

@@ -15,13 +15,14 @@
             <field name="perm_unlink" eval="False"/>
         </record>
 
-        <record id="detailed_report_own_modify_rule2" model="ir.rule">
+        <record id="detailed_report_own_modify_rule" model="ir.rule">
             <field name="name">Managers / coordinators can modify their own detailed reports</field>
             <field name="model_id" ref="model_bestja_detailed_report"/>
             <field name="groups" eval="[(4, ref('base.group_user'))]"/>
             <field name="domain_force">[
-                ('state', '=', 'accepted'),
-                ('project.organization.level', '=', 1),
+                '|',
+                   ('state', '!=', 'accepted'),
+                   ('project.organization.level', '=', 1),
                 '|',
                     ('project.manager', '=', user.id),
                     ('project.organization.coordinator', '=', user.id),
@@ -32,23 +33,7 @@
             <field name="perm_create" eval="False"/>
             <field name="perm_unlink" eval="True"/>
         </record>
-        
-        <record id="detailed_report_own_modify_rule" model="ir.rule">
-            <field name="name">Managers / coordinators can modify their own detailed reports, as long as they hasn't been accepted.</field>
-            <field name="model_id" ref="model_bestja_detailed_report"/>
-            <field name="groups" eval="[(4, ref('base.group_user'))]"/>
-            <field name="domain_force">[
-                ('state', '!=', 'accepted'),
-                '|',
-                    ('project.manager', '=', user.id),
-                    ('project.organization.coordinator', '=', user.id),
 
-            ]</field>
-            <field name="perm_read" eval="False"/>
-            <field name="perm_write" eval="True"/>
-            <field name="perm_create" eval="False"/>
-            <field name="perm_unlink" eval="True"/>
-        </record>
 
 
         <record id="detailed_report_parent_rule" model="ir.rule">
@@ -61,7 +46,7 @@
                     ('parent_project.organization.coordinator', '=', user.id),
             ]</field>
         </record>
-        
+
         <record id="detailed_report_parent_of_parent_rule" model="ir.rule">
             <field name="name">Managers / coordinators of parent of parent projects can access the detailed reports.</field>
             <field name="model_id" ref="model_bestja_detailed_report"/>
@@ -72,7 +57,7 @@
                     ('parent_project.parent.organization.coordinator', '=', user.id),
             ]</field>
         </record>
-          
+
         <record id="report_entry_own_read_rule" model="ir.rule">
             <field name="name">Managers / coordinators can see and create their own report entries.</field>
             <field name="model_id" ref="model_bestja_report_entry"/>
@@ -87,13 +72,15 @@
             <field name="perm_create" eval="True"/>
             <field name="perm_unlink" eval="False"/>
         </record>
-        
+
         <record id="report_entry_own_modify_rule" model="ir.rule">
             <field name="name">Managers / coordinators can modify their own report entries, as long as the detailed report hasn't been accepted.</field>
             <field name="model_id" ref="model_bestja_report_entry"/>
             <field name="groups" eval="[(4, ref('base.group_user'))]"/>
             <field name="domain_force">[
-                ('detailed_report.state', '!=', 'accepted'),
+                '|',
+                    ('detailed_report.state', '!=', 'accepted'),
+                    ('detailed_report.project.organization.level', '=', 1),
                 '|',
                     ('detailed_report.project.manager', '=', user.id),
                     ('detailed_report.project.organization.coordinator', '=', user.id),
@@ -114,7 +101,7 @@
                     ('detailed_report.parent_project.organization.coordinator', '=', user.id),
             ]</field>
         </record>
-        
+
         <record id="report_entry_parent_parent_rule" model="ir.rule">
             <field name="name">Managers / coordinators of parent of parent projects can access the report entries.</field>
             <field name="model_id" ref="model_bestja_report_entry"/>

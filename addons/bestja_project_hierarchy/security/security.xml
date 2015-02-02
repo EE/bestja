@@ -33,7 +33,11 @@
             <field name="domain_force">[
                 '|',
                     ('children.organization.coordinator', '=', user.id),
+                '|',
                     ('children.manager', '=', user.id),
+                '|',
+                    ('children.children.organization.coordinator', '=', user.id),
+                    ('children.children.manager', '=', user.id),
             ]</field>
             <field name="perm_read" eval="True"/>
             <field name="perm_write" eval="False"/>
