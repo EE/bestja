@@ -1,54 +1,40 @@
-.bestja_offers_offer {
-    font-family: 'Open Sans' !important;
-}
-
 .bestja_offers_offer p {
     font-size: 18px;
 }
 
-.bestja_offers_offer h2 {
-    font-size: 30px;
-}
-
-.bestja_offers_offer .cover {
-    font-size: 18px;
-    background-size: cover;
-    width: 100%;
-    height: 500px;
-    /* TODO this is mock. Remove this. Different offers will have different images.
-     Maybe `background-image` property should be set via JavaScript. */
-    background-image: url('/bestja_offers/static/oferta_gui.jpg');
-}
-
-.bestja_offers_offer .btn-join {
-    height: 50px;
-    width: 200px;
+.size24{
     font-size: 24px;
 }
 
-.bestja_offers_offer .cover {
-    position: relative;
+.bestja_offers_offer h2 {
+    font-size: 24px;
+    font-weight: normal;
 }
 
-.bestja_offers_offer .offer_center {
-    margin: 12px 0;
-    text-align: center;
+.bestja_offers_offer li{
+    font-size: 18px;
+}
+
+.bestja_offers_offer {
+    font-size: 18px;
+    width: 100%;
+    height: 400px;
+    /* TODO this is mock. Remove this. Different offers will have different images.
+     Maybe `background-image` property should be set via JavaScript. */
+    background: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)), url('http://lorempixel.com/1920/850') no-repeat 50% 0%;
+    background-size: auto auto;
 }
 
 .ee_share {
-    font-size: 26px;
-}
-
-.ee_bottom_share {
-    margin-top: 50px;
+    font-size: 52px;
 }
 
 .offer_share {
     line-height: 400%;
 }
 
-.offer_name, .offer_icons, .offer_info, .offer_share {
-    background: rgba(255, 255, 255, 0.8);
+.offer_name, .offer_icons, .offer_share {
+    color: #FFFFFF;
 }
 
 .offer_name, .offer_icons, .bestja_offers_offer .offer_share {
@@ -64,18 +50,28 @@
 }
 
 .offer_map {
-   display: block;
-   margin: 20px 0;
-   height: 300px;
-   color: #000;
+    display: block;
+    margin: 20px 0;
+    height: 300px;
+    color: #000;
 }
 
-.offer_info {
-    min-height: 130px;
-    right: 0;
-    left: 0;
-    position: relative;
-    display: block;
+.offer_info{
+    color: #FFFFFF;
+    margin-top: -160px;
+    height: 200px;
+}
+
+.offer_info h2{
+    font-size: 24px;
+}
+
+.offer_info p{
+    font-size: 18px;
+}
+
+.col_offer_info{
+    min-height: 115px !important;
 }
 
 .offer_icons {
@@ -104,18 +100,296 @@
     }
 }
 
+.further_expectations{
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.empty_category_title{
+    font-size: 24px;
+    font-weight: 300;
+}
+
+.btn_join {
+    display: inline-block;
+    height: 60px;
+    padding-right: 35px;
+    padding-left: 35px;
+    font-size: 24px;
+    color: #FFFFFF;
+    font-weight: bold;
+    border-radius: 0;
+    background-color: #F59A1E;
+    border: 0;
+}
+.btn_join:hover{
+    background-color: #982582;
+    color: #FFFFFF;
+}
+
+.print_icon{
+    display: inline-block;
+    margin-bottom: -10px;
+    width: 44.5px;
+    height: 52px;
+    background-image: url('/bestja_offers/static/src/img/printer.svg');
+    background-size: 44.5px 52px;
+}
+
+.print_icon:hover{
+    background-image: url('/bestja_offers/static/src/img/printer_hover.svg');
+}
+
 @media screen and (max-width: 991px) {
     .bestja_offers_offer {
-        margin: 0 10px;
+        height: 600px;
     }
-    .offer_info {
-        margin-top: 0;
+
+    .offer_info{
+        height: 400px;
+        margin-top: -360px;
     }
 }
 
-@media screen and (min-width: 992px) {
-    .offer_info {
-        margin-top: -130px;
-        padding: 0 8.33%;
+@media screen and (max-width: 767px) {
+    .bestja_offers_offer {
+        height: 300px;
+    }
+
+    .offer_info{
+        height: 500px;        
+        margin-top: 10px;
+        color: #000000;
+        text-align: center;
+    }
+
+    .offer_info h3{
+        font-size: 24px;
+    }
+
+    .col_offer_info{
+        margin-top: 40px;
+        min-height: 1px !important;
+    }
+
+
+    .offer_description{
+        margin: 25px;
+    }
+
+    .ee_bottom_share{
+        text-align: center;
     }
 }
+
+/* Offers list */
+
+.title_of_the_offer a{
+    color: #DB901F;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 22px;
+}
+
+.title_of_the_offer a:hover{
+    color: #982582;
+}
+
+.date_of_the_offer, .content_of_the_offer{
+    background-color: #F0F0F0;
+    height: 165px;
+}
+
+.two > img{
+    height: 165px;
+}
+
+
+
+.title_of_the_offer, .organization_name, .category_name{
+    margin-top: 0;
+}
+
+.offer_where{
+    padding: 20px;
+}
+
+.offers_day_of_the_week{
+    font-size: 16px;
+    color: #6C6C6C;
+}
+
+.offers_the_day{
+    font-size: 40px;
+    color: #3C4049;
+    margin-top: calc(23% - 40px);
+    margin-bottom: calc(23% - 40px);
+}
+
+.offers_the_month{
+    font-size: 16px;
+    color: #3C4049;
+    margin-top: calc(23% - 16px);
+    margin-bottom: calc(23% - 16px);
+}
+
+.date_of_the_offer p{
+    margin-top: calc(15% - 26px);
+    margin-bottom: calc(15% - 26px);
+}
+
+.organization_name a{
+    color: #6C6C6C;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.category_name{
+    font-size: 14px;
+    font-weight: 400;
+    color: #666666;
+}
+
+.category_name span{
+    color: #949494;
+}
+
+.organization_name a:hover{
+    color: #3C4049;
+}
+
+.offer_where{
+    text-align: right;
+    color: #3C4049;
+    font-size: 14px;
+}
+
+.offer_how_long, .offer_place{
+    display: inline-block;
+    color: #3C4049;
+}
+
+.offer_place:before, .offer_how_long:before{
+    float: left;
+    content: "";
+    display: block;
+    width: 20px;
+    height: 20px;
+    margin-left: 20px;
+    margin-right: 10px;
+}
+
+.offer_place:before{
+    background: url('/bestja_frontend_ucw/static/src/img/content/miejsce-01.svg');
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+}
+
+.offer_how_long:before{
+    background: url('/bestja_frontend_ucw/static/src/img/content/czas-01.svg');
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+
+}
+
+@media screen and (max-width: 1199px) {
+    .date_of_the_offer, .content_of_the_offer{
+        height: 200px;
+    }
+
+    .offer_where{
+        padding: 20px;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .date_of_the_offer, .content_of_the_offer{
+        height: 150px;
+    }
+
+    .offer_where{
+        padding: 5px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .date_of_the_offer, .content_of_the_offer{
+        height: 200px;
+    }    
+}
+
+@media screen and (max-width: 480px) {
+    .title_of_the_offer a{
+        font-size: 18px;
+    }
+
+    .organization_name a, .offer_where p{
+        font-size: 14px;
+    }
+
+    .offer_where{
+        padding: 0;
+    }
+
+    .offer_place, .offer_how_long{        
+        float: left;
+        text-align: left;
+    }
+
+    .offer_place{
+        width: 70%;
+    }
+
+    .offer_how_long{
+        width: 30%;
+    }
+}
+/* End of Offers list */
+
+
+/* Tiles and hover */
+.tile {
+    padding-bottom: 100%;
+    position: relative;
+    overflow: hidden;
+
+}
+.tile-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: left 0.5s ease;
+    width: 200%;
+    overflow: hidden;
+    height: auto;
+}
+
+.one, .two, .three {
+    width: 50%;
+    float: left;
+    position: relative;
+    padding-bottom: 100%;
+}
+
+.one {
+    background: transparent;
+}
+.two {
+    background: transparent;
+}
+.three {
+    background: transparent;
+}
+.in-content {
+    position: absolute;
+}
+
+
+@media (min-width: 992px) {
+    .test-row:hover .tile-content {
+        left: -100%;
+        transition: left 0.5s ease;
+    }
+}
+/* End of Tiles and hover */

@@ -7,155 +7,322 @@
                         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8_eNIDCU7qkBzkh4A02pnpRmPtE3rrI0&amp;libraries=places&amp;language=pl"/>
 
                 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans" />
-                <div class="bestja_offers_offer">
-                    <div class="cover">
-                        <section class="row">
-                            <section class="offer_name col-md-3 col-md-offset-1 col-xs-7 col-xs-offset-1">
-                                <h1><t t-esc="offer.name"/></h1>
+                <section class="oe_snippet_body bestja_offers_offer">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-3 col-md-offset-1 col-sm-11 col-sm-offset-1 col-xs-18 mb32 offer_name">
+                                <h1>
+                                    <t t-esc="offer.name"/>
+                                </h1>
+                            </div>
 
-                                <p class="offer_organization"><t t-esc="offer.project.organization.name"/>
+                            <div class="col-md-2"/>                            
 
-                                </p>
-
-                            </section>
-
-                            <section class="offer_share col-md-2">
-                            <t t-call="bestja_offers.share" />
-                            </section>
-
-                            <section class="offer_icons col-md-3 col-md-offset-2 col-xs-4 col-xs-offset-0">
-                                <div class="offer_icon_container"><div class="offer_icon">ico</div></div>
-                                <div class="offer_icon_container"><div class="offer_icon">ico</div></div>
-                                <div class="offer_icon_container"><div class="offer_icon">ico</div></div>
-                            </section>
-                        </section>
+                            <div class="col-md-3 col-md-offset-2 col-sm-5 col-sm-offset-6 col-xs-12 offer_share">
+                                <t t-call="bestja_offers.share" />
+                            </div>
+                        </div>
+                    </div>                    
+                </section>
+                <section class="oe_snippet_body visible-xs-block">
+                    <div class="container-fluid">
+                        <div class="row mt16 text-center">
+                            <div class="col-md-12">
+                                <form method="post" t-attf-action="/offer/{{ slug(offer) }}/apply">
+                                    <button type="submit" class="mt16 mb16 btn_join">ZGŁOŚ SIĘ!</button>
+                                </form>
+                            </div>
+                        </div>
                     </div>
+                </section>                
+                <section class="oe_snippet_body offer_info">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-2 col-lg-offset-1 col-md-2 col-md-offset-1 col-sm-5 col-sm-offset-1 col-xs-18 col_offer_info">
+                                <h3>Termin</h3>
+                                <p class="size24">
+                                    <strong>od <span t-field="offer.project.date_start" t-field-options='{"format": "d.MM.y"}'/> 
+                                        <br />
+                                        do <span t-field="offer.project.date_stop" t-field-options='{"format": "d.MM.y"}'/>
+                                    </strong>
+                                </p>
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-5 col-xs-18 col_offer_info">
+                                <h3>Gdzie</h3>
+                                <p class="size24">
+                                    <strong>
+                                        <t t-esc="offer.city"/> 
+                                        <t t-esc="offer.district"/>
+                                    </strong>
+                                </p>
+                            </div>
+                            <div class="col-lg-3 col-lg-offset-0 col-md-4 col-sm-5 col-sm-offset-1 col-xs-18 col_offer_info">
+                                <h3>Kiedy</h3>
+                                <strong>
+                                    <t t-if="offer.kind =='periodic' or offer.kind =='cyclic'">
+                                        <p class="size24" t-if="offer.interval">
+                                            <t t-if="offer.hours"> 
+                                                <span t-esc="offer.hours"/>h </t>
+                                            <t t-if="offer.interval == 1">
+                                                co tydzień 
+                                            </t>
+                                            <t t-if="offer.interval != 1">
+                                                co <t t-esc="offer.interval"/> tygodnie
+                                            </t>
+                                        </p>
 
-                    <section class="row offer_info">
-                        <section class="col-md-3">
-                            <h2>Gdzie</h2>
-                            <p><t t-esc="offer.city"/> <t t-esc="offer.district"/></p>
-                        </section>
-                        <section class="col-md-3">
-                            <h2>Liczba godzin</h2>
-                            <p><t t-esc="offer.hours"/> / tyg.</p>
-                        </section>
-                        <section class="col-md-3">
-                            <h2>Kontakt</h2>
-                            <p t-if="offer.project.manager.name"><t t-esc="offer.project.manager.name"/></p>
-                            <p>Telefon: 123-456-789</p>
-                        </section>
-                    </section>
+                                        <p t-if="offer.hours and not offer.interval">
+                                            <span t-esc="offer.hours"/> h/tyg.</p> 
 
+                                        <p class="size24" t-if="offer.weekday">
+                                            <t t-foreach="offer.weekday" t-as="weekday">
+                                                <span t-esc="weekday.name"/>
+                                                <t t-if="not weekday_last">, </t>
+                                            </t>
+                                        </p>
+
+                                        <p class="size24">
+                                            <t t-foreach="offer.daypart" t-as="daypart">
+                                                <span t-esc="daypart.name"/>
+                                                <t t-if="not daypart_last">, </t>
+                                            </t>
+                                        </p>
+
+                                        <p class="size24" t-if="not offer.hours and not offer.daypart and not offer.weekday and not offer.interval">
+                                            brak danych</p>
+                                    </t>                                
+                                    <t t-if="offer.kind =='flexible'"> 
+                                        <p>elastyczne godziny</p>
+                                    </t>
+                                </strong>
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-5 col-xs-18 col_offer_info">
+                                <h3>Koordynator</h3>
+                                <strong>
+                                    <p class="size24" t-if="offer.project.manager.name">
+                                        <t t-esc="offer.project.responsible_user.name"/>
+                                    </p>
+                                </strong>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="oe_snippet_body offer_description">
                     <t t-call="bestja_offers.join" />
 
-                    <section class="row">
-                        <section class="offer_content col-md-5 col-md-offset-1">
-                            <h2>Dlaczego potrzebujemy pomocy</h2>
-                            <section t-if="offer.description">
+                    <div class="row">
+                        <div class="col-md-5 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-17 offer_content">
+                            <div t-if="offer.description">
+                                <h2>Na czym będzie polegała Twoja praca</h2>
                                 <p>Celem projektu jest: <span t-field="offer.description"></span></p>
-                            </section>
-                            <section t-if="offer.expectations">
-                                <h2>Jak możesz pomóc</h2>
+                            </div>
+                            <div t-if="offer.expectations">
+                                <h2>Czego oczekujemy</h2>
                                 <p>
                                     <span t-field="offer.expectations"></span>
                                 </p>
-                            </section>
-                            <section t-if="offer.benefits">
-                                <h2>Korzyści</h2>
+                                <div t-if="offer.drivers_license or offer.sanepid or offer.forklift"  class="container">
+                                    <h3 class="further_expectations">Uprawnienia</h3>
+                                    <p t-if="offer.drivers_license">
+                                        Prawo jazdy: <span t-field="offer.drivers_license"></span>
+                                    </p>
+                                    <p t-if="offer.sanepid">
+                                        Ważne badania sanepidu
+                                    </p>
+                                    <p t-if="offer.forklift">
+                                        Ważne uprawnienia na wózek widłowy
+                                    </p>
+                                </div>
+                            </div>
+                            <div t-if="offer.benefits">
+                                <h2>Co oferujemy</h2>
                                 <p>
                                     <span t-field="offer.benefits"></span>
+                                </p>                                
+                            </div>
+                            <div t-if="offer.tools">
+                                <h2>Co zapewniamy</h2>
+                                <p>
+                                    <span t-field="offer.tools"></span>
                                 </p>
-                            </section>
-
-                            <div class="row">
-                            <section class="col-md-8">
-                                <h2>Lokalizacja</h2>
-                                <p t-field="offer.city"></p>
-                            </section >
-                            <section class="ee_bottom_share col-md-4">
-                                <t t-call="bestja_offers.share" />
-                            </section>
+                            </div>
+                            <div t-if="offer.comments">
+                                <h2>Uwagi</h2>
+                                <p>
+                                    <span t-field="offer.comments"></span>
+                                </p>
                             </div>
 
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <h2>Lokalizacja</h2>
+                                    <p t-field="offer.city"></p>
+                                </div >                            
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-17 offer_sidebar">
+                            <img src="/bestja_offers/static/src/img/logo.png" />
+                            <p class="size24 mt32">
+                                <t t-esc="offer.project.organization.name"/>
+                            </p>
+                            <p>
+                                <a t-attf-href="mailto:{{ offer.project.organization.email }}">
+                                    <t t-esc="offer.project.organization.email"/>
+                                </a>
+                            </p>
+                            <h2 class="mt32">Co robimy</h2>
+                            <p>
+                                <t t-esc="offer.project.organization.organization_description"/>
+                            </p>
+                        </div>
+                    </div>
 
-                        </section>
-                        <section class="col-md-3 col-md-offset-2 offer_sidebar">
-                            <img src="/bestja_offers/static/logo.png" />
-                            <h3><t t-esc="offer.project.organization.name"/></h3>
-                            <p><a t-attf-href="mailto:{{ offer.project.organization.email }}"><t t-esc="offer.project.organization.email"/></a></p>
-                            <h4>Co robimy</h4>
-                            <p><t t-esc="offer.project.organization.organization_description"/></p>
-                        </section>
-                    </section>
-
-                    <section class="row">
-                        <div class="col-md-6 col-md-offset-1">
+                    <div class="row">
+                        <div class="col-lg-7 col-lg-offset-1 col-md-7 col-md-offset-1 col-sm-12 col-xs-18">
                             <div id="offer-map-canvas" class="offer_map"></div>
                         </div>
-                    </section>
-                    <div id="bestja_offers_offer_location" t-attf-data-lat="{{ offer.latitude }}" t-attf-data-lng="{{ offer.longitude }}"></div>
+                        <div class="col-lg-3 col-lg-offset-0 col-md-3 col-sm-10 col-sm-offset-1 col-xs-17 ee_bottom_share">
+                            <h2>"Wspólne pomaganie daje więcej przyjemności"</h2>
+                            <p>Zaproś znajomych</p>
+                            <t t-call="bestja_offers.share2" />
+                        </div>
+                    </div>
+                    <div id="bestja_offers_offer_location" t-attf-data-lat="{{ offer.latitude }}" 
+                         t-attf-data-lng="{{ offer.longitude }}">
+                    </div>
 
                     <t t-call="bestja_offers.join" />
 
-                </div>
+                </section>
             </t>
         </template>
 
         <template id="bestja_offers.join" name="Zgłoś się">
-            <form class="offer_center" method="post" t-attf-action="/offer/{{ slug(offer) }}/apply">
-                <button type="submit" class="btn btn-primary btn-join">Zgłoś się!</button>
-            </form>
+            <section class="oe_snippet_body">
+                <div class="container-fluid">
+                    <div class="row mt16 mb16 text-center">
+                        <div class="col-md-12">
+                            <form method="post" t-attf-action="/offer/{{ slug(offer) }}/apply">
+                                <button type="submit" class="mt16 mb16 btn_join">ZGŁOŚ SIĘ!</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </template>
 
         <template id="bestja_offers.thankyou" name="Dziękujemy za zgłoszenie">
             <t t-call="website.layout">
-                <h1>Dziękujemy!</h1>
-                <p>Dziękujemy za zgłoszenie.</p>
-                <p>Wkrótce ktoś się z Tobą skontaktuje.</p>
-                <p><a href="/">Powrót do strony głównej</a></p>
-            </t>
-        </template>
-
-        <template id="bestja_offers.duplicate_application" name="Ponowne zgłoszenie">
-            <t t-call="website.layout">
-                <h1>Nic dwa razy się nie zdarza!</h1>
-                <p>Nie można dwa razy aplikować na tę samą ofertę.
-Sprawdź inne możliwości działania!</p>
-                <p><a href="/">Powrót do strony głównej</a></p>
+                <section class="oe_snippet_body">
+                    <div class="container-fluid">
+                        <div class="row mt16 mb16 text-center">
+                            <div class="col-md-12">
+                                <h1>Dziękujemy!</h1>
+                                <p>Dziękujemy za zgłoszenie.</p>
+                                <p>Wkrótce ktoś się z Tobą skontaktuje.</p>
+                                <p>
+                                    <a href="/">Powrót do strony głównej</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </t>
         </template>
 
         <template id="bestja_offers.meeting_confirmation" name="Dziękujemy za odpowiedź">
             <t t-call="website.layout">
-                <h1>Dziękujemy!</h1>
-                <p>Informacja została zapisana.</p>
-                <p>To spotkanie jest teraz <t t-if="resolution == 'accepted'">zaakceptowane</t><t t-if="resolution == 'rejected'">odrzucone</t>.</p>
+                <section class="oe_snippet_body">
+                    <div class="container-fluid">
+                        <div class="row mt16 mb16 text-center">
+                            <div class="col-md-12">
+                                <h1>Dziękujemy!</h1>
+                                <p>Informacja została zapisana.</p>
+                                <p>To spotkanie jest teraz <t t-if="resolution == 'accepted'">zaakceptowane</t>
+                                    <t t-if="resolution == 'rejected'">odrzucone</t>.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </t>
+        </template>
+        
+        <template id="bestja_offers.duplicate_application" name="Ponowne zgłoszenie">
+            <t t-call="website.layout">
+                <section class="oe_snippet_body">
+                    <div class="container-fluid">
+                        <div class="row mt16 mb16 text-center">
+                            <div class="col-md-12">
+                                <h1>Nic dwa razy się nie zdarza!</h1>
+                                <p>Nie można dwa razy aplikować na tę samą ofertę.
+                                    Sprawdź inne możliwości działania!</p>
+                                <p>
+                                    <a href="/">Powrót do strony głównej</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </t>
         </template>
 
         <template id="bestja_offers.share">
             <span class="ee_share">
 
-            <t t-set="url" t-valuef="http://{{ request.httprequest.host}}{{ request.httprequest.path }}" />
-            <t t-set="title" t-value="offer.name" />
+                <t t-set="url" t-valuef="http://{{ request.httprequest.host}}{{ request.httprequest.path }}" />
+                <t t-set="title" t-value="offer.name" />
 
-            <a target="_Blank"
-                class="oe_share_facebook"
-                t-attf-href="https://www.facebook.com/sharer/sharer.php?u={{ url }}"><i class="fa fa-facebook-square"></i></a>
-            <a target="_Blank"
-                class="oe_share_twitter"
-                t-attf-href="https://twitter.com/intent/tweet?text={{ title }}&amp;url={{ url }}">
-                <i class="fa fa-twitter"></i></a>
-            <a target="_Blank"
-                class="oe_share_linkedin"
-                t-attf-href="http://www.linkedin.com/shareArticle?mini=true&amp;url={{ url }}&amp;title={{ title }}"><i class="fa fa-linkedin"></i></a>
-            <a target="_Blank"
-                class="oe_share_google"
-                t-attf-href="https://plus.google.com/share?url={{ url }}">
-                <i class="fa fa-google-plus-square"></i>
-            </a>
-            <a t-attf-href="mailto:?body={{ url }}&amp;subject={{ title }}"><i class="fa fa-envelope-o"></i></a>
+                <a target="_Blank"
+                   class="oe_share_facebook"
+                   t-attf-href="https://www.facebook.com/sharer/sharer.php?u={{ url }}">
+                    <i class="fa fa-facebook-square"></i>
+                </a>
+                <a target="_Blank"
+                   class="oe_share_google"
+                   t-attf-href="https://plus.google.com/share?url={{ url }}">
+                    <i class="fa fa-google-plus-square"></i>
+                </a>
+                <a target="_Blank"
+                   class="oe_share_linkedin"
+                   t-attf-href="http://www.linkedin.com/shareArticle?mini=true&amp;url={{ url }}&amp;title={{ title }}">
+                    <i class="fa fa-linkedin"></i>
+                </a>
+                <a t-attf-href="mailto:?body={{ url }}&amp;subject={{ title }}">
+                    <i class="fa fa-envelope-o"></i>
+                </a>
+                <a 
+                    class="oe_share_print"
+                    t-attf-href="javascript:window.print()">
+                    <div class="print_icon"></div>
+                </a>
+
+            </span>
+
+        </template>
+        <template id="bestja_offers.share2">
+            <span class="ee_share">
+
+                <t t-set="url" t-valuef="http://{{ request.httprequest.host}}{{ request.httprequest.path }}" />
+                <t t-set="title" t-value="offer.name" />
+
+                <a target="_Blank"
+                   class="oe_share_facebook"
+                   t-attf-href="https://www.facebook.com/sharer/sharer.php?u={{ url }}">
+                    <i class="fa fa-facebook-square"></i>
+                </a>
+                <a target="_Blank"
+                   class="oe_share_google"
+                   t-attf-href="https://plus.google.com/share?url={{ url }}">
+                    <i class="fa fa-google-plus-square"></i>
+                </a>
+                <a target="_Blank"
+                   class="oe_share_linkedin"
+                   t-attf-href="http://www.linkedin.com/shareArticle?mini=true&amp;url={{ url }}&amp;title={{ title }}">
+                    <i class="fa fa-linkedin"></i>
+                </a>
+                <a t-attf-href="mailto:?body={{ url }}&amp;subject={{ title }}">
+                    <i class="fa fa-envelope-o"></i>
+                </a>           
 
             </span>
 

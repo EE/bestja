@@ -2,15 +2,103 @@
     <data>
         <template id="list" name="Oferty">
             <t t-call="website.layout">
-                <h1 t-if="category">Kategoria "<t t-esc="category.display_name"/>"</h1>
-                <h1 t-if="not category">Wszystkie oferty</h1>
-                <ul>
-                    <li t-foreach="offers" t-as="offer">
-                        <a t-attf-href="{{ offer.get_public_url() }}">
-                            <t t-esc="offer.display_name"/>
-                        </a>
-                    </li>
-                </ul>
+                
+                <section class="oe_snippet_body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h1 class="text-center mt48 mb48 section_title" t-if="category">Oferty: <t t-esc="category.display_name"/></h1>
+                                <h1 class="text-center mt48 mb48 section_title" t-if="not category">Wszystkie oferty</h1>
+                                <h2 class="text-center mt48 mb48 empty_category_title" t-if="not offers">Brak dostępnych ofert</h2>
+                                <h2 class="text-center mt48 mb48 empty_category_title" t-if="category and not offers">
+                                    <a href="/offers/category/">Zobacz oferty z innych kategorii</a>
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <t t-foreach="offers" t-as="offer">
+                    <section class="oe_sinppet_body container">
+                        <div class="row test-row">
+                            <div class="col-xs-2 col-md-2 hidden-xs hidden-sm">
+                                <div class="tile first">
+                                    <div class="tile-content">
+                                        <div class="one">
+                                            <div class="well text-center date_of_the_offer">                                    
+                                                <p class="offers_day_of_the_week">
+                                                    <span t-field="offer.project.date_start" t-field-options='{"format": "EEEE"}'/>
+                                                </p>                                        
+                                                <p class="offers_the_day">
+                                                    <strong>
+                                                        <span t-field="offer.project.date_start" t-field-options='{"format": "d"}'/>
+                                                    </strong>
+                                                </p>                                        
+                                                <p class="offers_the_month">
+                                                    <span t-field="offer.project.date_start" t-field-options='{"format": "MMM"}'/>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="two">
+                                            <img class="img img-responsive shadow pictogram" 
+                                                 src="http://wolontariat.uw.edu.pl/wp-content/themes/TONE/images/grid-ico1.svg"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-2 col-md-2">
+                                <div class="tile second">
+                                    <div class="tile-content">
+                                        <div class="two">
+                                            <img class="img img-responsive" 
+                                                 src="http://lorempixel.com/g/300/200"/>
+                                        </div>
+                                        <div class="three">
+                                            <div class="well text-center date_of_the_offer">                                    
+                                                <p class="offers_day_of_the_week">
+                                                    <span t-field="offer.project.date_start" t-field-options='{"format": "EEEE"}'/>
+                                                </p>                                        
+                                                <p class="offers_the_day">
+                                                    <strong>
+                                                        <span t-field="offer.project.date_start" t-field-options='{"format": "d"}'/>
+                                                    </strong>
+                                                </p>                                        
+                                                <p class="offers_the_month">
+                                                    <span t-field="offer.project.date_start" t-field-options='{"format": "MMM"}'/>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-10 col-md-8">
+                                <div class="well well-lg content_of_the_offer">
+                                    <h2 class="title_of_the_offer" >
+                                        <a t-attf-href="{{ offer.get_public_url() }}">
+                                            <t t-esc="offer.display_name"/>
+                                        </a>
+                                    </h2>
+                                    <h2 class="organization_name">
+                                        <small>
+                                            <t t-esc="offer.project.organization.name"/>
+                                        </small>
+                                    </h2>
+                                    <h2 class="category_name">
+                                        <span>Kategoria:</span> 
+                                        <t t-esc="offer.category.name"/>
+                                    </h2>
+                                    <div class="offer_where">
+                                        <p class="offer_place">
+                                            <t t-esc="offer.city"/>
+                                        </p> 
+                                        <p class="offer_how_long" t-if="offer.hours">
+                                            <t t-esc="offer.hours"/>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>                                        
+                </t>
             </t>
         </template>
     </data>
