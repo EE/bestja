@@ -1,6 +1,6 @@
 <openerp>
     <data>
-        <menuitem sequence="0" id="menu_bestja" name="BestJa"/>
+        <menuitem sequence="0" id="menu_bestja" name="Aplikacja"/>
         <!-- Add Messages menu item to BestJa -->
         <menuitem name="Messaging" id="mail.mail_feeds" parent="bestja_base.menu_bestja" sequence="0"/>
         <!-- hide the regular messaging menu -->
