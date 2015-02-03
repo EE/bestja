@@ -1,0 +1,11 @@
+<openerp>
+    <data>
+        <template id="assets_frontend" name="frontend age_verification assets" inherit_id="website.assets_frontend">
+            <xpath expr="." position="inside">
+                <script type="text/javascript" src="/signup_age_verification/static/src/js/age_verification.js"/>
+                <link rel="stylesheet" href="/signup_age_verification/static/src/css/age_verification.css"/>
+            </xpath>
+        </template>
+
+    </data>
+</openerp>

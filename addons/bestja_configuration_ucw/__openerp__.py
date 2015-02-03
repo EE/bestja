@@ -22,6 +22,7 @@
         'bestja_files',
         'bestja_application_moderation',
         'bestja_ucw_permissions',
+        'signup_age_verification',
     ],
     'data': [
         'data.xml',

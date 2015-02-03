@@ -1,0 +1,19 @@
+#birthdate_day {
+    width: 50px;
+}
+
+#birthdate_month {
+    width: 50px;
+}
+
+#birthdate_year {
+    width: 80px;
+}
+
+#error-birthdate {
+    display:none;
+}
+
+.has-error #error-birthdate {
+    display: block;
+}

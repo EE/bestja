@@ -22,7 +22,8 @@
         'bestja_offers_by_org',
         'bestja_files',
         'quizzes',
-        'bestja_organization_warehouse'
+        'bestja_organization_warehouse',
+        'signup_age_verification',
     ],
     'data': [
         'data.xml',
