@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <template id="blog_post_short" inherit_id="website_blog.blog_post_short">
+            <xpath expr="//span[@t-field='blog_post.create_date']" position="attributes">
+                <!-- display the day of the month -->
+                <attribute name="t-field-options">{"format": "d MMMM yyyy"}</attribute>
+            </xpath>
+        </template>
+
+        <template id="blog_post_complete" inherit_id="website_blog.blog_post_complete">
+            <!-- remove the "Next post" footer -->
+            <xpath expr="//t[@t-if='next_post']" position="replace"/>
+        </template>
+    </data>
+</openerp>

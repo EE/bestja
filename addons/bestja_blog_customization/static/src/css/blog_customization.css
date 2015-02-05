@@ -1,0 +1,7 @@
+.website_blog .cover {
+    min-height: 300px !important;
+}
+
+.website_blog #blog_angle_down {
+    display: none;
+}

@@ -10,6 +10,7 @@
     'depends': [
         'base',
         'bestja_base',
+        'bestja_blog_customization',
         'bestja_volunteer',
         'bestja_volunteer_notes',
         'bestja_account_deletion',

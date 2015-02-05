@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data noupdate="1">
+        <!-- Change website menu item name -->
+        <record id="website_blog.menu_news" model="website.menu">
+            <field name="name">Blog</field>
+        </record>
+    </data>
+</openerp>
