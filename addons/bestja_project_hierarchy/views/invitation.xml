@@ -76,7 +76,11 @@
             <field name="view_mode">tree,form</field>
             <field name="domain">[('organization.coordinator', '=', uid)]</field>
             <field name="context" eval="{'search_default_pending': True}" />
-
+            <field name="help" type="html">
+                <p>
+                    Nie masz jeszcze żadnych zaproszeń. Jeśli otrzymasz zaproszenie od innej organizacji, pojawi się ono w tym folderze.
+                </p>
+            </field>
         </record>
     </data>
 </openerp>

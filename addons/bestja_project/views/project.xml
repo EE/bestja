@@ -16,6 +16,9 @@
                 <p class="oe_view_nocontent_create">
                     Aby zrekrutować wolontariuszy dla swojej organizacji, załóż nowy projekt
                 </p>
+                <p>
+                    Obecnie nie uczestniczysz w żadnym projekcie.
+                </p>
             </field>
         </record>
 

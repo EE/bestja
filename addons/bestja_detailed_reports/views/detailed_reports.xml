@@ -70,6 +70,14 @@
                 ('project.organization.coordinator', '=', uid),
                 ('project.manager', '=', uid),
             ]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Dodaj raport
+                </p>
+                <p>
+                    W tym folderze będą przechowywane wszystkie utworzone przez Ciebie raporty szczegółowe.
+                </p>
+            </field>
         </record>
 
         <record model="ir.ui.view" id="bestja_detailed_reports_tree">
@@ -109,6 +117,11 @@
                     ('parent_project.organization.coordinator', '=', uid),
                     ('parent_project.manager', '=', uid),
             ]</field>
+            <field name="help" type="html">
+                <p>
+                    W tym folderze będą przechowywane wszystkie raporty szczegółowe, które prześlą Ci inne organizacje.
+                </p>
+            </field>
         </record>
 
         <record model="ir.ui.view" id="detailed_report_search">

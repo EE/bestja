@@ -10,6 +10,14 @@
                     ('project.organization.coordinator', '=', uid),
                     ('project.manager', '=', uid),
             ]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Dodaj raport
+                </p>
+                <p>
+                    W tym folderze będą przechowywane wszystkie utworzone przez Ciebie raporty potrzeb.
+                </p>
+            </field>
         </record>
 
         <record model="ir.actions.act_window" id="action_received_requests">
@@ -23,6 +31,11 @@
                     ('parent_project.organization.coordinator', '=', uid),
                     ('parent_project.manager', '=', uid),
             ]</field>
+            <field name="help" type="html">
+                <p>
+                    W tym folderze będą przechowywane wszystkie raporty potrzeb, które prześlą Ci inne organizacje.
+                </p>
+            </field>
         </record>
 
         <record model="ir.ui.view" id="request_search">

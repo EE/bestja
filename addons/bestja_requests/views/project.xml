@@ -42,6 +42,11 @@
                 ('organization.coordinator', '=', uid),
                 ('manager', '=', uid),
             ]</field>
+            <field name="help" type="html">
+                <p>
+                    Chcesz wiedzieć, czego potrzebuję organizacje, z którymi współpracujesz? W tym folderze znajdziesz statystyki pokazujące wyniki raportów potrzeb, które prześlą pracujące z Tobą organizacje.
+                </p>
+            </field>
         </record>
     </data>
 </openerp>

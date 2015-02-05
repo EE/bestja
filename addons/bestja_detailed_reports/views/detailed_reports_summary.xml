@@ -11,6 +11,11 @@
             <field name="context">{
                 'search_default_accepted': True,
             }</field>
+            <field name="help" type="html">
+                <p>
+                    Chcesz wiedzieć, ile produktów udało się zebrać podczas zbiórki? W tym folderze znajdziesz statystyki pokazujące wyniki raportów szczegółowych, które prześlą współpracujące z Tobą organizacje.
+                </p>
+            </field>
         </record>
 
         <record model="ir.ui.view" id="report_entry_graph">

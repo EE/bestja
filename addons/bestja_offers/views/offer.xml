@@ -11,6 +11,14 @@
                     ('project.organization.coordinator.id', '=', uid),
                     ('project.manager.id', '=', uid)
             ]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Nie czekaj, stwórz ofertę!
+                </p>
+                <p>
+                    Obecnie nie ma w systemie aktywnych ofert dla wolontariuszy.
+                </p>
+            </field>
         </record>
 
         <record model="ir.actions.act_window" id="action_list_offers_templates">
@@ -23,6 +31,14 @@
                     ('project.organization.coordinator.id', '=', uid),
                     ('project.manager.id', '=', uid)
             ]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Stwórz nową ofertę i ustaw ją jako szablon!
+                </p>
+                <p>
+                    W tym folderze będą przechowywane szablony ofert. Dzięki nim oszczędzisz swój czas.
+                </p>
+            </field>
         </record>
 
         <record model="ir.ui.view" id="bestja_offer_form">

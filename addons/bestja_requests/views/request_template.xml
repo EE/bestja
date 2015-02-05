@@ -5,6 +5,14 @@
             <field name="name">Szablony raportów</field>
             <field name="res_model">bestja_requests.template</field>
             <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Utwórz nowy szablon
+                </p>
+                <p>
+                    Chcesz dowiedzieć się, czego potrzebują organizacje z którymi współpracujesz? Utwórz szablony poszczególnych raportów (np. materiałów promocyjnych) i korzystaj z nich definiując raporty w projekcie. Dzięki temu Twoi partnerzy będą mogli dokładnie określić swoje potrzeby.
+                </p>
+            </field>
         </record>
 
         <record model="ir.ui.view" id="templates_form">

@@ -14,7 +14,10 @@
             ]</field>
             <field name="help" type="html">
                 <p class="oe_view_nocontent_create">
-                    Zostań organizatorem wolontariatu! Sprawdź w bazie wiedzy, jakie trzeba spełnić warunki, a następnie utwórz organizację
+                    Zarejestruj swoją organizację!
+                </p>
+                <p>
+                    Obecnie nie masz zarejstrowanej żadnej organizacji! Sprawdź w bazie wiedzy - plikach ogólnych, jakie trzeba spełnić warunki.
                 </p>
             </field>
         </record>
