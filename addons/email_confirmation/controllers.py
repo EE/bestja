@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import logging
-import openerp
 from openerp.addons.auth_signup.res_users import SignupError
+from openerp.addons.auth_signup.controllers.main import AuthSignupHome
 from openerp import http
 from openerp.http import request
 from openerp.tools.translate import _
@@ -9,9 +9,7 @@ from openerp.tools.translate import _
 _logger = logging.getLogger(__name__)
 
 
-class AuthSignupHome(openerp.addons.web.controllers.main.Home):
-    _inherit = "openerp.addons.auth_signup.controllers.main.AuthSignupHome"
-
+class AuthSignupHome(AuthSignupHome):
     @http.route('/web/authenticate', type='http', auth='public', website=True)
     def web_auth_authenticate(self, *args, **kw):
         """After signing up user confirms his email"""

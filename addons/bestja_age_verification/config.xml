@@ -1,0 +1,18 @@
+<openerp>
+    <data>
+        <record id="view_bestja_configuration" model="ir.ui.view">
+            <field name="model">bestja.config.settings</field>
+            <field name="inherit_id" ref="bestja_base.view_bestja_configuration" />
+            <field name="arch" type="xml">
+                <form>
+                    <group name="offers" string="Weryfikacja wieku">
+                        <label for="min_age"/>
+                        <div>
+                            <field name="min_age"/>
+                        </div>
+                    </group>
+                </form>
+            </field>
+        </record>
+    </data>
+</openerp>

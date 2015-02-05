@@ -2,13 +2,13 @@
     <data>
         <template id="fields" inherit_id="auth_signup.fields">
             <div class="form-group field-name" position="after">
-                <div class="form-group field-birthdate">
+                <div class="form-group field-birthdate" t-att-data-min-age="min_age">
                     <label for="birthdate_day" class="control-label">Data urodzenia</label>
                     <div class="form-inline">
                         <input type="text" id="birthdate_day" class="form-control" placeholder="DD" maxlength="2" required="required" t-att-readonly="'readonly' if only_passwords else None"/>
                         <input type="text" id="birthdate_month" class="form-control" placeholder="MM" maxlength="2" required="required" t-att-readonly="'readonly' if only_passwords else None"/>
                         <input type="text" id="birthdate_year" class="form-control" placeholder="RRRR" maxlength="4" required="required" t-att-readonly="'readonly' if only_passwords else None"/>
-                        <span class="help-block" id="error-birthdate">Dozwolone od lat osiemnastu! Bez paniki - czekamy na Ciebie!</span>
+                        <span class="help-block" id="error-birthdate">Dozwolone od <t t-esc="min_age"/> lat! Bez paniki - czekamy na Ciebie!</span>
                     </div>
                 </div>
             </div>

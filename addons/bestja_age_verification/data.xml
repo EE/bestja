@@ -1,0 +1,9 @@
+<openerp>
+    <data noupdate="1">
+        <!-- default config value -->
+        <record id="default_min_age" model="ir.config_parameter">
+            <field name="key">bestja_age_verification.min_age</field>
+            <field name="value">18</field>
+        </record>
+    </data>
+</openerp>

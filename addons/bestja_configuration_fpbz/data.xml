@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data noupdate="1">
+        <!-- default min age for signup -->
+        <record id="bestja_age_verification.default_min_age" model="ir.config_parameter">
+            <field name="key">bestja_age_verification.min_age</field>
+            <field name="value">16</field>
+        </record>
+
+        <!-- default company info -->
         <record id="base.main_company" model="res.company">
             <field name="name">Federacja Polskich Banków Żywności</field>
             <field name="email">bestja@bankizywnosci.pl</field>

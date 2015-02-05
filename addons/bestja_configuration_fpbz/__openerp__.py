@@ -24,7 +24,7 @@
         'bestja_files',
         'quizzes',
         'bestja_organization_warehouse',
-        'signup_age_verification',
+        'bestja_age_verification',
     ],
     'data': [
         'data.xml',
