@@ -5,11 +5,6 @@
             <field name="name">BestJa Admin Instancji</field>
         </record>
 
-        <!-- Change display name of the default sender -->
-        <record id="message_template.user_messages" model="res.users">
-            <field name="name">Pani BestJa</field>
-        </record>
-
         <!-- Template user for new users signing in via the website -->
         <record id="bestja_template_user" model="res.users">
             <field name="name">Bestja Template User</field>

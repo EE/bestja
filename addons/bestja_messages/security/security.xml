@@ -1,0 +1,15 @@
+<openerp>
+    <data>
+        <!-- Change display name of the default sender -->
+        <record id="message_template.user_messages" model="res.users">
+            <field name="name">Pani BestJa</field>
+        </record>
+
+        <record id="user_messages_rule" model="ir.rule">
+            <field name="name">Everyone can see the default sender.</field>
+            <field name="model_id" ref="base.model_res_users"/>
+            <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+            <field name="domain_force">[('id', '=', user.env.ref('message_template.user_messages').id)]</field>
+        </record>
+    </data>
+</openerp>

@@ -21,7 +21,4 @@ simple API.""",
         'security/ir.model.access.csv',
         'security/security.xml',
     ],
-    'qweb': [
-        'static/src/xml/mail.xml',
-    ],
 }
