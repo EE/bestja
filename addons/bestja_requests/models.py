@@ -67,6 +67,16 @@ class RequestTemplate(models.Model):
     items = fields.One2many('bestja_requests.template_item', inverse_name='template')
     projects = fields.One2many('bestja.project', inverse_name='request_template')
 
+    @api.multi
+    def copy(self, default=None):
+        """
+        When coping a request template, also copy its items.
+        """
+        new_obj = super(RequestTemplate, self).copy(default)
+        for item in self.items:
+            item.copy(default={'template': new_obj.id})
+        return new_obj
+
 
 class RequestItem(models.Model):
     _name = 'bestja_requests.item'
