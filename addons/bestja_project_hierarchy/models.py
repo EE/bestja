@@ -27,9 +27,21 @@ class ProjectInvitation(models.Model):
     )
     project = fields.Many2one('bestja.project', string="Projekt")
     organization = fields.Many2one('organization', string="Organizacja")
-    state = fields.Selection(STATES, default='pending', store=True, compute='compute_state', string="Stan")
+    state = fields.Selection(
+        STATES,
+        default='pending',
+        store=True,
+        compute='compute_state',
+        compute_sudo=True,
+        string="Stan",
+    )
     description = fields.Text(string="Opis")
-    accepted_time = fields.Datetime(string="Data zaakceptowania", store=True, compute='compute_accepted_time')
+    accepted_time = fields.Datetime(
+        string="Data zaakceptowania",
+        store=True,
+        compute='compute_accepted_time',
+        compute_sudo=True,
+    )
     invited_projects = fields.One2many('bestja.project', inverse_name='parent_invitation')
 
     _sql_constraints = [
@@ -131,6 +143,7 @@ class Project(models.Model):
         'bestja.project.invitation',
         store=True,
         compute='compute_parent_invitation',
+        compute_sudo=True,
     )
     organization_level = fields.Integer(
         related='organization.level'

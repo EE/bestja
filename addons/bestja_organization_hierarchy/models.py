@@ -30,6 +30,7 @@ class Organization(models.Model):
     )
     level = fields.Integer(
         compute='compute_level',
+        compute_sudo=True,
         store=True,
         string="Poziom w hierarchii organizacji"
     )

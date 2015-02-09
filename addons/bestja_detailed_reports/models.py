@@ -10,6 +10,7 @@ class Project(models.Model):
     enable_detailed_reports = fields.Boolean(string="Raporty szczegółowe do zbiórki żywności")
     use_detailed_reports = fields.Boolean(
         compute='compute_use_detailed_reports',
+        compute_sudo=True,
         search='search_use_detailed_reports',
     )
 
@@ -114,6 +115,7 @@ class DetailedReport(models.Model):
         'organization',
         string="Zainteresowane organizacje",
         compute="compute_responsible_organization",
+        compute_sudo=True,
         store=True,
     )
     user_can_moderate = fields.Boolean(compute="compute_user_can_moderate")
@@ -127,7 +129,7 @@ class DetailedReport(models.Model):
         This field can be used to group all reports managed by
         a single organization together.
         """
-        project = self.sudo().project
+        project = self.project
         level = project.organization.level
         if level <= 1:
             self.responsible_organization = project.organization.id
