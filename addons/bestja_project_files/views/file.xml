@@ -43,6 +43,19 @@
             </field>
         </record>
 
+        <record model="ir.actions.act_window" id="action_project_file_grouped">
+            <field name="name">Pliki projektowe</field>
+            <field name="res_model">bestja.file</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="bestja_project_file_search"/>
+            <field name="context">{
+                'search_default_group_by_project': True,
+            }</field>
+            <field name="domain">[
+                ('project', '!=', False),
+            ]</field>
+        </record>
+
         <record model="ir.actions.act_window" id="action_project_file">
             <field name="name">Pliki projektowe</field>
             <field name="res_model">bestja.file</field>
@@ -50,7 +63,6 @@
             <field name="search_view_id" ref="bestja_project_file_search"/>
             <field name="context">{
                 'search_default_project': active_id,
-                'search_default_group_by_project': not active_id,
             }</field>
             <field name="domain">[
                 ('project', '!=', False),
@@ -76,11 +88,25 @@
             <field name="act_window_id" ref="action_project_file"/>
         </record>
 
+        <record model="ir.actions.act_window.view" id="action_project_file_grouped_tree">
+            <field eval="1" name="sequence"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="bestja_project_file_tree"/>
+            <field name="act_window_id" ref="action_project_file_grouped"/>
+        </record>
+
         <record model="ir.actions.act_window.view" id="action_project_file_form">
             <field eval="2" name="sequence"/>
             <field name="view_mode">form</field>
             <field name="view_id" ref="bestja_project_file_form"/>
             <field name="act_window_id" ref="action_project_file"/>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="action_project_file_grouped_form">
+            <field eval="2" name="sequence"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="bestja_project_file_form"/>
+            <field name="act_window_id" ref="action_project_file_grouped"/>
         </record>
     </data>
 </openerp>

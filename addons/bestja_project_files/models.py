@@ -6,7 +6,15 @@ from openerp import models, fields, api
 class File(models.Model):
     _inherit = 'bestja.file'
 
-    project = fields.Many2one('bestja.project', string="Projekt")
+    project = fields.Many2one(
+        'bestja.project',
+        string="Projekt",
+        domain='''[
+            '|',
+                ('organization.coordinator', '=', uid),
+                ('manager', '=', uid),
+        ]''',
+    )
     organization = fields.Many2one(
         'organization',
         string="Organizacja",
