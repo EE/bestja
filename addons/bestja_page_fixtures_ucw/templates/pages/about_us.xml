@@ -4,7 +4,7 @@
         <template id="website.about_us" name="Site about" page="True">
             <t t-call="website.layout">
                 <div id="wrap" class="oe_structure oe_empty">
-                    <section class="oe_snippet_body violet_section_about_us">
+                    <section class="oe_snippet_body first_section_about_us">
                         <div class="container-fluid full-section-container">
                             <div class="container">
                                 <div class="row">
@@ -27,7 +27,7 @@
                             <div class="row mt32 mb16">
                                 <div class="col-md-6">
                                     <form action="/page/team">
-                                        <button class="btn btn-lg mt32 mb32 button_orange" type="submit">ZESPÓŁ</button>
+                                        <button class="btn btn-lg mt32 mb32 button_more_contrast" type="submit">ZESPÓŁ</button>
                                     </form>
                                 </div>
                             </div>
@@ -64,12 +64,12 @@
                             </div>
                         </div>
                     </section>                    
-                    <section class="oe_snippet_body">
-                        <div class="container-fluid full-section-container background_color_grey">
+                    <section class="oe_snippet_body simple_quote">
+                        <div class="container-fluid full-section-container">
                             <div class="container">
                                 <div class="row">
                                     <div class="col-md-9">
-                                        <h3 class="mt48 mb48 color_violet">
+                                        <h3 class="mt48 mb48">
                                             <em>"Uniwersyteckie Centrum Wolontariatu dąży do zerwania ze stereotypem,<br />
                                                 że wolontariat to praca, w której wykorzystuje się „darmową siłę roboczą”.</em>
                                         </h3>

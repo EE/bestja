@@ -4,8 +4,8 @@
         <template id="website.become_volunteer" name="Site about" page="True">
             <t t-call="website.layout">
                 <div id="wrap" class="oe_structure oe_empty">
-                    <section class="oe_snippet_body violet_section">
-                        <div class="container-fluid full-section-container mb48 join_us_and_work">
+                    <section class="oe_snippet_body become_volunteer_first_section">
+                        <div class="container-fluid full-section-container mb48">
                             <div class="container">
                                 <div class="row">
                                     <div class="col-md-6 col-md-offset-6 col-sm-12">
@@ -40,12 +40,12 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-8 col-sm-12">
-                                    <div class="background_color_green quote_div">
-                                        <h2 class="color_white">
+                                    <div class="quote_picture_on_right">
+                                        <h2>
                                             <em>"Robię to dla samej siebie. Zdobywam doświadczenie, 
-                                                które będę mogła wykorzystać pracując zawodowo. "</em>
+                                                które będę mogła wykorzystać pracując zawodowo."</em>
                                         </h2>
-                                        <p class="color_white">Ola, koordynator projektów miejskich</p>
+                                        <p>Ola, koordynator projektów miejskich</p>
                                     </div>
                                 </div>
                                 <div class="col-md-3 hidden-xs hidden-sm">
@@ -64,11 +64,11 @@
                         </div>
                     </section>                    
                                      
-                    <section class="oe_snippet_body background_color_violet mb92">
+                    <section class="oe_snippet_body who_can_be_volunteer mb92">
                         <div class="container-fluid">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <h1 class="text-center mt48 mb48 section_title color_white">
+                                    <h1 class="text-center mt48 mb48 section_title">
                                         Kto może zostać wolontariuszem</h1>
                                 </div>
                             </div>
@@ -105,7 +105,7 @@
                             <div class="row text-center mb32">
                                 <div class="col-md-12">
                                     <form action="/offers/category/">
-                                        <button class="btn btn-lg text-center mt32 mb32 button_orange" type="submit">ZOBACZ OFERTY</button>
+                                        <button class="btn btn-lg text-center mt32 mb32 button_more_contrast" type="submit">ZOBACZ OFERTY</button>
                                     </form>
                                 </div>
                             </div>
@@ -117,19 +117,19 @@
                                 <div class="col-md-8 col-md-offset-2">
                                     <ul class="like_write">
                                         <li class="mb64">
-                                            <span>
+                                            <a t-att-href="website.social_facebook"><span>
                                                 <img src="/bestja_frontend_ucw/static/src/img/content/facebook-green-01.svg"/>
                                             </span>
-                                            <h1 class="mt48 mb16 section_title color_green">
-                                                Polub nas</h1>                                             
+                                            <h1 class="mt48 mb16 section_title">
+                                                Polub nas</h1></a>                                            
                                             <h2>Bądź na bieżąco! Śledź nas na Facebooku, aby nie przegapić naszych akcji.</h2>
                                         </li>
                                         <li class="mb64">
-                                            <span>
+                                            <a t-attf-href="mailto:{{ res_company.email }}"><span>
                                                 <img src="/bestja_frontend_ucw/static/src/img/content/mail-green-01.svg"/>
                                             </span>
-                                            <h1 class="mt48 mb16 section_title color_green">
-                                                Napisz do nas</h1>                                            
+                                            <h1 class="mt48 mb16 section_title">
+                                                Napisz do nas</h1></a>
                                             <h2>Zawsze chętnie odpowiemy na Twoje pytania i wątpliwości związane z wolontariatem!</h2>
                                         </li>
                                     </ul>
@@ -137,8 +137,8 @@
                             </div>
                         </div>
                     </section>
-                    <section class="oe_snippet_body violet_section_development mb92">
-                        <div class="container-fluid full-section-container mb48 join_us_and_work">
+                    <section class="oe_snippet_body mb92 become_volunteer_qualifications_section">
+                        <div class="container-fluid full-section-container mb48">
                             <div class="container">
                                 <div class="row">
                                     <div class="col-md-6 col-sm-12">
@@ -181,15 +181,15 @@
                                     <img src="http://bestja.d3.laboratorium.ee/img/cytat2_222x222px.jpg"/>
                                 </div>
                                 <div class="col-md-8 col-sm-12">
-                                    <div class="background_color_green quote_div2">
-                                        <h2 class="color_white">
+                                    <div class="quote_picture_on_left">
+                                        <h2>
                                             <em>"UCW pozwala mi i moim znajomym pomagać
                                                 innym. Mogę szukać ciekawych możliwości
                                                 w okolicy. Wolontariat pomaga mi rozwijać się,
                                                 uczyć nowych umiejętności i poznawać nowych
                                                 ludzi."</em>
                                         </h2>
-                                        <p class="color_white">
+                                        <p>
                                             <em>
                                                 <strong>Łukasz</strong>, Warszawa</em>
                                         </p>
@@ -210,34 +210,34 @@
                     <section class="oe_snippet_body">
                         <div class="container">
                             <div class="row"> 
-                                <div class="col-md-12 text-center">
+                                <div class="col-md-12 text-center law_aspects">
                                     <h1 class="text-center mt48 mb48 section_title">
                                         Aspekty prawne współpracy</h1>
                                     <h3 class="text-center mb64">Czy wiesz, co powinna zapewnić organizacja korzystająca z pomocy wolontaryjnej?
                                         Zanim podejmiesz współpracę, sprwadź, jakie są 
-                                        <a class="color_orange" href="/page/for_volunteers">prawa i obowiązki wolontariusza</a>,
+                                        <a href="/page/for_volunteers">prawa i obowiązki wolontariusza</a>,
                                         których przeganie gwarantujemy</h3>
                                 </div>
                             </div>
                         </div>
                     </section>
-                    <section class="oe_snippet_body mb64">
+                    <section class="oe_snippet_body mb64 volunteering_in_net">
                         <div class="container">
                             <div class="row"> 
                                 <div class="col-md-12 text-center">
                                     <h1 class="text-center mt48 mb48 section_title">
-                                        Informacje o wolontariacie w sieci</h1>
-                                    <h3 class="text-center mb16"><a class="color_orange" href="http://wolontariat.ngo.pl/">http://wolontariat.ngo.pl</a></h3>
-                                    <h3 class="text-center mb16"><a class="color_orange" href="http://www.e-wolontariat.pl/">http://www.e-wolontariat.pl</a></h3>
-                                    <h3 class="text-center mb16"><a class="color_orange" href="http://www.projektor.org.pl/">http://www.projektor.org.pl</a></h3>
-                                    <h3 class="text-center mb16"><a class="color_orange" href="http://www.mlodziez.org.pl/">http://www.mlodziez.org.pl</a></h3>
-                                    <h3 class="text-center mb16"><a class="color_orange" href="http://wolontariat.org.pl/">http://wolontariat.org.pl</a></h3>
+                                        Informacje o wolontariacie w sieci</h1>
+                                    <h3 class="text-center mb16"><a href="http://wolontariat.ngo.pl/">http://wolontariat.ngo.pl</a></h3>
+                                    <h3 class="text-center mb16"><a href="http://www.e-wolontariat.pl/">http://www.e-wolontariat.pl</a></h3>
+                                    <h3 class="text-center mb16"><a href="http://www.projektor.org.pl/">http://www.projektor.org.pl</a></h3>
+                                    <h3 class="text-center mb16"><a href="http://www.mlodziez.org.pl/">http://www.mlodziez.org.pl</a></h3>
+                                    <h3 class="text-center mb16"><a href="http://wolontariat.org.pl/">http://wolontariat.org.pl</a></h3>
                                 </div>
                             </div>
                         </div>
                     </section>
-                    <section class="oe_snippet_body violet_section_join_us">
-                        <div class="container-fluid full-section-container join_us_and_work">
+                    <section class="oe_snippet_body become_volunteer_join_us_section">
+                        <div class="container-fluid full-section-container">
                             <div class="container mt128 mb128">
                             <div class="row text-center mt64 mb64">
                                 <div class="col-md-12">

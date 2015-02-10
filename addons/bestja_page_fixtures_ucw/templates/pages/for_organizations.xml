@@ -4,13 +4,13 @@
         <template id="website.for_organizations" name="Site about" page="True">
             <t t-call="website.layout">
                 <div id="wrap" class="oe_structure oe_empty">
-                    <section class="oe_snippet_body violet_section">
-                        <div class="container-fluid full-section-container mb48 join_us_and_work">
+                    <section class="oe_snippet_body for_organizations_first_section">
+                        <div class="container-fluid full-section-container mb48">
                             <div class="container">
                                 <div class="row">
                                     <div class="col-md-6 col-md-offset-6 col-sm-12">
                                         <h1 class="mt64 mb64">
-                                            Dołącz i współpracuj<br />
+                                            Dołącz i współpracuj<br />
                                             z wolontariuszami
                                         </h1>
                                         <p class="mb16">Uniwersyteckie Centrum Wolontariatu pośredniczy 
@@ -44,12 +44,12 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-8 col-sm-12">
-                                    <div class="background_color_green quote_div">
-                                        <h2 class="color_white">
+                                    <div class="quote_picture_on_right">
+                                        <h2>
                                             <em>"Robię to dla samej siebie. Zdobywam doświadczenie, 
-                                                które będę mogła wykorzystać pracując zawodowo. "</em>
+                                                które będę mogła wykorzystać pracując zawodowo."</em>
                                         </h2>
-                                        <p class="color_white">Ola, koordynator projektów miejskich</p>
+                                        <p>Ola, koordynator projektów miejskich</p>
                                     </div>
                                 </div>
                                 <div class="col-md-3 hidden-xs hidden-sm">
@@ -78,8 +78,8 @@
                                 </div>
                                 <div class="container-fluid">
                                     <div class="row">
-                                        <div class="col-md-5 col-md-offset-1 mb16">
-                                            <ul class="violet_checklist">
+                                        <div class="col-md-5 col-md-offset-1 mb16 checklist">
+                                            <ul>
                                                 <li class="mb64">
                                                     <span class="glyphicon glyphicon-ok" /> <p>Wsparcie merytoryczne dotyczące
                                                     współpracy z wolontariuszami.</p></li>
@@ -92,8 +92,8 @@
                                                     wolontariuszy.</p></li>                                                
                                             </ul>
                                         </div>
-                                        <div class="col-md-5 mb16">
-                                            <ul class="violet_checklist">
+                                        <div class="col-md-5 mb16 checklist">
+                                            <ul>
                                                 <li class="mb64">
                                                     <span class="glyphicon glyphicon-ok" /> <p>Prestiż dzięki współpracy z jednostką
                                                     Uniwersytetu Warszawskiego.</p></li>
@@ -115,11 +115,11 @@
                             </div>
                         </div>
                     </section>
-                    <section class="oe_snippet_body green_section">
+                    <section class="oe_snippet_body step_of_registration_section">
                         <div class="container-fluid">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <h1 class="text-center mt48 mb48 section_title color_white">
+                                    <h1 class="text-center mt48 mb48 section_title">
                                         Kolejne kroki współpracy</h1>
                                 </div>
                             </div>
@@ -127,27 +127,27 @@
                         <div class="container">
                             <div class="row mt16">
                                 <div class="col-md-3 col-sm-6 col-xs-16 text-center mb64 step_of_registration">
-                                    <p class="background_number">1</p>
-                                    <h2 class="mt32 mb32" style="z-index: 2;">Rejestracja organizacji</h2>
-                                    <p class="mt16 mb8" style="z-index: 2;">Dodanie organizacji <br />
+                                    <p class="steps_of_cooperation_background_number">1</p>
+                                    <h2 class="mt32 mb32">Rejestracja organizacji</h2>
+                                    <p class="mt16 mb8">Dodanie organizacji <br />
                                         to tylko chwila.</p>
                                 </div>
                                 <div class="col-md-3 col-sm-6 col-xs-16 text-center mb64 step_of_registration">
-                                    <p class="background_number">2</p>
-                                    <h2 class="mt32 mb32" style="z-index: 2;">Spotkanie</h2>
-                                    <p class="mt16 mb8" style="z-index: 2;">Omówimy wspólnie<br />
+                                    <p class="steps_of_cooperation_background_number">2</p>
+                                    <h2 class="mt32 mb32">Spotkanie</h2>
+                                    <p class="mt16 mb8">Omówimy wspólnie<br />
                                         zasady współpracy.</p>
                                 </div>
                                 <div class="col-md-3 col-sm-6 col-xs-16 text-center mb64 step_of_registration">
-                                    <p class="background_number">3</p>
-                                    <h2 class="mt32 mb32" style="z-index: 2;">Rekrutacja</h2>
-                                    <p class="mt16 mb8" style="z-index: 2;">Przeprowadzimy dla Ciebie <br/>
+                                    <p class="steps_of_cooperation_background_number">3</p>
+                                    <h2 class="mt32 mb32">Rekrutacja</h2>
+                                    <p class="mt16 mb8">Przeprowadzimy dla Ciebie <br/>
                                         rekrutację i otrzymasz <br />listę ochotników</p>
                                 </div>
                                 <div class="col-md-3 col-sm-6 col-xs-16 text-center mb64 step_of_registration">
-                                    <p class="background_number">4</p>
-                                    <h2 class="mt32 mb32" style="z-index: 2;">Twoja opinia</h2>
-                                    <p class="mt16 mb8" style="z-index: 2;">Jesteśmy ciekawi Twojej opinii<br />
+                                    <p class="steps_of_cooperation_background_number">4</p>
+                                    <h2 class="mt32 mb32">Twoja opinia</h2>
+                                    <p class="mt16 mb8">Jesteśmy ciekawi Twojej opinii<br />
                                         o naszej współpracy.</p>
                                 </div>
                             </div>
@@ -168,12 +168,12 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-8 col-sm-12">
-                                    <div class="background_color_green quote_div">
-                                        <h2 class="color_white">
+                                    <div class="quote_picture_on_right">
+                                        <h2>
                                             <em>"Robię to dla samej siebie. Zdobywam doświadczenie, 
-                                                które będę mogła wykorzystać pracując zawodowo. "</em>
+                                                które będę mogła wykorzystać pracując zawodowo."</em>
                                         </h2>
-                                        <p class="color_white">Ola, koordynator projektów miejskich</p>
+                                        <p>Ola, koordynator projektów miejskich</p>
                                     </div>
                                 </div>
                                 <div class="col-md-3 hidden-xs hidden-sm">
@@ -192,15 +192,14 @@
                                 </div>
                                 <div class="container-fluid what_partner_receives">
                                     <div class="row">
-                                        <div class="col-md-5 col-md-offset-1 mb16">
-                                            <ul class="violet_checklist">
+                                        <div class="col-md-5 col-md-offset-1 mb16 checklist">
+                                            <ul>
                                                 <li class="mb64">
                                                     <span class="glyphicon glyphicon-ok" /> <p>Wsparcie merytoryczne dotyczące
                                                     współpracy z wolontariuszami.</p></li>
                                                 <li class="mb64">
                                                     <span class="glyphicon glyphicon-ok" /> <p>Możliwość skorzystania z sali do
-                                                    prowadzenia spotkań i szkoleń dla
-                                                    wolontariuszy.</p></li>
+                                                    prowadzenia spotkań i szkoleń dla wolontariuszy.</p></li>
                                                 <li class="mb64">
                                                     <span class="glyphicon glyphicon-ok" /> <p>Wyselekcjonowanych przez UCW
                                                     wolontariuszy.</p></li>                                                
@@ -209,8 +208,8 @@
                                                     wolontariuszy.</p></li>                                                
                                             </ul>
                                         </div>
-                                        <div class="col-md-5 mb16">
-                                            <ul class="violet_checklist">
+                                        <div class="col-md-5 mb16 checklist">
+                                            <ul>
                                                 <li class="mb64">
                                                     <span class="glyphicon glyphicon-ok" /> <p>Prestiż dzięki współpracy z jednostką
                                                     Uniwersytetu Warszawskiego.</p></li>

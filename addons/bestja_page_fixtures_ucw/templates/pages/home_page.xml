@@ -23,57 +23,55 @@
                                         <div class="carousel-inner oe_snippet_body" role="listbox">
                                             <div class="item active" style="background: url('http://lorempixel.com/g/1920/1080') 50% 0% no-repeat;">
                                                 <div class="carousel-caption">
-                                                    Zimowa wałówka! Zbiórka karmy na UW!
+                                                    <a href="/">Zimowa wałówka! Zbiórka karmy na UW!</a>
                                                 </div>
                                                 <div class="carousel_title">
-                                                    <div>
-                                                        <h1>
-                                                        Use your professional skills <br />
-                                                        to make a difference1</h1>
-                                                    </div>
+                                                    <h1>
+                                                        <a href="#choose_what_to_do">Use your professional skills to make a difference1</a>
+                                                    </h1>
                                                 </div>
                                             </div>
                                             <div class="item" style="background: url('http://lorempixel.com/g/1920/1080') 50% 0% no-repeat;">                                                
                                                 <div class="carousel-caption">
-                                                    Zimowa wałówka! Zbiórka karmy na UW!
+                                                    <a href="/">Zimowa wałówka! Zbiórka karmy na UW!</a>
                                                 </div>
                                                 <div class="carousel_title">
                                                     <h1>
-                                                        Use your professional skills <br />
-                                                        to make a difference2
+                                                        <a href="#choose_what_to_do">Use your professional skills <br />
+                                                        to make a difference2</a>
                                                     </h1>
                                                 </div>
                                             </div>
                                             <div class="item" style="background: url('http://lorempixel.com/g/1920/1080') 50% 0% no-repeat;">
                                                 <div class="carousel-caption">
-                                                    Zimowa wałówka! Zbiórka karmy na UW!
+                                                    <a href="/">Zimowa wałówka! Zbiórka karmy na UW!</a>
                                                 </div>
                                                 <div class="carousel_title">
                                                     <h1>
-                                                        Use your professional skills <br />
-                                                        to make a difference3
+                                                        <a href="#choose_what_to_do">Use your professional skills <br />
+                                                        to make a difference3</a>
                                                     </h1>
                                                 </div>
                                             </div>
                                             <div class="item" style="background: url('http://lorempixel.com/g/1920/1080') 50% 0% no-repeat;">
                                                 <div class="carousel-caption">
-                                                    Zimowa wałówka! Zbiórka karmy na UW!
+                                                    <a href="/">Zimowa wałówka! Zbiórka karmy na UW!</a>
                                                 </div>
                                                 <div class="carousel_title">
                                                     <h1>
-                                                        Use your professional skills <br />
-                                                        to make a difference4
+                                                        <a href="#choose_what_to_do">Use your professional skills <br />
+                                                        to make a difference4</a>
                                                     </h1>
                                                 </div>
                                             </div>
                                             <div class="item" style="background: url('http://lorempixel.com/g/1920/1080') 50% 0% no-repeat;">
                                                 <div class="carousel-caption">
-                                                    Zimowa wałówka! Zbiórka karmy na UW!
+                                                    <a href="/">Zimowa wałówka! Zbiórka karmy na UW!</a>
                                                 </div>
                                                 <div class="carousel_title">
                                                     <h1>
-                                                        Use your professional skills <br />
-                                                        to make a difference5
+                                                        <a href="#choose_what_to_do">Use your professional skills <br />
+                                                        to make a difference5</a>
                                                     </h1>
                                                 </div>
                                             </div>
@@ -96,12 +94,17 @@
                         <script>
                             // Background picture will fit viewport
                             var height = window.innerHeight - document.getElementsByClassName('navbar-static-top')[0].offsetHeight - 30;
-                            document.getElementsByClassName('carousel')[0].style.height = height + "px";
+                            console.log(window.innerHeight);
+                            if(window.innerHeight > 1920){
+                                document.getElementsByClassName('carousel')[0].style.height = "1080px";
+                            } else {
+                                document.getElementsByClassName('carousel')[0].style.height = height + "px";
+                            }
                             
                         </script>
                     </section>
                     <section class="oe_snippet_body">
-                        <div class="container">
+                        <div id="choose_what_to_do" class="container">
                             <div class="row">
                                 <div class="col-md-12">
                                     <h1 class="text-center mt128 mb32">
@@ -111,59 +114,55 @@
                         </div>
                     </section>
                     <section class="oe_snippet_body">
-                        <div class="container">
+                        <div class="container what_to_do">
                             <div class="row">
                                 <div class="col-md-3 col-sm-6 col-xs-6">
-                                    <a class="color_white" href="/offers/category/edukacyjny">
-                                        <p class="what_to_do">chcę dzielić się wiedzą</p>
+                                    <a href="/offers/category/edukacyjny">
+                                        <p>chcę dzielić się wiedzą</p>
                                         <img id="category1" class="img img-responsive shadow mb16" 
                                              src="http://bestja.d3.laboratorium.ee/img/chcewiedziecwiecej_off.jpg"/>
                                     </a>
                                 </div>
                                 <div class="col-md-3 col-sm-6 col-xs-6">
-                                    <a class="color_white" href="/offers/category/akcyjny">
-                                        <p class="what_to_do">chcę działać</p>
+                                    <a href="/offers/category/akcyjny">
+                                        <p>chcę działać</p>
                                         <img id="category2" class="img img-responsive shadow mb16" 
                                              src="http://bestja.d3.laboratorium.ee/img/chcedzialac_off.jpg"/>
                                     </a>
                                 </div>
                                 <div class="col-md-3 col-sm-6 col-xs-6">
-                                    <a class="color_white" href="/offers/category/pomocowy">
-                                        <p class="what_to_do">chcę pomagać</p>
+                                    <a href="/offers/category/pomocowy">
+                                        <p>chcę pomagać</p>
                                         <img id="category3" class="img img-responsive shadow mb16 pict3" 
                                              src="http://bestja.d3.laboratorium.ee/img/chcepomagac_off.jpg"/>                                        
                                     </a>
                                 </div>
                                 <div class="col-md-3 col-sm-6 col-xs-6">
-                                    <a class="color_white" href="/offers/category/projektowy">
-                                        <p class="what_to_do">chcę się rozwijać</p>
+                                    <a href="/offers/category/projektowy">
+                                        <p>chcę się rozwijać</p>
                                         <img id="category4" class="img img-responsive shadow mb16 pict4" 
                                              src="http://bestja.d3.laboratorium.ee/img/chcsierozwijac_off.jpg"/>                                        
                                     </a>
                                 </div>
                             </div>
-                        </div>
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <p>Twoja organizacja chciałaby do nas dołączyć? 
-                                        <a class="color_orange" href="/page/for_organizations">dowiedz się więcej</a> 
-                                        lub <a class="color_orange" href="/web/signup">zarejestruj organizację</a>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
+                        </div>                        
                         <div class="container">
                             <div class="row text-center mt64 mb64">
                                 <div class="col-md-12">
                                     <form action="/offers/category/">
-                                        <button class="btn btn-lg text-center mt32 mb32 button_orange" type="submit">ZOBACZ WSZYTKIE OFERTY</button>
+                                        <button class="btn btn-lg text-center mt32 mb32 button_orange" type="submit">ZOBACZ WSZYSTKIE OFERTY</button>
                                     </form>
-                                </div>                            
+                                </div>
+                                <div class="col-md-12 text-center container_under_categories">
+                                    <p>Twoja organizacja chciałaby do nas dołączyć? 
+                                        <a href="/page/for_organizations">dowiedz się więcej</a> 
+                                        lub <a href="/web/signup">zarejestruj organizację</a>
+                                    </p>
+                                </div>
                             </div>                            
                         </div>                            
                     </section>
-                    <section class="oe_snippet_body carry_out">
+                    <section class="oe_snippet_body carry_out_section">
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-6">
@@ -178,7 +177,7 @@
                                         quis nostrud exercitation ullamco laboris nisi 
                                         ut aliquip ex ea commodo consequat.</p>
                                     <p class="mt32 mb64">
-                                        <a href="/page/wolontariat_badawczy">więcej o wolontariacie badawczym</a>
+                                        <a class="" href="/page/wolontariat_badawczy">więcej o wolontariacie badawczym</a>
                                     </p>
                                 </div>
                             </div>
@@ -199,11 +198,12 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-8 col-sm-12">
-                                    <div class="background_color_green quote_div">
-                                        <h2 class="color_white">
-                                            <em>"Robię to dla samej siebie. Zdobywam doświadczenie, które będę mogła wykorzystać pracując zawodowo. "</em>
+                                    <div class="quote_picture_on_right">
+                                        <h2>
+                                            <em>"Robię to dla samej siebie. Zdobywam doświadczenie, 
+                                                które będę mogła wykorzystać pracując zawodowo."</em>
                                         </h2>
-                                        <p class="color_white">Ola, koordynator projektów miejskich</p>
+                                        <p>Ola, koordynator projektów miejskich</p>
                                     </div>
                                 </div>
                                 <div class="col-md-3 hidden-xs hidden-sm">
@@ -212,15 +212,14 @@
                             </div>
                         </div>
                     </section>
-                    <section class="oe_snippet_body">
+                    <section class="oe_snippet_body join_us_now">
                         <div class="container">
                             <div class="row text-center mt64 mb64">
                                 <div class="col-md-12">
                                     <form action="/web/signup">
                                         <button class="btn btn-lg text-center mt32 mb32 button_orange" type="submit">DOŁĄCZ TERAZ</button>
                                     </form>
-                                
-                                    <a class="color_orange text-center" href="">więcej o wolontariacie</a>
+                                    <a class="text-center" href="/page/for_volunteers">więcej o wolontariacie</a>
                                 </div>
                             </div>
                         </div>

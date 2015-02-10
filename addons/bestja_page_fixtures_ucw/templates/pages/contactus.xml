@@ -15,9 +15,9 @@
                                         <p>ul. Dobra 56/66</p>
                                         <p class="mb16">00-312 Warszawa</p>
                                     </div>
-                                    <div>
-                                        <p>tel. <span class='color_green mt8 mb8'>22 55 27 201</span></p>
-                                        <p>tel. <span class='color_green mt8 mb8'>22 55 27 204</span></p>                                      
+                                    <div class="contact_us_tel_email">
+                                        <p>tel. <span class='mt8 mb8'>22 55 27 201</span></p>
+                                        <p>tel. <span class='mt8 mb8'>22 55 27 204</span></p>                                      
                                         <p>e-mail: wolontariat[at]uw.edu.pl</p>                                      
                                     </div>
                                     <div>

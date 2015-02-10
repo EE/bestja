@@ -57,20 +57,24 @@ footer{
     margin-right: 20px;
 }
 
-.info1, .info2{
+.footer_info_pages, .footer_address{
     padding-left: 0;
 }
 
-.info1 li{
+.footer_info_pages li{
     color: #CC8008;
     list-style: none;
     padding-bottom: 12px;
 }
 
-.info2 li{
+.footer_address li{
     color: #767676;
     list-style: none;
     padding-bottom: 12px;
+}
+
+.footer_address span{
+    color: #F59A1E;
 }
 /* End of footer */
 

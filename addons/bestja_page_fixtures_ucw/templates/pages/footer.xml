@@ -8,17 +8,17 @@
                         <div class="row hidden-xs">
                             <div class="col-lg-2 col-lg-offset-1 col-md-3 col-md-offset-1 col-sm-6">
                                 <div class="footer_logo">
-                                    <a class="pull-left" href="http://wolontariat.uw.edu.pl/">
+                                    <a class="pull-left" href="/">
                                         <img src="http://wolontariat.uw.edu.pl/wp-content/uploads/2014/09/logo-UCW.png" alt=""/>
                                     </a>
-                                    <a class="pull-right" href="http://wolontariat.uw.edu.pl/">
+                                    <a class="pull-right" href="/">
                                         <img src="http://wolontariat.uw.edu.pl/wp-content/uploads/2014/09/Logo_UCW_exp_h100.png" 
                                              class="ucw-logo-exp pull-right" alt="Logo Uniwersyteckiego Centrum Wolontariatu"/>
                                     </a>
                                 </div>
-                            </div>                            
+                            </div>
                             <div class="col-lg-2 col-md-3 col-md-offset-1 col-sm-6">
-                                <ul class="info1">
+                                <ul class="footer_info_pages">
                                     <li>
                                         <a href="/page/contactus">kontakt</a>
                                     </li>
@@ -34,22 +34,22 @@
                                 </ul>
                             </div>
                             <div class="col-lg-3 visible-lg-block">
-                                <ul class="info2">
+                                <ul class="footer_address">
                                     <li>Uniwersyteckie Centrum Wolontariatu</li>
                                     <li>ul. Dobra 56/66 (budynek BUW)</li>
                                     <li>00-312 Warszawa</li>
-                                    <li>tel. <span class="color_orange"> 22 55 27 201</span>  <span class="color_orange"> 22 55 27 204</span></li>
+                                    <li>tel. <span> 22 55 27 201</span>  <span> 22 55 27 204</span></li>
                                 </ul>                                
                             </div>
                             <div class="col-lg-3 col-md-4 hidden-sm footer_icons">
                                 <ul>
                                     <li>
-                                        <a href="https://pl-pl.facebook.com/UCWUW">
+                                        <a t-att-href="website.social_facebook">
                                             <img src="/bestja_frontend_ucw/static/src/img/content/facebook-01.svg"/> Znajdź nas na Facebooku
                                         </a>
                                     </li>                                                                     
                                     <li>
-                                        <a href="mailto:wolontariat@uw.edu.pl">
+                                        <a t-attf-href="mailto:{{ res_company.email }}">
                                             <img src="/bestja_frontend_ucw/static/src/img/content/mail-01.svg"/>Napisz do nas
                                         </a>
                                     </li>                                      
@@ -58,7 +58,7 @@
                             <div class="col-sm-5 col-sm-offset-1 visible-sm-block mt16 footer_icons">
                                 <ul>
                                     <li>
-                                        <a class="footer_facebook" href="https://pl-pl.facebook.com/UCWUW">
+                                        <a t-att-href="website.social_facebook">
                                             <img src="/bestja_frontend_ucw/static/src/img/content/facebook-01.svg"/> Znajdź nas na Facebooku
                                         </a>
                                     </li>                                                                     
@@ -67,7 +67,7 @@
                             <div class="col-sm-6 visible-sm-block mt16 footer_icons">
                                 <ul>
                                     <li>
-                                        <a class="footer_e_mail" href="mailto:wolontariat@uw.edu.pl">
+                                        <a t-attf-href="mailto:{{ res_company.email }}">
                                             <img src="/bestja_frontend_ucw/static/src/img/content/mail-01.svg"/>Napisz do nas
                                         </a>
                                     </li>                                                           
@@ -84,7 +84,7 @@
                         </div>
                         <div class="row visible-xs-block">
                             <div class="col-xs-18 mt32 text-center">
-                                <ul class="info1">
+                                <ul class="footer_info_pages">
                                     <li>
                                         <a href="/page/contactus">kontakt</a>
                                     </li>
@@ -102,12 +102,12 @@
                             <div class="col-xs-18 mt32 text-center footer_icons">
                                 <ul>
                                     <li>
-                                        <a class="footer_facebook" href="https://pl-pl.facebook.com/UCWUW">
+                                        <a t-att-href="website.social_facebook">
                                             <img src="/bestja_frontend_ucw/static/src/img/content/facebook-01.svg"/> Znajdź nas na Facebooku
                                         </a>
                                     </li>                                                                     
                                     <li>
-                                        <a class="footer_e_mail" href="mailto:wolontariat@uw.edu.pl">
+                                        <a t-attf-href="mailto:{{ res_company.email }}">
                                             <img src="/bestja_frontend_ucw/static/src/img/content/mail-01.svg"/>Napisz do nas
                                         </a>
                                     </li>                                      

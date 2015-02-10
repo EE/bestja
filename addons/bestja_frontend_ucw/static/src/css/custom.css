@@ -12,14 +12,8 @@
     font-weight: 300;
 }
 
-.ubuntu_bold{
-    font-family: 'Ubuntu', sans-serif;
-    font-weight: 700;
-}
-
 a{
     color: #F59A1E;
-    text-decoration: none;
 }
 
 a:hover, a:focus{
@@ -27,7 +21,7 @@ a:hover, a:focus{
     text-decoration: none;
 }
 
-.button_orange{
+.button_orange, .button_more_contrast{
     background-color: #F59A1E;
     color: #FFFFFF;
     padding-left: 35px;
@@ -43,19 +37,12 @@ a:hover, a:focus{
     color: #FFFFFF;
 }
 
-
-@media screen and (max-width: 991px) {
-    section .container-fluid{
-        margin-left: 0;
-        margin-right: 0;
-    }
+.button_more_contrast:hover{
+    background-color: #FF43DF;
+    color: #FFFFFF;
 }
 
-.carousel_container{
-    position: relative;
-    max-width: 100%;
-}
-
+/* Headings settings */
 h1, .h1{
     font-size: 36px;
     font-weight: 700;
@@ -73,8 +60,9 @@ h3, .h3{
 h4, .h4{
     font-size: 12px;
 }
-/* Navbar font modification */
+/* End of Headings settings */
 
+/* Navbar font modification */
 .navbar-static-top{
     font-family: 'Ubuntu', sans-serif;
     font-size: 16px;
@@ -84,77 +72,22 @@ h4, .h4{
     font-size: 16px;
     font-weight: 600;
 }
-
 /* End of Navbar font modification */
 /* End of Common css */
-.color_orange{
-    color: #F59A1E;
-}
-
-.background_color_orange{
-    background-color: #F59A1E;
-}
-
-.color_green{
-    color: #009D93;
-}
-
-.background_color_green{
-    background-color: #009D93;
-}
-
 .color_violet{
     color: #982582;
 }
 
-.background_color_violet{
-    background-color: #982582;
+.for_organizations_first_section{
+    background: #982582 url('http://bestja.d3.laboratorium.ee/img/1920/dlaorganizacji.jpg') no-repeat 50% 0%;
     color: #FFFFFF;
 }
 
-.color_white{
-    color: #FFFFFF;
-}
-
-.background_color_grey{
-    background-color: #E8E8E8;
-}
-
-.orange_section{
-    background: url('http://lorempixel.com/g/1920/768') no-repeat 50% 50%;
-    background-size: auto auto;
-    color: #FFFFFF;
-}
-
-.violet_section{
-    background: url('http://bestja.d3.laboratorium.ee/img/zostan_wolontariuszem1200x413.jpg') no-repeat 50% 0%;
-    background-size: 150% auto;
-    color: #FFFFFF;
-}
-
-.violet_section_about_us{
-    background: url('http://bestja.d3.laboratorium.ee/img/1920/onas_1920x400.jpg') no-repeat 50% 0%;
-    background-size: 140% 140%;
-    color: #FFFFFF;
-}
-
-.violet_section_development{
-    background: url('http://bestja.d3.laboratorium.ee/img/medium/zostan_wolontariuszem2_1920x434.jpg') no-repeat 50% 0%;
-    background-size: auto 120%;
-    color: #FFFFFF;
-}
-
-.violet_section_join_us{
-    background: url('http://bestja.d3.laboratorium.ee/img/medium/zostan_wolontariuszem3.jpg') no-repeat 50% 0%;
-    background-size: auto auto;
-    color: #FFFFFF;
-}
-
-.violet_checklist li{
+.checklist ul li{
     list-style: none;
 }
 
-.violet_checklist li span{
+.checklist ul li span{
     float: left;
     padding: 10px;
     background-color: #982582;
@@ -164,14 +97,15 @@ h4, .h4{
     clear:left;
 }
 
+@media screen and (max-width: 768px) {
+    .checklist > ul{
+        -webkit-padding-start: 10px;
+    }
+}
+
 .grey_section{
     background: #E8E8E8;
     color: #000000;
-}
-
-.green_section{
-    background: #009D93;
-    color: #FFFFFF;
 }
 
 /* Centered columns styles */
@@ -195,6 +129,23 @@ h4, .h4{
     overflow: hidden;
 }
 /* End of UCW Theme module description */
+
+
+/* Home page*/
+.container_under_categories a, .join_us_now a{
+    color: #F59A1E;
+}
+
+.container_under_categories a:hover, .join_us_now a:hover{
+    color: #982582;
+}
+
+.carousel_container{
+    position: relative;
+    max-width: 100%;
+    padding-left: 0;
+}
+
 .carousel_title h1{
     text-align: center;
     line-height: 1.4em;  
@@ -204,6 +155,11 @@ h4, .h4{
     left: 0;  
     right: 0;  
     bottom: 0;  
+}
+
+.carousel_title a, .carousel_title a:hover, .carousel-caption a, .carousel-caption a:hover{
+    color: #FFFFFF;
+    z-index: 10;
 }
 
 div.carousel .carousel-indicators li {
@@ -272,13 +228,16 @@ div.carousel .carousel-indicators .active {
     }
 }
 
-.carry_out{
-    background: url('http://bestja.d3.laboratorium.ee/img/SG2_1200x494.jpg') 
-        no-repeat 50% 50%;
+.carry_out_section{
+    background: #982582 url('http://bestja.d3.laboratorium.ee/img/1920/stronaglowna2.jpg') no-repeat 50% 100%; 
     color: #FFFFFF;
 }
 
-.what_to_do{
+.carry_out_section a:hover{
+    color: #FF43DF;
+}
+
+.what_to_do p{
     color: #FFFFFF;
     position: absolute;
     left: 50px;
@@ -288,13 +247,13 @@ div.carousel .carousel-indicators .active {
 }
 
 @media screen and (max-width: 991px) {
-    .what_to_do{    
+    .what_to_do p{    
         left: 90px;    
     }
 }
 
 @media screen and (max-width: 767px) {
-    .what_to_do{    
+    .what_to_do p{    
         left: 70px;
     }
 }
@@ -306,27 +265,66 @@ div.carousel .carousel-indicators .active {
     margin: -25% 0 0 25%;
     opacity: 0;
 }
+/* End of home page*/
 
-.quote_div{
-    height: 222px;
-    padding: 35px;
+/* About us */
+.first_section_about_us{
+    background: #982582 url('http://bestja.d3.laboratorium.ee/img/1920/onas.jpg') no-repeat 50% 0%;
+    background-size: auto 100%;
+    color: #FFFFFF;
 }
 
-.quote_div2{
-    height: 222px;
-    padding: 35px;
+.simple_quote{
+    background-color: #E8E8E8;
 }
 
-.quote_div h2, .quote_div2 h2{
-    font-weight: 400;
-    line-height: 1.5em;
+.simple_quote h3{
+    color: #982582;
+}
+/* End of about us*/
+
+/* For Organizations*/
+.step_of_registration_section{
+    background: #009D93;
+    color: #FFFFFF;
 }
 
-.quote_div p, .quote_div2 p{
-    font-size: 18px;
-    position: absolute;
-    right: 100px;
-    bottom: 10px;
+.step_of_registration_section h1{
+    color: #FFFFFF;
+}
+/* End of for Organizations*/
+
+/* Become volunteeer*/
+.become_volunteer_first_section{
+    background: #982582 url('http://bestja.d3.laboratorium.ee/img/1920/zostan_wolontariuszem1.jpg') no-repeat 50% 0%;
+    color: #FFFFFF;
+}
+
+.become_volunteer_qualifications_section{
+    background: #982582 url('http://bestja.d3.laboratorium.ee/img/1920/zostan_wolontariuszem2.jpg') no-repeat 50% 0%;
+    color: #FFFFFF;
+}
+
+.become_volunteer_join_us_section{
+    background: #982582 url('http://bestja.d3.laboratorium.ee/img/1920/zostan_wolontariuszem3.jpg') no-repeat 50% 0%;
+    color: #FFFFFF;
+}
+
+.who_can_be_volunteer{
+    background-color: #982582;
+    color: #FFFFFF;
+}
+
+.who_can_be_volunteer h2{
+    color: #FFFFFF;
+}
+
+.law_aspects a, .volunteering_in_net a{
+    color: #F59A1E;
+}
+
+.law_aspects a:hover, .volunteering_in_net a:hover{
+    color: #982582;
 }
 
 .like_write li{
@@ -335,6 +333,10 @@ div.carousel .carousel-indicators .active {
 
 .like_write span{
     float: left;
+}
+
+.like_write h1{
+    color: #009D93;
 }
 
 .like_write h2{
@@ -346,13 +348,74 @@ div.carousel .carousel-indicators .active {
     margin-right: 40px;
 }
 
+.like_write a:hover h1{
+    color: #982582;
+}
+
+.step_of_registration h2, .step_of_registration p{
+    z-index: 2;
+}
+
+.steps_of_cooperation_background_number{
+    position: absolute;
+    font-size: 200px;
+    font-weight: bold;
+    opacity: 0.1;
+    top: -50px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+@media (max-width: 767px) {
+    .steps_of_cooperation_background_number{
+        font-size: 150px;
+    }
+}
+/* End of become volunteeer*/
+
+/* Quotes */
+.quote_picture_on_right, .quote_picture_on_left{
+    height: 222px;
+    padding: 5px 25px;
+    background-color: #009D93;
+}
+
+.quote_picture_on_right h2, .quote_picture_on_left h2{
+    font-weight: 400;
+    line-height: 1.5em;
+    color: #FFFFFF;
+}
+
+.quote_picture_on_right p, .quote_picture_on_left p{
+    font-size: 18px;
+    position: absolute;
+    right: 100px;
+    bottom: 10px;
+    color: #FFFFFF;
+}
+@media screen and (max-width: 767px) {
+    .quote_picture_on_right, .quote_picture_on_left{
+        height: auto;
+    }
+    
+    .quote_picture_on_right p, .quote_picture_on_left p{
+        position: relative;
+        right: auto;
+        bottom: auto;
+    }
+}
+/* End of quotes */
+
+/* Navigation buttons */
 .nav-pills > li.active > a, .nav-pills > li.active > a:focus{
     background-color: #982582;
     border-radius: 0;
 }
 
 .nav-pills > li.active > a:hover{
-    background-color: #009d93;
+    background-color: #009D93;
 }
 
 .nav-pills > li > a, .nav-pills > li > a:focus{
@@ -362,7 +425,7 @@ div.carousel .carousel-indicators .active {
 }
 
 .nav-pills > li > a:hover{
-    background-color: #009d93;
+    background-color: #009D93;
     color: #FFFFFF;
 }
 
@@ -408,25 +471,17 @@ div.carousel .carousel-indicators .active {
         display: inline-block;
     }
 }
+/* End of navigation buttons */
 
-.background_number{
-    position: absolute;
-    font-size: 200px;
-    font-weight: bold;
-    opacity: 0.1;
-    top: -50px;
-    left: 0;
-    right: 0;
-    bottom: 0;
-}
-
-@media (max-width: 767px) {
-    .background_number{
-        font-size: 150px;
-    }
-}
-
+/* Team site */
 .team_site img{
     max-height: 400px;
     max-width: 450px;
 }
+/* End of team site */
+
+/* Contact us page*/
+.contact_us_tel_email span{
+    color: #009D93;
+}
+/* End of contact us page*/
