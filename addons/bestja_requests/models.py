@@ -86,9 +86,13 @@ class RequestItem(models.Model):
         ondelete='cascade',
         required=True,
     )
+    template = fields.Many2one(
+        'bestja_requests.template',
+        compute='compute_template',
+    )
     template_item = fields.Many2one(
         'bestja_requests.template_item',
-        domain="[('template.projects', '=', parent_project)]",
+        domain="[('template', '=', template)]",
         required=True,
         string="element",
         ondelete='restrict',
@@ -110,6 +114,49 @@ class RequestItem(models.Model):
     _sql_constraints = [
         ('request_item_uniq', 'unique("request", "template_item")', "Dany element można wybrać tylko raz!")
     ]
+
+    @api.one
+    @api.depends('request')
+    def compute_template(self):
+        # Note: You'd normally do this using a related field, instead of an
+        # explicit computed field.
+        #
+        # Unfortunately in this case that's not possible because:
+        #
+        # 1. When the request form is being edited `self` and `self.request`
+        # are in a draft mode (which means their content is sourced from
+        # the form that is being edited, and not strictly from the db).
+        #
+        # 2. Related fields are normally computed with super admin privileges,
+        # unfortunately that's not the case with records in draft mode.
+        # When a record is in draft mode the `related_sudo` is completely ignored
+        # and the field is always evaluated with the current user privileges.
+        # See also: https://github.com/odoo/odoo/issues/5121
+        #
+        # 3. That's a problem for us, because `self.request.project` in some cases
+        # may not be accessible by the current user (if she's a coordinator of a
+        # parent organization). And we need to get through `self.request.project`
+        # to get to `request_template`.
+        #
+        # ---
+        #
+        # You should also note the importance of the exact placement of sudo() in
+        # the code below. You can not use sudo() with records in draft mode, because
+        # they only exist in the current environment, and sudo() creates a new
+        # environment. In this case this means that you shouldn't put sudo()
+        # directly after `self` or `request`. You can put sudo() after `project`,
+        # which is not in draft mode, even though it may not be accessible to the
+        # current user, because the read will be performed only when we try
+        # to access one of its fields (`parent` in this particular case).
+        #
+        # That's also why we can't just use the `request.parent_project` related field,
+        # even though it is stored and has a precomputed value already. Stored
+        # fields are always computed from scratch on draft records and (as we already know),
+        # the automatic computation of related fields on draft records ignores the
+        # `sudo_related` option.
+        #
+        # Thank you for your attention. Have a nice day.
+        self.template = self.request.project.sudo().parent.request_template
 
 
 class Request(models.Model):
@@ -177,9 +224,10 @@ class Request(models.Model):
         """
         Is current user authorized to moderate (accept/reject) the request?
         """
+        project = self.sudo().project
         self.user_can_moderate = (
-            self.parent_project.manager.id == self.env.uid or
-            self.parent_project.organization.coordinator.id == self.env.uid
+            project.parent.manager.id == self.env.uid or
+            project.parent.organization.coordinator.id == self.env.uid
         )
 
     @api.multi

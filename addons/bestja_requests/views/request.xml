@@ -101,7 +101,7 @@
                             <tree editable="true">
                                 <field name="template_item" options="{'no_create': True, 'no_open': True}"/>
                                 <field name="quantity"/>
-                                <field name="parent_project" invisible="1"/>
+                                <field name="template" invisible="1"/>
                             </tree>
                         </field>
                         <group string="Dodatkowe informacje">
