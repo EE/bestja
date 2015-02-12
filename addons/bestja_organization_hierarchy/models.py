@@ -54,7 +54,7 @@ class Organization(models.Model):
         """
         Only super admin is able to add primary (parentless) organizations.
         """
-        if self.env.user.id == SUPERUSER_ID:
+        if self.env.uid == SUPERUSER_ID:
             return
         if not self.parent:
             raise exceptions.ValidationError("Wybierz organizację nadrzędną!")

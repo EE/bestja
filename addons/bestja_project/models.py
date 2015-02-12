@@ -27,7 +27,7 @@ class Project(models.Model):
         default=lambda self: self.env.user.coordinated_org,
         required=True,
         string="Organizacja",
-        domain=lambda self: [('coordinator', '=', self.env.user.id)],
+        domain=lambda self: [('coordinator', '=', self.env.uid)],
     )
     manager = fields.Many2one(
         'res.users',
@@ -166,7 +166,7 @@ class Task(models.Model):
         Checks if current user == user responsible for task,
         for hiding and unhiding button "rozpocznij"
         """
-        self.user_assigned_task = (self.env.user.id == self.user.id)
+        self.user_assigned_task = (self.env.uid == self.user.id)
 
     @api.one
     def set_in_progress(self):

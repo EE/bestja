@@ -90,8 +90,8 @@ class DetailedReport(models.Model):
             ('use_detailed_reports', '=', True),
             ('detailed_reports', '=', False),
             '|',  # noqa
-                ('manager', '=', self.env.user.id),
-                ('organization.coordinator', '=', self.env.user.id),
+                ('manager', '=', self.env.uid),
+                ('organization.coordinator', '=', self.env.uid),
         ],
         ondelete='restrict',
     )
@@ -150,14 +150,14 @@ class DetailedReport(models.Model):
         """
         Is current user authorized to moderate (accept/reject) the detailed_report?
         """
-        uid = self.env.user.id
+        uid = self.env.uid
         project = self.sudo().project
         moderate_own = project.organization.level == 1 and \
             (project.manager.id == uid or project.organization.coordinator.id == uid)
 
         self.user_can_moderate = (
-            moderate_own or project.parent.manager.id == self.env.user.id or
-            project.parent.organization.coordinator.id == self.env.user.id
+            moderate_own or project.parent.manager.id == self.env.uid or
+            project.parent.organization.coordinator.id == self.env.uid
         )
 
     @api.one

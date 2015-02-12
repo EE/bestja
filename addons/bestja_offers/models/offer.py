@@ -59,7 +59,7 @@ class Offer(models.Model):
         domain=lambda self: [
             '|',
             ('organization.id', '=', self.env.user.coordinated_org.id),
-            ('manager.id', '=', self.env.user.id),
+            ('manager.id', '=', self.env.uid),
         ]
     )
     organization = fields.Many2one(

@@ -224,7 +224,7 @@ class Volunteer(models.Model):
         Hide values for fields current user doesn't have access to.
         """
         results = super(Volunteer, self).read(fields=fields, load=load)
-        if self.env.user.id == SUPERUSER_ID:
+        if self.env.uid == SUPERUSER_ID:
             return results
 
         for record, fields_dict in izip(self, results):
@@ -265,9 +265,9 @@ class Volunteer(models.Model):
         Access level that the current (logged in) user has for the object.
         Either "owner", "admin", "privileged" or None.
         """
-        if self.id == self.env.user.id:
+        if self.id == self.env.uid:
             self.user_access_level = 'owner'
-        elif self.env.user.id == SUPERUSER_ID or self.user_has_groups('bestja_base.instance_admin'):
+        elif self.env.uid == SUPERUSER_ID or self.user_has_groups('bestja_base.instance_admin'):
             self.user_access_level = 'admin'
         else:
             self.user_access_level = None
@@ -478,4 +478,4 @@ class Partner(models.Model):
         super(Partner, self).check_access_rule(operation)
         related_users = self.sudo().user_ids
         if related_users:
-            related_users.sudo(self.env.user.id).check_access_rule(operation)
+            related_users.sudo(self.env.uid).check_access_rule(operation)

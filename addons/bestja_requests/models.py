@@ -178,8 +178,8 @@ class Request(models.Model):
         Is current user authorized to moderate (accept/reject) the request?
         """
         self.user_can_moderate = (
-            self.parent_project.manager.id == self.env.user.id or
-            self.parent_project.organization.coordinator.id == self.env.user.id
+            self.parent_project.manager.id == self.env.uid or
+            self.parent_project.organization.coordinator.id == self.env.uid
         )
 
     @api.multi

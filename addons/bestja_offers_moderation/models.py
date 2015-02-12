@@ -50,7 +50,7 @@ class OfferWithModeration(models.Model):
         provided current user is not the admin or an offer moderator.
         """
         if self.state == 'published' \
-                and self.env.user.id != SUPERUSER_ID \
+                and self.env.uid != SUPERUSER_ID \
                 and not self.is_moderator():
             self.set_pending()
 

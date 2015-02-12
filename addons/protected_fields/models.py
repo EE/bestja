@@ -27,7 +27,7 @@ class ProtectedFieldsMixin(models.AbstractModel):
         For more advanced rules, you can modify this method in your model.
         """
         # User permissions
-        if self.env.user.id in self._permitted_user_ids:
+        if self.env.uid in self._permitted_user_ids:
             return True
 
         # Group permissions

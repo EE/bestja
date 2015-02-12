@@ -207,7 +207,7 @@ class Organization(models.Model):
         return [
             ('state', '=', 'pending'),
             ('active', '=?', False),
-            ('coordinator', '!=', self.env.user.id),
+            ('coordinator', '!=', self.env.uid),
         ]
 
 
