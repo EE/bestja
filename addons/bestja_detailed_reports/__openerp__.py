@@ -20,6 +20,7 @@ Module containing reports of products obtained during projects.
         'views/project.xml',
         'views/detailed_reports.xml',
         'views/detailed_reports_summary.xml',
+        'views/wizards.xml',
         'menu.xml',
         'data/commodities.xml',
         'security/ir.model.access.csv',

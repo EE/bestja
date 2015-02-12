@@ -1,0 +1,82 @@
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="accept_detailed_report_wizard_form">
+            <field name="name">accept_report.wizard</field>
+            <field name="model">bestja.accept_or_reject_report_wizard</field>
+            <field name="arch" type="xml">
+                <form>
+                    <field name="user_can_moderate" invisible="1"/>
+                    <div attrs="{'invisible': [('user_can_moderate', '=', False)]}">
+                        <h3>Czy na pewno chcesz zaakceptować poniższe raporty szczegółowe?</h3><br/>
+                        <group>
+                            <field name="reports" readonly="1" widget="many2many_tags"/>
+                        </group>
+                    </div>
+                    <div attrs="{'invisible': [('user_can_moderate', '=', True)]}">
+                        <h3>Nie masz uprawnień do akceptacji raportów!</h3>
+                    </div>
+                    <footer>
+                        <div attrs="{'invisible': [('user_can_moderate', '=', False)]}">
+                            <button name="accept_detailed_reports" type="object" string="Tak, chcę zaakceptować" class="oe_highlight"/>
+                            lub
+                            <button special="cancel" string="Anuluj" class="oe_link"/>
+                        </div>
+                        <div attrs="{'invisible': [('user_can_moderate', '=', True)]}">
+                            <button special="cancel" string="Zamknij" class="oe_link"/>
+                        </div>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="reject_detailed_report_wizard_form">
+            <field name="name">reject_report.wizard</field>
+            <field name="model">bestja.accept_or_reject_report_wizard</field>
+            <field name="arch" type="xml">
+                <form>
+                    <field name="user_can_moderate" invisible="1"/>
+                    <div attrs="{'invisible': [('user_can_moderate', '=', False)]}">
+                        <h3>Czy na pewno chcesz odrzucić poniższe raporty szczegółowe?</h3><br/>
+                        <group>
+                            <field name="reports" readonly="1" widget="many2many_tags"/>
+                        </group>
+                    </div>
+                    <div attrs="{'invisible': [('user_can_moderate', '=', True)]}">
+                        <h3>Nie masz uprawnień do odrzucania raportów!</h3>
+                    </div>
+                    <footer>
+                        <div attrs="{'invisible': [('user_can_moderate', '=', False)]}">
+                            <button name="reject_detailed_reports" type="object" string="Tak, chcę odrzucić" class="oe_highlight"/>
+                            lub
+                            <button special="cancel" string="Anuluj" class="oe_link"/>
+                        </div>
+                        <div attrs="{'invisible': [('user_can_moderate', '=', True)]}">
+                            <button special="cancel" string="Zamknij" class="oe_link"/>
+                        </div>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <!-- Add the menu to the contextual menu for res.users -->
+        <act_window  id="launch_accept_detailed_report_wizard"
+            name="Akceptuj raporty"
+            src_model="bestja.detailed_report"
+            res_model="bestja.accept_or_reject_report_wizard"
+            view_mode="form"
+            target="new"
+            key2="client_action_multi"
+            view_id="accept_detailed_report_wizard_form"
+        />
+
+        <act_window  id="launch_reject_detailed_report_wizard"
+            name="Odrzuć raporty"
+            src_model="bestja.detailed_report"
+            res_model="bestja.accept_or_reject_report_wizard"
+            view_mode="form"
+            target="new"
+            key2="client_action_multi"
+            view_id="reject_detailed_report_wizard_form"
+        />
+    </data>
+</openerp>

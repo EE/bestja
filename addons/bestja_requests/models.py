@@ -239,7 +239,7 @@ class Request(models.Model):
         """
         pass
 
-    @api.multi
+    @api.one
     def set_pending(self):
         self.sudo().state = 'pending'
         self.send(
@@ -248,11 +248,11 @@ class Request(models.Model):
             record_name=self.organization.name,
         )
 
-    @api.multi
+    @api.one
     def set_accepted(self):
         self.state = 'accepted'
 
-    @api.multi
+    @api.one
     def set_rejected(self):
         self.state = 'rejected'
         self.send(

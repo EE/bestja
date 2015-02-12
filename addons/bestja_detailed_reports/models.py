@@ -170,7 +170,7 @@ class DetailedReport(models.Model):
         date_stop = fields.Datetime.from_string(self.project.date_stop).strftime("%d-%m-%Y")
         return "{} — {}".format(date_start, date_stop)
 
-    @api.multi
+    @api.one
     def set_sent(self):
         self.sudo().state = 'sent'
         self.send(
@@ -179,11 +179,11 @@ class DetailedReport(models.Model):
             record_name=self.organization.name,
         )
 
-    @api.multi
+    @api.one
     def set_accepted(self):
         self.state = 'accepted'
 
-    @api.multi
+    @api.one
     def set_rejected(self):
         self.state = 'rejected'
         self.send(
