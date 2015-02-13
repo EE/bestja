@@ -5,7 +5,7 @@
             <t t-call="website.layout">
                 <div id="wrap" class="oe_structure oe_empty">
                     <section class="oe_snippet_body">
-                        <div class="container-fluid regulations">
+                        <div class="container regulations">
                             <div class="row">
                                 <div class="col-md-3 mt48">
                                     <ul class="nav nav-pills regulations_nav">

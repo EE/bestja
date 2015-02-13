@@ -5,7 +5,7 @@
             <t t-call="website.layout">
                 <div id="wrap" class="oe_structure oe_empty">
                     <section class="oe_snippet_body for_organizations_first_section">
-                        <div class="container-fluid full-section-container mb48">
+                        <div class="container-fluid mb48">
                             <div class="container">
                                 <div class="row">
                                     <div class="col-md-6 col-md-offset-6 col-sm-12">

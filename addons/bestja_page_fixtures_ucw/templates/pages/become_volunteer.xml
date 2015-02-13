@@ -5,7 +5,7 @@
             <t t-call="website.layout">
                 <div id="wrap" class="oe_structure oe_empty">
                     <section class="oe_snippet_body become_volunteer_first_section">
-                        <div class="container-fluid full-section-container mb48">
+                        <div class="container-fluid mb48">
                             <div class="container">
                                 <div class="row">
                                     <div class="col-md-6 col-md-offset-6 col-sm-12">
@@ -138,7 +138,7 @@
                         </div>
                     </section>
                     <section class="oe_snippet_body mb92 become_volunteer_qualifications_section">
-                        <div class="container-fluid full-section-container mb48">
+                        <div class="container-fluid mb48">
                             <div class="container">
                                 <div class="row">
                                     <div class="col-md-6 col-sm-12">
@@ -237,7 +237,7 @@
                         </div>
                     </section>
                     <section class="oe_snippet_body become_volunteer_join_us_section">
-                        <div class="container-fluid full-section-container">
+                        <div class="container-fluid">
                             <div class="container mt128 mb128">
                             <div class="row text-center mt64 mb64">
                                 <div class="col-md-12">
