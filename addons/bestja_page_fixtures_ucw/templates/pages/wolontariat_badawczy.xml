@@ -5,10 +5,10 @@
             <t t-call="website.layout">
                 <div id="wrap" class="oe_structure oe_empty">
                     <section class="oe_snippet_body">
-                        <div class="container-fluid">
+                        <div class="container">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <h1 class="text-center mt48 mb48 section_title">
+                                    <h1 class="text-center section_title">
                                         Wolontariat badawczy
                                     </h1>
                                 </div>

@@ -274,6 +274,10 @@ div.carousel .carousel-indicators .active {
     color: #FFFFFF;
 }
 
+.first_section_about_us a:hover{
+    color: #FF43DF;
+}
+
 .simple_quote{
     background-color: #E8E8E8;
 }
@@ -479,9 +483,3 @@ div.carousel .carousel-indicators .active {
     max-width: 450px;
 }
 /* End of team site */
-
-/* Contact us page*/
-.contact_us_tel_email span{
-    color: #009D93;
-}
-/* End of contact us page*/

@@ -6,14 +6,14 @@
                 <footer id="footer_container">
                     <div class="container-fluid">
                         <div class="row hidden-xs">
-                            <div class="col-lg-2 col-lg-offset-1 col-md-3 col-md-offset-1 col-sm-6">
+                            <div class="col-lg-2 col-lg-offset-1 col-md-3 col-md-offset-1 col-sm-4 col-sm-offset-2">
                                 <div class="footer_logo">
-                                    <a class="pull-left" href="/">
+                                    <a href="/">
                                         <img src="http://wolontariat.uw.edu.pl/wp-content/uploads/2014/09/logo-UCW.png" alt=""/>
                                     </a>
-                                    <a class="pull-right" href="/">
+                                    <a href="/">
                                         <img src="http://wolontariat.uw.edu.pl/wp-content/uploads/2014/09/Logo_UCW_exp_h100.png" 
-                                             class="ucw-logo-exp pull-right" alt="Logo Uniwersyteckiego Centrum Wolontariatu"/>
+                                            class="pull-right" alt="Logo Uniwersyteckiego Centrum Wolontariatu"/>
                                     </a>
                                 </div>
                             </div>
@@ -38,7 +38,7 @@
                                     <li>Uniwersyteckie Centrum Wolontariatu</li>
                                     <li>ul. Dobra 56/66 (budynek BUW)</li>
                                     <li>00-312 Warszawa</li>
-                                    <li>tel. <span> 22 55 27 201</span>  <span> 22 55 27 204</span></li>
+                                    <li>tel. 22 55 27 201,  22 55 27 204</li>
                                 </ul>                                
                             </div>
                             <div class="col-lg-3 col-md-4 hidden-sm footer_icons">
@@ -55,7 +55,7 @@
                                     </li>                                      
                                 </ul>
                             </div>
-                            <div class="col-sm-5 col-sm-offset-1 visible-sm-block mt16 footer_icons">
+                            <div class="col-sm-4 col-sm-offset-2 visible-sm-block mt16 footer_icons">
                                 <ul>
                                     <li>
                                         <a t-att-href="website.social_facebook">
@@ -75,7 +75,7 @@
                             </div> 
                         </div>
                         <div class="row hidden-xs">
-                            <div class="col-lg-3 col-lg-offset-1 col-md-3 col-md-offset-1 col-sm-5 col-sm-offset-1 mt32 mb32">
+                            <div class="col-lg-3 col-lg-offset-1 col-md-3 col-md-offset-1 col-sm-4 col-sm-offset-2 mt32 mb32">
                                 <a class="design_by" href="http://laboratorium.ee">design by Laboratorium EE</a>
                             </div>                            
                             <div class="col-lg-3 col-lg-offset-5 col-md-4 col-md-offset-4 col-sm-5 mt32 mb32">
@@ -83,8 +83,21 @@
                             </div>                            
                         </div>
                         <div class="row visible-xs-block">
-                            <div class="col-xs-18 mt32 text-center">
-                                <ul class="footer_info_pages">
+                            <div class="col-xs-18">
+                                <div class="footer_logo_container">
+                                    <div class="footer_logo">
+                                        <a href="http://wolontariat.uw.edu.pl/">
+                                            <img src="http://wolontariat.uw.edu.pl/wp-content/uploads/2014/09/logo-UCW.png" alt=""/>
+                                        </a>
+                                        <a href="http://wolontariat.uw.edu.pl/">
+                                            <img src="http://wolontariat.uw.edu.pl/wp-content/uploads/2014/09/Logo_UCW_exp_h100.png" 
+                                                 class="pull-right" alt="Logo Uniwersyteckiego Centrum Wolontariatu"/>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-18 mt32">
+                                <ul class="footer_info_pages_narrower">
                                     <li>
                                         <a href="/page/contactus">kontakt</a>
                                     </li>
@@ -99,11 +112,11 @@
                                     </li>
                                 </ul>
                             </div>                                                      
-                            <div class="col-xs-18 mt32 text-center footer_icons">
+                            <div class="col-xs-18 mt32 footer_icons_narrower">
                                 <ul>
                                     <li>
                                         <a t-att-href="website.social_facebook">
-                                            <img src="/bestja_frontend_ucw/static/src/img/content/facebook-01.svg"/> Znajdź nas na Facebooku
+                                            <img src="/bestja_frontend_ucw/static/src/img/content/facebook-01.svg"/>Znajdź nas na Facebooku
                                         </a>
                                     </li>                                                                     
                                     <li>
@@ -113,19 +126,6 @@
                                     </li>                                      
                                 </ul>
                             </div>
-                            <div class="col-xs-18">
-                                <div class="footer_logo_container">
-                                    <div class="footer_logo">
-                                        <a class="pull-left" href="http://wolontariat.uw.edu.pl/">
-                                            <img src="http://wolontariat.uw.edu.pl/wp-content/uploads/2014/09/logo-UCW.png" alt=""/>
-                                        </a>
-                                        <a class="pull-right" href="http://wolontariat.uw.edu.pl/">
-                                            <img src="http://wolontariat.uw.edu.pl/wp-content/uploads/2014/09/Logo_UCW_exp_h100.png" 
-                                                 class="ucw-logo-exp pull-right" alt="Logo Uniwersyteckiego Centrum Wolontariatu"/>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>  
                             <div class="col-xs-18 mt8 mb8 text-center">
                                 <a class="design_by" href="http://laboratorium.ee">design by Laboratorium EE</a>
                             </div>

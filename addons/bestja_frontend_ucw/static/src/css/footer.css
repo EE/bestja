@@ -13,8 +13,6 @@ footer{
 
 .footer_logo{
     width: 195px;
-    margin-right: auto;
-    margin-left: auto;
     height: 130px;
 }
 
@@ -28,6 +26,12 @@ footer{
     height: 100%;
 }
 
+@media screen and (max-width: 767px) {
+    .footer_logo{
+        margin-right: auto;
+        margin-left: auto;
+    }
+}
 
 .design_by, .copyrights{
     font-size: 12px;
@@ -41,7 +45,7 @@ footer{
     }
 }
 
-.footer_icons ul{
+.footer_icons ul, .footer_icons_narrower ul{
     padding-left: 0;
 }
 
@@ -52,8 +56,16 @@ footer{
     height: 60px;
 }
 
-.footer_icons img{
-    width: 40px;
+.footer_icons_narrower li{
+    list-style: none;
+    line-height: 40px;
+    padding-bottom: 20px;
+    height: 40px;
+    margin-left: calc(50% - 97.5px);
+}
+
+.footer_icons img, .footer_icons_narrower img{
+    width: 25px;
     margin-right: 20px;
 }
 
@@ -66,6 +78,17 @@ footer{
     list-style: none;
     padding-bottom: 12px;
 }
+
+.footer_info_pages_narrower{
+    padding-left: 0;
+} 
+
+.footer_info_pages_narrower li{
+    color: #CC8008;
+    list-style: none;
+    padding-bottom: 8px;
+    margin-left: calc(50% - 32.5px);
+} 
 
 .footer_address li{
     color: #767676;
