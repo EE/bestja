@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="msg_store_from_partner" model="message_template">
+            <field name="subject">Nowy sklep do akceptacji</field>
+            <field name="body"><![CDATA[
+                Organizacja ${record.default_partner.name} dodała nowy sklep. Zobacz szczegóły i zaakceptuj sklep.
+            ]]></field>
+            <field name="model">bestja_stores.store</field>
+        </record>
+
+        <record id="msg_store_accepted" model="message_template">
+            <field name="subject">Sklep zaakceptowany</field>
+            <field name="body"><![CDATA[
+                Sklep ${record.name} został zaakceptowany przez ${record.responsible.name}. Możesz aktywować sklep do zbiórki.
+            ]]></field>
+            <field name="model">bestja_stores.store</field>
+        </record>
+
+        <record id="msg_store_rejected" model="message_template">
+            <field name="subject">Sklep odrzucony</field>
+            <field name="body"><![CDATA[
+                Sklep ${record.name} został odrzucony przez ${record.responsible.name}. Skontaktuj się z koordynatorem organizacji (${record.responsible.sudo().coordinator.name}).
+            ]]></field>
+            <field name="model">bestja_stores.store</field>
+        </record>
+    </data>
+</openerp>

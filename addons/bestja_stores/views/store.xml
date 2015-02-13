@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record model="ir.actions.act_window" id="action_stores">
+            <field name="name">Sklepy</field>
+            <field name="res_model">bestja_stores.store</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{
+                'search_default_my_stores': True,
+                'search_default_accepted': True,
+            }</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_stores_moderation">
+            <field name="name">Sklepy do moderacji</field>
+            <field name="res_model">bestja_stores.store</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[
+                ('state', '=', 'pending'),
+                ('responsible.coordinator', '=', uid),
+            ]</field>
+        </record>
+
+        <record model="ir.ui.view" id="store_tree">
+            <field name="name">bestja_stores.store</field>
+            <field name="model">bestja_stores.store</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="chain"/>
+                    <field name="name"/>
+                    <field name="voivodeship"/>
+                    <field name="city"/>
+                    <field name="address"/>
+                    <field name="responsible"/>
+                    <field name="default_partner"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="bestja_stores_store_search">
+            <field name="name">bestja_stores.store.search</field>
+            <field name="model">bestja_stores.store</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="chain"/>
+                    <field name="responsible"/>
+                    <field name="voivodeship"/>
+                    <field name="city"/>
+                    <field name="default_partner"/>
+                    <filter name="my_stores" string="Moje sklepy"
+                    domain="[
+                        '|',
+                            ('default_partner.coordinator', '=', uid),
+                            ('default_partner.projects.manager', '=', uid),
+                    ]"/>
+                    <group string="Status">
+                        <filter name="accepted" string="Zaakceptowane"
+                        domain="[('state', '=', 'accepted')]"/>
+                        <filter name="pending" string="Oczekujące"
+                        domain="[('state', '=', 'pending')]"/>
+                        <filter name="rejected" string="Odrzucone"
+                        domain="[('state', '=', 'rejected')]"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="store_form">
+            <field name="name">bestja_stores.store.form</field>
+            <field name="model">bestja_stores.store</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <field name="user_can_moderate" invisible="1"/>
+                        <button name="set_accepted" string="Akceptuj" type="object" class="oe_highlight" attrs="{'invisible': [
+                            '|',
+                                ('state', '=', 'accepted'),
+                                ('user_can_moderate', '=', False),
+                        ]}"/>
+                        <button name="set_rejected" string="Odrzuć" type="object" attrs="{'invisible': [
+                            '|',
+                                ('state', '!=', 'pending'),
+                                ('user_can_moderate', '=', False),
+                        ]}"/>
+                    </header>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only"/>
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                        <field name="state" readonly="1" class="state"/>
+                    </div>
+                    <group>
+                        <field name="responsible" options="{'no_create': True}"/>
+                        <field name="default_partner" options="{'no_create': True}"/>
+                        <field name="chain" options="{'no_create': True, 'no_open': True}"/>
+                        <field name="chain_id" attrs="{'invisible': [('chain', '=', False)]}"/>
+                    </group>
+                    <group string="Adres sklepu">
+                        <field name="address"/>
+                        <field name="city"/>
+                        <field name="voivodeship" options="{'no_create': True}"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+    </data>
+</openerp>

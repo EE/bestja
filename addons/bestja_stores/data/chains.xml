@@ -1,0 +1,107 @@
+<openerp>
+    <data>
+        <record id="chain_biedronka" model="bestja_stores.chain">
+            <field name="name">Biedronka</field>
+        </record>
+
+        <record id="chain_lidl" model="bestja_stores.chain">
+            <field name="name">Lidl</field>
+        </record>
+
+        <record id="chain_real" model="bestja_stores.chain">
+            <field name="name">Real</field>
+        </record>
+
+        <record id="chain_tesco" model="bestja_stores.chain">
+            <field name="name">Tesco</field>
+        </record>
+
+        <record id="chain_auchan" model="bestja_stores.chain">
+            <field name="name">Auchan</field>
+        </record>
+
+        <record id="chain_carrefour" model="bestja_stores.chain">
+            <field name="name">Carrefour</field>
+        </record>
+
+        <record id="chain_piotr_i_pawel" model="bestja_stores.chain">
+            <field name="name">Piotr i Paweł</field>
+        </record>
+
+        <record id="chain_alma" model="bestja_stores.chain">
+            <field name="name">Alma</field>
+        </record>
+
+        <record id="chain_stokrotka" model="bestja_stores.chain">
+            <field name="name">Stokrotka</field>
+        </record>
+
+        <record id="chain_polomarket" model="bestja_stores.chain">
+            <field name="name">POLOmarket</field>
+        </record>
+
+        <record id="chain_intermarche" model="bestja_stores.chain">
+            <field name="name">Intermarche</field>
+        </record>
+
+        <record id="chain_kaufland" model="bestja_stores.chain">
+            <field name="name">Kaufland</field>
+        </record>
+
+        <record id="chain_makro" model="bestja_stores.chain">
+            <field name="name">Makro</field>
+        </record>
+
+        <record id="chain_netto" model="bestja_stores.chain">
+            <field name="name">Netto</field>
+        </record>
+
+        <record id="chain_leclerc" model="bestja_stores.chain">
+            <field name="name">E. Leclerc</field>
+        </record>
+
+        <record id="chain_lewiatan" model="bestja_stores.chain">
+            <field name="name">Lewiatan</field>
+        </record>
+
+        <record id="chain_odido" model="bestja_stores.chain">
+            <field name="name">Odido</field>
+        </record>
+
+        <record id="chain_arhelan" model="bestja_stores.chain">
+            <field name="name">Arhelan</field>
+        </record>
+
+        <record id="chain_chata" model="bestja_stores.chain">
+            <field name="name">Chata Polska</field>
+        </record>
+
+        <record id="chain_centrum" model="bestja_stores.chain">
+            <field name="name">Delikatesy Centrum</field>
+        </record>
+
+        <record id="chain_groszek" model="bestja_stores.chain">
+            <field name="name">Groszek</field>
+        </record>
+
+        <record id="chain_spolem" model="bestja_stores.chain">
+            <field name="name">PSS "Społem"</field>
+        </record>
+
+        <record id="chain_aldi" model="bestja_stores.chain">
+            <field name="name">Aldi</field>
+        </record>
+
+        <record id="chain_marcpol" model="bestja_stores.chain">
+            <field name="name">Marcpol</field>
+        </record>
+
+        <record id="chain_zabka" model="bestja_stores.chain">
+            <field name="name">Żabka</field>
+        </record>
+
+        <record id="chain_other" model="bestja_stores.chain">
+            <field name="name">inna</field>
+        </record>
+    </data>
+</openerp>

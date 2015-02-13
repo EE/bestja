@@ -1,0 +1,31 @@
+<openerp>
+    <data>
+        <record id="store_default_coordinator_rule" model="ir.rule">
+            <field name="name">Stores can be modified by coordinators of their default partners.</field>
+            <field name="model_id" ref="model_bestja_stores_store"/>
+            <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+            <field name="domain_force">[
+                ('default_partner.coordinator', '=', user.id),
+            ]</field>
+            <field name="perm_read" eval="False"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+        <record id="store_responsible_coordinator_rule" model="ir.rule">
+            <field name="name">Stores can be modified by coordinators of their responsible organizations.</field>
+            <field name="model_id" ref="model_bestja_stores_store"/>
+            <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+            <field name="domain_force">[
+                '|',
+                    ('responsible.coordinator', '=', user.id),
+                    ('responsible.parent.coordinator', '=', user.id),
+            ]</field>
+            <field name="perm_read" eval="False"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+    </data>
+</openerp>

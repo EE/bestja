@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_bestja_stores_chain,access_bestja_stores_chain,model_bestja_stores_chain,bestja_project.managers,1,0,0,0
+access_bestja_stores_store,access_bestja_stores_store,model_bestja_stores_store,bestja_organization.coordinators,1,1,1,1
+access_bestja_stores_store_managers,access_bestja_stores_store_managers,model_bestja_stores_store,bestja_project.managers,1,0,0,0
+access_bestja_stores_store_in_project,access_bestja_stores_store_in_project,model_bestja_stores_store_in_project,bestja_project.managers,1,1,1,1
+access_bestja_stores_day,access_bestja_stores_day,model_bestja_stores_day,bestja_project.managers,1,1,1,1

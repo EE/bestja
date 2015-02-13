@@ -130,6 +130,11 @@ class Project(models.Model):
         domain="[('invitations.organization', '=', organization)]",
         string="Projekt nadrzędny",
     )
+    top_parent = fields.Many2one(
+        'bestja.project',
+        compute='_compute_top_parent',
+        compute_sudo=True,
+    )
     children = fields.One2many(
         'bestja.project',
         inverse_name='parent',
@@ -148,6 +153,14 @@ class Project(models.Model):
     organization_level = fields.Integer(
         related='organization.level'
     )
+
+    @api.one
+    @api.depends('parent', 'parent.parent')
+    def _compute_top_parent(self):
+        parent = self.parent
+        while parent:
+            parent = parent.parent
+        self.top_parent = parent
 
     @api.one
     @api.depends('organization', 'parent')

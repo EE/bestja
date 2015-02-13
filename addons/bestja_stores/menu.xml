@@ -1,0 +1,7 @@
+<openerp>
+    <data>
+        <menuitem parent="bestja_base.menu_bestja" id="menu_stores" name="Sklepy" sequence="14" groups="bestja_project.managers"/>
+        <menuitem parent="menu_stores" id="menu_stores_list" action="action_stores" sequence="3" groups="bestja_organization.coordinators"/>
+        <menuitem parent="menu_stores" id="menu_stores_moderation" action="action_stores_moderation" sequence="4" groups="bestja_organization.coordinators"/>
+    </data>
+</openerp>
