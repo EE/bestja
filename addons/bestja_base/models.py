@@ -30,7 +30,7 @@ class Website(models.Model):
     _inherit = 'website'
 
     @api.one
-    def set_language(self, lang_code):
+    def _set_language(self, lang_code):
         """
         Set language for a website.
         If the language is not already loaded

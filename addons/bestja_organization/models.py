@@ -60,7 +60,7 @@ class Organization(models.Model):
     )
     organization_description = fields.Text(string="Opis Organizacji")
     image = fields.Binary()
-    image_medium = fields.Binary(compute='compute_image_medium', inverse='inverse_image_medium', store=True)
+    image_medium = fields.Binary(compute='_compute_image_medium', inverse='_inverse_image_medium', store=True)
 
     _sql_constraints = [
         ('coordinator_uniq', 'unique(coordinator)', 'Jedna osoba nie może koordynować wielu organizacji!'),
@@ -70,12 +70,12 @@ class Organization(models.Model):
 
     @api.multi
     @api.depends('image')
-    def compute_image_medium(self):
+    def _compute_image_medium(self):
         self.image_medium = tools.image_resize_image_medium(self.image)
 
     @api.one
     @api.depends('image_medium')
-    def inverse_image_medium(self):
+    def _inverse_image_medium(self):
         self.image = tools.image_resize_image_big(self.image_medium)
 
     @api.one
@@ -99,7 +99,7 @@ class Organization(models.Model):
             raise exceptions.ValidationError("Adres e-mail jest niepoprawny.")
 
     @staticmethod
-    def is_gov_id_valid(number, weights):
+    def _is_gov_id_valid(number, weights):
         """
         Check governmental identification number.
         `weights` is a list of weights for subsequent digits.
@@ -116,46 +116,46 @@ class Organization(models.Model):
         control_sum = 0 if control_sum == 10 else control_sum
         return control_sum == digits[-1]
 
-    def clean_field_value(self, field_name):
+    def _clean_field_value(self, field_name):
         """
         Removes redundant characters from numeric fields
         """
-        USELESS_CHARS = '-. /'
+        useless_chars = '-. /'
         value = str(getattr(self, field_name))
-        if any(char in value for char in USELESS_CHARS):
-            value = value.translate(None, USELESS_CHARS)
+        if any(char in value for char in useless_chars):
+            value = value.translate(None, useless_chars)
             setattr(self, field_name, value)
 
     @api.one
     @api.constrains('nip')
     def _check_nip(self):
         weights = (6, 5, 7, 2, 3, 4, 5, 6, 7)
-        self.clean_field_value('nip')
-        if self.nip and not self.is_gov_id_valid(self.nip, weights):
+        self._clean_field_value('nip')
+        if self.nip and not self._is_gov_id_valid(self.nip, weights):
             raise exceptions.ValidationError("Niepoprawny NIP.")
 
     @api.one
     @api.constrains('regon')
     def _check_regon(self):
         weights = (8, 9, 2, 3, 4, 5, 6, 7)
-        self.clean_field_value('regon')
+        self._clean_field_value('regon')
         if self.regon and len(self.regon) > 9:
             weights = (2, 4, 8, 5, 0, 9, 7, 3, 6, 1, 2, 4, 8)
 
-        if self.regon and not self.is_gov_id_valid(self.regon, weights):
+        if self.regon and not self._is_gov_id_valid(self.regon, weights):
             raise exceptions.ValidationError("Niepoprawny REGON.")
 
     @api.one
     @api.constrains('krs')
     def _check_krs(self):
-        self.clean_field_value('krs')
+        self._clean_field_value('krs')
         if self.krs and (len(self.krs) != 10 or not self.krs.isdigit()):
             raise exceptions.ValidationError("Niepoprawny KRS.")
 
     @api.one
     def set_approved(self):
         self.state = 'approved'
-        self.coordinator.sync_coordinators_group()
+        self.coordinator._sync_coordinators_group()
         self.send(
             template='bestja_organization.msg_approved',
             recipients=self.coordinator,
@@ -164,7 +164,7 @@ class Organization(models.Model):
     @api.one
     def set_rejected(self):
         self.state = 'rejected'
-        self.coordinator.sync_coordinators_group()
+        self.coordinator._sync_coordinators_group()
         self.send(
             template='bestja_organization.msg_rejected',
             recipients=self.coordinator,
@@ -172,7 +172,7 @@ class Organization(models.Model):
         )
 
     @api.one
-    def send_registration_messages(self):
+    def _send_registration_messages(self):
         self.send(
             template='bestja_organization.msg_registered',
             recipients=self.coordinator,
@@ -186,8 +186,8 @@ class Organization(models.Model):
     @api.model
     def create(self, vals):
         record = super(Organization, self).create(vals)
-        record.send_registration_messages()
-        record.coordinator.sync_coordinators_group()
+        record._send_registration_messages()
+        record.coordinator._sync_coordinators_group()
         return record
 
     @api.multi
@@ -195,8 +195,8 @@ class Organization(models.Model):
         old_coordinator = self.coordinator
         val = super(Organization, self).write(vals)
         if 'coordinator' in vals:
-            self.coordinator.sync_coordinators_group()
-            old_coordinator.sync_coordinators_group()
+            self.coordinator._sync_coordinators_group()
+            old_coordinator._sync_coordinators_group()
         return val
 
     @api.model
@@ -225,29 +225,29 @@ class UserWithOrganization(models.Model):
 
     def __init__(self, pool, cr):
         super(UserWithOrganization, self).__init__(pool, cr)
-        self.add_permitted_fields(level='all', fields={'coordinated_org'})
-        self.add_permitted_fields(level='owner', fields={'organizations'})
-        self.add_permitted_fields(level='privileged', fields={'organizations'})
+        self._add_permitted_fields(level='all', fields={'coordinated_org'})
+        self._add_permitted_fields(level='owner', fields={'organizations'})
+        self._add_permitted_fields(level='privileged', fields={'organizations'})
 
     @api.one
-    def sync_coordinators_group(self):
+    def _sync_coordinators_group(self):
         """
         Add / remove user from the coordinators group, based on whether
         she have an active organization associated.
         """
-        self.sync_group(
+        self._sync_group(
             group=self.env.ref('bestja_organization.coordinators'),
             domain=[('coordinated_org.active', '=', True)],
         )
 
     @api.one
     @api.depends('organizations')
-    def compute_user_access_level(self):
+    def _compute_user_access_level(self):
         """
         Access level that the current (logged in) user has for the object.
         Either "owner", "admin", "privileged" or None.
         """
-        super(UserWithOrganization, self).compute_user_access_level()
+        super(UserWithOrganization, self)._compute_user_access_level()
         if not self.user_access_level and self.user_has_groups('bestja_organization.coordinators') \
                 and (self.env.user.coordinated_org.id in self.sudo().organizations.ids):
             self.user_access_level = 'privileged'

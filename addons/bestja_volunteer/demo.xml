@@ -4,7 +4,7 @@
         <!-- Force Polish as the default language for all new users.
         This is a bit hackish, but we need this for our demo instances.
         Sorry. -->
-        <function model="res.users" name="set_default_language" eval="['pl_PL']"/>
+        <function model="res.users" name="_set_default_language" eval="['pl_PL']"/>
 
         <!-- Users -->
         <record id="user_administrator" model="res.users">

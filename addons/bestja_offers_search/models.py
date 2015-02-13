@@ -13,10 +13,10 @@ class Offer(models.Model):
         ids = self.pool['offer'].search(
             cr, SUPERUSER_ID, [('state', '=', 'published')],
         )
-        self.pool['offer'].whoosh_reindex(cr, SUPERUSER_ID, ids)
+        self.pool['offer']._whoosh_reindex(cr, SUPERUSER_ID, ids)
 
     @api.multi
-    def whoosh_reindex(self):
+    def _whoosh_reindex(self):
         """
         Update/Add offers to the whoosh index.
         """
@@ -46,13 +46,13 @@ class Offer(models.Model):
     @api.model
     def create(self, vals):
         record = super(Offer, self).create(vals)
-        record.whoosh_reindex()
+        record._whoosh_reindex()
         return record
 
     @api.multi
     def write(self, vals):
         val = super(Offer, self).write(vals)
-        self.whoosh_reindex()
+        self._whoosh_reindex()
         return val
 
     @api.multi

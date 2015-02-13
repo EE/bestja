@@ -10,14 +10,14 @@ class Organization(models.Model):
     _order = 'parent_left'
     _parent_store = True
 
-    def allowed_parents(self):
+    def _allowed_parents(self):
         if self.user_has_groups('bestja_base.instance_admin'):
             return [('level', '<=', 1)]
         return [('level', '=', 1)]
 
     parent = fields.Many2one(
         'organization',
-        domain=allowed_parents,
+        domain=_allowed_parents,
         index=True,
         ondelete='restrict',
         string="Organizacja nadrzędna",
@@ -29,7 +29,7 @@ class Organization(models.Model):
         inverse_name='parent',
     )
     level = fields.Integer(
-        compute='compute_level',
+        compute='_compute_level',
         compute_sudo=True,
         store=True,
         string="Poziom w hierarchii organizacji"
@@ -37,7 +37,7 @@ class Organization(models.Model):
 
     @api.one
     @api.depends('parent', 'parent.parent')
-    def compute_level(self):
+    def _compute_level(self):
         """
         Level of organization hierarchy. 0 = root level.
         """
@@ -60,7 +60,7 @@ class Organization(models.Model):
             raise exceptions.ValidationError("Wybierz organizację nadrzędną!")
 
     @api.multi
-    def is_parent_coordinator(self):
+    def _is_parent_coordinator(self):
         """
         Is the current user a coordinator of an parent organization?
         """
@@ -72,7 +72,7 @@ class Organization(models.Model):
         Allow parent coordinators to modify protected fields
         """
         permitted = super(Organization, self)._is_permitted()
-        return permitted or self.is_parent_coordinator()
+        return permitted or self._is_parent_coordinator()
 
     @api.model
     def fields_view_get(self, **kwargs):

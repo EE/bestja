@@ -19,7 +19,7 @@ class AuthSignupHome(AuthSignupHome):
         else:
             try:
                 values = dict((key, qcontext.get(key)) for key in ('login', 'email'))
-                request.env['res.users'].sudo().authenticate_after_confirmation(values, qcontext.get('token'))
+                request.env['res.users'].sudo()._authenticate_after_confirmation(values, qcontext.get('token'))
                 request.cr.commit()
 
                 response = super(AuthSignupHome, self).web_login(*args, **kw)

@@ -9,21 +9,21 @@ class Project(models.Model):
     detailed_reports = fields.One2many('bestja.detailed_report', inverse_name='project')
     enable_detailed_reports = fields.Boolean(string="Raporty szczegółowe do zbiórki żywności")
     use_detailed_reports = fields.Boolean(
-        compute='compute_use_detailed_reports',
+        compute='_compute_use_detailed_reports',
         compute_sudo=True,
-        search='search_use_detailed_reports',
+        search='_search_use_detailed_reports',
     )
 
     @api.one
     @api.depends('enable_detailed_reports', 'parent.enable_detailed_reports', 'parent.parent.enable_detailed_reports')
-    def compute_use_detailed_reports(self):
+    def _compute_use_detailed_reports(self):
         self.use_detailed_reports = (
             self.enable_detailed_reports or
             self.parent.enable_detailed_reports or
             self.parent.parent.enable_detailed_reports
         )
 
-    def search_use_detailed_reports(self, operator, value):
+    def _search_use_detailed_reports(self, operator, value):
         return [
             '|',  # noqa
                 ('enable_detailed_reports', operator, value),
@@ -101,10 +101,10 @@ class DetailedReport(models.Model):
         related='project.organization',
     )
     name = fields.Char(string="Nazwa projektu", related="project.name")
-    dates = fields.Char(string="Termin", compute="compute_project_dates", store=True)
+    dates = fields.Char(string="Termin", compute="_compute_project_dates", store=True)
     state = fields.Selection(STATES, default='draft', string="Status:")
     report_entries = fields.One2many('bestja.report_entry', inverse_name='detailed_report', string="Produkt")
-    tonnage = fields.Float(string="Tonaż (kg)", compute="compute_report_tonnage", store=True)
+    tonnage = fields.Float(string="Tonaż (kg)", compute="_compute_report_tonnage", store=True)
     parent_project = fields.Many2one(
         'bestja.project',
         string="Projekt nadrzędny",
@@ -114,15 +114,15 @@ class DetailedReport(models.Model):
     responsible_organization = fields.Many2one(
         'organization',
         string="Zainteresowane organizacje",
-        compute="compute_responsible_organization",
+        compute="_compute_responsible_organization",
         compute_sudo=True,
         store=True,
     )
-    user_can_moderate = fields.Boolean(compute="compute_user_can_moderate")
+    user_can_moderate = fields.Boolean(compute="_compute_user_can_moderate")
 
     @api.one
     @api.depends('parent_project', 'project')
-    def compute_responsible_organization(self):
+    def _compute_responsible_organization(self):
         """
         The organizations on the middle level (1) are responsible for managing
         their reports and reports of their children.
@@ -138,7 +138,7 @@ class DetailedReport(models.Model):
 
     @api.one
     @api.depends('report_entries')
-    def compute_report_tonnage(self):
+    def _compute_report_tonnage(self):
         """
         For showing the sum of kg of products
         """
@@ -146,7 +146,7 @@ class DetailedReport(models.Model):
 
     @api.one
     @api.depends('parent_project')
-    def compute_user_can_moderate(self):
+    def _compute_user_can_moderate(self):
         """
         Is current user authorized to moderate (accept/reject) the detailed_report?
         """
@@ -162,7 +162,7 @@ class DetailedReport(models.Model):
 
     @api.one
     @api.depends('project')
-    def compute_project_dates(self):
+    def _compute_project_dates(self):
         """
         For nice format in the list of all projects.
         """

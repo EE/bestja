@@ -89,8 +89,8 @@ class Volunteer(models.Model):
     # this field is a proxy, without the group restrictions.
     user_email = fields.Char(
         string="adres email",
-        computed='compute_user_email',
-        inverse='inverse_user_email',
+        computed='_compute_user_email',
+        inverse='_inverse_user_email',
     )
     phone = fields.Char(string="numer tel.")
     birthdate = fields.Date(string="data urodzenia")
@@ -150,7 +150,7 @@ class Volunteer(models.Model):
     #######################################
     # Fields permissions code begins here #
     #######################################
-    user_access_level = fields.Char(compute="compute_user_access_level")
+    user_access_level = fields.Char(compute="_compute_user_access_level")
 
     permitted_fields = {
         'all': {  # Fields accessible to all users
@@ -182,27 +182,27 @@ class Volunteer(models.Model):
     def __init__(self, pool, cr):
         super(Volunteer, self).__init__(pool, cr)
         # this method should run only once - when the model is being registered.
-        self.sync_permitted_fields()
+        self._sync_permitted_fields()
 
-    def add_permitted_fields(self, level, fields):
+    def _add_permitted_fields(self, level, fields):
         """
         Make fields (provided as a `fields` set) accessible to users with access
         level `level` (either 'all', 'privileged' or 'owner').
         """
         self.permitted_fields[level] |= fields
         if level in ('owner', 'all'):
-            self.sync_permitted_fields()
+            self._sync_permitted_fields()
 
-    def remove_permitted_fields(self, level, fields):
+    def _remove_permitted_fields(self, level, fields):
         """
         Mark fields (provided as a `fields` set) as no longer accessible to users
         with access level `level` (either 'all', 'privileged' or 'owner').
         """
         self.permitted_fields[level] -= fields
         if level in ('owner', 'all'):
-            self.sync_permitted_fields()
+            self._sync_permitted_fields()
 
-    def sync_permitted_fields(self):
+    def _sync_permitted_fields(self):
         """
         Sync SELF_READABLE_FIELDS and SELF_WRITEABLE_FIELDS
         (part of rudimentary field permissions defined in base.res_users)
@@ -260,7 +260,7 @@ class Volunteer(models.Model):
 
     @api.one
     @api.depends('groups_id')
-    def compute_user_access_level(self):
+    def _compute_user_access_level(self):
         """
         Access level that the current (logged in) user has for the object.
         Either "owner", "admin", "privileged" or None.
@@ -278,11 +278,11 @@ class Volunteer(models.Model):
 
     @api.one
     @api.depends('partner_id.email')
-    def compute_user_email(self):
+    def _compute_user_email(self):
         self.user_email = self.sudo().partner_id.email
 
     @api.one
-    def inverse_user_email(self):
+    def _inverse_user_email(self):
         self.sudo().partner_id.email = self.user_email
 
     @api.model
@@ -299,11 +299,11 @@ class Volunteer(models.Model):
         pass
 
     @api.model
-    def authenticate_after_confirmation(self, values, token=None):
+    def _authenticate_after_confirmation(self, values, token=None):
         """
         Send welcome message after user account is authenticated
         """
-        user = super(Volunteer, self).authenticate_after_confirmation(values, token)
+        user = super(Volunteer, self)._authenticate_after_confirmation(values, token)
         if user:
             self.env.ref('bestja_volunteer.welcome_msg').send(
                 recipients=user,
@@ -356,7 +356,7 @@ class Volunteer(models.Model):
 
     @api.one
     @api.constrains('voivodeship', 'voivodeship_gov', 'country', 'country_gov')
-    def voivodeship_not_in_poland(self):
+    def _voivodeship_not_in_poland(self):
         """
         If the chosen country is not Poland, voivodeship has to be empty.
         """
@@ -365,7 +365,7 @@ class Volunteer(models.Model):
             raise exceptions.ValidationError("Województwa dotyczą tylko Polski!")
 
     @api.model
-    def set_default_language(self, lang_code):
+    def _set_default_language(self, lang_code):
         """
         Set default language for all new users.
         If the language is not already loaded
@@ -377,7 +377,7 @@ class Volunteer(models.Model):
             self.env['ir.values'].set_default('res.partner', 'lang', lang_code)
 
     @api.one
-    def sync_group(self, group, domain):
+    def _sync_group(self, group, domain):
         """
         if the current user satisfies the domain `domain` she should be a member
         of a group `group`. Otherwise she should be removed.
@@ -389,7 +389,7 @@ class Volunteer(models.Model):
         })
 
     @staticmethod
-    def is_password_safe(password):
+    def _is_password_safe(password):
         """
         Does password follow the security rules?
         """
@@ -403,7 +403,7 @@ class Volunteer(models.Model):
         any uppercase letter, not only lowercase.
         You can't do it using constraints, as password is hashed in the database.
         """
-        if not self.is_password_safe(values.get('password')):
+        if not self._is_password_safe(values.get('password')):
             raise SignupError("Hasło powinno zawierać co najmniej 6 znaków, w tym litery różnej wielkości!")
         return super(Volunteer, self).signup(values, token)
 
@@ -412,14 +412,14 @@ class Volunteer(models.Model):
         """
         For changing password in preferences.
         """
-        if not self.is_password_safe(new_passwd):
+        if not self._is_password_safe(new_passwd):
             raise exceptions.ValidationError(
                 "Hasło powinno zawierać co najmniej 6 znaków, w tym litery różnej wielkości!"
             )
         return super(Volunteer, self).change_password(old_passwd, new_passwd)
 
     @api.onchange('different_addresses')
-    def equal_addresses(self):
+    def _equal_addresses(self):
         """
         If mailing address is the same as address of residence
         than it should be empty.
@@ -434,7 +434,7 @@ class Volunteer(models.Model):
             self.voivodeship_gov = None
 
     @api.onchange('country', 'country_gov')
-    def onchange_country(self):
+    def _onchange_country(self):
         """
         If the chosen country is not Poland, reset voivodeship
         """
@@ -444,7 +444,7 @@ class Volunteer(models.Model):
             self.voivodeship_gov = None
 
     @api.onchange('voivodeship', 'voivodeship_gov')
-    def onchange_voivodeship(self):
+    def _onchange_voivodeship(self):
         """
         If a voivodeship is chosen we can safely
         assume the country is Poland.

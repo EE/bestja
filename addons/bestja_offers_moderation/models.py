@@ -14,7 +14,7 @@ class OfferWithModeration(models.Model):
 
     state = fields.Selection(selection_add=[('pending', "oczekująca na akceptację")])
 
-    def is_moderator(self):
+    def _is_moderator(self):
         """
         Returns a boolean value indicating whether current user
         is an offer moderator.
@@ -31,7 +31,7 @@ class OfferWithModeration(models.Model):
 
     @api.one
     def set_published(self):
-        if self.is_moderator():
+        if self._is_moderator():
             previous_state = self.state
             self.state = 'published'
             if previous_state == 'pending':
@@ -51,7 +51,7 @@ class OfferWithModeration(models.Model):
         """
         if self.state == 'published' \
                 and self.env.uid != SUPERUSER_ID \
-                and not self.is_moderator():
+                and not self._is_moderator():
             self.set_pending()
 
     @api.model
@@ -77,7 +77,7 @@ class OfferWithModeration(models.Model):
 
         doc = etree.XML(view['arch'])
 
-        if self.is_moderator():
+        if self._is_moderator():
             button_pending = doc.xpath("//button[@name='set_pending']")
             if button_pending:
                 button_pending[0].getparent().remove(button_pending[0])
@@ -90,6 +90,6 @@ class OfferWithModeration(models.Model):
         """
         Show pending offers count in menu - only for moderators.
         """
-        if not self.is_moderator():
+        if not self._is_moderator():
             return False
         return [('state', '=', 'pending')]

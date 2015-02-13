@@ -45,7 +45,7 @@ class Users(models.Model):
     active_state = fields.Selection(STATES, default='active', store=True, string="Stan")
 
     @api.model
-    def authenticate_after_confirmation(self, values, token=None):
+    def _authenticate_after_confirmation(self, values, token=None):
         if token:
             # signup with a token: find the corresponding partner id
             partner = self.env['res.partner']._signup_retrieve_partner(

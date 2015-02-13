@@ -5,7 +5,7 @@ from openerp import models, fields, api
 class InvitationWizard(models.TransientModel):
     _name = 'bestja.project.invitation_wizard'
 
-    def available_organizations(self):
+    def _available_organizations(self):
         project_id = self.env.context.get('active_id')
         domain = []
         if project_id:
@@ -19,11 +19,11 @@ class InvitationWizard(models.TransientModel):
         return domain
 
     @api.model
-    def default_organizations(self):
+    def _default_organizations(self):
         """
         All organizations chosen by default.
         """
-        domain = self.available_organizations()
+        domain = self._available_organizations()
         return self.env['organization'].search(domain)
 
     project = fields.Many2one(
@@ -33,8 +33,8 @@ class InvitationWizard(models.TransientModel):
     )
     organizations = fields.Many2many(
         'organization',
-        domain=available_organizations,
-        default=default_organizations,
+        domain=_available_organizations,
+        default=_default_organizations,
         string="Organizacje",
     )
     description = fields.Text(string="Opis")

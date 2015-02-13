@@ -50,7 +50,7 @@ class Application(models.Model):
 
     # The way to specify all possible groups for particular grouping in kanban
     @api.model
-    def state_groups(self, present_ids, domain, **kwargs):
+    def _state_groups(self, present_ids, domain, **kwargs):
         folded = {key: (key in self.FOLDED_STATES) for key, _ in self.STATES}
         # Need to copy self.STATES list before returning it,
         # because odoo modifies the list it gets,
@@ -58,27 +58,27 @@ class Application(models.Model):
         return self.STATES[:], folded
 
     _group_by_full = {
-        'state': state_groups
+        'state': _state_groups
     }
 
     user = fields.Many2one('res.users', required=True, ondelete='cascade')
     offer = fields.Many2one('offer', required=True, ondelete='cascade')
     state = fields.Selection(STATES, default='new', string="Stan")
     quality = fields.Selection(QUALITY_CHOICES, string="Jakość")
-    age = fields.Integer(compute='compute_age')
+    age = fields.Integer(compute='_compute_age')
     meeting = fields.Datetime()
     meeting2 = fields.Datetime()
     meeting1_state = fields.Selection(MEETING_STATES, default='pending')
     meeting2_state = fields.Selection(MEETING_STATES, default='pending')
     current_meeting_state = fields.Selection(
         MEETING_STATES,
-        compute='compute_current_meeting',
-        inverse='inverse_current_meeting_state',
+        compute='_compute_current_meeting',
+        inverse='_inverse_current_meeting_state',
     )
     current_meeting = fields.Datetime(
-        compute='compute_current_meeting',
-        inverse='inverse_current_meeting',
-        search='search_current_meeting'
+        compute='_compute_current_meeting',
+        inverse='_inverse_current_meeting',
+        search='_search_current_meeting'
     )
     rejected_reason = fields.Many2one('offers.application.rejected')
     notes = fields.Text()
@@ -88,7 +88,7 @@ class Application(models.Model):
     ]
 
     @api.model
-    def send_message_new(self, record):
+    def _send_message_new(self, record):
         record.send(
             template='bestja_offers.msg_new_application',
             recipients=record.sudo().offer.project.responsible_user,
@@ -97,12 +97,12 @@ class Application(models.Model):
     @api.model
     def create(self, vals):
         record = super(Application, self).create(vals)
-        self.send_message_new(record)
+        self._send_message_new(record)
         return record
 
     @api.one
     @api.depends('birthdate')
-    def compute_age(self):
+    def _compute_age(self):
         if self.birthdate:
             days_in_year = 365.25  # accounting for a leap year
             birthdate = fields.Date.from_string(self.birthdate)
@@ -112,7 +112,7 @@ class Application(models.Model):
 
     @api.one
     @api.depends('state', 'meeting', 'meeting2')
-    def compute_current_meeting(self):
+    def _compute_current_meeting(self):
         if self.state == 'meeting':
             self.current_meeting = self.meeting
             self.current_meeting_state = self.meeting1_state
@@ -126,14 +126,14 @@ class Application(models.Model):
             self.current_meeting_state = False
 
     @api.one
-    def inverse_current_meeting_state(self):
+    def _inverse_current_meeting_state(self):
         if self.state == 'meeting2':
             self.meeting2_state = self.current_meeting_state
         else:
             self.meeting1_state = self.current_meeting_state
 
     @api.one
-    def inverse_current_meeting(self):
+    def _inverse_current_meeting(self):
         if self.state == 'meeting2':
             self.meeting2 = self.current_meeting
         elif self.state == 'meeting':
@@ -153,7 +153,7 @@ class Application(models.Model):
             sender=self.env.user,
         )
 
-    def search_current_meeting(self, operator, value):
+    def _search_current_meeting(self, operator, value):
         return [
             '|',  # noqa (domain indent)
                 '&',
@@ -248,7 +248,7 @@ class Application(models.Model):
         )
 
     @api.multi
-    def get_meeting_confirmation_link(self, resolution):
+    def _get_meeting_confirmation_link(self, resolution):
         """
         Applicants can use this url to confirm a meeting.
         resolution -- one of 'accepted', 'rejected'

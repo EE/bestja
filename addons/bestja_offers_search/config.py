@@ -15,4 +15,4 @@ class BestJaSettings(models.TransientModel):
         """
         index = OffersIndex(dbname=self.env.cr.dbname)
         index.create_index()
-        self.env['offer'].search([('state', '=', 'published')]).whoosh_reindex()
+        self.env['offer'].search([('state', '=', 'published')])._whoosh_reindex()

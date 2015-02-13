@@ -14,30 +14,30 @@ class VolunteerWithNotes(models.Model):
 
     def __init__(self, pool, cr):
         super(VolunteerWithNotes, self).__init__(pool, cr)
-        self.add_permitted_fields(level='privileged', fields={'notes'})
+        self._add_permitted_fields(level='privileged', fields={'notes'})
 
 
 class VolunteerNote(models.Model):
     _name = 'bestja.volunteer_note'
 
     @api.model
-    def default_user(self):
+    def _default_user(self):
         return self.env.context.get('active_id')
 
     @api.model
-    def default_organization(self):
+    def _default_organization(self):
         return self.env.user.coordinated_org.id
 
     body = fields.Text(required=True, string="Treść")
     user = fields.Many2one(
         'res.users',
         required=True,
-        default=default_user,
+        default=_default_user,
         string="Wolontariusz",
     )
     organization = fields.Many2one(
         'organization',
-        default=default_organization,
+        default=_default_organization,
     )
 
     @api.one

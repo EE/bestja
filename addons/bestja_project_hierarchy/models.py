@@ -31,7 +31,7 @@ class ProjectInvitation(models.Model):
         STATES,
         default='pending',
         store=True,
-        compute='compute_state',
+        compute='_compute_state',
         compute_sudo=True,
         string="Stan",
     )
@@ -39,7 +39,7 @@ class ProjectInvitation(models.Model):
     accepted_time = fields.Datetime(
         string="Data zaakceptowania",
         store=True,
-        compute='compute_accepted_time',
+        compute='_compute_accepted_time',
         compute_sudo=True,
     )
     invited_projects = fields.One2many('bestja.project', inverse_name='parent_invitation')
@@ -54,7 +54,7 @@ class ProjectInvitation(models.Model):
 
     @api.one
     @api.constrains('organization')
-    def check_organization_child(self):
+    def _check_organization_child(self):
         is_child = self.env['organization'].search_count([
             ('id', '=', self.organization.id),
             ('parent', '=', self.project.organization.id),
@@ -66,12 +66,12 @@ class ProjectInvitation(models.Model):
 
     @api.one
     @api.depends('invited_projects')
-    def compute_state(self):
+    def _compute_state(self):
         self.state = 'accepted' if self.invited_projects else 'pending'
 
     @api.one
     @api.depends('invited_projects')
-    def compute_accepted_time(self):
+    def _compute_accepted_time(self):
         invited_projects = self.invited_projects.sorted(key=lambda r: r.create_date)
         if invited_projects:
             self.accepted_time = invited_projects[0].create_date
@@ -142,7 +142,7 @@ class Project(models.Model):
     parent_invitation = fields.Many2one(
         'bestja.project.invitation',
         store=True,
-        compute='compute_parent_invitation',
+        compute='_compute_parent_invitation',
         compute_sudo=True,
     )
     organization_level = fields.Integer(
@@ -151,7 +151,7 @@ class Project(models.Model):
 
     @api.one
     @api.depends('organization', 'parent')
-    def compute_parent_invitation(self):
+    def _compute_parent_invitation(self):
         """
         Find invitation that was used to create this project.
         """

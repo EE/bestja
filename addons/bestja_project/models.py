@@ -7,7 +7,7 @@ class Project(models.Model):
     _inherit = ['message_template.mixin']
     _order = 'id desc'
 
-    def current_members(self):
+    def _current_members(self):
         """
         Limit to members of the current organization only.
         """
@@ -31,7 +31,7 @@ class Project(models.Model):
     )
     manager = fields.Many2one(
         'res.users',
-        domain=current_members,
+        domain=_current_members,
         string="Menadżer projektu",
     )
     responsible_user = fields.Many2one(
@@ -52,7 +52,7 @@ class Project(models.Model):
         relation='project_members_rel',
         column1='project',
         column2='member',
-        domain=current_members,
+        domain=_current_members,
         string="Zespół"
     )
     tasks = fields.One2many('bestja.task', 'project', string="Zadania")
@@ -84,7 +84,7 @@ class Project(models.Model):
                 template='bestja_project.msg_manager',
                 recipients=record.manager,
             )
-            record.manager.sync_manager_groups()
+            record.manager._sync_manager_groups()
         return record
 
     @api.multi
@@ -103,8 +103,8 @@ class Project(models.Model):
                 template='bestja_project.msg_manager_changed',
                 recipients=old_manager,
             )
-            self.manager.sync_manager_groups()
-            old_manager.sync_manager_groups()
+            self.manager._sync_manager_groups()
+            old_manager._sync_manager_groups()
         return val
 
     @api.one
@@ -128,7 +128,7 @@ class Task(models.Model):
         ('done', "zrealizowane"),
     ]
 
-    def current_project_members(self):
+    def _current_project_members(self):
         """
         Returns a domain selecting members of the current project.
         """
@@ -142,7 +142,7 @@ class Task(models.Model):
     state = fields.Selection(STATES, default='new', string="Status")
     user = fields.Many2one(
         'res.users',
-        domain=current_project_members,
+        domain=_current_project_members,
         string="Wykonawca zadania",
     )
     user_assigned_task = fields.Boolean(
@@ -242,31 +242,31 @@ class UserWithProjects(models.Model):
 
     def __init__(self, pool, cr):
         super(UserWithProjects, self).__init__(pool, cr)
-        self.add_permitted_fields(level='owner', fields={'projects', 'managed_projects'})
-        self.add_permitted_fields(level='privileged', fields={'projects', 'managed_projects'})
+        self._add_permitted_fields(level='owner', fields={'projects', 'managed_projects'})
+        self._add_permitted_fields(level='privileged', fields={'projects', 'managed_projects'})
 
     @api.one
-    def sync_manager_groups(self):
+    def _sync_manager_groups(self):
         """
         Add / remove user from the managers group, based on whether
         she manages a project.
         """
-        self.sync_group(
+        self._sync_group(
             group=self.env.ref('bestja_project.managers'),
             domain=[('managed_projects', '!=', False)],
         )
 
-        @api.one
-        @api.depends('projects')
-        def compute_user_access_level(self):
-            """
-            Access level that the current (logged in) user has for the object.
-            Either "owner", "admin", "privileged" or None.
-            """
-            super(UserWithProjects, self).compute_user_access_level()
-            if not self.user_access_level and self.user_has_groups('bestja_project.managers') \
-                    and (self.env.user.managed_projects & self.sudo().projects):
-                self.user_access_level = 'privileged'
+    @api.one
+    @api.depends('projects')
+    def _compute_user_access_level(self):
+        """
+        Access level that the current (logged in) user has for the object.
+        Either "owner", "admin", "privileged" or None.
+        """
+        super(UserWithProjects, self)._compute_user_access_level()
+        if not self.user_access_level and self.user_has_groups('bestja_project.managers') \
+                and (self.env.user.managed_projects & self.sudo().projects):
+            self.user_access_level = 'privileged'
 
 
 class OrganizationWithProjects(models.Model):

@@ -4,6 +4,6 @@
         <!-- Force Polish as the default language for the default website.
         This is a bit hackish, but we need this for our demo instances.
         Sorry. -->
-        <function model="website" name="set_language" eval="[ref('website.default_website'), 'pl_PL']"/>
+        <function model="website" name="_set_language" eval="[ref('website.default_website'), 'pl_PL']"/>
     </data>
 </openerp>

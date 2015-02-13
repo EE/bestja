@@ -216,11 +216,11 @@ class Request(models.Model):
         related='project.parent',
         store=True,
     )
-    user_can_moderate = fields.Boolean(compute="compute_user_can_moderate")
+    user_can_moderate = fields.Boolean(compute="_compute_user_can_moderate")
 
     @api.one
     @api.depends('parent_project')
-    def compute_user_can_moderate(self):
+    def _compute_user_can_moderate(self):
         """
         Is current user authorized to moderate (accept/reject) the request?
         """
