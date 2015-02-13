@@ -14,6 +14,7 @@
     # assets
     'data': [
         'views/assets.xml',
+        'views/login_signup.xml',
     ],
     'application': True,
     # About information
