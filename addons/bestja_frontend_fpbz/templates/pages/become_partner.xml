@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <template id="website.become_partner" name="Site about becoming a partner" page="True">
+            <t t-call="website.layout">
+                <div id="wrap" class="oe_structure oe_empty">
+                    <section class="oe_snippet_body">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h1 class="text-center mt48 mb48 section_title">
+                                        <strong>Zostań</strong> organizacją partnerską Banku Żywności!</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="oe_snippet_body">
+                        <div class="container-fluid become_partner">
+                            <div class="row">                                
+                                <div class="col-md-6 mt16">
+                                    <table class="data_of_acts">
+                                        <tr>
+                                            <td>
+                                                <h2>Promuj lokalnie walkę z niedożywieniem i niemarnowanie żywności.</h2>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <h2>Włącz się w ogólnopolskie i regionalne programy przeprowadzając 
+                                                    zbiórkę żywności w lokalnym sklepie.</h2>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>  
+                                                <h2>Możesz mieć wpływ na dostęp do pełnowartościowego jedzenia!</h2>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="col-md-6 mt16">
+                                    <img class="img img-responsive shadow mb16" 
+                                         src="http://placekitten.com/g/900/600"/>
+                                </div>
+                                <div class="row">                                
+                                    <h2 class="col-md-12 mt16 become_partner_link">
+                                        <small><a class="color_orange" href="http://www.wolontariat.bankizywnosci.pl/">Kto może zostać partnerem?</a></small>
+                                    </h2>
+                                </div>
+                            </div>                            
+                        </div>
+                    </section>
+                    <section class="oe_snippet_body mt16 mb16">
+                        <div class="container-fluid join_us">
+                            <div class="row">
+                                <div class="text-center">
+                                    <button class="btn btn-lg text-center mt32 mb32">DOŁĄCZ TERAZ</button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="oe_snippet_body">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h1 class="text-center mt48 mb48 section_title">
+                                        Co otrzymasz jako <strong>partner</strong></h1>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="oe_snippet_body">
+                        <div class="container-fluid what_partner_receives">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <ul>
+                                        <li>
+                                            <span class="glyphicon glyphicon-ok" /> wsparcie merytoryczne w postaci szkoleń i publikacji</li>
+                                        <li>
+                                            <span class="glyphicon glyphicon-ok" /> komplet dokumentów niezbędnych do zorganizowania zbiórki</li>
+                                        <li>
+                                            <span class="glyphicon glyphicon-ok" /> kontakt do osoby, która pomoże załatwić formalności i udzieli wszelkich wskazówek</li>
+                                        <li>
+                                            <span class="glyphicon glyphicon-ok" /> legitymacje i dyplomy dla wolontariuszy</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <ul>
+                                        <li>
+                                            <span class="glyphicon glyphicon-ok" /> przydatne w czasie zbiórek materiały promocyjne</li>
+                                        <li>
+                                            <span class="glyphicon glyphicon-ok" /> prestiż dzięki udziałowi w akcjach ogólnopolskich</li>
+                                        <li>
+                                            <span class="glyphicon glyphicon-ok" /> radość i satysfakcję z pomocy potrzebującym</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="oe_snippet_body mt16 mb16">
+                        <div class="container-fluid join_us">
+                            <div class="row">
+                                <div class="text-center">
+                                    <button class="btn btn-lg text-center mt32 mb32">DOŁĄCZ TERAZ</button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="oe_snippet_body">
+                        <div class="container-fluid become_partner">
+                            <div class="row">
+                                <div class="col-md-6 mt16">
+                                    <img class="img img-responsive shadow mb16" 
+                                         src="http://placekitten.com/g/900/600"/>
+                                </div>
+                                <div class="col-md-6 mt16">
+                                    <h2>„Jako koordynator wolontariatu korzystam z aplikacji, 
+                                        która ułatwia mi rekrutację wolontariuszy, przydzielanie 
+                                        zadań i monitorowanie stopnia ich wykonania.
+                                        Dzięki aplikacji koordynowanie grupy wolontariuszy 
+                                        jest proste i nie zajmuje wcale dużo czasu.”</h2>
+                                        <h2>
+                                            <small><strong>Ewa</strong>, wolontariusz Banku Żywności w Warszawie</small></h2>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="oe_snippet_body">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h1 class="text-center mt48 mb48 section_title">
+                                        Dlaczego <strong>warto</strong> dołączyć?</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="oe_snippet_body mb16">
+                        <div class="container-fluid volunteers_newsletter">
+                            <div class="row mt16 mb16">
+                                <div class="col-md-1 text-center" />
+                                <div class="col-md-2 text-center">
+                                    <div class="recrutation_step_number">1</div>
+                                    <h3 class="mt32 mb32">Tworzenie ofert</h3>
+                                    <p class="text-muted mt16 mb8 recrutation_step_description">
+                                        Twórz atrakcyjne oferty dla wolontariuszy za pomocą wbudowanych szablonów.</p>
+                                </div>
+                                <div class="col-md-2 text-center">
+                                    <div class="recrutation_step_number">2</div>
+                                    <h3 class="mt32 mb32">Rekrutacja wolontariuszy</h3>
+                                    <p class="text-muted mt16 mb8">Ustalaj terminy spotkań w kalendarzu.<br />
+                                        Błyskawicznie selekcjonuj aplikacje.</p>
+                                </div>
+                                <div class="col-md-2 text-center">
+                                    <div class="recrutation_step_number">3</div>
+                                    <h3 class="mt32 mb32">Współpraca ze sklepami</h3>
+                                    <p class="text-muted mt16 mb8">Dodawaj i wybieraj miejsca, w których chcesz zorganizować zbiórkę.</p>
+                                </div>
+                                <div class="col-md-2 text-center">
+                                    <div class="recrutation_step_number">4</div>
+                                    <h3 class="mt32 mb32">Sprawozdawczość</h3>
+                                    <p class="text-muted mt16 mb8">Rozliczaj zebraną żywność w prosty sposób.</p>
+                                </div>
+                                <div class="col-md-2 text-center">
+                                    <div class="recrutation_step_number">5</div>
+                                    <h3 class="mt32 mb32">Wiadomości</h3>
+                                    <p class="text-muted mt16 mb8">Bądź na bieżąco z aktualnymi informacjami na temat zbiórki.</p>
+                                </div>
+                                <div class="col-md-1 text-center" />
+                            </div>
+                        </div>
+                    </section>
+                    <section class="oe_snippet_body">
+                        <div class="container-fluid quote_div">
+                            <div class="row">
+                                <div class="col-md-offset-1 col-md-10">
+                                    <blockquote>
+                                        <span class="big_apostrophe_before">”</span>
+                                        Dla mnie największą zaletą aplikacji jest możliwość prostej 
+                                        i szybkiej sprawozdawczości. Mogę też przeprowadzać rekrutację 
+                                        i zlecać im zadania. To mi ułatwia pracę.
+                                        <span class="big_apostrophe_after">„</span>
+                                    </blockquote>
+                                    <span class="description_under_quote">
+                                        <strong>Ola</strong>, koordynator, Organizacja Pomoc Dzieciom, Słupsk
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="oe_snippet_body">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h1 class="text-center mt48 mb48 section_title">
+                                        <strong>Zalety</strong> aplikacji</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="oe_snippet_body">
+                        <div class="container-fluid advantages_of_application">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <ul>
+                                        <li>
+                                            <span class="glyphicon glyphicon-ok" /> intuicyjne narzędzie do rekrutacji wolontariuszy</li>
+                                        <li>
+                                            <span class="glyphicon glyphicon-ok" /> szablony dokumentów potrzebnych do współpracy z wolontariuszami</li>
+                                        <li>
+                                            <span class="glyphicon glyphicon-ok" /> monitoring statusu realizacji zleconych wolontariuszom zadań</li>
+                                        <li>
+                                            <span class="glyphicon glyphicon-ok" /> widok najważniejszych wydarzeń w kalendarzu</li>
+                                        <li>
+                                            <span class="glyphicon glyphicon-ok" /> narzędzie do szybkiej komunikacji z wolontariuszami (umawianie spotkań)</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <ul>
+                                        <li>
+                                            <span class="glyphicon glyphicon-ok" /> dostęp do aktualnych informacji na temat akcji</li>
+                                        <li>
+                                            <span class="glyphicon glyphicon-ok" /> elastyczny moduł statystyk</li>
+                                        <li>
+                                            <span class="glyphicon glyphicon-ok" /> dostęp do bazy wiedzy na temat organizacji zbiórek i wolontariatu</li>
+                                        <li>
+                                            <span class="glyphicon glyphicon-ok" /> możliwość łatwego i szybkiego sprawozdania</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="oe_snippet_body mt16 mb16">
+                        <div class="container-fluid join_us">
+                            <div class="row">
+                                <div class="text-center">
+                                    <button class="btn btn-lg text-center mt32 mb32">DOŁĄCZ TERAZ</button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="oe_snippet_body">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h1 class="text-center mt48 mb48 section_title">
+                                        Zdobądź wiedzę <strong>koordynatora zbiórki</strong>
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="oe_snippet_body mt16 mb16">
+                        <div class="container-fluid the_tasks_of_coordinator">
+                            <div class="row row-centered">
+                                <div class="col-md-1 centered nav_left">
+                                    <img src="/bestja_frontend_fpbz/static/src/img/content/poprzedni-01.svg" />
+                                </div>
+                                <div class="col-md-10 centered">
+                                    <div class="col-md-3 centered">
+                                        <div class="media_iframe_video" data-src="//www.youtube.com/embed/cnFcCyyyCWA?autoplay=0" style="">
+                                            <div class="css_editable_mode_display"> </div>
+                                            <iframe allowfullscreen="allowfullscreen" frameborder="0" src="//www.youtube.com/embed/cnFcCyyyCWA?autoplay=0"/>
+                                        </div>
+                                        <h4 class="mt16 mb16">Zadania koordynatora w czasie organizacji zbiórki</h4>
+                                    </div>
+                                    <div class="col-md-3 centered">
+                                        <div class="media_iframe_video" data-src="//www.youtube.com/embed/BdkoPAjtMSk?autoplay=0" style="-webkit-animation-play-state: paused; -webkit-transition: none; transition: none">
+                                            <div class="css_editable_mode_display"> </div>
+                                            <iframe allowfullscreen="allowfullscreen" frameborder="0" src="//www.youtube.com/embed/BdkoPAjtMSk?autoplay=0"/>
+                                        </div>
+                                        <h4 class="mt16 mb16">Cechy ważne dla koordynatora zbiórki</h4>
+                                    </div>
+                                    <div class="col-md-3 centered">
+                                        <div class="media_iframe_video" data-src="//www.youtube.com/embed/Lg1vPEswWDg?autoplay=0" style="-webkit-animation-play-state: paused; -webkit-transition: none; transition: none">
+                                            <div class="css_editable_mode_display"> </div>
+                                            <iframe allowfullscreen="allowfullscreen" frameborder="0" src="//www.youtube.com/embed/Lg1vPEswWDg?autoplay=0"/>
+                                        </div>
+                                        <h4 class="mt16 mb16">Kilka kroków skutecznej rekrutacji</h4>
+                                    </div>
+                                    <div class="col-md-3 centered">
+                                        <div class="media_iframe_video" data-src="//www.youtube.com/embed/iLmK1Mg4Y5A?autoplay=0" style="-webkit-animation-play-state: paused; -webkit-transition: none; transition: none">
+                                            <div class="css_editable_mode_display"> </div>
+                                            <iframe allowfullscreen="allowfullscreen" frameborder="0" src="//www.youtube.com/embed/iLmK1Mg4Y5A?autoplay=0"/>
+                                        </div>
+                                        <h4 class="mt16 mb16">Szkolenia wolontariuszy</h4>
+                                    </div>
+                                </div>
+                                <div class="col-md-1 centered nav_right">
+                                    <img src="/bestja_frontend_fpbz/static/src/img/content/nastepny-01.svg" />
+                                </div>
+                            </div>                            
+                        </div>
+                    </section>
+                </div>
+            </t>
+        </template>
+        <record id="become_partner_menu" model="website.menu">
+            <field name="name">Zostań partnerem</field>
+            <field name="url">/page/become_partner</field>
+            <field name="parent_id" ref="website.main_menu"/>
+            <field name="sequence" type="int">20</field>
+        </record>
+    </data>
+</openerp>

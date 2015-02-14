@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <template id="why_it_is_worth_snippet" inherit_id="website.snippets" name="FPBZ snippet about why it is worth joining a cooperation">
+            <xpath expr="//div[@id='snippet_feature']" position="inside">
+                <div>
+                    <div class="oe_snippet_thumbnail">
+                        <img class="oe_snippet_thumbnail_img" src="/bestja_frontend_fpbz/static/src/img/snippets/s_block_image_text.png"/>
+                        <span class="oe_snippet_thumbnail_title">Why act with us</span>
+                    </div>
+                    
+                    <section class="oe_snippet_body">
+                        <div class="container-fluid why_act_with_us">
+                            <div class="row">                                
+                                <div class="col-md-6 mt16">
+                                    <img class="img img-responsive shadow mb16" 
+                                         src="http://placekitten.com/g/900/600"/>
+                                </div>
+                                <div class="col-md-6 mt16">
+                                    <table class="data_of_acts">
+                                        <tr>
+                                            <td class="column_with_icons">
+                                                <img class="img img-responsive data_icons" src="/bestja_frontend_fpbz/static/src/img/content/ciezarowka-01.svg" />
+                                            </td>
+                                            <td>
+                                                <h2>Docieramy z żywnością do <span class="data">1,3 mln</span> osób</h2>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                            
+                                                <img class="img img-responsive data_icons"  src="/bestja_frontend_fpbz/static/src/img/content/jablko-01.svg" />
+                                            </td>
+                                            <td>
+                                                <h2>Rozdajemy rocznie <span class="data">60 tys.</span> ton żywności potrzebującym</h2>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <img class="img img-responsive data_icons"  src="/bestja_frontend_fpbz/static/src/img/content/wolontariusze-01.svg" />
+                                            </td>
+                                            <td>  
+                                                <h2>Angażujemy rocznie przy zbiórkach żywności <span class="data">51 tys.</span> wolontariuszy</h2>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>                            
+                        </div>
+                    </section>
+                </div>
+            </xpath>
+        </template>
+    </data>
+</openerp>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <template id="quote_div_snippet" inherit_id="website.snippets" name="FPBZ snippet with big quote">
+            <xpath expr="//div[@id='snippet_content']" position="inside">
+                <div>
+                    <div class="oe_snippet_thumbnail">
+                        <img class="oe_snippet_thumbnail_img" src="/bestja_frontend_fpbz/static/src/img/snippets/s_block_quote.png"/>
+                        <span class="oe_snippet_thumbnail_title">Big quote</span>
+                    </div>
+                    
+                    <section class="oe_snippet_body">
+                        <div class="container-fluid quote_div">
+                            <div class="row">
+                                <div class="col-md-offset-1 col-md-10">
+                                    <blockquote>
+                                        <span class="big_apostrophe_before">”</span>
+                                        Wolontariat daje mi 
+                                        przede wszystkim satysfakcję z pomagania, 
+                                        a także możliwość kreatywnego działania. Poznaję nowych ludzi, 
+                                        uczę się pracy w zespole i rozwijam swoje zainteresowania.
+                                        <span class="big_apostrophe_after">„</span>
+                                    </blockquote>
+                                    <span class="description_under_quote">
+                                        <strong>Ania,</strong> wolontariuszka Banku Żywności w Olsztynie
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </xpath>
+        </template>
+    </data>
+</openerp>

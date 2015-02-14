@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <template id="map_of_poland_snippet" inherit_id="website.snippets" name="FPBZ snippet with map of Poland and cities">
+            <xpath expr="//div[@id='snippet_feature']" position="inside">
+                <div>
+                    <div class="oe_snippet_thumbnail">
+                        <img class="oe_snippet_thumbnail_img" src="/bestja_frontend_fpbz/static/src/img/snippets/s_block_features_grid.png"/>
+                        <span class="oe_snippet_thumbnail_title">Get the knowledge</span>
+                    </div>
+                    
+                    <section class="oe_snippet_body mt16 mb16">
+                        <div class="container-fluid the_tasks_of_volunteer">
+                            <div class="row row-centered">
+                                <div class="col-md-1 centered nav_left">
+                                    <img src="/bestja_frontend_fpbz/static/src/img/content/poprzedni-01.svg" />
+                                </div>
+                                <div class="col-md-10 centered">
+                                    <div class="col-md-3 centered">
+                                        <div class="media_iframe_video" data-src="//www.youtube.com/embed/AuqxJgJTwaI?autoplay=0" style="">
+                                            <div class="css_editable_mode_display"> </div>
+                                            <iframe allowfullscreen="allowfullscreen" frameborder="0" src="//www.youtube.com/embed/AuqxJgJTwaI?autoplay=0"/>
+                                        </div>
+                                        <h4 class="mt16 mb16">Jak działają banki żywności?</h4>
+                                    </div>
+                                    <div class="col-md-3 centered">
+                                        <div class="media_iframe_video" data-src="//www.youtube.com/embed/nYU9Y_R2yhI?autoplay=0" style="-webkit-animation-play-state: paused; -webkit-transition: none; transition: none">
+                                            <div class="css_editable_mode_display"> </div>
+                                            <iframe allowfullscreen="allowfullscreen" frameborder="0" src="//www.youtube.com/embed/nYU9Y_R2yhI?autoplay=0"/>
+                                        </div>
+                                        <h4 class="mt16 mb16">Dlaczego warto działać na rzecz Banków Żywności?</h4>
+                                    </div>
+                                    <div class="col-md-3 centered">
+                                        <div class="media_iframe_video" data-src="//www.youtube.com/embed/IWMVrPydhVc?autoplay=0" style="-webkit-animation-play-state: paused; -webkit-transition: none; transition: none">
+                                            <div class="css_editable_mode_display"> </div>
+                                            <iframe allowfullscreen="allowfullscreen" frameborder="0" src="//www.youtube.com/embed/IWMVrPydhVc?autoplay=0"/>
+                                        </div>
+                                        <h4 class="mt16 mb16">Zadania, które czekają na wolontariusza</h4>
+                                    </div>
+                                    <div class="col-md-3 centered">
+                                        <div class="media_iframe_video" data-src="//www.youtube.com/embed/Wu8pk78p4rw?autoplay=0" style="-webkit-animation-play-state: paused; -webkit-transition: none; transition: none">
+                                            <div class="css_editable_mode_display"> </div>
+                                            <iframe allowfullscreen="allowfullscreen" frameborder="0" src="//www.youtube.com/embed/Wu8pk78p4rw?autoplay=0"/>
+                                        </div>
+                                        <h4 class="mt16 mb16">Co wpływa na wyniki zbiórki?</h4>
+                                    </div>
+                                </div>
+                                <div class="col-md-1 centered nav_right">
+                                    <img src="/bestja_frontend_fpbz/static/src/img/content/nastepny-01.svg" />
+                                </div>
+                            </div>                            
+                        </div>
+                    </section>
+                </div>
+            </xpath>
+        </template>
+    </data>
+</openerp>

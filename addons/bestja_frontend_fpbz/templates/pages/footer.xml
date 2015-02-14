@@ -1,30 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
-        <template id="new_footer" inherit_id="website.layout" name="New Footer">
+        <template id="new_footer" inherit_id="website.layout" name="New footer">
             <xpath expr="//footer" position="replace">
                 <footer>
                     <div class="container-fluid footer_div">
                         <div class="row clearfix">
-                            <div class="col-footer text-center">
-                                <ul id="footer_icons">
+                            <div class="col-md-5 footer_logo_container">
+                                <a class="footer_logo" href="http://www.wolontariat.bankizywnosci.pl/"></a>
+                                <ul class="footer_contact">
+                                    <li class="mt8 mb8">
+                                        <a href="http://www.wolontariat.bankizywnosci.pl/">Kontakt</a>
+                                    </li>
+                                    <li class="mt8 mb8">
+                                        <a href="http://www.wolontariat.bankizywnosci.pl/">Regulamin</a>
+                                    </li>
+                                    <li class="mt8 mb8">
+                                        <a href="http://www.wolontariat.bankizywnosci.pl/">Polityka prywatności</a>
+                                    </li>
+                                    <li class="mt8 mb8">
+                                        <a href="http://www.wolontariat.bankizywnosci.pl/">O nas</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-2 centered text-center" />
+                            <div class="col-md-5 mt16 footer_icons_container">
+                                <ul class="col-md-12 footer_icons">
                                     <li>
                                         <a class="facebook" href="http://facebook.com"></a>
+                                    </li>
+                                    <li>
+                                        <a class="twitter" href="http://facebook.com"></a>
                                     </li>
                                     <li>
                                         <a class="youtube" href="http://youtube.com"></a>
                                     </li>
                                 </ul>
-                            </div>
-                            <div class="col-footer text-center">
-                                <h4><a href="http://www.wolontariat.bankizywnosci.pl/">O nas</a>
-                                    <a href="http://www.wolontariat.bankizywnosci.pl/">Kontakt</a></h4>
-                            </div>
-                            <div class="col-footer text-right copyrights arial_font">
-                                <div>
-                                    <p class="orange_text">© 2014, Federacja Banków Żywności</p>
-                                    <p><a href="http://www.wolontariat.bankizywnosci.pl/">Regulamin</a> <span class="white_footer_text">|</span>
-                                        <a href="http://www.wolontariat.bankizywnosci.pl/">Polityka prywatności</a></p>
+                                <div class="copyrights">
+                                    <p>© 2015,<span t-field="res_company.name"/></p>
                                 </div>
                             </div>
                         </div>

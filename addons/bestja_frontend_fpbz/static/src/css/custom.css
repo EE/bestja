@@ -1,18 +1,22 @@
 @charset "utf-8";
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,700,300,600,400&subset=latin,latin-ext);
 
-.open_sans_font{
-    font-family: "Open Sans" !important;
+
+/* Common css */
+body{
+    font-family: "Open Sans";
 }
 
-.arial_font{
-    font-family: "Arial Regular, Arial" !important;
+.open_sans_condensedbold{
+    font-family: "Open Sans";
+    font-weight: 700;
 }
 
-.orange_text{
-    color: #FF9900;
+.color_orange{
+    color: #F29000;
 }
 
-/* centered columns styles */
+/* Centered columns styles */
 .row-centered {
     text-align: center;
 }
@@ -24,40 +28,68 @@
     /* inline-block space fix */
     margin-right: -4px;
 }
+/* End of Centered columns styles */
+/* End of Common css */
 
-/* end of centered columns styles */
+/* FPBZ Theme module description */
+.theme_description{
+    overflow: hidden;
+}
+/* End of FPBZ Theme module description */
 
-/* Main snippet */
+/* Main top snippet */
 .main_top_white_text{
     color: white;
     font-style: normal;
-    margin-left: 7%;
     margin-top: 95px;
 }
 
 .main_top_white_text h1{
-    font-size: 48px;
+    font-size: 36pt;
 }
 
-.main_top_white_text h3{
-    font-size: 26px;
-    margin-left: 20px;
-    margin-top: 25px;
-    margin-bottom: 25px;
+.differentiator_1{
+    font-size: 46pt;
 }
 
-.main_top_white_text h2{
-    font-size: 32px;
-    margin-left: 20px;
-    margin-top: 25px;
-    margin-bottom: 25px;
+@media screen and (max-width: 991px) {
+    .main_top_white_text h1, .choose_place{
+        font-size: 26pt;
+    }
+
+    .differentiator_1{
+        font-size: 36pt;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .main_top_white_text h1, .choose_place{
+        font-size: 20pt;
+    }
+
+    .differentiator_1{
+        font-size: 26pt;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .main_top_white_text h1, .choose_place{
+        font-size: 12pt;
+    }
+
+    .differentiator_1{
+        font-size: 16pt;
+    }
 }
 
 .main_top_photo_text{
-    background: url('http://lorempixel.com/g/1280/724/')
-        no-repeat; min-height: 70%;
+    background: url('http://placekitten.com/g/1920/1080') 
+        no-repeat 50% 50%;
+    background-size: auto auto;
     position: relative;
     color: #FFFFFF;
+    max-width: 100%;
+    height: auto;
 }
 
 .mouse_img{
@@ -66,11 +98,16 @@
     margin-left: 4px;
 }
 
-.choose_place{
-    font-weight: bold;
-    height: 55px;
-    background-color: white;
-    font-size: 22px;
+.mouse_div{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.choose_place:hover{
+    opacity: .8;
+    cursor: pointer;
 }
 
 .direction_down{
@@ -79,88 +116,375 @@
     -webkit-transform: rotate(270deg); /* Chrome, Safari, Opera */
     transform: rotate(270deg);
     -o-transform: rotate(270deg);
-    font-size: 36px;
-    color: #000000;
+    font-size: 36pt;
+    font-weight: 700;
     text-align: center;
 }
-/* End of main snippet */
+/* End of main top snippet */
 
-/* Snippet: Why is it worth to do with us */
-.why_is_it_worth h1{
-    font-size: 40px;
+/* Section title snippet */
+.section_title{
+    font-size: 56pt;
+    color: #F29000;
 }
 
-.why_is_it_worth h3{
-    font-size: 36px;
-    margin-bottom: 20px;
+@media screen and (max-width: 991px) {
+    .section_title{
+        font-size: 46pt;
+    }
 }
 
-.why_is_it_worth h4{
-    font-size: 28px;
-    margin-bottom: 20px;
+@media screen and (max-width: 767px) {
+    .section_title{
+        font-size: 40pt;
+    }
 }
 
-.why_is_it_worth span{
-    font-size: 48px;
+@media screen and (max-width: 480px) {
+    .section_title{
+        font-size: 32pt;
+    }
+}
+/* End of Section title snippet */
+
+/* Section Join Us */
+.join_us button{
+    min-width: 350px;
+    background-color: #EC8D17;
+    color: #FFFFFF;
+    font-size: 26pt;
+    font-weight: 700;
+    border-radius: 80px 80px 80px 80px;
+    -moz-border-radius: 80px 80px 80px 80px;
+    -webkit-border-radius: 80px 80px 80px 80px;
+    padding-left: 130px; 
+    padding-right: 130px;
+}
+/* End of Section Join Us */
+
+/* Carousel navigation buttons */
+.nav_left, .nav_right{
+    display: table-cell;
+    vertical-align: middle !important;
+    height: 100%;
+    margin: auto 0;
+    text-align: center;
+}
+.nav_left img, .nav_right img{
+    width: 60px;
+}
+/* End of Carousel navigation buttons */
+
+/* Snippet: Why is it worth to act with us */
+.column_with_icons{
+    width: 220px;
 }
 
-.why_is_it_worth button{
+.why_act_with_us span{
+    font-size: 36pt;
+    font-weight: 700;
+}
+
+.why_act_with_us h2{
+    font-size: 30pt;
+}
+
+.data_icons{
+    float: left;
+    width: 140px;
+    height: 120px;
+    margin: 40px;
+    margin-right: 80px;
+    display: block;
+}
+
+.why_act_with_us button{
     min-width: 290px;
     background-color: #EC8D17;
     color: #FFFFFF;
     font-size: 20px;
 }
-/* End of snippet: Why it is worth to do with us */
+/* End of snippet: Why is it worht to act with us */
+
+/* Snippet: Map with cities with places where we can help */
+.map_of_poland_section{
+    margin-bottom: 40px;
+}
+
+.map_of_poland_section h2{
+    font-size: 30pt;
+}
+
+.map_of_poland_section a, .map_of_poland_section a:hover{
+    text-decoration: none;
+}
+
+.map_of_poland_container{
+    text-align: right;
+}
+
+.description_of_map_container{
+    position: relative;
+    height: 550px;
+    margin-left: 30px;
+}
+
+.description_of_map_container div{
+    text-align: left;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+@media screen and (max-width: 991px) {
+    .map_of_poland_container{
+        text-align: center;
+    }
+
+    .description_of_map_container{
+        text-align: center;
+        margin-left: 30px;
+        height: 100%;
+    }
+
+    .description_of_map_container div{
+        text-align: center;
+        position: relative;
+    }
+}
+
+.map_of_poland_container img{
+    max-width: 600px;    
+}
+/* End of snippet: Map with cities with places where we can help */
 
 /* Snippet: a big quote */
-.quote_div blockquote p{
-    font-size: 28px;
+.quote_div blockquote{
+    font-size: 36pt;
     font-style: italic;
+    padding-left: 20px;
+    padding-right: 20px;
+    position: relative;
+    height: 100%;
+    border: 0;
+    margin: 0 auto;
+}
+
+.big_apostrophe_before, .big_apostrophe_after{
+    font-weight: 700; 
+    font-style: normal; 
+    font-size: 80pt;
+    color: #F29000;
+}
+
+.big_apostrophe_before{
+    height: 50%;
+    position: absolute;
+    top: 0; 
+    left: 0;
+    margin-top: -40px; 
+}
+
+
+.big_apostrophe_after{
+    position: absolute;
+    bottom: 0; 
+    right: 0;
+    margin-bottom: -20px; 
+}
+
+.description_under_quote{
+    display: block;
+    font-size: 26pt;
+    color: #F29000;
+    margin-left: 23px;
 }
 /* End of snippet: a big quote */
 
 /* Snippet: volunteers newsletter */
-.volunteers_newsletter{
+.recrutation_step_number{
+    display: block;
+    width: 100px;
+    font-size: 48pt;
+    font-weight: 700;
+    color: #F29000;
+    border-radius: 100%;
+    -moz-border-radius: 100%;
+    -webkit-border-radius: 100%;
+    border: 2px solid #F29000;
+    margin: 0 auto;
+}
 
+@media screen and (max-width: 991px) {
+    .recrutation_step_number{
+        margin-top: 40px;
+    }
+}
+
+.volunteers_newsletter h3{
+    font-size: 36pt;
+    font-weight: 700;
+}
+
+.volunteers_newsletter p{
+    font-size: 30pt;
 }
 /* End of snippet: volunteers newsletter */
 
 
 /* Snippet: volunteeres pictures */
-.meet_our_volunteers button{
-    min-width: 290px;
-    background-color: #EC8D17;
-    color: #FFFFFF;
-    font-size: 20px;
+.meet_our_volunteers div{
+    vertical-align: top;
+}
+
+.meet_our_volunteers h3{
+    font-size: 30pt;
+    font-weight: 700;
+    color: #F29000;
+    text-align: left;
+}
+
+.meet_our_volunteers p{
+    font-size: 24pt;
+    text-align: left;
 }
 /* End of snippet: volunteeres pictures */
 
-/* Footer */
-#footer_icons li{
+/* Tasks snippet*/
+.the_tasks_of_coordinator div, .the_tasks_of_volunteer div{
+    vertical-align: top;
+}
+
+.the_tasks_of_coordinator h4, .the_tasks_of_volunteer h4{
+    font-size: 26pt;
+    font-weight: 700;
+    text-align: left;
+}
+/* End of Tasks snippet*/
+
+/* Become partner top snippet */
+.become_partner h2{
+    font-size: 40pt;
+}
+
+@media screen and (max-width: 1400px) {
+    .become_partner h2{
+        font-size: 30pt;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .become_partner h2{
+        font-size: 20pt;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .become_partner h2{
+        font-size: 16pt;
+    }
+}
+
+.become_partner_link a{
+    padding-left: 15px;
+    font-size: 26pt;
+    text-decoration: none;
+}
+/* End of Become partner top snippet */
+
+/* What partner receives snippet */
+.what_partner_receives li, .advantages_of_application li{
+    font-size: 26pt;
     list-style: none;
-    float: left;
-    margin-left: 30px;
 }
 
-#footer_icons li a{
-    background-image: url('/bestja_frontend_fpbz/static/src/img/stopka_ikonki.png');
-    display: block;
+.what_partner_receives span, .advantages_of_application span{
+    margin-right: 10px;
+}
+/* End of What partner receives snippet */
+
+/* Footer */
+.footer_logo_container{
+    text-align: left;
 }
 
-#footer_icons li a.facebook{
-    background-position: 0 0;
-    width: 35px;
+@media screen and (max-width: 991px) {
+    .footer_logo_container{
+        text-align: center;
+    }
+}
+
+.footer_logo{
+    display: inline-block;
+    background-image: url('/bestja_frontend_fpbz/static/src/img/content/bz-logo-02-white.svg');
+    background-repeat: no-repeat;
+    width: 250px;
+    height: 80px;
+    margin-left: 20px;
+}
+
+@media screen and (max-width: 991px) {
+    .footer_logo{
+        margin-left: 10px;
+    }
+}
+
+.footer_icons_container{
+    text-align: right;
+}
+
+@media screen and (max-width: 991px) {
+    .footer_icons_container{
+        text-align: center;
+    }
+}
+
+.footer_icons li{
+    display: inline-block;
+    list-style: none;
+    margin-left: 25px;
+    margin-right: 25px;
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+@media screen and (max-width: 991px) {
+    .footer_icons li{
+        text-align: center;
+        float: none;
+    }
+}
+
+.footer_icons li a.facebook{
+    background-image: url('/bestja_frontend_fpbz/static/src/img/content/facebook-02-white.svg');
+    display: inline-block;
+    background-repeat: no-repeat;
+    width: 45px;
     height: 45px;
+    vertical-align: middle;
+    margin-left: 7px;
 }
 
-#footer_icons li a.youtube{
-    background-position: -173px 0;
-    width: 43px;
+.footer_icons li a.twitter{
+    background-image: url('/bestja_frontend_fpbz/static/src/img/content/twitter-02-white.svg');
+    display: inline-block;
+    background-repeat: no-repeat;
+    width: 45px;
     height: 45px;
+    vertical-align: middle;
+}
+
+.footer_icons li a.youtube{
+    background-image: url('/bestja_frontend_fpbz/static/src/img/content/youtube-02-white.svg');
+    display: inline-block;
+    background-repeat: no-repeat;
+    width: 45px;
+    height: 45px;
+    vertical-align: middle;
 }
 
 .footer_div{
-    background-color: #000000;
+    background-color: #F39100;
     min-height: 100px;
     padding-top: 25px;
 }
@@ -175,15 +499,16 @@
     margin-right: 20px;
 }
 
-.col-footer{
-    width:33.3%;
-    min-width: 290px;
-    float: left;
+.copyrights p{
+    font-size: 14pt;
+    color: #FFFFFF;
+    text-align: right;
 }
 
-.copyrights p{
-    font-size: 12px;
-    padding-right: 20px;
+@media screen and (max-width: 991px) {
+    .copyrights p{
+        text-align: center;
+    }
 }
 
 .white_footer_text{
@@ -195,14 +520,23 @@
     margin-right: 12px;
 }
 
-@media screen and (max-width: 991px) {
-    .col-footer {
-        float: none !important;
-        margin: 0 auto;
-        padding-bottom: 20px;
-        min-height: 70px;
-    }
+.footer_contact{
+    padding: 0;
+}
 
+.footer_contact li{
+    display: inline-block;
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+.footer_contact li, .footer_contact li a{
+    color: #FFFFFF;
+    font-size: 14pt;
+    margin-left: 10px;
+}
+
+@media screen and (max-width: 991px) {
     .copyrights{
         text-align: center;
     }
@@ -210,9 +544,20 @@
     .copyrights p{
         padding-right: 0;
     }
-
-    #footer_icons{
-        margin-left: 20px;
-    }
 }
 /* End of footer */
+
+
+
+/* Navbar font modification*/
+
+.navbar-static-top{
+    font-size: 24pt;
+}
+
+.dropdown-menu > li > a{
+    font-size: 14pt;
+    font-weight: 600;
+}
+
+/* End of Navbar font modification*/
