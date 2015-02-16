@@ -20,7 +20,13 @@ jQuery(window).ready(function () {
         });
     });
 
+    setInterval(function () {
+        $("#down_arrow_scroll").animate({'margin-bottom': '-10px'}, 1000);
+        $("#down_arrow_scroll").animate({'margin-bottom': '10px'}, 1000);
+    }, 1400);
+
     /* Smooth scrolling */
+
     $(function () {
         $('a[href*=#]:not([href=#])').click(function () {
             $('html,body').stop();

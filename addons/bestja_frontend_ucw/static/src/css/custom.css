@@ -199,6 +199,17 @@ h4, .h4{
 
 
 /* Home page*/
+#down_arrow_scroll{
+    background: url('/bestja_frontend_ucw/static/src/img/content/down_arrow.svg') no-repeat;
+    display: block;
+    width: 90px;
+    height: 90px;
+    position: absolute;
+    bottom: 140px;
+    left: calc(50% - 45px);
+    z-index: 5;
+}
+
 .container_under_categories a, .join_us_now a{
     color: #F59A1E;
 }

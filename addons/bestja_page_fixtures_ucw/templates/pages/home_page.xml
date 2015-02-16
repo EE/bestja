@@ -18,6 +18,7 @@
                                             <li data-target="#carousel-example-generic" data-slide-to="3"></li>
                                             <li data-target="#carousel-example-generic" data-slide-to="4"></li>
                                         </ol>
+                                        <span id="down_arrow_scroll"/>
 
                                         <!-- Wrapper for slides -->
                                         <div class="carousel-inner oe_snippet_body" role="listbox">
@@ -27,7 +28,8 @@
                                                 </div>
                                                 <div class="carousel_title">
                                                     <h1>
-                                                        <a href="#choose_what_to_do">Use your professional skills to make a difference1</a>
+                                                        <a href="#choose_what_to_do">Use your professional skills <br />
+                                                        to make a difference2</a>
                                                     </h1>
                                                 </div>
                                             </div>
