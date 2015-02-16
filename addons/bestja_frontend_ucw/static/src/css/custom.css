@@ -282,35 +282,51 @@ div.carousel .carousel-indicators .active {
 .carry_out_section a:hover{
     color: #FF43DF;
 }
-
-.what_to_do p{
-    color: #FFFFFF;
-    position: absolute;
-    left: 50px;
-    bottom: 20px;
-    width: 40%;
-    z-index: 2;
+/* Categories */
+.category_description{
+    color: #000000;
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
 }
 
 @media screen and (max-width: 991px) {
-    .what_to_do p{
-        left: 90px;
+    .category_description{
+        margin-bottom: 30px;
     }
+}
+
+.category_link:hover .category_description{
+    color: #982582;
+}
+
+.category_pictogram{
+    position: absolute !important;
+    top: calc(50% - 130px);
+    left: calc(50% - 107px);
+    width: 215px;
+    opacity: 1;
+}
+
+.category_link:hover .category_pictogram{
+    opacity: 1;
+}
+
+.img_category_hover{
+    display: none;
 }
 
 @media screen and (max-width: 767px) {
-    .what_to_do p{
-        left: 70px;
+    .category_column{
+        min-height: 300px;
+    }
+
+    .category_pictogram{
+        left: calc(50% - 75px);
+        width: 150px;
     }
 }
-
-.ucw-grid-ico{
-    position: absolute !important;
-    top: 50%;
-    width: 50% !important;
-    margin: -25% 0 0 25%;
-    opacity: 0;
-}
+/* End of categories */
 /* End of home page*/
 
 /* About us */
