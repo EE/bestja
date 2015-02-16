@@ -44,7 +44,7 @@ class AuthSignupHome(AuthSignupHome):
                 qcontext['message'] = """
                 Dziękujemy za rejestrację!<br/><br/>
                 To mały krok dla Ciebie, ale wielki skok dla nas!<br/>
-                Nasza społeczność się powieksza!<br/><br/>
+                Nasza społeczność się powiększa!<br/><br/>
                 <strong>Potwierdź rejestrację klikając w link, który otrzymasz w mailu.</strong>
                 """
                 # do not login user here
