@@ -15,6 +15,7 @@
     'data': [
         'views/assets.xml',
         'views/login_signup.xml',
+        'views/cookie_reminder.xml',
     ],
     'application': True,
     # About information

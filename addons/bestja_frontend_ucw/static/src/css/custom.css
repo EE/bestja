@@ -238,6 +238,7 @@ h4, .h4{
     position: relative;
     max-width: 100%;
     padding-left: 0;
+    padding-right: 0;
 }
 
 .carousel_title h1{
@@ -593,3 +594,41 @@ div.carousel .carousel-indicators .active {
     max-width: 450px;
 }
 /* End of team site */
+
+/* Cookie accept */
+#cookie_reminder_container{
+    width: 100%;
+    text-align: center;
+    color: #FFFFFF;
+    position: fixed;
+    padding: 10px 20px;
+    padding-right: 40px;
+    bottom: 0;
+    background-color: rgb(152,37,130);
+    z-index: 1000;
+}
+
+.cookie-info{
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.cookie-info span{
+    display: inline-block;
+}
+
+.cookie-info a:hover{
+    color: #FF43DF;
+}
+
+#cookie_reminder_close{
+    position: absolute;
+    top: 10px;
+    right: 17px;
+}
+
+#cookie_reminder_close:hover{
+    color: #F59A1E;
+    cursor: pointer;
+}
+/* End of Cookie accept */

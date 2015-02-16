@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <template id="cookie_accept" inherit_id="website.layout" name="Webpage fragments which is asking user about acceptance of cookies and stores response in cookies or redirects">
+            <xpath expr="//footer" position="after">
+                <div id="cookie_reminder_container">
+                    <div class="cookie-info">
+                        <span>Uwaga! Ta strona wykorzystuje pliki cookies. Korzystając z niej,
+                            wyrażasz zgodę na ich używanie zgodnie z <a href="/page/privacy_policy">polityką prywatności</a>
+                        </span>
+                        <p id="cookie_reminder_close" class="glyphicon glyphicon-remove"/>
+                    </div>
+                </div>
+            </xpath>
+        </template>
+    </data>
+</openerp>
