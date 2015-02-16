@@ -2,9 +2,30 @@
 @import url(http://fonts.googleapis.com/css?family=Ubuntu:300,400,700,300italic,400italic,700italic&subset=latin,latin-ext);
 
 /* Common css */
+/* Top menu changes */
 #top_menu li:first-child{
     display: none;
 }
+
+#top_menu li.active > a, #top_menu li > a:focus{
+    background-color: #982582;
+    color: #FFFFFF;
+}
+/* End of top menu changes */
+
+/* Blog customization*/
+#main_column h4{
+    font-size: 18px;
+}
+
+div[name="blog_post_data"]{
+    font-size: 12px;
+}
+
+div[name="blog_post_data"] .post-meta{
+    top: -17px;
+}
+/* End of blog customization*/
 
 #wrap, section{
     font-family: 'Ubuntu', sans-serif;

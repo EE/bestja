@@ -20,7 +20,7 @@ jQuery(window).ready(function () {
         });
     });
 
-    /* Smoth scrolling */
+    /* Smooth scrolling */
     $(function () {
         $('a[href*=#]:not([href=#])').click(function () {
             $('html,body').stop();
@@ -36,4 +36,5 @@ jQuery(window).ready(function () {
             }
         });
     });
+    /* End of smooth scrolling */
 });
