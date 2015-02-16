@@ -12,7 +12,7 @@
                                         <img src="http://wolontariat.uw.edu.pl/wp-content/uploads/2014/09/logo-UCW.png" alt=""/>
                                     </a>
                                     <a href="/">
-                                        <img src="http://wolontariat.uw.edu.pl/wp-content/uploads/2014/09/Logo_UCW_exp_h100.png" 
+                                        <img src="http://wolontariat.uw.edu.pl/wp-content/uploads/2014/09/Logo_UCW_exp_h100.png"
                                             class="pull-right" alt="Logo Uniwersyteckiego Centrum Wolontariatu"/>
                                     </a>
                                 </div>
@@ -39,7 +39,7 @@
                                     <li>ul. Dobra 56/66 (budynek BUW)</li>
                                     <li>00-312 Warszawa</li>
                                     <li>tel. 22 55 27 201,  22 55 27 204</li>
-                                </ul>                                
+                                </ul>
                             </div>
                             <div class="col-lg-3 col-md-4 hidden-sm footer_icons">
                                 <ul>
@@ -47,12 +47,12 @@
                                         <a t-att-href="website.social_facebook">
                                             <img src="/bestja_frontend_ucw/static/src/img/content/facebook-01.svg"/> Znajdź nas na Facebooku
                                         </a>
-                                    </li>                                                                     
+                                    </li>
                                     <li>
                                         <a t-attf-href="mailto:{{ res_company.email }}">
                                             <img src="/bestja_frontend_ucw/static/src/img/content/mail-01.svg"/>Napisz do nas
                                         </a>
-                                    </li>                                      
+                                    </li>
                                 </ul>
                             </div>
                             <div class="col-sm-4 col-sm-offset-2 visible-sm-block mt16 footer_icons">
@@ -61,26 +61,26 @@
                                         <a t-att-href="website.social_facebook">
                                             <img src="/bestja_frontend_ucw/static/src/img/content/facebook-01.svg"/> Znajdź nas na Facebooku
                                         </a>
-                                    </li>                                                                     
+                                    </li>
                                 </ul>
-                            </div> 
+                            </div>
                             <div class="col-sm-6 visible-sm-block mt16 footer_icons">
                                 <ul>
                                     <li>
                                         <a t-attf-href="mailto:{{ res_company.email }}">
                                             <img src="/bestja_frontend_ucw/static/src/img/content/mail-01.svg"/>Napisz do nas
                                         </a>
-                                    </li>                                                           
+                                    </li>
                                 </ul>
-                            </div> 
+                            </div>
                         </div>
                         <div class="row hidden-xs">
                             <div class="col-lg-3 col-lg-offset-1 col-md-3 col-md-offset-1 col-sm-4 col-sm-offset-2 mt32 mb32">
                                 <a class="design_by" href="http://laboratorium.ee">design by Laboratorium EE</a>
-                            </div>                            
+                            </div>
                             <div class="col-lg-3 col-lg-offset-5 col-md-4 col-md-offset-4 col-sm-5 mt32 mb32">
                                 <a class="copyrights" href="http://www.wolontariat.uw.edu.pl/">© 2015, <span t-field="res_company.name"/></a>
-                            </div>                            
+                            </div>
                         </div>
                         <div class="row visible-xs-block">
                             <div class="col-xs-18">
@@ -90,7 +90,7 @@
                                             <img src="http://wolontariat.uw.edu.pl/wp-content/uploads/2014/09/logo-UCW.png" alt=""/>
                                         </a>
                                         <a href="http://wolontariat.uw.edu.pl/">
-                                            <img src="http://wolontariat.uw.edu.pl/wp-content/uploads/2014/09/Logo_UCW_exp_h100.png" 
+                                            <img src="http://wolontariat.uw.edu.pl/wp-content/uploads/2014/09/Logo_UCW_exp_h100.png"
                                                  class="pull-right" alt="Logo Uniwersyteckiego Centrum Wolontariatu"/>
                                         </a>
                                     </div>
@@ -111,27 +111,28 @@
                                         <a href="/page/privacy_policy">polityka prywatności</a>
                                     </li>
                                 </ul>
-                            </div>                                                      
+                            </div>
                             <div class="col-xs-18 mt32 footer_icons_narrower">
                                 <ul>
                                     <li>
                                         <a t-att-href="website.social_facebook">
                                             <img src="/bestja_frontend_ucw/static/src/img/content/facebook-01.svg"/>Znajdź nas na Facebooku
                                         </a>
-                                    </li>                                                                     
+                                    </li>
                                     <li>
                                         <a t-attf-href="mailto:{{ res_company.email }}">
                                             <img src="/bestja_frontend_ucw/static/src/img/content/mail-01.svg"/>Napisz do nas
                                         </a>
-                                    </li>                                      
+                                    </li>
+                                    <li class="mt16 copyrights_container">
+                                        <a class="copyrights" href="http://www.wolontariat.uw.edu.pl/">© 2015, <span t-field="res_company.name"/></a>
+                                    </li>
+                                    <li class="design_by_container">
+                                        <a class="design_by" href="http://laboratorium.ee">design by Laboratorium EE</a>
+                                    </li>
                                 </ul>
                             </div>
-                            <div class="col-xs-18 mt8 mb8 text-center">
-                                <a class="design_by" href="http://laboratorium.ee">design by Laboratorium EE</a>
-                            </div>
-                            <div class="col-xs-18 mt8 mb8 text-center visible-xs-block">
-                                <a class="copyrights" href="http://www.wolontariat.uw.edu.pl/">© 2015, <span t-field="res_company.name"/></a>
-                            </div>
+
                         </div>
                     </div>
                 </footer>

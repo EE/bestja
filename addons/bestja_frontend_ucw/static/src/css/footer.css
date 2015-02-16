@@ -36,6 +36,7 @@ footer{
 .design_by, .copyrights{
     font-size: 12px;
     display: block;
+    color: #767676;
 }
 
 @media screen and (max-width: 991px) {
@@ -74,21 +75,21 @@ footer{
 }
 
 .footer_info_pages li{
-    color: #CC8008;
+    color: #FC8F06;
     list-style: none;
     padding-bottom: 12px;
 }
 
 .footer_info_pages_narrower{
     padding-left: 0;
-} 
+}
 
 .footer_info_pages_narrower li{
-    color: #CC8008;
+    color: #FC8F06;
     list-style: none;
     padding-bottom: 8px;
     margin-left: calc(50% - 32.5px);
-} 
+}
 
 .footer_address li{
     color: #767676;
@@ -98,6 +99,11 @@ footer{
 
 .footer_address span{
     color: #F59A1E;
+}
+
+.footer_icons_narrower .design_by_container,
+.footer_icons_narrower .copyrights_container{
+    height: 20px;
 }
 /* End of footer */
 
