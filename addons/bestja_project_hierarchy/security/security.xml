@@ -1,5 +1,26 @@
 <openerp>
     <data>
+        <record id="managers_level0" model="res.groups">
+            <field name="name">BestJa Menadżer Projektów (poziom 0)</field>
+        </record>
+        <record id="bestja_organization_hierarchy.coordinators_level0" model="res.groups">
+            <field name="implied_ids" eval="[(4, ref('managers_level0'))]"/>
+        </record>
+
+        <record id="managers_level1" model="res.groups">
+            <field name="name">BestJa Menadżer Projektów (poziom 1)</field>
+        </record>
+        <record id="bestja_organization_hierarchy.coordinators_level1" model="res.groups">
+            <field name="implied_ids" eval="[(4, ref('managers_level1'))]"/>
+        </record>
+
+        <record id="managers_level2" model="res.groups">
+            <field name="name">BestJa Menadżer Projektów (poziom 2)</field>
+        </record>
+        <record id="bestja_organization_hierarchy.coordinators_level2" model="res.groups">
+            <field name="implied_ids" eval="[(4, ref('managers_level2'))]"/>
+        </record>
+
         <record id="invitation_rule" model="ir.rule">
             <field name="name">Inviters and invitees have access to invitations.</field>
             <field name="model_id" ref="model_bestja_project_invitation"/>

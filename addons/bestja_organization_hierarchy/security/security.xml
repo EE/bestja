@@ -1,5 +1,17 @@
 <openerp>
     <data>
+        <record id="coordinators_level0" model="res.groups">
+            <field name="name">BestJa Koordynator (poziom 0)</field>
+        </record>
+
+        <record id="coordinators_level1" model="res.groups">
+            <field name="name">BestJa Koordynator (poziom 1)</field>
+        </record>
+
+        <record id="coordinators_level2" model="res.groups">
+            <field name="name">BestJa Koordynator (poziom 2)</field>
+        </record>
+
         <record id="child_organizations" model="ir.rule">
             <field name="name">Coordinator has access to her children organizations.</field>
             <field name="model_id" ref="model_organization"/>

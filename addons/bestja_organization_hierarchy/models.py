@@ -35,6 +35,13 @@ class Organization(models.Model):
         string="Poziom w hierarchii organizacji"
     )
 
+    @api.multi
+    def write(self, vals):
+        success = super(Organization, self).write(vals)
+        if 'parent' in vals:
+            self.coordinator._sync_coordinators_group()
+        return success
+
     @api.one
     @api.depends('parent', 'parent.parent')
     def _compute_level(self):
@@ -107,4 +114,21 @@ class Organization(models.Model):
             self.send(
                 template='bestja_organization.msg_registered_admin',
                 recipients=self.sudo().parent.coordinator,
+            )
+
+
+class UserWithOrganization(models.Model):
+    _inherit = 'res.users'
+
+    @api.one
+    def _sync_coordinators_group(self):
+        """
+        Add / remove user from groups for coordinators of different levels.
+        """
+        super(UserWithOrganization, self)._sync_coordinators_group()
+
+        for i in xrange(3):
+            self._sync_group(
+                group=self.env.ref('bestja_organization_hierarchy.coordinators_level' + str(i)),
+                domain=[('coordinated_org.level', '=', i)],
             )

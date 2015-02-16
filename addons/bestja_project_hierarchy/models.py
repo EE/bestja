@@ -172,3 +172,20 @@ class Organization(models.Model):
         'bestja.project.invitation',
         inverse_name='organization',
     )
+
+
+class UserWithProjects(models.Model):
+    _inherit = 'res.users'
+
+    @api.one
+    def _sync_manager_groups(self):
+        """
+        Add / remove user from groups for managers from organizations on different levels.
+        """
+        super(UserWithProjects, self)._sync_manager_groups()
+
+        for i in xrange(3):
+            self._sync_group(
+                group=self.env.ref('bestja_project_hierarchy.managers_level' + str(i)),
+                domain=[('managed_projects.organization.level', '=', i)],
+            )

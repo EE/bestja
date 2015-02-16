@@ -1,8 +1,8 @@
 <openerp>
     <data>
         <menuitem parent="bestja_base.menu_bestja" id="menu_detailed_reports" name="Raporty szczegółowe" sequence="16" groups="bestja_project.managers"/>
-        <menuitem parent="menu_detailed_reports" id="menu_detailed_reports_profile" action="action_bestja_detailed_reports" sequence="1" groups="bestja_project.managers"/>
-        <menuitem parent="menu_detailed_reports" id="menu_detailed_reports_sent" action="action_bestja_detailed_report_sent" sequence="2" groups="bestja_project.managers"/>
-        <menuitem parent="menu_detailed_reports" id="menu_detailed_reports_summary" action="action_bestja_detailed_report_summary" sequence="3" groups="bestja_project.managers"/>
+        <menuitem parent="menu_detailed_reports" id="menu_detailed_reports_profile" action="action_bestja_detailed_reports" sequence="1" groups="bestja_project_hierarchy.managers_level1,bestja_project_hierarchy.managers_level2"/>
+        <menuitem parent="menu_detailed_reports" id="menu_detailed_reports_sent" action="action_bestja_detailed_report_sent" sequence="2" groups="bestja_project_hierarchy.managers_level0,bestja_project_hierarchy.managers_level1"/>
+        <menuitem parent="menu_detailed_reports" id="menu_detailed_reports_summary" action="action_bestja_detailed_report_summary" sequence="3" groups="bestja_project_hierarchy.managers_level0,bestja_project_hierarchy.managers_level1"/>
     </data>
 </openerp>

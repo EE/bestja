@@ -1,9 +1,9 @@
 <openerp>
     <data>
         <menuitem parent="bestja_base.menu_bestja" id="menu_requests" name="Raporty potrzeb" sequence="15" groups="bestja_project.managers"/>
-        <menuitem parent="menu_requests" id="menu_requests_my" action="action_my_requests" sequence="3"/>
-        <menuitem parent="menu_requests" id="menu_requests_received" action="action_received_requests" sequence="4"/>
-        <menuitem parent="menu_requests" id="menu_requests_templates" action="action_list_templates" sequence="5"/>
-        <menuitem parent="menu_requests" id="menu_requests_items_stats" action="action_stats_chooser" sequence="6"/>
+        <menuitem parent="menu_requests" id="menu_requests_my" action="action_my_requests" groups="bestja_project_hierarchy.managers_level1,bestja_project_hierarchy.managers_level2" sequence="3"/>
+        <menuitem parent="menu_requests" id="menu_requests_received" action="action_received_requests" groups="bestja_project_hierarchy.managers_level0,bestja_project_hierarchy.managers_level1" sequence="4"/>
+        <menuitem parent="menu_requests" id="menu_requests_templates" action="action_list_templates"  groups="bestja_project_hierarchy.managers_level0,bestja_project_hierarchy.managers_level1" sequence="5"/>
+        <menuitem parent="menu_requests"  groups="bestja_project_hierarchy.managers_level0,bestja_project_hierarchy.managers_level1" id="menu_requests_items_stats" action="action_stats_chooser" sequence="6"/>
     </data>
 </openerp>
