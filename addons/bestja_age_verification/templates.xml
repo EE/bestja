@@ -10,7 +10,7 @@
                         <input type="text" id="birthdate_year" class="form-control" placeholder="RRRR" maxlength="4" required="required" t-att-readonly="'readonly' if only_passwords else None"/>
                         <span class="help-block" id="error-birthdate">Dozwolone od <t t-esc="min_age"/> lat! Bez paniki - czekamy na Ciebie!</span>
                     </div>
-                    <p class="field_desc mt8">Możesz nam pomagać, jeżeli masz więcej niż <t t-esc="min_age"/> lat</p>
+                    <p class="field_desc mt8">Możesz nam pomagać, jeśli masz ukończone <t t-esc="min_age"/> lat.</p>
                 </div>
             </div>
         </template>

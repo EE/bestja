@@ -42,6 +42,7 @@ a:hover, a:focus{
     text-decoration: none;
 }
 
+/* Register screen */
 .field-join-info h4{
     font-size: 14px;
     color: #737373;
@@ -87,6 +88,15 @@ a:hover, a:focus{
 .field-join-info span:hover, .field-regulations-privacy_policy a:hover{
     color: #982582;
 }
+
+.back_to_login p{
+    margin-bottom: 0;
+}
+
+.back_to_login a{
+    color: #428BCA;
+}
+/* End of register screen */
 
 .button_orange, .button_more_contrast{
     background-color: #F59A1E;

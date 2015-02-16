@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
         <template id="login" inherit_id="web.login">
@@ -18,9 +18,9 @@
         <template id="header_join" inherit_id="auth_signup.fields">
             <div class="form-group field-login" position="before">
                 <div class="form-group field-join-info text-center">
-                    <h1 class="mt48 mb48">Dołącz do nas!</h1>
+                    <h1 class="mt48 mb48">Rejestracja</h1>
                     <h3 class="mb16">Potrzebujemy tylko kilku informacji.</h3>
-                    <h4 class="mb48">Chcesz dodać organizację?
+                    <h4 class="mb48">Chcesz zgłosić organizację?
                         <span class="glyphicon glyphicon-info-sign info_sign_register">
                         <p id="info_sign_register_message">Jeżeli chcesz zostać koordynatorem w swojej organizacji,
                             wypełnij formularz, aby w kolejnym kroku uzupełnić dane swojej organizacji.</p></span>
@@ -31,9 +31,9 @@
         <template id="regulations_privacy_policy" inherit_id="auth_signup.fields">
             <div class="form-group field-confirm_password" position="after">
                 <div class="form-group field-regulations-privacy_policy">
-                    <p class="mt8 mb16">Rejestrując się na stronie UCW wyrażasz
-                        zgodę na <a href="/page/regulations">Regulamin</a> oraz
-                        <a href="/page/privacy_policy">Politykę prywatności serwisu</a>
+                    <p class="mt8 mb16">Rejestracja na stronie UCW oznacza, że akceptujesz
+                        <a href="/page/regulations">Regulamin</a> oraz
+                        <a href="/page/privacy_policy">Politykę prywatności</a> serwisu.
                     </p>
                 </div>
             </div>
@@ -48,11 +48,22 @@
                 </div>
             </div>
         </template>
+        <template id="name_placeholder" inherit_id="auth_signup.fields">
+            <div class="form-group field-name" position="replace">
+                <div class="form-group field-name">
+                    <!-- This change prevent original translation, should be done by translation -->
+                    <label for="name" class="control-label">Imię i nazwisko</label>
+                    <input type="text" name="name" t-att-value="name" id="name" class="form-control" placeholder="e.g. John Doe"
+                        required="required" t-att-readonly="'readonly' if only_passwords else None"
+                        t-att-autofocus="'autofocus' if login and not only_passwords else None" />
+                </div>
+            </div>
+        </template>
         <template id="pass_placeholder" inherit_id="auth_signup.fields">
             <div class="form-group field-password" position="replace">
                 <div class="form-group field-password">
                     <label for="password" class="control-label">Password</label>
-                    <input type="password" name="password" id="password" class="form-control" placeholder="Co najmniej 6 znaków i jedna duża litera"
+                    <input type="password" name="password" id="password" class="form-control" placeholder="Co najmniej 6 znaków i jedna wielka litera"
                            required="required" t-att-autofocus="'autofocus' if only_passwords else None"/>
                 </div>
             </div>
@@ -63,6 +74,18 @@
                     <label for="confirm_password" class="control-label">Confirm Password</label>
                     <input type="password" name="confirm_password" id="confirm_password" class="form-control" placeholder="Tak dla pewności"
                            required="required"/>
+                </div>
+            </div>
+        </template>
+        <template id="back_to_login" inherit_id="auth_signup.signup">
+            <div class="clearfix oe_login_buttons" position="replace">
+                <div class="clearfix oe_login_buttons">
+                    <div class="pull-right back_to_login">
+                        <p>Masz już konto?</p>
+                        <!-- This change prevent original translation, should be done by translation -->
+                        <a t-attf-href="/web/login?{{ keep_query() }}">Przejdź do logowania</a>
+                    </div>
+                    <button type="submit" class="btn btn-primary pull-left">Sign up</button>
                 </div>
             </div>
         </template>
