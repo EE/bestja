@@ -4,7 +4,7 @@
         Show the organization moderation menu item to coordinators
         -->
         <record id="bestja_organization.menu_accept_organization" model="ir.ui.menu">
-            <field name="groups_id" eval="[(4, ref('bestja_organization.coordinators'))]"/>
+            <field name="groups_id" eval="[(6, 0, [ref('coordinators_level1')])]"/>
         </record>
     </data>
 </openerp>

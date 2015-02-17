@@ -15,9 +15,9 @@ module. Parent organizations have administrative rights to their children.
         'bestja_organization',
     ],
     'data': [
+        'security/security.xml',
         'views/organization.xml',
         'menu.xml',
-        'security/security.xml',
     ],
     'demo': [
         'demo.xml',
