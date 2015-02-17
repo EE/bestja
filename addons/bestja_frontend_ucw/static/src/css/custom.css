@@ -632,3 +632,9 @@ div.carousel .carousel-indicators .active {
     cursor: pointer;
 }
 /* End of Cookie accept */
+
+/* Contact page*/
+.contact_us_tel_email a{
+    color: #009D93;
+}
+/* End of contact page*/

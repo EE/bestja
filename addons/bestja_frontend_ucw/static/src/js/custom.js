@@ -79,4 +79,15 @@ jQuery(window).ready(function () {
         $('#cookie_reminder_container').hide();
     }
     /* End of cookie for reminder */
+
+    /* Mobile viewport, tel added */
+    window.isMobile = /iphone|ipod|ipad|android|blackberry|opera mini|opera mobi|skyfire|maemo|windows phone|palm|iemobile|symbian|symbianos|fennec/i.test(navigator.userAgent.toLowerCase());
+    if(window.isMobile){
+        $('.telephone_number').replaceWith(function() {
+            var url = $.trim($(this).text());
+            var urlClean = url.replace(/\s+/g,'');
+            return '<a href="tel:' + urlClean + '">' + url + '</a>';
+        });
+    }
+    /* End of mobile viewport, tel added */
 });

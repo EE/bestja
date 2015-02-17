@@ -38,7 +38,7 @@
                                     <li>Uniwersyteckie Centrum Wolontariatu</li>
                                     <li>ul. Dobra 56/66 (budynek BUW)</li>
                                     <li>00-312 Warszawa</li>
-                                    <li>tel. 22 55 27 201,  22 55 27 204</li>
+                                    <li>tel. <span class="telephone_number">22 55 27 201</span>,  <span class="telephone_number">22 55 27 204</span></li>
                                 </ul>
                             </div>
                             <div class="col-lg-3 col-md-4 hidden-sm footer_icons">
