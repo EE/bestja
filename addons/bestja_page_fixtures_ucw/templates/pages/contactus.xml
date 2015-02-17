@@ -29,9 +29,32 @@
                         </div>
                         <div class="row mt32 mb32">
                             <div class="col-md-11">
-                                <iframe width="100%" height="300" frameborder="0" style="border:0"
-                                        src="https://www.google.com/maps/embed/v1/place?q=biblioteka%20uniwersytetu%20warszawskiego%2C%20Dobra%2C%20Warszawa%2C%20Polska&amp;key=AIzaSyDXLm2GV33XW1ETxLy7Sc97YVMfIWolBO0">
-                                </iframe>
+                                <script type="text/javascript"
+                                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBIJWeZPMfNogWHirwiDJLL-Yj_tkOhLkY">
+                                </script>
+                                <script type="text/javascript">
+                                    function initialize() {
+                                        var mapOptions = {
+                                            zoom: 16,
+                                            center: new google.maps.LatLng(52.242647,21.024886),
+                                            mapTypeId: google.maps.MapTypeId.ROADMAP
+                                        };
+
+                                        var map = new google.maps.Map(document.getElementById('map-canvas'),
+                                                mapOptions);
+
+                                        var marker = new google.maps.Marker({map: map, position: new google.maps.LatLng(52.242647,21.024886)});
+
+                                        window.onresize = function() {
+                                                map.setCenter(marker.getPosition());
+                                        };
+                                    }
+                                    google.maps.event.addDomListener(window, 'load', initialize);
+
+                                </script>
+                                <div style='overflow:hidden; height:300px; width:100%;'>
+                                    <div id="map-canvas" style='height:300px; width:100%;'></div>
+                                </div>
                             </div>
                         </div>
                     </div>
