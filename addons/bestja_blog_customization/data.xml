@@ -4,9 +4,7 @@
         <!-- Change website menu item name -->
         <record id="website_blog.menu_news" model="website.menu">
             <field name="name">aktualności</field>
-            <field name="url">/blog/1</field>
-            <field name="parent_id" ref="website.main_menu"/>
-            <field name="sequence" type="int">11</field>
+            <field name="sequence" type="int">15</field>
         </record>
     </data>
 </openerp>

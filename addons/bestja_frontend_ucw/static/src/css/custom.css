@@ -25,6 +25,12 @@ div[name="blog_post_data"]{
 div[name="blog_post_data"] .post-meta{
     top: -17px;
 }
+
+@media (max-width: 600px) {
+    div[name="blog_post_data"] .post-meta{
+        top: -1px;
+    }
+}
 /* End of blog customization*/
 
 #wrap, section{
