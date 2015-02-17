@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_bestja_estimation_report,estimation_report,model_bestja_estimation_report,bestja_project.managers,1,1,1,1
+access_bestja_estimation_report_entry,estimation_report_entry,model_bestja_estimation_report_entry,bestja_project.managers,1,1,1,1

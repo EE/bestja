@@ -1,0 +1,4 @@
+/* Hide "add element" in list of all stores in estimation report */
+.editable_reports_tree .oe_form_field_one2many_list_row_add { 
+    display: none;   
+}
