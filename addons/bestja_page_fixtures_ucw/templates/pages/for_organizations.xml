@@ -13,18 +13,19 @@
                                             Dołącz i współpracuj<br />
                                             z wolontariuszami
                                         </h1>
-                                        <p class="mb16">Uniwersyteckie Centrum Wolontariatu pośredniczy 
+                                        <p class="mb16">Uniwersyteckie Centrum Wolontariatu pośredniczy
                                             pomiędzy wolontariuszami a ogranizacjami
                                             deklarującymi chęć ich przyjęcia, zapewnia
                                             im zadania do wykonania oraz opiekę koordynatora.</p>
-                                                                                        
-                                        <p>Hac, odio allquet est! Montes duis lectus pellentesque 
+
+                                        <p>Hac, odio allquet est! Montes duis lectus pellentesque
                                             in, placerat sit sociis a penatibus, odio
                                             dis? Est, turpis urna, risus, sit magna dolor?
                                             Nunc nec a tristigue eu, in egestas.</p>
-                                        <form action="/web/signup">
-                                            <button class="btn btn-lg text-center mt32 mb32 button_orange" type="submit">DOŁĄCZ TERAZ</button>
+                                        <form t-if="website.user_id == user_id" action="/web/signup">
+                                            <button class="btn btn-lg text-center mt32 button_orange" type="submit">DOŁĄCZ TERAZ</button>
                                         </form>
+                                        <p class="mb32"></p>
                                     </div>
                                 </div>
                             </div>
@@ -46,7 +47,7 @@
                                 <div class="col-md-8 col-sm-12">
                                     <div class="quote_picture_on_right">
                                         <h2>
-                                            <em>"Robię to dla samej siebie. Zdobywam doświadczenie, 
+                                            <em>"Robię to dla samej siebie. Zdobywam doświadczenie,
                                                 które będę mogła wykorzystać pracując zawodowo."</em>
                                         </h2>
                                         <p>Ola, koordynator projektów miejskich</p>
@@ -62,7 +63,7 @@
                         <div class="container">
                             <div class="row text-center mt32 mb128">
                                 <div class="col-md-12">
-                                    <form action="/web/signup">
+                                    <form t-if="website.user_id == user_id" action="/web/signup">
                                         <button class="btn btn-lg text-center mt32 mb32 button_orange" type="submit">DOŁĄCZ TERAZ</button>
                                     </form>
                                 </div>
@@ -89,7 +90,7 @@
                                                     wolontariuszy.</p></li>
                                                 <li class="mb64">
                                                     <span class="glyphicon glyphicon-ok" /> <p>Wyselekcjonowanych przez UCW
-                                                    wolontariuszy.</p></li>                                                
+                                                    wolontariuszy.</p></li>
                                             </ul>
                                         </div>
                                         <div class="col-md-5 mb16 checklist">
@@ -108,7 +109,7 @@
                         <div class="container">
                             <div class="row text-center mt32 mb16">
                                 <div class="col-md-12">
-                                    <form action="/web/signup">
+                                    <form t-if="website.user_id == user_id" action="/web/signup">
                                         <button class="btn btn-lg text-center mt32 mb32 button_orange" type="submit">DOŁĄCZ TERAZ</button>
                                     </form>
                                 </div>
@@ -170,7 +171,7 @@
                                 <div class="col-md-8 col-sm-12">
                                     <div class="quote_picture_on_right">
                                         <h2>
-                                            <em>"Robię to dla samej siebie. Zdobywam doświadczenie, 
+                                            <em>"Robię to dla samej siebie. Zdobywam doświadczenie,
                                                 które będę mogła wykorzystać pracując zawodowo."</em>
                                         </h2>
                                         <p>Ola, koordynator projektów miejskich</p>
@@ -202,10 +203,10 @@
                                                     prowadzenia spotkań i szkoleń dla wolontariuszy.</p></li>
                                                 <li class="mb64">
                                                     <span class="glyphicon glyphicon-ok" /> <p>Wyselekcjonowanych przez UCW
-                                                    wolontariuszy.</p></li>                                                
+                                                    wolontariuszy.</p></li>
                                                 <li class="mb64">
-                                                    <span class="glyphicon glyphicon-ok" /> <p>Lepsze możliwości znalezienia 
-                                                    wolontariuszy.</p></li>                                                
+                                                    <span class="glyphicon glyphicon-ok" /> <p>Lepsze możliwości znalezienia
+                                                    wolontariuszy.</p></li>
                                             </ul>
                                         </div>
                                         <div class="col-md-5 mb16 checklist">
@@ -233,12 +234,12 @@
                                     <h1 class="mt48 mb48 section_title">
                                         Kto może korzystać z pomocy wolontariuszy</h1>
                                     <h3>Hac, odio aliquet est! Montes duis lectus pellentesque in, placerat sit sociis a penatibus,
-                                        odio dis? Est, turpis urna, risus, sit magna dolor? Nunc nec a tristique eu, in egestas, nascetur 
+                                        odio dis? Est, turpis urna, risus, sit magna dolor? Nunc nec a tristique eu, in egestas, nascetur
                                         sociis integer dolor non integer risus auctor odio ut turpis turpis, aenean platea
                                         porttitor, et ac non. Ridiculus, tincidunt porttitor massa? Adipiscing nisi? Porta purus.
                                         Dolor! Amet! Risus etiam, eu mattis lundium in velit, et, tristique adipiscing, vel et mauris
                                         nisi? Cras et magna, dolor. Cum.</h3>
-                                    <h3>Aenean quis. Nec, turpis porttitor nec! Magnis. In elementum cursus. Vut, tincidunt, penatibus, 
+                                    <h3>Aenean quis. Nec, turpis porttitor nec! Magnis. In elementum cursus. Vut, tincidunt, penatibus,
                                         egestas risus porta diam! Platea, dolor et vut augue aliquam odio integer purus eu, a,
                                         est ac, sit pellentesque habitasse ac, sed placerat lectus etiam? Nunc massa porta enim.
                                         Lundium lundium dis. Nisi urna purus! Lorem turpis scelerisque porttitor turpis enim!
@@ -247,12 +248,11 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="container">
                             <div class="row mt32 mb128">
                                 <div class="col-md-12 text-center">
-                                    <form action="/web/signup">
-                                        <button class="btn btn-lg text-center mt32 mb32 button_orange" type="submit">DOŁĄCZ TERAZ</button>
+                                    <form t-if="website.user_id == user_id" action="/web/signup">
+                                        <button class="btn btn-lg text-center mt32 button_orange" type="submit">DOŁĄCZ TERAZ</button>
                                     </form>
                                 </div>
                             </div>

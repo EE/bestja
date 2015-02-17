@@ -169,7 +169,7 @@
                                 <div class="col-md-12 text-center container_under_categories">
                                     <p>Twoja organizacja chciałaby do nas dołączyć?
                                         <a href="/page/for_organizations">dowiedz się więcej</a>
-                                        lub <a href="/web/signup">zarejestruj organizację</a>
+                                        <t t-if="website.user_id == user_id">lub <a href="/web/signup">zarejestruj organizację</a></t>
                                     </p>
                                 </div>
                             </div>
@@ -229,7 +229,7 @@
                         <div class="container">
                             <div class="row text-center mt64 mb64">
                                 <div class="col-md-12">
-                                    <form action="/web/signup">
+                                    <form t-if="website.user_id == user_id" action="/web/signup">
                                         <button class="btn btn-lg text-center mt32 mb32 button_orange" type="submit">DOŁĄCZ TERAZ</button>
                                     </form>
                                     <a class="text-center" href="/page/for_volunteers">więcej o wolontariacie</a>

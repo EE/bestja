@@ -42,7 +42,7 @@
                                 <div class="col-md-8 col-sm-12">
                                     <div class="quote_picture_on_right">
                                         <h2>
-                                            <em>"Robię to dla samej siebie. Zdobywam doświadczenie, 
+                                            <em>"Robię to dla samej siebie. Zdobywam doświadczenie,
                                                 które będę mogła wykorzystać pracując zawodowo."</em>
                                         </h2>
                                         <p>Ola, koordynator projektów miejskich</p>
@@ -62,8 +62,8 @@
                                 </div>
                             </div>
                         </div>
-                    </section>                    
-                                     
+                    </section>
+
                     <section class="oe_snippet_body who_can_be_volunteer mb92">
                         <div class="container-fluid">
                             <div class="row">
@@ -121,7 +121,7 @@
                                                 <img src="/bestja_frontend_ucw/static/src/img/content/facebook-green-01.svg"/>
                                             </span>
                                             <h1 class="mt48 mb16 section_title">
-                                                Polub nas</h1></a>                                            
+                                                Polub nas</h1></a>
                                             <h2>Bądź na bieżąco! Śledź nas na Facebooku, aby nie przegapić naszych akcji.</h2>
                                         </li>
                                         <li class="mb64">
@@ -155,9 +155,10 @@
                                         <p>Jeżeli będziesz zainteresowany
                                             konkretnym ogłoszeniem skontaktujemy
                                             Cię z koordynatorami wybranej organizacji.</p>
-                                        <form action="/web/signup">
-                                            <button class="btn btn-lg mt32 mb32 button_orange" type="submit">DOŁĄCZ TERAZ</button>
+                                        <form t-if="website.user_id == user_id" action="/web/signup">
+                                            <button class="btn btn-lg mt32 button_orange" type="submit">DOŁĄCZ TERAZ</button>
                                         </form>
+                                        <p class="mb32"></p>
                                     </div>
                                 </div>
                             </div>
@@ -194,7 +195,7 @@
                                                 <strong>Łukasz</strong>, Warszawa</em>
                                         </p>
                                     </div>
-                                </div>                                
+                                </div>
                             </div>
                         </div>
                         <div class="container mt64">
@@ -206,15 +207,15 @@
                                 </div>
                             </div>
                         </div>
-                    </section>   
+                    </section>
                     <section class="oe_snippet_body">
                         <div class="container">
-                            <div class="row"> 
+                            <div class="row">
                                 <div class="col-md-12 text-center law_aspects">
                                     <h1 class="text-center mt48 mb48 section_title">
                                         Aspekty prawne współpracy</h1>
                                     <h3 class="text-center mb64">Czy wiesz, co powinna zapewnić organizacja korzystająca z pomocy wolontaryjnej?
-                                        Zanim podejmiesz współpracę, sprwadź, jakie są 
+                                        Zanim podejmiesz współpracę, sprwadź, jakie są
                                         <a href="/page/for_volunteers">prawa i obowiązki wolontariusza</a>,
                                         których przeganie gwarantujemy</h3>
                                 </div>
@@ -223,7 +224,7 @@
                     </section>
                     <section class="oe_snippet_body mb64 volunteering_in_net">
                         <div class="container">
-                            <div class="row"> 
+                            <div class="row">
                                 <div class="col-md-12 text-center">
                                     <h1 class="text-center mt48 mb48 section_title">
                                         Informacje o wolontariacie w sieci</h1>
@@ -236,7 +237,7 @@
                             </div>
                         </div>
                     </section>
-                    <section class="oe_snippet_body become_volunteer_join_us_section">
+                    <section t-if="website.user_id == user_id" class="oe_snippet_body become_volunteer_join_us_section">
                         <div class="container-fluid">
                             <div class="container mt128 mb128">
                             <div class="row text-center mt64 mb64">
