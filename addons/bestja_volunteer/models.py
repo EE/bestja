@@ -85,13 +85,7 @@ class Volunteer(models.Model):
     )
     sanepid = fields.Date(string="badania sanepidu")
     forklift = fields.Date(string="uprawnienia na wózek widłowy")
-    # 'email' field from partner is hidden by group permissions,
-    # this field is a proxy, without the group restrictions.
-    user_email = fields.Char(
-        string="adres email",
-        computed='_compute_user_email',
-        inverse='_inverse_user_email',
-    )
+    email = fields.Char(string="adres email")
     phone = fields.Char(string="numer tel.")
     birthdate = fields.Date(string="data urodzenia")
     curriculum_vitae = fields.Binary(string="CV")
@@ -159,7 +153,7 @@ class Volunteer(models.Model):
         },
         'privileged': {  # Fields accessible to privileged users (coordinators, managers)
             'wishes', 'skills', 'languages', 'occupation', 'drivers_license', 'sanepid',
-            'forklift', 'user_email', 'phone', 'birthdate', 'curriculum_vitae', 'cv_filename',
+            'forklift', 'email', 'phone', 'birthdate', 'curriculum_vitae', 'cv_filename',
             'daypart', 'daypart_comments', 'sex', 'place_of_birth', 'citizenship',
             'street_gov', 'street_number_gov', 'apt_number_gov', 'zip_code_gov',
             'city_gov', 'voivodeship_gov', 'country_gov', 'different_addresses',
@@ -168,7 +162,7 @@ class Volunteer(models.Model):
         },
         'owner': {  # Fields accessible to the owner (i.e. the user herself)
             'wishes', 'skills', 'languages', 'occupation', 'drivers_license', 'sanepid',
-            'forklift', 'user_email', 'phone', 'birthdate', 'curriculum_vitae', 'cv_filename',
+            'forklift', 'email', 'phone', 'birthdate', 'curriculum_vitae', 'cv_filename',
             'daypart', 'daypart_comments', 'sex', 'place_of_birth', 'citizenship',
             'street_gov', 'street_number_gov', 'apt_number_gov', 'zip_code_gov',
             'city_gov', 'voivodeship_gov', 'country_gov', 'different_addresses',
@@ -275,15 +269,6 @@ class Volunteer(models.Model):
     #######################################
     # / Fields permissions code ends here #
     #######################################
-
-    @api.one
-    @api.depends('partner_id.email')
-    def _compute_user_email(self):
-        self.user_email = self.sudo().partner_id.email
-
-    @api.one
-    def _inverse_user_email(self):
-        self.sudo().partner_id.email = self.user_email
 
     @api.model
     def _get_group(self):
