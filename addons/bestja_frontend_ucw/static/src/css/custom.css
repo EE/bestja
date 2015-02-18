@@ -354,7 +354,7 @@ div.carousel .carousel-indicators .active {
     top: calc(50% - 130px);
     left: calc(50% - 107px);
     width: 215px;
-    opacity: 1;
+    opacity: 0;
 }
 
 .category_link:hover .category_pictogram{

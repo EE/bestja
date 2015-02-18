@@ -2,7 +2,7 @@
     <data>
         <template id="list" name="Oferty">
             <t t-call="website.layout">
-                
+
                 <section class="oe_snippet_body">
                     <div class="container-fluid">
                         <div class="row">
@@ -24,23 +24,25 @@
                                 <div class="tile first">
                                     <div class="tile-content">
                                         <div class="one">
-                                            <div class="well text-center date_of_the_offer">                                    
+                                            <div class="well text-center date_of_the_offer">
                                                 <p class="offers_day_of_the_week">
                                                     <span t-field="offer.project.date_start" t-field-options='{"format": "EEEE"}'/>
-                                                </p>                                        
+                                                </p>
                                                 <p class="offers_the_day">
                                                     <strong>
                                                         <span t-field="offer.project.date_start" t-field-options='{"format": "d"}'/>
                                                     </strong>
-                                                </p>                                        
+                                                </p>
                                                 <p class="offers_the_month">
                                                     <span t-field="offer.project.date_start" t-field-options='{"format": "MMM"}'/>
                                                 </p>
                                             </div>
                                         </div>
                                         <div class="two">
-                                            <img class="img img-responsive shadow pictogram" 
-                                                 src="http://wolontariat.uw.edu.pl/wp-content/themes/TONE/images/grid-ico1.svg"/>
+                                            <img t-if="offer.category.id == 1" class="img img-responsive shadow pictogram" src="http://bestja.d3.laboratorium.ee/ucw/img/offers_pictograms/grid-ico1-offers-list.svg"/>
+                                            <img t-if="offer.category.id == 2" class="img img-responsive shadow pictogram" src="http://bestja.d3.laboratorium.ee/ucw/img/offers_pictograms/grid-ico2-offers-list.svg"/>
+                                            <img t-if="offer.category.id == 3" class="img img-responsive shadow pictogram" src="http://bestja.d3.laboratorium.ee/ucw/img/offers_pictograms/grid-ico3-offers-list.svg"/>
+                                            <img t-if="offer.category.id == 4" class="img img-responsive shadow pictogram" src="http://bestja.d3.laboratorium.ee/ucw/img/offers_pictograms/grid-ico4-offers-list.svg"/>
                                         </div>
                                     </div>
                                 </div>
@@ -49,19 +51,19 @@
                                 <div class="tile second">
                                     <div class="tile-content">
                                         <div class="two">
-                                            <img class="img img-responsive" 
-                                                 src="http://lorempixel.com/g/300/200"/>
+                                            <img class="img img-responsive"
+                                                 src="http://lorempixel.com/g/165/165"/>
                                         </div>
                                         <div class="three">
-                                            <div class="well text-center date_of_the_offer">                                    
+                                            <div class="well text-center date_of_the_offer">
                                                 <p class="offers_day_of_the_week">
                                                     <span t-field="offer.project.date_start" t-field-options='{"format": "EEEE"}'/>
-                                                </p>                                        
+                                                </p>
                                                 <p class="offers_the_day">
                                                     <strong>
                                                         <span t-field="offer.project.date_start" t-field-options='{"format": "d"}'/>
                                                     </strong>
-                                                </p>                                        
+                                                </p>
                                                 <p class="offers_the_month">
                                                     <span t-field="offer.project.date_start" t-field-options='{"format": "MMM"}'/>
                                                 </p>
@@ -83,21 +85,21 @@
                                         </small>
                                     </h2>
                                     <h2 class="category_name">
-                                        <span>Kategoria:</span> 
+                                        <span>Kategoria:</span>
                                         <t t-esc="offer.category.name"/>
                                     </h2>
                                     <div class="offer_where">
                                         <p class="offer_place">
                                             <t t-esc="offer.city"/>
-                                        </p> 
+                                        </p>
                                         <p class="offer_how_long" t-if="offer.hours">
-                                            <t t-esc="offer.hours"/>
+                                            <t t-esc="offer.hours"/> h
                                         </p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </section>                                        
+                    </section>
                 </t>
             </t>
         </template>

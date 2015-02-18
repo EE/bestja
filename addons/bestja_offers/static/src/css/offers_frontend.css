@@ -157,7 +157,7 @@
     }
 
     .offer_info{
-        height: 500px;        
+        height: 500px;
         margin-top: 10px;
         color: #000000;
         text-align: center;
@@ -234,8 +234,8 @@
 }
 
 .date_of_the_offer p{
-    margin-top: calc(15% - 26px);
-    margin-bottom: calc(15% - 26px);
+    margin-top: calc(15% - 16px);
+    margin-bottom: calc(15% - 16px);
 }
 
 .organization_name a{
@@ -316,7 +316,7 @@
 @media screen and (max-width: 767px) {
     .date_of_the_offer, .content_of_the_offer{
         height: 200px;
-    }    
+    }
 }
 
 @media screen and (max-width: 480px) {
@@ -332,7 +332,7 @@
         padding: 0;
     }
 
-    .offer_place, .offer_how_long{        
+    .offer_place, .offer_how_long{
         float: left;
         text-align: left;
     }
