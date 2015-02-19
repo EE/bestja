@@ -305,7 +305,7 @@
 
 @media screen and (max-width: 991px) {
     .date_of_the_offer, .content_of_the_offer{
-        height: 150px;
+        height: 158px;
     }
 
     .offer_where{
@@ -386,8 +386,8 @@
 }
 
 
-@media (min-width: 992px) {
-    .test-row:hover .tile-content {
+@media (min-width: 768px) {
+    .animation_row:hover .tile-content {
         left: -100%;
         transition: left 0.5s ease;
     }

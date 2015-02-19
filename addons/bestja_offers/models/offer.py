@@ -67,6 +67,7 @@ class Offer(models.Model):
         string="Organizacja",
         related='project.organization'
     )
+    organization_image = fields.Binary(related='organization.image_medium')
     skills = fields.Many2many('volunteer.skill', required=True)
     wishes = fields.Many2many('volunteer.wish', required=True)
     drivers_license = fields.Many2one('volunteer.drivers_license', string="Prawa jazdy")

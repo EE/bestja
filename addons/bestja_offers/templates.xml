@@ -16,13 +16,13 @@
                                 </h1>
                             </div>
 
-                            <div class="col-md-2"/>                            
+                            <div class="col-md-2"/>
 
                             <div class="col-md-3 col-md-offset-2 col-sm-5 col-sm-offset-6 col-xs-12 offer_share">
                                 <t t-call="bestja_offers.share" />
                             </div>
                         </div>
-                    </div>                    
+                    </div>
                 </section>
                 <section class="oe_snippet_body visible-xs-block">
                     <div class="container-fluid">
@@ -34,14 +34,14 @@
                             </div>
                         </div>
                     </div>
-                </section>                
+                </section>
                 <section class="oe_snippet_body offer_info">
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-lg-2 col-lg-offset-1 col-md-2 col-md-offset-1 col-sm-5 col-sm-offset-1 col-xs-18 col_offer_info">
                                 <h3>Termin</h3>
                                 <p class="size24">
-                                    <strong>od <span t-field="offer.project.date_start" t-field-options='{"format": "d.MM.y"}'/> 
+                                    <strong>od <span t-field="offer.project.date_start" t-field-options='{"format": "d.MM.y"}'/>
                                         <br />
                                         do <span t-field="offer.project.date_stop" t-field-options='{"format": "d.MM.y"}'/>
                                     </strong>
@@ -51,7 +51,7 @@
                                 <h3>Gdzie</h3>
                                 <p class="size24">
                                     <strong>
-                                        <t t-esc="offer.city"/> 
+                                        <t t-esc="offer.city"/>
                                         <t t-esc="offer.district"/>
                                     </strong>
                                 </p>
@@ -61,10 +61,10 @@
                                 <strong>
                                     <t t-if="offer.kind =='periodic' or offer.kind =='cyclic'">
                                         <p class="size24" t-if="offer.interval">
-                                            <t t-if="offer.hours"> 
+                                            <t t-if="offer.hours">
                                                 <span t-esc="offer.hours"/>h </t>
                                             <t t-if="offer.interval == 1">
-                                                co tydzień 
+                                                co tydzień
                                             </t>
                                             <t t-if="offer.interval != 1">
                                                 co <t t-esc="offer.interval"/> tygodnie
@@ -72,7 +72,7 @@
                                         </p>
 
                                         <p t-if="offer.hours and not offer.interval">
-                                            <span t-esc="offer.hours"/> h/tyg.</p> 
+                                            <span t-esc="offer.hours"/> h/tyg.</p>
 
                                         <p class="size24" t-if="offer.weekday">
                                             <t t-foreach="offer.weekday" t-as="weekday">
@@ -90,8 +90,8 @@
 
                                         <p class="size24" t-if="not offer.hours and not offer.daypart and not offer.weekday and not offer.interval">
                                             brak danych</p>
-                                    </t>                                
-                                    <t t-if="offer.kind =='flexible'"> 
+                                    </t>
+                                    <t t-if="offer.kind =='flexible'">
                                         <p>elastyczne godziny</p>
                                     </t>
                                 </strong>
@@ -138,7 +138,7 @@
                                 <h2>Co oferujemy</h2>
                                 <p>
                                     <span t-field="offer.benefits"></span>
-                                </p>                                
+                                </p>
                             </div>
                             <div t-if="offer.tools">
                                 <h2>Co zapewniamy</h2>
@@ -157,11 +157,12 @@
                                 <div class="col-md-8">
                                     <h2>Lokalizacja</h2>
                                     <p t-field="offer.city"></p>
-                                </div >                            
+                                </div >
                             </div>
                         </div>
                         <div class="col-md-3 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-17 offer_sidebar">
-                            <img src="/bestja_offers/static/src/img/logo.png" />
+                            <img t-if="offer.organization_image"
+                                 t-attf-src="/website/image/offer/{{ offer.id }}/organization_image/450x450" alt="" />
                             <p class="size24 mt32">
                                 <t t-esc="offer.project.organization.name"/>
                             </p>
@@ -187,7 +188,7 @@
                             <t t-call="bestja_offers.share2" />
                         </div>
                     </div>
-                    <div id="bestja_offers_offer_location" t-attf-data-lat="{{ offer.latitude }}" 
+                    <div id="bestja_offers_offer_location" t-attf-data-lat="{{ offer.latitude }}"
                          t-attf-data-lng="{{ offer.longitude }}">
                     </div>
 
@@ -246,7 +247,7 @@
                 </section>
             </t>
         </template>
-        
+
         <template id="bestja_offers.duplicate_application" name="Ponowne zgłoszenie">
             <t t-call="website.layout">
                 <section class="oe_snippet_body">
@@ -290,7 +291,7 @@
                 <a t-attf-href="mailto:?body={{ url }}&amp;subject={{ title }}">
                     <i class="fa fa-envelope-o"></i>
                 </a>
-                <a 
+                <a
                     class="oe_share_print"
                     t-attf-href="javascript:window.print()">
                     <div class="print_icon"></div>
@@ -322,7 +323,7 @@
                 </a>
                 <a t-attf-href="mailto:?body={{ url }}&amp;subject={{ title }}">
                     <i class="fa fa-envelope-o"></i>
-                </a>           
+                </a>
 
             </span>
 
