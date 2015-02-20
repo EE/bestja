@@ -107,10 +107,8 @@ a:hover, a:focus{
 .button_orange, .button_more_contrast{
     background-color: #F59A1E;
     color: #FFFFFF;
-    padding-left: 35px;
-    padding-right: 35px;
+    padding: 20px 35px;
     border-radius: 0;
-    height: 60px;
     font-size: 24px;
     font-weight: 700;
 }
@@ -125,6 +123,12 @@ a:hover, a:focus{
     color: #FFFFFF;
 }
 
+@media screen and (max-width: 440px){
+    .button_orange {
+        font-size: 18px;
+        padding: 15px 10px;
+    }
+}
 /* Headings settings */
 h1, .h1{
     font-size: 36px;
@@ -367,12 +371,18 @@ div.carousel .carousel-indicators .active {
 
 @media screen and (max-width: 767px) {
     .category_column{
-        min-height: 300px;
+        min-height: 350px;
     }
 
     .category_pictogram{
         left: calc(50% - 75px);
         width: 150px;
+    }
+}
+
+@media screen and (max-width: 440px) {
+    .category_column{
+        width: 100%;
     }
 }
 /* End of categories */

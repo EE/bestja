@@ -159,14 +159,16 @@
                                 </div>
                             </div>
                         </div>
+                    </section>
+                    <section>
                         <div class="container">
                             <div class="row text-center mt16 mb64">
-                                <div class="col-md-12">
+                                <div class="col-xs-6 col-md-12">
                                     <form action="/offers/category/">
                                         <button class="btn btn-lg text-center mt32 mb32 button_orange" type="submit">ZOBACZ WSZYSTKIE OFERTY</button>
                                     </form>
                                 </div>
-                                <div class="col-md-12 text-center container_under_categories">
+                                <div class="col-xs-6 col-md-12 text-center container_under_categories">
                                     <p>Twoja organizacja chciałaby do nas dołączyć?
                                         <a href="/page/for_organizations">dowiedz się więcej</a>
                                         <t t-if="website.user_id == user_id">lub <a href="/web/signup">zarejestruj organizację</a></t>
