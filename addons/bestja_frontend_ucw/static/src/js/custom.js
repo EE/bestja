@@ -44,11 +44,6 @@ jQuery(window).ready(function () {
     });
     /* End of smooth scrolling */
 
-    $('#cookie_reminder_close').click(function() {
-        $('#cookie_reminder_container').hide();
-    });
-
-
     /* Cookie for reminder */
     function setCookie(cookieName, cookieValue, daysToExpire) {
         var d = new Date();
@@ -90,4 +85,13 @@ jQuery(window).ready(function () {
         });
     }
     /* End of mobile viewport, tel added */
+
+    /* Same height recrutation steps columns */
+    var sameHeightBlocks = $('.category_column');
+    var maxHeight = Math.max.apply(
+            Math, sameHeightBlocks.map(function () {
+                return $(this).height();
+            }).get());
+    sameHeightBlocks.height(maxHeight);
+    /* End of same height recrutation steps columns */
 });

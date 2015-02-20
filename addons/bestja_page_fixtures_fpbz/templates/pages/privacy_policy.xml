@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <template id="website.privacy_policy" name="Site about application Privacy Policy" page="True">
+            <t t-call="website.layout">
+                <div id="wrap" class="oe_structure oe_empty">
+                    <section class="oe_snippet_body">
+                        <div class="container-fluid privacy_policy">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <ul class="nav nav-pills nav-stacked privacy_policy_nav col-md-3">
+                                        <li>
+                                            <a href="#wstep">Wstęp</a>
+                                        </li>
+                                        <li>
+                                            <a href="#administrator">Administrator</a>
+                                        </li>
+                                        <li>
+                                            <a href="#aplikacja">Aplikacja</a>
+                                        </li>
+                                        <li>
+                                            <a href="#dane">Rodzaje gromadzonych danych i ich przeznaczenie</a>
+                                        </li>
+                                        <li>
+                                            <a href="#informacje">Sposoby wykorzystywania informacji</a>
+                                        </li>
+                                        <li>
+                                            <a href="#cookies">Polityka cookies</a>
+                                        </li>
+                                        <li>
+                                            <a href="#zmiany">Zmiany Polityki Prywatności</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-9 mb32">
+                                    <h1 class="text-center mt48 mb48 section_title">
+                                        <strong>POLITYKA PRYWATNOŚCI APLIKACJI DO REKRUTOWANIA WOLONTARIUSZY</strong>
+                                    </h1>
+                                    <h2 id="wstep" class="mt48 mb16">
+                                        <strong>Wstęp</strong>
+                                    </h2>
+                                    <p>
+                                        Niniejsza Polityka Prywatności informuje o rodzaju gromadzonych danych osób korzystających z serwisu
+                                        internetowego („Użytkownicy”), znajdującego się na stronie <a href="http://www.wolontariat.bankizywnosci.pl">
+                                            www.wolontariat.bankizywnosci.pl</a> ("Serwis"),
+                                        przeznaczeniu danych, sposobach ich wykorzystania oraz sposobach ich ochrony.<br />
+                                        Dodatkowo, w kwestiach związanych z danymi osobowymi, pytania można zadawać wysyłając email na adres:
+                                        <a href="mailto:politykaprywatnosci@bankizywnosci.pl">politykaprywatnosci@bankizywnosci.pl</a>.<br />
+                                        Brak akceptacji niniejszej Polityki Prywatności jest równoznaczny z brakiem możliwości korzystania
+                                        z aplikacji do rekrutowania wolontariuszy zamieszczonej w Serwisie ("Aplikacja").
+                                    </p>
+                                    <h2 id="administrator" class="mt48 mb16">
+                                        <strong>Administrator</strong>
+                                    </h2>
+                                    <p>
+                                        Administratorem danych osobowych Użytkowników jest Federacja Polskich Banków Żywności z siedzibą
+                                        w Warszawie, przy Al. Solidarności 101, wpisaną do rejestru stowarzyszeń i innych organizacji
+                                        społecznych i zawodowych, fundacji i publicznych zakładów opieki zdrowotnej Krajowego Rejestru
+                                        Sądowego, prowadzonego przez Sąd Rejonowy dla m.st. Warszawy, XIII Wydział Gospodarczy pod numerem
+                                        KRS 0000063599 ("Administrator").<br />
+                                        Administrator przetwarza dane osobowe Użytkowników zgodnie z ustawą z dnia 29 sierpnia 1997 r.
+                                        o ochronie danych osobowych (tekst jednolity: Dz. U. z 2002, Nr 101, poz. 926 ze zm.) oraz ustawą
+                                        z dnia 18 lipca 2002 r. o świadczeniu usług drogą elektroniczną (Dz. U. z 2002, Nr 144, poz. 1204
+                                        ze zm.). Administrator stosuje środki techniczne i organizacyjne zapewniające ochronę przetwarzanych
+                                        danych odpowiednią do zagrożeń oraz kategorii danych objętych ochroną, a w szczególności zabezpiecza
+                                        dane osobowe Użytkowników przed udostępnieniem ich osobom nieupoważnionym, utratą czy uszkodzeniem.
+                                    </p>
+                                    <h2 id="aplikacja" class="mt48 mb16">
+                                        <strong>Aplikacja</strong>
+                                    </h2>
+                                    <p>
+                                        Z Aplikacji zamieszczonej pod adresem <a href="http://www.wolontariat.bankizywnosci.pl">
+                                            www.wolontariat.bankizywnosci.pl</a> mogą korzystać osoby fizyczne
+                                        oraz organizacje poszukujące możliwości zaangażowania się w statutowe działania Banków Żywności.
+                                        Aplikacja umożliwia przegląd ofert stałej współpracy oraz współpracy czasowej podczas konkretnych
+                                        wydarzeń organizowanych przez Federację Polskich Banków Żywności lub wybrany Bank Żywności.
+                                        Aplikacja zainteresowanym użytkownikom systemu daje możliwość wzięcia udziału w lekcjach
+                                        e-learningowych.
+                                    </p>
+                                    <h2 id="dane" class="mt48 mb16">
+                                        <strong>Rodzaje gromadzonych danych i ich przeznaczenie</strong>
+                                    </h2>
+                                    <p>
+                                        Administrator gromadzi i przechowuje wszystkie dane, które zostały wprowadzone przez Użytkowników
+                                        Aplikacji. W przypadku zarejestrowanych w Serwisie Użytkowników, w tym osób aplikujących na
+                                        stanowiska wolontariackie oraz do pomocy przy działaniach akcyjnych, są to: imię i nazwisko,
+                                        adres email lub numer telefonu.<br />
+                                        W przypadku organizacji chętnej do zostania Partnerem Banku i rejestrującej się poprzez Konto
+                                        Partnera, wymaganymi danymi są nazwa organizacji, adres siedziby oraz dane kontaktowe. Wszystkie
+                                        te informacje pozostają na serwerze Administratora i są udostępniane wyłącznie Bankowi Żywności,
+                                        na którego ofertę wolontariusz aplikował.
+                                    </p>
+                                    <h2 id="informacje" class="mt48 mb16">
+                                        <strong>Sposoby wykorzystywania informacji</strong>
+                                    </h2>
+                                    <p>
+                                        Administrator Aplikacji udostępnia dane wolontariuszy wyłącznie Bankowi Żywności i Partnerowi,
+                                        z którym wolontariusz chce nawiązać współpracę. Administrator Aplikacji udostępnia również dane
+                                        Partnera wyłącznie Bankowi Żywności, z którym dany podmiot chce podjąć współpracę. Bank oraz
+                                        Partner wykorzystują dane wyłącznie w celu nawiązania i podtrzymania kontaktu.<br />
+                                        Użytkownicy (w tym wolontariusze Banków Żywności i podmiotów posiadających status Partnera) mają
+                                        prawo do wglądu i edycji swoich danych, a w przypadku Banków Żywności i podmiotów posiadających
+                                        status Partnera – danych swoich wolontariuszy, logując się do swojego konta.<br />
+                                        W przypadku niezarejestrowanych w Serwisie Użytkowników aplikujących na stanowiska wolontariackie
+                                        oraz do pomocy przy działaniach akcyjnych, Użytkownicy korzystają z prawa do wglądu, edycji
+                                        i usunięcia swoich danych osobowych poprzez skierowanie do Administratora stosownego oświadczenia
+                                        woli w formie pisemnej lub elektronicznej.<br />
+                                        Dane gromadzone w Aplikacji mogą być udostępniane odpowiednim instytucjom publicznym,
+                                        w przypadkach określonych przez prawo.
+                                    </p>
+                                    <h2 id="cookies" class="mt48 mb16">
+                                        <strong>Polityka cookies</strong>
+                                    </h2>
+                                    <p>
+                                        Pliki cookies (tzw. „ciasteczka”) stanowią dane informatyczne, w szczególności pliki tekstowe,
+                                        które przechowywane są w urządzeniu końcowym Użytkownika Serwisu i przeznaczone są do korzystania
+                                        ze stron internetowych Serwisu. Cookies zazwyczaj zawierają nazwę strony internetowej, z której
+                                        pochodzą, czas przechowywania ich na urządzeniu końcowym oraz unikalny numer.
+                                        <br />
+                                        Pliki cookies wykorzystywane są w celu:
+                                    </p>
+                                    <ol type="1">
+                                        <li>
+                                            dostosowania zawartości stron internetowych Serwisu do preferencji Użytkownika oraz
+                                            optymalizacji korzystania ze stron internetowych; w szczególności pliki te pozwalają
+                                            rozpoznać urządzenie Użytkownika Serwisu i odpowiednio wyświetlić stronę internetową,
+                                            dostosowaną do jego indywidualnych potrzeb
+                                        </li>
+                                        <li>
+                                            utrzymania sesji Użytkownika Serwisu (po zalogowaniu), dzięki której Użytkownik nie musi
+                                            na każdej podstronie Serwisu ponownie wpisywać loginu i hasła
+                                        </li>
+                                    </ol>
+                                    <p></p>
+                                    <p>
+                                        W ramach Serwisu stosowane są następujące rodzaje plików cookies:
+                                    </p>
+                                    <ol type="1">
+                                        <li>
+                                            pliki cookies, umożliwiające korzystanie z usług dostępnych w ramach Serwisu,
+                                            np. uwierzytelniające pliki cookies wykorzystywane do usług wymagających uwierzytelniania
+                                            w ramach Serwisu
+                                        </li>
+                                        <li>
+                                            pliki cookies służące do zapewnienia bezpieczeństwa, np. wykorzystywane do wykrywania
+                                            nadużyć w zakresie uwierzytelniania w ramach Serwisu
+                                        </li>
+                                        <li>
+                                            pliki cookies, umożliwiające „zapamiętanie” wybranych przez Użytkownika ustawień
+                                            i personalizację interfejsu Użytkownika, np. w zakresie wybranego języka lub regionu,
+                                            z którego pochodzi Użytkownik, rozmiaru czcionki, wyglądu strony internetowej itp.
+                                        </li>
+                                    </ol>
+                                    <p></p>
+                                    <p>
+                                        Zgodnie z przepisami ustawy z dnia 16 lipca 2004 r. Prawo telekomunikacyjne (Dz. U. nr 171, poz.
+                                        1800 ze zm.) Użytkownik ma prawo zadecydowania w zakresie dostępu plików cookies do swojego
+                                        komputera poprzez ich uprzedni wybór w oknie swojej przeglądarki.
+                                    </p>
+                                    <h2 id="zmiany" class="mt48 mb16">
+                                        <strong>Zmiany Polityki Prywatności</strong>
+                                    </h2>
+                                    <p>
+                                        Niniejsza wersja Polityki Prywatności jest ostatnią wersją z dnia 1 września 2013 roku.
+                                    </p>
+                                    <p>
+                                        <br />
+                                        <br />
+                                        Polityka prywatności powstała przy wsparciu <br /><a href="http://www.fka.com.pl" title="">
+                                            <img src="http://www.wolontariat.bankizywnosci.pl/bundles/bzfront/image/logo_fka.png" alt="Furtek Kosma Aleksandrowicz"/>
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </t>
+        </template>
+        <record id="privacy_policy_page" model="website.menu">
+            <field name="name">Polityka prywatności</field>
+            <field name="url">/page/privacy_policy</field>
+        </record>
+    </data>
+</openerp>

@@ -370,13 +370,9 @@ div.carousel .carousel-indicators .active {
 }
 
 @media screen and (max-width: 767px) {
-    .category_column{
-        min-height: 350px;
-    }
-
     .category_pictogram{
-        left: calc(50% - 75px);
-        width: 150px;
+        left: calc(50% - 95px);
+        width: 190px;
     }
 }
 
@@ -594,6 +590,13 @@ div.carousel .carousel-indicators .active {
 
     .regulations_nav > li > a{
         display: inline-block;
+    }
+}
+
+@media screen and (max-width: 440px) {
+    .regulations p, .privacy_policy p,
+    .regulations li, .privacy_policy li{
+        font-size: 16px;
     }
 }
 /* End of navigation buttons */

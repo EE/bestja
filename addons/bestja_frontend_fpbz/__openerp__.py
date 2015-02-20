@@ -13,14 +13,15 @@
     'data': [
     # assets
         'views/assets.xml',
+        'views/cookie_reminder.xml',
 
     # snippets
-        'templates/snippets/main_top_white_text.xml',
+        'templates/snippets/introduction.xml',
         'templates/snippets/big_title.xml',
         'templates/snippets/why_act_with_us.xml',
         'templates/snippets/map_of_poland.xml',
         'templates/snippets/quote_div.xml',
-        'templates/snippets/volunteers_newsletter.xml',
+        'templates/snippets/recrutation_steps.xml',
         'templates/snippets/meet_our_volunteers.xml',
         'templates/snippets/get_knowledge.xml',
     ],

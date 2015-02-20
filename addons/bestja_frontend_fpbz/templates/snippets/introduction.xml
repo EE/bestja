@@ -6,35 +6,38 @@
                 <div>
                     <div class="oe_snippet_thumbnail">
                         <img class="oe_snippet_thumbnail_img" src="/bestja_frontend_fpbz/static/src/img/snippets/s_block_big_picture.png"/>
-                        <span class="oe_snippet_thumbnail_title">Top Big Photo</span>
+                        <span class="oe_snippet_thumbnail_title">Introduction</span>
                     </div>
 
-                    <section class="oe_snippet_body oe_dark">
-                        <div class="container-fluid top-section-container">
+                    <section class="oe_snippet_body oe_dark introduction">
+                        <div class="container-fluid">
                             <div class="row">
-                                <div class="col-md-12 main_top_photo_text">
-                                    <div class="mb32 main_top_white_text open_sans_bold">
+                                <div class="col-md-12">
+                                    <div class="mb32 introduction_headers">
                                         <h1 class="mt64 mb32 text-center">Rocznie w Polsce marnuje się <span class="differentiator_1">9 mln</span> ton jedzenia</h1>
                                         <h1 class="text-center">
                                             <span class="differentiator_1">2,5 mln</span> osób nie ma dostępu do pełnowartościowej żywności</h1>
                                         <h1 class="text-center">Pomóż nam to zmienić!</h1>
                                     </div>
                                     <div class="text-center">
-                                        <h1 class="mt64 mb64 text-center text-uppercase color_orange open_sans_bold choose_place">
-                                            wybierz swoją miejscowość</h1>
+                                        <h1 class="text-center text-uppercase choose_place">
+                                            <strong>wybierz swoją miejscowość</strong>
+                                        </h1>
                                     </div>
                                 </div>
-                                <div class="text-center mt64 mouse_div">
-                                    <img class="img mouse_img" src="/bestja_frontend_fpbz/static/src/img/content/scroll-01.svg"/>
-                                    <br />
-                                    <span class="direction_down color_orange">&lt;</span>
+                                <div id="down_arrow_scroll" class="text-center mt64">
+                                    <img class="img arrow_img" src="/bestja_frontend_fpbz/static/src/img/content/down_arrow.svg"/>
                                 </div>
                             </div>
                         </div>
                         <script>
                             // Background picture will fit viewport
-                            var height = window.innerHeight - document.getElementsByClassName('navbar-static-top')[0].offsetHeight - 50;
-                            document.getElementsByClassName('main_top_photo_text')[0].style.height = height + "px";
+                            var height = window.innerHeight - document.getElementsByClassName('navbar-static-top')[0].offsetHeight - 30;
+                            if(window.innerHeight > 1080){
+                                document.getElementsByClassName('main_top_photo_text')[0].style.height = "1080px";
+                            } else {
+                                document.getElementsByClassName('main_top_photo_text')[0].style.height = height + "px";
+                            }
                         </script>
                     </section>
                 </div>

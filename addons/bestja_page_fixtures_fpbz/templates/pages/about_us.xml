@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <template id="website.about_us" name="Site about" page="True">
+            <t t-call="website.layout">
+                <div id="wrap" class="oe_structure oe_empty">
+                    <section class="oe_snippet_body first_section_about_us">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-6 col-sm-12">
+                                    <h1 class="mt64 mb64">
+                                        O nas
+                                    </h1>
+                                    <div class="mb64">
+                                        <p>Pomysłodawcą, inicjatorem i administratorem aplikacji funkcjonującej pod adresem
+                                            <em>wolontariat.bankizywnosci.pl</em> jest <strong>Federacja Polskich Banków Żywności.</strong>
+                                        </p>
+                                        <address>
+                                            Al. Solidarności 101<br />
+                                                00-144 Warszawa<br />
+                                                    Tel: 22 6546400<br />
+                                        </address>
+                                        <p>
+                                            <strong>Uwagi i komentarze dotyczące funkcjonowania aplikacji</strong> prosimy
+                                            kierować na adres e-mail: <a href="mailto:aplikacja@bankizywnosci.pl"
+                                                                         title="aplikacja@bankizywnosci.pl">aplikacja@bankizywnosci.pl</a>.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </t>
+        </template>
+        <record id="about_us_menu" model="website.menu">
+            <field name="name">O nas</field>
+            <field name="url">/page/about_us</field>
+            <field name="parent_id" ref="website.main_menu"/>
+            <field name="sequence" type="int">21</field>
+        </record>
+    </data>
+</openerp>

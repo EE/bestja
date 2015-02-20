@@ -17,6 +17,8 @@
         'templates/pages/footer.xml',
         'templates/pages/become_partner.xml',
         'templates/pages/regulations.xml',
+        'templates/pages/privacy_policy.xml',
+        'templates/pages/about_us.xml',
     ],
     # About information
     'author': "Laboratorium EE, Kamil Woźniak",

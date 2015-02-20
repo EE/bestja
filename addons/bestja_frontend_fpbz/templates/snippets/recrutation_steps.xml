@@ -6,33 +6,29 @@
                 <div>
                     <div class="oe_snippet_thumbnail">
                         <img class="oe_snippet_thumbnail_img" src="/bestja_frontend_fpbz/static/src/img/snippets/s_block_features_grid.png"/>
-                        <span class="oe_snippet_thumbnail_title">Newsletter</span>
+                        <span class="oe_snippet_thumbnail_title">Recrutation steps</span>
                     </div>
 
                     <section class="oe_snippet_body mb16">
-                        <div class="container-fluid volunteers_newsletter">
+                        <div class="container">
                             <div class="row mt16 mb16">
-                                <div class="col-md-3 text-center">
+                                <div class="col-xs-6 col-sm-6 col-md-3 text-center recrutation_step_column">
                                     <div class="recrutation_step_number">1</div>
                                     <h3 class="mt32 mb32">Wybór oferty</h3>
-                                    <p class="text-muted mt16 mb8 recrutation_step_description">Wybierz oferty w oparciu <br />
-                                        o swoje zainteresowania.</p>
+                                    <p class="text-muted mt16 mb8 recrutation_step_description">Wybierz oferty w oparciu o swoje zainteresowania.</p>
                                 </div>
-                                <div class="col-md-3 text-center">
+                                <div class="col-xs-6 col-sm-6 col-md-3 text-center recrutation_step_column">
                                     <div class="recrutation_step_number">2</div>
                                     <h3 class="mt32 mb32">Zgłoszenie</h3>
-                                    <p class="text-muted mt16 mb8">Zgłoszenie na ofertę<br />
-                                        to tylko chwila.</p>
+                                    <p class="text-muted mt16 mb8">Zgłoszenie na ofertę to tylko chwila.</p>
                                 </div>
-                                <div class="col-md-3 text-center">
+                                <div class="col-xs-6 col-sm-6 col-md-3 text-center recrutation_step_column">
                                     <div class="recrutation_step_number">3</div>
                                     <h3 class="mt32 mb32">Spotkanie</h3>
-                                    <p class="text-muted mt16 mb8">Organizacja zaprosi Cię na<br />
-                                        spotkanie w ciągu 7 dni.<br />
-                                        Poznacie swoje oczekiwania<br />
-                                        i możliwości.</p>
+                                    <p class="text-muted mt16 mb8">Organizacja zaprosi Cię na spotkanie w ciągu 7 dni.<br />
+                                        Poznacie swoje oczekiwania i możliwości.</p>
                                 </div>
-                                <div class="col-md-3 text-center">
+                                <div class="col-xs-6 col-sm-6 col-md-3 text-center recrutation_step_column">
                                     <div class="recrutation_step_number">4</div>
                                     <h3 class="mt32 mb32">Zadanie</h3>
                                     <p class="text-muted mt16 mb8">Otrzymasz pierwsze zadanie.<br />

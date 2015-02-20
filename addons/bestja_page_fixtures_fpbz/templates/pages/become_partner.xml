@@ -5,7 +5,7 @@
             <t t-call="website.layout">
                 <div id="wrap" class="oe_structure oe_empty">
                     <section class="oe_snippet_body">
-                        <div class="container-fluid">
+                        <div class="container">
                             <div class="row">
                                 <div class="col-md-12">
                                     <h1 class="text-center mt48 mb48 section_title">
@@ -15,49 +15,51 @@
                         </div>
                     </section>
                     <section class="oe_snippet_body">
-                        <div class="container-fluid become_partner">
+                        <div class="container become_partner">
                             <div class="row">
-                                <div class="col-md-6 mt16">
-                                    <table class="data_of_acts">
+                                <div class="col-md-6 mt16 fadeInLeft">
+                                    <table>
                                         <tr>
                                             <td>
-                                                <h2>Promuj lokalnie walkę z niedożywieniem i niemarnowanie żywności.</h2>
+                                                <p>Promuj lokalnie walkę z niedożywieniem i niemarnowanie żywności.</p>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <h2>Włącz się w ogólnopolskie i regionalne programy przeprowadzając
-                                                    zbiórkę żywności w lokalnym sklepie.</h2>
+                                                <p>Włącz się w ogólnopolskie i regionalne programy przeprowadzając
+                                                    zbiórkę żywności w lokalnym sklepie.</p>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <h2>Możesz mieć wpływ na dostęp do pełnowartościowego jedzenia!</h2>
+                                                <p>Możesz mieć wpływ na dostęp do pełnowartościowego jedzenia!</p>
                                             </td>
                                         </tr>
                                     </table>
                                 </div>
                                 <div class="col-md-6 mt16">
                                     <img class="img img-responsive shadow mb16"
-                                         src="http://lorempixel.com/g/900/600"/>
+                                         src="http://lorempixel.com/g/800/700"/>
                                 </div>
                                 <div class="col-md-12 mt16 become_partner_link">
-                                        <p class="color_orange">Kto może zostać partnerem?</p>
+                                    <p>Kto może zostać partnerem?</p>
                                 </div>
                             </div>
                         </div>
                     </section>
-                    <section class="oe_snippet_body mt16 mb16">
-                        <div class="container-fluid join_us">
+                    <section class="oe_snippet_body mt16 mb16 fadeIn">
+                        <div class="container join_us">
                             <div class="row">
                                 <div class="text-center">
-                                    <button class="btn btn-lg text-center mt32 mb32">DOŁĄCZ TERAZ</button>
+                                    <form t-if="website.user_id == user_id" action="/web/signup">
+                                        <button class="btn btn-lg text-center mt32 mb32" type="submit">DOŁĄCZ TERAZ</button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
                     </section>
                     <section class="oe_snippet_body">
-                        <div class="container-fluid">
+                        <div class="container">
                             <div class="row">
                                 <div class="col-md-12">
                                     <h1 class="text-center mt48 mb48 section_title">
@@ -67,8 +69,8 @@
                             </div>
                         </div>
                     </section>
-                    <section class="oe_snippet_body">
-                        <div class="container-fluid what_partner_receives">
+                    <section class="oe_snippet_body fadeInLeft">
+                        <div class="container what_partner_receives">
                             <div class="row">
                                 <div class="col-md-6">
                                     <ul>
@@ -95,38 +97,40 @@
                             </div>
                         </div>
                     </section>
-                    <section class="oe_snippet_body mt16 mb16">
-                        <div class="container-fluid join_us">
+                    <section class="oe_snippet_body mt16 mb16 fadeIn">
+                        <div class="container join_us">
                             <div class="row">
                                 <div class="text-center">
-                                    <button class="btn btn-lg text-center mt32 mb32">DOŁĄCZ TERAZ</button>
+                                    <form t-if="website.user_id == user_id" action="/web/signup">
+                                        <button class="btn btn-lg text-center mt32 mb32" type="submit">DOŁĄCZ TERAZ</button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
                     </section>
                     <section class="oe_snippet_body">
-                        <div class="container-fluid become_partner">
+                        <div class="container become_partner">
                             <div class="row">
                                 <div class="col-md-6 mt16">
                                     <img class="img img-responsive shadow mb16"
-                                         src="http://lorempixel.com/g/900/600"/>
+                                         src="http://lorempixel.com/g/800/700"/>
                                 </div>
-                                <div class="col-md-6 mt16">
-                                    <h2>„Jako koordynator wolontariatu korzystam z aplikacji,
+                                <div class="col-md-6 mt16 fadeInRight">
+                                    <p>„Jako koordynator wolontariatu korzystam z aplikacji,
                                         która ułatwia mi rekrutację wolontariuszy, przydzielanie
-                                        zadań i monitorowanie stopnia ich wykonania.
+                                        zadań i monitorowanie stopnia ich wykonania.
                                         Dzięki aplikacji koordynowanie grupy wolontariuszy
-                                        jest proste i nie zajmuje wcale dużo czasu.”</h2>
-                                    <h2>
+                                        jest proste i nie zajmuje wcale dużo czasu.”</p>
+                                    <p>
                                         <small>
-                                            <strong>Ewa</strong>, wolontariusz Banku Żywności w Warszawie</small>
-                                    </h2>
+                                            <strong>Ewa</strong>, wolontariusz Banku Żywności w Warszawie</small>
+                                    </p>
                                 </div>
                             </div>
                         </div>
                     </section>
                     <section class="oe_snippet_body">
-                        <div class="container-fluid">
+                        <div class="container">
                             <div class="row">
                                 <div class="col-md-12">
                                     <h1 class="text-center mt48 mb48 section_title">
@@ -138,40 +142,39 @@
                     <section class="oe_snippet_body mb16">
                         <div class="container-fluid volunteers_newsletter">
                             <div class="row mt16 mb16">
-                                <div class="col-md-1 text-center" />
-                                <div class="col-md-2 text-center">
+                                <div class="col-xs-6 col-sm-4 col-md-4 col-lg-2 col-lg-offset-1 text-center recrutation_step_column">
                                     <div class="recrutation_step_number">1</div>
-                                    <h3 class="mt32 mb32">Tworzenie ofert</h3>
+                                    <h3 class="mt32 mb32 recrutation_step_title">Tworzenie ofert</h3>
                                     <p class="text-muted mt16 mb8 recrutation_step_description">
                                         Twórz atrakcyjne oferty dla wolontariuszy za pomocą wbudowanych szablonów.</p>
                                 </div>
-                                <div class="col-md-2 text-center">
+                                <div class="col-xs-6 col-sm-4 col-md-4 col-lg-2 text-center recrutation_step_column">
                                     <div class="recrutation_step_number">2</div>
-                                    <h3 class="mt32 mb32">Rekrutacja wolontariuszy</h3>
+                                    <h3 class="mt32 mb32 recrutation_step_title">Rekrutacja wolontariuszy</h3>
                                     <p class="text-muted mt16 mb8">Ustalaj terminy spotkań w kalendarzu.<br />
                                         Błyskawicznie selekcjonuj aplikacje.</p>
                                 </div>
-                                <div class="col-md-2 text-center">
+                                <div class="col-xs-6 col-sm-4 col-md-4 col-lg-2 text-center recrutation_step_column">
                                     <div class="recrutation_step_number">3</div>
-                                    <h3 class="mt32 mb32">Współpraca ze sklepami</h3>
+                                    <h3 class="mt32 mb32 recrutation_step_title">Współpraca ze sklepami</h3>
                                     <p class="text-muted mt16 mb8">Dodawaj i wybieraj miejsca, w których chcesz zorganizować zbiórkę.</p>
                                 </div>
-                                <div class="col-md-2 text-center">
+                                <div class="col-xs-6 col-sm-4 col-md-4 col-lg-2 text-center recrutation_step_column">
                                     <div class="recrutation_step_number">4</div>
-                                    <h3 class="mt32 mb32">Sprawozdawczość</h3>
+                                    <h3 class="mt32 mb32 recrutation_step_title">Sprawo&#173;zdawczość</h3>
                                     <p class="text-muted mt16 mb8">Rozliczaj zebraną żywność w prosty sposób.</p>
                                 </div>
-                                <div class="col-md-2 text-center">
+                                <div class="col-xs-6 col-sm-4 col-md-4 col-lg-2 text-center recrutation_step_column">
                                     <div class="recrutation_step_number">5</div>
-                                    <h3 class="mt32 mb32">Wiadomości</h3>
+                                    <h3 class="mt32 mb32 recrutation_step_title">Wiadomości</h3>
                                     <p class="text-muted mt16 mb8">Bądź na bieżąco z aktualnymi informacjami na temat zbiórki.</p>
                                 </div>
-                                <div class="col-md-1 text-center" />
+                                <div class="col-lg-1 hidden-xs hidden-sm hidden-md" />
                             </div>
                         </div>
                     </section>
-                    <section class="oe_snippet_body">
-                        <div class="container-fluid quote_div">
+                    <section class="oe_snippet_body fadeInRight">
+                        <div class="container quote_div">
                             <div class="row">
                                 <div class="col-md-offset-1 col-md-10">
                                     <blockquote>
@@ -187,7 +190,7 @@
                         </div>
                     </section>
                     <section class="oe_snippet_body">
-                        <div class="container-fluid">
+                        <div class="container">
                             <div class="row">
                                 <div class="col-md-12">
                                     <h1 class="text-center mt48 mb48 section_title">
@@ -197,7 +200,7 @@
                         </div>
                     </section>
                     <section class="oe_snippet_body">
-                        <div class="container-fluid advantages_of_application">
+                        <div class="container advantages_of_application">
                             <div class="row">
                                 <div class="col-md-6">
                                     <ul>
@@ -229,16 +232,18 @@
                         </div>
                     </section>
                     <section class="oe_snippet_body mt16 mb16">
-                        <div class="container-fluid join_us">
+                        <div class="container join_us">
                             <div class="row">
                                 <div class="text-center">
-                                    <button class="btn btn-lg text-center mt32 mb32">DOŁĄCZ TERAZ</button>
+                                    <form t-if="website.user_id == user_id" action="/web/signup">
+                                        <button class="btn btn-lg text-center mt32 mb32" type="submit">DOŁĄCZ TERAZ</button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
                     </section>
                     <section class="oe_snippet_body">
-                        <div class="container-fluid">
+                        <div class="container">
                             <div class="row">
                                 <div class="col-md-12">
                                     <h1 class="text-center mt48 mb48 section_title">
@@ -249,35 +254,29 @@
                         </div>
                     </section>
                     <section class="oe_snippet_body mt16 mb16">
-                        <div class="container-fluid the_tasks_of_coordinator">
-                            <div class="row row-centered">
-                                <div class="col-md-1 centered nav_left">
-                                    <img src="/bestja_frontend_fpbz/static/src/img/content/poprzedni-01.svg" />
-                                </div>
-                                <div class="col-md-10 centered">
-                                    <div class="col-md-3 centered">
+                        <div class="slider_container the_tasks_of_coordinator">
+                            <div class="row">
+                                <div class="the_tasks_of_coordinator_slider">
+                                    <div class="carousel_column">
                                         <img class="img img-rounded img-responsive"
-                                                 src="http://lorempixel.com/g/480/480"/>
-                                        <h4 class="mt16 mb16">Zadania koordynatora w czasie organizacji zbiórki</h4>
+                                             src="http://lorempixel.com/g/480/480"/>
+                                            <h4 class="mt16 mb16">Zadania koordynatora w czasie organizacji zbiórki</h4>
                                     </div>
-                                    <div class="col-md-3 centered">
+                                    <div class="carousel_column">
                                         <img class="img img-rounded img-responsive"
-                                                 src="http://lorempixel.com/g/480/480"/>
-                                        <h4 class="mt16 mb16">Cechy ważne dla koordynatora zbiórki</h4>
+                                             src="http://lorempixel.com/g/480/480"/>
+                                            <h4 class="mt16 mb16">Cechy ważne dla koordynatora zbiórki</h4>
                                     </div>
-                                    <div class="col-md-3 centered">
+                                    <div class="carousel_column">
                                         <img class="img img-rounded img-responsive"
-                                                 src="http://lorempixel.com/g/480/480"/>
-                                        <h4 class="mt16 mb16">Kilka kroków skutecznej rekrutacji</h4>
+                                             src="http://lorempixel.com/g/480/480"/>
+                                            <h4 class="mt16 mb16">Kilka kroków skutecznej rekrutacji</h4>
                                     </div>
-                                    <div class="col-md-3 centered">
+                                    <div class="carousel_column">
                                         <img class="img img-rounded img-responsive"
-                                                 src="http://lorempixel.com/g/480/480"/>
-                                        <h4 class="mt16 mb16">Szkolenia wolontariuszy</h4>
+                                             src="http://lorempixel.com/g/480/480"/>
+                                            <h4 class="mt16 mb16">Szkolenia wolontariuszy</h4>
                                     </div>
-                                </div>
-                                <div class="col-md-1 centered nav_right">
-                                    <img src="/bestja_frontend_fpbz/static/src/img/content/nastepny-01.svg" />
                                 </div>
                             </div>
                         </div>

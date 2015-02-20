@@ -10,23 +10,25 @@
                     </div>
 
                     <section class="oe_snippet_body">
-                        <div id="map_of_poland_section" class="container-fluid map_of_poland_section">
-                            <div class="container-fluid">
+                        <div id="map_of_poland_section" class="container map_of_poland_section">
+                            <div class="container">
                                 <div class="row">
                                     <div class="col-md-7 mt16 map_of_poland_container">
-                                        <img src="/bestja_frontend_fpbz/static/src/img/content/wolontariat-mapa-02.svg"/>
+                                        <object class="map_object"
+                                                data="/bestja_frontend_fpbz/static/src/img/content/wolontariat-mapa-02.svg" type="image/svg+xml">
+                                        </object>
                                     </div>
                                     <div class="col-md-4 mt16 description_of_map_container">
                                         <div>
-                                            <h2>Twoja organizacja chciałaby z nami współpracować?</h2>
-                                            <h2>
-                                                <a class="color_orange">
+                                            <p>Twoja organizacja chciałaby z nami współpracować?</p>
+                                            <p>
+                                                <a>
                                                     <strong>Dowiedz się więcej</strong>
                                                 </a> lub
-                                                <a class="color_orange">
+                                                <a>
                                                     <strong>zostań organizacją partnerską</strong>
                                                 </a>
-                                            </h2>
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
