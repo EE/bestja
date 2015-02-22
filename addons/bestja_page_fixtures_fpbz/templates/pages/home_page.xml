@@ -115,12 +115,13 @@
                                         <div>
                                             <p>Twoja organizacja chciałaby z nami współpracować?</p>
                                             <p>
-                                                <a>
+                                                <a href="/page/become_partner">
                                                     <strong>Dowiedz się więcej</strong>
-                                                </a> lub
-                                                <a>
-                                                    <strong>zostań organizacją partnerską</strong>
                                                 </a>
+                                                <t t-if="website.user_id == user_id">lub
+                                                <a href="/web/signup">
+                                                    <strong>zostań organizacją partnerską</strong>
+                                                </a></t>
                                             </p>
                                         </div>
                                     </div>

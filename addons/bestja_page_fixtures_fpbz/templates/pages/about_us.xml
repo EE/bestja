@@ -35,8 +35,6 @@
         <record id="about_us_menu" model="website.menu">
             <field name="name">O nas</field>
             <field name="url">/page/about_us</field>
-            <field name="parent_id" ref="website.main_menu"/>
-            <field name="sequence" type="int">21</field>
         </record>
     </data>
 </openerp>

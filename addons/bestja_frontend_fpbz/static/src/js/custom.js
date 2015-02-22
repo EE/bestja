@@ -209,32 +209,62 @@ jQuery(window).ready(function () {
         speed: 300,
         slidesToShow: 1,
         centerMode: true,
-        variableWidth: true
+        variableWidth: true,
+        responsive: [
+            {
+                breakpoint: 767,
+                settings: {
+                    variableWidth: false
+                }
+            }
+        ]
     });
     $('.volunteers_bulletin_slider').slick({
         infinite: true,
         speed: 300,
         slidesToShow: 2,
         centerMode: true,
-        variableWidth: true
+        variableWidth: true,
+        responsive: [
+            {
+                breakpoint: 767,
+                settings: {
+                    variableWidth: false
+                }
+            }
+        ]
     });
     $('.the_tasks_of_volunteer_slider').slick({
         infinite: true,
         speed: 300,
         slidesToShow: 1,
         centerMode: true,
-        variableWidth: true
+        variableWidth: true,
+        responsive: [
+            {
+                breakpoint: 767,
+                settings: {
+                    variableWidth: false
+                }
+            }
+        ]
     });
     $('.the_tasks_of_coordinator_slider').slick({
         infinite: true,
         speed: 300,
         slidesToShow: 1,
         centerMode: true,
-        variableWidth: true
+        variableWidth: true,
+        responsive: [
+            {
+                breakpoint: 767,
+                settings: {
+                    variableWidth: false
+                }
+            }
+        ]
     });
 
-    $('.slick-prev').html('Poprzedni');
-    $('.slick-next').html('Następny');
     /* End of photo slider */
 
 });

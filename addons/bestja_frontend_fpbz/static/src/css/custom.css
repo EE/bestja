@@ -5,6 +5,7 @@
 #wrap, section{
     font-family: 'Open Sans', sans-serif;
     font-size: 20px;
+    overflow-x: hidden;
 }
 
 .open_sans_bold{
@@ -22,6 +23,16 @@ section .container-fluid{
         margin-left: 0;
         margin-right: 0;
     }
+}
+
+a{
+    color: #F29000;
+    text-decoration: none;
+}
+
+a:focus, a:hover{
+    color: #F9A426;
+    text-decoration: none;
 }
 
 h1, .h1{
@@ -438,9 +449,12 @@ text:hover{
 
 /* Snippet: volunteeres pictures */
 .slider_container{
-    width: 1920px;
+    width: 1890px;
     margin-left: auto;
     margin-right: auto;
+    overflow: hidden;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 .carousel_column{
@@ -451,7 +465,7 @@ text:hover{
 
 @media screen and (max-width: 1920px) {
     .slider_container{
-        width: 1170px;
+        width: 1140px;
     }
 
     .carousel_column{
@@ -475,7 +489,7 @@ text:hover{
     }
 
     .carousel_column{
-        width: calc(737px / 2 - 30px);
+        width: calc(737px / 3 - 30px);
     }
 }
 
@@ -485,7 +499,7 @@ text:hover{
     }
 
     .carousel_column{
-        width: 450px;
+        width: calc(450px / 3 - 30px);
     }
 }
 
@@ -495,7 +509,7 @@ text:hover{
     }
 
     .carousel_column{
-        width: 290px;
+        width: calc(290px / 3 - 30px);
     }
 }
 
@@ -570,7 +584,6 @@ text:hover{
 /* Offers snippet */
 .date_of_the_offer, .content_of_the_offer{
     background-color: #F0F0F0;
-    height: 175px;
 }
 
 .offer_where{
@@ -585,20 +598,11 @@ text:hover{
 .offers_the_day{
     font-size: 40px;
     color: #3C4049;
-    margin-top: calc(23% - 40px);
-    margin-bottom: calc(23% - 40px);
 }
 
 .offers_the_month{
     font-size: 16px;
     color: #3C4049;
-    margin-top: calc(23% - 16px);
-    margin-bottom: calc(23% - 16px);
-}
-
-.date_of_the_offer p{
-    margin-top: calc(15% - 26px);
-    margin-bottom: calc(15% - 26px);
 }
 
 .title_of_the_offer a{
@@ -645,13 +649,13 @@ text:hover{
 }
 
 .offer_place:before{
-    background: #F9A426 url('/bestja_frontend_fpbz/static/src/img/content/miejsce-01.svg');
+    background: url('/bestja_frontend_fpbz/static/src/img/content/miejsce-01.svg');
     background-size: 20px 20px;
     background-repeat: no-repeat;
 }
 
 .offer_how_long:before{
-    background: #F9A426 url('/bestja_frontend_fpbz/static/src/img/content/czas-01.svg');
+    background: url('/bestja_frontend_fpbz/static/src/img/content/czas-01.svg');
     background-size: 20px 20px;
     background-repeat: no-repeat;
 
@@ -944,3 +948,14 @@ text:hover{
     color: #3c4049;
 }
 /* End of Slick Slider */
+
+/* Custom settings for offers pages */
+.print_icon:hover{
+    background-image: url('/bestja_frontend_fpbz/static/src/img/content/printer_hover.svg');
+}
+
+.btn_join:hover{
+    background-color: #F9A426;
+}
+
+/* End of custom settings for offers pages */
