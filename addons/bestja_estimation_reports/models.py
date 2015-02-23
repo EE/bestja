@@ -41,7 +41,12 @@ class Project(models.Model):
 class EstimationReportEntry(models.Model):
     _name = 'bestja.estimation_report_entry'
 
-    estimation_report = fields.Many2one('bestja.estimation_report', ondelete='cascade', required=True)
+    estimation_report = fields.Many2one(
+        'bestja.estimation_report',
+        ondelete='cascade',
+        required=True,
+        string="raport szacunkowy",
+    )
     day_in_store = fields.Many2one('bestja_stores.day', required=True, string="dzień")
     day = fields.Date(
         related='day_in_store.date',
@@ -52,6 +57,7 @@ class EstimationReportEntry(models.Model):
         required=True,
         related='day_in_store.store.store',
         store=True,
+        string="sklep",
     )
     store_project = fields.Many2one(
         'bestja.project',
@@ -59,7 +65,7 @@ class EstimationReportEntry(models.Model):
         related='estimation_report.project'
     )
     store_name = fields.Char(
-        string="Nazwa sklepu",
+        string="nazwa sklepu",
         related='day_in_store.store.store.display_name',
         store=True,
     )
@@ -72,19 +78,15 @@ class EstimationReportEntry(models.Model):
         related='store.chain',
         store=True,
     )
-    chain_name = fields.Char(
-        related='chain.name',
-        store=True,
-    )
     organization = fields.Many2one(
         'organization',
-        string="Organizacja",
+        string="organizacja",
         related='estimation_report.organization',
         store=True,
     )
     responsible_organization = fields.Many2one(
         'organization',
-        string="Zainteresowana organizacja",
+        string="organizacja odpowiedzialna",
         store=True,  # Needed by graph view
         related='estimation_report.responsible_organization',
     )
@@ -117,27 +119,27 @@ class EstimationReport(models.Model):
         required=True,
         string="dzień",
     )
-    name = fields.Char(string="Nazwa projektu", related="project.name")
+    name = fields.Char(string="nazwa projektu", related="project.name")
     report_entries = fields.One2many(
-        'bestja.estimation_report_entry', 
-        inverse_name="estimation_report", 
+        'bestja.estimation_report_entry',
+        inverse_name="estimation_report",
         string="sklep"
     )
     state = fields.Selection(STATES, default='draft', string="status")
     organization = fields.Many2one(
         'organization',
-        string="Organizacja",
+        string="organizacja",
         related='project.organization',
     )
     parent_project = fields.Many2one(
         'bestja.project',
-        string="Projekt nadrzędny",
+        string="projekt nadrzędny",
         related='project.parent',
         store=True,
     )
     responsible_organization = fields.Many2one(
         'organization',
-        string="Zainteresowane organizacje",
+        string="organizacja odpowiedzialna",
         compute="_compute_responsible_organization",
         compute_sudo=True,
         store=True,
@@ -145,7 +147,7 @@ class EstimationReport(models.Model):
 
     top_project = fields.Many2one(
         'bestja.project',
-        string="Projekt super nadrzędny",
+        string="projekt super nadrzędny",
         compute_="_compute_top_project",
         store=True,
     )
@@ -191,15 +193,21 @@ class EstimationReport(models.Model):
         """
         For the continue button, adds all stores related to the project and day.
         """
-        domain = [('date', '=', self.date), ('store.project', '=', self.project.id)]
-        for day_in_store in self.env['bestja_stores.day'].search(domain):
-            self.env['bestja.estimation_report_entry'].create({
-                'estimation_report': self.id,
+
+    @api.model
+    def create(self, vals):
+        record = super(EstimationReport, self).create(vals)
+        domain = [('date', '=', record.date), ('store.project', '=', record.project.id)]
+        print domain
+        for day_in_store in record.env['bestja_stores.day'].search(domain):
+            record.env['bestja.estimation_report_entry'].create({
+                'estimation_report': record.id,
                 'day_in_store': day_in_store.id,
                 'tonnage': 0.0,
                 'store': day_in_store.store.id,
                 'store_project': day_in_store.store.project.id,
             })
+        return record
 
     @api.one
     def add_to_summary(self):
@@ -217,5 +225,5 @@ class EstimationReport(models.Model):
     @api.one
     @api.constrains('date', 'project')
     def _check_date_in_project(self):
-        if not self.project.date_start <= self.date <= self.project.date_stop: 
+        if not self.project.date_start <= self.date <= self.project.date_stop:
             raise exceptions.ValidationError("Wybrano dzień poza czasem trwania projektu!")

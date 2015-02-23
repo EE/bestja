@@ -6,7 +6,7 @@
             <field name="model">bestja.estimation_report_entry</field>
             <field name="arch" type="xml">
                 <graph type="pivot">
-                    <field name="responsible_organization"/>
+                    <field name="organization"/>
                     <field name="day" type="col" interval="day"/>
                     <field name="tonnage" type="measure"/>
                 </graph>
@@ -25,13 +25,37 @@
             }</field>
         </record>
 
+        <record model="ir.ui.view" id="estimation_report_entry_resp_org_graph">
+            <field name="name">bestja.estimation_report_entry.graph</field>
+            <field name="model">bestja.estimation_report_entry</field>
+            <field name="arch" type="xml">
+                <graph type="pivot">
+                    <field name="responsible_organization"/>
+                    <field name="day" type="col" interval="day"/>
+                    <field name="tonnage" type="measure"/>
+                </graph>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_estimation_resp_org_summary">
+            <field name="name">Statystyki raportów</field>
+            <field name="res_model">bestja.estimation_report_entry</field>
+            <field name="view_mode">graph</field>
+            <field name="view_id" ref="estimation_report_entry_resp_org_graph"/>
+            <field name="domain">[
+                ('estimation_report.state', '!=', 'draft'),
+            ]</field>
+            <field name="context">{
+                'search_default_accepted': True,
+            }</field>
+        </record>
+
         <record model="ir.ui.view" id="estimation_report_entry_store_graph">
             <field name="name">bestja.estimation_report_entry.graph</field>
             <field name="model">bestja.estimation_report_entry</field>
             <field name="arch" type="xml">
                 <graph type="pivot">
                     <field name="chain"/>
-                    <field name="store"/>
                     <field name="day" type="col" interval="day"/>
                     <field name="tonnage" type="measure"/>
                 </graph>
@@ -61,10 +85,12 @@
                         <t t-name="kanban-box">
                            <div class="oe_kanban_card">
                                <field name="name"/>
+                               <field name="organization_level" invisible="1"/>
                                <br/><br/>
-                               <a name="%(action_estimation_organization_summary)d" type="action">raport po organizacjach</a>
+                               <a name="%(action_estimation_resp_org_summary)d" type="action" t-if="record.organization_level.raw_value == 0">raport po bankach</a>
+                               <a name="%(action_estimation_organization_summary)d" type="action" t-if="record.organization_level.raw_value == 1">raport po organizacjach</a>
                                <br/>
-                               <a name="%(action_estimation_store_summary)d" type="action">raport po sklepach</a>
+                               <a name="%(action_estimation_store_summary)d" type="action">raport po sieciach</a>
                            </div>
                         </t>
                     </templates>
