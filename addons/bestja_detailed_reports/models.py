@@ -60,10 +60,27 @@ class ReportEntry(models.Model):
         store=True,
         related='detailed_report.project.organization',
     )
-
+    total_cities_nr = fields.Integer(
+        string="Całkowita liczba miast",
+        compute="_compute_total_cities_nr",
+        store=True,
+    )
     _sql_constraints = [
         ('report_entries_uniq', 'unique("detailed_report", "commodity")', "Dany element można wybrać tylko raz!")
     ]
+
+    @api.one
+    @api.depends('detailed_report')
+    def _compute_total_cities_nr(self):
+        """
+        Only the first report entry contains the number of cities,
+        so that we can use the statistics view. (And show it along with
+        tonnage in view by partners).
+        """
+        if self.id == self.detailed_report.report_entries[0].id:
+            self.total_cities_nr = self.detailed_report.total_cities_nr
+        else:
+            self.total_cities_nr = 0
 
 
 class DetailedReport(models.Model):
@@ -118,6 +135,11 @@ class DetailedReport(models.Model):
         compute_sudo=True,
         store=True,
     )
+    total_cities_nr = fields.Integer(
+        compute="_compute_total_cities_nr",
+        store=True,
+        string="Całkowita liczba miast",
+    )
     user_can_moderate = fields.Boolean(compute="_compute_user_can_moderate")
 
     @api.one
@@ -169,6 +191,27 @@ class DetailedReport(models.Model):
         date_start = fields.Datetime.from_string(self.project.date_start).strftime("%d-%m-%Y")
         date_stop = fields.Datetime.from_string(self.project.date_stop).strftime("%d-%m-%Y")
         return "{} — {}".format(date_start, date_stop)
+
+    @api.one
+    @api.depends('project', 'report_entries', 'project.organization.level', 'project.children.stores')
+    def _compute_total_cities_nr(self):
+        """
+        Computes number of unique cities where stores
+        are held, both for the organization and all its children.
+        For children of the organization it is set to 0, so that it can
+        be used in the graph view.
+        """
+        project = self.sudo().project
+        level = project.organization.level
+        if level == 1:
+            cities_total = set()
+            for store in project.children.stores:
+                cities_total.add(store.store.city)
+            for store in project.stores:
+                cities_total.add(store.store.city)
+            self.total_cities_nr = len(cities_total)
+        else:
+            self.total_cities_nr = 0
 
     @api.one
     def set_sent(self):
