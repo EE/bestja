@@ -89,5 +89,13 @@
                 </div>
             </div>
         </template>
+        <template id="reset_password_button" inherit_id="auth_signup.reset_password">
+            <div class="clearfix oe_login_buttons" position="replace">
+                <div class="clearfix oe_login_buttons">
+                        <a t-attf-href="/web/login?{{ keep_query() }}" class="btn btn-link pull-right">Back to Login</a>
+                        <button type="submit" class="btn btn-primary pull-left">Zresetuj hasło</button>
+                </div>
+            </div>
+        </template>
     </data>
 </openerp>

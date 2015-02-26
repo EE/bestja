@@ -2,18 +2,19 @@
 footer{
     display: block;
     padding-top: 20px;
-    min-height: 250px;
     background-color: #000000;
     font-family: 'Ubuntu', sans-serif;
-}
-
-.footer_logo_container{
-    width: 100%;
 }
 
 .footer_logo{
     width: 195px;
     height: 130px;
+}
+
+@media (max-width: 767px){
+    .footer_logo{
+        margin: 0 auto;
+    }
 }
 
 .footer_logo a{
@@ -26,11 +27,10 @@ footer{
     height: 100%;
 }
 
-@media screen and (max-width: 767px) {
-    .footer_logo{
-        margin-right: auto;
-        margin-left: auto;
-    }
+address p{
+    color: #767676;
+    font-size: 14px;
+    padding-bottom: 2.5px;
 }
 
 .design_by, .copyrights{
@@ -39,15 +39,35 @@ footer{
     color: #767676;
 }
 
-@media screen and (max-width: 991px) {
-    footer .container-fluid{
-        padding-left: 0;
-        padding-right: 0;
+.footer_icons{
+    padding-left: 0;
+}
+
+.footer_icons > div{
+    height: 60px;
+    line-height: 40px;
+}
+
+@media screen and (max-width: 991px){
+    .footer_icons > div{
+        margin-top: 32px;
+    }
+
+    .mail_icon{
+        margin-left: 8px;
     }
 }
 
-.footer_icons ul, .footer_icons_narrower ul{
-    padding-left: 0;
+@media screen and (max-width: 767px){
+    .footer_icons > div{
+        margin-top: 0;
+        margin-left: calc(50% - 105px);
+        height: 40px;
+    }
+
+    .mail_icon{
+        margin-left: 0;
+    }
 }
 
 .footer_icons li{
@@ -57,49 +77,46 @@ footer{
     height: 60px;
 }
 
-.footer_icons_narrower li{
-    list-style: none;
-    line-height: 40px;
-    padding-bottom: 20px;
-    height: 40px;
-    margin-left: calc(50% - 97.5px);
-}
-
-.footer_icons img, .footer_icons_narrower img{
+.footer_icons img{
     width: 25px;
     margin-right: 20px;
 }
 
-.footer_info_pages, .footer_address{
-    padding-left: 0;
-}
-
-.footer_info_pages li{
+.footer_info_pages p{
     color: #FC8F06;
-    list-style: none;
-    padding-bottom: 12px;
+    font-size: 14px;
+    padding-bottom: 2.5px;
 }
 
-.footer_info_pages_narrower{
-    padding-left: 0;
+@media (max-width: 767px){
+    .footer_info_pages{
+        padding-top: 32px;
+        padding-bottom: 32px;
+    }
+
+    .footer_info_pages p{
+        margin-left: calc(50% - 32.5px);
+        padding-bottom: 0;
+        margin-bottom: 2px;
+    }
+
+    .copyrights, .design_by{
+        margin-left: calc(50% - 97.5px);
+    }
 }
 
-.footer_info_pages_narrower li{
-    color: #FC8F06;
-    list-style: none;
-    padding-bottom: 8px;
-    margin-left: calc(50% - 32.5px);
+/* As response to  ----- BOOTSTRAP FIX -----  in /website/static/src/css/website.css
+In footer there is need for column as in original bootstrap */
+.fixed-col-md-12{
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
 }
 
-.footer_address li{
-    color: #767676;
-    list-style: none;
-    padding-bottom: 12px;
-}
-
-.footer_icons_narrower .design_by_container,
-.footer_icons_narrower .copyrights_container{
-    height: 20px;
+@media (min-width: 992px){
+    .fixed-col-md-12{
+        width: 100%;
+    }
 }
 /* End of footer */
-

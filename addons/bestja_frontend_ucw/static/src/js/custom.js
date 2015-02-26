@@ -20,15 +20,10 @@ jQuery(window).ready(function () {
         });
     });
 
-    setInterval(function () {
-        $("#down_arrow_scroll").animate({'margin-bottom': '-10px'}, 1000);
-        $("#down_arrow_scroll").animate({'margin-bottom': '10px'}, 1000);
-    }, 1400);
-
     /* Smooth scrolling */
 
     $(function () {
-        $('a[href*=#]:not([href=#])').click(function () {
+        $('a[href*=#]:not([href=#]):not([href=#carousel-example-generic])').click(function () {
             $('html,body').stop();
             if (location.pathname.replace(/^\//, '') === this.pathname.replace(/^\//, '') && location.hostname === this.hostname) {
                 var target = $(this.hash);
@@ -86,12 +81,12 @@ jQuery(window).ready(function () {
     }
     /* End of mobile viewport, tel added */
 
-    /* Same height recrutation steps columns */
-    var sameHeightBlocks = $('.category_column');
-    var maxHeight = Math.max.apply(
-            Math, sameHeightBlocks.map(function () {
-                return $(this).height();
-            }).get());
-    sameHeightBlocks.height(maxHeight);
-    /* End of same height recrutation steps columns */
+    $('#partners_friends a[href="#partners"]').click(function(e){
+        e.preventDefault();
+        $('#partners_friends a[href="#partners"]').tab('show');
+    });
+    $('#partners_friends a[href="#friends"]').click(function(e){
+        e.preventDefault();
+        $('#partners_friends a[href="#friends"]').tab('show');
+    });
 });

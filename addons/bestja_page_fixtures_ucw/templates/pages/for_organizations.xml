@@ -5,7 +5,7 @@
             <t t-call="website.layout">
                 <div id="wrap" class="oe_structure oe_empty">
                     <section class="oe_snippet_body for_organizations_first_section">
-                        <div class="container-fluid mb48">
+                        <div class="container mb48">
                             <div class="container">
                                 <div class="row">
                                     <div class="col-md-6 col-md-offset-6 col-sm-12">
@@ -22,9 +22,7 @@
                                             in, placerat sit sociis a penatibus, odio
                                             dis? Est, turpis urna, risus, sit magna dolor?
                                             Nunc nec a tristigue eu, in egestas.</p>
-                                        <form t-if="website.user_id == user_id" action="/web/signup">
-                                            <button class="btn btn-lg text-center mt32 button_orange" type="submit">DOŁĄCZ TERAZ</button>
-                                        </form>
+                                        <a class="btn btn-lg mt32 text-center link_like_button_more_contrast" t-if="website.user_id == user_id" href="/web/signup">DOŁĄCZ TERAZ</a>
                                         <p class="mb32"></p>
                                     </div>
                                 </div>
@@ -32,7 +30,7 @@
                         </div>
                     </section>
                     <section class="oe_snippet_body">
-                        <div class="container-fluid">
+                        <div class="container">
                             <div class="row">
                                 <div class="col-md-12">
                                     <h1 class="text-center mt48 mb48 section_title">
@@ -46,11 +44,11 @@
                             <div class="row">
                                 <div class="col-md-8 col-sm-12">
                                     <div class="quote_picture_on_right">
-                                        <h2>
+                                        <p class="citation">
                                             <em>"Robię to dla samej siebie. Zdobywam doświadczenie,
                                                 które będę mogła wykorzystać pracując zawodowo."</em>
-                                        </h2>
-                                        <p>Ola, koordynator projektów miejskich</p>
+                                        </p>
+                                        <p class="signature">Ola, koordynator projektów miejskich</p>
                                     </div>
                                 </div>
                                 <div class="col-md-3 hidden-xs hidden-sm">
@@ -63,21 +61,19 @@
                         <div class="container">
                             <div class="row text-center mt32 mb128">
                                 <div class="col-md-12">
-                                    <form t-if="website.user_id == user_id" action="/web/signup">
-                                        <button class="btn btn-lg text-center mt32 mb32 button_orange" type="submit">DOŁĄCZ TERAZ</button>
-                                    </form>
+                                    <a class="btn btn-lg mt32 mb32 text-center link_like_button" t-if="website.user_id == user_id" href="/web/signup">DOŁĄCZ TERAZ</a>
                                 </div>
                             </div>
                         </div>
                     </section>
-                    <section class="oe_snippet_body grey_section mb16">
-                        <div class="container-fluid">
+                    <section class="oe_snippet_body benefits mb16">
+                        <div class="container">
                             <div class="row">
                                 <div class="col-md-12">
                                     <h1 class="text-center mt48 mb48 section_title">
                                         Co otrzymujesz jako partner UCW</h1>
                                 </div>
-                                <div class="container-fluid">
+                                <div class="container">
                                     <div class="row">
                                         <div class="col-md-5 col-md-offset-1 mb16 checklist">
                                             <ul>
@@ -109,15 +105,13 @@
                         <div class="container">
                             <div class="row text-center mt32 mb16">
                                 <div class="col-md-12">
-                                    <form t-if="website.user_id == user_id" action="/web/signup">
-                                        <button class="btn btn-lg text-center mt32 mb32 button_orange" type="submit">DOŁĄCZ TERAZ</button>
-                                    </form>
+                                    <a class="btn btn-lg mt32 mb32 text-center link_like_button" t-if="website.user_id == user_id" href="/web/signup">DOŁĄCZ TERAZ</a>
                                 </div>
                             </div>
                         </div>
                     </section>
                     <section class="oe_snippet_body step_of_registration_section">
-                        <div class="container-fluid">
+                        <div class="container">
                             <div class="row">
                                 <div class="col-md-12">
                                     <h1 class="text-center mt48 mb48 section_title">
@@ -155,7 +149,7 @@
                         </div>
                     </section>
                     <section class="oe_snippet_body mt64">
-                        <div class="container-fluid">
+                        <div class="container">
                             <div class="row">
                                 <div class="col-md-12">
                                     <h1 class="text-center mt48 mb48 section_title">
@@ -170,11 +164,11 @@
                             <div class="row">
                                 <div class="col-md-8 col-sm-12">
                                     <div class="quote_picture_on_right">
-                                        <h2>
+                                        <p class="citation">
                                             <em>"Robię to dla samej siebie. Zdobywam doświadczenie,
                                                 które będę mogła wykorzystać pracując zawodowo."</em>
-                                        </h2>
-                                        <p>Ola, koordynator projektów miejskich</p>
+                                        </p>
+                                        <p class="signature">Ola, koordynator projektów miejskich</p>
                                     </div>
                                 </div>
                                 <div class="col-md-3 hidden-xs hidden-sm">
@@ -183,15 +177,15 @@
                             </div>
                         </div>
                     </section>
-                    <section class="oe_snippet_body grey_section mt128">
-                        <div class="container-fluid">
+                    <section class="oe_snippet_body benefits mt128">
+                        <div class="container">
                             <div class="row">
                                 <div class="col-md-12">
                                     <h1 class="text-center mt48 mb48 section_title">
                                         Co zyskasz korzystając z aplikacji<br />
                                         do zarządzania wolontariatem</h1>
                                 </div>
-                                <div class="container-fluid what_partner_receives">
+                                <div class="container what_partner_receives">
                                     <div class="row">
                                         <div class="col-md-5 col-md-offset-1 mb16 checklist">
                                             <ul>
@@ -233,27 +227,25 @@
                                 <div class="col-md-12">
                                     <h1 class="mt48 mb48 section_title">
                                         Kto może korzystać z pomocy wolontariuszy</h1>
-                                    <h3>Hac, odio aliquet est! Montes duis lectus pellentesque in, placerat sit sociis a penatibus,
+                                    <p>Hac, odio aliquet est! Montes duis lectus pellentesque in, placerat sit sociis a penatibus,
                                         odio dis? Est, turpis urna, risus, sit magna dolor? Nunc nec a tristique eu, in egestas, nascetur
                                         sociis integer dolor non integer risus auctor odio ut turpis turpis, aenean platea
                                         porttitor, et ac non. Ridiculus, tincidunt porttitor massa? Adipiscing nisi? Porta purus.
                                         Dolor! Amet! Risus etiam, eu mattis lundium in velit, et, tristique adipiscing, vel et mauris
-                                        nisi? Cras et magna, dolor. Cum.</h3>
-                                    <h3>Aenean quis. Nec, turpis porttitor nec! Magnis. In elementum cursus. Vut, tincidunt, penatibus,
+                                        nisi? Cras et magna, dolor. Cum.</p>
+                                    <p>Aenean quis. Nec, turpis porttitor nec! Magnis. In elementum cursus. Vut, tincidunt, penatibus,
                                         egestas risus porta diam! Platea, dolor et vut augue aliquam odio integer purus eu, a,
                                         est ac, sit pellentesque habitasse ac, sed placerat lectus etiam? Nunc massa porta enim.
                                         Lundium lundium dis. Nisi urna purus! Lorem turpis scelerisque porttitor turpis enim!
                                         Nascetur! Adipiscing nascetur, vel, augue dignissim duis amet nisi lundium adipiscing nunc
-                                        rhoncus porta purus pulvinar ultricies mauris tristique magna, lacus eros.</h3>
+                                        rhoncus porta purus pulvinar ultricies mauris tristique magna, lacus eros.</p>
                                 </div>
                             </div>
                         </div>
                         <div class="container">
                             <div class="row mt32 mb128">
                                 <div class="col-md-12 text-center">
-                                    <form t-if="website.user_id == user_id" action="/web/signup">
-                                        <button class="btn btn-lg text-center mt32 button_orange" type="submit">DOŁĄCZ TERAZ</button>
-                                    </form>
+                                    <a class="btn btn-lg mt32 text-center link_like_button" t-if="website.user_id == user_id" href="/web/signup">DOŁĄCZ TERAZ</a>
                                 </div>
                             </div>
                         </div>

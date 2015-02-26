@@ -5,7 +5,7 @@
             <t t-call="website.layout">
                 <div id="wrap" class="oe_structure oe_empty">
                     <section class="oe_snippet_body first_section_about_us">
-                        <div class="container-fluid">
+                        <div class="container">
                             <div class="container">
                                 <div class="row">
                                     <div class="col-md-6 col-sm-12">
@@ -15,21 +15,19 @@
                                         </h1>
                                         <p class="mb64">Uniwersyteckie Centrum Wolontariatu
                                             rozpoczęto swoją działalność w Listopadzie
-                                            2013 roku.Początkowo działało jako projekt
+                                            2013 roku. Początkowo działało jako projekt
                                             Uniwersytetu Otwartego Uniwersytetu
                                             Warszawskiego. 19 lutego 2014 roku, na mocy
-                                            <a href="http://www.monitor.uw.edu.pl/Lists/Uchway/Attachments/567/M.2014.46.Zarz.9.pdf" 
+                                            <a class="link_more_contrast" href="http://www.monitor.uw.edu.pl/Lists/Uchway/Attachments/567/M.2014.46.Zarz.9.pdf"
                                                target="_blank">Zarządzenia Rektora UW</a> stało się
-                                            ogólnouczelnianą jednostką organizacyjną.</p>                                        
+                                            ogólnouczelnianą jednostką organizacyjną.</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="container">
                             <div class="row mt32 mb16">
                                 <div class="col-md-6">
-                                    <form action="/page/team">
-                                        <button class="btn btn-lg mt32 mb32 button_more_contrast" type="submit">ZESPÓŁ</button>
-                                    </form>
+                                    <a class="btn btn-lg mt32 mb32 text-center link_like_button_more_contrast" href="/page/team">ZESPÓŁ</a>
                                 </div>
                             </div>
                         </div>
@@ -44,36 +42,36 @@
                                 </div>
                             </div>
                         </div>
-                    </section>                    
+                    </section>
                     <section class="oe_snippet_body">
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-9">
-                                    <h3 class="mb48">
+                                    <p class="mb48">
                                         Celem Uniwersyteckiego Centrum Wolontariatu jest aktywizacja do działania
                                         społeczności akademickiej oraz wszystkich osób, które chcą kształtować
-                                        w sobie świadome i odpowiedzialne postawy społeczne oraz obywatelskie.</h3>
-                                    <h3 class="mt32 mb32">Od wielu lat na Uniwersytecie Warszawskim działają liczne projekty
+                                        w sobie świadome i odpowiedzialne postawy społeczne oraz obywatelskie.</p>
+                                    <p class="mt32 mb32">Od wielu lat na Uniwersytecie Warszawskim działają liczne projekty
                                         wolontariackie. Uniwersyteckie Centrum Wolontariatu powstało, aby
-                                        je wspierać i umożliwiać im efektywną współpracę.</h3>
-                                    <h3 class="mt32 mb32">Jednym z głównych zadań Centrum jest pośrednictwo pomiędzy
+                                        je wspierać i umożliwiać im efektywną współpracę.</p>
+                                    <p class="mt32 mb32">Jednym z głównych zadań Centrum jest pośrednictwo pomiędzy
                                         wolontariuszami, a organizacjami i instytucjami zewnętrznymi, które
                                         potrzebują ich wsparcia. W planach są również szkolenia i warsztaty dla
                                         wolontariuszy, które umożliwią im doskonalenie swoich umiejętności
-                                        i rozwijanie horyzontów.</h3>
+                                        i rozwijanie horyzontów.</p>
                                 </div>
                             </div>
                         </div>
-                    </section>                    
+                    </section>
                     <section class="oe_snippet_body simple_quote">
-                        <div class="container-fluid">
+                        <div class="container">
                             <div class="container">
                                 <div class="row">
                                     <div class="col-md-9">
-                                        <h3 class="mt48 mb48">
+                                        <p class="mt48 mb48">
                                             <em>"Uniwersyteckie Centrum Wolontariatu dąży do zerwania ze stereotypem,<br />
                                                 że wolontariat to praca, w której wykorzystuje się „darmową siłę roboczą”.</em>
-                                        </h3>
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -88,22 +86,22 @@
                                 </div>
                             </div>
                         </div>
-                    </section>                    
+                    </section>
                     <section class="oe_snippet_body">
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-9">
-                                    <h3 class="mb48">
+                                    <p class="mb48">
                                         Istnieje diametralna różnica pomiędzy stażem oraz praktykami zawodowymi
                                         a wolontariatem. Doświadczenie zdobyte dzięki bezinteresownemu
                                         zaangażowaniu pomaga rozwijać się zawodowo oraz jest atrakcyjnym punktem
-                                        w CV, jednak nie to jest jego nadrzędnym celem.</h3>
-                                    <h3 class="mt32 mb32">Wolontariat to działanie podejmowane poza życiem zawodowym czy
+                                        w CV, jednak nie to jest jego nadrzędnym celem.</p>
+                                    <p class="mt32 mb32">Wolontariat to działanie podejmowane poza życiem zawodowym czy
                                         uczelnianym - to możliwość aktywnego i realnego wpływania na otoczenie,
-                                        a przy tym wzmacniania kompetencji społecznych.</h3>
-                                    <h3 class="mt32 mb32">Pozwala poznać nowe osoby, podążające podobną ścieżką. Dlatego wierzymy,
-                                        że angażując się w wolontariat, nie tylko dbamy o tych, którzy pomocy potrzebują, 
-                                        ale również o siebie samych!</h3>
+                                        a przy tym wzmacniania kompetencji społecznych.</p>
+                                    <p class="mt32 mb32">Pozwala poznać nowe osoby, podążające podobną ścieżką. Dlatego wierzymy,
+                                        że angażując się w wolontariat, nie tylko dbamy o tych, którzy pomocy potrzebują,
+                                        ale również o siebie samych!</p>
                                 </div>
                             </div>
                         </div>
@@ -111,17 +109,17 @@
                     <section class="oe_snippet_body">
                         <div class="container">
                             <div class="row">
-                                <div id="rootwizard" class="col-md-12">
-                                    <ul class="nav nav-pills nav-justified text-center">
-                                        <li class="active">
-                                            <a href="#tab1" data-toggle="tab">Nasi Partnerzy</a>
+                                <div id="partners_friends" class="col-md-12" role="tabpanel">
+                                    <ul class="nav nav-pills nav-justified text-center" role="tablist">
+                                        <li class="active" role="presentation">
+                                            <a href="#partners" data-toggle="tab" aria-controls="partners" role="tab">Nasi Partnerzy</a>
                                         </li>
-                                        <li>
-                                            <a href="#tab2" data-toggle="tab">Rada przyjaciół Wolontariatu</a>
+                                        <li role="presentation">
+                                            <a href="#friends" data-toggle="tab" aria-controls="friends" role="tab">Rada przyjaciół Wolontariatu</a>
                                         </li>
                                     </ul>
-                                    <div class="tab-content">
-                                        <div class="tab-pane active" id="tab1">
+                                    <div class="tab-content" role="tab-content">
+                                        <div class="tab-pane fade in active" id="partners" role="tabpanel">
                                             <div class="row">
                                                 <div class="col-md-4 col-sm-6 text-center">
                                                     <img class="mt16 mb16" src="http://wolontariat.uw.edu.pl/wp-content/uploads/2014/09/uo-300x591.jpeg"/>
@@ -139,11 +137,10 @@
                                                     <img class="mt16 mb16" src="http://wolontariat.uw.edu.pl/wp-content/uploads/2014/09/frse-300x1021.jpeg"/>
                                                     <img class="mt16 mb16" src="http://wolontariat.uw.edu.pl/wp-content/uploads/2014/09/centrum.wolontariatu2.jpeg"/>
                                                     <img class="mt16 mb16" src="http://wolontariat.uw.edu.pl/wp-content/uploads/2014/09/muzeum_powstania_warszawskiego-logo-300x2251.jpg"/>
-                                                    <img class="mt16 mb16" src="http://lorempixel.com/g/200/100"/>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="tab-pane" id="tab2">
+                                        <div class="tab-pane fade" id="friends" role="tabpanel">
                                             <div class="container">
                                                 <div class="row">
                                                     <div class="col-md-12">

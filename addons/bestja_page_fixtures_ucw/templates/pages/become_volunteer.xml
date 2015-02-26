@@ -5,7 +5,7 @@
             <t t-call="website.layout">
                 <div id="wrap" class="oe_structure oe_empty">
                     <section class="oe_snippet_body become_volunteer_first_section">
-                        <div class="container-fluid mb48">
+                        <div class="container mb48">
                             <div class="container">
                                 <div class="row">
                                     <div class="col-md-6 col-md-offset-6 col-sm-12">
@@ -17,16 +17,14 @@
                                             i niesienia pomocy, a także odpowiedzialność
                                             i konsekwencja w podejmowaniu oraz realizacji
                                             zadań.</p>
-                                        <form action="/offers/category/">
-                                            <button class="btn btn-lg text-center mt32 mb32 button_orange" type="submit">ZOBACZ OFERTY</button>
-                                        </form>
+                                        <a class="btn btn-lg mt32 mb32 text-center link_like_button_more_contrast" href="/offers/category/">ZOBACZ OFERTY</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </section>
                     <section class="oe_snippet_body">
-                        <div class="container-fluid">
+                        <div class="container">
                             <div class="row">
                                 <div class="col-md-12">
                                     <h1 class="text-center mt48 mb48 section_title">
@@ -41,11 +39,11 @@
                             <div class="row">
                                 <div class="col-md-8 col-sm-12">
                                     <div class="quote_picture_on_right">
-                                        <h2>
+                                        <p class="citation">
                                             <em>"Robię to dla samej siebie. Zdobywam doświadczenie,
                                                 które będę mogła wykorzystać pracując zawodowo."</em>
-                                        </h2>
-                                        <p>Ola, koordynator projektów miejskich</p>
+                                        </p>
+                                        <p class="signature">Ola, koordynator projektów miejskich</p>
                                     </div>
                                 </div>
                                 <div class="col-md-3 hidden-xs hidden-sm">
@@ -56,16 +54,14 @@
                         <div class="container mt64">
                             <div class="row text-center">
                                 <div class="col-md-12">
-                                    <form action="/offers/category/">
-                                        <button class="btn btn-lg text-center mt32 mb32 button_orange" type="submit">ZOBACZ OFERTY</button>
-                                    </form>
+                                    <a class="btn btn-lg mt32 mb32 text-center link_like_button" href="/offers/category/">ZOBACZ OFERTY</a>
                                 </div>
                             </div>
                         </div>
                     </section>
 
                     <section class="oe_snippet_body who_can_be_volunteer mb92">
-                        <div class="container-fluid">
+                        <div class="container">
                             <div class="row">
                                 <div class="col-md-12">
                                     <h1 class="text-center mt48 mb48 section_title">
@@ -104,15 +100,13 @@
                         <div class="container">
                             <div class="row text-center mb32">
                                 <div class="col-md-12">
-                                    <form action="/offers/category/">
-                                        <button class="btn btn-lg text-center mt32 mb32 button_more_contrast" type="submit">ZOBACZ OFERTY</button>
-                                    </form>
+                                    <a class="btn btn-lg mt32 mb32 text-center link_like_button_more_contrast" href="/offers/category/">ZOBACZ OFERTY</a>
                                 </div>
                             </div>
                         </div>
                     </section>
                     <section class="oe_snippet_body mb92">
-                        <div class="container-fluid">
+                        <div class="container">
                             <div class="row">
                                 <div class="col-md-8 col-md-offset-2">
                                     <ul class="like_write">
@@ -122,7 +116,7 @@
                                             </span>
                                             <h1 class="mt48 mb16 section_title">
                                                 Polub nas</h1></a>
-                                            <h2>Bądź na bieżąco! Śledź nas na Facebooku, aby nie przegapić naszych akcji.</h2>
+                                            <p>Bądź na bieżąco! Śledź nas na Facebooku, aby nie przegapić naszych akcji.</p>
                                         </li>
                                         <li class="mb64">
                                             <a t-attf-href="mailto:{{ res_company.email }}"><span>
@@ -130,7 +124,7 @@
                                             </span>
                                             <h1 class="mt48 mb16 section_title">
                                                 Napisz do nas</h1></a>
-                                            <h2>Zawsze chętnie odpowiemy na Twoje pytania i wątpliwości związane z wolontariatem!</h2>
+                                            <p>Zawsze chętnie odpowiemy na Twoje pytania i wątpliwości związane z wolontariatem!</p>
                                         </li>
                                     </ul>
                                 </div>
@@ -138,7 +132,7 @@
                         </div>
                     </section>
                     <section class="oe_snippet_body mb92 become_volunteer_qualifications_section">
-                        <div class="container-fluid mb48">
+                        <div class="container mb48">
                             <div class="container">
                                 <div class="row">
                                     <div class="col-md-6 col-sm-12">
@@ -155,9 +149,7 @@
                                         <p>Jeżeli będziesz zainteresowany
                                             konkretnym ogłoszeniem skontaktujemy
                                             Cię z koordynatorami wybranej organizacji.</p>
-                                        <form t-if="website.user_id == user_id" action="/web/signup">
-                                            <button class="btn btn-lg mt32 button_orange" type="submit">DOŁĄCZ TERAZ</button>
-                                        </form>
+                                        <a class="btn btn-lg mt32 text-center link_like_button_more_contrast" t-if="website.user_id == user_id" href="/web/signup">DOŁĄCZ TERAZ</a>
                                         <p class="mb32"></p>
                                     </div>
                                 </div>
@@ -165,7 +157,7 @@
                         </div>
                     </section>
                     <section class="oe_snippet_body mt32">
-                        <div class="container-fluid">
+                        <div class="container">
                             <div class="row">
                                 <div class="col-md-12">
                                     <h1 class="text-center mt48 mb48 section_title">
@@ -183,14 +175,14 @@
                                 </div>
                                 <div class="col-md-8 col-sm-12">
                                     <div class="quote_picture_on_left">
-                                        <h2>
+                                        <p class="citation">
                                             <em>"UCW pozwala mi i moim znajomym pomagać
                                                 innym. Mogę szukać ciekawych możliwości
                                                 w okolicy. Wolontariat pomaga mi rozwijać się,
                                                 uczyć nowych umiejętności i poznawać nowych
                                                 ludzi."</em>
-                                        </h2>
-                                        <p>
+                                        </p>
+                                        <p class="signature">
                                             <em>
                                                 <strong>Łukasz</strong>, Warszawa</em>
                                         </p>
@@ -201,9 +193,7 @@
                         <div class="container mt64">
                             <div class="row text-center">
                                 <div class="col-md-12">
-                                    <form action="/offers/category/">
-                                        <button class="btn btn-lg text-center mt32 mb32 button_orange" type="submit">ZOBACZ OFERTY</button>
-                                    </form>
+                                    <a class="btn btn-lg mt32 mb32 text-center link_like_button" href="/offers/category/">ZOBACZ OFERTY</a>
                                 </div>
                             </div>
                         </div>
@@ -214,10 +204,10 @@
                                 <div class="col-md-12 text-center law_aspects">
                                     <h1 class="text-center mt48 mb48 section_title">
                                         Aspekty prawne współpracy</h1>
-                                    <h3 class="text-center mb64">Czy wiesz, co powinna zapewnić organizacja korzystająca z pomocy wolontaryjnej?
+                                    <p class="text-center mb64">Czy wiesz, co powinna zapewnić organizacja korzystająca z pomocy wolontaryjnej?
                                         Zanim podejmiesz współpracę, sprwadź, jakie są
                                         <a href="/page/for_volunteers">prawa i obowiązki wolontariusza</a>,
-                                        których przeganie gwarantujemy</h3>
+                                        których przeganie gwarantujemy</p>
                                 </div>
                             </div>
                         </div>
@@ -228,23 +218,21 @@
                                 <div class="col-md-12 text-center">
                                     <h1 class="text-center mt48 mb48 section_title">
                                         Informacje o wolontariacie w sieci</h1>
-                                    <h3 class="text-center mb16"><a href="http://wolontariat.ngo.pl/">http://wolontariat.ngo.pl</a></h3>
-                                    <h3 class="text-center mb16"><a href="http://www.e-wolontariat.pl/">http://www.e-wolontariat.pl</a></h3>
-                                    <h3 class="text-center mb16"><a href="http://www.projektor.org.pl/">http://www.projektor.org.pl</a></h3>
-                                    <h3 class="text-center mb16"><a href="http://www.mlodziez.org.pl/">http://www.mlodziez.org.pl</a></h3>
-                                    <h3 class="text-center mb16"><a href="http://wolontariat.org.pl/">http://wolontariat.org.pl</a></h3>
+                                    <p class="text-center mb16"><a href="http://wolontariat.ngo.pl/">http://wolontariat.ngo.pl</a></p>
+                                    <p class="text-center mb16"><a href="http://www.e-wolontariat.pl/">http://www.e-wolontariat.pl</a></p>
+                                    <p class="text-center mb16"><a href="http://www.projektor.org.pl/">http://www.projektor.org.pl</a></p>
+                                    <p class="text-center mb16"><a href="http://www.mlodziez.org.pl/">http://www.mlodziez.org.pl</a></p>
+                                    <p class="text-center mb16"><a href="http://wolontariat.org.pl/">http://wolontariat.org.pl</a></p>
                                 </div>
                             </div>
                         </div>
                     </section>
                     <section t-if="website.user_id == user_id" class="oe_snippet_body become_volunteer_join_us_section">
-                        <div class="container-fluid">
+                        <div class="container">
                             <div class="container mt128 mb128">
                             <div class="row text-center mt64 mb64">
                                 <div class="col-md-12">
-                                    <form action="/web/signup">
-                                            <button class="btn btn-lg button_orange" type="submit">DOŁĄCZ TERAZ</button>
-                                    </form>
+                                    <a class="btn btn-lg mt32 text-center link_like_button_more_contrast" href="/web/signup">DOŁĄCZ TERAZ</a>
                                 </div>
                             </div>
                         </div>

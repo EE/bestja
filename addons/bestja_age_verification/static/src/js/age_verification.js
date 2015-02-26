@@ -6,14 +6,13 @@ var AgeVerification = {
         if(AgeVerification.is_form_readonly()) return;
 
         AgeVerification.min_age = +$('.field-birthdate').data('min-age');
-        AgeVerification.block_submit(true);
         $('.field-birthdate input').keyup(AgeVerification.go_next);
         $('.field-birthdate input').keyup(AgeVerification.verify);
     },
 
     verify: function(event) {
         var day = $('#birthdate_day').val();
-        var month = $('#birthdate_month').val()
+        var month = $('#birthdate_month').val();
         var year = $('#birthdate_year').val();
 
         if(+day && +month && +year && year.length == 4) {
@@ -30,7 +29,6 @@ var AgeVerification = {
             }
         } else {
             // Not filled out properly yet
-            AgeVerification.block_submit(true);
             AgeVerification.show_error(false);
         }
     },
@@ -68,7 +66,7 @@ var AgeVerification = {
 
     show_error: function(show) {
         /* show / hide form error */
-        var $field = $('.field-birthdate')
+        var $field = $('.field-birthdate');
         if(show) {
             $field.addClass('has-error');
         } else {

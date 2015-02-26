@@ -306,7 +306,7 @@ svg.polaroid rect {
 
 /* Wrapper and figures */
 
-/* The size of this wrapper can be smaller if the items should not be scattered across the whole container */ 
+/* The size of this wrapper can be smaller if the items should not be scattered across the whole container */
 .photostack > div {
 	width: 100%;
 	height: 100%;
@@ -363,6 +363,7 @@ svg.polaroid rect {
 
 .photostack-back p {
 	margin: 0;
+        font-size: 22px;
 }
 
 .photostack-back p span {
@@ -384,7 +385,7 @@ svg.polaroid rect {
 .photostack-start nav {
 	opacity: 0;
 }
- 
+
 .photostack nav span {
 	position: relative;
 	display: inline-block;
@@ -577,4 +578,9 @@ figure.photostack-current::after {
 .no-js .photostack figure:nth-child(3n-2) {
 	-webkit-transform: translateY(10%) rotate(-3deg);
 	transform: translateY(10%) rotate(-3deg);
+}
+
+.photostack-title{
+    margin-top: 15px;
+    font-size: 16px;
 }

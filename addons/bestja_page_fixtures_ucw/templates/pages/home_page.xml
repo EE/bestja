@@ -8,7 +8,7 @@
                     <section>
                         <div class="container-fluid">
                             <div class="row">
-                                <div class="col-md-12 hidden-xs carousel_container">
+                                <div class="col-md-12 carousel_container">
                                     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                                         <!-- Indicators -->
                                         <ol class="carousel-indicators">
@@ -23,58 +23,88 @@
                                         <!-- Wrapper for slides -->
                                         <div class="carousel-inner oe_snippet_body" role="listbox">
                                             <div class="item active" style="background: url('http://lorempixel.com/g/1920/1080') 50% 0% no-repeat;">
-                                                <div class="carousel-caption">
-                                                    Zimowa wałówka! Zbiórka karmy na UW!
-                                                </div>
-                                                <div class="carousel_title">
-                                                    <h1>
-                                                        Use your professional skills <br />
-                                                        to make a difference1
-                                                    </h1>
-                                                </div>
-                                            </div>
-                                            <div class="item" style="background: url('http://lorempixel.com/g/1920/1080') 50% 0% no-repeat;">
-                                                <div class="carousel-caption">
-                                                    Zimowa wałówka! Zbiórka karmy na UW!
-                                                </div>
-                                                <div class="carousel_title">
-                                                    <h1>
-                                                        Use your professional skills <br />
-                                                        to make a difference2
-                                                    </h1>
+                                                <div class="container">
+                                                    <div class="row content">
+                                                        <div class="carousel-content">
+                                                            <div class="carousel-caption">
+                                                                Zimowa wałówka! Zbiórka karmy na UW!
+                                                            </div>
+                                                            <div class="carousel_title">
+                                                                <h1>
+                                                                    Use your professional skills <br />
+                                                                    to make a difference1
+                                                                </h1>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="item" style="background: url('http://lorempixel.com/g/1920/1080') 50% 0% no-repeat;">
-                                                <div class="carousel-caption">
-                                                    Zimowa wałówka! Zbiórka karmy na UW!
-                                                </div>
-                                                <div class="carousel_title">
-                                                    <h1>
-                                                        Use your professional skills <br />
-                                                        to make a difference3
-                                                    </h1>
-                                                </div>
-                                            </div>
-                                            <div class="item" style="background: url('http://lorempixel.com/g/1920/1080') 50% 0% no-repeat;">
-                                                <div class="carousel-caption">
-                                                    Zimowa wałówka! Zbiórka karmy na UW!
-                                                </div>
-                                                <div class="carousel_title">
-                                                    <h1>
-                                                        Use your professional skills <br />
-                                                        to make a difference4
-                                                    </h1>
+                                                <div class="container">
+                                                    <div class="row content">
+                                                        <div class="carousel-content">
+                                                            <div class="carousel-caption">
+                                                                Zimowa wałówka! Zbiórka karmy na UW!
+                                                            </div>
+                                                            <div class="carousel_title">
+                                                                <h1>
+                                                                    Use your professional skills <br />
+                                                                    to make a difference2
+                                                                </h1>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="item" style="background: url('http://lorempixel.com/g/1920/1080') 50% 0% no-repeat;">
-                                                <div class="carousel-caption">
-                                                    Zimowa wałówka! Zbiórka karmy na UW!
+                                                <div class="container">
+                                                    <div class="row content">
+                                                        <div class="carousel-content">
+                                                            <div class="carousel-caption">
+                                                                Zimowa wałówka! Zbiórka karmy na UW!
+                                                            </div>
+                                                            <div class="carousel_title">
+                                                                <h1>
+                                                                    Use your professional skills <br />
+                                                                    to make a difference3
+                                                                </h1>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                <div class="carousel_title">
-                                                    <h1>
-                                                        Use your professional skills <br />
-                                                        to make a difference5
-                                                    </h1>
+                                            </div>
+                                            <div class="item" style="background: url('http://lorempixel.com/g/1920/1080') 50% 0% no-repeat;">
+                                                <div class="container">
+                                                    <div class="row content">
+                                                        <div class="carousel-content">
+                                                            <div class="carousel-caption">
+                                                                Zimowa wałówka! Zbiórka karmy na UW!
+                                                            </div>
+                                                            <div class="carousel_title">
+                                                                <h1>
+                                                                    Use your professional skills <br />
+                                                                    to make a difference4
+                                                                </h1>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="item" style="background: url('http://lorempixel.com/g/1920/1080') 50% 0% no-repeat;">
+                                                <div class="container">
+                                                    <div class="row content">
+                                                        <div class="carousel-content">
+                                                            <div class="carousel-caption">
+                                                                Zimowa wałówka! Zbiórka karmy na UW!
+                                                            </div>
+                                                            <div class="carousel_title">
+                                                                <h1>
+                                                                    Use your professional skills <br />
+                                                                    to make a difference5
+                                                                </h1>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -118,7 +148,7 @@
                         <div class="container what_to_do">
                             <div class="row">
                                 <div class="col-md-3 col-xs-6 category_column">
-                                    <a class="category_link" href="/offers/category/edukacyjny">
+                                    <a class="category_link">
                                         <img class="img img-responsive shadow mb16 img_category"
                                              src="http://bestja.d3.laboratorium.ee/img/chcewiedziecwiecej_off.jpg"/>
                                         <img class="img_category_hover" src="http://bestja.d3.laboratorium.ee/img/chcewiedziecwiecej_on.jpg"/>
@@ -164,9 +194,7 @@
                         <div class="container">
                             <div class="row text-center mt16 mb64">
                                 <div class="col-xs-6 col-md-12">
-                                    <form action="/offers/category/">
-                                        <button class="btn btn-lg text-center mt32 mb32 button_orange" type="submit">ZOBACZ WSZYSTKIE OFERTY</button>
-                                    </form>
+                                    <a class="btn btn-lg mt32 mb32 text-center link_like_button" href="/offers/category/">ZOBACZ WSZYSTKIE OFERTY</a>
                                 </div>
                                 <div class="col-xs-6 col-md-12 text-center container_under_categories">
                                     <p>Twoja organizacja chciałaby do nas dołączyć?
@@ -214,11 +242,11 @@
                             <div class="row">
                                 <div class="col-md-8 col-sm-12">
                                     <div class="quote_picture_on_right">
-                                        <h2>
+                                        <p class="citation">
                                             <em>"Robię to dla samej siebie. Zdobywam doświadczenie,
                                                 które będę mogła wykorzystać pracując zawodowo."</em>
-                                        </h2>
-                                        <p>Ola, koordynator projektów miejskich</p>
+                                        </p>
+                                        <p class="signature">Ola, koordynator projektów miejskich</p>
                                     </div>
                                 </div>
                                 <div class="col-md-3 hidden-xs hidden-sm">
@@ -231,9 +259,7 @@
                         <div class="container">
                             <div class="row text-center mt64 mb64">
                                 <div class="col-md-12">
-                                    <form t-if="website.user_id == user_id" action="/web/signup">
-                                        <button class="btn btn-lg text-center mt32 mb32 button_orange" type="submit">DOŁĄCZ TERAZ</button>
-                                    </form>
+                                    <a class="btn btn-lg mt32 mb32 text-center link_like_button" t-if="website.user_id == user_id" href="/web/signup">DOŁĄCZ TERAZ</a>
                                     <a class="text-center" href="/page/for_volunteers">więcej o wolontariacie</a>
                                 </div>
                             </div>
@@ -246,77 +272,77 @@
                                     <div id="photostack-1" class="photostack">
                                         <div>
                                             <figure>
-                                                <a href="#" class="current photostack-img">
+                                                <a class="current photostack-img">
                                                     <img src="http://lorempixel.com/g/350/350" alt="img05"/>
                                                 </a>
                                                 <figcaption>
-                                                    <h2 class="photostack-title">Zdjęcie 5</h2>
+                                                    <p class="photostack-title">Zdjęcie 5</p>
                                                     <div class="photostack-back">
                                                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
                                                     </div>
                                                 </figcaption>
                                             </figure>
                                             <figure>
-                                                <a href="#" class="current photostack-img">
+                                                <a class="current photostack-img">
                                                     <img src="http://lorempixel.com/g/350/350" alt="img02"/>
                                                 </a>
                                                 <figcaption>
-                                                    <h2 class="photostack-title">Zdjęcie 2</h2>
+                                                    <p class="photostack-title">Zdjęcie 2</p>
                                                     <div class="photostack-back">
                                                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
                                                     </div>
                                                 </figcaption>
                                             </figure>
                                             <figure>
-                                                <a href="#" class="photostack-img">
+                                                <a class="photostack-img">
                                                     <img src="http://lorempixel.com/g/350/350" alt="img03"/>
                                                 </a>
                                                 <figcaption>
-                                                    <h2 class="photostack-title">Zdjęcie 3</h2>
+                                                    <p class="photostack-title">Zdjęcie 3</p>
                                                     <div class="photostack-back">
                                                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
                                                     </div>
                                                 </figcaption>
                                             </figure>
                                             <figure>
-                                                <a href="#" class="photostack-img">
+                                                <a class="photostack-img">
                                                     <img src="http://lorempixel.com/g/350/350" alt="img01"/>
                                                 </a>
                                                 <figcaption>
-                                                    <h2 class="photostack-title">Zdjęcie 1</h2>
+                                                    <p class="photostack-title">Zdjęcie 1</p>
                                                     <div class="photostack-back">
                                                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
                                                     </div>
                                                 </figcaption>
                                             </figure>
                                             <figure>
-                                                <a href="#" class="photostack-img">
+                                                <a class="photostack-img">
                                                     <img src="http://lorempixel.com/g/350/350" alt="img04"/>
                                                 </a>
                                                 <figcaption>
-                                                    <h2 class="photostack-title">Zdjęcie 4</h2>
+                                                    <p class="photostack-title">Zdjęcie 4</p>
                                                     <div class="photostack-back">
                                                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
                                                     </div>
                                                 </figcaption>
                                             </figure>
                                             <figure>
-                                                <a href="#" class="photostack-img">
+                                                <a class="photostack-img">
                                                     <img src="http://lorempixel.com/g/350/350" alt="img06"/>
                                                 </a>
                                                 <figcaption>
-                                                    <h2 class="photostack-title">Zdjęcie 6</h2>
+                                                    <p class="photostack-title">Zdjęcie 6</p>
                                                     <div class="photostack-back">
                                                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
                                                     </div>
                                                 </figcaption>
                                             </figure>
                                             <figure>
-                                                <a href="#" class="photostack-img">
+                                                <a class="photostack-img">
                                                     <img src="http://lorempixel.com/g/350/350" alt="img07"/>
                                                 </a>
                                                 <figcaption>
-                                                    <h2 class="photostack-title">Zdjęcie 7</h2>
+                                                    <p class="photostack-title">Zdjęcie 7</p>
                                                     <div class="photostack-back">
                                                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
                                                     </div>

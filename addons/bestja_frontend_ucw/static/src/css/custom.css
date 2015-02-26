@@ -22,6 +22,10 @@ div[name="blog_post_data"]{
     font-size: 12px;
 }
 
+.post-meta{
+    font-size: 12px;
+}
+
 div[name="blog_post_data"] .post-meta{
     top: -17px;
 }
@@ -41,14 +45,20 @@ div[name="blog_post_data"] .post-meta{
 
 a{
     color: #F59A1E;
+    outline: none !important;
 }
 
 a:hover, a:focus{
     color: #982582;
     text-decoration: none;
+    outline: none !important;
 }
 
 /* Register screen */
+.oe_website_login_container p{
+    font-size: 14px;
+}
+
 .field-join-info h4{
     font-size: 14px;
     color: #737373;
@@ -81,10 +91,15 @@ a:hover, a:focus{
     background-image: -moz-linear-gradient(top, #eeeeee, #cccccc);
     background-image: -ms-linear-gradient(top, #eeeeee, #cccccc);
     background-image: -o-linear-gradient(top, #eeeeee, #cccccc);
+    font-size: 14px;
     word-spacing: -5px;
 }
 .info_sign_register:hover #info_sign_register_message{
     display: block;
+}
+
+.field-regulations-privacy_policy p{
+    font-size: 14px;
 }
 
 .field-regulations-privacy_policy a{
@@ -97,6 +112,7 @@ a:hover, a:focus{
 
 .back_to_login p{
     margin-bottom: 0;
+    font-size: 14px;
 }
 
 .back_to_login a{
@@ -104,7 +120,7 @@ a:hover, a:focus{
 }
 /* End of register screen */
 
-.button_orange, .button_more_contrast{
+.link_like_button, .link_like_button_more_contrast{
     background-color: #F59A1E;
     color: #FFFFFF;
     padding: 20px 35px;
@@ -113,40 +129,130 @@ a:hover, a:focus{
     font-weight: 700;
 }
 
-.button_orange:hover{
+.link_like_button:hover{
     background-color: #982582;
     color: #FFFFFF;
 }
 
-.button_more_contrast:hover{
+.link_like_button_more_contrast:hover{
     background-color: #FF43DF;
     color: #FFFFFF;
 }
 
 @media screen and (max-width: 440px){
-    .button_orange {
+    .link_like_button {
         font-size: 18px;
         padding: 15px 10px;
     }
 }
 /* Headings settings */
-h1, .h1{
-    font-size: 36px;
+h1{
+    font-size: 26px;
     font-weight: 700;
 }
 
-h2, .h2{
-    font-size: 24px;
+h2{
+    font-size: 21.5px;
     font-weight: 700;
 }
 
-h3, .h3{
-    font-size: 18px;
+h3, p, #partners_friends{
+    font-size: 17px;
 }
 
-h4, .h4{
-    font-size: 12px;
+h4{
+    font-size: 12.5px;
 }
+
+h5{
+    font-size: 10px;
+}
+
+h6{
+    font-size: 8.5px;
+}
+
+@media (min-width: 768px) {
+    h1{
+        font-size: 28.6px;
+    }
+
+    h2{
+        font-size: 23.65px;
+        font-weight: bold;
+    }
+
+    h3, p, #partners_friends{
+        font-size: 18.7px;
+    }
+
+    h4{
+        font-size: 13.75px;
+    }
+
+    h5{
+        font-size: 11px;
+    }
+
+    h6{
+        font-size: 9.35px;
+    }
+}
+
+@media (min-width: 992px) {
+    h1{
+        font-size: 31.2px;
+    }
+
+    h2{
+        font-size: 25.8px;
+        font-weight: bold;
+    }
+
+    h3, p, #partners_friends{
+        font-size: 20.4px;
+    }
+
+    h4{
+        font-size: 15px;
+    }
+
+    h5{
+        font-size: 12px;
+    }
+
+    h6{
+        font-size: 10.2px;
+    }
+}
+
+@media (min-width: 1200px) {
+    h1{
+        font-size: 36.4px;
+    }
+
+    h2{
+        font-size: 30.1px;
+        font-weight: bold;
+    }
+
+    h3, p, #partners_friends{
+        font-size: 23.8px;
+    }
+
+    h4{
+        font-size: 17.5px;
+    }
+
+    h5{
+        font-size: 14px;
+    }
+
+    h6{
+        font-size: 11.9px;
+    }
+}
+
 /* End of Headings settings */
 
 /* Navbar font modification */
@@ -161,12 +267,8 @@ h4, .h4{
 }
 /* End of Navbar font modification */
 /* End of Common css */
-.color_violet{
-    color: #982582;
-}
-
 .for_organizations_first_section{
-    background: #982582 url('http://bestja.d3.laboratorium.ee/img/1920/dlaorganizacji.jpg') no-repeat 50% 0%;
+    background: #9A0082 url('http://bestja.d3.laboratorium.ee/img/1920/dlaorganizacji.jpg') no-repeat 50% 0%;
     color: #FFFFFF;
 }
 
@@ -190,7 +292,7 @@ h4, .h4{
     }
 }
 
-.grey_section{
+.benefits{
     background: #E8E8E8;
     color: #000000;
 }
@@ -222,12 +324,28 @@ h4, .h4{
 #down_arrow_scroll{
     background: url('/bestja_frontend_ucw/static/src/img/content/down_arrow.svg') no-repeat;
     display: block;
-    width: 90px;
-    height: 90px;
+    width: 50px;
+    height: 50px;
     position: absolute;
-    bottom: 140px;
-    left: calc(50% - 45px);
+    bottom: 180px;
+    left: calc(50% - 25px);
     z-index: 5;
+}
+
+@media (max-width: 991px){
+    #down_arrow_scroll{
+        width: 40px;
+        height: 40px;
+        left: calc(50% - 20px);
+    }
+}
+
+@media (max-width: 768px){
+    #down_arrow_scroll{
+        width: 32px;
+        height: 32px;
+        left: calc(50% - 16px);
+    }
 }
 
 .container_under_categories a, .join_us_now a{
@@ -236,6 +354,11 @@ h4, .h4{
 
 .container_under_categories a:hover, .join_us_now a:hover{
     color: #982582;
+}
+
+div.carousel div.carousel-content{
+    background-color: transparent;
+    background: none;
 }
 
 .carousel_container{
@@ -254,6 +377,12 @@ h4, .h4{
     left: 0;
     right: 0;
     bottom: 0;
+}
+
+@media screen and (max-width: 480px){
+    .carousel_title h1{
+        top: 5%;
+    }
 }
 
 .carousel_title a, .carousel_title a:hover, .carousel-caption a, .carousel-caption a:hover{
@@ -328,7 +457,7 @@ div.carousel .carousel-indicators .active {
 }
 
 .carry_out_section{
-    background: #982582 url('http://bestja.d3.laboratorium.ee/img/1920/stronaglowna2.jpg') no-repeat 50% 100%;
+    background: #9A0082 url('http://bestja.d3.laboratorium.ee/img/1920/stronaglowna2.jpg') no-repeat 50% 100%;
     color: #FFFFFF;
 }
 
@@ -346,7 +475,14 @@ div.carousel .carousel-indicators .active {
 @media screen and (max-width: 991px) {
     .category_description{
         margin-bottom: 30px;
+        font-size: 18px;
     }
+}
+
+.category_link{
+    display: block;
+    width: 100%;
+    height: 100%;
 }
 
 .category_link:hover .category_description{
@@ -374,11 +510,19 @@ div.carousel .carousel-indicators .active {
         left: calc(50% - 95px);
         width: 190px;
     }
+
+    .category_column{
+        min-height: 290px;
+    }
 }
 
 @media screen and (max-width: 440px) {
     .category_column{
         width: 100%;
+    }
+
+    .category_column{
+        min-height: 1px;
     }
 }
 /* End of categories */
@@ -386,12 +530,12 @@ div.carousel .carousel-indicators .active {
 
 /* About us */
 .first_section_about_us{
-    background: #982582 url('http://bestja.d3.laboratorium.ee/img/1920/onas.jpg') no-repeat 50% 0%;
+    background: #9A0082 url('http://bestja.d3.laboratorium.ee/img/1920/onas.jpg') no-repeat 50% 0%;
     background-size: auto 100%;
     color: #FFFFFF;
 }
 
-.first_section_about_us a:hover{
+.link_more_contrast:hover{
     color: #FF43DF;
 }
 
@@ -399,7 +543,7 @@ div.carousel .carousel-indicators .active {
     background-color: #E8E8E8;
 }
 
-.simple_quote h3{
+.simple_quote p{
     color: #982582;
 }
 /* End of about us*/
@@ -417,17 +561,17 @@ div.carousel .carousel-indicators .active {
 
 /* Become volunteeer*/
 .become_volunteer_first_section{
-    background: #982582 url('http://bestja.d3.laboratorium.ee/img/1920/zostan_wolontariuszem1.jpg') no-repeat 50% 0%;
+    background: #9A0082 url('http://bestja.d3.laboratorium.ee/img/1920/zostan_wolontariuszem1.jpg') no-repeat 50% 0%;
     color: #FFFFFF;
 }
 
 .become_volunteer_qualifications_section{
-    background: #982582 url('http://bestja.d3.laboratorium.ee/img/1920/zostan_wolontariuszem2.jpg') no-repeat 50% 0%;
+    background: #9A0082 url('http://bestja.d3.laboratorium.ee/img/1920/zostan_wolontariuszem2.jpg') no-repeat 50% 0%;
     color: #FFFFFF;
 }
 
 .become_volunteer_join_us_section{
-    background: #982582 url('http://bestja.d3.laboratorium.ee/img/1920/zostan_wolontariuszem3.jpg') no-repeat 50% 0%;
+    background: #9A0082 url('http://bestja.d3.laboratorium.ee/img/1920/zostan_wolontariuszem3.jpg') no-repeat 50% 0%;
     color: #FFFFFF;
 }
 
@@ -503,13 +647,16 @@ div.carousel .carousel-indicators .active {
     background-color: #009D93;
 }
 
-.quote_picture_on_right h2, .quote_picture_on_left h2{
+.citation{
+    font-size: 24px;
+    margin-top: 20px;
+    margin-bottom: 10px;
     font-weight: 400;
     line-height: 1.5em;
     color: #FFFFFF;
 }
 
-.quote_picture_on_right p, .quote_picture_on_left p{
+.signature{
     font-size: 18px;
     position: absolute;
     right: 100px;
@@ -521,7 +668,7 @@ div.carousel .carousel-indicators .active {
         height: auto;
     }
 
-    .quote_picture_on_right p, .quote_picture_on_left p{
+    .signature{
         position: relative;
         right: auto;
         bottom: auto;
