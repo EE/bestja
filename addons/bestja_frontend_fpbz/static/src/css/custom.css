@@ -326,6 +326,10 @@ text:hover{
     color: #F29000;
 }
 
+.description_of_map_container a:hover{
+    color: #F9A426;
+}
+
 @media screen and (max-width: 991px) {
     .map_of_poland_container{
         text-align: center;
