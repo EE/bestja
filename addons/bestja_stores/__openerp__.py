@@ -13,7 +13,9 @@ Add stores to hierarchical projects.
         'bestja_project_hierarchy',
     ],
     'data': [
+        'views/store_in_project.xml',
         'views/store.xml',
+        'views/project.xml',
         'menu.xml',
         'data/chains.xml',
         'messages.xml',

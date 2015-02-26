@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="bestja_project_form">
+            <field name="name">bestja.project.form</field>
+            <field name="model">bestja.project</field>
+            <field name="inherit_id" ref="bestja_project.bestja_project_form"/>
+            <field name="arch" type="xml">
+                <notebook>
+                    <page string="Sklepy" attrs="{'invisible': [('organization_level', '=', 0)]}">
+                        <field name="id" invisible="1"/>
+                        <separator string="Sklepy zbiórkowe"/>
+                        <div attrs="{'invisible': [('id', '=', False)]}">
+                            <p>Dodaj sklepy, w których chcesz organizować zbiórkę.</p>
+                            <field name="stores" context="{'default_project': active_id, 'form_view_ref': 'bestja_stores.in_project_form_project_modal'}">
+                                <tree colors="green:state == 'activated';orange:state in ('waiting_bank','waiting_partner');red:state == 'rejected';gray:state == 'deactivated'">
+                                    <field name="name"/>
+                                    <field name="address"/>
+                                    <field name="city"/>
+                                    <field name="state"/>
+                                </tree>
+
+                            </field>
+                        </div>
+                        <div attrs="{'invisible': [('id', '!=', False)]}">
+                            Zapisz nowo tworzony projekt aby dodać sklepy, w których chcesz organizować zbiórkę.
+                        </div>
+                        </div>
+                    </page>
+                </notebook>
+            </field>
+        </record>
+
+        <record id="project_chooser_kanban" model="ir.ui.view">
+             <field name="name">bestja.stores.project_chooser</field>
+             <field name="model">bestja.project</field>
+             <field name="priority">30</field>
+             <field name="arch" type="xml">
+                 <kanban class="oe_background_grey" create="false">
+                     <field name="name"/>
+                     <templates>
+                         <t t-name="kanban-box">
+                            <div class="oe_kanban_card">
+                               <a name="%(action_stores_in_project)d" type="action"><field name="name"/></a>
+                            </div>
+                         </t>
+                     </templates>
+                 </kanban>
+             </field>
+         </record>
+
+        <record model="ir.actions.act_window" id="action_project_chooser">
+            <field name="name">Sklepy zbiórkowe</field>
+            <field name="res_model">bestja.project</field>
+            <field name="view_mode">kanban</field>
+            <field name="view_id" ref="project_chooser_kanban"/>
+            <field name="domain">[
+                '|',
+                ('manager', '=', uid),
+                ('organization.coordinator', '=', uid),
+            ]</field>
+        </record>
+    </data>
+</openerp>

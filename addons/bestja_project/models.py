@@ -39,11 +39,11 @@ class Project(models.Model):
         string="Osoba odpowiedzialna",
         compute='_responsible_user'
     )
-    date_start = fields.Datetime(
+    date_start = fields.Date(
         required=True,
         string="od dnia",
     )
-    date_stop = fields.Datetime(
+    date_stop = fields.Date(
         required=True,
         string="do dnia",
     )

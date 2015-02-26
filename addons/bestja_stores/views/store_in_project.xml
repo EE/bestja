@@ -1,0 +1,74 @@
+<openerp>
+    <data>
+        <record model="ir.actions.act_window" id="action_stores_in_project">
+            <field name="name">Sklepy zbiórkowe</field>
+            <field name="res_model">bestja_stores.store_in_project</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[
+                '|',
+                    ('top_project', '=', active_id),
+                '|',
+                    ('top_project.children', '=', active_id),
+                    ('top_project.children.children', '=', active_id),
+            ]</field>
+        </record>
+
+        <record model="ir.ui.view" id="in_project_tree">
+            <field name="name">bestja_stores.store_in_project_tree</field>
+            <field name="model">bestja_stores.store_in_project</field>
+            <field name="arch" type="xml">
+                <tree colors="green:state == 'activated';orange:state in ('waiting_bank','waiting_partner');red:state == 'rejected';gray:state == 'deactivated'">
+                    <field name="name"/>
+                    <field name="address"/>
+                    <field name="city"/>
+                    <field name="organization"/>
+                    <field name="activated_by"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="in_project_form">
+            <field name="name">bestja_stores.store_in_project.form</field>
+            <field name="model">bestja_stores.store_in_project</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group col="3">
+                        <field name="organization" options="{'no_create': True}"/><newline/>
+                        <field name="project" options="{'no_create': True}"/><newline/>
+                        <field name="store" options="{'no_create': True}"/>
+                        <div class="oe_edit_only"><field name="show_all_stores"/><label for="show_all_stores"/></div>
+                    </group>
+                    <separator string="Dni zbiórki w sklepie"/>
+                    <div>Dodaj dni, w których będziesz realizować zbiórkę trwającą:</div>
+                    <group>
+                        <field name="date_start"/>
+                        <field name="date_stop"/>
+                    </group>
+                    <field name="days" context="{'project': project}">
+                        <tree editable="1">
+                            <field name="date"/>
+                            <field name="time_from_default" placeholder="HH:MM"/>
+                            <field name="time_to_default" placeholder="HH:MM"/>
+                        </tree>
+                    </field>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="in_project_form_project_modal">
+            <field name="model">bestja_stores.store_in_project</field>
+            <field name="mode">primary</field>
+            <field name="priority">20</field>
+            <field name="inherit_id" ref="in_project_form"/>
+            <field name="arch" type="xml">
+                <field name="organization" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <field name="project" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+            </field>
+        </record>
+    </data>
+</openerp>

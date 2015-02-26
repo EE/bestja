@@ -18,7 +18,7 @@
              <field name="model">bestja.project</field>
              <field name="priority">30</field>
              <field name="arch" type="xml">
-                 <kanban class="oe_background_grey">
+                 <kanban class="oe_background_grey" create="false">
                      <field name="name"/>
                      <templates>
                          <t t-name="kanban-box">

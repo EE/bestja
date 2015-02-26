@@ -134,6 +134,7 @@ class Project(models.Model):
         'bestja.project',
         compute='_compute_top_parent',
         compute_sudo=True,
+        store=True,
     )
     children = fields.One2many(
         'bestja.project',
@@ -157,8 +158,8 @@ class Project(models.Model):
     @api.one
     @api.depends('parent', 'parent.parent')
     def _compute_top_parent(self):
-        parent = self.parent
-        while parent:
+        parent = self
+        while parent.parent:
             parent = parent.parent
         self.top_parent = parent
 
