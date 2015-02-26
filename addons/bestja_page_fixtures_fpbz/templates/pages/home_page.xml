@@ -381,5 +381,6 @@
                 </div>
             </xpath>
         </template>
+        <delete id="website.menu_contactus" model="website.menu"/>
     </data>
 </openerp>

@@ -2,6 +2,12 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,700,300,600,400&subset=latin,latin-ext);
 
 /* Common css */
+/* Top menu changes */
+#top_menu li:first-child{
+    display: none;
+}
+/* End of top menu changes */
+
 #wrap, section{
     font-family: 'Open Sans', sans-serif;
     font-size: 20px;
