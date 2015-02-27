@@ -17,25 +17,11 @@
                     <section class="oe_snippet_body">
                         <div class="container become_partner">
                             <div class="row">
-                                <div class="col-md-6 mt16 fadeInLeft">
-                                    <table>
-                                        <tr>
-                                            <td>
-                                                <p>Promuj lokalnie walkę z niedożywieniem i niemarnowanie żywności.</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Włącz się w ogólnopolskie i regionalne programy przeprowadzając
+                                <div class="col-md-6 mt16">
+                                    <p>Promuj lokalnie walkę z niedożywieniem i niemarnowanie żywności.</p>
+                                    <p>Włącz się w ogólnopolskie i regionalne programy przeprowadzając
                                                     zbiórkę żywności w lokalnym sklepie.</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Możesz mieć wpływ na dostęp do pełnowartościowego jedzenia!</p>
-                                            </td>
-                                        </tr>
-                                    </table>
+                                    <p>Możesz mieć wpływ na dostęp do pełnowartościowego jedzenia!</p>
                                 </div>
                                 <div class="col-md-6 mt16">
                                     <img class="img img-responsive shadow mb16"
