@@ -144,3 +144,7 @@ have horizontal space for one button only */
   display: none;
 }
 
+/* Hide nocontent view from inboxes when there are no messages */
+.oe_mail .oe_view_nocontent {
+    display: none;
+}
