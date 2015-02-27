@@ -1,15 +1,15 @@
 <openerp>
     <data>
         <record id="coordinators_level0" model="res.groups">
-            <field name="name">BestJa Koordynator (poziom 0)</field>
+            <field name="name">GooDoo Koordynator (poziom 0)</field>
         </record>
 
         <record id="coordinators_level1" model="res.groups">
-            <field name="name">BestJa Koordynator (poziom 1)</field>
+            <field name="name">GooDoo Koordynator (poziom 1)</field>
         </record>
 
         <record id="coordinators_level2" model="res.groups">
-            <field name="name">BestJa Koordynator (poziom 2)</field>
+            <field name="name">GooDoo Koordynator (poziom 2)</field>
         </record>
 
         <record id="child_organizations" model="ir.rule">

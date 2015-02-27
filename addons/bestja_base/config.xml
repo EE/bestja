@@ -1,10 +1,10 @@
 <openerp>
     <data>
         <record id="view_bestja_configuration" model="ir.ui.view">
-            <field name="name">Konfiguracja BestJa</field>
+            <field name="name">Konfiguracja GooDoo</field>
             <field name="model">bestja.config.settings</field>
             <field name="arch" type="xml">
-                <form string="Konfiguracja BestJa" class="oe_form_configuration">
+                <form string="Konfiguracja GooDoo" class="oe_form_configuration">
                     <header>
                         <button string="Zapisz" type="object" name="execute" class="oe_highlight"/>
                         lub
@@ -15,14 +15,14 @@
         </record>
 
         <record id="action_bestja_configuration" model="ir.actions.act_window">
-            <field name="name">Konfiguracja BestJa</field>
+            <field name="name">Konfiguracja GooDoo</field>
             <field name="res_model">bestja.config.settings</field>
             <field name="view_id" ref="view_bestja_configuration"/>
             <field name="view_mode">form</field>
             <field name="target">inline</field>
         </record>
 
-        <menuitem id="menu_bestja_configuration" name="BestJa" parent="base.menu_config"
+        <menuitem id="menu_bestja_configuration" name="GooDoo" parent="base.menu_config"
             sequence="1" action="action_bestja_configuration"/>
     </data>
 </openerp>

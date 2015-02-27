@@ -2,7 +2,7 @@
     <data>
         <!-- coordinators group -->
         <record id="coordinators" model="res.groups">
-            <field name="name">BestJa Koordynator Organizacji</field>
+            <field name="name">GooDoo Koordynator Organizacji</field>
         </record>
 
         <record id="admin_access_organization" model="ir.rule">

@@ -2,7 +2,7 @@
     <data>
         <!-- Moderator group -->
         <record id="offers_moderator" model="res.groups">
-            <field name="name">BestJa Offers Moderator</field>
+            <field name="name">GooDoo Offers Moderator</field>
         </record>
 
         <!-- Give instance admins moderator permissions -->

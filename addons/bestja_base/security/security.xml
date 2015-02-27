@@ -2,12 +2,12 @@
     <data>
         <!-- Admin group -->
         <record id="instance_admin" model="res.groups">
-            <field name="name">BestJa Admin Instancji</field>
+            <field name="name">GooDoo Admin Instancji</field>
         </record>
 
         <!-- Template user for new users signing in via the website -->
         <record id="bestja_template_user" model="res.users">
-            <field name="name">Bestja Template User</field>
+            <field name="name">GooDoo Template User</field>
             <field name="login">bestjatemplate</field>
             <field name="active" eval="False"/>
             <field name="groups_id" eval="[(6, 0, [ref('base.group_user')])]"/>

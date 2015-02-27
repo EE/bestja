@@ -2,7 +2,7 @@
     <data>
         <!-- managers group -->
         <record id="managers" model="res.groups">
-            <field name="name">BestJa Menadżer Projektów</field>
+            <field name="name">GooDoo Menadżer Projektów</field>
         </record>
 
         <!-- coordinators are implied to be managers  -->

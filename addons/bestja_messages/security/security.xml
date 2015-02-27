@@ -2,7 +2,7 @@
     <data>
         <!-- Change display name of the default sender -->
         <record id="message_template.user_messages" model="res.users">
-            <field name="name">Pani BestJa</field>
+            <field name="name">GooDoo</field>
         </record>
 
         <record id="user_messages_rule" model="ir.rule">
