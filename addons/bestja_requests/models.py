@@ -195,7 +195,7 @@ class Request(models.Model):
         ondelete='restrict',
     )
     items = fields.One2many('bestja_requests.item', inverse_name='request')
-    comments = fields.Text(string="uwagi")
+    comments = fields.Text(string="Uwagi")
     manager = fields.Many2one(
         'res.users',
         string="Menadżer projektu",
