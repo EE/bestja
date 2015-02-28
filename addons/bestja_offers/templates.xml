@@ -7,204 +7,204 @@
                         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8_eNIDCU7qkBzkh4A02pnpRmPtE3rrI0&amp;libraries=places&amp;language=pl"/>
 
                 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans" />
-                <section class="oe_snippet_body bestja_offers_offer">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-md-3 col-md-offset-1 col-sm-11 col-sm-offset-1 col-xs-18 mb32 offer_name">
-                                <h1>
-                                    <t t-esc="offer.name"/>
-                                </h1>
-                            </div>
+                <div id="wrap" class="oe_structure oe_empty">
+                    <section class="oe_snippet_body bestja_offers_offer">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-7 col-md-offset-1 col-sm-11 col-sm-offset-1 col-xs-12 mb32 offer_name">
+                                    <h1>
+                                        <t t-esc="offer.name"/>
+                                    </h1>
+                                </div>
 
-                            <div class="col-md-2"/>
-
-                            <div class="col-md-3 col-md-offset-2 col-sm-5 col-sm-offset-6 col-xs-12 offer_share">
-                                <t t-call="bestja_offers.share" />
+                                <div class="col-md-3 col-md-offset-0 col-sm-5 col-sm-offset-6 col-xs-12 offer_share">
+                                    <t t-call="bestja_offers.share" />
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </section>
-                <section class="oe_snippet_body visible-xs-block">
-                    <div class="container-fluid">
-                        <div class="row mt16 text-center">
-                            <div class="col-md-12">
-                                <form method="post" t-attf-action="/offer/{{ slug(offer) }}/apply">
-                                    <button type="submit" class="mt16 mb16 btn_join">ZGŁOŚ SIĘ!</button>
-                                </form>
+                    </section>
+                    <section class="oe_snippet_body visible-xs-block">
+                        <div class="container">
+                            <div class="row mt16 text-center">
+                                <div class="col-xs-12">
+                                    <form method="post" t-attf-action="/offer/{{ slug(offer) }}/apply">
+                                        <button type="submit" class="mt16 mb16 btn_join">ZGŁOŚ SIĘ!</button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </section>
-                <section class="oe_snippet_body offer_info">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-lg-2 col-lg-offset-1 col-md-2 col-md-offset-1 col-sm-5 col-sm-offset-1 col-xs-18 col_offer_info">
-                                <h3>Termin</h3>
-                                <p class="size24">
-                                    <strong>od <span t-field="offer.project.date_start" t-field-options='{"format": "d.MM.y"}'/>
-                                        <br />
-                                        do <span t-field="offer.project.date_stop" t-field-options='{"format": "d.MM.y"}'/>
-                                    </strong>
-                                </p>
-                            </div>
-                            <div class="col-lg-2 col-md-2 col-sm-5 col-xs-18 col_offer_info">
-                                <h3>Gdzie</h3>
-                                <p class="size24">
+                    </section>
+                    <section class="oe_snippet_body offer_info">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-2 col-lg-offset-1 col-md-2 col-md-offset-1 col-sm-5 col-sm-offset-1 col-xs-12 col_offer_info">
+                                    <h3>Termin</h3>
+                                    <p class="size24">
+                                        <strong>od <span t-field="offer.project.date_start" t-field-options='{"format": "d.MM.y"}'/>
+                                            <br />
+                                            do <span t-field="offer.project.date_stop" t-field-options='{"format": "d.MM.y"}'/>
+                                        </strong>
+                                    </p>
+                                </div>
+                                <div class="col-lg-2 col-md-2 col-sm-5 col-xs-18 col_offer_info">
+                                    <h3>Gdzie</h3>
+                                    <p class="size24">
+                                        <strong>
+                                            <t t-esc="offer.city"/>
+                                            <t t-esc="offer.district"/>
+                                        </strong>
+                                    </p>
+                                </div>
+                                <div class="col-lg-3 col-lg-offset-0 col-md-4 col-sm-5 col-sm-offset-1 col-xs-12 col_offer_info">
+                                    <h3>Kiedy</h3>
                                     <strong>
-                                        <t t-esc="offer.city"/>
-                                        <t t-esc="offer.district"/>
+                                        <t t-if="offer.kind =='periodic' or offer.kind =='cyclic'">
+                                            <p class="size24" t-if="offer.interval">
+                                                <t t-if="offer.hours">
+                                                    <span t-esc="offer.hours"/>h </t>
+                                                <t t-if="offer.interval == 1">
+                                                    co tydzień
+                                                </t>
+                                                <t t-if="offer.interval != 1">
+                                                    co <t t-esc="offer.interval"/> tygodnie
+                                                </t>
+                                            </p>
+
+                                            <p t-if="offer.hours and not offer.interval">
+                                                <span t-esc="offer.hours"/> h/tyg.</p>
+
+                                            <p class="size24" t-if="offer.weekday">
+                                                <t t-foreach="offer.weekday" t-as="weekday">
+                                                    <span t-esc="weekday.name"/>
+                                                    <t t-if="not weekday_last">, </t>
+                                                </t>
+                                            </p>
+
+                                            <p class="size24">
+                                                <t t-foreach="offer.daypart" t-as="daypart">
+                                                    <span t-esc="daypart.name"/>
+                                                    <t t-if="not daypart_last">, </t>
+                                                </t>
+                                            </p>
+
+                                            <p class="size24" t-if="not offer.hours and not offer.daypart and not offer.weekday and not offer.interval">
+                                                brak danych</p>
+                                        </t>
+                                        <t t-if="offer.kind =='flexible'">
+                                            <p>elastyczne godziny</p>
+                                        </t>
                                     </strong>
-                                </p>
-                            </div>
-                            <div class="col-lg-3 col-lg-offset-0 col-md-4 col-sm-5 col-sm-offset-1 col-xs-18 col_offer_info">
-                                <h3>Kiedy</h3>
-                                <strong>
-                                    <t t-if="offer.kind =='periodic' or offer.kind =='cyclic'">
-                                        <p class="size24" t-if="offer.interval">
-                                            <t t-if="offer.hours">
-                                                <span t-esc="offer.hours"/>h </t>
-                                            <t t-if="offer.interval == 1">
-                                                co tydzień
-                                            </t>
-                                            <t t-if="offer.interval != 1">
-                                                co <t t-esc="offer.interval"/> tygodnie
-                                            </t>
+                                </div>
+                                <div class="col-lg-2 col-md-2 col-sm-5 col-xs-12 col_offer_info">
+                                    <h3>Koordynator</h3>
+                                    <strong>
+                                        <p class="size24" t-if="offer.project.manager.name">
+                                            <t t-esc="offer.project.responsible_user.name"/>
                                         </p>
-
-                                        <p t-if="offer.hours and not offer.interval">
-                                            <span t-esc="offer.hours"/> h/tyg.</p>
-
-                                        <p class="size24" t-if="offer.weekday">
-                                            <t t-foreach="offer.weekday" t-as="weekday">
-                                                <span t-esc="weekday.name"/>
-                                                <t t-if="not weekday_last">, </t>
-                                            </t>
-                                        </p>
-
-                                        <p class="size24">
-                                            <t t-foreach="offer.daypart" t-as="daypart">
-                                                <span t-esc="daypart.name"/>
-                                                <t t-if="not daypart_last">, </t>
-                                            </t>
-                                        </p>
-
-                                        <p class="size24" t-if="not offer.hours and not offer.daypart and not offer.weekday and not offer.interval">
-                                            brak danych</p>
-                                    </t>
-                                    <t t-if="offer.kind =='flexible'">
-                                        <p>elastyczne godziny</p>
-                                    </t>
-                                </strong>
-                            </div>
-                            <div class="col-lg-2 col-md-2 col-sm-5 col-xs-18 col_offer_info">
-                                <h3>Koordynator</h3>
-                                <strong>
-                                    <p class="size24" t-if="offer.project.manager.name">
-                                        <t t-esc="offer.project.responsible_user.name"/>
-                                    </p>
-                                </strong>
+                                    </strong>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </section>
-                <section class="oe_snippet_body offer_description">
-                    <t t-call="bestja_offers.join" />
+                    </section>
+                    <section class="oe_snippet_body offer_description">
+                        <t t-call="bestja_offers.join" />
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-5 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-12 offer_content">
+                                    <div t-if="offer.description">
+                                        <h2>Na czym będzie polegała Twoja praca</h2>
+                                        <p>Celem projektu jest: <span t-field="offer.description"></span></p>
+                                    </div>
+                                    <div t-if="offer.expectations">
+                                        <h2>Czego oczekujemy</h2>
+                                        <p>
+                                            <span t-field="offer.expectations"></span>
+                                        </p>
+                                        <div t-if="offer.drivers_license or offer.sanepid or offer.forklift"  class="container">
+                                            <h3 class="further_expectations">Uprawnienia</h3>
+                                            <p t-if="offer.drivers_license">
+                                                Prawo jazdy: <span t-field="offer.drivers_license"></span>
+                                            </p>
+                                            <p t-if="offer.sanepid">
+                                                Ważne badania sanepidu
+                                            </p>
+                                            <p t-if="offer.forklift">
+                                                Ważne uprawnienia na wózek widłowy
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div t-if="offer.benefits">
+                                        <h2>Co oferujemy</h2>
+                                        <p>
+                                            <span t-field="offer.benefits"></span>
+                                        </p>
+                                    </div>
+                                    <div t-if="offer.tools">
+                                        <h2>Co zapewniamy</h2>
+                                        <p>
+                                            <span t-field="offer.tools"></span>
+                                        </p>
+                                    </div>
+                                    <div t-if="offer.comments">
+                                        <h2>Uwagi</h2>
+                                        <p>
+                                            <span t-field="offer.comments"></span>
+                                        </p>
+                                    </div>
 
-                    <div class="row">
-                        <div class="col-md-5 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-17 offer_content">
-                            <div t-if="offer.description">
-                                <h2>Na czym będzie polegała Twoja praca</h2>
-                                <p>Celem projektu jest: <span t-field="offer.description"></span></p>
-                            </div>
-                            <div t-if="offer.expectations">
-                                <h2>Czego oczekujemy</h2>
-                                <p>
-                                    <span t-field="offer.expectations"></span>
-                                </p>
-                                <div t-if="offer.drivers_license or offer.sanepid or offer.forklift"  class="container">
-                                    <h3 class="further_expectations">Uprawnienia</h3>
-                                    <p t-if="offer.drivers_license">
-                                        Prawo jazdy: <span t-field="offer.drivers_license"></span>
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <h2>Lokalizacja</h2>
+                                            <p t-field="offer.city"></p>
+                                        </div >
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12 offer_sidebar">
+                                    <img t-if="offer.organization_image"
+                                 t-attf-src="/website/image/offer/{{ offer.id }}/organization_image/450x450" alt="" />
+                                    <p class="size24 mt32">
+                                        <t t-esc="offer.project.organization.name"/>
                                     </p>
-                                    <p t-if="offer.sanepid">
-                                        Ważne badania sanepidu
+                                    <p>
+                                        <a t-attf-href="mailto:{{ offer.project.organization.email }}">
+                                            <t t-esc="offer.project.organization.email"/>
+                                        </a>
                                     </p>
-                                    <p t-if="offer.forklift">
-                                        Ważne uprawnienia na wózek widłowy
+                                    <h2 class="mt32">Co robimy</h2>
+                                    <p>
+                                        <t t-esc="offer.project.organization.organization_description"/>
                                     </p>
                                 </div>
                             </div>
-                            <div t-if="offer.benefits">
-                                <h2>Co oferujemy</h2>
-                                <p>
-                                    <span t-field="offer.benefits"></span>
-                                </p>
-                            </div>
-                            <div t-if="offer.tools">
-                                <h2>Co zapewniamy</h2>
-                                <p>
-                                    <span t-field="offer.tools"></span>
-                                </p>
-                            </div>
-                            <div t-if="offer.comments">
-                                <h2>Uwagi</h2>
-                                <p>
-                                    <span t-field="offer.comments"></span>
-                                </p>
-                            </div>
 
                             <div class="row">
-                                <div class="col-md-8">
-                                    <h2>Lokalizacja</h2>
-                                    <p t-field="offer.city"></p>
-                                </div >
+                                <div class="col-lg-7 col-lg-offset-1 col-md-7 col-md-offset-1 col-sm-12 col-xs-12">
+                                    <div id="offer-map-canvas" class="offer_map"></div>
+                                </div>
+                                <div class="col-lg-3 col-lg-offset-0 col-md-3 col-md-offset-0 col-sm-10 col-sm-offset-1 col-xs-12 ee_bottom_share">
+                                    <h2>"Wspólne pomaganie daje więcej przyjemności"</h2>
+                                    <p>Zaproś znajomych</p>
+                                    <t t-call="bestja_offers.share2" />
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-3 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-17 offer_sidebar">
-                            <img t-if="offer.organization_image"
-                                 t-attf-src="/website/image/offer/{{ offer.id }}/organization_image/450x450" alt="" />
-                            <p class="size24 mt32">
-                                <t t-esc="offer.project.organization.name"/>
-                            </p>
-                            <p>
-                                <a t-attf-href="mailto:{{ offer.project.organization.email }}">
-                                    <t t-esc="offer.project.organization.email"/>
-                                </a>
-                            </p>
-                            <h2 class="mt32">Co robimy</h2>
-                            <p>
-                                <t t-esc="offer.project.organization.organization_description"/>
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-lg-7 col-lg-offset-1 col-md-7 col-md-offset-1 col-sm-12 col-xs-18">
-                            <div id="offer-map-canvas" class="offer_map"></div>
-                        </div>
-                        <div class="col-lg-3 col-lg-offset-0 col-md-3 col-sm-10 col-sm-offset-1 col-xs-17 ee_bottom_share">
-                            <h2>"Wspólne pomaganie daje więcej przyjemności"</h2>
-                            <p>Zaproś znajomych</p>
-                            <t t-call="bestja_offers.share2" />
-                        </div>
-                    </div>
-                    <div id="bestja_offers_offer_location" t-attf-data-lat="{{ offer.latitude }}"
+                            <div id="bestja_offers_offer_location" t-attf-data-lat="{{ offer.latitude }}"
                          t-attf-data-lng="{{ offer.longitude }}">
-                    </div>
+                            </div>
 
-                    <t t-call="bestja_offers.join" />
-
-                </section>
+                            <t t-call="bestja_offers.join" />
+                        </div>
+                    </section>
+                </div>
             </t>
         </template>
 
         <template id="bestja_offers.join" name="Zgłoś się">
             <section class="oe_snippet_body">
-                <div class="container-fluid">
+                <div class="container">
                     <div class="row mt16 mb16 text-center">
-                        <div class="col-md-12">
+                        <div class="col-xs-12">
                             <form method="post" t-attf-action="/offer/{{ slug(offer) }}/apply">
-                                <button type="submit" class="mt16 mb16 btn_join">ZGŁOŚ SIĘ!</button>
+                                <button type="submit" class="mb16 btn_join">ZGŁOŚ SIĘ!</button>
                             </form>
                         </div>
                     </div>
@@ -215,7 +215,7 @@
         <template id="bestja_offers.thankyou" name="Dziękujemy za zgłoszenie">
             <t t-call="website.layout">
                 <section class="oe_snippet_body">
-                    <div class="container-fluid">
+                    <div class="container">
                         <div class="row mt16 mb16 text-center">
                             <div class="col-md-12">
                                 <h1>Dziękujemy!</h1>
@@ -234,7 +234,7 @@
         <template id="bestja_offers.meeting_confirmation" name="Dziękujemy za odpowiedź">
             <t t-call="website.layout">
                 <section class="oe_snippet_body">
-                    <div class="container-fluid">
+                    <div class="container">
                         <div class="row mt16 mb16 text-center">
                             <div class="col-md-12">
                                 <h1>Dziękujemy!</h1>
@@ -251,7 +251,7 @@
         <template id="bestja_offers.duplicate_application" name="Ponowne zgłoszenie">
             <t t-call="website.layout">
                 <section class="oe_snippet_body">
-                    <div class="container-fluid">
+                    <div class="container">
                         <div class="row mt16 mb16 text-center">
                             <div class="col-md-12">
                                 <h1>Nic dwa razy się nie zdarza!</h1>

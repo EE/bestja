@@ -26,7 +26,7 @@
 }
 
 .ee_share {
-    font-size: 52px;
+    font-size: 26px;
 }
 
 .offer_share {
@@ -47,6 +47,22 @@
 
 .offer_sidebar {
     padding-top: 30px;
+}
+
+.offer_sidebar img{
+    width: 100%;
+}
+
+@media (max-width: 991px){
+    .offer_sidebar img{
+        width: 50%;
+    }
+}
+
+@media (max-width: 480px){
+    .offer_sidebar img{
+        width: 100%;
+    }
 }
 
 .offer_map {
@@ -121,19 +137,26 @@
     border-radius: 0;
     background-color: #F59A1E;
     border: 0;
+    margin-top: 16px;
 }
 .btn_join:hover{
     background-color: #982582;
     color: #FFFFFF;
 }
 
+@media screen and (max-width: 767px) {
+    .btn_join {
+        margin-top: 32px;
+    }
+}
+
 .print_icon{
     display: inline-block;
-    margin-bottom: -10px;
-    width: 44.5px;
-    height: 52px;
+    margin-bottom: -3px;
+    width: 22.25px;
+    height: 26px;
     background-image: url('/bestja_offers/static/src/img/printer.svg');
-    background-size: 44.5px 52px;
+    background-size: 22.25px 26px;
 }
 
 .print_icon:hover{
@@ -168,7 +191,7 @@
     }
 
     .col_offer_info{
-        margin-top: 40px;
+        padding-top: 40px;
         min-height: 1px !important;
     }
 
