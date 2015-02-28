@@ -7,8 +7,13 @@
                     <section class="oe_snippet_body">
                         <div class="container regulations">
                             <div class="row">
-                                <div class="col-md-3 mt48">
-                                    <ul class="nav nav-pills regulations_nav">
+                                <div class="col-md-8 col-md-push-3">
+                                    <h1 class="mt48 mb48 section_title">
+                                        <strong>Regulamin aplikacji</strong>
+                                    </h1>
+                                </div>
+                                <div class="col-md-3 col-md-pull-8">
+                                    <ul class="nav nav-pills single_page_nav">
                                         <li class="mt8 mb8">
                                             <a href="#wstep">Wstęp</a>
                                         </li>
@@ -20,14 +25,11 @@
                                         </li>
                                     </ul>
                                 </div>
-                                <div class="col-md-8 mb128">
-                                    <h1 class="mt48 mb48 section_title">
-                                        <strong>Regulamin aplikacji</strong>
-                                    </h1>
+                                <div class="col-md-8 col-md-offset-3 mb128">
                                     <h2 id="wstep" class="mt48 mb16">
                                         <strong>Wstęp</strong>
                                     </h2>
-                                    
+
                                     <p>Aenean quis. Nec, turpis porttitor nec! Magnis. In elementum cursus.
                                         Vut, tincidunt, penatibus, egestas risus porta diam!
                                         Platea, dolor et vut augue aliquam odio integer purus eu, a, est ac, sit
@@ -37,11 +39,11 @@
                                         tor turpis enim! Nascetur! Adipiscing nascetur, vel, augue dignissim
                                         duis amet nisi lundium adipiscing nunc rhoncus porta purus pulvinar
                                         ultricies mauris tristigue magna, lacus eros.</p>
-                                                                        
+
                                     <h2 id="definicje" class="mt128 mb16">
                                         <strong>Definicje</strong>
                                     </h2>
-                                    
+
                                     <p>Aenean quis. Nec, turpis porttitor nec! Magnis. In elementum cursus.
                                         Vut, tincidunt, penatibus, egestas risus porta diam!
                                         Platea, dolor et vut augue aliquam odio integer purus eu, a, est ac, sit
@@ -51,11 +53,11 @@
                                         tor turpis enim! Nascetur! Adipiscing nascetur, vel, augue dignissim
                                         duis amet nisi lundium adipiscing nunc rhoncus porta purus pulvinar
                                         ultricies mauris tristigue magna, lacus eros.</p>
-                                    
+
                                     <h2 id="postanowienia" class="mt128 mb16">
                                         <strong>Postanowienia ogólne</strong>
                                     </h2>
-                                    
+
                                     <p>Aenean quis. Nec, turpis porttitor nec! Magnis. In elementum cursus.
                                         Vut, tincidunt, penatibus, egestas risus porta diam!</p>
                                     <p>Platea, dolor et vut augue aliquam odio integer purus eu, a, est ac, sit
@@ -68,7 +70,7 @@
                                 </div>
                             </div>
                         </div>
-                    </section>                    
+                    </section>
                 </div>
             </t>
         </template>

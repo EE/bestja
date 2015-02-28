@@ -330,6 +330,7 @@ h6{
     bottom: 180px;
     left: calc(50% - 25px);
     z-index: 5;
+    opacity: 0.5;
 }
 
 @media (max-width: 991px){
@@ -697,45 +698,51 @@ div.carousel .carousel-indicators .active {
     color: #FFFFFF;
 }
 
-.regulations_nav{
+.single_page_nav{
     position: fixed;
 }
 
-.regulations_nav li{
+.single_page_nav li{
     margin-right: 40%;
 }
 
-.regulations_nav > li.active > a, .regulations_nav > li.active > a:focus{
+.single_page_nav > li.active > a, .single_page_nav > li.active > a:focus{
     background-color: #F59A1E;
     border-radius: 0;
 }
 
-.regulations_nav > li.active > a:hover{
+.single_page_nav > li.active > a:hover{
     background-color: #982582;
 }
 
-.regulations_nav > li > a, .regulations_nav > li > a:focus{
+.single_page_nav > li > a, .single_page_nav > li > a:focus{
     background-color: #FFFFFF;
     color: #000000;
     border-radius: 0;
 }
 
-.regulations_nav > li > a:hover{
+.single_page_nav > li > a:hover{
     background-color: #982582;
     color: #FFFFFF;
 }
 
+@media screen and (min-width: 992px) {
+    .single_page_nav{
+        padding-top: 40px;
+    }
+}
+
 @media screen and (max-width: 991px) {
-    .regulations_nav{
+    .single_page_nav{
         position: relative;
     }
-    .regulations_nav li, .regulations_nav li + li{
+    .single_page_nav li, .single_page_nav li + li{
         float: left;
         margin-top: 8px;
         margin-right: 25px;
     }
 
-    .regulations_nav > li > a{
+    .single_page_nav > li > a{
         display: inline-block;
     }
 }
@@ -785,6 +792,7 @@ div.carousel .carousel-indicators .active {
     position: absolute;
     top: 10px;
     right: 17px;
+    font-size: 14px;
 }
 
 #cookie_reminder_close:hover{

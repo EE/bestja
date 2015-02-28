@@ -7,8 +7,13 @@
                     <section class="oe_snippet_body">
                         <div class="container privacy_policy">
                             <div class="row">
-                                <div class="col-md-3 mt48">
-                                    <ul class="nav nav-pills privacy_policy_nav">
+                                <div class="col-md-8 col-md-push-3">
+                                    <h1 class="mt48 mb48 section_title">
+                                        <strong>Polityka prywatności</strong>
+                                    </h1>
+                                </div>
+                                <div class="col-md-3 col-md-pull-8">
+                                    <ul class="nav nav-pills single_page_nav">
                                         <li class="mt8 mb8">
                                             <a href="#wstep">Wstęp</a>
                                         </li>
@@ -20,10 +25,7 @@
                                         </li>
                                     </ul>
                                 </div>
-                                <div class="col-md-8 mb128">
-                                    <h1 class="mt48 mb48 section_title">
-                                        <strong>Polityka prywatności</strong>
-                                    </h1>
+                                <div class="col-md-8 col-md-offset-3 mb128">
                                     <h2 id="wstep" class="mt48 mb16">
                                         <strong>Wstęp</strong>
                                     </h2>
