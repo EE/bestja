@@ -7,6 +7,10 @@ jQuery(window).ready(function () {
         } else {
             $('.carousel').height(height);
         }
+        /* Footer at bottom of the page */
+        $('main').css('height','auto');
+        $('main').height($('#wrapwrap').height() - $('footer').height() - 51);
+        /* End of footer at bottom of the page */
     });
     /* End of function resize */
 
@@ -81,6 +85,7 @@ jQuery(window).ready(function () {
     }
     /* End of mobile viewport, tel added */
 
+    /* Tabs control on about us page */
     $('#partners_friends a[href="#partners"]').click(function(e){
         e.preventDefault();
         $('#partners_friends a[href="#partners"]').tab('show');
@@ -89,4 +94,9 @@ jQuery(window).ready(function () {
         e.preventDefault();
         $('#partners_friends a[href="#friends"]').tab('show');
     });
+    /* End of tabs control on about us page */
+
+    /* Footer at bottom of the page */
+    $('main').height($('#wrapwrap').height() - $('footer').height() - 51);
+    /* End of footer at bottom of the page */
 });

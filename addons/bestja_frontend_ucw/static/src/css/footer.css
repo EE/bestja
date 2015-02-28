@@ -1,9 +1,37 @@
 /* Footer */
 footer{
     display: block;
-    padding-top: 20px;
     background-color: #000000;
     font-family: 'Ubuntu', sans-serif;
+    height: 228px;
+}
+
+@media (max-width: 1199px){
+    footer{
+        height: 218px;
+    }
+}
+
+@media (max-width: 991px){
+    footer{
+        height: 310px;
+    }
+}
+
+@media (max-width: 767px){
+    footer{
+        height: 470px;
+    }
+}
+
+@media (max-width: 480px){
+    footer{
+        height: 485px;
+    }
+}
+
+.footer_inner{
+    padding-top: 20px;
 }
 
 .footer_logo{
@@ -35,8 +63,13 @@ address p{
 
 .design_by, .copyrights{
     font-size: 12px;
-    display: block;
     color: #767676;
+}
+
+@media (max-width: 370px){
+    .copyrights{
+        display: inline-block;
+    }
 }
 
 .footer_icons{

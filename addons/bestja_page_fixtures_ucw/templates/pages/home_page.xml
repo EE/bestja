@@ -147,45 +147,78 @@
                     <section class="oe_snippet_body">
                         <div class="container what_to_do">
                             <div class="row">
-                                <div class="col-md-3 col-xs-6 category_column">
-                                    <a class="category_link">
-                                        <img class="img img-responsive shadow mb16 img_category"
-                                             src="http://bestja.d3.laboratorium.ee/img/chcewiedziecwiecej_off.jpg"/>
-                                        <img class="img_category_hover" src="http://bestja.d3.laboratorium.ee/img/chcewiedziecwiecej_on.jpg"/>
-                                        <img class="category_pictogram"
-                                             src="http://bestja.d3.laboratorium.ee/ucw/img/category_pictograms/grid-ico1.svg"/>
-                                        <p class="category_description">chcę dzielić się wiedzą</p>
-                                    </a>
+                                <div class="col-md-3 col-md-offset-0 col-sm-5 col-sm-offset-1 col-xs-6 text-center category_column">
+                                    <div class="row">
+                                        <div class="col-sm-12 mb16">
+                                            <a class="category_link" href="/offers/category/edukacyjny">
+                                                <img class="shadow img_category"
+                                                     src="http://bestja.d3.laboratorium.ee/img/chcewiedziecwiecej_off.jpg"/>
+                                                <img class="img_category_hover" src="http://bestja.d3.laboratorium.ee/img/chcewiedziecwiecej_on.jpg"/>
+                                                <img class="category_pictogram"
+                                                     src="http://bestja.d3.laboratorium.ee/ucw/img/category_pictograms/grid-ico1.svg"/>
+                                            </a>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <p class="category_description">
+                                                <a class="category_link" href="/offers/category/edukacyjny">chcę dzielić się wiedzą</a>
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="col-md-3 col-xs-6 category_column">
-                                    <a class="category_link" href="/offers/category/akcyjny">
-                                        <img class="img img-responsive shadow mb16 img_category"
-                                             src="http://bestja.d3.laboratorium.ee/img/chcedzialac_off.jpg"/>
-                                        <img class="img_category_hover" src="http://bestja.d3.laboratorium.ee/img/chcedzialac_on.jpg"/>
-                                        <img class="category_pictogram"
-                                             src="http://bestja.d3.laboratorium.ee/ucw/img/category_pictograms/grid-ico2.svg"/>
-                                        <p class="category_description">chcę działać</p>
-                                    </a>
+                                <div class="col-md-3 col-sm-5 col-xs-6 text-center category_column">
+                                    <div class="row">
+                                        <div class="col-sm-12 mb16">
+                                            <a class="category_link" href="/offers/category/akcyjny">
+                                                <img class="shadow img_category"
+                                                     src="http://bestja.d3.laboratorium.ee/img/chcedzialac_off.jpg"/>
+                                                <img class="img_category_hover" src="http://bestja.d3.laboratorium.ee/img/chcedzialac_on.jpg"/>
+                                                <img class="category_pictogram"
+                                                     src="http://bestja.d3.laboratorium.ee/ucw/img/category_pictograms/grid-ico2.svg"/>
+                                            </a>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <p class="category_description">
+                                                <a class="category_link" href="/offers/category/akcyjny">chcę działać</a>
+                                            </p>
+                                        </div>
+                                    </div>
+
                                 </div>
-                                <div class="col-md-3 col-xs-6 category_column">
-                                    <a class="category_link" href="/offers/category/pomocowy">
-                                        <img class="img img-responsive shadow mb16 img_category"
-                                             src="http://bestja.d3.laboratorium.ee/img/chcepomagac_off.jpg"/>
-                                        <img class="img_category_hover" src="http://bestja.d3.laboratorium.ee/img/chcepomagac_on.jpg"/>
-                                        <img class="category_pictogram"
-                                             src="http://bestja.d3.laboratorium.ee/ucw/img/category_pictograms/grid-ico3.svg"/>
-                                        <p class="category_description">chcę pomagać</p>
-                                    </a>
+                                <div class="col-md-3 col-md-offset-0 col-sm-5 col-sm-offset-1 col-xs-6 text-center category_column">
+                                    <div class="row">
+                                        <div class="col-sm-12 mb16">
+                                            <a class="category_link" href="/offers/category/pomocowy">
+                                                <img class="shadow img_category"
+                                                     src="http://bestja.d3.laboratorium.ee/img/chcepomagac_off.jpg"/>
+                                                <img class="img_category_hover" src="http://bestja.d3.laboratorium.ee/img/chcepomagac_on.jpg"/>
+                                                <img class="category_pictogram"
+                                                     src="http://bestja.d3.laboratorium.ee/ucw/img/category_pictograms/grid-ico3.svg"/>
+                                            </a>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <p class="category_description">
+                                                <a class="category_link" href="/offers/category/pomocowy">chcę pomagać</a>
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="col-md-3 col-xs-6 category_column">
-                                    <a class="category_link" href="/offers/category/projektowy">
-                                        <img class="img img-responsive shadow mb16 img_category"
-                                             src="http://bestja.d3.laboratorium.ee/img/chcsierozwijac_off.jpg"/>
-                                        <img class="img_category_hover" src="http://bestja.d3.laboratorium.ee/img/chcsierozwijac_on.jpg"/>
-                                        <img class="category_pictogram"
-                                             src="http://bestja.d3.laboratorium.ee/ucw/img/category_pictograms/grid-ico4.svg"/>
-                                        <p class="category_description">chcę się rozwijać</p>
-                                    </a>
+                                <div class="col-md-3 col-sm-5 col-xs-6 text-center category_column">
+                                    <div class="row">
+                                        <div class="col-sm-12 mb16">
+                                            <a class="category_link" href="/offers/category/projektowy">
+                                                <img class="shadow img_category"
+                                                     src="http://bestja.d3.laboratorium.ee/img/chcsierozwijac_off.jpg"/>
+                                                <img class="img_category_hover" src="http://bestja.d3.laboratorium.ee/img/chcsierozwijac_on.jpg"/>
+                                                <img class="category_pictogram"
+                                                     src="http://bestja.d3.laboratorium.ee/ucw/img/category_pictograms/grid-ico4.svg"/>
+                                            </a>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <p class="category_description">
+                                                <a class="category_link" href="/offers/category/projektowy">chcę się rozwijać</a>
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -255,11 +288,11 @@
                             </div>
                         </div>
                     </section>
-                    <section class="oe_snippet_body join_us_now">
+                    <section class="oe_snippet_body">
                         <div class="container">
                             <div class="row text-center mt64 mb64">
                                 <div class="col-md-12">
-                                    <a class="btn btn-lg mt32 mb32 text-center link_like_button" t-if="website.user_id == user_id" href="/web/signup">DOŁĄCZ TERAZ</a>
+                                    <a class="btn btn-lg mt32 mb32 text-center link_like_button" t-if="website.user_id == user_id" href="/web/signup">DOŁĄCZ TERAZ</a><br />
                                     <a class="text-center" href="/page/for_volunteers">więcej o wolontariacie</a>
                                 </div>
                             </div>

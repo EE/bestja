@@ -211,7 +211,6 @@
     color: #DB901F;
     text-decoration: none;
     cursor: pointer;
-    font-size: 22px;
 }
 
 .title_of_the_offer a:hover{
@@ -227,14 +226,8 @@
     height: 165px;
 }
 
-
-
 .title_of_the_offer, .organization_name, .category_name{
     margin-top: 0;
-}
-
-.offer_where{
-    padding: 20px;
 }
 
 .offers_day_of_the_week{
@@ -285,7 +278,10 @@
 .offer_where{
     text-align: right;
     color: #3C4049;
-    font-size: 14px;
+}
+
+.offer_where h3{
+    margin-top: 10px;
 }
 
 .offer_how_long, .offer_place{
@@ -318,11 +314,10 @@
 
 @media screen and (max-width: 1199px) {
     .date_of_the_offer, .content_of_the_offer{
-        height: 200px;
+        height: 131px;
     }
-
-    .offer_where{
-        padding: 20px;
+    .content_of_the_offer{
+        padding-top: 10px !important;
     }
 }
 
@@ -338,7 +333,7 @@
 
 @media screen and (max-width: 767px) {
     .date_of_the_offer, .content_of_the_offer{
-        height: 200px;
+        height: 180px;
     }
 }
 
@@ -347,7 +342,7 @@
         font-size: 18px;
     }
 
-    .organization_name a, .offer_where p{
+    .organization_name a{
         font-size: 14px;
     }
 

@@ -349,11 +349,11 @@ h6{
     }
 }
 
-.container_under_categories a, .join_us_now a{
+.container_under_categories a{
     color: #F59A1E;
 }
 
-.container_under_categories a:hover, .join_us_now a:hover{
+.container_under_categories a:hover{
     color: #982582;
 }
 
@@ -481,9 +481,7 @@ div.carousel .carousel-indicators .active {
 }
 
 .category_link{
-    display: block;
-    width: 100%;
-    height: 100%;
+    color: #000000;
 }
 
 .category_link:hover .category_description{
@@ -492,7 +490,7 @@ div.carousel .carousel-indicators .active {
 
 .category_pictogram{
     position: absolute !important;
-    top: calc(50% - 130px);
+    top: 0;
     left: calc(50% - 107px);
     width: 215px;
     opacity: 0;
@@ -511,13 +509,9 @@ div.carousel .carousel-indicators .active {
         left: calc(50% - 95px);
         width: 190px;
     }
-
-    .category_column{
-        min-height: 290px;
-    }
 }
 
-@media screen and (max-width: 440px) {
+@media screen and (max-width: 500px) {
     .category_column{
         width: 100%;
     }
