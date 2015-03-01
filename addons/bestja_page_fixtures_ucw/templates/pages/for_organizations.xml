@@ -42,7 +42,7 @@
                     <section class="oe_snippet_body">
                         <div class="container">
                             <div class="row">
-                                <div class="col-md-8 col-sm-12">
+                                <div class="col-md-8 col-md-offset-1 col-sm-12">
                                     <div class="quote_picture_on_right">
                                         <p class="citation">
                                             <em>"Robię to dla samej siebie. Zdobywam doświadczenie,
@@ -70,32 +70,72 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <h1 class="text-center mt48 mb48 section_title">
+                                    <h1 class="text-center mt48 mb64 section_title">
                                         Co otrzymujesz jako partner UCW</h1>
                                 </div>
                                 <div class="container">
                                     <div class="row">
-                                        <div class="col-md-5 col-md-offset-1 mb16 checklist">
+                                        <div class="col-md-6 mb16 checklist">
                                             <ul>
                                                 <li class="mb64">
-                                                    <span class="glyphicon glyphicon-ok" /> <p>Wsparcie merytoryczne dotyczące
-                                                    współpracy z wolontariuszami.</p></li>
+                                                    <div class="row">
+                                                        <div class="col-md-2">
+                                                            <span class="glyphicon glyphicon-ok" />
+                                                        </div>
+                                                        <div class="col-md-10">
+                                                            <p>Wsparcie merytoryczne dotyczące
+                                                                współpracy z wolontariuszami.</p>
+                                                        </div>
+                                                    </div>
+                                                </li>
                                                 <li class="mb64">
-                                                    <span class="glyphicon glyphicon-ok" /> <p>Możliwość skorzystania z sali do
-                                                    prowadzenia spotkań i szkoleń dla
-                                                    wolontariuszy.</p></li>
+                                                    <div class="row">
+                                                        <div class="col-md-2">
+                                                            <span class="glyphicon glyphicon-ok" />
+                                                        </div>
+                                                        <div class="col-md-10">
+                                                            <p>Możliwość skorzystania z sali do
+                                                                prowadzenia spotkań i szkoleń dla
+                                                                wolontariuszy.</p>
+                                                        </div>
+                                                    </div>
+                                                </li>
                                                 <li class="mb64">
-                                                    <span class="glyphicon glyphicon-ok" /> <p>Wyselekcjonowanych przez UCW
-                                                    wolontariuszy.</p></li>
+                                                    <div class="row">
+                                                        <div class="col-md-2">
+                                                            <span class="glyphicon glyphicon-ok" />
+                                                        </div>
+                                                        <div class="col-md-10">
+                                                            <p>Wyselekcjonowanych przez UCW
+                                                                wolontariuszy.</p>
+                                                        </div>
+                                                    </div>
+                                                </li>
                                             </ul>
                                         </div>
-                                        <div class="col-md-5 mb16 checklist">
+                                        <div class="col-md-6 mb16 checklist">
                                             <ul>
                                                 <li class="mb64">
-                                                    <span class="glyphicon glyphicon-ok" /> <p>Prestiż dzięki współpracy z jednostką
-                                                    Uniwersytetu Warszawskiego.</p></li>
+                                                    <div class="row">
+                                                        <div class="col-md-2">
+                                                            <span class="glyphicon glyphicon-ok" />
+                                                        </div>
+                                                        <div class="col-md-10">
+                                                            <p>Prestiż dzięki współpracy z jednostką
+                                                                Uniwersytetu Warszawskiego.</p>
+                                                        </div>
+                                                    </div>
+                                                </li>
                                                 <li class="mb64">
-                                                    <span class="glyphicon glyphicon-ok" /> <p>Radość i satysfakcję ze współpracy.</p></li>
+                                                    <div class="row">
+                                                        <div class="col-md-2">
+                                                            <span class="glyphicon glyphicon-ok" />
+                                                        </div>
+                                                        <div class="col-md-10">
+                                                            <p>Radość i satysfakcję ze współpracy.</p>
+                                                        </div>
+                                                    </div>
+                                                </li>
                                             </ul>
                                         </div>
                                     </div>
@@ -162,7 +202,7 @@
                     <section class="oe_snippet_body">
                         <div class="container">
                             <div class="row">
-                                <div class="col-md-8 col-sm-12">
+                                <div class="col-md-8 col-md-offset-1 col-sm-12">
                                     <div class="quote_picture_on_right">
                                         <p class="citation">
                                             <em>"Robię to dla samej siebie. Zdobywam doświadczenie,
@@ -181,39 +221,103 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <h1 class="text-center mt48 mb48 section_title">
+                                    <h1 class="text-center mt48 mb64 section_title">
                                         Co zyskasz korzystając z aplikacji<br />
                                         do zarządzania wolontariatem</h1>
                                 </div>
                                 <div class="container what_partner_receives">
                                     <div class="row">
-                                        <div class="col-md-5 col-md-offset-1 mb16 checklist">
+                                        <div class="col-md-6 mb16 checklist">
                                             <ul>
                                                 <li class="mb64">
-                                                    <span class="glyphicon glyphicon-ok" /> <p>Wsparcie merytoryczne dotyczące
-                                                    współpracy z wolontariuszami.</p></li>
+                                                    <div class="row">
+                                                        <div class="col-md-2">
+                                                            <span class="glyphicon glyphicon-ok" />
+                                                        </div>
+                                                        <div class="col-md-10">
+                                                            <p>Wsparcie merytoryczne dotyczące
+                                                                współpracy z wolontariuszami.</p>
+                                                        </div>
+                                                    </div>
+                                                </li>
                                                 <li class="mb64">
-                                                    <span class="glyphicon glyphicon-ok" /> <p>Możliwość skorzystania z sali do
-                                                    prowadzenia spotkań i szkoleń dla wolontariuszy.</p></li>
+                                                    <div class="row">
+                                                        <div class="col-md-2">
+                                                            <span class="glyphicon glyphicon-ok" />
+                                                        </div>
+                                                        <div class="col-md-10">
+                                                            <p>Możliwość skorzystania z sali do
+                                                                prowadzenia spotkań i szkoleń dla wolontariuszy.</p>
+                                                        </div>
+                                                    </div>
+                                                </li>
                                                 <li class="mb64">
-                                                    <span class="glyphicon glyphicon-ok" /> <p>Wyselekcjonowanych przez UCW
-                                                    wolontariuszy.</p></li>
+                                                    <div class="row">
+                                                        <div class="col-md-2">
+                                                            <span class="glyphicon glyphicon-ok" />
+                                                        </div>
+                                                        <div class="col-md-10">
+                                                            <p>Wyselekcjonowanych przez UCW
+                                                                wolontariuszy.</p>
+                                                        </div>
+                                                    </div>
+                                                </li>
                                                 <li class="mb64">
-                                                    <span class="glyphicon glyphicon-ok" /> <p>Lepsze możliwości znalezienia
-                                                    wolontariuszy.</p></li>
+                                                    <div class="row">
+                                                        <div class="col-md-2">
+                                                            <span class="glyphicon glyphicon-ok" />
+                                                        </div>
+                                                        <div class="col-md-10">
+                                                            <p>Lepsze możliwości znalezienia
+                                                                wolontariuszy.</p>
+                                                        </div>
+                                                    </div>
+                                                </li>
                                             </ul>
                                         </div>
-                                        <div class="col-md-5 mb16 checklist">
+                                        <div class="col-md-6 mb16 checklist">
                                             <ul>
                                                 <li class="mb64">
-                                                    <span class="glyphicon glyphicon-ok" /> <p>Prestiż dzięki współpracy z jednostką
-                                                    Uniwersytetu Warszawskiego.</p></li>
+                                                    <div class="row">
+                                                        <div class="col-md-2">
+                                                            <span class="glyphicon glyphicon-ok" />
+                                                        </div>
+                                                        <div class="col-md-10">
+                                                            <p>Prestiż dzięki współpracy z jednostką
+                                                                Uniwersytetu Warszawskiego.</p>
+                                                        </div>
+                                                    </div>
+                                                </li>
                                                 <li class="mb64">
-                                                    <span class="glyphicon glyphicon-ok" /> <p>Radość i satysfakcję ze współpracy.</p></li>
+                                                    <div class="row">
+                                                        <div class="col-md-2">
+                                                            <span class="glyphicon glyphicon-ok" />
+                                                        </div>
+                                                        <div class="col-md-10">
+                                                            <p>Radość i satysfakcję ze współpracy.</p>
+                                                        </div>
+                                                    </div>
+                                                </li>
                                                 <li class="mb64">
-                                                    <span class="glyphicon glyphicon-ok" /> <p>Przyspieszenie organizacji.</p></li>
+                                                    <div class="row">
+                                                        <div class="col-md-2">
+                                                            <span class="glyphicon glyphicon-ok" />
+                                                        </div>
+                                                        <div class="col-md-10">
+                                                            <p>Przyspieszenie organizacji.</p>
+                                                        </div>
+                                                    </div>
+                                                </li>
                                                 <li class="mb64">
-                                                    <span class="glyphicon glyphicon-ok" /> <p>Oszczędność czasu.</p></li>
+                                                    <div class="row">
+                                                        <div class="col-md-2">
+                                                            <span class="glyphicon glyphicon-ok" />
+                                                        </div>
+                                                        <div class="col-md-10">
+                                                            <p>Oszczędność czasu.</p>
+                                                        </div>
+                                                    </div>
+                                                </li>
                                             </ul>
                                         </div>
                                     </div>

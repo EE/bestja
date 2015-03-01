@@ -77,11 +77,9 @@
                                                 <t t-esc="offer.display_name"/>
                                             </a>
                                         </h2>
-                                        <h2 class="organization_name">
-                                            <small>
+                                        <p class="organization_name">
                                                 <t t-esc="offer.project.organization.name"/>
-                                            </small>
-                                        </h2>
+                                        </p>
                                         <div class="offer_where">
                                             <p class="offer_place">
                                                 <t t-esc="offer.city"/>

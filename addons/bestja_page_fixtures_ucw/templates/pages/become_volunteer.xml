@@ -37,7 +37,7 @@
                     <section class="oe_snippet_body mb92">
                         <div class="container">
                             <div class="row">
-                                <div class="col-md-8 col-sm-12">
+                                <div class="col-md-8 col-md-offset-1 col-sm-12">
                                     <div class="quote_picture_on_right">
                                         <p class="citation">
                                             <em>"Robię to dla samej siebie. Zdobywam doświadczenie,
@@ -170,7 +170,7 @@
                     <section class="oe_snippet_body mb128">
                         <div class="container">
                             <div class="row">
-                                <div class="col-md-3 hidden-xs hidden-sm text-right">
+                                <div class="col-md-3 col-md-offset-1 hidden-xs hidden-sm text-right">
                                     <img src="http://bestja.d3.laboratorium.ee/img/cytat2_222x222px.jpg"/>
                                 </div>
                                 <div class="col-md-8 col-sm-12">
