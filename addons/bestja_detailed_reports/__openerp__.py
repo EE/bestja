@@ -15,7 +15,6 @@ Module containing reports of products obtained during projects.
         'bestja_base',
         'bestja_project',
         'bestja_project_hierarchy',
-        'bestja_stores',
     ],
     'data': [
         'views/project.xml',

@@ -1,43 +1,10 @@
 <openerp>
     <data>
-        <record model="ir.ui.view" id="report_entry_graph_cities">
-            <field name="name">Raport po partnerach</field>
-            <field name="model">bestja.report_entry</field>
-            <field name="arch" type="xml">
-                <graph type="pivot">
-                    <field name="responsible_organization"/>
-                    <field name="tonnage" type="measure"/>
-                    <field name="total_cities_nr" type="measure"/>
-                </graph>
-            </field>
-        </record>
-        <record model="ir.actions.act_window" id="action_detailed_reports_cities_summary">
-            <field name="name">Raport po partnerach</field>
+
+        <record model="ir.actions.act_window" id="action_detailed_reports_item_summary">
+            <field name="name">Statystyki raportów</field>
             <field name="res_model">bestja.report_entry</field>
             <field name="view_mode">graph</field>
-            <field name="view_id" ref="report_entry_graph_cities"/>
-            <field name="domain">[
-                ('detailed_report.state', '!=', 'draft'),
-            ]</field>
-            <field name="context">{
-                'search_default_accepted': True,
-            }</field>
-        </record>
-        <record model="ir.ui.view" id="report_entry_graph_partners">
-            <field name="name">bestja.report_entry.graph</field>
-            <field name="model">bestja.report_entry</field>
-            <field name="arch" type="xml">
-                <graph type="pivot">
-                    <field name="organization"/>
-                    <field name="tonnage" type="measure"/>
-                </graph>
-            </field>
-        </record>
-        <record model="ir.actions.act_window" id="action_detailed_reports_partner_summary">
-            <field name="name">Raport po partnerach</field>
-            <field name="res_model">bestja.report_entry</field>
-            <field name="view_mode">graph</field>
-            <field name="view_id" ref="report_entry_graph_partners"/>
             <field name="domain">[
                 ('detailed_report.state', '!=', 'draft'),
             ]</field>
@@ -46,27 +13,16 @@
             }</field>
         </record>
 
-        <record model="ir.ui.view" id="report_entry_graph_products">
+        <record model="ir.ui.view" id="report_entry_graph">
             <field name="name">bestja.report_entry.graph</field>
             <field name="model">bestja.report_entry</field>
             <field name="arch" type="xml">
                 <graph type="pivot">
-                    <field name="commodity"/>
+                    <field name="responsible_organization"/>
+                    <field name="commodity" type="col"/>
                     <field name="tonnage" type="measure"/>
                 </graph>
             </field>
-        </record>
-        <record model="ir.actions.act_window" id="action_detailed_reports_product_summary">
-            <field name="name">Raport po produktach</field>
-            <field name="res_model">bestja.report_entry</field>
-            <field name="view_mode">graph</field>
-            <field name="view_id" ref="report_entry_graph_products"/>
-            <field name="domain">[
-                ('detailed_report.state', '!=', 'draft'),
-            ]</field>
-            <field name="context">{
-                'search_default_accepted': True,
-            }</field>
         </record>
 
         <record model="ir.ui.view" id="bestja_report_entry_search">
@@ -95,14 +51,7 @@
                      <templates>
                          <t t-name="kanban-box">
                             <div class="oe_kanban_card">
-                               <field name="name"/>
-                               <field name="organization_level" invisible="1"/>
-                               <br/><br/>
-                               <a name="%(action_detailed_reports_partner_summary)d" type="action" t-if="record.organization_level.raw_value == 1">raport po partnerach</a>
-                               <a name="%(action_detailed_reports_cities_summary)d" type="action" t-if="record.organization_level.raw_value == 0">raport po partnerach</a>
-                               <br/>
-                               <a name="%(action_detailed_reports_product_summary)d" type="action">raport po produktach</a>
-                               <br/>
+                               <a name="%(action_detailed_reports_item_summary)d" type="action"><field name="name"/></a>
                             </div>
                          </t>
                      </templates>
