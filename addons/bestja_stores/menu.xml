@@ -4,5 +4,6 @@
         <menuitem parent="menu_stores" id="menu_stores_list" action="action_stores" sequence="3"/>
         <menuitem parent="menu_stores" id="menu_stores_moderation" action="action_stores_moderation" sequence="4" groups="bestja_project_hierarchy.managers_level1"/>
         <menuitem parent="menu_stores" id="menu_stores_in_project" action="action_project_chooser" sequence="5"/>
+        <menuitem parent="menu_stores" id="menu_stores_in_waiting" action="action_stores_in_waiting" sequence="6"/>
     </data>
 </openerp>

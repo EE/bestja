@@ -70,6 +70,9 @@ class Store(models.Model):
         domain='''[
             ('level', '>=', 1),
             '|',
+                ('id', '=', responsible),
+                ('parent', '=', responsible),
+            '|',
                 ('coordinator', '=', uid),
             '|',
                 ('parent.coordinator', '=', uid),
@@ -117,9 +120,9 @@ class Store(models.Model):
         Is current user authorized to moderate (accept/reject) the store?
         """
         self.user_can_moderate = (
-            self.responsible.coordinator.id == self.env.uid or
-            self.responsible.parent.coordinator.id == self.env.uid
-        ) and self.responsible != self.default_partner
+            self.responsible.coordinator.id == self.env.uid
+            and self.responsible != self.default_partner
+        )
 
     @api.multi
     def _is_permitted(self):
@@ -194,6 +197,12 @@ class Store(models.Model):
 
 class StoreInProject(models.Model):
     _name = 'bestja_stores.store_in_project'
+    _inherit = [
+        'protected_fields.mixin',
+        'ir.needaction_mixin',
+        'message_template.mixin',
+    ]
+    _protected_fields = ['state']
 
     STATES = [
         ('waiting_bank', "oczekuje na bank"),
@@ -266,10 +275,96 @@ class StoreInProject(models.Model):
     date_start = fields.Date(related='project.top_parent.date_start', readonly=True)
     date_stop = fields.Date(related='project.top_parent.date_stop', readonly=True)
     days = fields.One2many('bestja_stores.day', inverse_name='store')
-    state = fields.Selection(STATES, default='waiting_bank', required=True, string="Status")
+    state = fields.Selection(STATES, default='waiting_bank', required=True, string="Status aktywacji")
+    time_deactivated = fields.Datetime(string="Czas dezaktywacji")
     name = fields.Char(related='store.name', readonly=True)
     address = fields.Char(related='store.address', readonly=True)
     city = fields.Char(related='store.city', readonly=True)
+    user_can_moderate = fields.Boolean(compute="_compute_user_can_moderate")
+
+    @api.model
+    def _needaction_domain_get(self):
+        """
+        Show pending count in menu.
+        """
+        return [
+            ('state', 'in', ['waiting_bank', 'waiting_partner']),
+        ]
+
+    @api.multi
+    def _is_permitted(self):
+        """
+        Allow authorized users to modify protected fields
+        """
+        permitted = super(StoreInProject, self)._is_permitted()
+        return permitted or (self.user_can_moderate and self.state != 'activated')
+
+    @api.multi
+    def is_bank(self):
+        """
+        Does the current user have privileges to act as bank
+        (organization level 1) overseeing current project?
+        """
+        self.ensure_one()
+        authorised_uids = [
+            self.project.parent.organization.coordinator.id,
+            self.project.parent.manager.id,
+        ]
+        return self.env.uid in authorised_uids and self.project.organization_level == 2
+
+    @api.multi
+    def is_owner(self):
+        """
+        Does the current user have privileges to act as an owner
+        of the current project.
+        """
+        self.ensure_one()
+        authorised_uids = [
+            self.project.organization.coordinator.id,
+            self.project.manager.id,
+        ]
+        return self.env.uid in authorised_uids
+
+    @api.one
+    @api.depends('project', 'project.parent')
+    def _compute_user_can_moderate(self):
+        """
+        Is current user authorized to moderate (accept/reject) the store?
+        """
+        if self.state == 'waiting_bank':
+            self.user_can_moderate = self.is_bank()
+        elif self.state in ['waiting_partner', 'activated']:
+            self.user_can_moderate = self.is_owner() or self.is_bank()
+        else:
+            self.user_can_moderate = False
+
+    @api.one
+    def set_activated(self):
+        self.state = 'activated'
+        if self.is_bank():
+            self.activated_by = self.project.parent.organization
+        elif self.is_owner():
+            self.activated_by = self.project.organization
+        else:
+            # This shouldn't really happen, but we can't forbid super user
+            # from doing anything, so theoretically speaking it might...
+            self.activated_by = False
+
+    @api.one
+    def set_deactivated(self):
+        if not (self.is_owner() or self.is_bank()):
+            raise exceptions.AccessError("Nie masz uprawnień aby dezaktywować ten sklep!")
+        self.sudo().state = 'deactivated'
+        self.time_deactivated = fields.Datetime.now()
+
+    @api.one
+    def set_rejected(self):
+        if self.state == 'waiting_bank':
+            self.send(
+                template='bestja_stores.msg_in_project_rejected',
+                recipients=self.project.responsible_user,
+            )
+        self.state = 'rejected'
 
     @api.one
     @api.depends('project.organization')
@@ -333,6 +428,28 @@ class StoreInProject(models.Model):
                 'store': store_domain,
             }
         }
+
+    @api.model
+    def create(self, vals):
+        record = super(StoreInProject, self).create(vals)
+        if record.organization.level == 1 and record.is_owner():
+            # Middle organization adding for itself
+            record.sudo().state = 'activated'
+            record.activated_by = record.project.organization.id
+        elif record.organization.level == 2:
+            if record.is_bank():
+                # Middle organization adding for its child
+                record.sudo().state = 'waiting_partner'
+            else:
+                record.sudo().state = 'waiting_bank'
+        else:
+            raise exceptions.AccessError("Nie masz uprawnień aby przypisać ten sklep!")
+        return record
+
+    @api.one
+    def name_get(self):
+        name_string = u"{store} ({project})".format(store=self.store.name, project=self.project.name)
+        return (self.id, name_string)
 
 
 class DayInStore(models.Model):

@@ -51,6 +51,10 @@
                     <filter name="my_stores" string="Moje sklepy"
                     domain="[
                         '|',
+                            ('responsible.parent.coordinator', '=', uid),
+                        '|',
+                            ('responsible.coordinator', '=', uid),
+                        '|',
                             ('default_partner.coordinator', '=', uid),
                             ('default_partner.projects.manager', '=', uid),
                     ]"/>

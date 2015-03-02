@@ -24,5 +24,13 @@
             ]]></field>
             <field name="model">bestja_stores.store</field>
         </record>
+
+        <record id="msg_in_project_rejected" model="message_template">
+            <field name="subject">Sklep projektowy odrzucony</field>
+            <field name="body"><![CDATA[
+                Sklep ${record.store.name} nie został aktywowany do ${record.project.name}.
+            ]]></field>
+            <field name="model">bestja_stores.store_in_project</field>
+        </record>
     </data>
 </openerp>

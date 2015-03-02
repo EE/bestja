@@ -4,6 +4,10 @@
             <field name="name">Sklepy zbiórkowe</field>
             <field name="res_model">bestja_stores.store_in_project</field>
             <field name="view_mode">tree,form</field>
+            <field name="context">{
+                'search_default_my_stores': True,
+                'search_default_activated': True,
+            }</field>
             <field name="domain">[
                 '|',
                     ('top_project', '=', active_id),
@@ -11,6 +15,50 @@
                     ('top_project.children', '=', active_id),
                     ('top_project.children.children', '=', active_id),
             ]</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_stores_in_waiting">
+            <field name="name">Sklepy do aktywacji</field>
+            <field name="res_model">bestja_stores.store_in_project</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[
+                ('state', 'in', ['waiting_bank', 'waiting_partner']),
+            ]</field>
+        </record>
+
+        <record model="ir.ui.view" id="bestja_stores_store_in_project_search">
+            <field name="name">bestja_stores.store_in_project.search</field>
+            <field name="model">bestja_stores.store_in_project</field>
+            <field name="arch" type="xml">
+                <search>
+                    <filter name="my_stores" string="Moje sklepy"
+                    domain="[
+                        '|',
+                            ('project.manager', '=', uid),
+                        '|',
+                            ('project.organization.coordinator', '=', uid),
+                        '|',
+                            ('project.parent.manager', '=', uid),
+                        '|',
+                            ('project.parent.organization.coordinator', '=', uid),
+                        '|',
+                            ('project.parent.parent.manager', '=', uid),
+                            ('project.parent.parent.organization.coordinator', '=', uid),
+                    ]"/>
+                    <group string="Status">
+                        <filter name="waiting_bank" string="Oczekujące na bank"
+                        domain="[('state', '=', 'waiting_bank')]"/>
+                        <filter name="waiting_partner" string="Oczekujące na partnera"
+                        domain="[('state', '=', 'waiting_partner')]"/>
+                        <filter name="rejected" string="Odrzucone"
+                        domain="[('state', '=', 'rejected')]"/>
+                        <filter name="activated" string="Aktywowane"
+                        domain="[('state', '=', 'activated')]"/>
+                        <filter name="deactivated" string="Dezaktywowane"
+                        domain="[('state', '=', 'deactivated')]"/>
+                    </group>
+                </search>
+            </field>
         </record>
 
         <record model="ir.ui.view" id="in_project_tree">
@@ -33,7 +81,36 @@
             <field name="model">bestja_stores.store_in_project</field>
             <field name="arch" type="xml">
                 <form>
+                    <header>
+                        <field name="user_can_moderate" invisible="1"/>
+                        <field name="id" invisible="1"/>
+                        <button name="set_activated" string="Aktywuj" type="object" class="oe_highlight" attrs="{'invisible': [
+                            '|',
+                                ('state', 'not in', ['waiting_bank', 'waiting_partner']),
+                                ('user_can_moderate', '=', False),
+                        ]}"/>
+                        <button name="set_rejected" string="Odrzuć" type="object" attrs="{'invisible': [
+                            '|',
+                                ('state', 'not in', ['waiting_bank', 'waiting_partner']),
+                                ('user_can_moderate', '=', False),
+                        ]}"/>
+                        <button name="set_deactivated" string="Deaktywuj" type="object" attrs="{'invisible': [
+                            '|',
+                                ('state', '!=', 'activated'),
+                                ('user_can_moderate', '=', False),
+                        ]}"/>
+                    </header>
+                    <!-- the three fields below are here just to trigger
+                    their computation, so their values will be ready to be
+                    displayed in the stores list in project view
+                    (even in draft mode). -->
+                    <field name="name" invisible="1"/>
+                    <field name="address" invisible="1"/>
+                    <field name="city" invisible="1"/>
                     <group col="3">
+                        <label for="state"  attrs="{'invisible': [('id', '=', False)]}"/>
+                        <div><field name="state" attrs="{'invisible': [('id', '=', False)]}" readonly="1" class="state"/></div><newline/>
+                        <field name="time_deactivated" attrs="{'invisible': [('state', '!=', 'deactivated')]}" readonly="1"/><newline/>
                         <field name="organization" options="{'no_create': True}"/><newline/>
                         <field name="project" options="{'no_create': True}"/><newline/>
                         <field name="store" options="{'no_create': True}"/>
