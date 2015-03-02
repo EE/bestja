@@ -25,7 +25,6 @@
                         <div attrs="{'invisible': [('id', '!=', False)]}">
                             Zapisz nowo tworzony projekt aby dodać sklepy, w których chcesz organizować zbiórkę.
                         </div>
-                        </div>
                     </page>
                 </notebook>
             </field>
