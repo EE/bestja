@@ -20,7 +20,7 @@
         <record id="bestja_organization_hierarchy.coordinators_level2" model="res.groups">
             <field name="implied_ids" eval="[(4, ref('managers_level2'))]"/>
         </record>
-
+    
         <record id="invitation_rule" model="ir.rule">
             <field name="name">Inviters and invitees have access to invitations.</field>
             <field name="model_id" ref="model_bestja_project_invitation"/>
@@ -32,6 +32,19 @@
                     ('project.manager', '=', user.id),
                     ('organization.coordinator', '=', user.id),
             ]</field>
+        </record>
+        
+        <record id="invitation_deletion_rule" model="ir.rule">
+            <field name="name">You can't delete invitation when it's already accepted.</field>
+            <field name="model_id" ref="model_bestja_project_invitation"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">[
+                ('invited_projects', '=', False),  
+            ]</field>
+            <field name="perm_read" eval="False"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="True"/>
         </record>
 
         <record id="project_invited_rule" model="ir.rule">

@@ -155,6 +155,14 @@ class Project(models.Model):
         related='organization.level'
     )
 
+    _sql_constraints = [
+        (
+            'invitation_parent_project_organization_uniq',
+            'unique(parent, organization)',
+            "Nie możesz utworzyć wielu projektów na podstawie jednego projektu nadrzędnego",
+        ),
+    ]
+
     @api.one
     @api.depends('parent', 'parent.parent')
     def _compute_top_parent(self):
