@@ -18,7 +18,7 @@
             <field name="name">bestja_requests.item.graph</field>
             <field name="model">bestja_requests.item</field>
             <field name="arch" type="xml">
-                <graph type="pivot">
+                <graph type="pivot" create="false">
                     <field name="organization"/>
                     <field name="template_item" type="col"/>
                     <field name="quantity" type="measure"/>

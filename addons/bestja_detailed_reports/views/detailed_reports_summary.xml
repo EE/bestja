@@ -4,7 +4,7 @@
             <field name="name">Raport po partnerach</field>
             <field name="model">bestja.report_entry</field>
             <field name="arch" type="xml">
-                <graph type="pivot">
+                <graph type="pivot" create="false">
                     <field name="responsible_organization"/>
                     <field name="tonnage" type="measure"/>
                     <field name="total_cities_nr" type="measure"/>
@@ -27,7 +27,7 @@
             <field name="name">bestja.report_entry.graph</field>
             <field name="model">bestja.report_entry</field>
             <field name="arch" type="xml">
-                <graph type="pivot">
+                <graph type="pivot" create="false">
                     <field name="organization"/>
                     <field name="tonnage" type="measure"/>
                 </graph>
@@ -50,7 +50,7 @@
             <field name="name">bestja.report_entry.graph</field>
             <field name="model">bestja.report_entry</field>
             <field name="arch" type="xml">
-                <graph type="pivot">
+                <graph type="pivot" create="false">
                     <field name="commodity"/>
                     <field name="tonnage" type="measure"/>
                 </graph>
@@ -90,7 +90,7 @@
              <field name="model">bestja.project</field>
              <field name="priority">30</field>
              <field name="arch" type="xml">
-                 <kanban class="oe_background_grey">
+                 <kanban class="oe_background_grey" create="false">
                      <field name="name"/>
                      <templates>
                          <t t-name="kanban-box">

@@ -5,7 +5,7 @@
             <field name="name">bestja.estimation_report_entry.graph</field>
             <field name="model">bestja.estimation_report_entry</field>
             <field name="arch" type="xml">
-                <graph type="pivot">
+                <graph type="pivot" create="false">
                     <field name="organization"/>
                     <field name="day" type="col" interval="day"/>
                     <field name="tonnage" type="measure"/>
@@ -29,7 +29,7 @@
             <field name="name">bestja.estimation_report_entry.graph</field>
             <field name="model">bestja.estimation_report_entry</field>
             <field name="arch" type="xml">
-                <graph type="pivot">
+                <graph type="pivot" create="false">
                     <field name="responsible_organization"/>
                     <field name="day" type="col" interval="day"/>
                     <field name="tonnage" type="measure"/>
@@ -54,7 +54,7 @@
             <field name="name">bestja.estimation_report_entry.graph</field>
             <field name="model">bestja.estimation_report_entry</field>
             <field name="arch" type="xml">
-                <graph type="pivot">
+                <graph type="pivot" create="false">
                     <field name="chain"/>
                     <field name="day" type="col" interval="day"/>
                     <field name="tonnage" type="measure"/>
@@ -73,13 +73,13 @@
                 'search_default_sent': True,
             }</field>
         </record>
-        
+
         <record id="project_estimation_summary_kanban" model="ir.ui.view">
             <field name="name">bestja.project.estimation_summary</field>
             <field name="model">bestja.project</field>
             <field name="priority">30</field>
             <field name="arch" type="xml">
-                <kanban class="oe_background_grey">
+                <kanban class="oe_background_grey" create="false">
                     <field name="name"/>
                     <templates>
                         <t t-name="kanban-box">
