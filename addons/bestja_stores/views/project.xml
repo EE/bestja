@@ -4,10 +4,15 @@
         <record model="ir.ui.view" id="bestja_project_form">
             <field name="name">bestja.project.form</field>
             <field name="model">bestja.project</field>
-            <field name="inherit_id" ref="bestja_project.bestja_project_form"/>
+            <field name="inherit_id" ref="bestja_project_hierarchy.bestja_project_form"/>
             <field name="arch" type="xml">
+                <field name="parent" position="after">
+                    <field name="enable_stores" attrs="{'invisible': ['|', ('parent', '!=', False), ('organization_level', '&gt;=', 2)]}"/>
+                    <field name="use_stores" invisible="1"/>
+                </field>
+
                 <notebook>
-                    <page string="Sklepy" attrs="{'invisible': [('organization_level', '=', 0)]}">
+                    <page string="Sklepy" attrs="{'invisible': ['|', ('organization_level', '=', 0), ('use_stores', '=', False)]}">
                         <field name="id" invisible="1"/>
                         <separator string="Sklepy zbiórkowe"/>
                         <div attrs="{'invisible': [('id', '=', False)]}">
@@ -19,7 +24,6 @@
                                     <field name="city"/>
                                     <field name="state"/>
                                 </tree>
-
                             </field>
                         </div>
                         <div attrs="{'invisible': [('id', '!=', False)]}">
@@ -54,9 +58,10 @@
             <field name="view_mode">kanban</field>
             <field name="view_id" ref="project_chooser_kanban"/>
             <field name="domain">[
+                ('use_stores', '=', True),
                 '|',
-                ('manager', '=', uid),
-                ('organization.coordinator', '=', uid),
+                    ('manager', '=', uid),
+                    ('organization.coordinator', '=', uid),
             ]</field>
         </record>
     </data>

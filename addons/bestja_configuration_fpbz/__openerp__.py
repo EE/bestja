@@ -17,6 +17,7 @@
         'bestja_organization_hierarchy',
         'bestja_project',
         'bestja_project_hierarchy',
+        'bestja_stores',
         'bestja_requests',
         'bestja_detailed_reports',
         'bestja_offers',

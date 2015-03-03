@@ -227,8 +227,8 @@ class StoreInProject(models.Model):
         'bestja.project',
         required=True,
         default=_default_project,
-        # TODO: Is this a zbiórkowy project?
         domain='''[
+            ('use_stores', '=', True),
             ('organization', '=', organization),
             ('date_stop', '>=', current_date),
             '|',
@@ -447,3 +447,28 @@ class ProjectWithStores(models.Model):
     _inherit = 'bestja.project'
 
     stores = fields.One2many('bestja_stores.store_in_project', inverse_name='project')
+
+    enable_stores = fields.Boolean(string="Projekt zbiórkowy?")
+    use_stores = fields.Boolean(
+        compute='_compute_use_stores',
+        compute_sudo=True,
+        search='_search_use_stores',
+    )
+
+    @api.one
+    @api.depends('enable_stores', 'parent.enable_stores', 'parent.parent.enable_stores')
+    def _compute_use_stores(self):
+        self.use_stores = (
+            self.enable_stores or
+            self.parent.enable_stores or
+            self.parent.parent.enable_stores
+        )
+
+    def _search_use_stores(self, operator, value):
+        return [
+            '|',  # noqa
+                ('enable_stores', operator, value),
+            '|',
+                ('parent.enable_stores', operator, value),
+                ('parent.parent.enable_stores', operator, value),
+        ]
