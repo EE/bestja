@@ -18,9 +18,17 @@ class Application(models.Model):
         ]
         super(Application, self)._auto_init(cr, context)
 
-    @api.model
-    def send_message_new(self, record):
-        return
+    @api.one
+    def _send_message_new(self):
+        if self.preliminary:
+            # when application has just been created
+            # send message to admin about new application
+            self.send_group(
+                template='bestja_application_moderation.msg_new_application_admin',
+                group='bestja_offers_moderation.offers_moderator',
+            )
+        else:
+            super(Application, self)._send_message_new()
 
     @api.model
     def create(self, vals):
@@ -37,13 +45,6 @@ class Application(models.Model):
         if self.sudo(coordinator.id).user_has_groups(group) or \
                 (manager and self.sudo(manager.id).user_has_groups(group)):
             record_sudo.preliminary = False
-        if record.preliminary:
-            # when application has just been created
-            # send message to admin about new application
-            record.send_group(
-                template='bestja_application_moderation.msg_new_application_admin',
-                group='bestja_offers_moderation.offers_moderator',
-            )
         return record
 
     @api.one

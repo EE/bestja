@@ -87,17 +87,17 @@ class Application(models.Model):
         ('user_offer_uniq', 'unique("user", "offer")', 'User can apply for an offer only once!')
     ]
 
-    @api.model
-    def _send_message_new(self, record):
-        record.send(
+    @api.one
+    def _send_message_new(self):
+        self.send(
             template='bestja_offers.msg_new_application',
-            recipients=record.sudo().offer.project.responsible_user,
+            recipients=self.sudo().offer.project.responsible_user,
         )
 
     @api.model
     def create(self, vals):
         record = super(Application, self).create(vals)
-        self._send_message_new(record)
+        record._send_message_new()
         return record
 
     @api.one
