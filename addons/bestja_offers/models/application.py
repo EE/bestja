@@ -248,7 +248,7 @@ class Application(models.Model):
         )
 
     @api.multi
-    def _get_meeting_confirmation_link(self, resolution):
+    def get_meeting_confirmation_link(self, resolution):
         """
         Applicants can use this url to confirm a meeting.
         resolution -- one of 'accepted', 'rejected'

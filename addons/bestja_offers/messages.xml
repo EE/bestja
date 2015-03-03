@@ -33,8 +33,8 @@
                 Zgłosiłeś się na ofertę "${record.offer.name}". Chcielibyśmy Cię lepiej poznać.
 
                 <ul>
-                    <li><a target="_blank" href="${base_url}${record._get_meeting_confirmation_link('accepted')}">Potwierdź termin spotkania</a></li>
-                    <li><a target="_blank" href="${base_url}${record._get_meeting_confirmation_link('rejected')}">Odrzuć termin spotkania</a></li>
+                    <li><a target="_blank" href="${base_url}${record.get_meeting_confirmation_link('accepted')}">Potwierdź termin spotkania</a></li>
+                    <li><a target="_blank" href="${base_url}${record.get_meeting_confirmation_link('rejected')}">Odrzuć termin spotkania</a></li>
                 </ul>
             ]]></field>
             <field name="model">offers.application</field>
