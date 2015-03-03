@@ -7,7 +7,7 @@
             <field name="inherit_id" ref="bestja_project.bestja_project_form"/>
             <field name="arch" type="xml">
                 <div name="buttons">
-                    <button class="oe_stat_button oe_right"
+                    <button class="oe_inline oe_stat_button"
                         icon="fa-folder-open" name="%(action_project_file)d"
                         type="action">
                             <field name="file_count" widget="statinfo" string="plików"/>
