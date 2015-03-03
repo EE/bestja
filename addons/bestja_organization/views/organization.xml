@@ -126,5 +126,15 @@
                 </tree>
             </field>
         </record>
+        
+        <record model="ir.ui.view" id="bestja_organization_search">
+            <field name="name">bestja.organization.search</field>
+            <field name="model">organization</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="city"/>
+                </search>
+            </field>
+        </record>
     </data>
 </openerp>
