@@ -230,7 +230,8 @@
                                     <a class="btn btn-lg mt32 mb32 text-center link_like_button" href="/offers/category/">ZOBACZ WSZYSTKIE OFERTY</a>
                                 </div>
                                 <div class="col-xs-6 col-md-12 text-center container_under_categories">
-                                    <p>Twoja organizacja chciałaby do nas dołączyć?
+                                    <p class="main_page_custom_invitation_texts">
+                                        Twoja organizacja chciałaby do nas dołączyć?
                                         <a href="/page/for_organizations">dowiedz się więcej</a>
                                         <t t-if="website.user_id == user_id">lub <a href="/web/signup">zarejestruj organizację</a></t>
                                     </p>
@@ -292,8 +293,10 @@
                         <div class="container">
                             <div class="row text-center mt64 mb64">
                                 <div class="col-md-12">
-                                    <a class="btn btn-lg mt32 mb32 text-center link_like_button" t-if="website.user_id == user_id" href="/web/signup">DOŁĄCZ TERAZ</a><br />
-                                    <a class="text-center" href="/page/for_volunteers">więcej o wolontariacie</a>
+                                    <a class="btn btn-lg mt32 mb32 text-center link_like_button" t-if="website.user_id == user_id" href="/web/signup">DOŁĄCZ TERAZ</a>
+                                    <p class="main_page_custom_invitation_texts">
+                                        <a class="text-center" href="/page/for_volunteers">więcej o wolontariacie</a>
+                                    </p>
                                 </div>
                             </div>
                         </div>
