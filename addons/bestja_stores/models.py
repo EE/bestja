@@ -202,7 +202,7 @@ class StoreInProject(models.Model):
         'ir.needaction_mixin',
         'message_template.mixin',
     ]
-    _protected_fields = ['state']
+    _protected_fields = ['state', 'activated_by', 'time_deactivated']
 
     STATES = [
         ('waiting_bank', "oczekuje na bank"),
@@ -299,14 +299,6 @@ class StoreInProject(models.Model):
         ]
 
     @api.multi
-    def _is_permitted(self):
-        """
-        Allow authorized users to modify protected fields
-        """
-        permitted = super(StoreInProject, self)._is_permitted()
-        return permitted or (self.user_can_moderate and self.state != 'activated')
-
-    @api.multi
     def is_bank(self):
         """
         Does the current user have privileges to act as bank
@@ -347,31 +339,40 @@ class StoreInProject(models.Model):
 
     @api.one
     def set_activated(self):
-        self.state = 'activated'
+        if not self.user_can_moderate:
+            raise exceptions.AccessError("Nie masz uprawnień aby aktywować ten sklep!")
+
+        self.sudo().state = 'activated'
         if self.is_bank():
-            self.activated_by = self.project.parent.organization
+            self.sudo().activated_by = self.project.parent.organization
         elif self.is_owner():
-            self.activated_by = self.project.organization
+            self.sudo().activated_by = self.project.organization
         else:
             # This shouldn't really happen, but we can't forbid super user
             # from doing anything, so theoretically speaking it might...
-            self.activated_by = False
+            self.sudo().activated_by = False
 
     @api.one
     def set_deactivated(self):
-        if not (self.is_owner() or self.is_bank()):
+        if not self.user_can_moderate:
             raise exceptions.AccessError("Nie masz uprawnień aby dezaktywować ten sklep!")
         self.sudo().state = 'deactivated'
-        self.time_deactivated = fields.Datetime.now()
+        self.sudo().time_deactivated = fields.Datetime.now()
 
     @api.one
     def set_rejected(self):
+        if not self.user_can_moderate:
+            raise exceptions.AccessError("Nie masz uprawnień aby dezaktywować ten sklep!")
+
+        if self.state == 'activated':
+            raise exceptions.AccessError("Uprzednio aktywowany sklep nie może zostać odrzucony!")
+
         if self.state == 'waiting_bank':
             self.send(
                 template='bestja_stores.msg_in_project_rejected',
                 recipients=self.project.responsible_user,
             )
-        self.state = 'rejected'
+        self.sudo().state = 'rejected'
 
     @api.one
     @api.depends('project.organization')
