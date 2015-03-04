@@ -547,7 +547,7 @@ class DayInStore(models.Model):
         self.time_to = self.time_to_default
 
     @api.one
-    @api.constrains('time_from_default', 'time_to_default')
+    @api.constrains('time_from', 'time_to')
     def _check_hours(self):
         time_pattern = re.compile(r"^([0-1][0-9]|2[0-4]):[0-5][0-9]$")
         if not time_pattern.match(self.time_to_default) or not time_pattern.match(self.time_from_default):
