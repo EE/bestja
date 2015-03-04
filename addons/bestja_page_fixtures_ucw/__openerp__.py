@@ -13,7 +13,6 @@
     # pages
     'data': [
         'templates/pages/title.xml',
-        'templates/pages/home_page.xml',
         'templates/pages/contactus.xml',
         'templates/pages/footer.xml',
         'templates/pages/about_us.xml',

@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
-        <template id="new_home_page" inherit_id="website.homepage" name="Homepage">
-            <xpath expr="//div[@id='wrap']" position="replace">
+        <template id="new_home_page" inherit_id="collage_photo.listing" name="UCW Home Page with photo collage">
+            <xpath expr="//ul" position="replace">
                 <div id="wrap" class="oe_structure oe_empty">
-
                     <section>
                         <div class="container-fluid">
                             <div class="row">
@@ -108,7 +107,6 @@
                                                 </div>
                                             </div>
                                         </div>
-
                                         <!-- Controls -->
                                         <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
                                             <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
@@ -121,7 +119,6 @@
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                         <script>
                             // Background picture will fit viewport
@@ -131,7 +128,6 @@
                             } else {
                                 document.getElementsByClassName('carousel')[0].style.height = height + "px";
                             }
-
                         </script>
                     </section>
                     <section class="oe_snippet_body">
@@ -182,7 +178,6 @@
                                             </p>
                                         </div>
                                     </div>
-
                                 </div>
                                 <div class="col-md-3 col-md-offset-0 col-sm-5 col-sm-offset-1 col-xs-6 text-center category_column">
                                     <div class="row">
@@ -307,93 +302,31 @@
                                 <div class="col-md-12 hidden-xs">
                                     <div id="photostack-1" class="photostack">
                                         <div>
-                                            <figure>
-                                                <a class="current photostack-img">
-                                                    <img src="http://lorempixel.com/g/350/350" alt="img05"/>
-                                                </a>
-                                                <figcaption>
-                                                    <p class="photostack-title">Zdjęcie 5</p>
-                                                    <div class="photostack-back">
-                                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-                                                    </div>
-                                                </figcaption>
-                                            </figure>
-                                            <figure>
-                                                <a class="current photostack-img">
-                                                    <img src="http://lorempixel.com/g/350/350" alt="img02"/>
-                                                </a>
-                                                <figcaption>
-                                                    <p class="photostack-title">Zdjęcie 2</p>
-                                                    <div class="photostack-back">
-                                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-                                                    </div>
-                                                </figcaption>
-                                            </figure>
-                                            <figure>
-                                                <a class="photostack-img">
-                                                    <img src="http://lorempixel.com/g/350/350" alt="img03"/>
-                                                </a>
-                                                <figcaption>
-                                                    <p class="photostack-title">Zdjęcie 3</p>
-                                                    <div class="photostack-back">
-                                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-                                                    </div>
-                                                </figcaption>
-                                            </figure>
-                                            <figure>
-                                                <a class="photostack-img">
-                                                    <img src="http://lorempixel.com/g/350/350" alt="img01"/>
-                                                </a>
-                                                <figcaption>
-                                                    <p class="photostack-title">Zdjęcie 1</p>
-                                                    <div class="photostack-back">
-                                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-                                                    </div>
-                                                </figcaption>
-                                            </figure>
-                                            <figure>
-                                                <a class="photostack-img">
-                                                    <img src="http://lorempixel.com/g/350/350" alt="img04"/>
-                                                </a>
-                                                <figcaption>
-                                                    <p class="photostack-title">Zdjęcie 4</p>
-                                                    <div class="photostack-back">
-                                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-                                                    </div>
-                                                </figcaption>
-                                            </figure>
-                                            <figure>
-                                                <a class="photostack-img">
-                                                    <img src="http://lorempixel.com/g/350/350" alt="img06"/>
-                                                </a>
-                                                <figcaption>
-                                                    <p class="photostack-title">Zdjęcie 6</p>
-                                                    <div class="photostack-back">
-                                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-                                                    </div>
-                                                </figcaption>
-                                            </figure>
-                                            <figure>
-                                                <a class="photostack-img">
-                                                    <img src="http://lorempixel.com/g/350/350" alt="img07"/>
-                                                </a>
-                                                <figcaption>
-                                                    <p class="photostack-title">Zdjęcie 7</p>
-                                                    <div class="photostack-back">
-                                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-                                                    </div>
-                                                </figcaption>
-                                            </figure>
+                                            <t t-foreach="photos" t-as="collage_photo">
+                                                <figure>
+                                                    <a class="current photostack-img">
+                                                        <img t-attf-src="/website/image/collage_photo/{{collage_photo.id}}/attachment" alt=""/>
+                                                    </a>
+                                                    <figcaption>
+                                                        <p class="photostack-title">
+                                                            <t t-if="collage_photo.name" t-esc="collage_photo.name"/>
+                                                        </p>
+                                                        <div class="photostack-back">
+                                                            <p>
+                                                                <t t-if="collage_photo.reverse" t-esc="collage_photo.reverse"/>
+                                                            </p>
+                                                        </div>
+                                                    </figcaption>
+                                                </figure>
+                                            </t>
                                         </div>
                                         <script src="/bestja_frontend_ucw/static/src/js/modernizr.min.js"></script>
                                         <script src="/bestja_frontend_ucw/static/src/js/classie.js"></script>
                                         <script src="/bestja_frontend_ucw/static/src/js/photostack.js"></script>
                                         <script>
-                                            // [].slice.call( document.querySelectorAll( '.photostack' ) ).forEach( function( el ) { new Photostack( el ); } );
-
                                             new Photostack( document.getElementById( 'photostack-1' ), {
-                                            callback : function( item ) {
-                                            }
+                                                callback : function( item ) {
+                                                }
                                             } );
                                         </script>
                                     </div>
@@ -404,5 +337,8 @@
                 </div>
             </xpath>
         </template>
+        <record id="website.menu_homepage" model="website.menu">
+            <field name="url">/collage_photo/</field>
+        </record>
     </data>
 </openerp>

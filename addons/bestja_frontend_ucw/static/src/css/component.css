@@ -344,6 +344,11 @@ svg.polaroid rect {
 	background: #f9f9f9;
 }
 
+.photostack-img img{
+    width: 350px;
+    height: 340px;
+}
+
 .photostack-back {
 	display: none;
 	position: absolute;

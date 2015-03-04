@@ -1,14 +1,14 @@
 <openerp>
     <data>
         <template id="collage_photo.listing">
-           <t t-call="website.layout">
-              <ul>
-                <li t-foreach="photos" t-as="collage_photo">
-                    <div class="row">
-                        <img t-attf-src="/website/image/collage_photo/{{collage_photo.id}}/attachment"/>
-                    </div>
-                </li>
-              </ul>
+            <t t-call="website.layout">
+                <ul>
+                    <li t-foreach="photos" t-as="collage_photo">
+                        <div class="row">
+                            <img t-attf-src="/website/image/collage_photo/{{collage_photo.id}}/attachment"/>
+                        </div>
+                    </li>
+                </ul>
             </t>
         </template>
     </data>

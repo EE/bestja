@@ -9,13 +9,18 @@
     'category': 'Theme',
     'version': '1.0',
     'css': ['static/src/css/custom.css'],
-    'depends': ['website'],
+    'depends': [
+        'website',
+        'collage_photo',
+    ],
 
     # assets
     'data': [
         'views/assets.xml',
         'views/login_signup.xml',
         'views/cookie_reminder.xml',
+        # after collage was added this page is now dynamic
+        'views/home_page.xml',
     ],
     'application': True,
     # About information
