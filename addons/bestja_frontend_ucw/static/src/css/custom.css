@@ -816,3 +816,9 @@ div.carousel .carousel-indicators .active {
     color: #009D93;
 }
 /* End of contact page*/
+
+/* In blog duplicate menu is needed to be hidden */
+.website_blog .dropdown-menu .duplicate{
+    display: none;
+}
+/* End of in blog duplicate menu is needed to be hidden */
