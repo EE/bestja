@@ -289,6 +289,13 @@ class StoreInProject(models.Model):
         """
         return [
             ('state', 'in', ['waiting_bank', 'waiting_partner']),
+            '|',  # noqa
+                ('project.manager', '=', self.env.uid),
+            '|',
+                ('project.organization.coordinator', '=', self.env.uid),
+            '|',
+                ('project.parent.manager', '=', self.env.uid),
+                ('project.parent.organization.coordinator', '=', self.env.uid),
         ]
 
     @api.multi
