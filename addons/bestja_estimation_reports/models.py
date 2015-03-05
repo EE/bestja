@@ -204,7 +204,7 @@ class EstimationReport(models.Model):
                 'estimation_report': record.id,
                 'day_in_store': day_in_store.id,
                 'tonnage': 0.0,
-                'store': day_in_store.store.id,
+                'store': day_in_store.store.store.id,
                 'store_project': day_in_store.store.project.id,
             })
         return record
