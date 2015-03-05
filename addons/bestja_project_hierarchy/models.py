@@ -43,6 +43,7 @@ class ProjectInvitation(models.Model):
         compute_sudo=True,
     )
     invited_projects = fields.One2many('bestja.project', inverse_name='parent_invitation')
+    user_is_inviter = fields.Boolean(string="Czy użytkownik zapraszał?", compute='_compute_user_is_inviter')
 
     _sql_constraints = [
         (
@@ -68,6 +69,11 @@ class ProjectInvitation(models.Model):
     @api.depends('invited_projects')
     def _compute_state(self):
         self.state = 'accepted' if self.invited_projects else 'pending'
+
+    @api.one
+    @api.depends('organization.coordinator')
+    def _compute_user_is_inviter(self):
+        self.user_is_inviter = (self.organization.coordinator.id != self.env.uid)
 
     @api.one
     @api.depends('invited_projects')

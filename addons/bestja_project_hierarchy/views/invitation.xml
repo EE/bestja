@@ -33,7 +33,10 @@
             <field name="arch" type="xml">
                 <form create="false" delete="false" edit="false">
                     <header>
-                        <button string="Dołącz do projektu" name="accept_invitation" type="object" states="pending" class="oe_highlight"/>
+                        <field name="user_is_inviter" invisible="1"/>
+                        <div attrs="{'invisible': [('user_is_inviter', '=', True)]}">
+                            <button string="Dołącz do projektu" name="accept_invitation" type="object" states="pending" class="oe_highlight"/>
+                        </div>
                     </header>
                     <h1>Zaproszenie do projektu</h1>
                     <field name="state" readonly="1" class="state"/>
