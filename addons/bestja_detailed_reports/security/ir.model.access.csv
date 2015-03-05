@@ -1,4 +1,6 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_detailed_report,detailed_report,model_bestja_detailed_report,bestja_project.managers,1,1,1,1
+access_detailed_report,detailed_report,model_bestja_detailed_report,bestja_project.managers,1,1,0,1
+access_bestja_detailed_report_level1,access_bestja_detailed_report,model_bestja_detailed_report,bestja_project_hierarchy.managers_level1,1,1,1,1
+access_bestja_detailed_report_level2,access_bestja_detailed_report,model_bestja_detailed_report,bestja_project_hierarchy.managers_level2,1,1,1,1
 access_bestja_report_entry,bestja_report_entry,model_bestja_report_entry,bestja_project.managers,1,1,1,1
 access_bestja_commodity_group,bestja_commodity_group,model_bestja_commodity_group,bestja_project.managers,1,0,0,0
