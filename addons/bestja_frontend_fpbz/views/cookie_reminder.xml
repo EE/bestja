@@ -8,7 +8,7 @@
                         <span>Strona korzysta z plików cookies w celu realizacji usług i zgodnie z <a href="/page/privacy_policy" title="Polityka Prywatności">Polityką Plików Cookies</a>.<br />
                         Możesz określić warunki przechowywania lub dostępu do cookie w Twojej przeglądarce lub konfiguracji usługi.
                         </span>
-                        <p id="cookie_reminder_close" class="glyphicon glyphicon-remove"/>
+                        <span id="cookie_reminder_close" class="glyphicon glyphicon-remove"/>
                     </div>
                 </div>
             </xpath>
