@@ -459,6 +459,18 @@ class StoreInProject(models.Model):
         name_string = u"{store} ({project})".format(store=self.store.name, project=self.project.name)
         return (self.id, name_string)
 
+    def _auto_init(self, cr, context=None):
+        todo_end = super(StoreInProject, self)._auto_init(cr, context)
+        # Add UNIQUE index, since UNIQUE indexes (in opposite to UNIQUE constraints)
+        # can include conditional clauses.
+        if self._auto:
+            cr.execute("DROP INDEX IF EXISTS unique_store_project;")
+            cr.execute(
+                """CREATE UNIQUE INDEX unique_store_project
+                    ON bestja_stores_store_in_project(project,store)
+                    WHERE (state NOT IN ('rejected', 'deactivated'));""")
+        return todo_end
+
 
 class DayInStore(models.Model):
     _name = 'bestja_stores.day'
