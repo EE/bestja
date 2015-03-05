@@ -4,7 +4,7 @@
  *
  * Licensed under the MIT license.
  * http://www.opensource.org/licenses/mit-license.php
- * 
+ *
  * Copyright 2014, Codrops
  * http://www.codrops.com
  */
@@ -28,7 +28,7 @@
 		return (computedStyle === val);
 	});
 
-	var support = { 
+	var support = {
 			transitions : Modernizr.csstransitions,
 			preserve3d : Modernizr.csstransformspreserve3d
 		},
@@ -42,7 +42,7 @@
 		transEndEventName = transEndEventNames[ Modernizr.prefixed( 'transition' ) ];
 
 	function extend( a, b ) {
-		for( var key in b ) { 
+		for( var key in b ) {
 			if( b.hasOwnProperty( key ) ) {
 				a[key] = b[key];
 			}
@@ -126,7 +126,7 @@
 			open = function() {
 				var setTransition = function() {
 					if( support.transitions ) {
-						classie.addClass( self.el, 'photostack-transition' ); 
+						classie.addClass( self.el, 'photostack-transition' );
 					}
 				};
 				if( beforeStep ) {
@@ -138,7 +138,7 @@
 					self.openDefault = true;
 					setTimeout( setTransition, 25 );
 				}
-				self.started = true; 
+				self.started = true;
 				self._showPhoto( self.current );
 			};
 
@@ -294,11 +294,11 @@
 
 		classie.removeClass( this.navDots[ this.current ], 'current' );
 		classie.removeClass( this.currentItem, 'photostack-current' );
-		
+
 		// change current
 		this.current = pos;
 		this.currentItem = this.items[ this.current ];
-		
+
 		classie.addClass( this.navDots[ this.current ], 'current' );
 		// if there is something behind..
 		if( this.currentItem.querySelector( '.photostack-back' ) ) {
@@ -321,7 +321,7 @@
 			this.openDefault = false;
 			this.isShuffling = false;
 		}
-		
+
 		var overlapFactor = .5,
 			// lines & columns
 			lines = Math.ceil(this.sizes.inner.width / (this.sizes.item.width * overlapFactor) ),
@@ -375,7 +375,7 @@
 						l = 1;
 					}
 					else {
-						++l
+						++l;
 					}
 
 					var randXPos = Math.floor( Math.random() * lines ),
@@ -438,7 +438,7 @@
 			inner : { width : this.inner.offsetWidth, height : this.inner.offsetHeight },
 			item : { width : this.currentItem.offsetWidth, height : this.currentItem.offsetHeight }
 		};
-		
+
 		// translation values to center an item
 		this.centerItem = { x : this.sizes.inner.width / 2 - this.sizes.item.width / 2, y : this.sizes.inner.height / 2 - this.sizes.item.height / 2 };
 	};
@@ -465,11 +465,11 @@
 				return {
 					overlapping : true,
 					noOverlap : { x : noOverlapX, y : noOverlapY }
-				}
+				};
 		}
 		return {
 			overlapping : false
-		}
+		};
 	};
 
 	Photostack.prototype._addItemPerspective = function() {

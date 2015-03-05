@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <template id="home_carousel_snippet" inherit_id="website.snippets" name="Snippet for carousel">
+            <xpath expr="//div[@id='myCarousel']" position="replace">
+                <div id="carousel-ucw" class="oe_snippet_body carousel slide mb32">
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators hidden">
+                        <li data-target="#carousel-ucw" data-slide-to="0" class="active"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="item active" style="background-image: url('/website/static/src/img/banner/color_splash.jpg')">
+                            <div class="container">
+                                <div class="row content">
+                                    <div class="carousel-content">
+                                        <h1>Use your professional skills to make a difference1</h1>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container-fluid carousel-caption">
+                                <div class="row content">
+                                    <div class="carousel-content">
+                                        <div>
+                                            Zimowa wałówka! Zbiórka karmy na UW!
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-control left hidden" data-target="#carousel-ucw" data-slide="prev" style="width: 10%">
+                        <i class="fa fa-chevron-left"></i>
+                    </div>
+                    <div class="carousel-control right hidden" data-target="#carousel-ucw" data-slide="next" style="width: 10%">
+                        <i class="fa fa-chevron-right"></i>
+                    </div>
+                </div>
+            </xpath>
+        </template>
+    </data>
+</openerp>

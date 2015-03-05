@@ -21,6 +21,7 @@
         'views/cookie_reminder.xml',
         # after collage was added this page is now dynamic
         'views/home_page.xml',
+        'views/banner_change_for_carousel.xml',
     ],
     'application': True,
     # About information

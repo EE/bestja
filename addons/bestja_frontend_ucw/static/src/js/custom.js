@@ -25,9 +25,9 @@ jQuery(window).ready(function () {
     });
 
     /* Smooth scrolling */
-
+    /* #carousel-ucw is necessary exclusion for slider to work */
     $(function () {
-        $('a[href*=#]:not([href=#]):not([href=#carousel-example-generic])').click(function () {
+        $('a[href*=#]:not([href=#]):not([href=#carousel-ucw])').click(function () {
             $('html,body').stop();
             if (location.pathname.replace(/^\//, '') === this.pathname.replace(/^\//, '') && location.hostname === this.hostname) {
                 var target = $(this.hash);
