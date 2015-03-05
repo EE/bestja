@@ -26,7 +26,7 @@
                                 </div>
                                 <div class="col-md-2 centered text-center" />
                                 <div class="col-md-5 mt16 footer_icons_container">
-                                    <ul class="col-md-12 footer_icons">
+                                    <ul class="col-sm-12 footer_icons">
                                         <li>
                                             <a class="facebook" t-att-href="website.social_facebook"></a>
                                         </li>

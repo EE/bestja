@@ -7,7 +7,7 @@
                     <section class="oe_snippet_body">
                         <div class="container">
                             <div class="row">
-                                <div class="col-md-12">
+                                <div class="col-sm-12">
                                     <h1 class="text-center mt48 mb48 section_title">
                                         <strong>Zostań</strong> organizacją partnerską Banku Żywności!</h1>
                                 </div>
@@ -27,19 +27,17 @@
                                     <img class="img img-responsive shadow mb16"
                                          src="http://lorempixel.com/g/800/700"/>
                                 </div>
-                                <div class="col-md-12 mt16 become_partner_link">
+                                <div class="col-sm-12 mt16 become_partner_link">
                                     <p>Kto może zostać partnerem?</p>
                                 </div>
                             </div>
                         </div>
                     </section>
-                    <section class="oe_snippet_body mt16 mb16 fadeIn">
+                    <section class="oe_snippet_body mt16 mb16">
                         <div class="container join_us">
                             <div class="row">
                                 <div class="text-center">
-                                    <form t-if="website.user_id == user_id" action="/web/signup">
-                                        <button class="btn btn-lg text-center mt32 mb32" type="submit">DOŁĄCZ TERAZ</button>
-                                    </form>
+                                    <a class="text-center mt32 mb32" t-if="website.user_id == user_id" href="/web/signup">DOŁĄCZ TERAZ</a>
                                 </div>
                             </div>
                         </div>
@@ -47,7 +45,7 @@
                     <section class="oe_snippet_body">
                         <div class="container">
                             <div class="row">
-                                <div class="col-md-12">
+                                <div class="col-sm-12">
                                     <h1 class="text-center mt48 mb48 section_title">
                                         Co otrzymasz jako <strong>partner</strong>
                                     </h1>
@@ -83,13 +81,11 @@
                             </div>
                         </div>
                     </section>
-                    <section class="oe_snippet_body mt16 mb16 fadeIn">
+                    <section class="oe_snippet_body mt16 mb16">
                         <div class="container join_us">
                             <div class="row">
                                 <div class="text-center">
-                                    <form t-if="website.user_id == user_id" action="/web/signup">
-                                        <button class="btn btn-lg text-center mt32 mb32" type="submit">DOŁĄCZ TERAZ</button>
-                                    </form>
+                                    <a class="text-center mt32 mb32" t-if="website.user_id == user_id" href="/web/signup">DOŁĄCZ TERAZ</a>
                                 </div>
                             </div>
                         </div>
@@ -118,7 +114,7 @@
                     <section class="oe_snippet_body">
                         <div class="container">
                             <div class="row">
-                                <div class="col-md-12">
+                                <div class="col-sm-12">
                                     <h1 class="text-center mt48 mb48 section_title">
                                         Dlaczego <strong>warto</strong> dołączyć?</h1>
                                 </div>
@@ -126,7 +122,7 @@
                         </div>
                     </section>
                     <section class="oe_snippet_body mb16">
-                        <div class="container-fluid volunteers_newsletter">
+                        <div class="container volunteers_newsletter">
                             <div class="row mt16 mb16">
                                 <div class="col-xs-6 col-sm-4 col-md-4 col-lg-2 col-lg-offset-1 text-center recrutation_step_column">
                                     <div class="recrutation_step_number">1</div>
@@ -178,7 +174,7 @@
                     <section class="oe_snippet_body">
                         <div class="container">
                             <div class="row">
-                                <div class="col-md-12">
+                                <div class="col-sm-12">
                                     <h1 class="text-center mt48 mb48 section_title">
                                         <strong>Zalety</strong> aplikacji</h1>
                                 </div>
@@ -221,9 +217,7 @@
                         <div class="container join_us">
                             <div class="row">
                                 <div class="text-center">
-                                    <form t-if="website.user_id == user_id" action="/web/signup">
-                                        <button class="btn btn-lg text-center mt32 mb32" type="submit">DOŁĄCZ TERAZ</button>
-                                    </form>
+                                    <a class="text-center mt32 mb32" t-if="website.user_id == user_id" href="/web/signup">DOŁĄCZ TERAZ</a>
                                 </div>
                             </div>
                         </div>
@@ -231,7 +225,7 @@
                     <section class="oe_snippet_body">
                         <div class="container">
                             <div class="row">
-                                <div class="col-md-12">
+                                <div class="col-sm-12">
                                     <h1 class="text-center mt48 mb48 section_title">
                                         Zdobądź wiedzę <strong>koordynatora zbiórki</strong>
                                     </h1>

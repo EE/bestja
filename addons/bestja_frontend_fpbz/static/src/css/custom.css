@@ -1,4 +1,5 @@
 @charset "utf-8";
+@import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300italic,400italic,600italic,700italic,700,300,600,400&subset=latin,latin-ext);
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,700,300,600,400&subset=latin,latin-ext);
 
 /* Common css */
@@ -19,52 +20,145 @@
     font-weight: 700;
 }
 
-section .container-fluid{
-    margin-left: 80px;
-    margin-right: 80px;
-}
-
-@media screen and (max-width: 991px) {
-    section .container-fluid{
-        margin-left: 0;
-        margin-right: 0;
-    }
-}
-
 a{
-    color: #F29000;
+    color: #F29100;
     text-decoration: none;
 }
 
 a:focus, a:hover{
-    color: #F9A426;
+    color: #575757;
     text-decoration: none;
 }
 
-h1, .h1{
-    font-size: 36px;
+/* Headings settings */
+h1, h2, h3, h4, h5, h6{
+    font-family: 'Open Sans Condensed', sans-serif;
 }
 
-h2, .h2{
-    font-size: 24px;
-    font-weight: bold;
+h1{
+    font-size: 26px;
+    font-weight: 700;
 }
 
-h3, .h3{
-    font-size: 20px;
+h2{
+    font-size: 21.5px;
+    font-weight: 700;
 }
 
-h4, .h4{
-    font-size: 18px;
+h3, p, #partners_friends{
+    font-size: 17px;
 }
 
-h5, .h5{
-    font-size: 16px;
+h4{
+    font-size: 12.5px;
 }
 
-h6, .h6{
-    font-size: 14px;
+h5{
+    font-size: 10px;
 }
+
+h6{
+    font-size: 8.5px;
+}
+
+.main_page_custom_invitation_texts{
+    font-size: 12px;
+}
+
+@media (min-width: 768px) {
+    h1{
+        font-size: 28.6px;
+    }
+
+    h2{
+        font-size: 23.65px;
+        font-weight: bold;
+    }
+
+    h3, p, #partners_friends{
+        font-size: 18.7px;
+    }
+
+    h4{
+        font-size: 13.75px;
+    }
+
+    h5{
+        font-size: 11px;
+    }
+
+    h6{
+        font-size: 9.35px;
+    }
+
+    .main_page_custom_invitation_texts{
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 992px) {
+    h1{
+        font-size: 31.2px;
+    }
+
+    h2{
+        font-size: 25.8px;
+        font-weight: bold;
+    }
+
+    h3, p, #partners_friends{
+        font-size: 20.4px;
+    }
+
+    h4{
+        font-size: 15px;
+    }
+
+    h5{
+        font-size: 12px;
+    }
+
+    h6{
+        font-size: 10.2px;
+    }
+
+    .main_page_custom_invitation_texts{
+        font-size: 16px;
+    }
+}
+
+@media (min-width: 1200px) {
+    h1{
+        font-size: 36.4px;
+    }
+
+    h2{
+        font-size: 30.1px;
+        font-weight: bold;
+    }
+
+    h3, p, #partners_friends{
+        font-size: 23.8px;
+    }
+
+    h4{
+        font-size: 17.5px;
+    }
+
+    h5{
+        font-size: 14px;
+    }
+
+    h6{
+        font-size: 11.9px;
+    }
+
+    .main_page_custom_invitation_texts{
+        font-size: 18px;
+    }
+}
+
+/* End of Headings settings */
 
 /* Navbar font modification */
 .navbar-static-top{
@@ -106,25 +200,14 @@ h6, .h6{
     background: #777777 url('http://lorempixel.com/g/1920/1080')
         no-repeat 50% 0%;
     background-size: cover;
-    position: relative;
     color: #FFFFFF;
-    max-width: 100%;
-    margin-left: 0;
-    margin-right: 0;
 }
-
-.introduction > div{
-    margin-left: 0;
-    margin-right: 0;
-}
-
-.introduction_headers{
-    color: white;
+.introduction_header{
     font-style: normal;
     margin-top: 95px;
 }
 
-.introduction_headers h1{
+.introduction_header h1{
     font-size: 36px;
 }
 
@@ -149,23 +232,35 @@ h6, .h6{
 }
 
 #down_arrow_scroll{
-    position: absolute;
-    bottom: 10px;
-    width: 100%;
-    margin-bottom: 20px;
+    background: url('/bestja_frontend_fpbz/static/src/img/content/down_arrow.svg') no-repeat;
+    display: block;
+    width: 50px;
+    height: 50px;
+    z-index: 5;
+    opacity: 0.5;
+    margin: 0 auto;
 }
 
-.arrow_img{
-    width: 6%;
-    margin-left: 4px;
+@media (max-width: 991px){
+    #down_arrow_scroll{
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 768px){
+    #down_arrow_scroll{
+        width: 32px;
+        height: 32px;
+    }
 }
 
 @media screen and (max-width: 991px) {
-    .introduction_headers{
+    .introduction_header{
         margin-top: 0;
     }
 
-    .introduction_headers h1, .choose_place{
+    .choose_place{
         font-size: 26px;
     }
 
@@ -173,19 +268,11 @@ h6, .h6{
         margin-top: 48px;
         margin-bottom: 48px;
     }
-
-    .arrow_img{
-        width: 8%;
-    }
 }
 
 @media screen and (max-width: 767px) {
-    .introduction_headers h1, .choose_place{
+    .choose_place{
         font-size: 22px;
-    }
-
-    .arrow_img{
-        width: 12%;
     }
 }
 
@@ -194,17 +281,13 @@ h6, .h6{
         display: none;
     }
 
-    .introduction_headers h1, .choose_place{
+    .choose_place{
         font-size: 20px;
     }
 
     .choose_place{
         margin-top: 16px;
         margin-bottom: 16px;
-    }
-
-    .arrow_img{
-        width: 16%;
     }
 }
 /* End of main top snippet */
@@ -234,22 +317,22 @@ h6, .h6{
 /* End of Section title snippet */
 
 /* Section Join Us */
-.join_us button{
+.join_us a{
+    display: inline-block;
     min-width: 350px;
-    background-color: #3c4049;
+    background-color: #F29100;
     color: #FFFFFF;
     font-size: 26px;
     font-weight: 700;
-    border-radius: 80px 80px 80px 80px;
-    -moz-border-radius: 80px 80px 80px 80px;
-    -webkit-border-radius: 80px 80px 80px 80px;
     padding-left: 130px;
     padding-right: 130px;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
-.join_us button:hover{
-    background-color: #db901f;
-    color: #3c4049;
+.join_us a:hover{
+    background-color: #575757;
+    color: #FFFFFF;
 }
 /* End of Section Join Us */
 
@@ -790,10 +873,19 @@ text:hover{
     display: inline-block;
 }
 
+.cookie-info a{
+    color: #222222;
+}
+
+.cookie-info a:hover{
+    color: #D1D6E7;
+}
+
 #cookie_reminder_close{
     position: absolute;
     top: 10px;
     right: 17px;
+    font-size: 14px;
 }
 
 #cookie_reminder_close:hover{

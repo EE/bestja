@@ -4,24 +4,25 @@
         <template id="new_home_page" inherit_id="website.homepage" name="Homepage">
             <xpath expr="//div[@id='wrap']" position="replace">
                 <div id="wrap" class="oe_structure oe_empty">
-                    <section class="oe_snippet_body oe_dark introduction">
-                        <div class="container-fluid">
+                    <section class="oe_snippet_body introduction">
+                        <div class="container">
                             <div class="row">
-                                <div class="col-md-12">
-                                    <div class="mb32 introduction_headers">
-                                        <h1 class="mt64 mb32 text-center">Rocznie w Polsce marnuje się <big>9 mln</big> ton jedzenia</h1>
-                                        <h1 class="text-center">
-                                            <big>2,5 mln</big> osób nie ma dostępu do pełnowartościowej żywności</h1>
-                                        <h1 class="text-center">Pomóż nam to zmienić!</h1>
+                                <div class="col-sm-12 text-center">
+                                    <div class="mb32 introduction_header">
+                                        <h1 class="mt64 mb32">Rocznie w Polsce marnuje się <big>9 mln</big> ton jedzenia <br />
+                                            <br />
+                                            <big>2,5 mln</big> osób nie ma dostępu do pełnowartościowej żywności <br />
+                                            <br />
+                                            Pomóż nam to zmienić!</h1>
                                     </div>
                                     <div class="text-center">
-                                        <h1 class="text-center text-uppercase choose_place">
+                                        <h1 class="mb32 text-center text-uppercase choose_place">
                                             <strong>wybierz swoją miejscowość</strong>
                                         </h1>
                                     </div>
-                                </div>
-                                <div id="down_arrow_scroll" class="text-center mt64">
-                                    <img class="img arrow_img" src="/bestja_frontend_fpbz/static/src/img/content/down_arrow.svg"/>
+                                    <div class="col-sm-12 text-center">
+                                        <span id="down_arrow_scroll"/>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -38,7 +39,7 @@
                     <section class="oe_snippet_body">
                         <div class="container">
                             <div class="row">
-                                <div class="col-md-12">
+                                <div class="col-sm-12">
                                     <h1 class="text-center mt48 mb48 section_title">
                                         <strong>Dlaczego</strong> warto z nami działać</h1>
                                 </div>
@@ -95,7 +96,7 @@
                     <section class="oe_snippet_body">
                         <div class="container">
                             <div class="row">
-                                <div class="col-md-12">
+                                <div class="col-sm-12">
                                     <h1 id="choose_place_title" class="text-center mt48 mb48 section_title">
                                         <strong>Wybierz</strong> gdzie chciałbyś pomagać</h1>
                                 </div>
@@ -129,7 +130,7 @@
                             </div>
                         </div>
                     </section>
-                    <section class="oe_snippet_body fadeInLeft">
+                    <section class="oe_snippet_body">
                         <div class="container quote_div">
                             <div class="row">
                                 <div class="col-md-offset-1 col-md-10">
@@ -146,7 +147,7 @@
                     <section class="oe_snippet_body">
                         <div class="container">
                             <div class="row">
-                                <div class="col-md-12">
+                                <div class="col-sm-12">
                                     <h1 class="text-center mt48 mb48 section_title">
                                         Proces <strong>rekrutacji</strong> wolontariuszy</h1>
                                 </div>
@@ -158,23 +159,23 @@
                             <div class="row mt16 mb16">
                                 <div class="col-xs-6 col-sm-6 col-md-3 text-center recrutation_step_column">
                                     <div class="recrutation_step_number">1</div>
-                                    <h3 class="mt32 mb32">Wybór oferty</h3>
+                                    <h2 class="mt32 mb32">Wybór oferty</h2>
                                     <p class="text-muted mt16 mb8 recrutation_step_description">Wybierz oferty w oparciu o swoje zainteresowania.</p>
                                 </div>
                                 <div class="col-xs-6 col-sm-6 col-md-3 text-center recrutation_step_column">
                                     <div class="recrutation_step_number">2</div>
-                                    <h3 class="mt32 mb32">Zgłoszenie</h3>
+                                    <h2 class="mt32 mb32">Zgłoszenie</h2>
                                     <p class="text-muted mt16 mb8">Zgłoszenie na ofertę to tylko chwila.</p>
                                 </div>
                                 <div class="col-xs-6 col-sm-6 col-md-3 text-center recrutation_step_column">
                                     <div class="recrutation_step_number">3</div>
-                                    <h3 class="mt32 mb32">Spotkanie</h3>
+                                    <h2 class="mt32 mb32">Spotkanie</h2>
                                     <p class="text-muted mt16 mb8">Organizacja zaprosi Cię na spotkanie w ciągu 7 dni.<br />
                                         Poznacie swoje oczekiwania i możliwości.</p>
                                 </div>
                                 <div class="col-xs-6 col-sm-6 col-md-3 text-center recrutation_step_column">
                                     <div class="recrutation_step_number">4</div>
-                                    <h3 class="mt32 mb32">Zadanie</h3>
+                                    <h2 class="mt32 mb32">Zadanie</h2>
                                     <p class="text-muted mt16 mb8">Otrzymasz pierwsze zadanie.<br />
                                         Zaproś znajomych do pomocy.</p>
                                 </div>
@@ -184,7 +185,7 @@
                     <section class="oe_snippet_body">
                         <div class="container">
                             <div class="row">
-                                <div class="col-md-12">
+                                <div class="col-sm-12">
                                     <h1 class="text-center mt48 mb48 section_title">
                                         <strong>Poznaj</strong> naszych wolontariuszy</h1>
                                 </div>
@@ -251,9 +252,7 @@
                         <div class="container join_us">
                             <div class="row">
                                 <div class="text-center">
-                                    <form action="/page/become_partner">
-                                        <button class="btn btn-lg text-center mt32 mb32" type="submit">DOŁĄCZ DO NAS</button>
-                                    </form>
+                                    <a class="text-center mt32 mb32" t-if="website.user_id == user_id" href="/web/signup">DOŁĄCZ DO NAS</a>
                                 </div>
                             </div>
                         </div>
@@ -261,7 +260,7 @@
                     <section class="oe_snippet_body">
                         <div class="container">
                             <div class="row">
-                                <div class="col-md-12">
+                                <div class="col-sm-12">
                                     <h1 class="text-center mt48 mb48 section_title">
                                         <strong>Biuletyn</strong> wolontariuszy</h1>
                                 </div>
@@ -303,7 +302,7 @@
                     <section class="oe_snippet_body">
                         <div class="container">
                             <div class="row">
-                                <div class="col-md-12">
+                                <div class="col-sm-12">
                                     <h1 class="text-center mt48 mb48 section_title">
                                         Zdobądź wiedzę <strong>wolontariusza zbiórki</strong>
                                     </h1>
@@ -342,7 +341,7 @@
                     <section class="oe_snippet_body">
                         <div class="container">
                             <div class="row">
-                                <div class="col-md-12">
+                                <div class="col-sm-12">
                                     <h1 class="text-center mt48 mb48 section_title">
                                         Zdobądź wiedzę <strong>koordynatora zbiórki</strong>
                                     </h1>

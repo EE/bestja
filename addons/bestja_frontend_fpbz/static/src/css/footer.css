@@ -1,4 +1,15 @@
 /* Footer */
+footer{
+    display: block;
+    height: 156px;
+}
+
+@media (max-width: 991px){
+    footer{
+        height: 268px;
+    }
+}
+
 .footer_logo_container{
     text-align: left;
 }
