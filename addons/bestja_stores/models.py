@@ -443,7 +443,7 @@ class StoreInProject(models.Model):
         if record.organization.level == 1 and record.is_owner():
             # Middle organization adding for itself
             record.sudo().state = 'activated'
-            record.activated_by = record.project.organization.id
+            record.sudo().activated_by = record.project.organization.id
         elif record.organization.level == 2:
             if record.is_bank():
                 # Middle organization adding for its child
