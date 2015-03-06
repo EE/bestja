@@ -230,53 +230,108 @@
 	};
 
 // BES-158 flipping images
-	Photostack.prototype._flip = function() {
-		if (window.innerWidth < 767 ){
-			return false;
-		}
-		var self = this;
-		var a = [].slice.call(document.getElementsByTagName('figure'));
-		var timeStart, timeEnd, timeEndOut;
-		self._delayedFlipTimeout = null;
-		function delayedFlip(){
-			self._rotateItem();
-			self._delayedFlipTimeout = null;
-		}
-		a.forEach( function( figure, idx ) {
-			figure.addEventListener( 'mouseover', function(){
-				if (idx === self.current){
-				self._delayedFlipTimeout = setTimeout( delayedFlip, 1100 );
-				timeStart = new Date();
-				}
-			});
-			figure.addEventListener( 'mouseleave', function(){
-				timeEnd = new Date();
-				var diff = timeStart - timeEnd;
-				if ( self.flipped ){
-					self._delayedFlipTimeout = setTimeout( delayedFlip, 2000 );
-				}
-				if ( diff > -1000){
-					if ( self._delayedFlipTimeout ){
-						clearTimeout( self._delayedFlipTimeout );
-					}
-				}
-			});
-			figure.addEventListener( 'mouseout', function(){
-				timeEndOut = new Date();
-				var diff = timeStart - timeEndOut;
-				if ( self.flipped ){
-					self._delayedFlipTimeout = setTimeout( delayedFlip, 2000 );
-				}
-				if ( diff > -1000){
-					if ( self._delayedFlipTimeout ){
-						clearTimeout( self._delayedFlipTimeout );
-					}
-				}
+        Photostack.prototype._flip = function () {
+            if (window.innerWidth < 767) {
+                return false;
+            }
+            var self = this;
+            var a = [].slice.call(document.getElementsByTagName('figure'));
+            // timeMouseMoveStart, timeEnd are helping to prevent events during flips
+            var timeMouseMoveStart, timeEnd, timeEndOut;
+            self._delayedMouseMoveFlipTimeout = null;
+            self._delayedFlipTimeout = null;
+            function delayedFlip() {
+                self._rotateItem();
+                self._delayedMouseMoveFlipTimeout = null;
+                self._delayedFlipTimeout = null;
+            }
+            a.forEach(function (figure, idx) {
+                var clearTimeouts = function () {
+                    if (self._delayedFlipTimeout || self._delayedMouseMoveFlipTimeout) {
+                        clearTimeout(self._delayedMouseMoveFlipTimeout);
+                        clearTimeout(self._delayedFlipTimeout);
+                    }
+                };
+                figure.addEventListener('click', function () {
+                    clearTimeouts();
+                });
+                figure.addEventListener('mouseover', function () {
+                    if (idx === self.current) {
+                        if (self._delayedFlipTimeout) {
+                            clearTimeout(self._delayedFlipTimeout);
+                        }
+                        if (self.flipped) {
+                            clearTimeout(self._delayedFlipTimeout);
+                            self._delayedFlipTimeout = setTimeout(delayedFlip, 3000);
+                        }
+                        timeMouseMoveStart = new Date();
+                        if (!self._delayedMouseMoveFlipTimeout) {
+                            self._delayedMouseMoveFlipTimeout = setTimeout(delayedFlip, 800);
+                        }
+                    }
+                });
+                figure.addEventListener('mousemove', function () {
+                    if (idx === self.current) {
+                        if (self._delayedFlipTimeout) {
+                            clearTimeout(self._delayedFlipTimeout);
+                        }
+                        if (self.flipped) {
+                            clearTimeout(self._delayedFlipTimeout);
+                            self._delayedFlipTimeout = setTimeout(delayedFlip, 3000);
+                        }
+                        if (self._delayedMouseMoveFlipTimeout) {
+                            if (timeMouseMoveStart - new Date() > -799) {
+                                clearTimeout(self._delayedMouseMoveFlipTimeout);
+                                self._delayedMouseMoveFlipTimeout = setTimeout(delayedFlip, 800);
+                                timeMouseMoveStart = new Date();
+                            }
+                        }
+                        timeMouseMoveStart = new Date();
+                        if (!self._delayedMouseMoveFlipTimeout) {
+                            self._delayedMouseMoveFlipTimeout = setTimeout(delayedFlip, 800);
+                        }
+                    }
+                });
+                figure.addEventListener('mouseleave', function () {
+                    timeEnd = new Date();
+                    var diff = timeMouseMoveStart - timeEnd;
+                    if (self._delayedFlipTimeout) {
+                        clearTimeout(self._delayedFlipTimeout);
+                    }
+                    if (self._delayedMouseMoveFlipTimeout) {
+                        clearTimeout(self._delayedMouseMoveFlipTimeout);
+                    }
+                    if (diff > -1000) {
+                        if (self._delayedMouseMoveFlipTimeout) {
+                            clearTimeout(self._delayedMouseMoveFlipTimeout);
+                        }
+                    } else if (!(idx === self.current)) {
+                    } else if (self.flipped) {
+                        self._delayedFlipTimeout = setTimeout(delayedFlip, 2000);
+                    }
+                });
+                figure.addEventListener('mouseout', function () {
+                    timeEndOut = new Date();
+                    var diff = timeMouseMoveStart - timeEndOut;
+                    if (self._delayedFlipTimeout) {
+                        clearTimeout(self._delayedFlipTimeout);
+                    }
+                    if (self._delayedMouseMoveFlipTimeout) {
+                        clearTimeout(self._delayedMouseMoveFlipTimeout);
+                    }
 
-			});
-		});
+                    if (diff > -1000) {
+                        if (self._delayedMouseMoveFlipTimeout) {
+                            clearTimeout(self._delayedMouseMoveFlipTimeout);
+                        }
+                    } else if (!(idx === self.current)) {
+                    } else if (self.flipped) {
+                        self._delayedFlipTimeout = setTimeout(delayedFlip, 2000);
+                    }
+                });
+            });
 
-	};
+        };
 // end flipping images BES-158
 
 
