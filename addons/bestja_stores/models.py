@@ -520,7 +520,8 @@ class DayInStore(models.Model):
     def _compute_previous_day(self):
         """
         Previously accepted day in the same store,
-        needed for default hours
+        needed for default hours. We want to find
+        the second (yes!) day of the last event.
         """
         previous_day = self.env['bestja_stores.day'].search(
             [
@@ -528,9 +529,9 @@ class DayInStore(models.Model):
                 ('store.state', '=', 'activated'),
             ],
             order='store desc, date',
-            limit=1,
+            limit=2,
         )
-        self.previous_day = previous_day.id
+        self.previous_day = previous_day[1].id if len(previous_day) > 1 else previous_day.id
 
     @api.one
     @api.depends('time_from', 'previous_day', 'store')
