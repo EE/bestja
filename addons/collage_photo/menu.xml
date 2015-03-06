@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
-        <menuitem sequence="400" id="main_menu_collage_photo" name="Kolaż zdjęć"/>
+        <menuitem sequence="100" id="main_menu_collage_photo" groups="base.group_website_publisher" name="Kolaż zdjęć"/>
         <menuitem parent="collage_photo.main_menu_collage_photo" sequence="0" id="menu_collage_photo" name="Kolaż zdjęć"/>
         <menuitem parent="menu_collage_photo" sequence="0" id="add_collage_photo" name="Zdjęcia" action="action_collage_photo"/>
     </data>
