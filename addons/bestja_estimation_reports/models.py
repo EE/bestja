@@ -7,7 +7,7 @@ class Project(models.Model):
     _inherit = 'bestja.project'
 
     estimation_reports = fields.One2many('bestja.estimation_report', inverse_name='project')
-    enable_estimation_reports = fields.Boolean(string="Raporty szacunkowe do zbiórki żywności")
+    enable_estimation_reports = fields.Boolean(string=u"Raporty szacunkowe do zbiórki żywności")
 
     use_estimation_reports = fields.Boolean(
         compute='_compute_use_estimation_reports',
@@ -45,18 +45,18 @@ class EstimationReportEntry(models.Model):
         'bestja.estimation_report',
         ondelete='cascade',
         required=True,
-        string="raport szacunkowy",
+        string=u"raport szacunkowy",
     )
-    day_in_store = fields.Many2one('bestja_stores.day', required=True, string="dzień")
+    day_in_store = fields.Many2one('bestja_stores.day', required=True, string=u"dzień")
     day = fields.Date(
         related='day_in_store.date',
         store=True,
     )
-    tonnage = fields.Float(required=True, string="Liczba kg")
+    tonnage = fields.Float(required=True, string=u"Liczba kg")
     store = fields.Many2one(
         related='day_in_store.store.store',
         store=True,
-        string="sklep",
+        string=u"sklep",
     )
     store_project = fields.Many2one(
         'bestja.project',
@@ -64,7 +64,7 @@ class EstimationReportEntry(models.Model):
         related='estimation_report.project'
     )
     store_name = fields.Char(
-        string="nazwa sklepu",
+        string=u"nazwa sklepu",
         related='day_in_store.store.store.display_name',
         store=True,
     )
@@ -79,13 +79,13 @@ class EstimationReportEntry(models.Model):
     )
     organization = fields.Many2one(
         'organization',
-        string="organizacja",
+        string=u"organizacja",
         related='estimation_report.organization',
         store=True,
     )
     responsible_organization = fields.Many2one(
         'organization',
-        string="organizacja odpowiedzialna",
+        string=u"organizacja odpowiedzialna",
         store=True,  # Needed by graph view
         related='estimation_report.responsible_organization',
     )
@@ -105,7 +105,7 @@ class EstimationReport(models.Model):
     project = fields.Many2one(
         'bestja.project',
         required=True,
-        string="projekt",
+        string=u"projekt",
         domain=lambda self: [
             ('use_estimation_reports', '=', True),
             '|',  # noqa
@@ -116,29 +116,29 @@ class EstimationReport(models.Model):
     )
     date = fields.Date(
         required=True,
-        string="dzień",
+        string=u"dzień",
     )
-    name = fields.Char(string="nazwa projektu", related="project.name")
+    name = fields.Char(string=u"nazwa projektu", related="project.name")
     report_entries = fields.One2many(
         'bestja.estimation_report_entry',
         inverse_name="estimation_report",
-        string="sklep"
+        string=u"sklep"
     )
-    state = fields.Selection(STATES, default='draft', string="status")
+    state = fields.Selection(STATES, default='draft', string=u"status")
     organization = fields.Many2one(
         'organization',
-        string="organizacja",
+        string=u"organizacja",
         related='project.organization',
     )
     parent_project = fields.Many2one(
         'bestja.project',
-        string="projekt nadrzędny",
+        string=u"projekt nadrzędny",
         related='project.parent',
         store=True,
     )
     responsible_organization = fields.Many2one(
         'organization',
-        string="organizacja odpowiedzialna",
+        string=u"organizacja odpowiedzialna",
         compute="_compute_responsible_organization",
         compute_sudo=True,
         store=True,
@@ -146,7 +146,7 @@ class EstimationReport(models.Model):
 
     top_project = fields.Many2one(
         'bestja.project',
-        string="projekt super nadrzędny",
+        string=u"projekt super nadrzędny",
         compute_="_compute_top_project",
         store=True,
     )

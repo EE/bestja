@@ -12,37 +12,37 @@ from openerp.addons.base.res.res_users import res_users
 
 class VolunteerWish(models.Model):
     _name = 'volunteer.wish'
-    name = fields.Char(required=True, string="nazwa")
+    name = fields.Char(required=True, string=u"nazwa")
 
 
 class VolunteerSkill(models.Model):
     _name = 'volunteer.skill'
-    name = fields.Char(required=True, string="nazwa")
+    name = fields.Char(required=True, string=u"nazwa")
 
 
 class VolunteerOccupation(models.Model):
     _name = 'volunteer.occupation'
-    name = fields.Char(required=True, string="nazwa")
+    name = fields.Char(required=True, string=u"nazwa")
 
 
 class VolunteerLanguage(models.Model):
     _name = 'volunteer.language'
-    name = fields.Char(required=True, string="nazwa")
+    name = fields.Char(required=True, string=u"nazwa")
 
 
 class DriversLicense(models.Model):
     _name = 'volunteer.drivers_license'
-    name = fields.Char(required=True, string="nazwa")
+    name = fields.Char(required=True, string=u"nazwa")
 
 
 class Daypart(models.Model):
     _name = 'volunteer.daypart'
-    name = fields.Char(required=True, string="nazwa")
+    name = fields.Char(required=True, string=u"nazwa")
 
 
 class Voivodeship(models.Model):
     _name = 'volunteer.voivodeship'
-    name = fields.Char(required=True, string="nazwa")
+    name = fields.Char(required=True, string=u"nazwa")
 
 
 class Volunteer(models.Model):
@@ -60,92 +60,92 @@ class Volunteer(models.Model):
     notify_email = fields.Selection(EMAIL_NOTIFICATIONS, default='always', help=None)
     wishes = fields.Many2many(
         'volunteer.wish',
-        string="zainteresowania",
+        string=u"zainteresowania",
         ondelete='restrict',
     )
     skills = fields.Many2many(
         'volunteer.skill',
-        string="umiejętności",
+        string=u"umiejętności",
         ondelete='restrict',
     )
     languages = fields.Many2many(
         'volunteer.language',
-        string="języki",
+        string=u"języki",
         ondelete='restrict'
     )
     occupation = fields.Many2one(
         'volunteer.occupation',
-        string="status zawodowy",
+        string=u"status zawodowy",
         ondelete='restrict',
     )
     drivers_license = fields.Many2many(
         'volunteer.drivers_license',
-        string="prawo jazdy",
+        string=u"prawo jazdy",
         ondelete='restrict',
     )
-    sanepid = fields.Date(string="badania sanepidu")
-    forklift = fields.Date(string="uprawnienia na wózek widłowy")
+    sanepid = fields.Date(string=u"badania sanepidu")
+    forklift = fields.Date(string=u"uprawnienia na wózek widłowy")
     # 'email' field from partner is hidden by group permissions,
     # this field is a proxy, without the group restrictions.
     user_email = fields.Char(
-        string="adres email",
+        string=u"adres email",
         required=True,
         compute='_compute_user_email',
         inverse='_inverse_user_email',
     )
-    phone = fields.Char(string="numer tel.")
-    birthdate = fields.Date(string="data urodzenia")
-    curriculum_vitae = fields.Binary(string="CV")
+    phone = fields.Char(string=u"numer tel.")
+    birthdate = fields.Date(string=u"data urodzenia")
+    curriculum_vitae = fields.Binary(string=u"CV")
     cv_filename = fields.Char()
-    daypart = fields.Many2many('volunteer.daypart', string="pora dnia")
-    daypart_comments = fields.Text(string="uwagi")
-    sex = fields.Selection([('f', 'kobieta'), ('m', 'mężczyzna')], string="płeć")
-    place_of_birth = fields.Char(string="miejsce urodzenia")
+    daypart = fields.Many2many('volunteer.daypart', string=u"pora dnia")
+    daypart_comments = fields.Text(string=u"uwagi")
+    sex = fields.Selection([('f', 'kobieta'), ('m', 'mężczyzna')], string=u"płeć")
+    place_of_birth = fields.Char(string=u"miejsce urodzenia")
     citizenship = fields.Many2one(
         'res.country',
         ondelete='restrict',
-        string="obywatelstwo",
+        string=u"obywatelstwo",
     )
     document_id_kind = fields.Selection(
         [('id', 'dowód osobisty'), ('passport', 'paszport')],
-        string="rodzaj dokumentu",
+        string=u"rodzaj dokumentu",
     )
-    document_id = fields.Char(string="numer dokumentu")
-    pesel = fields.Char(string="PESEL")
+    document_id = fields.Char(string=u"numer dokumentu")
+    pesel = fields.Char(string=u"PESEL")
 
     # mailing address
-    street_gov = fields.Char(string="ulica")
-    street_number_gov = fields.Char(string="numer budynku")
-    apt_number_gov = fields.Char(string="mieszk.")
-    zip_code_gov = fields.Char(size=6, string="kod pocztowy")
-    city_gov = fields.Char(string="miejscowość")
+    street_gov = fields.Char(string=u"ulica")
+    street_number_gov = fields.Char(string=u"numer budynku")
+    apt_number_gov = fields.Char(string=u"mieszk.")
+    zip_code_gov = fields.Char(size=6, string=u"kod pocztowy")
+    city_gov = fields.Char(string=u"miejscowość")
     voivodeship_gov = fields.Many2one(
         'volunteer.voivodeship',
-        string="Województwo",
+        string=u"Województwo",
     )
     country_gov = fields.Many2one(
         'res.country',
         ondelete='restrict',
-        string="Kraj",
+        string=u"Kraj",
     )
     different_addresses = fields.Boolean(
         default=False,
-        string="adres zamieszkania jest inny niż zameldowania",
+        string=u"adres zamieszkania jest inny niż zameldowania",
     )
     # address of residence
-    street = fields.Char(string="ulica")
-    street_number = fields.Char(string="numer budynku")
-    apt_number = fields.Char(string="mieszk.")
-    zip_code = fields.Char(size=6, string="kod pocztowy")
-    city = fields.Char(string="miejscowość")
+    street = fields.Char(string=u"ulica")
+    street_number = fields.Char(string=u"numer budynku")
+    apt_number = fields.Char(string=u"mieszk.")
+    zip_code = fields.Char(size=6, string=u"kod pocztowy")
+    city = fields.Char(string=u"miejscowość")
     voivodeship = fields.Many2one(
         'volunteer.voivodeship',
-        string="województwo",
+        string=u"województwo",
     )
     country = fields.Many2one(
         'res.country',
         ondelete='restrict',
-        string="kraj",
+        string=u"kraj",
     )
 
     #######################################

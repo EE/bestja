@@ -23,21 +23,21 @@ class ProjectInvitation(models.Model):
         'organization',
         related='project.organization',
         ondelete='restrict',
-        string="Zapraszająca organizacja",
+        string=u"Zapraszająca organizacja",
     )
-    project = fields.Many2one('bestja.project', string="Projekt")
-    organization = fields.Many2one('organization', string="Organizacja")
+    project = fields.Many2one('bestja.project', string=u"Projekt")
+    organization = fields.Many2one('organization', string=u"Organizacja")
     state = fields.Selection(
         STATES,
         default='pending',
         store=True,
         compute='_compute_state',
         compute_sudo=True,
-        string="Stan",
+        string=u"Stan",
     )
-    description = fields.Text(string="Opis")
+    description = fields.Text(string=u"Opis")
     accepted_time = fields.Datetime(
-        string="Data zaakceptowania",
+        string=u"Data zaakceptowania",
         store=True,
         compute='_compute_accepted_time',
         compute_sudo=True,
@@ -134,7 +134,7 @@ class Project(models.Model):
     parent = fields.Many2one(
         'bestja.project',
         domain="[('invitations.organization', '=', organization)]",
-        string="Projekt nadrzędny",
+        string=u"Projekt nadrzędny",
     )
     top_parent = fields.Many2one(
         'bestja.project',

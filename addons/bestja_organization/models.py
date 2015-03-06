@@ -21,35 +21,35 @@ class Organization(models.Model):
         ('rejected', "odrzucona"),
     ]
 
-    name = fields.Char(string="Nazwa", required=True)
+    name = fields.Char(string=u"Nazwa", required=True)
     state = fields.Selection(
         STATES,
         default='pending',
-        string="Stan",
+        string=u"Stan",
     )
-    krs = fields.Char(string="KRS")
-    regon = fields.Char(string="REGON")
-    nip = fields.Char(string="NIP")
-    street_address = fields.Char(string="Ulica", required=True)
-    city = fields.Char(string="Miejscowość", required=True)
-    street_number = fields.Char(string="Numer budynku", required=True)
-    apartment_number = fields.Char(string="Numer mieszkania")
-    postal_code = fields.Char(size=6, required=True, string="Kod pocztowy")
-    email = fields.Char(string="E-mail", required=True)
-    phone = fields.Char(required="True", string="Numer Telefonu")
-    phone_extension = fields.Char(size=10, string="Numer wewnętrzny")
-    www = fields.Char(string="WWW")
-    fbfanpage = fields.Char(string="Fanpage na FB")
+    krs = fields.Char(string=u"KRS")
+    regon = fields.Char(string=u"REGON")
+    nip = fields.Char(string=u"NIP")
+    street_address = fields.Char(string=u"Ulica", required=True)
+    city = fields.Char(string=u"Miejscowość", required=True)
+    street_number = fields.Char(string=u"Numer budynku", required=True)
+    apartment_number = fields.Char(string=u"Numer mieszkania")
+    postal_code = fields.Char(size=6, required=True, string=u"Kod pocztowy")
+    email = fields.Char(string=u"E-mail", required=True)
+    phone = fields.Char(required="True", string=u"Numer Telefonu")
+    phone_extension = fields.Char(size=10, string=u"Numer wewnętrzny")
+    www = fields.Char(string=u"WWW")
+    fbfanpage = fields.Char(string=u"Fanpage na FB")
     volunteers = fields.Many2many(
         'res.users',
         relation='organization_volunteers_rel',
         column1='organization',
         column2='volunteer',
-        string="Wolontariusze"
+        string=u"Wolontariusze"
     )
     coordinator = fields.Many2one(
         'res.users', ondelete='restrict',
-        string="Koordynator",
+        string=u"Koordynator",
         default=lambda self: self.env.user,
         domain="['|', ('coordinated_org', '=', id), ('coordinated_org', '=', False)]",
     )
@@ -58,7 +58,7 @@ class Organization(models.Model):
         compute='_compute_active',
         store=True,
     )
-    organization_description = fields.Text(string="Opis Organizacji")
+    organization_description = fields.Text(string=u"Opis Organizacji")
     image = fields.Binary()
     image_medium = fields.Binary(compute='_compute_image_medium', inverse='_inverse_image_medium', store=True)
 
@@ -220,7 +220,7 @@ class UserWithOrganization(models.Model):
         relation='organization_volunteers_rel',
         column1='volunteer',
         column2='organization',
-        string="Organizacje"
+        string=u"Organizacje"
     )
 
     def __init__(self, pool, cr):

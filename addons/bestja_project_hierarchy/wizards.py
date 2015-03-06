@@ -29,15 +29,15 @@ class InvitationWizard(models.TransientModel):
     project = fields.Many2one(
         'bestja.project',
         default=lambda self: self.env.context['active_id'],
-        string="Projekt",
+        string=u"Projekt",
     )
     organizations = fields.Many2many(
         'organization',
         domain=_available_organizations,
         default=_default_organizations,
-        string="Organizacje",
+        string=u"Organizacje",
     )
-    description = fields.Text(string="Opis")
+    description = fields.Text(string=u"Opis")
 
     @api.one
     def invite(self):

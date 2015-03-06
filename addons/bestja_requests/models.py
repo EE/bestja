@@ -7,7 +7,7 @@ class Project(models.Model):
 
     request_template = fields.Many2one(
         'bestja_requests.template',
-        string="Szablon zapotrzebowań",
+        string=u"Szablon zapotrzebowań",
         domain="[('organization', '=', organization)]",
         ondelete='restrict',
     )
@@ -39,11 +39,11 @@ class Project(models.Model):
 class RequestTemplateItem(models.Model):
     _name = 'bestja_requests.template_item'
 
-    name = fields.Char(required=True, string="nazwa")
+    name = fields.Char(required=True, string=u"nazwa")
     template = fields.Many2one(
         'bestja_requests.template',
         required=True,
-        string="szablon",
+        string=u"szablon",
         ondelete='cascade',
     )
 
@@ -55,12 +55,12 @@ class RequestTemplate(models.Model):
     def _default_organization(self):
         return self.env.user.coordinated_org
 
-    name = fields.Char(required=True, string="nazwa")
+    name = fields.Char(required=True, string=u"nazwa")
     organization = fields.Many2one(
         'organization',
         required=True,
         domain="['|', ('coordinator', '=', uid), ('projects.manager', '=', uid)]",
-        string="organizacja",
+        string=u"organizacja",
         default=_default_organization,
         ondelete='restrict',
     )
@@ -94,22 +94,22 @@ class RequestItem(models.Model):
         'bestja_requests.template_item',
         domain="[('template', '=', template)]",
         required=True,
-        string="element",
+        string=u"element",
         ondelete='restrict',
     )
     parent_project = fields.Many2one(
         'bestja.project',
-        string="Projekt nadrzędny",
+        string=u"Projekt nadrzędny",
         store=True,  # Needed by graph view
         related='request.parent_project',
     )
     organization = fields.Many2one(
         'organization',
-        string="Organizacja",
+        string=u"Organizacja",
         store=True,
         related='request.project.organization',
     )
-    quantity = fields.Integer(required=True, string="ilość")
+    quantity = fields.Integer(required=True, string=u"ilość")
 
     _sql_constraints = [
         ('request_item_uniq', 'unique("request", "template_item")', "Dany element można wybrać tylko raz!")
@@ -175,9 +175,9 @@ class Request(models.Model):
     ]
     _protected_fields = ['state']
 
-    state = fields.Selection(STATES, default='draft', string="Stan")
+    state = fields.Selection(STATES, default='draft', string=u"Stan")
     name = fields.Char(
-        string="nazwa",
+        string=u"nazwa",
         related='project.name',
         store=True,
     )
@@ -191,28 +191,28 @@ class Request(models.Model):
                 ('organization.coordinator', '=', uid),
         ]""",
         required=True,
-        string="Projekt",
+        string=u"Projekt",
         ondelete='restrict',
     )
     items = fields.One2many('bestja_requests.item', inverse_name='request')
-    comments = fields.Text(string="Uwagi")
+    comments = fields.Text(string=u"Uwagi")
     manager = fields.Many2one(
         'res.users',
-        string="Menadżer projektu",
+        string=u"Menadżer projektu",
         related='project.responsible_user',
     )
     manager_phone = fields.Char(
-        string="Telefon menadżera",
+        string=u"Telefon menadżera",
         related='project.responsible_user.phone',
     )
     organization = fields.Many2one(
         'organization',
-        string="Organizacja",
+        string=u"Organizacja",
         related='project.organization'
     )
     parent_project = fields.Many2one(
         'bestja.project',
-        string="Projekt nadrzędny",
+        string=u"Projekt nadrzędny",
         related='project.parent',
         store=True,
     )

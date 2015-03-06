@@ -10,16 +10,16 @@ class ProjectMessage(models.TransientModel):
 
     project = fields.Many2one(
         'bestja.project',
-        string="Projekt",
+        string=u"Projekt",
         required=True,
         default=lambda self: self.env.context['active_id'],
     )
-    content = fields.Text(string="Treść", required=True)
+    content = fields.Text(string=u"Treść", required=True)
     recipients = fields.Selection(
         RECIPIENTS_CHOICES,
         default='members',
         require=True,
-        string="Odbiorcy",
+        string=u"Odbiorcy",
     )
 
     @api.one

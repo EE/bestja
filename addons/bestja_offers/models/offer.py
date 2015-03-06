@@ -49,12 +49,12 @@ class Offer(models.Model):
     def _default_helpee_group(self):
         return self.env['offers.helpee_group'].search([])
 
-    state = fields.Selection(STATES, default='unpublished', string="Stan")
-    name = fields.Char(string="Nazwa")
-    vacancies = fields.Integer(string="Liczba wakatów", requred=True, default=1)
+    state = fields.Selection(STATES, default='unpublished', string=u"Stan")
+    name = fields.Char(string=u"Nazwa")
+    vacancies = fields.Integer(string=u"Liczba wakatów", requred=True, default=1)
     project = fields.Many2one(
         'bestja.project',
-        string="Projekt",
+        string=u"Projekt",
         required=True,
         domain=lambda self: [
             '|',
@@ -64,41 +64,41 @@ class Offer(models.Model):
     )
     organization = fields.Many2one(
         'organization',
-        string="Organizacja",
+        string=u"Organizacja",
         related='project.organization'
     )
     organization_image = fields.Binary(related='organization.image')
     skills = fields.Many2many('volunteer.skill', required=True)
     wishes = fields.Many2many('volunteer.wish', required=True)
-    drivers_license = fields.Many2one('volunteer.drivers_license', string="Prawa jazdy")
-    sanepid = fields.Boolean(string="Badania sanepidu")
-    forklift = fields.Boolean(string="Uprawnienia na wózek widłowy")
-    location_name = fields.Char(string="Nazwa miejsca")
-    address = fields.Char(string="Ulica i numer domu")
-    city = fields.Char(string="Miasto")
-    latitude = fields.Float(string="Szerokość geograficzna", digits=(7, 4))
-    longitude = fields.Float(string="Długość geograficzna", digits=(7, 4))
-    district = fields.Char(string="Dzielnica")
-    description = fields.Text(required=True, string="Na czym będzie polegała Twoja praca")
-    expectations = fields.Text(required=True, string="Czego oczekujemy")
-    benefits = fields.Text(required=True, string="Co oferujemy")
-    tools = fields.Text(string="Co zapewniamy")
-    comments = fields.Text(string="Uwagi")
-    date_end = fields.Date(string="Termin ważności")
-    remaining_days = fields.Integer(string="Wygasa za", compute='_remaining_days')
-    kind = fields.Selection(KIND_CHOICES, required=True, string="rodzaj akcji")
-    interval = fields.Selection(INTERVAL_CHOICES, string="powtarzaj co")
-    daypart = fields.Many2many('volunteer.daypart', string="pora dnia")
-    hours = fields.Integer(string="liczba h/tyg.")
-    weekday = fields.Many2many('offers.weekday', string="dzień tygodnia")
-    comments_time = fields.Text(string="Uwagi dotyczące terminu")
-    applications = fields.One2many('offers.application', 'offer', string="Aplikacje")
+    drivers_license = fields.Many2one('volunteer.drivers_license', string=u"Prawa jazdy")
+    sanepid = fields.Boolean(string=u"Badania sanepidu")
+    forklift = fields.Boolean(string=u"Uprawnienia na wózek widłowy")
+    location_name = fields.Char(string=u"Nazwa miejsca")
+    address = fields.Char(string=u"Ulica i numer domu")
+    city = fields.Char(string=u"Miasto")
+    latitude = fields.Float(string=u"Szerokość geograficzna", digits=(7, 4))
+    longitude = fields.Float(string=u"Długość geograficzna", digits=(7, 4))
+    district = fields.Char(string=u"Dzielnica")
+    description = fields.Text(required=True, string=u"Na czym będzie polegała Twoja praca")
+    expectations = fields.Text(required=True, string=u"Czego oczekujemy")
+    benefits = fields.Text(required=True, string=u"Co oferujemy")
+    tools = fields.Text(string=u"Co zapewniamy")
+    comments = fields.Text(string=u"Uwagi")
+    date_end = fields.Date(string=u"Termin ważności")
+    remaining_days = fields.Integer(string=u"Wygasa za", compute='_remaining_days')
+    kind = fields.Selection(KIND_CHOICES, required=True, string=u"rodzaj akcji")
+    interval = fields.Selection(INTERVAL_CHOICES, string=u"powtarzaj co")
+    daypart = fields.Many2many('volunteer.daypart', string=u"pora dnia")
+    hours = fields.Integer(string=u"liczba h/tyg.")
+    weekday = fields.Many2many('offers.weekday', string=u"dzień tygodnia")
+    comments_time = fields.Text(string=u"Uwagi dotyczące terminu")
+    applications = fields.One2many('offers.application', 'offer', string=u"Aplikacje")
     application_count = fields.Integer(compute='_application_count')
     accepted_application_count = fields.Integer(compute='_application_count')
     localization = fields.Selection(
         LOCALIZATION_CHOICES,
         required=True,
-        string="rodzaj lokalizacji",
+        string=u"rodzaj lokalizacji",
         default="assigned",
     )
 

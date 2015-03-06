@@ -7,7 +7,7 @@ class Project(models.Model):
     _inherit = 'bestja.project'
 
     detailed_reports = fields.One2many('bestja.detailed_report', inverse_name='project')
-    enable_detailed_reports = fields.Boolean(string="Raporty szczegółowe do zbiórki żywności")
+    enable_detailed_reports = fields.Boolean(string=u"Raporty szczegółowe do zbiórki żywności")
     use_detailed_reports = fields.Boolean(
         compute='_compute_use_detailed_reports',
         compute_sudo=True,
@@ -36,8 +36,8 @@ class Project(models.Model):
 class CommodityGroup(models.Model):
     _name = 'bestja.commodity_group'
     _order = 'code'
-    code = fields.Char(string="Kod")
-    name = fields.Char(string="Nazwa")
+    code = fields.Char(string=u"Kod")
+    name = fields.Char(string=u"Nazwa")
 
 
 class ReportEntry(models.Model):
@@ -45,23 +45,23 @@ class ReportEntry(models.Model):
     _order = 'commodity'
 
     detailed_report = fields.Many2one('bestja.detailed_report', ondelete='cascade', required=True)
-    commodity = fields.Many2one('bestja.commodity_group', string="Nazwa", required=True, ondelete='cascade')
-    commodity_code = fields.Char(string='Kod', related="commodity.code")
-    tonnage = fields.Float(required=True, string="tonaż (kg)")
+    commodity = fields.Many2one('bestja.commodity_group', string=u"Nazwa", required=True, ondelete='cascade')
+    commodity_code = fields.Char(string=u"Kod", related="commodity.code")
+    tonnage = fields.Float(required=True, string=u"tonaż (kg)")
     responsible_organization = fields.Many2one(
         'organization',
-        string="Zainteresowana organizacja",
+        string=u"Zainteresowana organizacja",
         store=True,  # Needed by graph view
         related='detailed_report.responsible_organization',
     )
     organization = fields.Many2one(
         'organization',
-        string="Organizacja",
+        string=u"Organizacja",
         store=True,
         related='detailed_report.project.organization',
     )
     total_cities_nr = fields.Integer(
-        string="Całkowita liczba miast",
+        string=u"Całkowita liczba miast",
         compute="_compute_total_cities_nr",
         store=True,
     )
@@ -102,7 +102,7 @@ class DetailedReport(models.Model):
     project = fields.Many2one(
         'bestja.project',
         required=True,
-        string="Projekt",
+        string=u"Projekt",
         domain=lambda self: [
             ('use_detailed_reports', '=', True),
             ('detailed_reports', '=', False),
@@ -114,23 +114,23 @@ class DetailedReport(models.Model):
     )
     organization = fields.Many2one(
         'organization',
-        string="Organizacja",
+        string=u"Organizacja",
         related='project.organization',
     )
-    name = fields.Char(string="Nazwa projektu", related="project.name")
-    dates = fields.Char(string="Termin", compute="_compute_project_dates", store=True)
-    state = fields.Selection(STATES, default='draft', string="Status:")
-    report_entries = fields.One2many('bestja.report_entry', inverse_name='detailed_report', string="Produkt")
-    tonnage = fields.Float(string="Tonaż (kg)", compute="_compute_report_tonnage", store=True)
+    name = fields.Char(string=u"Nazwa projektu", related="project.name")
+    dates = fields.Char(string=u"Termin", compute="_compute_project_dates", store=True)
+    state = fields.Selection(STATES, default='draft', string=u"Status:")
+    report_entries = fields.One2many('bestja.report_entry', inverse_name='detailed_report', string=u"Produkt")
+    tonnage = fields.Float(string=u"Tonaż (kg)", compute="_compute_report_tonnage", store=True)
     parent_project = fields.Many2one(
         'bestja.project',
-        string="Projekt nadrzędny",
+        string=u"Projekt nadrzędny",
         related='project.parent',
         store=True,
     )
     responsible_organization = fields.Many2one(
         'organization',
-        string="Zainteresowane organizacje",
+        string=u"Zainteresowane organizacje",
         compute="_compute_responsible_organization",
         compute_sudo=True,
         store=True,
@@ -138,7 +138,7 @@ class DetailedReport(models.Model):
     total_cities_nr = fields.Integer(
         compute="_compute_total_cities_nr",
         store=True,
-        string="Całkowita liczba miast",
+        string=u"Całkowita liczba miast",
     )
     user_can_moderate = fields.Boolean(compute="_compute_user_can_moderate")
 

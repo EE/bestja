@@ -12,14 +12,14 @@ class Wizard(models.TransientModel):
 
     users = fields.Many2many(
         'res.users',
-        string="Wybrani użytkownicy",
+        string=u"Wybrani użytkownicy",
         required=True,
         default=_default_users,
     )
     offers = fields.Many2many(
         'offer',
         required=True,
-        string="Wybrane oferty",
+        string=u"Wybrane oferty",
         domain=[('state', '=', 'published')],
     )
 

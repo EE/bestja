@@ -6,7 +6,7 @@ class BestJaSettings(models.TransientModel):
     _inherit = 'bestja.config.settings'
 
     min_age = fields.Integer(
-        string="Minimalny wiek",
+        string=u"Minimalny wiek",
     )
 
     @api.model

@@ -11,8 +11,8 @@ _logger = logging.getLogger(__name__)
 class OfferCategory(models.Model):
     _name = 'bestja.offer_category'
 
-    name = fields.Char(string="nazwa", required=True)
-    slug = fields.Char(string="identyfikator", required=True, index=True)
+    name = fields.Char(string=u"nazwa", required=True)
+    slug = fields.Char(string=u"identyfikator", required=True, index=True)
 
     _sql_constraints = [
         ('uffer_category_slug_uniq', 'unique("slug")', 'Identyfikator kategorii musi być unikalny!')
@@ -22,7 +22,7 @@ class OfferCategory(models.Model):
 class Offer(models.Model):
     _inherit = 'offer'
 
-    category = fields.Many2one('bestja.offer_category', required=True, index=True, string="kategoria")
+    category = fields.Many2one('bestja.offer_category', required=True, index=True, string=u"kategoria")
 
     def _auto_init(self, cr, context=None):
         # Temporary disable `required` on the category field

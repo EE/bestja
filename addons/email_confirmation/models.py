@@ -42,7 +42,7 @@ class Users(models.Model):
         ('not_activated', 'nieaktywowany')
     ]
 
-    active_state = fields.Selection(STATES, default='active', store=True, string="Stan")
+    active_state = fields.Selection(STATES, default='active', store=True, string=u"Stan")
 
     @api.model
     def _authenticate_after_confirmation(self, values, token=None):

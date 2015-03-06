@@ -6,11 +6,11 @@ class BestJaSettings(models.TransientModel):
     _inherit = 'bestja.config.settings'
 
     max_skills = fields.Integer(
-        string="Max number of skills per offer",
+        string=u"Max number of skills per offer",
         help="Maximum number of skills user can choose while creating an offer"
     )
     max_wishes = fields.Integer(
-        string="Max number of fields per offer",
+        string=u"Max number of fields per offer",
         help="Maximum number of fields of activity user can choose while creating an offer"
     )
 

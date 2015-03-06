@@ -11,7 +11,7 @@ class Wizard(models.TransientModel):
 
     users = fields.Many2many(
         'res.users',
-        string="Użytkownicy",
+        string=u"Użytkownicy",
         required=True,
         default=_default_users,
     )
@@ -24,7 +24,7 @@ class Wizard(models.TransientModel):
 class ReportWizard(models.TransientModel):
     _name = 'bestja.report_account_deletion_wizard'
 
-    reason = fields.Selection(Volunteer.REASONS, string="Dlaczego chcesz usunąć konto?", required=True)
+    reason = fields.Selection(Volunteer.REASONS, string=u"Dlaczego chcesz usunąć konto?", required=True)
     reason_description = fields.Text()
 
     @api.one

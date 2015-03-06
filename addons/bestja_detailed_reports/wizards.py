@@ -10,13 +10,13 @@ class Wizard(models.TransientModel):
 
     reports = fields.Many2many(
         'bestja.detailed_report',
-        string="Raporty szczegółowe",
+        string=u"Raporty szczegółowe",
         default=_default_reports,
         relation="detailed_report_wizard_rel",
     )
 
     user_can_moderate = fields.Boolean(
-        string="Czy użytkownik może moderować wszystkie raporty?",
+        string=u"Czy użytkownik może moderować wszystkie raporty?",
         compute='_compute_all_user_can_moderate',
     )
 

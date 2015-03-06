@@ -14,7 +14,7 @@ class AddToSummaryWizard(models.TransientModel):
     estimation_report = fields.Many2one(
         'bestja.estimation_report',
         default=_default_reports,
-        string="Raport:",
+        string=u"Raport:",
     )
 
     @api.one

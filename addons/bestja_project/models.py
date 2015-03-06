@@ -21,31 +21,31 @@ class Project(models.Model):
                     ('coordinated_org', '=', organization),
             ]"""
 
-    name = fields.Char(required=True, string="Nazwa")
+    name = fields.Char(required=True, string=u"Nazwa")
     organization = fields.Many2one(
         'organization',
         default=lambda self: self.env.user.coordinated_org,
         required=True,
-        string="Organizacja",
+        string=u"Organizacja",
         domain=lambda self: [('coordinator', '=', self.env.uid)],
     )
     manager = fields.Many2one(
         'res.users',
         domain=_current_members,
-        string="Menadżer projektu",
+        string=u"Menadżer projektu",
     )
     responsible_user = fields.Many2one(
         'res.users',
-        string="Osoba odpowiedzialna",
+        string=u"Osoba odpowiedzialna",
         compute='_responsible_user'
     )
     date_start = fields.Date(
         required=True,
-        string="od dnia",
+        string=u"od dnia",
     )
     date_stop = fields.Date(
         required=True,
-        string="do dnia",
+        string=u"do dnia",
     )
     members = fields.Many2many(
         'res.users',
@@ -53,11 +53,11 @@ class Project(models.Model):
         column1='project',
         column2='member',
         domain=_current_members,
-        string="Zespół"
+        string=u"Zespół"
     )
-    tasks = fields.One2many('bestja.task', 'project', string="Zadania")
-    tasks_count = fields.Integer(compute='_tasks_count', string="Liczba zadań")
-    done_tasks_count = fields.Integer(compute='_tasks_count', string="Liczba skończonych zadań")
+    tasks = fields.One2many('bestja.task', 'project', string=u"Zadania")
+    tasks_count = fields.Integer(compute='_tasks_count', string=u"Liczba zadań")
+    done_tasks_count = fields.Integer(compute='_tasks_count', string=u"Liczba skończonych zadań")
 
     @api.one
     @api.depends('manager', 'organization.coordinator')
@@ -138,26 +138,26 @@ class Task(models.Model):
         project = self.env['bestja.project'].sudo().browse([active_id])
         return [('id', 'in', project.members.ids)]
 
-    name = fields.Char(required=True, string="Nazwa zadania")
-    state = fields.Selection(STATES, default='new', string="Status")
+    name = fields.Char(required=True, string=u"Nazwa zadania")
+    state = fields.Selection(STATES, default='new', string=u"Status")
     user = fields.Many2one(
         'res.users',
         domain=_current_project_members,
-        string="Wykonawca zadania",
+        string=u"Wykonawca zadania",
     )
     user_assigned_task = fields.Boolean(
         compute='_user_assigned_task'
     )
-    date_start = fields.Datetime(required=True, string="od dnia")
-    date_stop = fields.Datetime(required=True, string="do dnia")
-    date_button_click_start = fields.Datetime(string="data rozpoczęcia")
-    date_button_click_stop = fields.Datetime(string="data zakończenia")
-    description = fields.Text(string="Opis zadania")
+    date_start = fields.Datetime(required=True, string=u"od dnia")
+    date_stop = fields.Datetime(required=True, string=u"do dnia")
+    date_button_click_start = fields.Datetime(string=u"data rozpoczęcia")
+    date_button_click_stop = fields.Datetime(string=u"data zakończenia")
+    description = fields.Text(string=u"Opis zadania")
     project = fields.Many2one(
         'bestja.project',
         required=True,
         ondelete='cascade',
-        string="Projekt",
+        string=u"Projekt",
     )
 
     @api.one
@@ -232,7 +232,7 @@ class UserWithProjects(models.Model):
         relation='project_members_rel',
         column1='member',
         column2='project',
-        string="Projekty"
+        string=u"Projekty"
     )
 
     managed_projects = fields.One2many(

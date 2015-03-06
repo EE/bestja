@@ -8,7 +8,7 @@ class File(models.Model):
 
     project = fields.Many2one(
         'bestja.project',
-        string="Projekt",
+        string=u"Projekt",
         domain='''[
             '|',
                 ('organization.coordinator', '=', uid),
@@ -17,7 +17,7 @@ class File(models.Model):
     )
     organization = fields.Many2one(
         'organization',
-        string="Organizacja",
+        string=u"Organizacja",
         related='project.organization'
     )
 
@@ -25,8 +25,8 @@ class File(models.Model):
 class Project(models.Model):
     _inherit = 'bestja.project'
 
-    files = fields.One2many('bestja.file', 'project', string="Pliki")
-    file_count = fields.Integer(compute='_file_count', string="Liczba plików")
+    files = fields.One2many('bestja.file', 'project', string=u"Pliki")
+    file_count = fields.Integer(compute='_file_count', string=u"Liczba plików")
 
     @api.one
     @api.depends('files')

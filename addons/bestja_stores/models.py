@@ -41,16 +41,16 @@ class Store(models.Model):
             ('coordinator', '=', self.env.uid),
         ])
 
-    name = fields.Char(required=True, string="Nazwa")
-    state = fields.Selection(STATES, default='pending', required=True, string="Status")
-    chain = fields.Many2one('bestja_stores.chain', string="Sieć Handlowa")
+    name = fields.Char(required=True, string=u"Nazwa")
+    state = fields.Selection(STATES, default='pending', required=True, string=u"Status")
+    chain = fields.Many2one('bestja_stores.chain', string=u"Sieć Handlowa")
     chain_id = fields.Char(
         groups='bestja_project_hierarchy.managers_level0',
-        string="ID sklepu",
+        string=u"ID sklepu",
     )
-    address = fields.Char(required=True, string="Ulica i numer")
-    city = fields.Char(required=True, string="Miasto")
-    voivodeship = fields.Many2one('volunteer.voivodeship', required=True, string="Województwo")
+    address = fields.Char(required=True, string=u"Ulica i numer")
+    city = fields.Char(required=True, string=u"Miasto")
+    voivodeship = fields.Many2one('volunteer.voivodeship', required=True, string=u"Województwo")
     responsible = fields.Many2one(
         'organization',
         domain='''[
@@ -63,7 +63,7 @@ class Store(models.Model):
         ]''',
         required=True,
         default=_default_responsible,
-        string="BŻ odpowiedzialny",
+        string=u"BŻ odpowiedzialny",
     )
     default_partner = fields.Many2one(
         'organization',
@@ -80,7 +80,7 @@ class Store(models.Model):
         ]''',
         default=_default_default_partner,  # default ;)
         required=True,
-        string="Domyślny partner",
+        string=u"Domyślny partner",
     )
     user_can_moderate = fields.Boolean(compute="_compute_user_can_moderate")
     in_projects = fields.One2many('bestja_stores.store_in_project', inverse_name='store')
@@ -225,10 +225,10 @@ class StoreInProject(models.Model):
             ('default_partner', '=', organization),
             ('id', '__free_for_project__', project),
         ]''',  # a custom operator defined in Store's _search method
-        string="Sklep",
+        string=u"Sklep",
     )
     show_all_stores = fields.Boolean(
-        string="pokazuj wszystkie sklepy",
+        string=u"pokazuj wszystkie sklepy",
         compute='_compute_show_all_stores',
         inverse='_inverse_show_all_stores',
     )
@@ -264,9 +264,9 @@ class StoreInProject(models.Model):
                 ('parent.coordinator', '=', uid),
                 ('parent.projects.manager', '=', uid),
         ]''',
-        string="Organizacja",
+        string=u"Organizacja",
     )
-    activated_by = fields.Many2one('organization', string="Organizacja aktywująca")
+    activated_by = fields.Many2one('organization', string=u"Organizacja aktywująca")
     top_project = fields.Many2one(
         'bestja.project',
         related='project.top_parent',
@@ -275,8 +275,8 @@ class StoreInProject(models.Model):
     date_start = fields.Date(related='project.top_parent.date_start', readonly=True)
     date_stop = fields.Date(related='project.top_parent.date_stop', readonly=True)
     days = fields.One2many('bestja_stores.day', inverse_name='store')
-    state = fields.Selection(STATES, default='waiting_bank', required=True, string="Status aktywacji")
-    time_deactivated = fields.Datetime(string="Czas dezaktywacji")
+    state = fields.Selection(STATES, default='waiting_bank', required=True, string=u"Status aktywacji")
+    time_deactivated = fields.Datetime(string=u"Czas dezaktywacji")
     name = fields.Char(related='store.name', readonly=True)
     address = fields.Char(related='store.address', readonly=True)
     city = fields.Char(related='store.city', readonly=True)
@@ -486,17 +486,17 @@ class DayInStore(models.Model):
         'bestja_stores.store_in_project',
         required=True,
         ondelete='cascade',
-        string="Sklep",
+        string=u"Sklep",
     )
     date = fields.Date(
         required=True,
-        string="Dzień zbiórki",
+        string=u"Dzień zbiórki",
     )
     time_from = fields.Char(
-        string="Start"
+        string=u"Start"
     )
     time_to = fields.Char(
-        string="Koniec",
+        string=u"Koniec",
     )
     # Computed versions of the above fields, to be able to
     # provide store specific defaults
@@ -504,13 +504,13 @@ class DayInStore(models.Model):
         required=True,
         compute='_compute_time_from',
         inverse='_inverse_time_from',
-        string="Start"
+        string=u"Start"
     )
     time_to_default = fields.Char(
         required=True,
         compute='_compute_time_to',
         inverse='_inverse_time_to',
-        string="Koniec",
+        string=u"Koniec",
     )
     previous_day = fields.Many2one(
         'bestja_stores.day',
@@ -592,7 +592,7 @@ class ProjectWithStores(models.Model):
 
     stores = fields.One2many('bestja_stores.store_in_project', inverse_name='project')
 
-    enable_stores = fields.Boolean(string="Projekt zbiórkowy?")
+    enable_stores = fields.Boolean(string=u"Projekt zbiórkowy?")
     use_stores = fields.Boolean(
         compute='_compute_use_stores',
         compute_sudo=True,

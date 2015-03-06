@@ -20,7 +20,7 @@ class Organization(models.Model):
         domain=_allowed_parents,
         index=True,
         ondelete='restrict',
-        string="Organizacja nadrzędna",
+        string=u"Organizacja nadrzędna",
     )
     parent_left = fields.Integer(index=True)
     parent_right = fields.Integer(index=True)
@@ -32,7 +32,7 @@ class Organization(models.Model):
         compute='_compute_level',
         compute_sudo=True,
         store=True,
-        string="Poziom w hierarchii organizacji"
+        string=u"Poziom w hierarchii organizacji"
     )
 
     @api.multi

@@ -28,12 +28,12 @@ class VolunteerNote(models.Model):
     def _default_organization(self):
         return self.env.user.coordinated_org.id
 
-    body = fields.Text(required=True, string="Treść")
+    body = fields.Text(required=True, string=u"Treść")
     user = fields.Many2one(
         'res.users',
         required=True,
         default=_default_user,
-        string="Wolontariusz",
+        string=u"Wolontariusz",
     )
     organization = fields.Many2one(
         'organization',

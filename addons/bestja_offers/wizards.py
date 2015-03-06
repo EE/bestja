@@ -26,7 +26,7 @@ class ApplicationMeetingWizard(ApplicationWizardMixin, models.TransientModel):
     _name = 'offers.application.meeting_wizard'
 
     meeting = fields.Datetime(
-        string="Termin spotkania",
+        string=u"Termin spotkania",
         default=ApplicationWizardMixin.default_func('current_meeting')
     )
 
@@ -42,7 +42,7 @@ class ApplicationRejectedWizard(ApplicationWizardMixin, models.TransientModel):
 
     reason = fields.Many2one(
         'offers.application.rejected',
-        string="Powód",
+        string=u"Powód",
         required=True,
         default=ApplicationWizardMixin.default_func('rejected_reason')
     )
@@ -56,7 +56,7 @@ class ApplicationNotesWizard(ApplicationWizardMixin, models.TransientModel):
     _name = 'offers.application.notes_wizard'
 
     notes = fields.Text(
-        string="Notatka",
+        string=u"Notatka",
         default=ApplicationWizardMixin.default_func('notes')
     )
 

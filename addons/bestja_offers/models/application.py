@@ -63,8 +63,8 @@ class Application(models.Model):
 
     user = fields.Many2one('res.users', required=True, ondelete='cascade')
     offer = fields.Many2one('offer', required=True, ondelete='cascade')
-    state = fields.Selection(STATES, default='new', string="Stan")
-    quality = fields.Selection(QUALITY_CHOICES, string="Jakość")
+    state = fields.Selection(STATES, default='new', string=u"Stan")
+    quality = fields.Selection(QUALITY_CHOICES, string=u"Jakość")
     age = fields.Integer(compute='_compute_age')
     meeting = fields.Datetime()
     meeting2 = fields.Datetime()
