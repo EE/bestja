@@ -54,7 +54,6 @@ class EstimationReportEntry(models.Model):
     )
     tonnage = fields.Float(required=True, string="Liczba kg")
     store = fields.Many2one(
-        required=True,
         related='day_in_store.store.store',
         store=True,
         string="sklep",
@@ -198,29 +197,17 @@ class EstimationReport(models.Model):
     def create(self, vals):
         record = super(EstimationReport, self).create(vals)
         domain = [('date', '=', record.date), ('store.project', '=', record.project.id)]
-        print domain
         for day_in_store in record.env['bestja_stores.day'].search(domain):
             record.env['bestja.estimation_report_entry'].create({
                 'estimation_report': record.id,
                 'day_in_store': day_in_store.id,
                 'tonnage': 0.0,
-                'store': day_in_store.store.store.id,
-                'store_project': day_in_store.store.project.id,
             })
         return record
 
     @api.one
     def add_to_summary(self):
         self.sudo().state = 'sent'
-
-    @api.model
-    def _needaction_domain_get(self):
-        """
-        Show sent count in menu.
-        """
-        return [
-            ('state', '=', 'sent'),
-        ]
 
     @api.one
     @api.constrains('date', 'project')
