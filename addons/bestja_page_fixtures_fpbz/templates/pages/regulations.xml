@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
-        <template id="website.regulations" name="Site about application regulations" page="True">
+        <template id="website.regulations" name="Site about application Regulations" page="True">
             <t t-call="website.layout">
                 <div id="wrap" class="oe_structure oe_empty">
                     <section class="oe_snippet_body">
-                        <div class="container regulations">
+                        <div class="container single_page">
                             <div class="row">
-                                <div class="col-md-3">
-                                    <ul class="nav nav-pills nav-stacked regulations_nav col-md-3">
+                                <div class="col-xs-12 col-md-9 single_page_top_header">
+                                    <h1 class="mt48 mb48 section_title">
+                                        <strong>Regulamin aplikacji</strong>
+                                    </h1>
+                                </div>
+                                <div class="col-xs-12 col-md-3">
+                                    <ul class="nav nav-pills single_page_nav">
                                         <li>
                                             <a href="#wstep">Wstęp</a>
                                         </li>
@@ -32,10 +37,7 @@
                                         </li>
                                     </ul>
                                 </div>
-                                <div class="col-md-9 mb32">
-                                    <h1 class="text-center mt48 mb48 section_title">
-                                        <strong>REGULAMIN APLIKACJI</strong>
-                                    </h1>
+                                <div class="col-xs-12 col-lg-9 col-lg-offset-3 mb32">
                                     <h2 id="wstep" class="mt48 mb48">
                                         <strong>Wstęp</strong>
                                     </h2>
@@ -58,9 +60,10 @@
                                         Prosimy o zapoznanie się z <a href="/page/regulations">Regulaminem</a> i <a href="/page/privacy_policy">Polityką Prywatności</a>,
                                         gdyż korzystanie z Aplikacji oznacza ich akceptację.
                                     </p>
-
+                                </div>
+                                <div class="col-xs-12 col-lg-9 col-lg-offset-3 mb32">
                                     <h2 id="definicje" class="mt48 mb48">
-                                        <strong>I DEFINICJE</strong>
+                                        <strong>I Definicje</strong>
                                     </h2>
                                     <p>
                                         W Regulaminie używane są następujące pojęcia i definicje:
@@ -105,14 +108,16 @@
                                             w celu zapoznania się z ofertami świadczeń woluntarystycznych.
                                         </li>
                                     </ol>
+                                </div>
+                                <div class="col-xs-12 col-lg-9 col-lg-offset-3 mb32">
                                     <h2 id="ogolne" class="mt48 mb48">
-                                        <strong>II POSTANOWIENIA OGÓLNE</strong>
+                                        <strong>II Postanowienia ogólne</strong>
                                     </h2>
                                     <ol type="1">
                                         <li>
                                             Niniejszy Regulamin określa zasady korzystania z Aplikacji znajdującej się pod
                                             adresem <a href="http://www.wolontariat.bankizywnosci.pl">
-                                            www.wolontariat.bankizywnosci.pl</a>, zawierającego oferty dla wolontariuszy zamieszczone
+                                                www.wolontariat.bankizywnosci.pl</a>, zawierającego oferty dla wolontariuszy zamieszczone
                                             przez Banki oraz Federację oraz Moduł e-learningu.
                                         </li>
                                         <li>
@@ -130,8 +135,10 @@
                                             Regulaminu.
                                         </li>
                                     </ol>
+                                </div>
+                                <div class="col-xs-12 col-lg-9 col-lg-offset-3 mb32">
                                     <h2 id="konto_partnera" class="mt48 mb48">
-                                        <strong>III KONTO PARTNERA</strong>
+                                        <strong>III Konto Partnera</strong>
                                     </h2>
                                     <ol type="1">
                                         <li>
@@ -180,8 +187,10 @@
                                             Regulaminu.
                                         </li>
                                     </ol>
+                                </div>
+                                <div class="col-xs-12 col-lg-9 col-lg-offset-3 mb32">
                                     <h2 id="wolontariusze" class="mt48 mb48">
-                                        <strong>IV WOLONTARIUSZE</strong>
+                                        <strong>IV Wolontariusze</strong>
                                     </h2>
                                     <ol type="1">
                                         <li>
@@ -235,8 +244,10 @@
                                             statutowych Federacji i Banków.
                                         </li>
                                     </ol>
+                                </div>
+                                <div class="col-xs-12 col-lg-9 col-lg-offset-3 mb32">
                                     <h2 id="e_learning" class="mt48 mb48">
-                                        <strong>V MODUŁ E-LEARNINGU</strong>
+                                        <strong>V Moduł e-learningu</strong>
                                     </h2>
                                     <ol type="1">
                                         <li>
@@ -247,8 +258,10 @@
                                             szkoleń Użytkowników online z zakresu wiedzy o wolontariacie i działalności Federacji.
                                         </li>
                                     </ol>
+                                </div>
+                                <div class="col-xs-12 col-lg-9 col-lg-offset-3 mb32">
                                     <h2 id="koncowe" class="mt48 mb48">
-                                        <strong>VI POSTANOWIENIA KOŃCOWE</strong>
+                                        <strong>VI Postanowienia końcowe</strong>
                                     </h2>
                                     <ol type="1">
                                         <li>
@@ -277,10 +290,13 @@
                                             tego rodzaju sprawy do odpowiednich organów publicznych.
                                         </li>
                                     </ol>
+                                </div>
+                                <div class="col-xs-12 col-lg-9 col-lg-offset-3 mb32">
                                     <p>
                                         <br />
                                         <br />
-                                        Regulamin przygotowany przy wsparciu <br /><a href="http://www.fka.com.pl" title="">
+                                        Regulamin przygotowany przy wsparciu <br />
+                                        <a href="http://www.fka.com.pl" title="">
                                             <img src="http://www.wolontariat.bankizywnosci.pl/bundles/bzfront/image/logo_fka.png" alt="Furtek Kosma Aleksandrowicz"/>
                                         </a>
                                     </p>

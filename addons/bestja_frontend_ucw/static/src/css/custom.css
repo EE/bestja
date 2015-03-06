@@ -686,6 +686,16 @@ div.carousel .carousel-indicators .active {
     color: #FFFFFF;
 }
 
+.single_page_top_header{
+    float: none;
+}
+
+@media (min-width: 1199px){
+    .single_page_top_header{
+        float: right;
+    }
+}
+
 .single_page_nav{
     position: fixed;
 }
@@ -736,8 +746,7 @@ div.carousel .carousel-indicators .active {
 }
 
 @media screen and (max-width: 440px) {
-    .regulations p, .privacy_policy p,
-    .regulations li, .privacy_policy li{
+    .single_page p, .single_page li{
         font-size: 16px;
     }
 }

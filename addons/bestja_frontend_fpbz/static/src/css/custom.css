@@ -817,34 +817,47 @@ text:hover{
 }
 /* End of Offers snippet */
 
-/* Regulations site */
-.regulations p, .privacy_policy p{
+/* Single sites */
+.single_page h1, .single_page h2{
+    text-transform: uppercase;
+}
+
+.single_page_top_header{
+    float: none;
+}
+
+@media screen and (min-width: 1199px){
+    .single_page_top_header{
+        float: right;
+    }
+}
+
+.single_page p{
     font-size: 20px;
     text-indent: 26px;
 }
 
-.regulations_nav, .privacy_policy_nav {
+.single_page_nav {
     position: fixed;
 }
 
-.regulations_nav li, .privacy_policy_nav  li{
-    float: none;
-    max-width: 80%;
+.single_page_nav li{
+    margin-right: 40%;
+    width: 285px;
 }
 
-@media screen and (max-width: 991px) {
-    .regulations_nav, .privacy_policy_nav {
+@media screen and (max-width: 1199px) {
+    .single_page_nav {
         position: relative;
     }
-    .regulations_nav li, .regulations_nav li + li,
-    .privacy_policy_nav li, .privacy_policy_nav  li + li{
-        float: left;
+
+    .single_page li, .single_page li + li{
         margin-top: 8px;
     }
 }
+
 @media screen and (max-width: 440px) {
-    .regulations p, .privacy_policy p,
-    .regulations li, .privacy_policy li{
+    .single_page p, .single_page li{
         font-size: 16px;
     }
 }

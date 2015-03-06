@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
-        <template id="website.privacy_policy" name="Site about application regulations" page="True">
+        <template id="website.privacy_policy" name="Site about application Privacy Policy" page="True">
             <t t-call="website.layout">
                 <div id="wrap" class="oe_structure oe_empty">
                     <section class="oe_snippet_body">
-                        <div class="container privacy_policy">
+                        <div class="container single_page">
                             <div class="row">
-                                <div class="col-md-8 col-md-push-3">
+                                <div class="col-md-8 single_page_top_header">
                                     <h1 class="mt48 mb48 section_title">
                                         <strong>Polityka prywatności</strong>
                                     </h1>
                                 </div>
-                                <div class="col-md-3 col-md-pull-8">
+                                <div class="col-md-3">
                                     <ul class="nav nav-pills single_page_nav">
-                                        <li class="mt8 mb8">
+                                        <li>
                                             <a href="#wstep">Wstęp</a>
                                         </li>
-                                        <li class="mt8 mb8">
+                                        <li>
                                             <a href="#definicje">Definicje</a>
                                         </li>
-                                        <li class="mt8 mb8">
+                                        <li>
                                             <a href="#postanowienia">Postanowienia ogólne</a>
                                         </li>
                                     </ul>
