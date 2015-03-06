@@ -454,6 +454,12 @@ class StoreInProject(models.Model):
             raise exceptions.AccessError("Nie masz uprawnień aby przypisać ten sklep!")
         return record
 
+    @api.multi
+    def write(self, vals):
+        if 'project' in vals or 'store' in vals:
+            raise exceptions.ValidationError("Pola projekt i sklep nie mogą być modyfikowane!")
+        return super(StoreInProject, self).write(vals)
+
     @api.one
     def name_get(self):
         name_string = u"{store} ({project})".format(store=self.store.name, project=self.project.name)

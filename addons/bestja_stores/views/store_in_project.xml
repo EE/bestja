@@ -111,13 +111,13 @@
                     <field name="address" invisible="1"/>
                     <field name="city" invisible="1"/>
                     <group col="3">
-                        <label for="state"  attrs="{'invisible': [('id', '=', False)]}"/>
+                        <label for="state" attrs="{'invisible': [('id', '=', False)]}"/>
                         <div><field name="state" attrs="{'invisible': [('id', '=', False)]}" readonly="1" class="state"/></div><newline/>
                         <field name="time_deactivated" attrs="{'invisible': [('state', '!=', 'deactivated')]}" readonly="1"/><newline/>
-                        <field name="organization" options="{'no_create': True}"/><newline/>
-                        <field name="project" options="{'no_create': True}"/><newline/>
-                        <field name="store" options="{'no_create': True}"/>
-                        <div class="oe_edit_only"><field name="show_all_stores"/><label for="show_all_stores"/></div>
+                        <field name="organization" options="{'no_create': True}" attrs="{'readonly': [('id', '!=', False)]}"/><newline/>
+                        <field name="project" options="{'no_create': True}" attrs="{'readonly': [('id', '!=', False)]}"/><newline/>
+                        <field name="store" options="{'no_create': True}" attrs="{'readonly': [('id', '!=', False)]}"/>
+                        <div class="oe_edit_only" attrs="{'invisible': [('id', '!=', False)]}"><field name="show_all_stores"/><label for="show_all_stores"/></div>
                     </group>
                     <separator string="Dni zbiórki w sklepie"/>
                     <div>Dodaj dni, w których będziesz realizować zbiórkę trwającą:</div>
