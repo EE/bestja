@@ -275,7 +275,7 @@
             </xpath>
         </template>
         <record id="website.menu_homepage" model="website.menu">
-            <field name="url">/collage_photo/</field>
+            <field name="url">/</field>
         </record>
     </data>
 </openerp>
