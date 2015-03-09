@@ -1,52 +1,52 @@
 <openerp>
     <data>
         <record id="dolnoslaskie" model="volunteer.voivodeship">
-            <field name="name">Dolnośląskie</field>
+            <field name="name">dolnośląskie</field>
         </record>
         <record id="kujawsko-pomorskie" model="volunteer.voivodeship">
-            <field name="name">Kujawsko-Pomorskie</field>
+            <field name="name">kujawsko-pomorskie</field>
         </record>
         <record id="lubelskie" model="volunteer.voivodeship">
-            <field name="name">Lubelskie</field>
+            <field name="name">lubelskie</field>
         </record>
         <record id="lubuskie" model="volunteer.voivodeship">
-            <field name="name">Lubuskie</field>
+            <field name="name">lubuskie</field>
         </record>
         <record id="lodzkie" model="volunteer.voivodeship">
-            <field name="name">Łódzkie</field>
+            <field name="name">łódzkie</field>
         </record>
         <record id="malopolskie" model="volunteer.voivodeship">
-            <field name="name">Małopolskie</field>
+            <field name="name">małopolskie</field>
         </record>
         <record id="mazowieckie" model="volunteer.voivodeship">
-            <field name="name">Mazowieckie</field>
+            <field name="name">mazowieckie</field>
         </record>
         <record id="opolskie" model="volunteer.voivodeship">
-            <field name="name">Opolskie</field>
+            <field name="name">opolskie</field>
         </record>
         <record id="podkarpackie" model="volunteer.voivodeship">
-            <field name="name">Podkarpackie</field>
+            <field name="name">podkarpackie</field>
         </record>
         <record id="podlaskie" model="volunteer.voivodeship">
-            <field name="name">Podlaskie</field>
+            <field name="name">podlaskie</field>
         </record>
         <record id="pomorskie" model="volunteer.voivodeship">
-            <field name="name">Pomorskie</field>
+            <field name="name">pomorskie</field>
         </record>
         <record id="slaskie" model="volunteer.voivodeship">
-            <field name="name">Śląskie</field>
+            <field name="name">śląskie</field>
         </record>
         <record id="swietokrzyskie" model="volunteer.voivodeship">
-            <field name="name">Świętokrzyskie</field>
+            <field name="name">świętokrzyskie</field>
         </record>
         <record id="warminsko-mazurskie" model="volunteer.voivodeship">
-            <field name="name">Warmińsko-Mazurskie</field>
+            <field name="name">warmińsko-mazurskie</field>
         </record>
         <record id="wielkopolskie" model="volunteer.voivodeship">
-            <field name="name">Wielkopolskie</field>
+            <field name="name">wielkopolskie</field>
         </record>
         <record id="zachodniopomorskie" model="volunteer.voivodeship">
-            <field name="name">Zachodniopomorskie</field>
+            <field name="name">zachodniopomorskie</field>
         </record>
     </data>
 </openerp>
