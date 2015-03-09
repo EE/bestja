@@ -89,6 +89,24 @@ class EstimationReportEntry(models.Model):
         store=True,  # Needed by graph view
         related='estimation_report.responsible_organization',
     )
+    responsible_project = fields.Many2one(
+        'bestja.project',
+        string=u"projekt odpowiedzialny",
+        store=True,  # Needed by graph view
+        related='estimation_report.responsible_project',
+    )
+    parent_project = fields.Many2one(
+        'bestja.project',
+        string=u"projekt nadrzędny",
+        related='estimation_report.parent_project',
+        store=True,
+    )
+    top_project = fields.Many2one(
+        'bestja.project',
+        string=u"projekt super nadrzędny",
+        related='estimation_report.top_project',
+        store=True,
+    )
 
 
 class EstimationReport(models.Model):
@@ -144,10 +162,16 @@ class EstimationReport(models.Model):
         store=True,
     )
 
+    responsible_project = fields.Many2one(
+        'bestja.project',
+        string=u"projekt odpowiedzialny",
+        compute='_compute_responsible_project',
+        store=True,
+    )
     top_project = fields.Many2one(
         'bestja.project',
         string=u"projekt super nadrzędny",
-        compute_="_compute_top_project",
+        related='project.top_parent',
         store=True,
     )
     _sql_constraints = [(
@@ -158,18 +182,17 @@ class EstimationReport(models.Model):
 
     @api.one
     @api.depends('parent_project', 'project')
-    def _compute_top_project(self):
+    def _compute_responsible_project(self):
         """
-        Points to the top project, for statistics.
+        For statistics for the middle level organization,
+        allowing it to see the statistics of both its children and itself.
         """
         project = self.project
         level = project.organization.level
-        if level == 0:
-            self.top_project = self.project.id
-        elif level == 1:
-            self.top_project = self.parent_project.id
+        if level <= 1:
+            self.responsible_project = project.id
         else:
-            self.top_project = self.parent_project.parent.id
+            self.responsible_project = project.parent.id
 
     @api.one
     @api.depends('parent_project', 'project')

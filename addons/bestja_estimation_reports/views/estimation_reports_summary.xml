@@ -13,7 +13,7 @@
             </field>
         </record>
         <record model="ir.actions.act_window" id="action_estimation_organization_summary">
-            <field name="name">Statystyki raportów</field>
+            <field name="name">Raport po organizacjach</field>
             <field name="res_model">bestja.estimation_report_entry</field>
             <field name="view_mode">graph</field>
             <field name="view_id" ref="estimation_report_entry_organization_graph"/>
@@ -21,6 +21,7 @@
                 ('estimation_report.state', '!=', 'draft'),
             ]</field>
             <field name="context">{
+                'search_default_responsible_project': active_id,
                 'search_default_accepted': True,
             }</field>
         </record>
@@ -38,7 +39,7 @@
         </record>
 
         <record model="ir.actions.act_window" id="action_estimation_resp_org_summary">
-            <field name="name">Statystyki raportów</field>
+            <field name="name">Raport po bankach</field>
             <field name="res_model">bestja.estimation_report_entry</field>
             <field name="view_mode">graph</field>
             <field name="view_id" ref="estimation_report_entry_resp_org_graph"/>
@@ -46,6 +47,7 @@
                 ('estimation_report.state', '!=', 'draft'),
             ]</field>
             <field name="context">{
+                'search_default_top_project': active_id,
                 'search_default_accepted': True,
             }</field>
         </record>
@@ -61,8 +63,8 @@
                 </graph>
             </field>
         </record>
-        <record model="ir.actions.act_window" id="action_estimation_store_summary">
-            <field name="name">Statystyki raportów</field>
+        <record model="ir.actions.act_window" id="action_estimation_store_summary_lvl0">
+            <field name="name">Raport po sieciach</field>
             <field name="res_model">bestja.estimation_report_entry</field>
             <field name="view_mode">graph</field>
             <field name="view_id" ref="estimation_report_entry_store_graph"/>
@@ -70,6 +72,21 @@
                 ('estimation_report.state', '!=', 'draft'),
             ]</field>
             <field name="context">{
+                'search_default_top_project': active_id,
+                'search_default_sent': True,
+            }</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_estimation_store_summary_lvl1">
+            <field name="name">Raport po sieciach</field>
+            <field name="res_model">bestja.estimation_report_entry</field>
+            <field name="view_mode">graph</field>
+            <field name="view_id" ref="estimation_report_entry_store_graph"/>
+            <field name="domain">[
+                ('estimation_report.state', '!=', 'draft'),
+            ]</field>
+            <field name="context">{
+                'search_default_responsible_project': active_id,
                 'search_default_sent': True,
             }</field>
         </record>
@@ -90,7 +107,8 @@
                                <a name="%(action_estimation_resp_org_summary)d" type="action" t-if="record.organization_level.raw_value == 0">raport po bankach</a>
                                <a name="%(action_estimation_organization_summary)d" type="action" t-if="record.organization_level.raw_value == 1">raport po organizacjach</a>
                                <br/>
-                               <a name="%(action_estimation_store_summary)d" type="action">raport po sieciach</a>
+                               <a name="%(action_estimation_store_summary_lvl0)d" type="action" t-if="record.organization_level.raw_value == 0">raport po sieciach</a>
+                               <a name="%(action_estimation_store_summary_lvl1)d" type="action" t-if="record.organization_level.raw_value == 1">raport po sieciach</a>
                            </div>
                         </t>
                     </templates>
@@ -113,6 +131,19 @@
                 <p>
                     Chcesz wiedzieć, ile produktów udało się zebrać podczas zbiórki? W tym folderze znajdziesz statystyki pokazujące wyniki raportów szacunkowych, które prześlą współpracujące z Tobą sklepy.
                 </p>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="estimation_report_entry_filter">
+            <field name="name">estimation_report_entry.search</field>
+            <field name="model">bestja.estimation_report_entry</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="top_project"/>
+                    <field name="responsible_project"/>
+                    <field name="organization"/>
+                    <filter name="sent" string="Dodane do zestawienia"
+                        domain="[('estimation_report.state', '=', 'sent')]"/>
+                </search>
             </field>
         </record>
     </data>
