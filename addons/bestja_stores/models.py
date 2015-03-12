@@ -99,6 +99,7 @@ class Store(models.Model):
         self.send(
             template='bestja_stores.msg_store_rejected',
             recipients=self.default_partner.coordinator,
+            sender=self.env.user,
         )
 
     @api.one
