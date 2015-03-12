@@ -123,6 +123,25 @@
                 </p>
             </field>
         </record>
+        
+        <record model="ir.actions.act_window" id="action_bestja_detailed_report_sent_top">
+            <field name="name">Nadesłane raporty</field>
+            <field name="res_model">bestja.detailed_report</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="bestja_detailed_reports_sent_tree"/>
+            <field name="context" eval="{'search_default_accepted': True}" />
+            <field name="domain">[
+                ('state', '!=', 'draft'),
+                '|',
+                    ('parent_project.organization.coordinator', '=', uid),
+                    ('parent_project.manager', '=', uid),
+            ]</field>
+            <field name="help" type="html">
+                <p>
+                    W tym folderze będą przechowywane wszystkie raporty szczegółowe, które prześlą Ci inne organizacje.
+                </p>
+            </field>
+        </record>
 
         <record model="ir.ui.view" id="detailed_report_search">
             <field name="name">bestja.detailed_report.search</field>
