@@ -137,6 +137,7 @@
             <field name="arch" type="xml">
                 <search>
                     <field name="organization"/>
+                    <field name="project"/>
                     <filter name="draft" string="Szkic"
                                 domain="[('state', '=', 'draft')]"/>
                     <filter name="sent" string="Dodane do zestawienia"

@@ -149,6 +149,7 @@
             <field name="arch" type="xml">
                 <search>
                     <field name="responsible_organization"/>
+                    <field name="project"/>
                     <field name="organization"/>
                     <filter name="draft" string="Szkic"
                                 domain="[('state', '=', 'draft')]"/>
