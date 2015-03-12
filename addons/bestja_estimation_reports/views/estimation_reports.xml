@@ -60,6 +60,9 @@
                             </tree>
                         </field>
                      </div>
+                     <div attrs="{'invisible': [('id', '=', False)]}" class="oe_right oe_inline">
+                        <field name="total_tonnage" readonly="1" class="oe_right"/>
+                     </div>
                 </form>
             </field>
         </record>

@@ -174,11 +174,20 @@ class EstimationReport(models.Model):
         related='project.top_parent',
         store=True,
     )
+    total_tonnage = fields.Float(string=u"Suma", compute="_compute_report_tonnage", store=True)
     _sql_constraints = [(
         'estimation_report_unique',
         'unique("project", "date")',
         "Dla danego projektu i dnia może istnieć tylko jeden raport!"
     )]
+
+    @api.one
+    @api.depends('report_entries')
+    def _compute_report_tonnage(self):
+        """
+        For showing the sum of kg of products
+        """
+        self.total_tonnage = sum(entry.tonnage for entry in self.report_entries)
 
     @api.one
     @api.depends('parent_project', 'project')
