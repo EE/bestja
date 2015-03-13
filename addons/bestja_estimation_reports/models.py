@@ -228,7 +228,11 @@ class EstimationReport(models.Model):
     @api.model
     def create(self, vals):
         record = super(EstimationReport, self).create(vals)
-        domain = [('date', '=', record.date), ('store.project', '=', record.project.id)]
+        domain = [
+            ('date', '=', record.date),
+            ('store.project', '=', record.project.id),
+            ('store.state', '=', 'activated')
+        ]
         for day_in_store in record.env['bestja_stores.day'].search(domain):
             record.env['bestja.estimation_report_entry'].create({
                 'estimation_report': record.id,
