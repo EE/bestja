@@ -65,6 +65,19 @@ class ReportEntry(models.Model):
         compute="_compute_total_cities_nr",
         store=True,
     )
+    responsible_project = fields.Many2one(
+        'bestja.project',
+        string=u"projekt odpowiedzialny",
+        store=True,  # Needed by graph view
+        related='detailed_report.responsible_project',
+    )
+    top_project = fields.Many2one(
+        'bestja.project',
+        string=u"projekt super nadrzędny",
+        related='detailed_report.top_project',
+        store=True,
+    )
+
     _sql_constraints = [
         ('report_entries_uniq', 'unique("detailed_report", "commodity")', "Dany element można wybrać tylko raz!")
     ]
@@ -135,12 +148,38 @@ class DetailedReport(models.Model):
         compute_sudo=True,
         store=True,
     )
+    responsible_project = fields.Many2one(
+        'bestja.project',
+        string=u"projekt odpowiedzialny",
+        compute='_compute_responsible_project',
+        store=True,
+    )
+    top_project = fields.Many2one(
+        'bestja.project',
+        string=u"projekt super nadrzędny",
+        related='project.top_parent',
+        store=True,
+    )
     total_cities_nr = fields.Integer(
         compute="_compute_total_cities_nr",
         store=True,
         string=u"Całkowita liczba miast",
     )
     user_can_moderate = fields.Boolean(compute="_compute_user_can_moderate")
+
+    @api.one
+    @api.depends('parent_project', 'project')
+    def _compute_responsible_project(self):
+        """
+        For statistics for the middle level organization,
+        allowing it to see the statistics of both its children and itself.
+        """
+        project = self.project
+        level = project.organization.level
+        if level <= 1:
+            self.responsible_project = project.id
+        else:
+            self.responsible_project = project.parent.id
 
     @api.one
     @api.depends('parent_project', 'project')
