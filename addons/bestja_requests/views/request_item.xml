@@ -11,6 +11,7 @@
             <field name="context">{
                 'search_default_parent_project': active_id,
                 'search_default_accepted': True,
+                'search_default_pending': True,
             }</field>
         </record>
 
