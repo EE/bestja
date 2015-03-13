@@ -100,6 +100,18 @@
             <field name="name">Żabka</field>
         </record>
 
+        <record id="chain_mila" model="bestja_stores.chain">
+            <field name="name">Mila</field>
+        </record>
+
+        <record id="chain_topaz" model="bestja_stores.chain">
+            <field name="name">Topaz</field>
+        </record>
+
+        <record id="chain_selgros" model="bestja_stores.chain">
+            <field name="name">Selgros</field>
+        </record>
+
         <record id="chain_other" model="bestja_stores.chain">
             <field name="name">inna</field>
         </record>
