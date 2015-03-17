@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import re
-
+import datetime
 from openerp import models, fields, api, exceptions
 
 
@@ -460,6 +460,36 @@ class StoreInProject(models.Model):
         if 'project' in vals or 'store' in vals:
             raise exceptions.ValidationError("Pola projekt i sklep nie mogą być modyfikowane!")
         return super(StoreInProject, self).write(vals)
+
+    @api.one
+    def add_days(self):
+        """
+        Create `bestja_stores.day` objects for all days in the project.
+        """
+        # Find a previous time an event was held in the store.
+        # We want to find the second (yes!) day of the last event.
+        # This will be used to copy default values for from / to times.
+        previous_day = self.env['bestja_stores.day'].search(
+            [
+                ('store.store', '=', self.store.id),
+                ('store.state', '=', 'activated'),
+            ],
+            order='store desc, date',
+            limit=2,
+        )
+        previous_day = previous_day[1] if len(previous_day) > 1 else previous_day
+
+        delta = datetime.timedelta(days=1)
+        day = fields.Date.from_string(self.date_start)
+        last_day = fields.Date.from_string(self.date_stop)
+        while day <= last_day:
+            self.env['bestja_stores.day'].create({
+                'store': self.id,
+                'date': fields.Date.to_string(day),
+                'time_from': previous_day.time_from or "09:00",
+                'time_to': previous_day.time_to or "18:00",
+            })
+            day += delta
 
     @api.one
     def name_get(self):

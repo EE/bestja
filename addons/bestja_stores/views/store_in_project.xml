@@ -132,6 +132,7 @@
                             <field name="time_to_default" placeholder="HH:MM"/>
                         </tree>
                     </field>
+                    <button name="add_days" type="object" string="Dodaj dni zbiórki ▶" attrs="{'invisible': ['|', ('days', '!=', []), ('state', 'in', ['rejected', 'deactivated'])]}"/>
                 </form>
             </field>
         </record>
