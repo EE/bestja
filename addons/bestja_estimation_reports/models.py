@@ -233,6 +233,14 @@ class EstimationReport(models.Model):
             ('store.project', '=', record.project.id),
             ('store.state', '=', 'activated')
         ]
+        domain_error = [
+            ('date', '=', record.date),
+            ('store.project', '=', record.project.id),
+            ('store.state', '=', 'waiting_bank')
+        ]
+        for day_error in record.env['bestja_stores.day'].search(domain_error):
+            raise exceptions.ValidationError("Poczekaj na aktywację sklepów aby utworzyć raport szacunkowy!")
+        
         for day_in_store in record.env['bestja_stores.day'].search(domain):
             record.env['bestja.estimation_report_entry'].create({
                 'estimation_report': record.id,
