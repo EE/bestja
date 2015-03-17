@@ -20,9 +20,14 @@
         <record id="msg_application_rejected" model="message_template">
             <field name="subject">Zgłoszenie odrzucone</field>
             <field name="body"><![CDATA[
-                Niestety tym razem się nie udało.<br/>
+                Witaj,<br/> 
+                Dziękujemy Ci za zgłoszenie i chęć działania z nami!<br/>
                 <br/>
-                ${record.rejected_reason.description}
+                Tym razem niestety nie mogliśmy włączyć Cię do naszego zespołu. <br/>
+                <br/>
+                Chcemy, aby wolontariusze spełniali się w naszej organizacji i ją rozwijali. Dlatego staramy się, aby wolontariusz, którego angażujemy do współpracy miał dopasowane zadania do swoich zainteresowań, wiedzy, doświadczenia i dostępności czasowej. </br>
+                <br/>
+                Zachęcamy do obejrzenia innych ofert dla wolontariuszy. Na pewno znajdziesz coś dla siebie. <br/>
             ]]></field>
             <field name="model">offers.application</field>
         </record>

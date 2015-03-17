@@ -1,21 +1,21 @@
 <openerp>
     <data>
         <record id="reason1" model="offers.application.rejected">
-            <field name="name">powód 1</field>
+            <field name="name">Nieodpowiednie kompetencje</field>
             <field name="description">
-                Mimo, że jesteś wspaniałym kandydatem pierwszy powód spowodował, że nie możemy Cię przyjąć.
+                Nieodpowiednie kompetencje.
             </field>
         </record>
         <record id="reason2" model="offers.application.rejected">
-            <field name="name">powód 2</field>
+            <field name="name">Za duża liczba kandydatów aplikujących</field>
             <field name="description">
-                Drugi powód spowodował, że Cię nie przyjęliśmy. Bardzo nam przykro z tego powodu.
+                Za duża liczba kandydatów aplikujących. 
             </field>
         </record>
         <record id="programmer" model="offers.application.rejected">
-            <field name="name">programista</field>
+            <field name="name">Nie spełnianie wymogów zawartych w ofercie</field>
             <field name="description">
-                Jesteś programistą. Nie chcemy tu takich jak ty.
+                Nie spełnianie wymogów zawartych w ofercie.
             </field>
         </record>
     </data>
