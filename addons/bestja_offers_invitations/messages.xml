@@ -2,9 +2,10 @@
 <openerp>
     <data>
         <record id="msg_offer_invitation" model="message_template">
-            <field name="subject">Zaproszenie na ofertę</field>
+            <field name="subject">Do dzieła! Mamy dla Ciebie nową propozycję</field>
             <field name="body"><![CDATA[
-                Wybraliśmy dla Ciebie ofertę. <a href="${base_url}${record.get_public_url()}">Sprawdź szczegóły</a> i podejmij wyzwanie!
+                Kto szuka, nie błądzi - dlatego wyszukaliśmy dla Ciebie ofertę zgodną z Twoimi zainteresowaniami! Mamy nadzieję, że porwie Cię do działania! 
+                <a href="${base_url}${record.get_public_url()}">Sprawdź szczegóły</a>
             ]]></field>
             <field name="model">offer</field>
         </record>

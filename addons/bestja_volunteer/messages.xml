@@ -4,17 +4,20 @@
         <record id="welcome_msg" model="message_template">
             <field name="subject">Witamy w społeczności wolontariuszy! Czas zacząć działać!</field>
             <field name="body"><![CDATA[
-                <p>Wierzymy, że aktywni ludzie - właśnie tacy jak Ty zmieniają rzeczywistość na lepszą.</p>
-
                 <p>Dziękujemy, że jesteś z nami!</p>
+                
+                
+                <p>Wierzymy, że aktywni ludzie - właśnie tacy jak Ty zmieniają rzeczywistość na lepszą.</p>
+                
+                <p>Co możesz zrobić:</p>
 
-                <p><strong>Uzupełnij profil</strong><br/>
-                Uzupełnij swój profil. Dzięki temu będziemy mogli dobierać oferty zgodnie z Twoimi zainteresowaniami.</p>
+                <p><strong>Uzupełnić profil</strong><br/>
+                Dzięki temu będziemy mogli dobierać oferty zgodnie z Twoimi zainteresowaniami.</p>
 
-                <p><strong>Zobacz oferty</strong><br/>
+                <p><strong>Oferty wolontariatu</strong><br/>
                 Zobacz, ile ciekawych ofert przygotowaliśmy dla Ciebie. Jeśli coś Cię zainteresuje, zgłoś się przez nasz serwis. Skontaktujemy się z Tobą!</p>
 
-                <p><strong>Zarejestruj organizację</strong><br/>
+                <p><strong>Rejestracja organizacji</strong><br/>
                 Jeśli reprezentujesz organizację, która chce z nami współpracować zrejestruj organizację. Zweryfikujemy zgłoszenie i się z Tobą skontaktujemy.</p>
 
                 <p>Zacznij działać!<br/>

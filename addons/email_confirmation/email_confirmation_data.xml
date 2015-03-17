@@ -8,11 +8,13 @@
             <field name="model_id" ref="base.model_res_users"/>
             <field name="email_from"><![CDATA[${object.company_id.name} <${(object.company_id.email)|safe}>]]></field>
             <field name="email_to">${object.email|safe}</field>
-            <field name="subject">Pierwszy krok – potwierdzenie rejestracji</field>
+            <field name="subject">Potwierdzenie rejestracji w serwisie</field>
             <field name="body_html"><![CDATA[
-
-                <p>Aby móc korzystać z systemu, aktywuj konto klikając w następujący <a href="${object.signup_url}">link</a>.</p>
-                <p>Zignoruj tę wiadomość, jeśli nie rejestrowałeś się w serwisie.</p>]]>
+                <p>Witaj,</p>
+                <p>Aby zakończyć rejestrację w systemie aktywuj swoje konto klikając w link: <a href="${object.signup_url}">link</a>.</p>
+                <p>Zignoruj tę wiadomość, jeśli nie rejestrowałeś/aś się do serwisu.</p>
+                <p>Zespół</p>
+                ]]>
             </field>
         </record>
 

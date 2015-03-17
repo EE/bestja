@@ -2,9 +2,9 @@
 <openerp>
     <data>
         <record id="msg_pending_admin" model="message_template">
-            <field name="subject">Nowa oferta do zaakceptowania</field>
+            <field name="subject">Nowa oferta oczekuje na akceptację</field>
             <field name="body"><![CDATA[
-                Czeka na ciebie jedna oferta do zaakceptowania, "${record.name}", dodana przez "${record.organization.name}".
+                Organizacja ${record.organization.name} wprowadziła do systemu nową ofertę! 
             ]]></field>
             <field name="model">offer</field>
         </record>

@@ -2,31 +2,35 @@
 <openerp>
     <data>
         <record id="msg_registered" model="message_template">
-            <field name="subject">Dziękujemy za rejestrację organizacji!</field>
+            <field name="subject">Twoja organizacja została zgłoszona</field>
             <field name="body"><![CDATA[
-                Drugi krok za Tobą! Daj nam chwilę, żebyśmy mogli poznać bliżej Twoją organizację. Skontaktujemy się z Tobą w ciągu 7 dni i umówimy na spotkanie.
+                Dziękujemy za rejestrację organizacji!
+                Zweryfikujemy informacje i skontaktujemy się z Tobą.
             ]]></field>
             <field name="model">organization</field>
         </record>
 
         <record id="msg_registered_admin" model="message_template">
-            <field name="subject">Organizacja czeka na Twoją akceptację</field>
+            <field name="subject">Nowa organizacja czeka na akceptację</field>
             <field name="body"><![CDATA[
-                Zobacz szczegóły i skontaktuj się z organizacją w ciągu 7 dni.<br/><br/>
-                Dane organizacji:<br/>
-                <strong>Nazwa:</strong> ${record.name}<br/>
-                <strong>Koordynator:</strong> ${record.coordinator.name}<br/>
-                <strong>Telefon:</strong> ${record.phone}
+                Zgłosiła się nowa organizacja ${record.name}, która oczekuje na akceptację.
+
+                Przejdź do jej profilu i podejmij decyzję o jej przyjęciu lub odrzuceniu zgłoszenia.
+                <li><a href="${link_to(record)}">Profil organizacji</a></li>
             ]]></field>
             <field name="model">organization</field>
         </record>
 
         <record id="msg_rejected" model="message_template">
-            <field name="subject">Rejestracja organizacji nie przebiegła pomyślnie</field>
+            <field name="subject">Zgłoszenie organizacji zostało odrzucone</field>
             <field name="body"><![CDATA[
-                Dziękuję za chęć rejestracji swojej organizacji!<br/><br/>
-                Niestety nie spełnia ona niektórych warunków, które przyjęliśmy w naszym systemie.
-                W celu dokładniejszego wyjaśnienia sytuacji i ustalenia ewentualnej innej formy współpracy zachęcam do bezpośredniego kontaktu ze mną.
+                Witaj!
+                Dziękujemy za chęć współpracy z wolontariuszami w naszym systemie.
+
+                Niestety zgłoszona przez Ciebie organizacja ${record.name} nie spełnia ustalonych przez nas kryteriów. 
+                Jeśli nadal chcesz nawiązać współpracę z ${record.name} chętnie podzielimy się swoimi spostrzeżeniami, jak to zrobić. 
+
+                Zapraszamy do kontaktu, 
             ]]></field>
             <field name="model">organization</field>
         </record>
@@ -34,9 +38,15 @@
         <record id="msg_approved" model="message_template">
             <field name="subject">Twoja organizacja została zaakceptowana!</field>
             <field name="body"><![CDATA[
-                Dzięki Twojej aktywności Twoja organizacja dołączyła do naszej społeczności!
+                Witaj!
+                Dziękujemy za zgłoszenie organizacji ${record.name} w systemie GooDoo.
 
-                <li><a href="${link_to(record)}">Uzupełnij profil organizacji</a></li>
+                Zachęcamy do uzupełnienia profilu, aby wolontariusze chętnie zgłaszali się na opublikowane oferty.
+
+                Aby rozpocząć rekrutację, zaloguj się w systemie i utwórz nowy projekt, w który zamierzasz zaangażować wolontariuszy. Pamiętaj, żeby dokładnie opisać publikowaną ofertę. Mamy nadzieję, że pomoże Ci w tym przygotowany szablon. 
+
+                Powodzenia!
+
             ]]></field>
             <field name="model">organization</field>
         </record>
