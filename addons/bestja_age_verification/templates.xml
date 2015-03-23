@@ -1,7 +1,7 @@
 <openerp>
     <data>
         <template id="fields" inherit_id="auth_signup.fields">
-            <div class="form-group field-name" position="after">
+            <xpath expr="//div[@class='form-group field-name']" position="after">
                 <div class="form-group field-birthdate" t-att-data-min-age="min_age">
                     <label for="birthdate_day" class="control-label">Data urodzenia</label>
                     <div class="form-inline">
@@ -12,7 +12,7 @@
                     </div>
                     <p class="field_desc mt8">Możesz nam pomagać, jeśli masz ukończone <t t-esc="min_age"/> lat.</p>
                 </div>
-            </div>
+            </xpath>
         </template>
     </data>
 </openerp>
