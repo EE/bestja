@@ -14,6 +14,7 @@
     # assets
         'views/assets.xml',
         'views/cookie_reminder.xml',
+        'views/login_signup.xml',
 
     # snippets
         'templates/snippets/introduction.xml',
