@@ -57,6 +57,9 @@
                         </field>
                         <button string="dodaj wszystkie grupy" class="oe_link oe_edit_only" type="object" name="add_all_commodity_groups"/>
                     </div>
+                    <div attrs="{'invisible': [('id', '=', False)]}" class="oe_right oe_inline">
+                        <field name="tonnage" readonly="1" class="oe_right"/>
+                    </div>
                 </form>
             </field>
         </record>
