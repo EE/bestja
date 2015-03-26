@@ -229,7 +229,7 @@ class DetailedReport(models.Model):
         """
         date_start = fields.Datetime.from_string(self.project.date_start).strftime("%d-%m-%Y")
         date_stop = fields.Datetime.from_string(self.project.date_stop).strftime("%d-%m-%Y")
-        return "{} — {}".format(date_start, date_stop)
+        self.dates = "{} — {}".format(date_start, date_stop)
 
     @api.one
     @api.depends('project', 'report_entries', 'project.organization.level', 'project.children.stores')

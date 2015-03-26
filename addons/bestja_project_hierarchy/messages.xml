@@ -4,7 +4,7 @@
         <record id="msg_invitation" model="message_template">
             <field name="subject">Zaproszenie do projektu</field>
             <field name="body"><![CDATA[
-                Dołącz do projektu ${record.project.name} organizowanego przez ${record.project.organization.name}.
+                Dołącz do projektu ${record.project.name} organizowanego przez ${record.project.organization.name} w terminie ${record.project.dates_european}.
             ]]></field>
             <field name="model">bestja.project.invitation</field>
         </record>

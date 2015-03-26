@@ -160,7 +160,11 @@ class Project(models.Model):
     organization_level = fields.Integer(
         related='organization.level'
     )
-
+    dates_european = fields.Char(
+        compute='_compute_dates_european',
+        compute_sudo=True,
+        store=True,
+    )
     _sql_constraints = [
         (
             'invitation_parent_project_organization_uniq',
@@ -168,6 +172,16 @@ class Project(models.Model):
             "Nie możesz utworzyć wielu projektów na podstawie jednego projektu nadrzędnego",
         ),
     ]
+
+    @api.one
+    @api.depends('date_start','date_stop')
+    def _compute_dates_european(self):
+        """
+        For nice format in the invitation message.
+        """
+        date_start = fields.Datetime.from_string(self.date_start).strftime("%d-%m-%Y")
+        date_stop = fields.Datetime.from_string(self.date_stop).strftime("%d-%m-%Y")
+        self.dates_european = "{} — {}".format(date_start, date_stop)
 
     @api.one
     @api.depends('parent', 'parent.parent')
