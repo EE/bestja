@@ -10,7 +10,7 @@
                     <field name="id" invisible="1"/>
                     <field name="user_can_moderate" invisible="1"/>
                     <header>
-                        <button name="set_sent" string="Wyślij raport" type="object" class="oe_highlight" attrs="{'invisible': [
+                        <button name="%(action_set_sent_wizard)d" string="Wyślij raport" type="action" class="oe_highlight" attrs="{'invisible': [
                             '|',
                                 ('state', '!=', 'draft'),
                             '|',

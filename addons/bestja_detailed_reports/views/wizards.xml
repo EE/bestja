@@ -1,5 +1,32 @@
 <openerp>
     <data>
+        <record model="ir.actions.act_window" id="action_set_sent_wizard">
+            <field name="name">Wyślij</field>
+            <field name="res_model">bestja.set_sent_report_wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+        
+        <record model="ir.ui.view" id="set_sent_wizard_form">
+            <field name="name">bestja.set_sent_report_wizard</field>
+            <field name="model">bestja.set_sent_report_wizard</field>
+            <field name="arch" type="xml">
+                <form string="Czy na pewno chcesz wysłać raport szczegółowy?">
+                    <div>
+                    Wysłanie raportu spowoduje, że w przypadku akceptacji przez organizację nadrzędną, 
+                    nie będziesz miał możliwości edycji tego raportu.
+                    </div>
+                    <group>
+                        <field name="detailed_report" readonly="1"/>
+                    </group>
+                    <footer>
+                        <button name="set_detailed_report_sent" type="object" string="Tak, wyślij raport" class="oe_highlight"/>
+                        <button special="cancel" string="Nie wysyłaj"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+        
         <record model="ir.ui.view" id="accept_detailed_report_wizard_form">
             <field name="name">accept_report.wizard</field>
             <field name="model">bestja.accept_or_reject_report_wizard</field>
