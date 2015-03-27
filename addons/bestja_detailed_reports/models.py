@@ -132,7 +132,7 @@ class DetailedReport(models.Model):
     )
     name = fields.Char(string=u"Nazwa projektu", related="project.name")
     dates = fields.Char(string=u"Termin", compute="_compute_project_dates", store=True)
-    state = fields.Selection(STATES, default='draft', string=u"Status:")
+    state = fields.Selection(STATES, default='draft', string=u"Status")
     report_entries = fields.One2many('bestja.report_entry', inverse_name='detailed_report', string=u"Produkt")
     tonnage = fields.Float(string=u"Tonaż (kg)", compute="_compute_report_tonnage", store=True)
     parent_project = fields.Many2one(
