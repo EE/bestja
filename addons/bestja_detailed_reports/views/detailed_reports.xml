@@ -27,6 +27,7 @@
                                 ('state', '=', 'rejected'),
                                 ('user_can_moderate', '=', False),
                         ]}"/>
+                        <br/>
                         <a href="/bestja_detailed_reports/static/grupy_towarowe.pdf" target="_blank" attrs="{'invisible': [('id', '=', False)]}">Pobierz opis grup towarowych</a>
                     </header>
                     <div attrs="{'invisible': [('id', '=', False)]}">
@@ -40,6 +41,9 @@
                     <div attrs="{'invisible': [('id', '=', False)]}">
                         <div class="oe_title">
                             <label for="state" class="oe_inline"/><field name="state" readonly="1" class="state oe_inline"/>
+                            <br/>
+                            <label for="final_version" groups="bestja_project_hierarchy.managers_level1,bestja_project_hierarchy.managers_level0"/>
+                            <field name="final_version" attrs="{'invisible': [('id', '=', False)]}" groups="bestja_project_hierarchy.managers_level1,bestja_project_hierarchy.managers_level0"/>
                         </div>
                         <br/><br/><br/>
                         <div>

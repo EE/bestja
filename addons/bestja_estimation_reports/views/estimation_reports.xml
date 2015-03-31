@@ -33,7 +33,7 @@
             <field name="arch" type="xml">
                 <form>
                     <field name="id" invisible="1"/>
-                    <header>
+                    <header attrs="{'invisible': [('id', '=', False)]}">
                         <button name="%(action_add_to_summary_wizard)d" type="action" string="Dodaj do zestawienia" states="draft"/>
                     </header>
                     <div class="oe_edit_only oe_grey" attrs="{'invisible': [('id', '!=', False)]}">Wybierz projekt i dzień, do którego chcesz stworzyć raport szacunkowy.</div>
@@ -41,6 +41,9 @@
                         <field name="project" options="{'no_create': True}" attrs="{'readonly': [('id', '!=', False)]}" class="oe_inline"/>
                         <field name="date" options="{'no_create': True}" attrs="{'readonly': [('id', '!=', False)]}" class="oe_inline"/>
                         <field name="state" readonly="1" class="state oe_inline" attrs="{'invisible': [('id', '=', False)]}"/>
+                    </group>
+                    <group class="oe_title" attrs="{'invisible': [('id', '=', False)]}">
+                        <field name="final_version" attrs="{'invisible': [('id', '=', False)]}" groups="bestja_project_hierarchy.managers_level1,bestja_project_hierarchy.managers_level0"/>
                     </group>
                     <button string="Kontynuuj ▶" class="oe_edit_only" type="object" name="continue_action" attrs="{'invisible': [('id', '!=', False)]}"/>
                     <div attrs="{'invisible': [('id', '=', False)]}">
@@ -125,6 +128,25 @@
                 '|',
                     ('parent_project.parent.organization.coordinator', '=', uid),
                     ('parent_project.parent.manager', '=', uid),
+                    
+            ]</field>
+            <field name="help" type="html">
+                <p>
+                    W tym folderze będą przechowywane wszystkie raporty szacunkowe, które prześlą Ci inne organizacje.
+                </p>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="action_bestja_estimation_report_sent_top">
+            <field name="name">Nadesłane raporty</field>
+            <field name="res_model">bestja.estimation_report</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="bestja_estimation_reports_sent_tree"/>
+            <field name="context" eval="{'search_default_sent': True}" />
+            <field name="domain">[
+                ('state', '!=', 'draft'),
+                '|',
+                    ('parent_project.organization.coordinator', '=', uid),
+                    ('parent_project.manager', '=', uid),
                     
             ]</field>
             <field name="help" type="html">

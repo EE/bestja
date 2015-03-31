@@ -175,6 +175,8 @@ class EstimationReport(models.Model):
         store=True,
     )
     total_tonnage = fields.Float(string=u"Suma", compute="_compute_report_tonnage", store=True)
+    final_version = fields.Boolean(string="Finalna wersja:")
+
     _sql_constraints = [(
         'estimation_report_unique',
         'unique("project", "date")',
@@ -240,7 +242,7 @@ class EstimationReport(models.Model):
         ]
         for day_error in record.env['bestja_stores.day'].search(domain_error):
             raise exceptions.ValidationError("Poczekaj na aktywację sklepów aby utworzyć raport szacunkowy!")
-        
+
         for day_in_store in record.env['bestja_stores.day'].search(domain):
             record.env['bestja.estimation_report_entry'].create({
                 'estimation_report': record.id,

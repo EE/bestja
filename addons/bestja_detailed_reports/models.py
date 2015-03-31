@@ -165,6 +165,7 @@ class DetailedReport(models.Model):
         store=True,
         string=u"Całkowita liczba miast",
     )
+    final_version = fields.Boolean(string="Finalna wersja:")
     user_can_moderate = fields.Boolean(compute="_compute_user_can_moderate")
 
     @api.one
