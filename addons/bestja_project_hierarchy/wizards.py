@@ -56,6 +56,15 @@ class InvitationWizard(models.TransientModel):
 class HierarchicalProjectMessage(models.TransientModel):
     _inherit = 'bestja.project.message_wizard'
 
+    recipients2 = fields.Char(string=u"Odbiorcy", default="Zespół projektu")
+
+    @api.one
+    def send_button2(self):
+        """
+        For the managers level2 - they can't see the multiple sending options
+        """
+        self.send(recipients=self.project.members)
+
     @api.one
     def send_button(self):
         super(HierarchicalProjectMessage, self).send_button()

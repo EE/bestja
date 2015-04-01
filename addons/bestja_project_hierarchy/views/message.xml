@@ -5,9 +5,16 @@
             <field name="inherit_id" ref="bestja_project.project_message_form"/>
             <field name="arch" type="xml">
                 <field name="recipients" position="attributes">
-                    <attribute name="readonly"/> 
-                    <!-- remove the attribute - no longer readonly -->
+                    <attribute name="readonly"/> <!-- remove the attribute - no longer readonly -->
+                    <attribute name="groups">bestja_project_hierarchy.managers_level1,bestja_project_hierarchy.managers_level0</attribute>
                 </field>
+                <field name="recipients" position="after">
+                    <field name="recipients2" groups="bestja_project_hierarchy.managers_level2" readonly="1"/>
+                </field>
+                <button name="send_button" position="replace">
+                    <button name="send_button2" type="object" string="Wyślij wiadomość" class="oe_highlight" groups="bestja_project_hierarchy.managers_level2"/>
+                    <button name="send_button" type="object" string="Wyślij wiadomość" class="oe_highlight" groups="bestja_project_hierarchy.managers_level0,bestja_project_hierarchy.managers_level1"/>
+                </button>
             </field>
         </record>
     </data>
