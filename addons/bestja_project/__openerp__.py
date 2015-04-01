@@ -24,6 +24,7 @@ Define projects and assign users to tasks.
         'messages.xml',
         'menu.xml',
         'security/ir.model.access.csv',
+        'data.xml',
     ],
     'demo': [
         'demo.xml',

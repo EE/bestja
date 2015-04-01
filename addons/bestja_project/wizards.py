@@ -2,11 +2,21 @@
 from openerp import models, fields, api
 
 
+class RecipientsChoices(models.Model):
+    _name = 'recipients.choices'
+
+    name = fields.Char(
+        required=True,
+        string=u"Odbiorcy",
+    )
+    id_name = fields.Char(
+        required=True,
+        default='members',
+    )
+
+
 class ProjectMessage(models.TransientModel):
     _name = 'bestja.project.message_wizard'
-    RECIPIENTS_CHOICES = [
-        ('members', "Zespół projektu"),
-    ]
 
     project = fields.Many2one(
         'bestja.project',
@@ -15,17 +25,16 @@ class ProjectMessage(models.TransientModel):
         default=lambda self: self.env.context['active_id'],
     )
     content = fields.Text(string=u"Treść", required=True)
-    recipients = fields.Selection(
-        RECIPIENTS_CHOICES,
-        default='members',
-        require=True,
+    recipients = fields.Many2many(
+        'recipients.choices',
         string=u"Odbiorcy",
     )
 
     @api.one
     def send_button(self):
-        if self.recipients == 'members':
-            self.send(recipients=self.project.members)
+        for recipient in self.recipients:
+            if recipient.id_name == 'members':
+                self.send(recipients=self.project.members)
 
     @api.one
     def send(self, recipients):

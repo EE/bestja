@@ -25,5 +25,6 @@ projects.
         'messages.xml',
         'security/ir.model.access.csv',
         'security/security.xml',
+        'data.xml',
     ],
 }

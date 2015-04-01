@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="members" model="recipients.choices">
+            <field name="name">Zespół projektu</field>
+            <field name="id_name">members</field>
+        </record>
+    </data>
+</openerp>

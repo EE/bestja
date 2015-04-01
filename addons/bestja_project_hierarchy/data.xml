@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="child_managers" model="recipients.choices">
+            <field name="name">Menadżerowie podprojektów</field>
+            <field name="id_name">child_managers</field>
+        </record>
+    </data>
+</openerp>

@@ -5,7 +5,8 @@
             <field name="inherit_id" ref="bestja_project.project_message_form"/>
             <field name="arch" type="xml">
                 <field name="recipients" position="attributes">
-                    <attribute name="readonly"/> <!-- remove the attribute - no longer readonly -->
+                    <attribute name="readonly"/> 
+                    <!-- remove the attribute - no longer readonly -->
                 </field>
             </field>
         </record>

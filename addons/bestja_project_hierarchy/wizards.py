@@ -56,11 +56,10 @@ class InvitationWizard(models.TransientModel):
 class HierarchicalProjectMessage(models.TransientModel):
     _inherit = 'bestja.project.message_wizard'
 
-    recipients = fields.Selection(selection_add=[('child_managers', "Menadżerowie podprojektów")])
-
     @api.one
     def send_button(self):
         super(HierarchicalProjectMessage, self).send_button()
-        if self.recipients == 'child_managers':
-            recipients = [child.responsible_user for child in self.sudo().project.children]
-            self.send(recipients=recipients)
+        for recipient in self.recipients:
+            if recipient.id_name == 'child_managers':
+                recipients = [child.responsible_user for child in self.sudo().project.children]
+                self.send(recipients=recipients)
