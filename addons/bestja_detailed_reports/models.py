@@ -233,7 +233,7 @@ class DetailedReport(models.Model):
         self.dates = "{} — {}".format(date_start, date_stop)
 
     @api.one
-    @api.depends('project', 'report_entries', 'project.organization.level', 'project.children.stores')
+    @api.depends('project', 'report_entries', 'project.organization.level', 'project.children')
     def _compute_total_cities_nr(self):
         """
         Computes number of unique cities where stores
@@ -245,8 +245,9 @@ class DetailedReport(models.Model):
         level = project.organization.level
         if level == 1:
             cities_total = set()
-            for store in project.children.stores:
-                cities_total.add(store.store.city)
+            for child in project.children:
+                for store in child.stores:
+                    cities_total.add(store.store.city)
             for store in project.stores:
                 cities_total.add(store.store.city)
             self.total_cities_nr = len(cities_total)
