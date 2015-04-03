@@ -63,6 +63,7 @@ class ReportEntry(models.Model):
     total_cities_nr = fields.Integer(
         string=u"Całkowita liczba miast",
         compute="_compute_total_cities_nr",
+        compute_sudo=True,
         store=True,
     )
     responsible_project = fields.Many2one(
@@ -163,6 +164,7 @@ class DetailedReport(models.Model):
     total_cities_nr = fields.Integer(
         compute="_compute_total_cities_nr",
         store=True,
+        compute_sudo=True,
         string=u"Całkowita liczba miast",
     )
     final_version = fields.Boolean(string="Finalna wersja:")

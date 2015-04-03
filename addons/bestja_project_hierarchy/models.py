@@ -110,7 +110,7 @@ class ProjectInvitation(models.Model):
         if self.organization.coordinator != self.env.user:
             raise exceptions.ValidationError("Nie jesteś koordynatorem zaproszonej organizacji!")
 
-        project = self.env['bestja.project'].create({
+        project = self.env['bestja.project'].sudo().create({
             'parent': self.project.id,
             'name': self.project.name,
             'organization': self.env.user.coordinated_org.id,
@@ -174,7 +174,7 @@ class Project(models.Model):
     ]
 
     @api.one
-    @api.depends('date_start','date_stop')
+    @api.depends('date_start', 'date_stop')
     def _compute_dates_european(self):
         """
         For nice format in the invitation message.
