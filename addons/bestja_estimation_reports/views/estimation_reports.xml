@@ -50,7 +50,10 @@
                         <br/><br/><br/><br/><br/>
                         <div>
                             <p>Wpisz podaną przez koordynatora danego sklepu ilość żywności zebranej w konkretnym dniu.</p>
-                            <p>Możesz zapisać raport i wrócić do niego w dowolnym momencie. Kiedy uzupełnisz wszystkie dane naciśnij "Dodaj do zestawienia". 
+                            <p>Możesz zapisać raport i wrócić do niego w dowolnym momencie. Po kliknięciu przycisku "Dodaj do zestawienia" nie ma możliwości zmiany wprowadzonych danych.
+                               Dlatego przed wysłaniem raportu należy upewnić się, że wszystkie komórki zawierają prawidłowe dane. 
+                            </p>
+                            <p>
                                Wyniki zbiórki ze sklepów będą widoczne w raportach grupowych.
                             </p>
                         </div>
