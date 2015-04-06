@@ -6,6 +6,11 @@
             <field name="body"><![CDATA[
                 Dziękujemy za rejestrację organizacji!
                 Zweryfikujemy informacje i skontaktujemy się z Tobą.
+                <br/>
+                <br/>
+                Zespół
+                <br/>
+                ${site_name}
             ]]></field>
             <field name="model">organization</field>
         </record>
@@ -17,6 +22,11 @@
 
                 Przejdź do jej profilu i podejmij decyzję o jej przyjęciu lub odrzuceniu zgłoszenia.
                 <li><a href="${link_to(record)}">Profil organizacji</a></li>
+                <br/>
+                <br/>
+                Zespół
+                <br/>
+                ${site_name}
             ]]></field>
             <field name="model">organization</field>
         </record>
@@ -46,7 +56,11 @@
                 Aby rozpocząć rekrutację, zaloguj się w systemie i utwórz nowy projekt, w który zamierzasz zaangażować wolontariuszy. Pamiętaj, żeby dokładnie opisać publikowaną ofertę. Mamy nadzieję, że pomoże Ci w tym przygotowany szablon. 
 
                 Powodzenia!
-
+                <br/>
+                <br/>
+                Zespół
+                <br/>
+                ${site_name}
             ]]></field>
             <field name="model">organization</field>
         </record>

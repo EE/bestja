@@ -5,6 +5,11 @@
             <field name="subject">Nowy raport szczegółowy</field>
             <field name="body"><![CDATA[
                 Organizacja ${record.project.organization.name} przysłała nowy raport szczegółowy do projektu ${record.parent_project.name}.
+                <br/>
+                <br/>
+                Zespół
+                <br/>
+                ${site_name}
             ]]></field>
             <field name="model">bestja_detailed_reports.detailed_report</field>
         </record>

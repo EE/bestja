@@ -5,6 +5,11 @@
             <field name="subject">Nowa oferta oczekuje na akceptację</field>
             <field name="body"><![CDATA[
                 Organizacja ${record.organization.name} wprowadziła do systemu nową ofertę! 
+                <br/>
+                <br/>
+                Zespół
+                <br/>
+                ${site_name}
             ]]></field>
             <field name="model">offer</field>
         </record>

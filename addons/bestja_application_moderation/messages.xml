@@ -6,6 +6,11 @@
             <field name="body"><![CDATA[
                 Twoje zgłoszenie do "${record.offer.name}" przeszło pierwszy etap rekrutacji.
                 Wkrótce otrzymasz szczegóły dalszego postępowania.
+                <br/>
+                <br/>
+                Zespół
+                <br/>
+                ${site_name}
             ]]></field>
             <field name="model">offers.application</field>
         </record>
@@ -13,6 +18,11 @@
             <field name="subject">Zgłoszenie</field>
             <field name="body"><![CDATA[
                 Nowe zgłoszenie do "${record.offer.name}".
+                <br/>
+                <br/>
+                Zespół
+                <br/>
+                ${site_name}
             ]]></field>
             <field name="model">offers.application</field>
         </record>

@@ -5,6 +5,11 @@
             <field name="subject">Nowy raport potrzeb</field>
             <field name="body"><![CDATA[
                 Organizacja ${record.project.organization.name} przysłała nowy raport zapotrzebowań do projektu ${record.parent_project.name}.
+                <br/>
+                <br/>
+                Zespół
+                <br/>
+                ${site_name}
             ]]></field>
             <field name="model">bestja_requests.request</field>
         </record>
@@ -21,6 +26,11 @@
             <field name="subject">Przyślij raport potrzeb</field>
             <field name="body"><![CDATA[
                 Przyślij raport potrzeb do projektu ${record.name} poprzez menu "Moje raporty potrzeb".
+                <br/>
+                <br/>
+                Zespół
+                <br/>
+                ${site_name}
             ]]></field>
             <field name="model">bestja.project</field>
         </record>

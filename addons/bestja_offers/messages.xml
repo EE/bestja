@@ -7,6 +7,11 @@
                 Witaj na pokładzie!
                 Załoga projektu ${record.offer.project.name} wzbogaciła się o kolejnego wolontariusza, to właśnie Ty!
                 Wkrótce otrzymasz szczegóły zadania!
+                <br/>
+                <br/>
+                Zespół
+                <br/>
+                ${site_name}
             ]]></field>
             <field name="model">offers.application</field>
         </record>
@@ -19,6 +24,11 @@
                 Kandydat ${record.user.name}.
 
                 Przejdź do rekrutacji, aby zaakceptować lub odrzucić aplikację.
+                <br/>
+                <br/>
+                Zespół
+                <br/>
+                ${site_name}
             ]]></field>
             <field name="model">offers.application</field>
         </record>
@@ -35,6 +45,11 @@
 
 
                 Zachęcamy do obejrzenia innych ofert dla wolontariuszy. Na pewno znajdziesz coś dla siebie.
+                <br/>
+                <br/>
+                Zespół
+                <br/>
+                ${site_name}
             ]]></field>
             <field name="model">offers.application</field>
         </record>
@@ -50,6 +65,11 @@
                     <li><a target="_blank" href="${base_url}${record.get_meeting_confirmation_link('accepted')}">Potwierdź termin spotkania</a></li>
                     <li><a target="_blank" href="${base_url}${record.get_meeting_confirmation_link('rejected')}">Odrzuć termin spotkania</a></li>
                 </ul>
+                <br/>
+                <br/>
+                Zespół
+                <br/>
+                ${site_name}
             ]]></field>
             <field name="model">offers.application</field>
         </record>
@@ -61,6 +81,11 @@
                 Projekt: ${record.offer.project.name}
                 Oferta: ${record.offer.name}
                 Termin: ${record.current_meeting}
+                <br/>
+                <br/>
+                Zespół
+                <br/>
+                ${site_name}
             ]]></field>
             <field name="model">offers.application</field>
         </record>
@@ -74,6 +99,11 @@
                 Termin: ${record.current_meeting}
                 W celu umówienia innego terminu, skontaktuj się z
                 <a href="${link_to(record.user)}">wolontariuszem</a>
+                <br/>
+                <br/>
+                Zespół
+                <br/>
+                ${site_name}
             ]]></field>
             <field name="model">offers.application</field>
         </record>

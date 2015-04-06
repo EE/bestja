@@ -6,6 +6,11 @@
             <field name="body"><![CDATA[
                 Kto szuka, nie błądzi - dlatego wyszukaliśmy dla Ciebie ofertę zgodną z Twoimi zainteresowaniami! Mamy nadzieję, że porwie Cię do działania! 
                 <a href="${base_url}${record.get_public_url()}">Sprawdź szczegóły</a>
+                <br/>
+                <br/>
+                Zespół
+                <br/>
+                ${site_name}
             ]]></field>
             <field name="model">offer</field>
         </record>
