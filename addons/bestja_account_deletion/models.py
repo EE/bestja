@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from openerp import models, fields, api
+from openerp import models, fields, api, SUPERUSER_ID, exceptions
 import uuid
 
 
@@ -21,23 +21,27 @@ class Volunteer(models.Model):
 
     @api.one
     def delete_account(self):
-        self.write({'login': uuid.uuid1(),
-                    'name': 'Konto usunięte',
-                    'street_gov': '',
-                    'street_number_gov': '',
-                    'apt_number_gov': '',
-                    'zip_code_gov': '',
-                    'email': '',
-                    'phone': '',
-                    'street': '',
-                    'street_number': '',
-                    'apt_number': '',
-                    'zip_code': '',
-                    'curriculum_vitae': None,
-                    'cv_filename': '',
-                    'active_state': 'deleted',
-                    'active': False,
-                    'pesel': '',
-                    'document_id_kind': None,
-                    'document_id': '',
-                    })
+        if not (self.env.uid == SUPERUSER_ID or self.user_has_groups('bestja_base.instance_admin')):
+            raise exceptions.AccessError("Nie masz uprawnień do usuwania użytkowników!")
+
+        self.sudo().write({
+            'login': uuid.uuid1(),
+            'name': 'Konto usunięte',
+            'street_gov': '',
+            'street_number_gov': '',
+            'apt_number_gov': '',
+            'zip_code_gov': '',
+            'email': '',
+            'phone': '',
+            'street': '',
+            'street_number': '',
+            'apt_number': '',
+            'zip_code': '',
+            'curriculum_vitae': None,
+            'cv_filename': '',
+            'active_state': 'deleted',
+            'active': False,
+            'pesel': '',
+            'document_id_kind': None,
+            'document_id': '',
+        })
