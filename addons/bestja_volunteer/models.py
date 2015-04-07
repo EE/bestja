@@ -205,17 +205,14 @@ class Volunteer(models.Model):
 
     def _sync_permitted_fields(self):
         """
-        Sync SELF_READABLE_FIELDS and SELF_WRITEABLE_FIELDS
+        Sync SELF_WRITEABLE_FIELDS
         (part of rudimentary field permissions defined in base.res_users)
         with our field permission definitions.
+        Do not sync SELF_READABLE_FIELDS, as user has rights to read his
+        own profile.
         """
         self.SELF_WRITEABLE_FIELDS = list(
             set(self.SELF_WRITEABLE_FIELDS) |
-            self.permitted_fields['all'] | self.permitted_fields['owner']
-        )
-
-        self.SELF_READABLE_FIELDS = list(
-            set(self.SELF_READABLE_FIELDS) |
             self.permitted_fields['all'] | self.permitted_fields['owner']
         )
 
