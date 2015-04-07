@@ -21,5 +21,19 @@
             ]]></field>
             <field name="model">offer</field>
         </record>
+        
+        <record id="msg_unpublished" model="message_template">
+            <field name="subject">Rekrutacja na ofertę została wstrzymana</field>
+            <field name="body"><![CDATA[
+                Rekrutacja na Twoją ofertę ${record.name} została wstrzymana. Skontaktuj się z administratorem,
+                aby dowiedzieć się więcej szczegółów.
+                <br/>
+                <br/>
+                Zespół
+                <br/>
+                ${site_name}
+            ]]></field>
+            <field name="model">offer</field>
+        </record>
     </data>
 </openerp>

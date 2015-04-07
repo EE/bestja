@@ -44,6 +44,20 @@ class OfferWithModeration(models.Model):
             self.set_pending()
 
     @api.one
+    def set_unpublished(self):
+        """
+        Admin sends message to coordinator if he unpublishes the offer.
+        """
+        if self._is_moderator():
+            previous_state = self.state
+            if previous_state == 'published':
+                self.send(
+                    template='bestja_offers_moderation.msg_unpublished',
+                    recipients=self.sudo().project.responsible_user,
+                )
+        self.state = 'unpublished'
+
+    @api.one
     def set_pending_if_needed(self):
         """
         Sets offer state to pending,
