@@ -101,7 +101,6 @@ class DetailedReport(models.Model):
     _name = 'bestja.detailed_report'
     _inherit = [
         'protected_fields.mixin',
-        'ir.needaction_mixin',
         'message_template.mixin',
     ]
     _protected_fields = ['state']
@@ -306,12 +305,3 @@ class DetailedReport(models.Model):
         """
         permitted = super(DetailedReport, self)._is_permitted()
         return permitted or self.user_can_moderate
-
-    @api.model
-    def _needaction_domain_get(self):
-        """
-        Show sent count in menu.
-        """
-        return [
-            ('state', '=', 'sent'),
-        ]

@@ -113,7 +113,6 @@ class EstimationReport(models.Model):
     _name = 'bestja.estimation_report'
     _inherit = [
         'protected_fields.mixin',
-        'ir.needaction_mixin',
     ]
     _protected_fields = ['state']
     STATES = [
