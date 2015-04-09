@@ -1,23 +1,46 @@
 <openerp>
     <data>
-        <record id="polish" model="volunteer.language">
-            <field name="name">polski</field>
-        </record>
-
         <record id="english" model="volunteer.language">
             <field name="name">angielski</field>
         </record>
-
+        <record id="german" model="volunteer.language">
+            <field name="name">niemiecki</field>
+        </record>
+        <record id="french" model="volunteer.language">
+            <field name="name">francuski</field>
+        </record>
+        <record id="russian" model="volunteer.language">
+            <field name="name">rosyjski</field>
+        </record>
+        <record id="ukrainian" model="volunteer.language">
+            <field name="name">ukraiński</field>
+        </record>
+        <record id="spanish" model="volunteer.language">
+            <field name="name">hiszpański</field>
+        </record>
+        <record id="sign" model="volunteer.language">
+            <field name="name">migowy</field>
+        </record>
+        <record id="portugese" model="volunteer.language">
+            <field name="name">portugalski</field>
+        </record>
         <record id="czech" model="volunteer.language">
             <field name="name">czeski</field>
         </record>
-
+        <record id="belarussian" model="volunteer.language">
+            <field name="name">białoruski</field>
+        </record>
         <record id="slovak" model="volunteer.language">
             <field name="name">słowacki</field>
         </record>
-
-        <record id="french" model="volunteer.language">
-            <field name="name">francuski</field>
+        <record id="hungarian" model="volunteer.language">
+            <field name="name">węgierski</field>
+        </record>
+        <record id="italian" model="volunteer.language">
+            <field name="name">włoski</field>
+        </record>
+        <record id="polish" model="volunteer.language">
+            <field name="name">polski</field>
         </record>
     </data>
 </openerp>
