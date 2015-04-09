@@ -256,6 +256,16 @@ class Volunteer(models.Model):
         result = Volunteer.read(records, fields, load=load)
         return result if isinstance(ids, list) else (bool(result) and result[0])
 
+    @api.model
+    def create(self, vals):
+        """
+        New user needs a default timezone. Here set to Warsaw.
+        """
+        record = super(Volunteer, self).create(vals)
+        record_sudo = record.sudo()
+        record_sudo.tz = 'Europe/Warsaw'
+        return record
+
     @api.one
     @api.depends('groups_id')
     def _compute_user_access_level(self):
