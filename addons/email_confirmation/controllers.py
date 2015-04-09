@@ -2,7 +2,7 @@
 import logging
 from openerp.addons.auth_signup.res_users import SignupError
 from openerp.addons.auth_signup.controllers.main import AuthSignupHome
-from openerp import http
+from openerp import http, SUPERUSER_ID
 from openerp.http import request
 from openerp.tools.translate import _
 
@@ -55,6 +55,33 @@ class AuthSignupHome(AuthSignupHome):
                 qcontext['error'] = _(message)
 
         return request.render('auth_signup.signup', qcontext)
+
+    @http.route('/web/reset_password', type='http', auth='public', website=True)
+    def web_auth_reset_password(self, *args, **kw):
+        """Need to override, as all messages were originally in English."""
+        qcontext = self.get_auth_signup_qcontext()
+
+        if not qcontext.get('token') and not qcontext.get('reset_password_enabled'):
+            raise werkzeug.exceptions.NotFound()
+
+        if 'error' not in qcontext and request.httprequest.method == 'POST':
+            try:
+                if qcontext.get('token'):
+                    self.do_signup(qcontext)
+                    return super(AuthSignupHome, self).web_login(*args, **kw)
+                else:
+                    login = qcontext.get('login')
+                    assert login, "No login provided."
+                    res_users = request.registry.get('res.users')
+                    res_users.reset_password(request.cr, SUPERUSER_ID, login)
+                    qcontext['message'] = _("Wiadomość umożliwiająca zmianę hasła została wysłana.")
+            except SignupError:
+                qcontext['error'] = _("Zmiana hasła nieudana")
+                _logger.exception('error when resetting password')
+            except Exception, e:
+                qcontext['error'] = _(e.message)
+
+        return request.render('auth_signup.reset_password', qcontext)
 
     def do_signup(self, qcontext):
         """ overriden to include redirect """
