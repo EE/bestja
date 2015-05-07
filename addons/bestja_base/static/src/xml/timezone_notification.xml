@@ -1,0 +1,6 @@
+<template>
+    <!-- Remove timezone mismatch notification -->
+    <t t-extend="WebClient.timezone_systray">
+        <t t-jquery=".oe_timezone_systray" t-operation="replace"/>
+    </t>
+</template>
