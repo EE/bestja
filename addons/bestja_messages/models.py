@@ -16,7 +16,7 @@ class Notification(models.Model):
         user = self.env['res.users'].browse([user_id])
 
         if user_signature:
-            footer = tools.append_content_to_html(footer, "<p>{}</p>".format(user.name), plaintext=False)
+            footer = tools.append_content_to_html(footer, u"<p>{}</p>".format(user.name), plaintext=False)
 
         website = user.company_id.website
         website_url = ('http://%s' % website) if not website.lower().startswith(('http:', 'https:')) else website
