@@ -2,12 +2,12 @@
     <data>
         <template id="fields" inherit_id="auth_signup.fields">
             <xpath expr="//div[@class='form-group field-name']" position="after">
-                <div class="form-group field-birthdate" t-att-data-min-age="min_age">
+                <div class="form-group field-birthdate" t-att-data-min-age="min_age" t-if="not only_passwords">
                     <label for="birthdate_day" class="control-label">Data urodzenia</label>
                     <div class="form-inline">
-                        <input type="text" name="birthdate_day" t-att-value="birthdate_day" id="birthdate_day" class="form-control" placeholder="DD" maxlength="2" required="required" t-att-readonly="'readonly' if only_passwords else None"/>
-                        <input type="text" name="birthdate_month" t-att-value="birthdate_month" id="birthdate_month" class="form-control" placeholder="MM" maxlength="2" required="required" t-att-readonly="'readonly' if only_passwords else None"/>
-                        <input type="text" name="birthdate_year" t-att-value="birthdate_year" id="birthdate_year" class="form-control" placeholder="RRRR" maxlength="4" required="required" t-att-readonly="'readonly' if only_passwords else None"/>
+                        <input type="text" name="birthdate_day" t-att-value="birthdate_day" id="birthdate_day" class="form-control" placeholder="DD" maxlength="2" required="required"/>
+                        <input type="text" name="birthdate_month" t-att-value="birthdate_month" id="birthdate_month" class="form-control" placeholder="MM" maxlength="2" required="required"/>
+                        <input type="text" name="birthdate_year" t-att-value="birthdate_year" id="birthdate_year" class="form-control" placeholder="RRRR" maxlength="4" required="required"/>
                         <span class="help-block" id="error-birthdate">Dozwolone od <t t-esc="min_age"/> lat! Bez paniki - czekamy na Ciebie!</span>
                     </div>
                     <p class="field_desc mt8">Możesz nam pomagać, jeśli masz ukończone <t t-esc="min_age"/> lat.</p>
