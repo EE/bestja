@@ -50,8 +50,8 @@ class Offer(models.Model):
         return self.env['offers.helpee_group'].search([])
 
     state = fields.Selection(STATES, default='unpublished', string=u"Stan")
-    name = fields.Char(string=u"Nazwa")
-    vacancies = fields.Integer(string=u"Liczba wakatów", requred=True, default=1)
+    name = fields.Char(required=True, string=u"Nazwa")
+    vacancies = fields.Integer(string=u"Liczba wakatów", required=True, default=1)
     project = fields.Many2one(
         'bestja.project',
         string=u"Projekt",
