@@ -2,3 +2,8 @@
 .editable_reports_tree .oe_form_field_one2many_list_row_add { 
     display: none;   
 }
+
+/* Hide the delete icon */
+.editable_reports_tree .oe_list_record_delete { 
+    display: none;   
+}
