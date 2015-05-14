@@ -20,11 +20,7 @@
         </record>
 
         <!-- Email template for reset password -->
-        <record id="reset_password_email" model="email.template">
-            <field name="name">Reset Password</field>
-            <field name="model_id" ref="base.model_res_users"/>
-            <field name="email_from"><![CDATA[${object.company_id.name} <${(object.company_id.email or user.email)|safe}>]]></field>
-            <field name="email_to">${object.email|safe}</field>
+        <record id="auth_signup.reset_password_email" model="email.template">
             <field name="subject">Nie pamiętasz hasła? Damy Ci nowe! Kliknij w link i podaj nowe hasło.</field>
             <field name="body_html"><![CDATA[
                 <p>Witaj,</p>
