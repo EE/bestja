@@ -16,6 +16,7 @@ class OffersByCategory(http.Controller):
 
         offers = http.request.env['offer'].sudo().search([
             ('state', '=', 'published'),
+            ('unlisted', '=', False),
             ('category.slug', '=?', category_slug),
         ])
 

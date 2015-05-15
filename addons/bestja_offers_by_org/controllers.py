@@ -23,11 +23,13 @@ class OffersByOrg(http.Controller):
         if city_slug == 'root':
             offers = http.request.env['offer'].sudo().search([
                 ('state', '=', 'published'),
+                ('unlisted', '=', False),
                 ('project.organization', '=', organization.id),
             ])
         else:
             offers = http.request.env['offer'].sudo().search([
                 ('state', '=', 'published'),
+                ('unlisted', '=', False),
                 '|',  # noqa
                     ('project.organization', '=', organization.id),
                     ('project.organization.parent', '=', organization.id),

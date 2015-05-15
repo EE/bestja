@@ -51,6 +51,7 @@ class Offer(models.Model):
 
     state = fields.Selection(STATES, default='unpublished', string=u"Stan")
     name = fields.Char(required=True, string=u"Nazwa")
+    unlisted = fields.Boolean(default=False, string="Oferta ukryta")
     vacancies = fields.Integer(string=u"Liczba wakatów", required=True, default=1)
     project = fields.Many2one(
         'bestja.project',

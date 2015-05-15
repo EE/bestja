@@ -69,6 +69,7 @@
                             <field name="name"/>
                         </h1>
                         <field name="state" readonly="1" class="state"/>
+                        <field name="unlisted"/><label for="unlisted" class="oe_inline"/><span class="oe_grey">(dostęp tylko dla osób posiadających link)</span>
                     </div>
                     <group>
                         <field name="vacancies"/>
