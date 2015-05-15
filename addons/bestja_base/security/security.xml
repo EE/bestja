@@ -24,5 +24,10 @@
 
         <!-- Allow user-triggered password reset by default. -->
         <function model="ir.config_parameter" name="set_param" eval="('auth_signup.reset_password', True)" />
+
+        <!-- Allow instance admin to access user password change wizard -->
+        <record model="ir.actions.act_window" id="base.change_password_wizard_action">
+            <field name="groups_id" eval="[(4, ref('bestja_base.instance_admin'))]"/>
+        </record>
     </data>
 </openerp>
