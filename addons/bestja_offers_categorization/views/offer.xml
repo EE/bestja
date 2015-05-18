@@ -7,7 +7,7 @@
             <field name="inherit_id" ref="bestja_offers.bestja_offer_form"/>
             <field name="arch" type="xml">
                 <field name="date_end" position="before">
-                    <field name="category" options="{'no_create': True, 'no_open': True}"/>
+                    <field name="categories" options="{'no_create': True, 'no_open': True}" widget="many2many_tags"/>
                 </field>
             </field>
         </record>

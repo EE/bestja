@@ -19,7 +19,7 @@
         <record id="msg_new_application" model="message_template">
             <field name="subject">Nowe Zgłoszenie!</field>
             <field name="body"><![CDATA[
-                Wpłynęło nowe zgłoszenie w projekcie ${record.offer.project}.
+                Wpłynęło nowe zgłoszenie w projekcie ${record.offer.project.name}.
                 Tytuł oferty ${record.offer.name}.
                 Kandydat ${record.user.name}.
 
@@ -93,7 +93,7 @@
         <record id="msg_application_meeting_rejected" model="message_template">
             <field name="subject">Spotkanie odrzucone</field>
             <field name="body"><![CDATA[
-                Propozycja terminu spotkania z ${record.user} została odrzucona.
+                Propozycja terminu spotkania z ${record.user.name} została odrzucona.
                 Projekt: ${record.offer.project.name}
                 Oferta: ${record.offer.name}
                 Termin: ${record.current_meeting}
