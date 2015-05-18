@@ -18,11 +18,6 @@
             <field name="subject">Zgłoszenie</field>
             <field name="body"><![CDATA[
                 Nowe zgłoszenie do "${record.offer.name}".
-                <br/>
-                <br/>
-                Zespół
-                <br/>
-                ${site_name}
             ]]></field>
             <field name="model">offers.application</field>
         </record>

@@ -22,11 +22,6 @@
 
                 Przejdź do jej profilu i podejmij decyzję o jej przyjęciu lub odrzuceniu zgłoszenia.
                 <li><a href="${link_to(record)}">Profil organizacji</a></li>
-                <br/>
-                <br/>
-                Zespół
-                <br/>
-                ${site_name}
             ]]></field>
             <field name="model">organization</field>
         </record>
