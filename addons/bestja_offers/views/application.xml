@@ -212,10 +212,6 @@
                         <field name="skills" readonly="1" widget="many2many_tags"/>
                         <separator string="Zainteresowania"/>
                         <field name="wishes" readonly="1" widget="many2many_tags"/>
-                        <separator string="Uprawnienia"/>
-                        <div attrs="{'invisible': [('drivers_license', '=', [(6, False, [])])]}">Prawo jazdy <field readonly="1" name="drivers_license" widget="many2many_tags" class="oe_inline"/></div>
-                        <div attrs="{'invisible': [('sanepid', '=', False)]}">Badania Sanepid do <field name="sanepid" readonly="1" class="oe_inline"/></div>
-                        <div attrs="{'invisible': [('forklift', '=', False)]}">Uprawnienia na wózek widłowy do <field name="forklift" readonly="1" class="oe_inline"/></div>
                     </div>
                 </form>
             </field>

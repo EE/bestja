@@ -1,0 +1,23 @@
+<openerp>
+    <data>
+        <record id="wish_monitoring" model="volunteer.wish">
+            <field name="name">monitoring odbiorców żywności</field>
+        </record>
+
+        <record id="wish_pozyskiwanie" model="volunteer.wish">
+            <field name="name">pozyskiwanie żywności</field>
+        </record>
+
+        <record id="wish_udzial" model="volunteer.wish">
+            <field name="name">udział w zbiórkach żywności</field>
+        </record>
+
+        <record id="wish_szkolenia" model="volunteer.wish">
+            <field name="name">szkolenia i doradztwo</field>
+        </record>
+
+        <record id="wish_magazyn" model="volunteer.wish">
+            <field name="name">praca w magazynie</field>
+        </record>
+    </data>
+</openerp>

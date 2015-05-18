@@ -1,0 +1,23 @@
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="bestja_volunteer_form">
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="bestja_volunteer.bestja_volunteer_form"/>
+            <field name="arch" type="xml">
+                <page name="page_qualifications" position="inside">
+                    <group colspan="4" col="2" string="Uprawnienia">
+                        <field name="drivers_license" widget="many2many_tags" options="{'no_create': True, 'no_open': True}"/>
+                        <label for="sanepid" string="Badania Sanepid" />
+                        <div>
+                            <field name="sanepid" class="oe_inline" placeholder="DD.MM.YYYY"/> <span class="oe_grey oe_edit_only">wpisz datę ważności lub pozostaw puste</span>
+                        </div>
+                        <label for="forklift" string="Uprawnienia na wózek widłowy" />
+                        <div>
+                            <field name="forklift" class="oe_inline" placeholder="DD.MM.YYYY"/> <span class="oe_grey oe_edit_only">wpisz datę ważności lub pozostaw puste</span>
+                        </div>
+                    </group>
+                </page>
+            </field>
+        </record>
+    </data>
+</openerp>

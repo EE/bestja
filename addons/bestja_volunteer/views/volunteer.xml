@@ -16,24 +16,13 @@
                             <field name="user_access_level" invisible="1"/>
                         </div>
                         <notebook colspan="4">
-                            <page string="Kwalifikacje" attrs="{'invisible': [('user_access_level', 'not in', ['owner', 'admin', 'privileged'])]}">
+                            <page string="Kwalifikacje" name="page_qualifications" attrs="{'invisible': [('user_access_level', 'not in', ['owner', 'admin', 'privileged'])]}">
                                 <separator  string="Kwalifikacje" class="oe_inline"/>
                                 <span class="oe_grey oe_edit_only">(wybierz wiele)</span>
                                 <group colspan="4" col="2">
                                     <field name="occupation" options="{'no_create': True, 'no_open': True}"/>
                                     <field name="skills" widget="many2many_tags" options="{'no_create': True, 'no_open': True}"/>
                                     <field name="languages" widget="many2many_tags" options="{'no_create': True, 'no_open': True}"/>
-                                </group>
-                                <group colspan="4" col="2" string="Uprawnienia">
-                                    <field name="drivers_license" widget="many2many_tags" options="{'no_create': True, 'no_open': True}"/>
-                                    <label for="sanepid" string="Badania Sanepid" />
-                                    <div>
-                                        <field name="sanepid" class="oe_inline" placeholder="DD.MM.YYYY"/> <span class="oe_grey oe_edit_only">wpisz datę ważności lub pozostaw puste</span>
-                                    </div>
-                                    <label for="forklift" string="Uprawnienia na wózek widłowy" />
-                                    <div>
-                                        <field name="forklift" class="oe_inline" placeholder="DD.MM.YYYY"/> <span class="oe_grey oe_edit_only">wpisz datę ważności lub pozostaw puste</span>
-                                    </div>
                                 </group>
 
                                 <separator string="CV"/>
@@ -51,7 +40,7 @@
                                 <separator string="Zainteresowania"/>
                                 <field name="wishes" widget="many2many_checkboxes"/>
                             </page>
-                            <page string="Dane Kontaktowe" attrs="{'invisible': [('user_access_level', 'not in', ['owner', 'admin', 'privileged'])]}">
+                            <page string="Dane Kontaktowe" attrs="{'invisible': [('user_access_level', 'not in', ['owner', 'admin', 'privileged'])]}" name="contact_data">
                                 <group colspan="4" col="2" class="medium_input" string="Kontakt">
                                     <field name="user_email"/>
                                     <field name="phone" class="short_input"/>
@@ -84,7 +73,7 @@
                                     <field name="country_gov" options="{'no_create': True, 'no_open': True}"/>
                                 </group>
                             </page>
-                            <page string="Dane osobowe" attrs="{'invisible': [('user_access_level', 'not in', ['owner', 'admin', 'privileged'])]}">
+                            <page string="Dane osobowe" attrs="{'invisible': [('user_access_level', 'not in', ['owner', 'admin', 'privileged'])]}" name="personal_data">
                                 <separator string="Dane osobowe"/>
                                 <div class="oe_edit_only oe_grey">Bedą potrzebne do podpisania umowy i zawarcia ubezpieczenia zdrowotnego</div>
                                 <group class="medium_input">
@@ -94,7 +83,6 @@
                                     <field name="citizenship" options="{'no_create': True, 'no_open': True}"/>
                                     <field name="document_id_kind" attrs="{'invisible': [('user_access_level', 'not in', ['owner', 'admin'])]}"/>
                                     <field name="document_id" class="short_input" attrs="{'invisible': [('user_access_level', 'not in', ['owner', 'admin'])]}"/>
-                                    <field name="pesel" placeholder="11 cyfr" attrs="{'invisible': [('user_access_level', 'not in', ['owner', 'admin'])]}"/>
                                 </group>
                             </page>
                             <page string="Moja dostępność" attrs="{'invisible': [('user_access_level', 'not in', ['owner', 'admin', 'privileged'])]}">

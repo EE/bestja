@@ -23,9 +23,5 @@
         <record id="bezrobotny" model="volunteer.occupation">
             <field name="name">bezrobotny</field>
         </record>
-
-        <record id="pracownik_uw" model="volunteer.occupation">
-            <field name="name">pracownik UW</field>
-        </record>
     </data>
 </openerp>

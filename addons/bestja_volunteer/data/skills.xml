@@ -1,51 +1,43 @@
 <openerp>
     <data>
-        <record id="dziennikarstwo" model="volunteer.skill">
-            <field name="name">dziennikarstwo</field>
+        <record id="skill_myslenie" model="volunteer.skill">
+            <field name="name">analityczne myślenie</field>
         </record>
 
-        <record id="dietetyka" model="volunteer.skill">
-            <field name="name">dietetyka</field>
+        <record id="skill_angielski" model="volunteer.skill">
+            <field name="name">język angielski</field>
         </record>
 
-        <record id="komunikatywnosc" model="volunteer.skill">
-            <field name="name">komunikatywność</field>
-        </record>
-
-        <record id="kierowca" model="volunteer.skill">
-            <field name="name">kierowca</field>
-        </record>
-
-        <record id="zbieranie_funduszy" model="volunteer.skill">
-            <field name="name">zbieranie funduszy</field>
-        </record>
-
-        <record id="historia" model="volunteer.skill">
-            <field name="name">historia</field>
-        </record>
-
-        <record id="matematyka" model="volunteer.skill">
-            <field name="name">matematyka</field>
-        </record>
-
-        <record id="zarzadzanie" model="volunteer.skill">
-            <field name="name">zarządzanie</field>
-        </record>
-
-        <record id="informatyka" model="volunteer.skill">
+        <record id="skill_informatyka" model="volunteer.skill">
             <field name="name">informatyka</field>
         </record>
 
-        <record id="prawo" model="volunteer.skill">
-            <field name="name">prawo</field>
+        <record id="skill_komunikatywnosc" model="volunteer.skill">
+            <field name="name">komunikatywność</field>
         </record>
 
-        <record id="projektowanie" model="volunteer.skill">
-            <field name="name">projektowanie</field>
+        <record id="skill_zarzadzanie" model="volunteer.skill">
+            <field name="name">zarządzanie</field>
         </record>
 
-        <record id="ksiegowosc" model="volunteer.skill">
-            <field name="name">księgowość</field>
+        <record id="skill_fundusze" model="volunteer.skill">
+            <field name="name">zbieranie funduszy</field>
+        </record>
+
+        <record id="skill_organizacja" model="volunteer.skill">
+            <field name="name">dobra organizacja czasu pracy</field>
+        </record>
+
+        <record id="skill_kierowca" model="volunteer.skill">
+            <field name="name">kierowca</field>
+        </record>
+
+        <record id="skill_redakcja" model="volunteer.skill">
+            <field name="name">redakcja tekstów</field>
+        </record>
+
+        <record id="skill_zespol" model="volunteer.skill">
+            <field name="name">praca w zespole</field>
         </record>
     </data>
 </openerp>

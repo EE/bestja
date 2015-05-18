@@ -1,0 +1,23 @@
+<openerp>
+    <data>
+        <record id="uw_status_student" model="volunteer.uw_status">
+            <field name="name">student</field>
+        </record>
+
+        <record id="uw_status_absolwent" model="volunteer.uw_status">
+            <field name="name">absolwent</field>
+        </record>
+
+        <record id="uw_status_doktorant" model="volunteer.uw_status">
+            <field name="name">doktorant</field>
+        </record>
+
+        <record id="uw_status_pracownik" model="volunteer.uw_status">
+            <field name="name">pracownik</field>
+        </record>
+
+        <record id="uw_status_emeryt" model="volunteer.uw_status">
+            <field name="name">emerytowany pracownik</field>
+        </record>
+    </data>
+</openerp>

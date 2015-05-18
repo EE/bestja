@@ -1,0 +1,30 @@
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="bestja_volunteer_form">
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="bestja_volunteer.bestja_volunteer_form"/>
+            <field name="arch" type="xml">
+                <!-- remove skills -->
+                <field name="skills" position="replace"/>
+
+                <!-- replace occupation with the UW status -->
+                <field name="occupation" position="attributes">
+                    <attribute name="name">uw_status</attribute>
+                </field>
+
+                <!-- allow the creation of new languages -->
+                <field name="languages" position="attributes">
+                    <attribute name="options"/>
+                </field>
+
+                <!-- limit access to certains tabs -->
+                <page name="contact_data" position="attributes">
+                    <attribute name="attrs">{'invisible': [('user_access_level', 'not in', ['owner', 'admin'])]}</attribute>
+                </page>
+                <page name="personal_data" position="attributes">
+                    <attribute name="attrs">{'invisible': [('user_access_level', 'not in', ['owner', 'admin'])]}</attribute>
+                </page>
+            </field>
+        </record>
+    </data>
+</openerp>

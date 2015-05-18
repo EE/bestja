@@ -8,8 +8,8 @@
             <field name="vacancies">5</field>
             <field name="kind">flexible</field>
             <field name="project" ref="bestja_project.project_cheese"/>
-            <field name="skills" eval="[(6, 0, [ref('bestja_volunteer.dziennikarstwo'), ref('bestja_volunteer.komunikatywnosc'), ref('bestja_volunteer.zbieranie_funduszy')])]"/>
-            <field name="wishes" eval="[(6, 0, [ref('bestja_volunteer.organizacja_imprez'), ref('bestja_volunteer.media_i_marketing')])]"/>
+            <field name="skills" eval="[(6, 0, [ref('bestja_volunteer.skill_redakcja'), ref('bestja_volunteer.skill_komunikatywnosc'), ref('bestja_volunteer.skill_fundusze')])]"/>
+            <field name="wishes" eval="[(6, 0, [ref('bestja_volunteer.wish_organizacja'), ref('bestja_volunteer.wish_marketing')])]"/>
             <field name="description">Organizacja corocznego wydarzenia lokalnego - Dni Sera</field>
             <field name="expectations">- przygotowanie planu promocji
 - kontakt z podwykonawcami
@@ -36,8 +36,8 @@
             <field name="weekday" eval="[(6, 0, [ref('monday'), ref('tuesday'), ref('wednesday'), ref('thursday'), ref('friday')])]"/>
             <field name="daypart" eval="[(6, 0, [ref('bestja_volunteer.morning'), ref('bestja_volunteer.afternoon'), ref('bestja_volunteer.evening')])]"/>
             <field name="project" ref="bestja_project.project_horse"/>
-            <field name="skills" eval="[(6, 0, [ref('bestja_volunteer.zbieranie_funduszy')])]"/>
-            <field name="wishes" eval="[(6, 0, [ref('bestja_volunteer.organizacja_imprez'), ref('bestja_volunteer.praca_biurowa')])]"/>
+            <field name="skills" eval="[(6, 0, [ref('bestja_volunteer.skill_fundusze')])]"/>
+            <field name="wishes" eval="[(6, 0, [ref('bestja_volunteer.wish_organizacja'), ref('bestja_volunteer.wish_biuro')])]"/>
             <field name="description">Zebranie środków na organizację corocznego pikniku wielokulturowego</field>
             <field name="expectations">- tworzył plan akcji fundraisingowej
 - koordynował zbiórkę </field>

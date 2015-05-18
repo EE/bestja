@@ -1,0 +1,67 @@
+<openerp>
+    <data>
+        <record id="wish_dzieci" model="volunteer.wish">
+            <field name="name">praca z dziećmi</field>
+        </record>
+
+        <record id="wish_secniorzy" model="volunteer.wish">
+            <field name="name">praca z osobami dorosłymi i Seniorami</field>
+        </record>
+
+        <record id="wish_prawa_czlowieka" model="volunteer.wish">
+            <field name="name">prawa człowieka</field>
+        </record>
+
+        <record id="wish_informatyka" model="volunteer.wish">
+            <field name="name">informatyka</field>
+        </record>
+
+        <record id="wish_www" model="volunteer.wish">
+            <field name="name">tworzenie stron www</field>
+        </record>
+
+        <record id="wish_fundrising" model="volunteer.wish">
+            <field name="name">fundrising</field>
+        </record>
+
+        <record id="wish_nauka" model="volunteer.wish">
+            <field name="name">pomoc w nauce</field>
+        </record>
+
+        <record id="wish_redakcja" model="volunteer.wish">
+            <field name="name">pisanie i redagowanie tekstów</field>
+        </record>
+
+        <record id="wish_zwierzeta" model="volunteer.wish">
+            <field name="name">praca ze zwierzętami</field>
+        </record>
+
+        <record id="wish_srodowisko" model="volunteer.wish">
+            <field name="name">ochrona środowiska</field>
+        </record>
+
+        <record id="wish_projekty" model="volunteer.wish">
+            <field name="name">tworzenie i koordynowanie projektów</field>
+        </record>
+
+        <record id="wish_projekty_miedzynarodowe" model="volunteer.wish">
+            <field name="name">projekty międzynarodowe</field>
+        </record>
+
+        <record id="wish_kultura" model="volunteer.wish">
+            <field name="name">dzałanie w kulturze i sztuce</field>
+        </record>
+
+        <record id="wish_warsztaty" model="volunteer.wish">
+            <field name="name">prowadzenie warsztatów</field>
+        </record>
+
+        <record id="wish_nauka" model="volunteer.wish">
+            <field name="name">udział w projektach naukowych i badawczych</field>
+        </record>
+
+        <record id="wish_miasto" model="volunteer.wish">
+            <field name="name">działania w przestrzeni miejskiej</field>
+        </record>
+    </data>
+</openerp>

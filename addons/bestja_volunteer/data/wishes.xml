@@ -1,67 +1,23 @@
 <openerp>
     <data>
-        <record id="grafika" model="volunteer.wish">
-            <field name="name">grafika</field>
+        <record id="wish_grafika" model="volunteer.wish">
+            <field name="name">grafika komputerowa</field>
         </record>
 
-        <record id="organizacja_imprez" model="volunteer.wish">
-            <field name="name">organizacja imprez</field>
+        <record id="wish_marketing" model="volunteer.wish">
+            <field name="name">marketing, działania promocyjne, media</field>
         </record>
 
-        <record id="korepetycje" model="volunteer.wish">
-            <field name="name">korepetycje</field>
+        <record id="wish_organizacja" model="volunteer.wish">
+            <field name="name">pomoc w organizowaniu imprez, konferencji, wydarzeń</field>
         </record>
 
-        <record id="media_i_marketing" model="volunteer.wish">
-            <field name="name">media i marketing</field>
-        </record>
-
-        <record id="opieka" model="volunteer.wish">
-            <field name="name">opieka</field>
-        </record>
-
-        <record id="praca_biurowa" model="volunteer.wish">
+        <record id="wish_biuro" model="volunteer.wish">
             <field name="name">praca biurowa</field>
         </record>
 
-        <record id="programowanie" model="volunteer.wish">
-            <field name="name">programowanie</field>
-        </record>
-
-        <record id="redakcja" model="volunteer.wish">
-            <field name="name">redakcja</field>
-        </record>
-
-        <record id="szkolenia_i_doradztwo" model="volunteer.wish">
-            <field name="name">szkolenia i doradztwo</field>
-        </record>
-
-        <record id="tlumaczenia" model="volunteer.wish">
+        <record id="wish_tlumaczenia" model="volunteer.wish">
             <field name="name">tłumaczenia</field>
-        </record>
-
-        <record id="zbiorki_zywnosci" model="volunteer.wish">
-            <field name="name">udział w zbiórkach żywności</field>
-        </record>
-
-        <record id="pozyskiwanie_zywnosci" model="volunteer.wish">
-            <field name="name">pozyskiwanie żywności</field>
-        </record>
-
-        <record id="praca_w_zespole" model="volunteer.wish">
-            <field name="name">praca w zespole</field>
-        </record>
-
-        <record id="pozyskiwanie_funduszy" model="volunteer.wish">
-            <field name="name">pozyskiwanie funduszy</field>
-        </record>
-
-        <record id="praca_w_magazynie" model="volunteer.wish">
-            <field name="name">praca w magazynie</field>
-        </record>
-
-        <record id="monitoring_odbiorcow" model="volunteer.wish">
-            <field name="name">monitoring odbiorców żywności</field>
-        </record>
+        </record>        
     </data>
 </openerp>

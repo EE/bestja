@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 import re
 from itertools import izip
-from operator import mul
 
 from lxml import etree
 
@@ -27,11 +26,6 @@ class VolunteerOccupation(models.Model):
 
 class VolunteerLanguage(models.Model):
     _name = 'volunteer.language'
-    name = fields.Char(required=True, string=u"nazwa")
-
-
-class DriversLicense(models.Model):
-    _name = 'volunteer.drivers_license'
     name = fields.Char(required=True, string=u"nazwa")
 
 
@@ -78,13 +72,6 @@ class Volunteer(models.Model):
         string=u"status zawodowy",
         ondelete='restrict',
     )
-    drivers_license = fields.Many2many(
-        'volunteer.drivers_license',
-        string=u"prawo jazdy",
-        ondelete='restrict',
-    )
-    sanepid = fields.Date(string=u"badania sanepidu")
-    forklift = fields.Date(string=u"uprawnienia na wózek widłowy")
     # 'email' field from partner is hidden by group permissions,
     # this field is a proxy, without the group restrictions.
     user_email = fields.Char(
@@ -111,7 +98,6 @@ class Volunteer(models.Model):
         string=u"rodzaj dokumentu",
     )
     document_id = fields.Char(string=u"numer dokumentu")
-    pesel = fields.Char(string=u"PESEL")
 
     # mailing address
     street_gov = fields.Char(string=u"ulica")
@@ -159,8 +145,8 @@ class Volunteer(models.Model):
             'groups_id', 'partner_id',
         },
         'privileged': {  # Fields accessible to privileged users (coordinators, managers)
-            'wishes', 'skills', 'languages', 'occupation', 'drivers_license', 'sanepid',
-            'forklift', 'user_email', 'phone', 'birthdate', 'curriculum_vitae', 'cv_filename',
+            'wishes', 'skills', 'languages', 'occupation',
+            'user_email', 'phone', 'birthdate', 'curriculum_vitae', 'cv_filename',
             'daypart', 'daypart_comments', 'sex', 'place_of_birth', 'citizenship',
             'street_gov', 'street_number_gov', 'apt_number_gov', 'zip_code_gov',
             'city_gov', 'voivodeship_gov', 'country_gov', 'different_addresses',
@@ -168,13 +154,13 @@ class Volunteer(models.Model):
             'country', 'active_state',
         },
         'owner': {  # Fields accessible to the owner (i.e. the user herself)
-            'wishes', 'skills', 'languages', 'occupation', 'drivers_license', 'sanepid',
-            'forklift', 'user_email', 'phone', 'birthdate', 'curriculum_vitae', 'cv_filename',
+            'wishes', 'skills', 'languages', 'occupation',
+            'user_email', 'phone', 'birthdate', 'curriculum_vitae', 'cv_filename',
             'daypart', 'daypart_comments', 'sex', 'place_of_birth', 'citizenship',
             'street_gov', 'street_number_gov', 'apt_number_gov', 'zip_code_gov',
             'city_gov', 'voivodeship_gov', 'country_gov', 'different_addresses',
             'street', 'street_number', 'apt_number', 'zip_code', 'city', 'voivodeship',
-            'country', 'pesel', 'document_id_kind', 'document_id', 'notify_email', 'active_state',
+            'country', 'document_id_kind', 'document_id', 'notify_email', 'active_state',
         }
     }
     # Add fields whitelisted for the owner in base.res_users
@@ -345,22 +331,6 @@ class Volunteer(models.Model):
             field.attrib['modifiers'] = '{"readonly": false}'
         view['arch'] = etree.tostring(doc)
         return view
-
-    @api.one
-    @api.constrains('pesel')
-    def _check_pesel(self):
-        if not self.pesel:
-            return
-
-        try:
-            digits = map(int, self.pesel)
-        except ValueError:
-            raise exceptions.ValidationError("Numer PESEL może składać się wyłącznie z cyfr!")
-
-        weights = (1, 3, 7, 9, 1, 3, 7, 9, 1, 3)
-        control_sum = -(sum(map(mul, digits[:-1], weights))) % 10
-        if len(digits) != 11 or control_sum != digits[-1]:
-            raise exceptions.ValidationError("Niepoprawny numer PESEL.")
 
     @api.one
     @api.constrains('document_id_kind', 'document_id')

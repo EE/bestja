@@ -3,7 +3,6 @@ access_volunteer_wish,volunteer_wish,model_volunteer_wish,base.group_user,1,0,0,
 access_volunteer_skill,volunteer_skill,model_volunteer_skill,base.group_user,1,0,0,0
 access_volunteer_occupation,volunteer_occupation,model_volunteer_occupation,base.group_user,1,0,0,0
 access_volunteer_language,volunteer_language,model_volunteer_language,base.group_user,1,0,0,0
-access_volunteer_drivers_license,volunteer_drivers_license,model_volunteer_drivers_license,base.group_user,1,0,0,0
 access_daypart,daypart,model_volunteer_daypart,base.group_user,1,0,0,0
 access_volunteer_voivodeship,volunteer_voivodeship,model_volunteer_voivodeship,base.group_user,1,0,0,0
 user_admin_access,user_admin_access,model_res_users,bestja_base.instance_admin,1,1,0,0

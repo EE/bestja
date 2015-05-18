@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_volunteer_language,volunteer_language,bestja_volunteer.model_volunteer_language,base.group_user,1,0,1,0
+access_volunteer_uw_status,access_volunteer_uw_status,model_volunteer_uw_status,,1,0,0,0

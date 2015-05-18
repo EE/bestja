@@ -28,7 +28,6 @@ specify their experiences, interests etc.
         'data/skills.xml',
         'data/languages.xml',
         'data/daypart.xml',
-        'data/drivers_license.xml',
         'data/wishes.xml',
         'data/voivodeship.xml',
         'menu.xml',

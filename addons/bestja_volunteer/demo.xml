@@ -24,9 +24,8 @@
             <field name="name">Anna Koordynatorka</field>
             <field name="login">koordynator2</field>
             <field name="occupation" ref="absolwent"/>
-            <field name="skills" eval="[(6, 0, [ref('dziennikarstwo'), ref('zbieranie_funduszy')])]"/>
+            <field name="skills" eval="[(6, 0, [ref('skill_zarzadzanie'), ref('skill_fundusze')])]"/>
             <field name="languages" eval="[(6, 0, [ref('polish'), ref('czech'), ref('slovak')])]"/>
-            <field name="drivers_license" eval="[(6, 0, [ref('kategoria_b')])]"/>
         </record>
         <function model="res.users" name="_set_password" eval="[ref('user_koordynator2'), 'koordynator2']"/>
 
@@ -34,9 +33,8 @@
             <field name="name">Jan Nowak</field>
             <field name="login">wolontariusz1</field>
             <field name="occupation" ref="student"/>
-            <field name="skills" eval="[(6, 0, [ref('kierowca')])]"/>
+            <field name="skills" eval="[(6, 0, [ref('skill_kierowca')])]"/>
             <field name="languages" eval="[(6, 0, [ref('english')])]"/>
-            <field name="drivers_license" eval="[(6, 0, [ref('kategoria_b'), ref('kategoria_c')])]"/>
             <field name="birthdate">1990-06-10</field>
         </record>
         <function model="res.users" name="_set_password" eval="[ref('user_wolontariusz1'), 'wolontariusz1']"/>
@@ -45,9 +43,9 @@
             <field name="name">Joanna Kolorowa</field>
             <field name="login">wolontariusz2</field>
             <field name="occupation" ref="wlasna_firma"/>
-            <field name="skills" eval="[(6, 0, [ref('dziennikarstwo')])]"/>
+            <field name="skills" eval="[(6, 0, [ref('skill_redakcja')])]"/>
             <field name="languages" eval="[(6, 0, [ref('english')])]"/>
-            <field name="wishes" eval="[(6, 0, [ref('grafika'), ref('programowanie'), ref('praca_w_zespole')])]"/>
+            <field name="wishes" eval="[(6, 0, [ref('wish_grafika'), ref('wish_organizacja')])]"/>
             <field name="birthdate">1985-11-19</field>
         </record>
         <function model="res.users" name="_set_password" eval="[ref('user_wolontariusz2'), 'wolontariusz2']"/>
@@ -56,10 +54,9 @@
             <field name="name">Piotr Bystry</field>
             <field name="login">wolontariusz3</field>
             <field name="occupation" ref="emeryt"/>
-            <field name="skills" eval="[(6, 0, [ref('matematyka'), ref('ksiegowosc')])]"/>
+            <field name="skills" eval="[(6, 0, [ref('skill_myslenie'), ref('skill_zespol')])]"/>
             <field name="languages" eval="[(6, 0, [ref('french')])]"/>
-            <field name="drivers_license" eval="[(6, 0, [ref('kategoria_b')])]"/>
-            <field name="wishes" eval="[(6, 0, [ref('organizacja_imprez'), ref('praca_biurowa'), ref('szkolenia_i_doradztwo')])]"/>
+            <field name="wishes" eval="[(6, 0, [ref('wish_biuro'), ref('wish_tlumaczenia'), ref('wish_marketing')])]"/>
             <field name="birthdate">1948-10-01</field>
         </record>
         <function model="res.users" name="_set_password" eval="[ref('user_wolontariusz3'), 'wolontariusz3']"/>
