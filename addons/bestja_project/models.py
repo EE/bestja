@@ -97,22 +97,21 @@ class Project(models.Model):
 
     @api.multi
     def write(self, vals):
-        old_manager = None
-        if 'manager' in vals:
-            # Manager changed. Keep the old one.
-            old_manager = self.manager
+        old_manager = self.manager
         val = super(Project, self).write(vals)
-        if old_manager:
-            self.send(
-                template='bestja_project.msg_manager',
-                recipients=self.manager,
-            )
-            self.send(
-                template='bestja_project.msg_manager_changed',
-                recipients=old_manager,
-            )
-            self.manager._sync_manager_groups()
-            old_manager._sync_manager_groups()
+        if 'manager' in vals:  # Manager changed
+            if old_manager:
+                old_manager._sync_manager_groups()
+                self.send(
+                    template='bestja_project.msg_manager_changed',
+                    recipients=old_manager,
+                )
+            if self.manager:
+                self.manager._sync_manager_groups()
+                self.send(
+                    template='bestja_project.msg_manager',
+                    recipients=self.manager,
+                )
         return val
 
     @api.one
