@@ -75,7 +75,7 @@
                             </page>
                             <page string="Dane osobowe" attrs="{'invisible': [('user_access_level', 'not in', ['owner', 'admin', 'privileged'])]}" name="personal_data">
                                 <separator string="Dane osobowe"/>
-                                <div class="oe_edit_only oe_grey">Bedą potrzebne do podpisania umowy i zawarcia ubezpieczenia zdrowotnego</div>
+                                <div class="oe_edit_only oe_grey">Dane potrzebne do podpisania porozumienia</div>
                                 <group class="medium_input">
                                     <field name="birthdate"/>
                                     <field name="sex" widget="radio"/>
