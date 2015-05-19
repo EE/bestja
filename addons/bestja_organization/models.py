@@ -199,6 +199,13 @@ class Organization(models.Model):
             old_coordinator._sync_coordinators_group()
         return val
 
+    @api.multi
+    def unlink(self):
+        coordinator = self.coordinator
+        val = super(Organization, self).unlink()
+        coordinator._sync_coordinators_group()
+        return val
+
     @api.model
     def _needaction_domain_get(self):
         """

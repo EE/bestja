@@ -105,7 +105,7 @@ class Organization(models.Model):
         return view
 
     @api.one
-    def send_registration_messages(self):
+    def _send_registration_messages(self):
         self.send(
             template='bestja_organization.msg_registered',
             recipients=self.sudo().coordinator,

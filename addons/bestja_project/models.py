@@ -76,6 +76,14 @@ class Project(models.Model):
             ('state', '=', 'done')
         ])
 
+    @api.multi
+    def unlink(self):
+        manager = self.manager
+        val = super(Project, self).unlink()
+        if manager:
+            manager._sync_manager_groups()
+        return val
+
     @api.model
     def create(self, vals):
         record = super(Project, self).create(vals)
