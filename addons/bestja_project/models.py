@@ -135,21 +135,11 @@ class Task(models.Model):
         ('done', "zrealizowane"),
     ]
 
-    def _current_project_members(self):
-        """
-        Returns a domain selecting members of the current project.
-        """
-        active_id = self.env.context.get('active_id')
-        if active_id is None:
-            return []
-        project = self.env['bestja.project'].sudo().browse([active_id])
-        return [('id', 'in', project.members.ids)]
-
     name = fields.Char(required=True, string=u"Nazwa zadania")
     state = fields.Selection(STATES, default='new', string=u"Status")
     user = fields.Many2one(
         'res.users',
-        domain=_current_project_members,
+        domain="[('projects', '=', project)]",
         string=u"Wykonawca zadania",
     )
     user_assigned_task = fields.Boolean(
