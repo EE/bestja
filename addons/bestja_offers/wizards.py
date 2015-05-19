@@ -9,7 +9,7 @@ class ApplicationWizardMixin():
         """Returns a function, that in turns returns
         a default value for a field `field`."""
         def func(self):
-            active_id = self.env.context['active_id']
+            active_id = self.env.context.get('active_id')
             if active_id:
                 application = self.env['offers.application'].browse([active_id])
                 return getattr(application, field)
@@ -25,9 +25,24 @@ class ApplicationWizardMixin():
 class ApplicationMeetingWizard(ApplicationWizardMixin, models.TransientModel):
     _name = 'offers.application.meeting_wizard'
 
+    def default_place(self):
+        active_id = self.env.context.get('active_id')
+        if active_id:
+            application = self.env['offers.application'].browse([active_id])
+            if application.current_meeting_place:
+                return application.current_meeting_place
+
+            return application.sudo().offer.organization.address
+
     meeting = fields.Datetime(
         string=u"Termin spotkania",
+        required=True,
         default=ApplicationWizardMixin.default_func('current_meeting')
+    )
+    meeting_place = fields.Text(
+        string=u"Miejsce spotkania",
+        required=True,
+        default=default_place,
     )
 
     @api.one
@@ -35,6 +50,15 @@ class ApplicationMeetingWizard(ApplicationWizardMixin, models.TransientModel):
         if self.meeting and self.meeting <= fields.Datetime.now():
             raise exceptions.ValidationError("Data spotkania musi być w przyszłości!")
         self.application.current_meeting = self.meeting
+        self.application.current_meeting_place = self.meeting_place
+
+        # Send message about the meeting
+        self.application.send(
+            template='bestja_offers.msg_application_meeting',
+            recipients=self.application.user,
+            record_name=self.application.offer.name,
+            sender=self.env.user,
+        )
 
 
 class ApplicationRejectedWizard(ApplicationWizardMixin, models.TransientModel):

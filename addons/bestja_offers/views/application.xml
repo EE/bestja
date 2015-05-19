@@ -2,7 +2,7 @@
     <data>
         <!-- Date wizard -->
         <record model="ir.actions.act_window" id="action_application_meeting_wizard">
-            <field name="name">Ustal datę spotkania</field>
+            <field name="name">Ustal szczegóły spotkania</field>
             <field name="res_model">offers.application.meeting_wizard</field>
             <field name="view_mode">form</field>
             <field name="target">new</field>
@@ -12,12 +12,13 @@
             <field name="name">bestja.application.meeting_wizard</field>
             <field name="model">offers.application.meeting_wizard</field>
             <field name="arch" type="xml">
-                <form string="Ustal termin spotkania">
+                <form string="Ustal szczegóły spotkania">
                     <group>
                         <field name="meeting"/>
+                        <field name="meeting_place"/>
                     </group>
                     <footer>
-                        <button name="save_date" type="object" string="Zapisz termin" class="oe_highlight"/>
+                        <button name="save_date" type="object" string="Wyślij zaproszenie" class="oe_highlight"/>
                         <button special="cancel" string="Anuluj" class="oe_link"/>
                     </footer>
                 </form>
@@ -135,7 +136,7 @@
                                         <a name="%(action_application_meeting_wizard)d" type="action">(zmień)</a>
                                     </t>
                                     <t t-if="!record.current_meeting.raw_value">
-                                        <a name="%(action_application_meeting_wizard)d" type="action" class="meeting_date_link">Ustal termin spotkania</a>
+                                        <a name="%(action_application_meeting_wizard)d" type="action" class="meeting_date_link">Ustal szczegóły spotkania</a>
                                     </t>
                                 </div>
                                 <div t-if="record.state.raw_value == 'rejected'" class="application_kanban_rejected">
@@ -180,7 +181,7 @@
                         <div class="oe_right oe_button_box" name="buttons">
                              <button class="oe_inline oe_stat_button stat_button_wrap" type="action"
                                 name="%(action_application_meeting_wizard)d" icon="fa-calendar" states="new,meeting,meeting2">
-                                <div attrs="{'invisible': [('current_meeting', '!=', False)]}">Ustal termin spotkania</div>
+                                <div attrs="{'invisible': [('current_meeting', '!=', False)]}">Ustal szczegóły spotkania</div>
                                 <div><strong><field name="current_meeting" readonly="1"/></strong></div>
                             </button>
                              <button class="oe_inline oe_stat_button stat_button_wrap" type="action" name="%(action_application_notes_wizard)d" icon="fa-files-o">

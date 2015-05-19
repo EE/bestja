@@ -70,6 +70,8 @@ class Application(models.Model):
     meeting2 = fields.Datetime()
     meeting1_state = fields.Selection(MEETING_STATES, default='pending')
     meeting2_state = fields.Selection(MEETING_STATES, default='pending')
+    meeting1_place = fields.Text()
+    meeting2_place = fields.Text()
     current_meeting_state = fields.Selection(
         MEETING_STATES,
         compute='_compute_current_meeting',
@@ -79,6 +81,10 @@ class Application(models.Model):
         compute='_compute_current_meeting',
         inverse='_inverse_current_meeting',
         search='_search_current_meeting'
+    )
+    current_meeting_place = fields.Text(
+        compute='_compute_current_meeting',
+        inverse='_inverse_current_meeting_place',
     )
     rejected_reason = fields.Many2one('offers.application.rejected')
     notes = fields.Text()
@@ -116,14 +122,17 @@ class Application(models.Model):
         if self.state == 'meeting':
             self.current_meeting = self.meeting
             self.current_meeting_state = self.meeting1_state
+            self.current_meeting_place = self.meeting1_place
         elif self.state == 'meeting2':
             if self.meeting2 and self.meeting2 <= self.meeting:
                 raise exceptions.ValidationError("Drugie spotkanie musi odbyć się po pierwszym!")
             self.current_meeting = self.meeting2
             self.current_meeting_state = self.meeting2_state
+            self.current_meeting_place = self.meeting2_place
         else:
             self.current_meeting = False
             self.current_meeting_state = False
+            self.current_meeting_place = False
 
     @api.one
     def _inverse_current_meeting_state(self):
@@ -131,6 +140,13 @@ class Application(models.Model):
             self.meeting2_state = self.current_meeting_state
         else:
             self.meeting1_state = self.current_meeting_state
+
+    @api.one
+    def _inverse_current_meeting_place(self):
+        if self.state == 'meeting2':
+            self.meeting2_place = self.current_meeting_place
+        else:
+            self.meeting1_place = self.current_meeting_place
 
     @api.one
     def _inverse_current_meeting(self):
@@ -144,14 +160,6 @@ class Application(models.Model):
 
         # Reset the meeting state
         self.current_meeting_state = 'pending'
-
-        # Send message about the meeting
-        self.send(
-            template='bestja_offers.msg_application_meeting',
-            recipients=self.user,
-            record_name=self.offer.name,
-            sender=self.env.user,
-        )
 
     def _search_current_meeting(self, operator, value):
         return [

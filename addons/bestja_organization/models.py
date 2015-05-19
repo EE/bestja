@@ -35,6 +35,10 @@ class Organization(models.Model):
     street_number = fields.Char(string=u"Numer budynku", required=True)
     apartment_number = fields.Char(string=u"Numer mieszkania")
     postal_code = fields.Char(size=6, required=True, string=u"Kod pocztowy")
+    address = fields.Text(
+        compute='_compute_address',
+        string="Pełen adres",
+    )
     email = fields.Char(string=u"E-mail", required=True)
     phone = fields.Char(required="True", string=u"Numer Telefonu")
     phone_extension = fields.Char(size=10, string=u"Numer wewnętrzny")
@@ -90,6 +94,16 @@ class Organization(models.Model):
         Needed for `fonts` attribute on the tree view.
         """
         self.coordinator_uid = self.coordinator.id
+
+    @api.one
+    @api.depends('name', 'street_address', 'street_number', 'apartment_number', 'postal_code', 'city')
+    def _compute_address(self):
+        self.address = u"""{self.name}
+{self.street_address} {self.street_number}{apartment}
+{self.postal_code} {self.city}""".format(
+            self=self,
+            apartment=u" lok. " + self.apartment_number if self.apartment_number else "",
+        )
 
     @api.one
     @api.constrains('email')
