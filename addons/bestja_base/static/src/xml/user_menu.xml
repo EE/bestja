@@ -4,5 +4,8 @@
         <t t-jquery=".dropdown-menu li:has(a[data-menu=about])" t-operation="replace"/>
         <t t-jquery=".dropdown-menu li:has(a[data-menu=account])" t-operation="replace"/>
         <t t-jquery=".dropdown-menu li:has(a[data-menu=help])" t-operation="replace"/>
+
+        <!-- change label for settings -->
+        <t t-jquery=".dropdown-menu li:has(a[data-menu=settings]) a" t-operation="inner">Moje konto</t>
     </t>
 </template>
