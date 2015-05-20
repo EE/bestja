@@ -30,6 +30,32 @@ class Application(models.Model):
         else:
             super(Application, self)._send_message_new()
 
+    @api.one
+    def confirm_meeting(self):
+        if self.preliminary:
+            self.current_meeting_state = 'accepted'
+
+            self.send_group(
+                template='bestja_offers.msg_application_meeting_accepted',
+                group='bestja_offers_moderation.offers_moderator',
+                sender=self.env.user,
+            )
+        else:
+            super(Application, self).confirm_meeting()
+
+    @api.one
+    def reject_meeting(self):
+        if self.preliminary:
+            self.current_meeting_state = 'rejected'
+
+            self.send_group(
+                template='bestja_offers.msg_application_meeting_rejected',
+                group='bestja_offers_moderation.offers_moderator',
+                sender=self.env.user,
+            )
+        else:
+            super(Application, self).reject_meeting()
+
     @api.model
     def create(self, vals):
         record = super(Application, self).create(vals)

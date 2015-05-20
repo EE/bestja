@@ -202,6 +202,26 @@ class Application(models.Model):
         )
 
     @api.one
+    def confirm_meeting(self):
+        self.current_meeting_state = 'accepted'
+
+        self.send(
+            template='bestja_offers.msg_application_meeting_accepted',
+            recipients=self.offer.project.responsible_user,
+            sender=self.env.user,
+        )
+
+    @api.one
+    def reject_meeting(self):
+        self.current_meeting_state = 'rejected'
+
+        self.send(
+            template='bestja_offers.msg_application_meeting_rejected',
+            recipients=self.offer.project.responsible_user,
+            sender=self.env.user,
+        )
+
+    @api.one
     def action_post_accepted(self):
         """
         After application had been accepted,

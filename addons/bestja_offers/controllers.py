@@ -53,13 +53,10 @@ class Offer(http.Controller):
         if not application:
             return http.request.not_found()
 
-        application.current_meeting_state = resolution
-
-        application.send(
-            template='bestja_offers.msg_application_meeting_' + resolution,
-            recipients=application.offer.project.responsible_user,
-            sender=http.request.env.user,
-        )
+        if resolution == 'accepted':
+            application.confirm_meeting()
+        else:
+            application.reject_meeting()
 
         return http.request.render('bestja_offers.meeting_confirmation', {
             'application': application,

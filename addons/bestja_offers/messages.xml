@@ -83,14 +83,12 @@
         <record id="msg_application_meeting_accepted" model="message_template">
             <field name="subject">Potwierdzono termin spotkania</field>
             <field name="body"><![CDATA[
-                Spotkanie z wolontariuszem ${record.user.name} zostało potwierdzone.
-                Projekt: ${record.offer.project.name}
-                Oferta: ${record.offer.name}
-                Termin: ${record.current_meeting}
+                Spotkanie z wolontariuszem ${record.user.name} zostało potwierdzone.<br/>
+                Projekt: ${record.offer.project.name}<br/>
+                Oferta: ${record.offer.name}<br/>
+                Termin: ${record.current_meeting}<br/>
                 <br/>
-                <br/>
-                Zespół
-                <br/>
+                Zespół<br/>
                 ${site_name}
             ]]></field>
             <field name="model">offers.application</field>
@@ -99,16 +97,14 @@
         <record id="msg_application_meeting_rejected" model="message_template">
             <field name="subject">Spotkanie odrzucone</field>
             <field name="body"><![CDATA[
-                Propozycja terminu spotkania z ${record.user.name} została odrzucona.
-                Projekt: ${record.offer.project.name}
-                Oferta: ${record.offer.name}
-                Termin: ${record.current_meeting}
+                Propozycja terminu spotkania z ${record.user.name} została odrzucona.<br/>
+                Projekt: ${record.offer.project.name}<br/>
+                Oferta: ${record.offer.name}<br/>
+                Termin: ${record.current_meeting}<br/>
                 W celu umówienia innego terminu, skontaktuj się z
-                <a href="${link_to(record.user)}">wolontariuszem</a>
+                <a href="${link_to(record.user)}">wolontariuszem</a>.<br/>
                 <br/>
-                <br/>
-                Zespół
-                <br/>
+                Zespół<br/>
                 ${site_name}
             ]]></field>
             <field name="model">offers.application</field>
