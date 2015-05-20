@@ -20,5 +20,6 @@ Adds qualifications secion.
         'views/offer.xml',
         'views/application.xml',
         'security/ir.model.access.csv',
+        'templates.xml',
     ],
 }

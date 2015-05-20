@@ -148,23 +148,11 @@
                                         <h3>Na czym będzie polegała Twoja praca</h3>
                                         <p>Celem projektu jest: <span t-field="offer.description"></span></p>
                                     </div>
-                                    <div t-if="offer.expectations">
+                                    <div id="offer_expectations" t-if="offer.expectations">
                                         <h3>Czego oczekujemy</h3>
                                         <p>
                                             <span t-field="offer.expectations"></span>
                                         </p>
-                                        <div t-if="offer.drivers_license or offer.sanepid or offer.forklift"  class="container">
-                                            <h3 class="further_expectations">Uprawnienia</h3>
-                                            <p t-if="offer.drivers_license">
-                                                Prawo jazdy: <span t-field="offer.drivers_license"></span>
-                                            </p>
-                                            <p t-if="offer.sanepid">
-                                                Ważne badania sanepidu
-                                            </p>
-                                            <p t-if="offer.forklift">
-                                                Ważne uprawnienia na wózek widłowy
-                                            </p>
-                                        </div>
                                     </div>
                                     <div t-if="offer.benefits">
                                         <h3>Co oferujemy</h3>

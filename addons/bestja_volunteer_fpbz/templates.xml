@@ -1,0 +1,20 @@
+<openerp>
+    <data>
+        <template id="offer" inherit_id="bestja_offers.offer">
+            <xpath expr="//div[@id='offer_expectations']" position="after">
+                <div t-if="offer.drivers_license or offer.sanepid or offer.forklift">
+                    <h3>Wymagane uprawnienia</h3>
+                    <p t-if="offer.drivers_license">
+                        Prawo jazdy: <span t-field="offer.drivers_license"></span>
+                    </p>
+                    <p t-if="offer.sanepid">
+                        Ważne badania sanepidu
+                    </p>
+                    <p t-if="offer.forklift">
+                        Ważne uprawnienia na wózek widłowy
+                    </p>
+                </div>
+            </xpath>
+        </template>
+    </data>
+</openerp>
