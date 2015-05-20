@@ -7,6 +7,9 @@
                 <!-- remove skills -->
                 <field name="skills" position="replace"/>
 
+                <!-- remove the "Qualifications" header -->
+                <separator name="header_qualifications" position="replace"/>
+
                 <!-- replace occupation with the UW status -->
                 <field name="occupation" position="attributes">
                     <attribute name="name">uw_status</attribute>

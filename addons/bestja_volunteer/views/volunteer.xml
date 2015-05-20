@@ -17,8 +17,7 @@
                         </div>
                         <notebook colspan="4">
                             <page string="Kwalifikacje" name="page_qualifications" attrs="{'invisible': [('user_access_level', 'not in', ['owner', 'admin', 'privileged'])]}">
-                                <separator  string="Kwalifikacje" class="oe_inline"/>
-                                <span class="oe_grey oe_edit_only">(wybierz wiele)</span>
+                                <separator name="header_qualifications" string="Kwalifikacje" class="oe_inline"/>
                                 <group colspan="4" col="2">
                                     <field name="occupation" options="{'no_create': True, 'no_open': True}"/>
                                     <field name="skills" widget="many2many_tags" options="{'no_create': True, 'no_open': True}"/>
