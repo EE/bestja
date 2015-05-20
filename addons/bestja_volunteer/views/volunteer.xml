@@ -45,21 +45,7 @@
                                     <field name="user_email"/>
                                     <field name="phone" class="short_input"/>
                                 </group>
-                                <group string="Adres zamieszkania" class="medium_input">
-                                    <field name="street"/>
-                                    <label for="street_number"/>
-                                    <div>
-                                        <field name="street_number" class="short_input oe_inline"/>
-                                        mieszk.
-                                        <field name="apt_number" class="short_input"/>
-                                    </div>
-                                    <field name="zip_code"/>
-                                    <field name="city"/>
-                                    <field name="voivodeship" options="{'no_create': True, 'no_open': True}"/>
-                                    <field name="country" options="{'no_create': True, 'no_open': True}"/>
-                                </group>
-                                <field name="different_addresses"/><label for="different_addresses"/>
-                                <group colspan="4" col="2" string="Adres zameldowania" class="medium_input" attrs="{'invisible': [('different_addresses', '==', False)]}">
+                                <group colspan="4" col="2" string="Adres zameldowania" class="medium_input">
                                     <field name="street_gov"/>
                                     <label for="street_number_gov"/>
                                     <div>
@@ -72,6 +58,23 @@
                                     <field name="voivodeship_gov" options="{'no_create': True, 'no_open': True}"/>
                                     <field name="country_gov" options="{'no_create': True, 'no_open': True}"/>
                                 </group>
+
+                                <field name="different_addresses"/><label for="different_addresses"/>
+
+                                <group string="Adres zamieszkania" class="medium_input" attrs="{'invisible': [('different_addresses', '==', False)]}">
+                                    <field name="street"/>
+                                    <label for="street_number"/>
+                                    <div>
+                                        <field name="street_number" class="short_input oe_inline"/>
+                                        mieszk.
+                                        <field name="apt_number" class="short_input"/>
+                                    </div>
+                                    <field name="zip_code"/>
+                                    <field name="city"/>
+                                    <field name="voivodeship" options="{'no_create': True, 'no_open': True}"/>
+                                    <field name="country" options="{'no_create': True, 'no_open': True}"/>
+                                </group>
+
                             </page>
                             <page string="Dane osobowe" attrs="{'invisible': [('user_access_level', 'not in', ['owner', 'admin', 'privileged'])]}" name="personal_data">
                                 <separator string="Dane osobowe"/>
