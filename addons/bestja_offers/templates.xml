@@ -259,9 +259,8 @@
                         <div class="row mt16 mb16 text-center">
                             <div class="col-md-12">
                                 <h1>Dziękujemy!</h1>
-                                <p>Informacja została zapisana.</p>
-                                <p>To spotkanie jest teraz <t t-if="resolution == 'accepted'">zaakceptowane</t>
-                                    <t t-if="resolution == 'rejected'">odrzucone</t>.</p>
+                                <p t-if="resolution == 'accepted'">Do zobaczenia na spotkaniu.</p>
+                                <p t-if="resolution == 'rejected'">Dziękujemy za odpowiedź! Postaramy się zaproponować dogodny dla Ciebie termin spotkania.</p>
                             </div>
                         </div>
                     </div>

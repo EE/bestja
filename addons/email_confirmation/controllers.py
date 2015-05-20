@@ -74,7 +74,7 @@ class AuthSignupHome(AuthSignupHome):
                     assert login, "No login provided."
                     res_users = request.registry.get('res.users')
                     res_users.reset_password(request.cr, SUPERUSER_ID, login)
-                    qcontext['message'] = _("Wiadomość umożliwiająca zmianę hasła została wysłana.")
+                    qcontext['message'] = _("Wysłaliśmy na Twojego maila wiadomość umożliwiającą zmianę hasła.")
             except SignupError:
                 qcontext['error'] = _("Zmiana hasła nieudana")
                 _logger.exception('error when resetting password')
