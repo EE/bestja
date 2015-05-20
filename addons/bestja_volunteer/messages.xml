@@ -21,7 +21,8 @@
                 Jeśli reprezentujesz organizację, która chce z nami współpracować zrejestruj organizację. Zweryfikujemy zgłoszenie i się z Tobą skontaktujemy.</p>
 
                 <p>Zacznij działać!<br/>
-                Zespół</p>
+                Zespół<br/>
+                ${site_name}</p>
             ]]></field>
         </record>
     </data>

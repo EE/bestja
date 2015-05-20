@@ -11,10 +11,8 @@
             <field name="subject">Potwierdzenie rejestracji w serwisie</field>
             <field name="body_html"><![CDATA[
                 <p>Witaj,</p>
-                <p>Aby zakończyć rejestrację w systemie aktywuj swoje konto klikając w link: <a href="${object.signup_url}">link</a>.</p>
+                <p>Aby zakończyć rejestrację w systemie <a href="${object.signup_url}">kliknij tu aby aktywować konto</a>.</p>
                 <p>Zignoruj tę wiadomość, jeśli nie rejestrowałeś/aś się do serwisu.</p>
-                <p>Zespół<br/>
-                ${site_name}</p>
                 ]]>
             </field>
         </record>
@@ -24,9 +22,7 @@
             <field name="subject">Nie pamiętasz hasła? Damy Ci nowe! Kliknij w link i podaj nowe hasło.</field>
             <field name="body_html"><![CDATA[
                 <p>Witaj,</p>
-                <p>Poprosiłeś nas o zmianę hasła. Kliknij w ten <a href="${object.signup_url}">link</a> i podaj nowe hasło.</p>
-                <p>Zespół<br/>
-                ${site_name}</p>
+                <p>Poprosiłeś/aś nas o zmianę hasła. <a href="${object.signup_url}">Kliknij tu aby zmienić hasło</a>.</p>
             ]]></field>
         </record>
 
