@@ -4,15 +4,13 @@
             <field name="model">offer</field>
             <field name="inherit_id" ref="bestja_offers.bestja_offer_form"/>
             <field name="arch" type="xml">
-                <xpath expr="//button[@name='set_published']" position="before">
+                <xpath expr="//button[@name='set_published']" position="after">
                     <button name="set_pending" string="Prześlij do akceptacji" type="object" class="oe_highlight" attrs="{'invisible': [
                             '|',
                                 ('state', 'in', ['published', 'template', 'pending']),
                                 ('remaining_days', '&lt;', 0)
                         ]}"/>
-                </xpath>
-                <xpath expr="//button[@name='set_unpublished']" position="attributes">
-                    <attribute name="states">published,pending</attribute>
+                    <button name="set_rejected" string="Odrzuć" type="object" states="pending" groups="bestja_offers_moderation.offers_moderator"/>
                 </xpath>
                 <xpath expr="//button[@name='set_published']" position="attributes">
                     <attribute name="groups">bestja_offers_moderation.offers_moderator</attribute>

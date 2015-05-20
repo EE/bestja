@@ -12,7 +12,12 @@ class OfferWithModeration(models.Model):
         'message_template.mixin',
     ]
 
-    state = fields.Selection(selection_add=[('pending', "oczekująca na akceptację")])
+    state = fields.Selection(
+        selection_add=[
+            ('pending', "oczekująca na akceptację"),
+            ('rejected', "odrzucona"),
+        ]
+    )
 
     def _is_moderator(self):
         """
@@ -27,6 +32,15 @@ class OfferWithModeration(models.Model):
         self.send_group(
             template='bestja_offers_moderation.msg_pending_admin',
             group='bestja_offers_moderation.offers_moderator',
+        )
+
+    @api.one
+    def set_rejected(self):
+        self.state = 'rejected'
+        self.send(
+            template='bestja_offers_moderation.msg_rejected',
+            recipients=self.sudo().project.responsible_user,
+            sender=self.env.user,
         )
 
     @api.one
