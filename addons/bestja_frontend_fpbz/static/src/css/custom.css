@@ -872,7 +872,7 @@ text:hover{
     padding: 10px 20px;
     padding-right: 40px;
     bottom: 0;
-    background-color: #D98100;
+    background-color: #575757;
     z-index: 1000;
     opacity: .95;
 }
@@ -887,11 +887,12 @@ text:hover{
 }
 
 .cookie-info a{
-    color: #222222;
+    color: #FFFFFF;
+    text-decoration: underline;
 }
 
 .cookie-info a:hover{
-    color: #D1D6E7;
+    color: #F29100;
 }
 
 #cookie_reminder_close{

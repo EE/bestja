@@ -5,9 +5,7 @@
             <xpath expr="//footer" position="after">
                 <div id="cookie_reminder_container">
                     <div class="cookie-info">
-                        <span>Strona korzysta z plików cookies w celu realizacji usług i zgodnie z <a href="/page/privacy_policy" title="Polityka Prywatności">Polityką Plików Cookies</a>.<br />
-                        Możesz określić warunki przechowywania lub dostępu do cookie w Twojej przeglądarce lub konfiguracji usługi.
-                        </span>
+                        <span>Uwaga! Ta strona wykorzystuje pliki cookies. Korzystając z niej, wyrażasz zgodę na ich używanie zgodnie z <a href="/page/privacy_policy" title="Polityka Prywatności">polityką prywatności</a>.</span>
                         <span id="cookie_reminder_close" class="glyphicon glyphicon-remove"/>
                     </div>
                 </div>
