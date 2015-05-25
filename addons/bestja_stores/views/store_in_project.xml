@@ -125,7 +125,7 @@
                         <field name="date_start"/>
                         <field name="date_stop"/>
                     </group>
-                    <field name="days" context="{'project': project}">
+                    <field name="days" context="{'project': project}" attrs="{'invisible': [('days', '=', [])]}">
                         <tree editable="1">
                             <field name="date"/>
                             <field name="time_from_default" placeholder="HH:MM"/>
