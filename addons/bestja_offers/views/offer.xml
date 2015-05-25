@@ -79,13 +79,11 @@
                     </group>
                     <notebook colspan="4">
                         <page name="page_skills" string="Umiejętności">
-                            <separator string="Umiejętności" class="oe_inline"  style="display: inline"/>
-                            <span class="oe_grey oe_edit_only">Wybierz <b>max. <span id="max_skills"/></b> umiejętności, jakie powinien posiadać wolontariusz</span>
+                            <separator string="Umiejętności"/>
                             <field name="skills" widget="many2many_checkboxes"/>
                         </page>
                         <page string="Obszar działania">
-                            <separator string="Obszar działania" class="oe_inline"/>
-                            <span class="oe_grey oe_edit_only">Wybierz <b>max. <span id="max_wishes"/></b> obszary, którymi będzie zajmował się wolontariusz</span>
+                            <separator string="Obszar działania"/>
                             <field name="wishes" widget="many2many_checkboxes"/>
                         </page>
                         <page string="Opis">

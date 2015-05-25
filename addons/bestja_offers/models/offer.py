@@ -1,6 +1,4 @@
 # -*- coding: utf-8 -*-
-
-from lxml import etree
 from datetime import date
 
 from openerp import models, fields, api, exceptions
@@ -99,20 +97,6 @@ class Offer(models.Model):
         string=u"rodzaj lokalizacji",
         default="assigned",
     )
-
-    @api.one
-    @api.constrains('skills')
-    def _check_skills_no(self):
-        max_skills = int(self.env['ir.config_parameter'].get_param('bestja_offers.max_skills'))
-        if len(self.skills) > max_skills:
-            raise exceptions.ValidationError("Wybierz maksymalnie {} umiejętności!".format(max_skills))
-
-    @api.one
-    @api.constrains('wishes')
-    def _check_wishes_no(self):
-        max_wishes = int(self.env['ir.config_parameter'].get_param('bestja_offers.max_wishes'))
-        if len(self.wishes) > max_wishes:
-            raise exceptions.ValidationError("Wybierz maksymalnie {} obszarów działania!".format(max_wishes))
 
     @api.one
     @api.constrains('vacancies')
@@ -222,29 +206,6 @@ class Offer(models.Model):
             'context': self.env.context,
             'res_id': copy.id,
         }
-
-    @api.model
-    def fields_view_get(self, **kwargs):
-        """
-        Add information about maximum number of skills and fields of interest
-        that can be chosen. They will be displayed as part of a help text.
-        """
-        view = super(Offer, self).fields_view_get(**kwargs)
-        if 'view_type' in kwargs and kwargs['view_type'] != 'form':
-            return view
-
-        doc = etree.XML(view['arch'])
-        conf = self.env['ir.config_parameter']
-
-        span_skills = doc.xpath("//span[@id='max_skills']")
-        span_wishes = doc.xpath("//span[@id='max_wishes']")
-        if span_skills:
-            span_skills[0].text = conf.get_param('bestja_offers.max_skills')
-        if span_wishes:
-            span_wishes[0].text = conf.get_param('bestja_offers.max_wishes')
-
-        view['arch'] = etree.tostring(doc)
-        return view
 
     @api.multi
     def read(self, fields=None, load='_classic_read'):

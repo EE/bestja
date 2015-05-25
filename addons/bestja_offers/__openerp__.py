@@ -21,7 +21,6 @@ receiving and managing user applications.""",
         'bestja_project'
     ],
     'data': [
-        'views/config.xml',
         'views/application.xml',
         'views/offer.xml',
         'views/assets.xml',
