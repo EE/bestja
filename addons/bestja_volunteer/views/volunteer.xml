@@ -25,7 +25,7 @@
                                 </group>
 
                                 <separator string="CV"/>
-                                <div class="oe_edit_only oe_grey">Dodając CV pozwalasz nam lepiej Cię poznać i zaoferować oferty specjalnie dla Ciebie.</div>
+                                <div class="oe_edit_only oe_grey">Dodając CV pozwalasz nam się lepiej poznać i zaoferować oferty specjalnie dla Ciebie.</div>
                                 <group col="2">
                                     <label for="curriculum_vitae"/>
                                     <div>
