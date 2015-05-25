@@ -29,6 +29,7 @@
                     <label for="reason"/><br/>
                     <field name="reason" class="medium_input"/>
                     <field name="reason_description" class="medium_input" attrs="{'invisible': [('reason', '!=', 'else')]}"/>
+                    <div class="oe_grey">Konto zostanie usunięte przez administratora w ciągu kilku dni od wysłania tego zgłoszenia.</div>
                     <footer>
                         <button name="report_delete_account" type="object" string="Tak, na pewno chcę usunąć" class="oe_highlight"/>
                         <button special="cancel" string="Nie usuwaj" class="oe_link"/>
