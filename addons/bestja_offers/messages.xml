@@ -102,7 +102,7 @@
                 Oferta: ${record.offer.name}<br/>
                 Termin: ${record.current_meeting}<br/>
                 W celu umówienia innego terminu, skontaktuj się z
-                <a href="${link_to(record.user)}">wolontariuszem</a>.<br/>
+                <a href="${link_to(record.user)}">wolontariuszem</a> telefonicznie lub odpowiadając na tę wiadomość.<br/>
                 <br/>
                 Zespół<br/>
                 ${site_name}
