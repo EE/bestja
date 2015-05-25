@@ -31,9 +31,6 @@
                                             <a class="facebook" t-att-href="website.social_facebook"></a>
                                         </li>
                                         <li>
-                                            <a class="twitter" t-att-href="website.social_twitter"></a>
-                                        </li>
-                                        <li>
                                             <a class="youtube" t-att-href="website.social_youtube"></a>
                                         </li>
                                     </ul>
