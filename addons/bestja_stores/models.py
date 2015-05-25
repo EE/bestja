@@ -621,7 +621,11 @@ class DayInStore(models.Model):
 class ProjectWithStores(models.Model):
     _inherit = 'bestja.project'
 
-    stores = fields.One2many('bestja_stores.store_in_project', inverse_name='project')
+    stores = fields.One2many(
+        'bestja_stores.store_in_project',
+        inverse_name='project',
+        groups='bestja_project.managers',
+    )
 
     enable_stores = fields.Boolean(string=u"Projekt zbiórkowy?")
     use_stores = fields.Boolean(
