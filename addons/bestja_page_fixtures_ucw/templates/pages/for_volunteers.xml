@@ -5,19 +5,24 @@
             <t t-call="website.layout">
                 <div id="wrap" class="oe_structure oe_empty">
                     <section class="oe_snippet_body">
-                        <div class="container">
+                        <div class="container single_page">
                             <div class="row">
-                                <div class="col-md-12">
-                                    <h1 class="text-center mt48 mb48 section_title">
-                                        PRAWA I OBOWIĄZKI WOLONTARIUSZA</h1>
+                                <div class="col-md-9 single_page_top_header">
+                                    <h1 class="mt48 mb48 section_title">
+                                        <strong>Prawa i obowiązki wolontariusza</strong>
+                                    </h1>
                                 </div>
-                            </div>
-                        </div>
-                    </section>
-                    <section class="oe_snippet_body">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-12">
+                                <div class="col-md-3">
+                                    <ul class="nav nav-pills single_page_nav">
+                                        <li class="mt8 mb8">
+                                            <a href="#prawa">Prawa wolontariusza</a>
+                                        </li>
+                                        <li class="mt8 mb8">
+                                            <a href="#obowiazki">Obowiązki wolontariusza</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-9 col-md-offset-3 mb128">
                                     <p class="mt48 mb48 section_title">
                                         Organizacja, na rzecz której pracujesz, musi poinformować Cię
                                         o wszystkich przysługujących Ci prawach i o Twoich obowiązkach.
@@ -26,7 +31,7 @@
                                         Nr 96 poz. 873 z póź. zm.). Regulacje te powstały po to, żeby
                                         zagwarantować bezpieczeństwo pracy wolontariuszom i organizacjom
                                         oraz wyeliminować nieprawidłowości.</p>
-                                    <h2 class="mt48 mb48 section_title">
+                                    <h2 id="prawa" class="mt48 mb48 section_title">
                                         Prawa wolontariusza</h2>
                                     <hr />
                                     <p>
@@ -84,7 +89,7 @@
                                         to ma obowiązek traktować Cię jak pracownika etatowego, co oznacza,
                                         że powinna pokryć koszty przejazdu i diety. Z tego obowiązku
                                         wolontariusz może pisemnie zwolnić organizację.</p>
-                                    <h2>Obowiązki wolontariusza</h2>
+                                    <h2 id="obowiazki">Obowiązki wolontariusza</h2>
                                     <hr />
                                     <p class="mt48 mb48 section_title">
                                         Ustawa nie nakłada na wolontariuszy jakiś szczególnych obowiązków.
