@@ -183,13 +183,8 @@
                                 <div class="col-lg-3 col-lg-offset-2 col-md-4 col-sm-11 col-xs-12 offer_sidebar">
                                     <img t-if="offer.organization_image"
                                          t-attf-src="/website/image/offer/{{ offer.id }}/organization_image/450x450" alt="" />
-                                    <p class="size24 mt32">
+                                    <p id="organization_name" class="size24 mt32">
                                         <t t-esc="offer.project.organization.name"/>
-                                    </p>
-                                    <p>
-                                        <a t-attf-href="mailto:{{ offer.project.organization.email }}">
-                                            <t t-esc="offer.project.organization.email"/>
-                                        </a>
                                     </p>
                                     <h3 class="mt32">Co robimy</h3>
                                     <p>

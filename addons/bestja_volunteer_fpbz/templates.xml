@@ -15,6 +15,13 @@
                     </p>
                 </div>
             </xpath>
+            <xpath expr="//p[@id='organization_name']" position="after">
+                <p>
+                    <a t-attf-href="mailto:{{ offer.project.organization.email }}">
+                        <t t-esc="offer.project.organization.email"/>
+                    </a>
+                </p>
+            </xpath>
         </template>
     </data>
 </openerp>
