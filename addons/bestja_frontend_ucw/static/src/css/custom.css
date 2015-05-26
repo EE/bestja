@@ -3,7 +3,7 @@
 
 /* Common css */
 /* Top menu changes */
-#top_menu li:first-child{
+#top_menu > li:first-child{
     display: none;
 }
 
