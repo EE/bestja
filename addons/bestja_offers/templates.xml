@@ -14,6 +14,9 @@
                                 <div id="wide_screen_share_icons_top" class="col-md-4 col-sm-5 offer_share pull-right">
                                     <p class="mt8">Zaproś znajomych</p>
                                     <t t-call="bestja_offers.share" />
+                                    <a class="oe_share_print" t-attf-href="javascript:window.print()">
+                                        <div class="print_icon"></div>
+                                    </a>
                                 </div>
                                 <div class="col-md-8 col-sm-7 mb32 offer_name">
                                     <h1>
@@ -199,7 +202,7 @@
                                 </div>
                                 <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12 ee_bottom_share">
                                     <h3>Zaproś znajomych</h3>
-                                    <t t-call="bestja_offers.share2" />
+                                    <t t-call="bestja_offers.share" />
                                 </div>
                             </div>
                             <div id="bestja_offers_offer_location" t-attf-data-lat="{{ offer.latitude }}"
@@ -286,58 +289,29 @@
                 <t t-set="url" t-valuef="http://{{ request.httprequest.host}}{{ request.httprequest.path }}" />
                 <t t-set="title" t-value="offer.name" />
 
-                <a target="_Blank"
+                <a target="_blank"
                    class="oe_share_facebook"
                    t-attf-href="https://www.facebook.com/sharer/sharer.php?u={{ url }}">
                     <i class="fa fa-facebook-square"></i>
                 </a>
-                <a target="_Blank"
+                <a target="_blank"
                    class="oe_share_google"
                    t-attf-href="https://plus.google.com/share?url={{ url }}">
                     <i class="fa fa-google-plus-square"></i>
                 </a>
-                <a target="_Blank"
+                <a target="_blank"
                    class="oe_share_linkedin"
                    t-attf-href="http://www.linkedin.com/shareArticle?mini=true&amp;url={{ url }}&amp;title={{ title }}">
                     <i class="fa fa-linkedin"></i>
                 </a>
-                <a t-attf-href="mailto:?body={{ url }}&amp;subject={{ title }}">
-                    <i class="fa fa-envelope-o"></i>
-                </a>
-                <a
-                    class="oe_share_print"
-                    t-attf-href="javascript:window.print()">
-                    <div class="print_icon"></div>
-                </a>
-
-            </span>
-
-        </template>
-        <template id="bestja_offers.share2">
-            <span class="ee_share">
-
-                <t t-set="url" t-valuef="http://{{ request.httprequest.host}}{{ request.httprequest.path }}" />
-                <t t-set="title" t-value="offer.name" />
-
-                <a target="_Blank"
-                   class="oe_share_facebook"
-                   t-attf-href="https://www.facebook.com/sharer/sharer.php?u={{ url }}">
-                    <i class="fa fa-facebook-square"></i>
-                </a>
-                <a target="_Blank"
-                   class="oe_share_google"
-                   t-attf-href="https://plus.google.com/share?url={{ url }}">
-                    <i class="fa fa-google-plus-square"></i>
-                </a>
-                <a target="_Blank"
-                   class="oe_share_linkedin"
-                   t-attf-href="http://www.linkedin.com/shareArticle?mini=true&amp;url={{ url }}&amp;title={{ title }}">
-                    <i class="fa fa-linkedin"></i>
+                <a target="_blank"
+                   class="oe_share_twitter"
+                   t-attf-href="https://twitter.com/intent/tweet?text={{ title }}+{{ url }}">
+                    <i class="fa fa-twitter-square"></i>
                 </a>
                 <a t-attf-href="mailto:?body={{ url }}&amp;subject={{ title }}">
                     <i class="fa fa-envelope-o"></i>
                 </a>
-
             </span>
 
         </template>
