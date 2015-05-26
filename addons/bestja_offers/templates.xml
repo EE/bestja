@@ -4,9 +4,9 @@
             <t t-call="website.layout">
                 <link rel="stylesheet" href="/bestja_offers/static/src/css/google_maps.css"/>
                 <script type="text/javascript"
-                        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8_eNIDCU7qkBzkh4A02pnpRmPtE3rrI0&amp;libraries=places&amp;language=pl"/>
+                        src="//maps.googleapis.com/maps/api/js?key=AIzaSyA8_eNIDCU7qkBzkh4A02pnpRmPtE3rrI0&amp;libraries=places&amp;language=pl"/>
 
-                <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans" />
+                <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans" />
                 <div id="wrap" class="oe_structure oe_empty">
                     <section class="oe_snippet_body">
                         <div class="container">
