@@ -3,7 +3,7 @@
     <data noupdate="1">
         <!-- Change website menu item name -->
         <record id="website_blog.menu_news" model="website.menu">
-            <field name="name">aktualności</field>
+            <field name="name">blog</field>
             <field name="sequence" type="int">15</field>
         </record>
     </data>
