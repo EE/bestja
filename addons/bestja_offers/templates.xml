@@ -203,8 +203,7 @@
                                     <div id="offer-map-canvas" class="offer_map"></div>
                                 </div>
                                 <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12 ee_bottom_share">
-                                    <h3>"Wspólne pomaganie daje więcej przyjemności"</h3>
-                                    <p>Zaproś znajomych</p>
+                                    <h3>Zaproś znajomych</h3>
                                     <t t-call="bestja_offers.share2" />
                                 </div>
                             </div>
