@@ -6,6 +6,6 @@
         <t t-jquery=".dropdown-menu li:has(a[data-menu=help])" t-operation="replace"/>
 
         <!-- change label for settings -->
-        <t t-jquery=".dropdown-menu li:has(a[data-menu=settings]) a" t-operation="inner">Moje konto</t>
+        <t t-jquery=".dropdown-menu li:has(a[data-menu=settings]) a" t-operation="inner">Edycja profilu</t>
     </t>
 </template>
