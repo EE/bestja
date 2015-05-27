@@ -24,7 +24,7 @@ class AuthSignupHome(AuthSignupHome):
 
                 response = super(AuthSignupHome, self).web_login(*args, **kw)
                 response.qcontext['message'] = """
-                Witamy w naszej społeczności! Udało Ci się pomyślnie zarejestrować do naszego systemu.
+                Witamy w naszej społeczności!<br/><br/>Udało Ci się pomyślnie zarejestrować w naszym systemie.
                 """
                 return response
             except (SignupError, AssertionError), e:
