@@ -1,0 +1,9 @@
+<openerp>
+    <data>
+        <template id="layout" inherit_id="website.layout">
+            <xpath expr="//ul[@id='top_menu']/li[@class='dropdown' and last()]" position="attributes">
+                <attribute name="class">dropdown intro_tour_front</attribute>
+            </xpath>
+        </template>
+    </data>
+</openerp>
