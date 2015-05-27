@@ -23,7 +23,10 @@ class Volunteer(models.Model):
         except ValueError:
             raise exceptions.ValidationError("Numer PESEL może składać się wyłącznie z cyfr!")
 
+        if len(digits) != 11:
+            raise exceptions.ValidationError("Numer PESEL musi składać się z 11 cyfr!")
+
         weights = (1, 3, 7, 9, 1, 3, 7, 9, 1, 3)
         control_sum = -(sum(map(mul, digits[:-1], weights))) % 10
-        if len(digits) != 11 or control_sum != digits[-1]:
+        if control_sum != digits[-1]:
             raise exceptions.ValidationError("Niepoprawny numer PESEL.")
