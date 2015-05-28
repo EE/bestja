@@ -48,7 +48,7 @@
                                         <div class="tile-content">
                                             <div class="two">
                                                 <img t-if="not offer.organization_image" class="img img-responsive"
-                                                 src="http://lorempixel.com/g/300/300"/>
+                                                 src="http://bestja.d3.laboratorium.ee/ucw/img/offers_pictograms/grid-ico1-offers-list.svg"/>
                                                 <img t-if="offer.organization_image" class="img img-responsive"
                                                  t-attf-src="/website/image/offer/{{ offer.id }}/organization_image/300x300" alt="" />
                                             </div>
@@ -81,11 +81,11 @@
                                                 <t t-esc="offer.project.organization.name"/>
                                         </p>
                                         <div class="offer_where">
-                                            <p class="offer_place">
-                                                <t t-esc="offer.city"/>
-                                            </p>
-                                            <p class="offer_how_long" t-if="offer.hours">
+                                            <p class="pull-right offer_how_long" t-if="offer.hours">
                                                 <t t-esc="offer.hours"/> h
+                                            </p>
+                                            <p class="pull-right offer_place">
+                                                <t t-esc="offer.city"/>
                                             </p>
                                         </div>
                                     </div>
