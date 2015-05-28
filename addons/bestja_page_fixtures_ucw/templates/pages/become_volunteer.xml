@@ -146,11 +146,10 @@
                                                 powiadomienia o dopasowanych do Ciebie
                                                 aktualnych ofertach.</strong>
                                         </p>
-                                        <p>Jeżeli będziesz zainteresowany
+                                        <p class="mb32">Jeżeli będziesz zainteresowany
                                             konkretnym ogłoszeniem skontaktujemy
                                             Cię z koordynatorami wybranej organizacji.</p>
-                                        <a class="btn btn-lg mt32 text-center link_like_button_more_contrast" t-if="website.user_id == user_id" href="/web/signup">DOŁĄCZ TERAZ</a>
-                                        <p class="mb32"></p>
+                                        <a class="btn btn-lg mt32 mb64 text-center link_like_button_more_contrast" t-if="website.user_id == user_id" href="/web/signup">DOŁĄCZ TERAZ</a>
                                     </div>
                                 </div>
                             </div>

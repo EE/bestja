@@ -11,7 +11,7 @@
                     <section class="oe_snippet_body">
                         <div class="container">
                             <div class="row">
-                                <div id="wide_screen_share_icons_top" class="col-md-4 col-sm-5 offer_share pull-right">
+                                <div id="wide_screen_share_icons_top" class="hidden-print col-md-4 col-sm-5 offer_share pull-right">
                                     <p class="mt8">Zaproś znajomych</p>
                                     <t t-call="bestja_offers.share" />
                                     <a class="oe_share_print" t-attf-href="javascript:window.print()">
@@ -135,7 +135,7 @@
                     <section class="oe_snippet_body">
                         <div class="container">
                             <div class="row">
-                                <div id="narrow_screen_share_icons_middle" class="col-xs-12 text-center offer_share">
+                                <div id="narrow_screen_share_icons_middle" class="hidden-print col-xs-12 text-center offer_share">
                                     <p class="mt8 mb8">Zaproś znajomych</p>
                                     <t t-call="bestja_offers.share" />
                                 </div>
@@ -200,7 +200,7 @@
                                 <div class="col-lg-9 col-md-8 col-sm-12 col-xs-12">
                                     <div id="offer-map-canvas" class="offer_map"></div>
                                 </div>
-                                <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12 ee_bottom_share">
+                                <div class="hidden-print col-lg-3 col-md-4 col-sm-12 col-xs-12 ee_bottom_share">
                                     <h3>Zaproś znajomych</h3>
                                     <t t-call="bestja_offers.share" />
                                 </div>
@@ -284,7 +284,7 @@
         </template>
 
         <template id="bestja_offers.share">
-            <span class="ee_share">
+            <span class="ee_share hidden-print">
 
                 <t t-set="url" t-valuef="http://{{ request.httprequest.host}}{{ request.httprequest.path }}" />
                 <t t-set="title" t-value="offer.name" />

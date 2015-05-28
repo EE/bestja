@@ -18,12 +18,11 @@
                                             deklarującymi chęć ich przyjęcia, zapewnia
                                             im zadania do wykonania oraz opiekę koordynatora.</p>
 
-                                        <p>Hac, odio allquet est! Montes duis lectus pellentesque
+                                        <p class="mb64">Hac, odio allquet est! Montes duis lectus pellentesque
                                             in, placerat sit sociis a penatibus, odio
                                             dis? Est, turpis urna, risus, sit magna dolor?
                                             Nunc nec a tristigue eu, in egestas.</p>
-                                        <a class="btn btn-lg mt32 text-center link_like_button_more_contrast" t-if="website.user_id == user_id" href="/web/signup">DOŁĄCZ TERAZ</a>
-                                        <p class="mb32"></p>
+                                        <a class="btn btn-lg mt32 mb32 text-center link_like_button_more_contrast" t-if="website.user_id == user_id" href="/web/signup">DOŁĄCZ TERAZ</a>
                                     </div>
                                 </div>
                             </div>
