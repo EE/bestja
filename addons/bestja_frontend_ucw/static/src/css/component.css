@@ -589,3 +589,7 @@ figure.photostack-current::after {
     margin-top: 15px;
     font-size: 16px;
 }
+
+.photostack-title, .photostack-back {
+    font-family: 'Ubuntu', sans-serif;
+}
