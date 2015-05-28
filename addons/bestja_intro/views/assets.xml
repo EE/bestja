@@ -2,12 +2,20 @@
     <data>
         <template id="assets_backend" inherit_id="web.assets_backend">
             <xpath expr="." position="inside">
-                <!-- refrence css/js file used in backend here -->
+                <link rel="stylesheet" href="/bestja_intro/static/src/css/intro/introjs.css"/>
+                <link rel="stylesheet" href="/bestja_intro/static/src/css/bestja_intro.css"/>
+                <script type="text/javascript" src="/bestja_intro/static/src/js/intro/intro.js"></script>
+                <script type="text/javascript" src="/bestja_intro/static/src/js/cookie.js"></script>
+                <script type="text/javascript" src="/bestja_intro/static/src/js/backend.js"></script>
             </xpath>
         </template>
         <template id="assets_frontend" inherit_id="website.assets_frontend">
             <xpath expr="." position="inside">
-                <!-- refrence css/js file used in frontend here -->
+                <link rel="stylesheet" href="/bestja_intro/static/src/css/intro/introjs.css"/>
+                <link rel="stylesheet" href="/bestja_intro/static/src/css/bestja_intro.css"/>
+                <script type="text/javascript" src="/bestja_intro/static/src/js/intro/intro.js"></script>
+                <script type="text/javascript" src="/bestja_intro/static/src/js/cookie.js"></script>
+                <script type="text/javascript" src="/bestja_intro/static/src/js/frontend.js"></script>
             </xpath>
         </template>
     </data>

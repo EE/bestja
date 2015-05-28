@@ -1,0 +1,33 @@
+
+.introjs-fixParent {
+    position: relative !important;
+}
+
+.introjs-helperLayer {
+    border-radius: 0;
+}
+
+.introjs-tooltip {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 15px;
+    border-radius: 0;
+    min-width: 300px;
+    max-width: 400px;
+}
+
+.introjs-button.introjs-skipbutton {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 16px;
+    background-color: #F59A1E;
+    background-image: none;
+    border: none;
+    color: #FFF;
+    border-radius: 0;
+    text-shadow: none;
+    padding: 5px 10px;
+}
+
+#oe_main_menu_navbar .oe_topbar_avatar {
+    width:18px;
+    height:18px;
+}
