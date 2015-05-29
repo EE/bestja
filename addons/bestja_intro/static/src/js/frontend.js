@@ -1,5 +1,8 @@
 jQuery(window).ready(function () {
     "use strict";
+
+    var _el = document.querySelector('.dropdown.intro_tour_front');
+
     var IntroInit = function () {
 
         var _body = document.querySelector('body');
@@ -17,7 +20,7 @@ jQuery(window).ready(function () {
             'keyboardNavigation': false,
             'steps': [
                 {
-                    'element': '.dropdown.intro_tour_front',
+                    'element': _el,
                     'intro': 'Wybierz z listy "Przejdź do aplikacji",<br/> aby zobaczyć wiadomości i swoje zadania',
                     'position': 'bottom-right-aligned'
                 }
@@ -33,7 +36,7 @@ jQuery(window).ready(function () {
         Tour.start();
     };
 
-    if(getCookie('intro_front_completed') !== 'yes'){
+    if(getCookie('intro_front_completed') !== 'yes' && _el){
         IntroInit();
     }
 
