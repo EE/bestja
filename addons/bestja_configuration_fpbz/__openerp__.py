@@ -29,6 +29,7 @@
         'bestja_age_verification',
         'bestja_frontend_fpbz',
         'bestja_page_fixtures_fpbz',
+        'bestja_intro',
     ],
     'data': [
         'data.xml',

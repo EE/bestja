@@ -27,6 +27,7 @@
         'bestja_age_verification',
         'bestja_frontend_ucw',
         'bestja_page_fixtures_ucw',
+        'bestja_intro',
     ],
     'data': [
         'data.xml',
