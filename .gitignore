@@ -55,3 +55,6 @@ target/
 
 # Mac OS X Junk
 .DS_Store
+
+# IDE
+.idea/

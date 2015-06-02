@@ -7,61 +7,76 @@
                     <section class="oe_snippet_body">
                         <div class="container single_page">
                             <div class="row">
-                                <div class="col-xs-12 col-md-9 single_page_top_header">
+                                <div class="col-sm-12 col-md-9 col-md-offset-3">
                                     <h1 class="mt48 mb48 section_title">
                                         <strong>Regulamin aplikacji</strong>
                                     </h1>
                                 </div>
-                                <div class="col-xs-12 col-md-3">
-                                    <ul class="nav nav-pills single_page_nav">
-                                        <li>
-                                            <a href="#wstep">Wstęp</a>
-                                        </li>
-                                        <li>
-                                            <a href="#definicje">Definicje</a>
-                                        </li>
-                                        <li>
-                                            <a href="#ogolne">Postanowienia ogólne</a>
-                                        </li>
-                                        <li>
-                                            <a href="#konto_partnera">Konto partnera</a>
-                                        </li>
-                                        <li>
-                                            <a href="#wolontariusze">Wolontariusze</a>
-                                        </li>
-                                        <li>
-                                            <a href="#e_learning">Moduł e-learningu</a>
-                                        </li>
-                                        <li>
-                                            <a href="#koncowe">Postanowienia końcowe</a>
-                                        </li>
-                                    </ul>
+                                <div class="col-sm-3  hidden-xs hidden-sm">
+                                    <div>
+                                        <ul class="nav nav-pills nav-stacked">
+                                            <li>
+                                                <a href="#wstep">Wstęp</a>
+                                            </li>
+                                            <li>
+                                                <a href="#definicje">Definicje</a>
+                                            </li>
+                                            <li>
+                                                <a href="#ogolne">Postanowienia ogólne</a>
+                                            </li>
+                                            <li>
+                                                <a href="#konto_partnera">Konto partnera</a>
+                                            </li>
+                                            <li>
+                                                <a href="#wolontariusze">Wolontariusze</a>
+                                            </li>
+                                            <li>
+                                                <a href="#e_learning">Moduł e-learningu</a>
+                                            </li>
+                                            <li>
+                                                <a href="#koncowe">Postanowienia końcowe</a>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
-                                <div class="col-xs-12 col-lg-9 col-lg-offset-3 mb32">
-                                    <h2 id="wstep" class="mt48 mb48">
+                                <div class="col-sm-12 col-md-9">
+
+                                    <h2 id="wstep" class="mb48">
                                         <strong>Wstęp</strong>
                                     </h2>
                                     <p>
-                                        Aplikacja znajdująca się na stronie <a href="http://www.wolontariat.bankizywnosci.pl">www.wolontariat.bankizywnosci.pl</a> została zaprojektowana w celach niekomercyjnych,
-                                        by ułatwić wolontariuszom dostęp do Ofert nieodpłatnych świadczeń w Bankach Żywności
-                                        zlokalizowanych na terenie całej Polski oraz w Federacji Polskich Banków Żywności
+                                        Aplikacja znajdująca się na stronie
+                                        <a href="http://www.wolontariat.bankizywnosci.pl">
+                                            www.wolontariat.bankizywnosci.pl
+                                        </a>
+                                        została zaprojektowana w celach niekomercyjnych,
+                                        by ułatwić wolontariuszom dostęp do Ofert nieodpłatnych świadczeń w Bankach
+                                        Żywności
+                                        zlokalizowanych na terenie całej Polski oraz w Federacji Polskich Banków
+                                        Żywności
                                         w Warszawie.
                                     </p>
                                     <p>
-                                        Korzystanie z Aplikacji dozwolone jest w zakresie objętym niniejszym Regulaminem. Wszystkie
-                                        osoby korzystające z Aplikacji zobowiązane są przestrzegać postanowień Regulaminu.
+                                        Korzystanie z Aplikacji dozwolone jest w zakresie objętym niniejszym
+                                        Regulaminem. Wszystkie
+                                        osoby korzystające z Aplikacji zobowiązane są przestrzegać postanowień
+                                        Regulaminu.
                                     </p>
                                     <p>
                                         Regulamin oraz Polityka Prywatności zamieszczone na stronie:
-                                        <a href="http://www.bankizywnosci.pl/35/wolontariat.html">http://www.bankizywnosci.pl/35/wolontariat.html</a>
-                                        są prawnie wiążącymi dokumentami określającymi warunki korzystania z Aplikacji.
+                                        <a href="http://www.bankizywnosci.pl/35/wolontariat.html">
+                                            http://www.bankizywnosci.pl/35/wolontariat.html
+                                        </a>
+                                        są prawnie wiążącymi dokumentami określającymi warunki korzystania
+                                        z Aplikacji.
                                     </p>
                                     <p>
-                                        Prosimy o zapoznanie się z <a href="/page/regulations">Regulaminem</a> i <a href="/page/privacy_policy">Polityką Prywatności</a>,
+                                        Prosimy o zapoznanie się z 
+                                        <a href="/page/regulations">Regulaminem</a>
+                                        i <a href="/page/privacy_policy">Polityką Prywatności</a>,
                                         gdyż korzystanie z Aplikacji oznacza ich akceptację.
                                     </p>
-                                </div>
-                                <div class="col-xs-12 col-lg-9 col-lg-offset-3 mb32">
+
                                     <h2 id="definicje" class="mt48 mb48">
                                         <strong>I Definicje</strong>
                                     </h2>
@@ -70,15 +85,18 @@
                                     </p>
                                     <ol type="a">
                                         <li>
-                                            Aplikacja – serwis internetowy dostępny pod adresem: <a href="http://www.bankizywnosci.pl/35/wolontariat.html">
-                                                http://www.bankizywnosci.pl/35/wolontariat.html</a>,
+                                            Aplikacja – serwis internetowy dostępny pod adresem:<a
+                                                href="http://www.bankizywnosci.pl/35/wolontariat.html">
+                                            http://www.bankizywnosci.pl/35/wolontariat.html</a>,
                                         </li>
                                         <li>
-                                            Moduł e-learningu – funkcjonalność Aplikacji skierowana do Użytkowników, przeznaczona
+                                            Moduł e-learningu – funkcjonalność Aplikacji skierowana do Użytkowników,
+                                            przeznaczona
                                             do celów szkoleniowych z zakresu wolontariatu i działalności Federacji,
                                         </li>
                                         <li>
-                                            Administrator – podmiot zarządzający Aplikacją, czyli Federacja Polskich Banków Żywności,
+                                            Administrator – podmiot zarządzający Aplikacją, czyli Federacja Polskich
+                                            Banków Żywności,
                                         </li>
                                         <li>
                                             Federacja – Federacja Polskich Banków Żywności,
@@ -87,217 +105,265 @@
                                             Bank – jeden spośród działających w Polsce Banków Żywności,
                                         </li>
                                         <li>
-                                            Banki – wszystkie działające w Polsce Banki Żywności, które zamieszczają oferty w Aplikacji
+                                            Banki – wszystkie działające w Polsce Banki Żywności, które zamieszczają
+                                            oferty w Aplikacji
                                         </li>
                                         <li>
-                                            Banki Żywności, Federacja – organizacje pozarządowe uprawnione do zamieszczania ofert w aplikacji,
+                                            Banki Żywności, Federacja – organizacje pozarządowe uprawnione
+                                            do zamieszczania ofert w aplikacji,
                                         </li>
                                         <li>
-                                            Oferta – ogłoszenie o możliwości angażowania się w działania konkretnego Banku Żywności,
+                                            Oferta – ogłoszenie o możliwości angażowania się w działania konkretnego
+                                            Banku Żywności,
                                         </li>
                                         <li>
-                                            Partner – organizacja/osoba prawna rejestrująca się w Aplikacji w celu nawiązania współpracy
+                                            Partner – organizacja/osoba prawna rejestrująca się w Aplikacji w celu
+                                            nawiązania współpracy
                                             z Bankiem Żywności, w szczególności organizowania zbiórek żywności,
                                         </li>
                                         <li>
-                                            Wolontariusz – osoba fizyczna, która w swoim imieniu aplikuje na konkretną ofertę zamieszczoną
+                                            Wolontariusz – osoba fizyczna, która w swoim imieniu aplikuje
+                                            na konkretną ofertę zamieszczoną
                                             w Aplikacji,
                                         </li>
                                         <li>
-                                            Użytkownik – osoba fizyczna lub przedstawiciel organizacji/osoby prawnej korzystający z Aplikacji
+                                            Użytkownik – osoba fizyczna lub przedstawiciel organizacji/osoby prawnej
+                                            korzystający z Aplikacji
                                             w celu zapoznania się z ofertami świadczeń woluntarystycznych.
                                         </li>
                                     </ol>
-                                </div>
-                                <div class="col-xs-12 col-lg-9 col-lg-offset-3 mb32">
                                     <h2 id="ogolne" class="mt48 mb48">
                                         <strong>II Postanowienia ogólne</strong>
                                     </h2>
                                     <ol type="1">
                                         <li>
-                                            Niniejszy Regulamin określa zasady korzystania z Aplikacji znajdującej się pod
-                                            adresem <a href="http://www.wolontariat.bankizywnosci.pl">
-                                                www.wolontariat.bankizywnosci.pl</a>, zawierającego oferty dla wolontariuszy zamieszczone
+                                            Niniejszy Regulamin określa zasady korzystania z Aplikacji znajdującej
+                                            się pod
+                                            adresem<a href="http://www.wolontariat.bankizywnosci.pl">
+                                            www.wolontariat.bankizywnosci.pl</a>, zawierającego oferty dla
+                                            wolontariuszy zamieszczone
                                             przez Banki oraz Federację oraz Moduł e-learningu.
                                         </li>
                                         <li>
-                                            Aplikacja jest administrowana przez Federację Polskich Banków Żywności z siedzibą w Warszawie,
-                                            przy al. Solidarności 101 (kod pocztowy 00-144), KRS 0000063599, NIP: 524-21-02-362,
+                                            Aplikacja jest administrowana przez Federację Polskich Banków Żywności
+                                            z siedzibą w Warszawie,
+                                            przy al. Solidarności 101 (kod pocztowy 00-144), KRS 0000063599, NIP:
+                                            524-21-02-362,
                                             REGON 012813018 zwaną dalej Administratorem bądź Federacją.
                                         </li>
                                         <li>
-                                            Aplikacja powstała, by ułatwić osobom fizycznym i osobom prawnym angażowanie się w działania
+                                            Aplikacja powstała, by ułatwić osobom fizycznym i osobom prawnym
+                                            angażowanie się w działania
                                             ograniczające niedożywienie i propagujące niemarnowanie żywności.
                                         </li>
                                         <li>Korzystanie z Aplikacji jest nieodpłatne.</li>
                                         <li>
-                                            Korzystanie z serwisu oznacza zobowiązanie się do przestrzegania postanowień niniejszego
+                                            Korzystanie z serwisu oznacza zobowiązanie się do przestrzegania
+                                            postanowień niniejszego
                                             Regulaminu.
                                         </li>
                                     </ol>
-                                </div>
-                                <div class="col-xs-12 col-lg-9 col-lg-offset-3 mb32">
                                     <h2 id="konto_partnera" class="mt48 mb48">
                                         <strong>III Konto Partnera</strong>
                                     </h2>
                                     <ol type="1">
                                         <li>
-                                            Aplikacja daje możliwość organizacjom zgłoszenia się do współpracy z Bankiem Żywności poprzez
-                                            przeprowadzenie zbiórki w danym sklepie. Zgłoszenie się wymaga rejestracji w Aplikacji poprzez
-                                            założenie „Konta Partnera”. Konto staje się aktywne po jego akceptacji przez Bank.
+                                            Aplikacja daje możliwość organizacjom zgłoszenia się do współpracy
+                                            z Bankiem Żywności poprzez
+                                            przeprowadzenie zbiórki w danym sklepie. Zgłoszenie się wymaga
+                                            rejestracji w Aplikacji poprzez
+                                            założenie „Konta Partnera”. Konto staje się aktywne po jego akceptacji
+                                            przez Bank.
                                         </li>
                                         <li>
                                             Na aktywowanie konta Bank ma 7 dni.
                                         </li>
                                         <li>
-                                            Aktywowanie konta jest równoznaczne z nadaniem organizacji statusu „Partnera”.
+                                            Aktywowanie konta jest równoznaczne z nadaniem organizacji statusu
+                                            „Partnera”.
                                         </li>
                                         <li>
-                                            Przy rejestracji wymagane jest podanie nazwy, adresu oraz danych kontaktowych do organizacji.
-                                            Dane te są zbierane i administrowane przez Federację wyłącznie w celu nawiązania i podtrzymania
+                                            Przy rejestracji wymagane jest podanie nazwy, adresu oraz danych
+                                            kontaktowych do organizacji.
+                                            Dane te są zbierane i administrowane przez Federację wyłącznie w celu
+                                            nawiązania i podtrzymania
                                             kontaktu z Partnerem.
                                         </li>
                                         <li>
-                                            Posiadanie aktywnego Konta Partnera zobowiązuje organizację do raportowania o wynikach zbiórki
+                                            Posiadanie aktywnego Konta Partnera zobowiązuje organizację do
+                                            raportowania o wynikach zbiórki
                                             poprzez funkcjonalności udostępnione przez Administratora.
                                         </li>
                                         <li>
                                             Rejestrując się w serwisie Partner oświadcza, że:
                                             <ol type="a">
                                                 <li>jego dane są zgodne z obecnym stanem faktycznym,</li>
-                                                <li>zaktualizuje informacje o sobie jeśli jego dane, np. numer telefonu lub adres siedziby,
+                                                <li>zaktualizuje informacje o sobie jeśli jego dane, np. numer
+                                                    telefonu lub adres siedziby,
                                                     ulegną zmianie.
                                                 </li>
                                             </ol>
                                         </li>
                                         <li>
-                                            Utworzenie Konta możliwe jest przez podanie nazwy Użytkownika i hasła, niezbędnych do zalogowania
+                                            Utworzenie Konta możliwe jest przez podanie nazwy Użytkownika i hasła,
+                                            niezbędnych do zalogowania
                                             w Aplikacji i korzystania z jej funkcjonalności.
                                         </li>
                                         <li>
-                                            Zarejestrowani Użytkownicy są w pełni odpowiedzialni za zachowanie swojego hasła w tajemnicy,
-                                            a także za korzystanie z Aplikacji w celach określonych przez niniejszy Regulamin.
+                                            Zarejestrowani Użytkownicy są w pełni odpowiedzialni za zachowanie
+                                            swojego hasła w tajemnicy,
+                                            a także za korzystanie z Aplikacji w celach określonych przez niniejszy
+                                            Regulamin.
                                         </li>
                                         <li>
-                                            Funkcjonalności Aplikacji dają Partnerom możliwość wprowadzenia do systemu własnych sklepów,
-                                            w których przeprowadzą zbiórkę oraz raportowania o ilości zebranej żywności.
+                                            Funkcjonalności Aplikacji dają Partnerom możliwość wprowadzenia do
+                                            systemu własnych sklepów,
+                                            w których przeprowadzą zbiórkę oraz raportowania o ilości zebranej
+                                            żywności.
                                         </li>
                                         <li>
-                                            Administrator zastrzega sobie prawo do usunięcia Konta Partnera jeśli złamał on postanowienia
+                                            Administrator zastrzega sobie prawo do usunięcia Konta Partnera jeśli
+                                            złamał on postanowienia
                                             Regulaminu.
                                         </li>
                                     </ol>
-                                </div>
-                                <div class="col-xs-12 col-lg-9 col-lg-offset-3 mb32">
                                     <h2 id="wolontariusze" class="mt48 mb48">
                                         <strong>IV Wolontariusze</strong>
                                     </h2>
                                     <ol type="1">
                                         <li>
-                                            Korzystanie z Aplikacji możliwe jest bez konieczności posiadania konta i logowania się w serwisie,
-                                            przy czym niektóre funkcjonalności serwisu wymagają uprzedniej rejestracji i logowania w serwisie.
+                                            Korzystanie z Aplikacji możliwe jest bez konieczności posiadania konta
+                                            i logowania się w serwisie,
+                                            przy czym niektóre funkcjonalności serwisu wymagają uprzedniej
+                                            rejestracji i logowania w serwisie.
                                         </li>
                                         <li>
-                                            Rejestracja konta Użytkownika wymaga podania imienia i nazwiska Użytkownika oraz adresu poczty
-                                            e-mail, a także wskazania przez Użytkownika loginu i  hasła logowania. Rejestracja wymaga
-                                            również potwierdzenia przez rejestrującego się Użytkownika kliknięcia w przesłany w treści
+                                            Rejestracja konta Użytkownika wymaga podania imienia i nazwiska
+                                            Użytkownika oraz adresu poczty
+                                            e-mail, a także wskazania przez Użytkownika loginu i  hasła logowania.
+                                            Rejestracja wymaga
+                                            również potwierdzenia przez rejestrującego się Użytkownika kliknięcia
+                                            w przesłany w treści
                                             wiadomości e-mail link aktywujący konto.
                                         </li>
                                         <li>
-                                            Wolontariusze mogą aplikować na poszczególne stanowiska bez konieczności posiadania konta
+                                            Wolontariusze mogą aplikować na poszczególne stanowiska bez konieczności
+                                            posiadania konta
                                             i logowania się w serwisie.
                                         </li>
                                         <li>
-                                            Wolontariusze aplikują na konkretne stanowisko lub do konkretnego działania podając w formularzu
-                                            imię, nazwisko oraz dane kontaktowe w postaci numeru telefonu lub adresu email.
+                                            Wolontariusze aplikują na konkretne stanowisko lub do konkretnego
+                                            działania podając w formularzu
+                                            imię, nazwisko oraz dane kontaktowe w postaci numeru telefonu lub adresu
+                                            email.
                                         </li>
                                         <li>
-                                            Aplikacja na poszczególne stanowiska możliwa jest również po zalogowania na konto Użytkownika
+                                            Aplikacja na poszczególne stanowiska możliwa jest również po zalogowania
+                                            na konto Użytkownika
                                             poprzez wybranie odpowiedniej Oferty.
                                         </li>
                                         <li>
-                                            Podanie danych kontaktowych i akceptacja Regulaminu są konieczne do aplikowania na konkretne stanowisko.
+                                            Podanie danych kontaktowych i akceptacja Regulaminu są konieczne do
+                                            aplikowania na konkretne stanowisko.
                                         </li>
                                         <li>
-                                            Wysłanie aplikacji wraz z podaniem swoich danych osobowych i kontaktowych, a w przypadku
-                                            zalogowanych Użytkowników – wybór Oferty, jest równoznaczne z wyrażeniem chęci podjęcia
+                                            Wysłanie aplikacji wraz z podaniem swoich danych osobowych
+                                            i kontaktowych, a w przypadku
+                                            zalogowanych Użytkowników – wybór Oferty, jest równoznaczne z wyrażeniem
+                                            chęci podjęcia
                                             nieodpłatnych świadczeń na rzecz Banku lub Federacji.
                                         </li>
                                         <li>
-                                            Bank lub Federacja mają 7 dni na skontaktowanie się z Wolontariuszami, którzy aplikowali na dane
+                                            Bank lub Federacja mają 7 dni na skontaktowanie się z Wolontariuszami,
+                                            którzy aplikowali na dane
                                             stanowisko lub do konkretnego działania.
                                         </li>
                                         <li>
-                                            Kontakt ten nie jest równoznaczny z przydzieleniem Wolontariuszowi konkretnego stanowiska.
+                                            Kontakt ten nie jest równoznaczny z przydzieleniem Wolontariuszowi
+                                            konkretnego stanowiska.
                                         </li>
                                         <li>
-                                            Osoba aplikująca na konkretne stanowisko lub do konkretnego działania może działać w imieniu
+                                            Osoba aplikująca na konkretne stanowisko lub do konkretnego działania
+                                            może działać w imieniu
                                             osoby trzeciej wyłącznie w oparciu o jej pisemne upoważnienie.
                                         </li>
                                         <li>
-                                            Zarejestrowani Wolontariusze są w pełni odpowiedzialni za zachowanie swojego hasła w tajemnicy,
-                                            a także za korzystanie z Aplikacji w celach określonych przez niniejszy Regulamin.
+                                            Zarejestrowani Wolontariusze są w pełni odpowiedzialni za zachowanie
+                                            swojego hasła w tajemnicy,
+                                            a także za korzystanie z Aplikacji w celach określonych przez niniejszy
+                                            Regulamin.
                                         </li>
                                         <li>
-                                            Osoba aplikująca (posiadająca status zarówno zarejestrowanego jak i niezarejestrowanego
-                                            Użytkownika Aplikacji) zobowiązana jest we współpracy z Federacją i Bankami przestrzegać celów
+                                            Osoba aplikująca (posiadająca status zarówno zarejestrowanego jak
+                                            i niezarejestrowanego
+                                            Użytkownika Aplikacji) zobowiązana jest we współpracy z Federacją
+                                            i Bankami przestrzegać celów
                                             statutowych Federacji i Banków.
                                         </li>
                                     </ol>
-                                </div>
-                                <div class="col-xs-12 col-lg-9 col-lg-offset-3 mb32">
                                     <h2 id="e_learning" class="mt48 mb48">
                                         <strong>V Moduł e-learningu</strong>
                                     </h2>
                                     <ol type="1">
                                         <li>
-                                            Użytkownicy posiadający konto w serwisie, po uprzednim zalogowaniu, uprawnieni są do korzystania z Modułu e-learningu.
+                                            Użytkownicy posiadający konto w serwisie, po uprzednim zalogowaniu,
+                                            uprawnieni są do korzystania z Modułu e-learningu.
                                         </li>
                                         <li>
-                                            Materiały zamieszczane w Module e-learningu są własnością Federacji, przeznaczone do bezpłatnych
-                                            szkoleń Użytkowników online z zakresu wiedzy o wolontariacie i działalności Federacji.
+                                            Materiały zamieszczane w Module e-learningu są własnością Federacji,
+                                            przeznaczone do bezpłatnych
+                                            szkoleń Użytkowników online z zakresu wiedzy o wolontariacie
+                                            i działalności Federacji.
                                         </li>
                                     </ol>
-                                </div>
-                                <div class="col-xs-12 col-lg-9 col-lg-offset-3 mb32">
                                     <h2 id="koncowe" class="mt48 mb48">
                                         <strong>VI Postanowienia końcowe</strong>
                                     </h2>
                                     <ol type="1">
                                         <li>
-                                            Zakazane jest korzystanie z Aplikacji, w tym Modułu e-learningu, w sposób sprzeczny z obowiązującymi
-                                            przepisami prawa oraz dobrymi obyczajami, a w szczególności dostarczanie i przesyłanie
-                                            za pomocą Aplikacji treści o charakterze bezprawnym (np. tzw. „spamu” lub
-                                            materiałów naruszających prawa autorskie czy dobra osobiste osób trzecich).
+                                            Zakazane jest korzystanie z Aplikacji, w tym Modułu e-learningu,
+                                            w sposób sprzeczny z obowiązującymi
+                                            przepisami prawa oraz dobrymi obyczajami, a w szczególności dostarczanie
+                                            i przesyłanie
+                                            za pomocą Aplikacji treści o charakterze bezprawnym (np. tzw. „spamu”
+                                            lub
+                                            materiałów naruszających prawa autorskie czy dobra osobiste osób
+                                            trzecich).
                                         </li>
                                         <li>
-                                            Zakazane jest wprowadzanie do Aplikacji danych niezgodnych z rzeczywistością (w tym podawanie
-                                            fałszywych danych osobowych) lub działanie w imieniu osoby trzeciej, która nie wyraziła na to pisemnej zgody.
+                                            Zakazane jest wprowadzanie do Aplikacji danych niezgodnych
+                                            z rzeczywistością (w tym podawanie
+                                            fałszywych danych osobowych) lub działanie w imieniu osoby trzeciej,
+                                            która nie wyraziła na to pisemnej zgody.
                                         </li>
                                         <li>
                                             Przeglądanie Ofert jest anonimowe i nie wymaga rejestracji.
                                         </li>
                                         <li>
-                                            Dane osobowe Użytkowników nie zostaną upublicznione bez wyraźnego wniosku Użytkownika.
-                                            Szczegóły ochrony danych osobowych Użytkowników określa <a href="/page/privacy_policy">Polityka Prywatności</a>.
+                                            Dane osobowe Użytkowników nie zostaną upublicznione bez wyraźnego
+                                            wniosku Użytkownika.
+                                            Szczegóły ochrony danych osobowych Użytkowników określa<a
+                                                href="/page/privacy_policy">Polityka Prywatności</a>.
                                         </li>
                                         <li>
                                             Konto Użytkownika może zostać dezaktywowane na wniosek Użytkownika.
                                         </li>
                                         <li>
-                                            Administrator Aplikacji nie ponosi odpowiedzialności za sprzeczne z prawem działania
-                                            Użytkowników i w przypadku uzasadnionych podejrzeń co do naruszenia prawa, będzie kierował
+                                            Administrator Aplikacji nie ponosi odpowiedzialności za sprzeczne
+                                            z prawem działania
+                                            Użytkowników i w przypadku uzasadnionych podejrzeń co do naruszenia
+                                            prawa, będzie kierował
                                             tego rodzaju sprawy do odpowiednich organów publicznych.
                                         </li>
                                     </ol>
-                                </div>
-                                <div class="col-xs-12 col-lg-9 col-lg-offset-3 mb32">
                                     <p>
-                                        <br />
-                                        <br />
-                                        Regulamin przygotowany przy wsparciu <br />
+                                        <br/>
+                                        <br/>
+                                        Regulamin przygotowany przy wsparciu
+                                        <br/>
                                         <a href="http://www.fka.com.pl" title="">
-                                            <img src="http://www.wolontariat.bankizywnosci.pl/bundles/bzfront/image/logo_fka.png" alt="Furtek Kosma Aleksandrowicz"/>
+                                            <img src="http://www.wolontariat.bankizywnosci.pl/bundles/bzfront/image/logo_fka.png"
+                                                 alt="Furtek Kosma Aleksandrowicz"/>
                                         </a>
                                     </p>
                                 </div>

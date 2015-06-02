@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <template id="new_contactus" inherit_id="website.contactus" name="Contact us">
+            <xpath expr="//div[@id='wrap']" position="replace">
+                <div id="wrap">
+                    <div class="container">
+                        <h1 class="text-center">Kontakt</h1>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="oe_structure">
+                                    <div>
+                                        <h2>Dane teleadresowe</h2>
+                                        <p>Federacja Polskich Banków Żywności</p>
+                                        <p>Al. Solidarności 101</p>
+                                        <p class="mb16">00-144 Warszawa</p>
+                                    </div>
+                                    <div class="contact_us_tel_email">
+                                        <p class='mt8 mb8'>tel.
+                                            <span class='telephone_number'>
+                                                (22) 654 64 00, 654 64 10 / tel
+                                            </span>
+                                        </p>
+                                        <p class='mt8 mb8'>tel.
+                                            <span class='telephone_number'>(22) 654 64 00, 654 64 10 wew.102 / fax
+                                            </span>
+                                        </p>
+                                        <p>e-mail: federacja (at) bankizywnosci.pl</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt32 mb32">
+                            <div class="col-md-11">
+                                <script type="text/javascript"
+                                        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBIJWeZPMfNogWHirwiDJLL-Yj_tkOhLkY">
+                                </script>
+                                <script type="text/javascript">
+                                    function initialize() {
+                                    var mapOptions = {
+                                    zoom: 16,
+                                    center: new google.maps.LatLng(52.2427858, 20.9968245),
+                                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                                    };
+
+                                    var map = new google.maps.Map(document.getElementById('map-canvas'),
+                                    mapOptions);
+
+                                    var marker = new google.maps.Marker({map: map, position: new
+                                    google.maps.LatLng(52.2427858, 20.9968245)});
+
+                                    window.onresize = function() {
+                                    map.setCenter(marker.getPosition());
+                                    };
+                                    }
+                                    google.maps.event.addDomListener(window, 'load', initialize);
+
+                                </script>
+                                <div style='overflow:hidden; height:300px; width:100%;'>
+                                    <div id="map-canvas" style='height:300px; width:100%;'></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </template>
+    </data>
+</openerp>

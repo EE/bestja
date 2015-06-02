@@ -7,13 +7,14 @@
                     <section class="oe_snippet_body">
                         <div class="container single_page">
                             <div class="row">
-                                <div class="col-xs-12 col-lg-9 single_page_top_header">
+                                <div class="col-sm-12 col-md-9 col-md-offset-3 single_page_top_header">
                                     <h1 class="mt48 mb48 section_title">
                                         <strong>Polityka prywatności aplikacji do rekrutowania wolontariuszy</strong>
                                     </h1>
                                 </div>
-                                <div class="col-xs-12 col-lg-3">
-                                    <ul class="nav nav-pills single_page_nav">
+                                <div class="col-sm-3 hidden-xs hidden-sm">
+                                    <div >
+                                        <ul class="nav nav-pills nav-stacked">
                                         <li>
                                             <a href="#wstep">Wstęp</a>
                                         </li>
@@ -36,9 +37,10 @@
                                             <a href="#zmiany">Zmiany Polityki Prywatności</a>
                                         </li>
                                     </ul>
+                                    </div>
                                 </div>
-                                <div class="col-xs-12 col-lg-9 col-lg-offset-3 mb32">
-                                    <h2 id="wstep" class="mt48 mb16">
+                                <div class="col-sm-12 col-md-9">
+                                    <h2 id="wstep" class="mb16">
                                         <strong>Wstęp</strong>
                                     </h2>
                                     <p>
@@ -51,8 +53,6 @@
                                         Brak akceptacji niniejszej Polityki Prywatności jest równoznaczny z brakiem możliwości korzystania
                                         z aplikacji do rekrutowania wolontariuszy zamieszczonej w Serwisie ("Aplikacja").
                                     </p>
-                                </div>
-                                <div class="col-xs-12 col-lg-9 col-lg-offset-3 mb32">
                                     <h2 id="administrator" class="mt48 mb16">
                                         <strong>Administrator</strong>
                                     </h2>
@@ -69,8 +69,6 @@
                                         danych odpowiednią do zagrożeń oraz kategorii danych objętych ochroną, a w szczególności zabezpiecza
                                         dane osobowe Użytkowników przed udostępnieniem ich osobom nieupoważnionym, utratą czy uszkodzeniem.
                                     </p>
-                                </div>
-                                <div class="col-xs-12 col-lg-9 col-lg-offset-3 mb32">
                                     <h2 id="aplikacja" class="mt48 mb16">
                                         <strong>Aplikacja</strong>
                                     </h2>
@@ -96,8 +94,6 @@
                                         te informacje pozostają na serwerze Administratora i są udostępniane wyłącznie Bankowi Żywności,
                                         na którego ofertę wolontariusz aplikował.
                                     </p>
-                                </div>
-                                <div class="col-xs-12 col-lg-9 col-lg-offset-3 mb32">
                                     <h2 id="informacje" class="mt48 mb16">
                                         <strong>Sposoby wykorzystywania informacji</strong>
                                     </h2>
@@ -116,8 +112,6 @@
                                         Dane gromadzone w Aplikacji mogą być udostępniane odpowiednim instytucjom publicznym,
                                         w przypadkach określonych przez prawo.
                                     </p>
-                                </div>
-                                <div class="col-xs-12 col-lg-9 col-lg-offset-3 mb32">
                                     <h2 id="cookies" class="mt48 mb16">
                                         <strong>Polityka cookies</strong>
                                     </h2>
@@ -141,7 +135,6 @@
                                             na każdej podstronie Serwisu ponownie wpisywać loginu i hasła
                                         </li>
                                     </ol>
-                                    <p></p>
                                     <p>
                                         W ramach Serwisu stosowane są następujące rodzaje plików cookies:
                                     </p>
@@ -161,14 +154,11 @@
                                             z którego pochodzi Użytkownik, rozmiaru czcionki, wyglądu strony internetowej itp.
                                         </li>
                                     </ol>
-                                    <p></p>
                                     <p>
                                         Zgodnie z przepisami ustawy z dnia 16 lipca 2004 r. Prawo telekomunikacyjne (Dz. U. nr 171, poz.
                                         1800 ze zm.) Użytkownik ma prawo zadecydowania w zakresie dostępu plików cookies do swojego
                                         komputera poprzez ich uprzedni wybór w oknie swojej przeglądarki.
                                     </p>
-                                </div>
-                                <div class="col-xs-12 col-lg-9 col-lg-offset-3 mb32">
                                     <h2 id="zmiany" class="mt48 mb16">
                                         <strong>Zmiany Polityki Prywatności</strong>
                                     </h2>

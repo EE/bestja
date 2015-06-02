@@ -10,7 +10,7 @@
                     </div>
 
                     <section class="oe_snippet_body mt16 mb16">
-                        <div class="container-fluid meet_our_volunteers">
+                        <div class="container meet_our_volunteers">
                             <div class="row row-centered">
                                 <div class="col-md-1 centered nav_left">
                                     <img src="/bestja_frontend_fpbz/static/src/img/content/poprzedni-01.svg" />

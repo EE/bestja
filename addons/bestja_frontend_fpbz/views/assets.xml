@@ -3,10 +3,10 @@
     <data>
         <template id="assets_frontend" inherit_id="website.assets_frontend" name="bestja_frontend_fpbz assets like css, js" >
             <xpath expr="." position="inside">
+                <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
                 <link rel="stylesheet" href="/bestja_frontend_fpbz/static/src/css/custom.css"/>
                 <link rel="stylesheet" href="/bestja_frontend_fpbz/static/src/css/footer.css"/>
                 <script type="text/javascript" src="/bestja_frontend_fpbz/static/src/js/custom.js"></script>
-                <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.4.1/slick.min.js"></script>
             </xpath>
         </template>
     </data>

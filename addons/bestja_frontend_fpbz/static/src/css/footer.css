@@ -1,7 +1,17 @@
 /* Footer */
 footer{
     display: block;
-    height: 156px;
+    min-height: 225px;
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+#footer_container, #footer {
+    padding: 0;
+}
+
+.footer_div {
+    min-height: 225px;
+    padding-top: 25px;
+    background-color: #F39100;
 }
 
 @media (max-width: 991px){
@@ -9,13 +19,22 @@ footer{
         height: 268px;
     }
 }
+footer .links {
+    font-size: 21px;
+    color: #FFFFFF;
+    font-weight: bold;
+    line-height: 30px;
+}
+footer .links li {
+    margin-right: 20px;
+}
+footer .links .copyrights {
+    font-weight: normal;
+    font-size: 14px;
+}
 
 .footer_logo_container{
     text-align: left;
-}
-
-.footer_logo_container li a{
-    font-size: 14px;
 }
 
 .footer_logo_container li a:hover{
@@ -33,7 +52,7 @@ footer{
     background-image: url('/bestja_frontend_fpbz/static/src/img/content/bz-logo-02-white.svg');
     background-repeat: no-repeat;
     width: 250px;
-    height: 80px;
+    height: 60px;
 }
 
 .footer_icons_container{
@@ -51,10 +70,8 @@ footer{
 .footer_icons li{
     display: inline-block;
     list-style: none;
-    margin-left: 20px;
     margin-right: 20px;
     text-align: right;
-    margin-bottom: 20px;
 }
 
 .footer_icons li:last-child{
@@ -100,12 +117,6 @@ footer{
     vertical-align: middle;
 }
 
-.footer_div{
-    min-height: 100px;
-    padding-top: 25px;
-    width: 100%;
-    background-color: #F39100;
-}
 
 .footer_div a{
     color: #FFFFFF;
@@ -146,12 +157,6 @@ footer{
     display: inline-block;
     list-style: none;
     margin-bottom: 20px;
-}
-
-.footer_contact li, .footer_contact li a{
-    color: #FFFFFF;
-    font-size: 14px;
-    margin-left: 10px;
 }
 
 .footer_contact li:first-child, .footer_contact li a:first-child{

@@ -1,10 +1,16 @@
 jQuery(window).ready(function () {
 
+
+
+    // Background picture will fit viewport
+
+
     /* Function which changes size of Main top photo snippet when window is resized */
     var $window = $(window).on('resize', function () {
-        var height = $(this).height() - $("navbar-static-top").height() - 50;
+        var height = $(this).height() - $("navbar-static-top").height() - 250;
+
         if (height > 1080) {
-            $('.introduction').height(1080);
+            $('.introduction').height(1080 - 250);
         } else {
             $('.introduction').height(height);
         }
@@ -70,120 +76,6 @@ jQuery(window).ready(function () {
     }
     /* End of cookie for reminder */
 
-    /* -+- Animations -+- */
-    $(window).scroll(function () {
-
-        /* Check the location of each desired element */
-        $('.fadeIn').each(function (i) {
-
-            var bottom_of_object = $(this).offset().top + $(this).outerHeight();
-            var bottom_of_window = $(window).scrollTop() + $(window).height();
-
-            /* If the object is completely visible in the window, fade it it */
-            if (bottom_of_window > bottom_of_object) {
-
-                $(this).animate({
-                    'opacity': '1'
-                }, 1000);
-
-            }
-
-        });
-
-        /* Check the location of each desired element */
-        $('.fadeInLeft').each(function (i) {
-
-            var bottom_of_object = $(this).offset().top + $(this).outerHeight();
-            var bottom_of_window = $(window).scrollTop() + $(window).height();
-
-            /* If the object is completely visible in the window, fade it it */
-            if (bottom_of_window > bottom_of_object) {
-
-                $(this).animate({
-                    'margin-left': '0',
-                    'opacity': '1'
-                }, 1000);
-
-            }
-
-        });
-
-        /* Check the location of each desired element */
-        $('.fadeInRight').each(function (i) {
-
-            var bottom_of_object = $(this).offset().top + $(this).outerHeight();
-            var bottom_of_window = $(window).scrollTop() + $(window).height();
-
-            /* If the object is completely visible in the window, fade it it */
-            if (bottom_of_window > bottom_of_object) {
-
-                $(this).animate({
-                    'margin-right': '0',
-                    'opacity': '1'
-                }, 1000);
-
-            }
-
-        });
-
-        /* Check the location of each desired element */
-        $('.fadeInTop').each(function (i) {
-
-            var bottom_of_object = $(this).offset().top + $(this).outerHeight();
-            var bottom_of_window = $(window).scrollTop() + $(window).height();
-
-            /* If the object is completely visible in the window, fade it it */
-            if (bottom_of_window > bottom_of_object) {
-
-                $(this).animate({
-                    'margin-top': '0',
-                    'opacity': '1'
-                }, 1000);
-
-            }
-
-        });
-
-        /* Check the location of each desired element */
-        $('.fadeInBottom').each(function (i) {
-
-            var bottom_of_object = $(this).offset().top + $(this).outerHeight();
-            var bottom_of_window = $(window).scrollTop() + $(window).height();
-
-            /* If the object is completely visible in the window, fade it it */
-            if (bottom_of_window > bottom_of_object) {
-
-                $(this).animate({
-                    'margin-bottom': '0',
-                    'opacity': '1'
-                }, 1000);
-
-            }
-
-        });
-
-        /* Check the location of each desired element */
-        $('.maximize').each(function (i) {
-
-            var bottom_of_object = $(this).offset().top + $(this).outerHeight();
-            var bottom_of_window = $(window).scrollTop() + $(window).height();
-
-            /* If the object is completely visible in the window, fade it it */
-            if (bottom_of_window > bottom_of_object) {
-
-                $(this).animate({
-                    'width': '100%',
-                    'height': '100%',
-                    'opacity': '1'
-                }, 1000);
-
-            }
-
-        });
-
-    });
-    /* End of -+- Animations -+- */
-
     /* Same height recrutation steps columns */
     var sameHeightBlocks = $('.recrutation_step_column');
     var maxHeight = Math.max.apply(
@@ -202,68 +94,6 @@ jQuery(window).ready(function () {
     sameHeightBlocks2.height(maxHeight);
     /* End of same height recrutation steps columns */
 
-    /* Photo slider */
-    $('.meet_our_volunteers_slider').slick({
-        infinite: true,
-        speed: 300,
-        slidesToShow: 1,
-        centerMode: true,
-        variableWidth: true,
-        responsive: [
-            {
-                breakpoint: 767,
-                settings: {
-                    variableWidth: false
-                }
-            }
-        ]
-    });
-    $('.volunteers_bulletin_slider').slick({
-        infinite: true,
-        speed: 300,
-        slidesToShow: 2,
-        centerMode: true,
-        variableWidth: true,
-        responsive: [
-            {
-                breakpoint: 767,
-                settings: {
-                    variableWidth: false
-                }
-            }
-        ]
-    });
-    $('.the_tasks_of_volunteer_slider').slick({
-        infinite: true,
-        speed: 300,
-        slidesToShow: 1,
-        centerMode: true,
-        variableWidth: true,
-        responsive: [
-            {
-                breakpoint: 767,
-                settings: {
-                    variableWidth: false
-                }
-            }
-        ]
-    });
-    $('.the_tasks_of_coordinator_slider').slick({
-        infinite: true,
-        speed: 300,
-        slidesToShow: 1,
-        centerMode: true,
-        variableWidth: true,
-        responsive: [
-            {
-                breakpoint: 767,
-                settings: {
-                    variableWidth: false
-                }
-            }
-        ]
-    });
-    /* End of photo slider */
 
     /* Footer at bottom of the page */
     $('main').height($('#wrapwrap').height() - $('footer').height() - 51);

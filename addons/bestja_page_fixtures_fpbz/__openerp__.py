@@ -13,6 +13,7 @@
     'data': [
     # pages
         'templates/pages/title.xml',
+        'templates/pages/contactus.xml',
         'templates/pages/home_page.xml',
         'templates/pages/footer.xml',
         'templates/pages/become_partner.xml',
