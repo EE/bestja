@@ -20,7 +20,7 @@
         <record id="msg_rejected" model="message_template">
             <field name="subject">Odrzucono ofertę</field>
             <field name="body"><![CDATA[
-                Odrzucono Twoją ofertę ${record.name}. Skontaktuj się z administratorem, aby dowiedzieć się więcej szczegółów.
+                Odrzucono Twoją ofertę ${record.name}. Skontaktuj się z administratorem, aby dowiedzieć się więcej.
             ]]></field>
             <field name="model">offer</field>
         </record>
@@ -29,7 +29,7 @@
             <field name="subject">Rekrutacja na ofertę została wstrzymana</field>
             <field name="body"><![CDATA[
                 Rekrutacja na Twoją ofertę ${record.name} została wstrzymana. Skontaktuj się z administratorem,
-                aby dowiedzieć się więcej szczegółów.
+                aby dowiedzieć się więcej.
                 <br/>
                 <br/>
                 Zespół
