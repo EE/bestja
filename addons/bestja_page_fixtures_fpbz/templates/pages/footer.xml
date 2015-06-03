@@ -8,9 +8,8 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-sm-12">
-                                    <ul class="pull-right">
+                                    <ul class="footer-social-icons-wrapper pull-right">
                                         <li>
-                                            <!--<a class="facebook" ></a>-->
                                             <a t-att-href="website.social_facebook" target="_blank">
                                                 <span class="fa-stack fa-lg">
                                                     <i class="fa fa-circle fa-stack-2x"></i>
