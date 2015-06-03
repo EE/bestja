@@ -7,7 +7,7 @@ class Project(models.Model):
 
     request_template = fields.Many2one(
         'bestja_requests.template',
-        string=u"Szablon zapotrzebowań",
+        string=u"Szablon raportów potrzeb",
         domain="[('organization', '=', organization)]",
         ondelete='restrict',
     )
