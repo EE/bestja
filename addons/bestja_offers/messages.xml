@@ -75,7 +75,7 @@
                 <br/>
                 Zespół
                 <br/>
-                ${site_name}
+                ${record.offer.project.organization.name}
             ]]></field>
             <field name="model">offers.application</field>
         </record>
