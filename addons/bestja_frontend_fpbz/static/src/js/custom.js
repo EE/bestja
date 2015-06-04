@@ -1,49 +1,14 @@
 jQuery(window).ready(function () {
 
-
-
-    // Background picture will fit viewport
-
-
-    /* Function which changes size of Main top photo snippet when window is resized */
-    var $window = $(window).on('resize', function () {
-        var height = $(this).height() - $("navbar-static-top").height() - 250;
-
-        if (height > 1080) {
-            $('.introduction').height(1080 - 250);
-        } else {
-            $('.introduction').height(height);
-        }
-        /* Footer at bottom of the page */
-        $('main').css('height','auto');
-        $('main').height($('#wrapwrap').height() - $('footer').height() - 51);
-        /* End of footer at bottom of the page */
-    });
-    /* End of function resize */
-
     $('.choose_place').click(function () {
         $('html, body').animate({
             scrollTop: $("#choose_place_title").offset().top
         }, 800);
     });
 
-    /* Smooth scrolling */
-    $(function () {
-        $('a[href*=#]:not([href=#])').click(function () {
-            $('html,body').stop();
-            if (location.pathname.replace(/^\//, '') === this.pathname.replace(/^\//, '') && location.hostname === this.hostname) {
-                var target = $(this.hash);
-                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-                if (target.length) {
-                    $('html,body').animate({
-                        scrollTop: target.offset().top
-                    }, 500);
-                    return false;
-                }
-            }
-        });
-    });
-    /* End of smooth scrolling */
+    // `anchors` elements in `volunteers_bulletin` element lose theirs `thumbnail` class when
+    // they're edited via `web builder` so just make sure they all have `thumbnail` class and don't break the layout
+    $('#volunteers_bulletin').find('a').addClass('thumbnail');
 
     /* Cookie for reminder */
     function setCookie(cookieName, cookieValue, daysToExpire) {

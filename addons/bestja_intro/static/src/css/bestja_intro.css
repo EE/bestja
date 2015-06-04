@@ -1,4 +1,4 @@
-
+@import url(http://fonts.googleapis.com/css?family=Kalam&subset=latin,latin-ext);
 .introjs-fixParent {
     position: relative !important;
 }
@@ -8,11 +8,12 @@
 }
 
 .introjs-tooltip {
-    font-family: 'Ubuntu', sans-serif;
-    font-size: 15px;
+    font-family: 'Kalam', cursive;
+    font-size: 22px;
     border-radius: 0;
-    min-width: 300px;
-    max-width: 400px;
+    min-width: 400px;
+    max-width: 500px;
+    padding: 40px;
 }
 
 .introjs-button.introjs-skipbutton {

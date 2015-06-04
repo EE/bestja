@@ -28,15 +28,6 @@
                                 </div>
                             </div>
                         </div>
-                        <script>
-                            // Background picture will fit viewport
-                            var height = window.innerHeight - document.getElementsByClassName('navbar-static-top')[0].offsetHeight - 30;
-                            if(window.innerHeight > 1080){
-                                document.getElementsByClassName('introduction')[0].style.height = (1080 - 250) + "px";
-                            } else {
-                                document.getElementsByClassName('main_top_photo_text')[0].style.height = height + "px";
-                            }
-                        </script>
                     </section>
                 </div>
             </xpath>

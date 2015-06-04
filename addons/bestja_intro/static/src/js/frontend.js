@@ -21,7 +21,7 @@ jQuery(window).ready(function () {
             'steps': [
                 {
                     'element': _el,
-                    'intro': 'Wybierz z listy "Przejdź do aplikacji",<br/> aby zobaczyć wiadomości i swoje zadania',
+                    'intro': 'Wybierz z listy "Przejdź do aplikacji", aby zobaczyć wiadomości i swoje zadania',
                     'position': 'bottom-right-aligned'
                 }
             ]

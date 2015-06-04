@@ -29,16 +29,6 @@
                                 </div>
                             </div>
                         </div>
-                        <script>
-                            // Background picture will fit viewport
-                            var height = window.innerHeight -
-                            document.getElementsByClassName('navbar-static-top')[0].offsetHeight - 250;
-                            if(window.innerHeight > 1080){
-                            document.getElementsByClassName('introduction')[0].style.height = (1080 - 250) + "px";
-                            } else {
-                            document.getElementsByClassName('introduction')[0].style.height = height + "px";
-                            }
-                        </script>
                     </section>
                     <section class="oe_snippet_body">
                         <div class="container">
@@ -388,14 +378,14 @@
                                     </div>
                                 </div>
                                 <div class="col-xs-6 col-sm-1 col-sm-pull-10 text-center">
-                                    <a class="" href="#volunteers_bulletin" role="button"
+                                    <a class="h1" href="#volunteers_bulletin" role="button"
                                        data-slide="prev">
                                         <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
                                         <span class="sr-only">Previous</span>
                                     </a>
                                 </div>
                                 <div class="col-xs-6 col-sm-1 text-center">
-                                    <a class="" href="#volunteers_bulletin" role="button"
+                                    <a class="h1" href="#volunteers_bulletin" role="button"
                                        data-slide="next">
                                         <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
                                         <span class="sr-only">Next</span>
