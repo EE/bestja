@@ -231,5 +231,5 @@ class Offer(models.Model):
         return {
             'type': 'ir.actions.act_url',
             'url': self.get_public_url(),
-            'target': 'new',
+            'target': 'self',
         }
