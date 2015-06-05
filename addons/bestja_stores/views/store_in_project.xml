@@ -125,14 +125,14 @@
                         <field name="date_start"/>
                         <field name="date_stop"/>
                     </group>
-                    <field name="days" context="{'project': project}" attrs="{'invisible': [('days', '=', [])]}">
+                    <field name="days" context="{'project': project}">
                         <tree editable="1">
                             <field name="date"/>
                             <field name="time_from_default" placeholder="HH:MM"/>
                             <field name="time_to_default" placeholder="HH:MM"/>
                         </tree>
                     </field>
-                    <button name="add_days" type="object" string="Dodaj dni zbiórki ▶" attrs="{'invisible': ['|', ('days', '!=', []), ('state', 'in', ['rejected', 'deactivated'])]}"/>
+                    <button name="add_days" type="object" string="Dodaj wszystkie dni zbiórki" attrs="{'invisible': ['|', ('days', '!=', []), ('state', 'in', ['rejected', 'deactivated'])]}"/>
                 </form>
             </field>
         </record>
@@ -149,6 +149,9 @@
                 <field name="project" position="attributes">
                     <attribute name="invisible">1</attribute>
                 </field>
+                <button name="add_days" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </button>
             </field>
         </record>
     </data>
