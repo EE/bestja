@@ -37,7 +37,7 @@ class Organization(models.Model):
     postal_code = fields.Char(size=6, required=True, string=u"Kod pocztowy")
     address = fields.Text(
         compute='_compute_address',
-        string="Pełen adres",
+        string=u"Pełen adres",
     )
     email = fields.Char(string=u"E-mail", required=True)
     phone = fields.Char(required="True", string=u"Numer Telefonu")
