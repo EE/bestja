@@ -98,6 +98,17 @@
                             </div>
                         </div>
                     </section>
+                    <section class="oe_snippet_body mt16 mb16">
+                        <div class="container join_us">
+                            <div class="row">
+                                <div class="text-center">
+                                    <a class="text-center mt32 mb32" t-if="website.user_id == user_id"
+                                       href="/web/signup">DOŁĄCZ DO NAS
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
                     <section class="oe_snippet_body">
                         <div class="container">
                             <div class="row">
@@ -389,6 +400,17 @@
                                        data-slide="next">
                                         <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
                                         <span class="sr-only">Next</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="oe_snippet_body mt16 mb16">
+                        <div class="container join_us">
+                            <div class="row">
+                                <div class="text-center">
+                                    <a class="text-center mt32 mb32" t-if="website.user_id == user_id"
+                                       href="/web/signup">DOŁĄCZ DO NAS
                                     </a>
                                 </div>
                             </div>
