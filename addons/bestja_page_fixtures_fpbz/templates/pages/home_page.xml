@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
-        <template id="new_home_page" inherit_id="website.homepage" name="Homepage">
-            <xpath expr="//div[@id='wrap']" position="replace">
+        <template id="website_embeded.list" name="Homepage">
+            <t t-call="website.layout">
                 <div id="wrap" class="oe_structure oe_empty">
                     <section class="oe_snippet_body introduction">
                         <div class="container">
@@ -549,7 +549,7 @@
                     </section>
 
                 </div>
-            </xpath>
+            </t>
         </template>
     </data>
 </openerp>

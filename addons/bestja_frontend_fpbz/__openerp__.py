@@ -8,15 +8,18 @@
     'category': 'Theme',
     'version': '1.0',
     'css': ['static/src/css/custom.css'],
-    'depends': ['website'],
+    'depends': [
+        'website',
+        'website_embeded',
+    ],
 
     'data': [
-    # assets
+        # assets
         'views/assets.xml',
         'views/cookie_reminder.xml',
         'views/login_signup.xml',
 
-    # snippets
+        # snippets
         'templates/snippets/introduction.xml',
         'templates/snippets/big_title.xml',
         'templates/snippets/why_act_with_us.xml',

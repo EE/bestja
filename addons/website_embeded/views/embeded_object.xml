@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="embeded_object_form">
+            <field name="name">embeded_object.form</field>
+            <field name="model">embeded_object</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1 class="oe_inline">
+                                <field name="name"/>
+                            </h1>
+                        </div>
+                        <group col="2">
+                            <field name="kind"/>
+                            <field name="embed_code"/>
+                            <field name="thumbnail_url" placeholder="http://"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="collage_photo_tree">
+            <field name="name">embeded_object.tree</field>
+            <field name="model">embeded_object</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="create_date" string="data dodania"/>
+                    <field name="write_date" string="data aktualizacji"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record model="ir.actions.act_window" id="action_embeded_objects">
+            <field name="name">Obiekty osadzone na stronie</field>
+            <field name="res_model">embeded_object</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.ui.view" id="embeded_object_search">
+            <field name="name">embeded_object.search</field>
+            <field name="model">embeded_object</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name" string="Nazwa"/>
+                    <filter name="my_files" string="Dodane przeze mnie"
+                                domain="[
+                                    '|',
+                                        ('create_uid', '=', uid),
+                                        ('write_uid', '=', uid)]"/>
+                </search>
+            </field>
+        </record>
+    </data>
+</openerp>

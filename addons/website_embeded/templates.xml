@@ -1,0 +1,24 @@
+<openerp>
+    <data>
+        <template id="list">
+            <t t-call="website.layout">
+                <ul>
+                    <li t-foreach="objects['biuletyn']" t-as="object">
+                        <a t-attf-href="/embeded/{{ slug(object) }}">
+                            <t t-esc="object.name"/>
+                            <img t-att-src="object.thumbnail_url" t-att-alt="object.name"/>
+                        </a>
+                        <hr/>
+                    </li>
+                </ul>
+            </t>
+        </template>
+        <template id="detail">
+            <t t-call="website.layout">
+                <h1 t-field="object.name"/>
+                <t t-raw="object.embed_code"/>
+                <div t-field="object.description"/>
+            </t>
+        </template>
+    </data>
+</openerp>
