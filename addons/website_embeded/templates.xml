@@ -15,9 +15,20 @@
         </template>
         <template id="detail">
             <t t-call="website.layout">
-                <h1 t-field="object.name"/>
-                <t t-raw="object.embed_code"/>
-                <div t-field="object.description"/>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h1 t-field="object.name"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-8 col-sm-offset-2">
+                            <t t-raw="object.embed_code"/>
+                            <p t-field="object.description"/>
+                        </div>
+                    </div>
+                </div>
+
             </t>
         </template>
     </data>
