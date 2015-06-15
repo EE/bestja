@@ -22,13 +22,18 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-sm-8 col-sm-offset-2">
-                            <t t-raw="object.embed_code"/>
-                            <p t-field="object.description"/>
+                        <div class="col-sm-12 col-md-8 col-md-offset-2">
+                            <div class="embed-responsive embed-responsive-16by9">
+                                <t t-raw="object.embed_code"/>
+                                <!--<iframe class="" src="..."></iframe>-->
+                            </div>
+
+                            <t t-if="object.description and object.description.strip()">
+                                <p t-field="object.description"/>
+                            </t>
                         </div>
                     </div>
                 </div>
-
             </t>
         </template>
     </data>
