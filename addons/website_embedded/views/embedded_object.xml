@@ -15,8 +15,9 @@
                         </div>
                         <group col="2">
                             <field name="kind"/>
-                            <field name="embed_code"/>
-                            <field name="thumbnail_url" placeholder="http://"/>
+                            <field name="resource_url" placeholder="http://"/>
+                            <field name="embed_code" invisible="1"/>
+                            <field name="thumbnail_url" invisible="1"/>
                         </group>
                     </sheet>
                 </form>
@@ -28,7 +29,9 @@
             <field name="model">embedded_object</field>
             <field name="arch" type="xml">
                 <tree>
+                    <field name="sequence" invisible="1"/>
                     <field name="name"/>
+                    <field name="kind"/>
                     <field name="create_date" string="data dodania"/>
                     <field name="write_date" string="data aktualizacji"/>
                 </tree>
@@ -52,6 +55,19 @@
                                     '|',
                                         ('create_uid', '=', uid),
                                         ('write_uid', '=', uid)]"/>
+                    <group string="Typ">
+                        <filter name="e_learning_filter" string="e-learning (wolontariusze)"
+                                    domain="[('kind', '=', 'elearning')]"/>
+                        <filter name="e_learning_partners_filter" string="e-learning (partnerzy)"
+                                    domain="[('kind', '=', 'elearning_partners')]"/>
+                        <filter name="biuletyn_filters" string="biuletyn"
+                                    domain="[('kind', '=', 'biuletyn')]"/>
+
+                    </group>
+                    <group string="Grupowanie">
+                        <filter name="group_by_kind" string="Typ"
+                                    context="{'group_by': 'kind'}"/>
+                    </group>
                 </search>
             </field>
         </record>

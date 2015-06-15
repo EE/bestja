@@ -1,1 +1,2 @@
 Whoosh==2.6.0
+pyembed==1.1.2
