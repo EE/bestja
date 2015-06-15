@@ -1,3 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_embeded_object,embeded_object,model_embeded_object,,1,0,0,0
-access_embeded_object_publisher,embeded_object_publisher,model_embeded_object,base.group_website_publisher,1,1,1,1

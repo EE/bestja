@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
-        <record model="ir.ui.view" id="embeded_object_form">
-            <field name="name">embeded_object.form</field>
-            <field name="model">embeded_object</field>
+        <record model="ir.ui.view" id="embedded_object_form">
+            <field name="name">embedded_object.form</field>
+            <field name="model">embedded_object</field>
             <field name="arch" type="xml">
                 <form>
                     <sheet>
@@ -24,8 +24,8 @@
         </record>
 
         <record model="ir.ui.view" id="collage_photo_tree">
-            <field name="name">embeded_object.tree</field>
-            <field name="model">embeded_object</field>
+            <field name="name">embedded_object.tree</field>
+            <field name="model">embedded_object</field>
             <field name="arch" type="xml">
                 <tree>
                     <field name="name"/>
@@ -35,15 +35,15 @@
             </field>
         </record>
         
-        <record model="ir.actions.act_window" id="action_embeded_objects">
+        <record model="ir.actions.act_window" id="action_embedded_objects">
             <field name="name">Obiekty osadzone na stronie</field>
-            <field name="res_model">embeded_object</field>
+            <field name="res_model">embedded_object</field>
             <field name="view_mode">tree,form</field>
         </record>
 
-        <record model="ir.ui.view" id="embeded_object_search">
-            <field name="name">embeded_object.search</field>
-            <field name="model">embeded_object</field>
+        <record model="ir.ui.view" id="embedded_object_search">
+            <field name="name">embedded_object.search</field>
+            <field name="model">embedded_object</field>
             <field name="arch" type="xml">
                 <search>
                     <field name="name" string="Nazwa"/>

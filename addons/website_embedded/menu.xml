@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <menuitem sequence="100" id="main_menu_embedded_objects" groups="base.group_website_publisher" name="Obiekty osadzone"/>
+        <menuitem parent="main_menu_embedded_objects" sequence="0" id="menu_embedded_objects" name="Obiekty osadzone"/>
+        <menuitem parent="menu_embedded_objects" sequence="0" id="menu_embedded_objects_list" name="Obiekty osadzone" action="action_embedded_objects"/>
+    </data>
+</openerp>

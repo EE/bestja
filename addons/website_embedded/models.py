@@ -3,8 +3,8 @@
 from openerp import models, fields
 
 
-class EmbededObject(models.Model):
-    _name = 'embeded_object'
+class EmbeddedObject(models.Model):
+    _name = 'embedded_object'
 
     KINDS = [
         ('elearning', "e-learning"),

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
-        <template id="website_embeded.list" name="Homepage">
+        <template id="website_embedded.list" name="Homepage">
             <t t-call="website.layout">
                 <div id="wrap" class="oe_structure oe_empty">
                     <section class="oe_snippet_body introduction">
@@ -301,7 +301,7 @@
                                                         <t t-foreach="objects['biuletyn']" t-as="object">
                                                             <div class="col-xs-4 col-sm-4">
                                                                 <a class="thumbnail"
-                                                                   t-attf-href="/embeded/{{ slug(object) }}"
+                                                                   t-attf-href="/embedded/{{ slug(object) }}"
                                                                    t-att-title="object.name">
                                                                     <img t-att-src="object.thumbnail_url"
                                                                          t-att-alt="object.name" class="img-polaroid"/>
@@ -377,7 +377,7 @@
                                                         <t t-foreach="objects['elearning']" t-as="object">
                                                             <div class="col-xs-4 col-sm-4">
                                                                 <a class="thumbnail"
-                                                                   t-attf-href="/embeded/{{ slug(object) }}"
+                                                                   t-attf-href="/embedded/{{ slug(object) }}"
                                                                    t-att-title="object.name">
                                                                     <img t-att-src="object.thumbnail_url"
                                                                          t-att-alt="object.name" class="img-polaroid"/>

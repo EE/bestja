@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Embeded objects",
+    'name': "Embedded objects",
     'summary': "Embeding videos etc. and listing it on the website",
     'description': """
         A module for embeding videos and other media and listing them.
@@ -15,7 +15,7 @@
     'data': [
         'security/ir.model.access.csv',
         'templates.xml',
-        'views/embeded_object.xml',
+        'views/embedded_object.xml',
         'menu.xml',
     ],
 }

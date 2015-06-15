@@ -10,7 +10,7 @@
     'css': ['static/src/css/custom.css'],
     'depends': [
         'website',
-        'website_embeded',
+        'website_embedded',
     ],
 
     'data': [
