@@ -28,9 +28,7 @@
                                 <!--<iframe class="" src="..."></iframe>-->
                             </div>
 
-                            <t t-if="object.description and object.description.strip()">
-                                <p t-field="object.description"/>
-                            </t>
+                            <div t-field="object.description"/>
                         </div>
                     </div>
                 </div>
