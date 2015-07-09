@@ -16,7 +16,7 @@
                 </div>
 
                 <section class="oe_snippet_body survey">
-                    <div class="container"><div class="row">
+                    <div class="col-sm-12"><div class="row">
 
                     <div class="ee_question">Enter question here...</div>
                     <t t-set="answer_count" t-value="4" />
