@@ -251,7 +251,7 @@ h6 {
 
 /* Main top snippet */
 .introduction {
-    background: #777777 url('http://lorempixel.com/g/1920/1080') no-repeat 50% 0%;
+    background: #777777 url('/bestja_frontend_fpbz/static/src/img/content/introduction_bg.jpg') no-repeat 50% 0%;
     background-size: cover;
     color: #FFFFFF;
     font-family: 'Open Sans Condensed', sans-serif;

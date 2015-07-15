@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
-    <data>
+    <data noupdate="1">
         <template id="new_contactus" inherit_id="website.contactus" name="Contact us">
             <xpath expr="//div[@id='wrap']" position="replace">
                 <div id="wrap">
