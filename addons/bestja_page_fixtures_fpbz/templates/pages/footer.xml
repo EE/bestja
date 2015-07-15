@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
-    <data>
+    <data noupdate="1">
         <template id="new_footer" inherit_id="website.layout" name="New footer">
             <xpath expr="//footer" position="replace">
                 <footer id="footer_container">
