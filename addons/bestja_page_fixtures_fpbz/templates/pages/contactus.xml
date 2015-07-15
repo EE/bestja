@@ -32,33 +32,7 @@
                         </div>
                         <div class="row mt32 mb32">
                             <div class="col-md-11">
-                                <script type="text/javascript"
-                                        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBIJWeZPMfNogWHirwiDJLL-Yj_tkOhLkY">
-                                </script>
-                                <script type="text/javascript">
-                                    function initialize() {
-                                    var mapOptions = {
-                                    zoom: 16,
-                                    center: new google.maps.LatLng(52.2427858, 20.9968245),
-                                    mapTypeId: google.maps.MapTypeId.ROADMAP
-                                    };
-
-                                    var map = new google.maps.Map(document.getElementById('map-canvas'),
-                                    mapOptions);
-
-                                    var marker = new google.maps.Marker({map: map, position: new
-                                    google.maps.LatLng(52.2427858, 20.9968245)});
-
-                                    window.onresize = function() {
-                                    map.setCenter(marker.getPosition());
-                                    };
-                                    }
-                                    google.maps.event.addDomListener(window, 'load', initialize);
-
-                                </script>
-                                <div style='overflow:hidden; height:300px; width:100%;'>
-                                    <div id="map-canvas" style='height:300px; width:100%;'></div>
-                                </div>
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2443.6488582560896!2d21.0188184!3d52.231597099999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471eccf6bb55f3a3%3A0xaa2b85a3159eb89!2sAleje+Jerozolimskie+30%2C+Warszawa!5e0!3m2!1spl!2spl!4v1436973273886" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen="allowfullscreen"></iframe>
                             </div>
                         </div>
                     </div>

@@ -135,7 +135,7 @@
                                         <div>
                                             <p>Twoja organizacja chciałaby z nami współpracować?</p>
                                             <p>
-                                                <a href="/page/become_partner">
+                                                <a href="/become_partner">
                                                     <strong>Dowiedz się więcej</strong>
                                                 </a>
                                                 <t t-if="website.user_id == user_id">lub
