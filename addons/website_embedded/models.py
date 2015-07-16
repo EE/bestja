@@ -29,7 +29,7 @@ class EmbeddedObject(models.Model):
     )
     embed_code = fields.Text(string="Kod osadzenia", required=True)
     thumbnail_url = fields.Char(string=u"Adres miniaturki", required=True)
-    description = fields.Html(string=u"Opis")
+    description = fields.Html(sanitize=False, string=u"Opis")
     sequence = fields.Integer(default=1)
 
     @api.onchange('resource_url')
