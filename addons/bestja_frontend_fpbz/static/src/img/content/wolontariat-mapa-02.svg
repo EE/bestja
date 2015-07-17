@@ -147,7 +147,7 @@
                 </a>
             </g>
             <g>
-                <a xlink:href="/offers/organization/nowe-bielice" target="_parent">
+                <a xlink:href="/offers/organization/biesiekierz" target="_parent">
                     <circle fill="#f69322" cx="104.8" cy="45.7" r="3.2"/>
                     <text transform="matrix(1 0 0 1 68.6509 65.4644)" fill="#f69322" font-family="'Open Sans'" font-size="12">Nowe Bielice</text>
                 </a>
@@ -183,7 +183,7 @@
                 </a>
             </g>
             <g>
-                <a xlink:href="/offers/organization/warszawa" target="_parent">
+                <a xlink:href="/offers/organization/piastow" target="_parent">
                     <circle fill="#f69322" cx="296.7" cy="182.9" r="3.2"/>
                     <text transform="matrix(1 0 0 1 293.4515 201.9162)" fill="#f69322" font-family="'Open Sans'" font-size="12">Warszawa</text>
                 </a>
@@ -237,7 +237,7 @@
                 </a>
             </g>
             <g>
-                <a xlink:href="/offers/organization/chorzow" target="_parent">
+                <a xlink:href="/offers/organization/ruda-slaska" target="_parent">
                     <circle fill="#f69322" cx="204.6" cy="324.3" r="3.2"/>
                     <text transform="matrix(1 0 0 1 201.3844 343.2814)" fill="#f69322" font-family="'Open Sans'" font-size="12">Chorzów</text>
                 </a>
@@ -285,7 +285,7 @@
                 </a>
             </g>
             <g>
-                <a xlink:href="/offers/organization/bialystok" target="_parent">
+                <a xlink:href="/offers/organization/suwalki" target="_parent">
                     <circle fill="#f69322" cx="410.5" cy="131.9" r="3.2"/>
                     <text transform="matrix(1 0 0 1 357.2691 135.1731)" fill="#f69322" font-family="'Open Sans'" font-size="12">Białystok</text>
                 </a>
@@ -297,9 +297,9 @@
                 </a>
             </g>
             <g>
-                <a xlink:href="/offers/organization/chojnica" target="_parent">
+                <a xlink:href="/offers/organization/chojnice" target="_parent">
                     <circle fill="#f69322" cx="176.7" cy="86" r="3.2"/>
-                    <text transform="matrix(1 0 0 1 123.1226 89.2981)" fill="#f69322" font-family="'Open Sans'" font-size="12">Chojnica</text>
+                    <text transform="matrix(1 0 0 1 123.1226 89.2981)" fill="#f69322" font-family="'Open Sans'" font-size="12">Chojnice</text>
                 </a>
             </g>
             <g>
