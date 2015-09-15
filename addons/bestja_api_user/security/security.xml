@@ -1,0 +1,23 @@
+<openerp>
+    <data>
+        <record id="api_access" model="res.groups">
+            <field name="name">GooDoo Dostęp API</field>
+        </record>
+
+        <record id="api_access_user_rule" model="ir.rule">
+            <field name="name">API Access group has access to all users</field>
+            <field name="model_id" ref="base.model_res_users"/>
+            <field name="groups" eval="[(4, ref('bestja_api_user.api_access'))]"/>
+        </record>
+
+        <record id="api_access_organization_rule" model="ir.rule">
+            <field name="name">API Access group has read-only access to all organizations</field>
+            <field name="model_id" ref="bestja_organization.model_organization"/>
+            <field name="groups" eval="[(4, ref('bestja_api_user.api_access'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+    </data>
+</openerp>
