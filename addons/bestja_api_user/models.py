@@ -24,4 +24,4 @@ class User(models.Model):
 class Partner(models.Model):
     _inherit = 'res.partner'
 
-    email = fields.Char(groups='bestja_api_user.api_access')  # give access to the email field
+    email = fields.Char(groups='base.group_system,bestja_api_user.api_access')  # give access to the email field
