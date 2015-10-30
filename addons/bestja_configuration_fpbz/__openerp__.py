@@ -18,6 +18,7 @@
         'bestja_project',
         'bestja_project_hierarchy',
         'bestja_stores',
+        'bestja_stores_chain_import',
         'bestja_requests',
         'bestja_detailed_reports',
         'bestja_estimation_reports',

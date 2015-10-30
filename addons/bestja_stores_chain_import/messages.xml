@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="project_raport" model="message_template">
+            <field name="subject">Sieć ${ context.obj.chain.name } podjęła decyzję o sklepach w zbiórce ${ context.obj.project.name }</field>
+            <field name="body"><![CDATA[
+                Dostaliśmy informacje od sieci ${ context.obj.chain.name } na temat ich zgody na uczestnictwo ich sklepów w zbiórce ${ context.obj.project.name }.
+                Poniżej znajdują się informacje dotyczące sklepów przypisanych do Twojego Banku.<br/>
+                <br/>
+
+                % if context['rejected']:
+                    <strong>Brak zgody</strong> (te sklepy zostały automatycznie deaktywowane)
+                    <ul>
+                        % for store in context['rejected']:
+                            <li><a href="/web#id=${store[0].id}&model=bestja_stores.store_in_project">${ store[0].store.name_get()[0][1] }</a>
+                            % if store[1]:
+                                (propozycja w zamian: <a href="/web#id=${store[1].id}&model=bestja_stores.store">${ store[1].name_get()[0][1] }</a>)
+                            % endif
+                            </li>
+                        % endfor
+                    </ul>
+                % endif
+
+                % if context['accepted']:
+                    <strong>Zgoda</strong><br/>
+                    <ul>
+                        % for store in context['accepted']:
+                            <li><a href="/web#id=${store[0].id}&model=bestja_stores.store_in_project">${ store[0].store.name_get()[0][1] }</a></li>
+                        % endfor
+                    </ul>
+                % endif
+            ]]></field>
+        </record>
+    </data>
+</openerp>
