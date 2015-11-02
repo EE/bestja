@@ -4,7 +4,15 @@
         <record id="msg_report_account_deletion_to_admin" model="message_template">
             <field name="subject">Użytkownik prosi o usunięcie konta</field>
             <field name="body"><![CDATA[
-                Użytkownik ${record.name} prosi o usunięcie konta.
+                Użytkownik ${record.name} prosi o usunięcie konta.<br/><br/>
+                Podany powód usunięcia:<br/>
+                <br/>
+                <em>
+                    <b>${record.get_deletion_reason()}</b>
+                    % if record.reason_for_deleting_account == 'else':
+                        <br/>${record.reason_other_description}
+                    % endif
+                </em>
             ]]></field>
             <field name="model">res.users</field>
         </record>
