@@ -43,7 +43,6 @@
 
                 Chcemy, aby wolontariusze spełniali się w naszej organizacji i ją rozwijali. Dlatego staramy się, aby wolontariusz, którego angażujemy do współpracy miał dopasowane zadania do swoich zainteresowań, wiedzy, doświadczenia i dostępności czasowej.
 
-
                 Zachęcamy do obejrzenia innych ofert dla wolontariuszy. Na pewno znajdziesz coś dla siebie.
                 <br/>
                 <br/>
@@ -58,7 +57,7 @@
             <field name="subject">Zaproszenie na spotkanie rekrutacyjne</field>
             <field name="body"><![CDATA[
                 <p>Witaj!</p>
-                
+
                 <p>Twoje zgłoszenie na ofertę ${record.offer.name} przeszło pozytywnie wstępną ocenę. Chcielibyśmy się z Tobą spotkać, aby omówić szczegóły ewentualnej współpracy.</p>
 
                 <p>Zapraszamy Cię na spotkanie ${record.current_meeting}. Potwierdź lub odrzuć termin spotkania.</p>
@@ -72,10 +71,8 @@
                     ${line}<br/>
                 % endfor
                 </p>
-                <br/>
-                Zespół
-                <br/>
-                ${record.offer.project.organization.name}
+                <p>Pozdrawiam<br/>
+                ${record.env.user.name}</p>
             ]]></field>
             <field name="model">offers.application</field>
         </record>
@@ -87,9 +84,6 @@
                 Projekt: ${record.offer.project.name}<br/>
                 Oferta: ${record.offer.name}<br/>
                 Termin: ${record.current_meeting}<br/>
-                <br/>
-                Zespół<br/>
-                ${site_name}
             ]]></field>
             <field name="model">offers.application</field>
         </record>
@@ -103,9 +97,6 @@
                 Termin: ${record.current_meeting}<br/>
                 W celu umówienia innego terminu, skontaktuj się z
                 <a href="${link_to(record.user)}">wolontariuszem</a> telefonicznie lub odpowiadając na tę wiadomość.<br/>
-                <br/>
-                Zespół<br/>
-                ${site_name}
             ]]></field>
             <field name="model">offers.application</field>
         </record>
