@@ -121,12 +121,10 @@
                                         <img src="/bestja_offers/static/src/img/male.svg" alt="" />
                                     </div>
                                     <div class="col-xs-12 text-center">
-                                        <h3>Koordynator</h3>
+                                        <h3>Opiekun projektu</h3>
                                     </div>
                                     <div class="col-xs-12 text-center">
-                                        <p t-if="offer.project.manager.name">
-                                            <t t-esc="offer.project.responsible_user.name"/>
-                                        </p>
+                                        <t t-esc="offer.project.responsible_user.name"/>
                                     </div>
                                 </div>
                             </div>

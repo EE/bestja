@@ -146,6 +146,8 @@
                 <tree>
                     <field name="name"/>
                     <field name="login"/>
+                    <field name="user_role"/>
+                    <field name="user_access_level"/>
                 </tree>
             </field>
         </record>
