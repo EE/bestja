@@ -409,13 +409,13 @@ class Volunteer(models.Model):
         than it should be empty.
         """
         if not self.different_addresses:
-            self.street_gov = None
-            self.street_number_gov = None
-            self.apt_number_gov = None
-            self.zip_code_gov = None
-            self.city_gov = None
-            self.country_gov = None
-            self.voivodeship_gov = None
+            self.street = None
+            self.street_number = None
+            self.apt_number = None
+            self.zip_code = None
+            self.city = None
+            self.country = None
+            self.voivodeship = None
 
     @api.onchange('country', 'country_gov')
     def _onchange_country(self):

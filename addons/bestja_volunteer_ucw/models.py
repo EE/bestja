@@ -26,3 +26,11 @@ class Volunteer(models.Model):
             'voivodeship_gov', 'country_gov', 'different_addresses', 'street', 'street_number', 'apt_number',
             'zip_code', 'city', 'voivodeship', 'country', 'document_id_kind', 'document_id'
         })
+
+
+class Application(models.Model):
+    _inherit = 'offers.application'
+
+    # Access to those fields is restricted
+    phone = fields.Char(groups='bestja_base.instance_admin')
+    email = fields.Char(groups='bestja_base.instance_admin')
