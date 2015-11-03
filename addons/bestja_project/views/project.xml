@@ -5,6 +5,7 @@
             <field name="name">Projekty</field>
             <field name="res_model">bestja.project</field>
             <field name="view_mode">kanban,tree,form</field>
+            <field name="context" eval="{'search_default_current': True}" />
             <field name="domain">[
                 '|',
                     ('organization.coordinator', '=', uid),
@@ -19,6 +20,20 @@
                 <p>
                     Obecnie nie uczestniczysz w żadnym projekcie.
                 </p>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="bestja_project_search">
+            <field name="name">bestja.project.search</field>
+            <field name="model">bestja.project</field>
+            <field name="priority" eval="5"/>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name" string="Nazwa"/>
+                    <field name="manager" string="Menadżer"/>
+                    <filter name="current" string="Aktualne"
+                                domain="[('date_stop', '&gt;=', time.strftime('%Y-%m-%d'))]"/>
+                </search>
             </field>
         </record>
 
