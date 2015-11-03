@@ -5,7 +5,7 @@
             <field name="subject">Witamy w projekcie</field>
             <field name="body"><![CDATA[
                 Witaj na pokładzie!
-                Załoga projektu ${record.offer.project.name} wzbogaciła się o kolejnego wolontariusza, to właśnie Ty!
+                Załoga projektu <a href="${link_to(record.offer.project)}">${record.offer.project.name}</a> wzbogaciła się o kolejnego wolontariusza, to właśnie Ty!
                 Wkrótce otrzymasz szczegóły zadania!
                 <br/>
                 <br/>
