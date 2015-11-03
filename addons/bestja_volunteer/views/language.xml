@@ -1,0 +1,33 @@
+<openerp>
+    <data>
+        <record model="ir.actions.act_window" id="action_bestja_languages">
+            <field name="name">Języki</field>
+            <field name="res_model">volunteer.language</field>
+            <field name="view_mode">tree</field>
+        </record>
+
+        <record model="ir.ui.view" id="language_tree">
+            <field name="name">bestja.volunteer.language.tree</field>
+            <field name="model">volunteer.language</field>
+            <field name="priority">20</field>
+            <field name="arch" type="xml">
+                <tree editable="1" top="1">
+                    <field name="name"/>
+                    <field name="create_uid" readonly="1" string="Dodane przez"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="language_search">
+            <field name="name">bestja.volunteer.language.search</field>
+            <field name="model">volunteer.language</field>
+            <field name="priority" eval="5"/>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name" string="Nazwa"/>
+                </search>
+            </field>
+        </record>
+
+    </data>
+</openerp>

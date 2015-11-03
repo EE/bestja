@@ -22,6 +22,7 @@ specify their experiences, interests etc.
     'js': ['static/src/js/*.js'],
     'data': [
         'views/volunteer.xml',
+        'views/language.xml',
         'views/partner.xml',
         'views/assets.xml',
         'data/occupation.xml',
