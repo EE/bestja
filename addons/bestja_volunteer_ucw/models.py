@@ -35,3 +35,24 @@ class Application(models.Model):
     phone = fields.Char(groups='bestja_base.instance_admin')
     email = fields.Char(groups='bestja_base.instance_admin')
     age = fields.Integer(groups='bestja_base.instance_admin')
+
+
+class Project(models.Model):
+    _inherit = 'bestja.project'
+
+    def _current_members(self):
+        """
+        Organizations shoudn't be able to add new people directly here.
+        """
+        return """[
+            '|',
+                '&',
+                    ('projects', '!=', False),
+                    ('projects', '=', id),
+                '&',
+                    ('coordinated_org', '!=', False),
+                    ('coordinated_org', '=', organization),
+            ]"""
+
+    manager = fields.Many2one(domain=_current_members)
+    members = fields.Many2many(domain=_current_members)
