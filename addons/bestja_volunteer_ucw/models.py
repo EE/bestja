@@ -34,3 +34,4 @@ class Application(models.Model):
     # Access to those fields is restricted
     phone = fields.Char(groups='bestja_base.instance_admin')
     email = fields.Char(groups='bestja_base.instance_admin')
+    age = fields.Integer(groups='bestja_base.instance_admin')

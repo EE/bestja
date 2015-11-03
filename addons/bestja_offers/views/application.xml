@@ -119,11 +119,14 @@
                                 <div class="application_kanban_quality">
                                     <field name="quality" widget="priority"/>
                                 </div>
-                                <div t-if="record.age.raw_value">
+                                <div t-if="record.age &amp;&amp; record.age.raw_value">
                                     <field name="age"/> lat
                                 </div>
                                 <div t-if="record.occupation.raw_value">
                                     <field name="occupation"/>
+                                </div>
+                                <div t-if="record.phone &amp;&amp; record.phone.raw_value" class="application_kanban_phone">
+                                    tel. <field name="phone"/>
                                 </div>
                                 <div t-if="record.state.raw_value == 'meeting' or record.state.raw_value == 'meeting2'" class="application_kanban_meeting">
                                     <t t-if="record.current_meeting.raw_value">
@@ -198,10 +201,10 @@
                         </div>
                         <field name="different_addresses" invisible="1"/>
                         <group col="4" class="larger">
-                            <div attrs="{'invisible': [('age', '=', 0)]}">
+                            <field name="occupation" readonly="1" nolabel="1" options="{'no_open': True}"/>
+                            <div class="app_age" attrs="{'invisible': [('age', '=', 0)]}">
                                 <field name="age" readonly="1" class="oe_inline"/> lat
                             </div>
-                            <field name="occupation" readonly="1" nolabel="1" options="{'no_open': True}"/>
                             <newline/>
                             <div class="app_phone" attrs="{'invisible': [('phone', '=', False)]}">
                                 tel. <field name="phone" readonly="1" class="oe_inline"/>
