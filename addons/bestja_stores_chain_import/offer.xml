@@ -1,0 +1,12 @@
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="bestja_offer_form">
+            <field name="model">offer</field>
+            <field name="inherit_id" ref="bestja_offers.bestja_offer_form"/>
+            <field name="arch" type="xml">
+                <!-- Remove the "Skills" tab -->
+                <page name="page_skills" position="replace"/>
+            </field>
+        </record>
+    </data>
+</openerp>

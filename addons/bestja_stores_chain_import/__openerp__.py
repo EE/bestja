@@ -14,6 +14,7 @@ Option to import (from a CSV file) permissions from store chains to use their st
     ],
     'data': [
         'views/chain_import_wizard.xml',
+        'views/store_in_project.xml',
         'messages.xml',
     ],
 }

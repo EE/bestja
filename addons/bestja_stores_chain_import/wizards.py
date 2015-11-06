@@ -40,12 +40,17 @@ class ChainImportWizard(models.TransientModel):
         results = {}
 
         for row in rows:
+            row = [unicode(cell, 'utf-8') for cell in row]
             if len(row) < 2:
                 continue
 
             chain_id = row[0].strip()
-            status = row[1].strip()
-            replacement = row[2].strip() if len(row) >= 3 else ""
+            status = row[1].strip().lower()
+            reason = row[2].strip() if len(row) >= 3 else ""
+            replacement_id = row[3].strip() if len(row) >= 4 else ""
+            replacement_name = ""
+            if len(row) >= 6 and row[4] and row[5]:
+                replacement_name = u"{}, {}".format(row[4], row[5])
 
             if status not in ChainImportWizard.STATUS_OPTIONS:
                 continue  # Unrecognised status
@@ -60,18 +65,32 @@ class ChainImportWizard(models.TransientModel):
             ])
 
             replacement_obj = None
-            if replacement:
+            if replacement_id:
                 replacement_obj = self.env['bestja_stores.store'].search([
-                    ('chain_id', '=', replacement),
+                    ('chain_id', '=', replacement_id),
                     ('chain', '=', self.chain.id),
                 ])
 
             if store:
-                if rejected:  # rejected
+                if rejected:
                     store.sudo().write({
                         'state': 'deactivated',
+                        'chain_decision': 'deactivated',
                         'time_deactivated': fields.Datetime.now(),
+                        'time_decision': fields.Datetime.now(),
                     })
+                else:
+                    store.sudo().write({
+                        'chain_decision': 'activated',
+                        'time_decision': fields.Datetime.now(),
+                    })
+
+                store_dic = {
+                    'store_obj': store,
+                    'replacement_obj': replacement_obj,
+                    'replacement_name': replacement_name,
+                    'reason': reason,
+                }
 
                 project = store.project
                 if project.id not in results:
@@ -80,16 +99,25 @@ class ChainImportWizard(models.TransientModel):
                         'accepted': [],
                         'rejected': [],
                     }
+                results[project.id]['rejected' if rejected else 'accepted'].append(store_dic)
 
-                results[project.id]['rejected' if rejected else 'accepted'].append(
-                    (store, replacement_obj)
-                )
+                # Add to Bank's report
+                if project.organization_level == 2 and project.parent:
+                    parent = project.parent
+                    if parent.id not in results:
+                        results[parent.id] = {
+                            'project': parent,
+                            'accepted': [],
+                            'rejected': [],
+                        }
+                    results[parent.id]['rejected' if rejected else 'accepted'].append(store_dic)
 
         for _, result in results.iteritems():
             self.env.ref('bestja_stores_chain_import.project_raport').with_context(
                 obj=self,
                 accepted=result['accepted'],
                 rejected=result['rejected'],
+                organization=result['project'].organization,
             ).send(
                 recipients=result['project'].responsible_user,
                 sender=self.env.user,

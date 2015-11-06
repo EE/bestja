@@ -1,0 +1,16 @@
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="in_project_form">
+            <field name="model">bestja_stores.store_in_project</field>
+            <field name="inherit_id" ref="bestja_stores.in_project_form"/>
+            <field name="arch" type="xml">
+                <separator name="section_days" position="before">
+                    <group string="Decyzja sieci" attrs="{'invisible': [('chain_decision', '=', False)]}">
+                        <field name="chain_decision"/>
+                        <field name="time_decision"/>
+                    </group>
+                </separator>
+            </field>
+        </record>
+    </data>
+</openerp>

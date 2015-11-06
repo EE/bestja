@@ -119,7 +119,7 @@
                         <field name="store" options="{'no_create': True}" attrs="{'readonly': [('id', '!=', False)]}"/>
                         <div class="oe_edit_only" attrs="{'invisible': [('id', '!=', False)]}"><field name="show_all_stores"/><label for="show_all_stores"/></div>
                     </group>
-                    <separator string="Dni zbiórki w sklepie"/>
+                    <separator name="section_days" string="Dni zbiórki w sklepie"/>
                     <div>Dodaj dni, w których będziesz realizować zbiórkę trwającą:</div>
                     <group>
                         <field name="date_start"/>

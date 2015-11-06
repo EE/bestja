@@ -5,27 +5,45 @@
             <field name="subject">Sieć ${ context.obj.chain.name } podjęła decyzję o sklepach w zbiórce ${ context.obj.project.name }</field>
             <field name="body"><![CDATA[
                 Dostaliśmy informacje od sieci ${ context.obj.chain.name } na temat ich zgody na uczestnictwo ich sklepów w zbiórce ${ context.obj.project.name }.
-                Poniżej znajdują się informacje dotyczące sklepów przypisanych do Twojego Banku.<br/>
+                Poniżej znajdują się informacje dotyczące sklepów przypisanych do Twojej organizacji ${ context.organization.name  }.<br/>
                 <br/>
 
                 % if context['rejected']:
-                    <strong>Brak zgody</strong> (te sklepy zostały automatycznie deaktywowane)
+                    <strong>Brak zgody</strong> (te sklepy zostały automatycznie dezaktywowane)
                     <ul>
                         % for store in context['rejected']:
-                            <li><a href="/web#id=${store[0].id}&model=bestja_stores.store_in_project">${ store[0].store.name_get()[0][1] }</a>
-                            % if store[1]:
-                                (propozycja w zamian: <a href="/web#id=${store[1].id}&model=bestja_stores.store">${ store[1].name_get()[0][1] }</a>)
-                            % endif
+                            <li>
+                                <a href="/web#id=${store['store_obj'].id}&model=bestja_stores.store_in_project">${ store['store_obj'].store.name_get()[0][1] }</a>
+                                % if store['reason'] or store['replacement_obj']:
+                                    -
+                                % endif
+                                % if store['reason']:
+                                    powód odrzucenia: <em>${ store['reason'] }</em>
+                                    % if store['replacement_name']:
+                                    ;
+                                    % endif
+                                % endif
+
+                                % if store['replacement_name']:
+                                    sklep proponowany w zamian:
+                                        % if store['replacement_obj']:
+                                            <a href="/web#id=${ store['replacement_obj'].id }&model=bestja_stores.store">${ store['replacement_name'] }</a>
+                                        % else:
+                                            ${ store['replacement_name'] }
+                                        % endif
+                                % endif
                             </li>
                         % endfor
                     </ul>
+
+                    <p>Prosimy o aktywację sklepów w zamian za odrzucone sklepy. W tym celu prosimy o kliknięcie aktywnego linku przy wskazanym sklepie i wypełnienie formularza do aktywacji sklepów, lub wprowadzenie nowego sklepu do systemu i jego aktywowanie w ciągu dwóch najbliższych dni.</p>
                 % endif
 
                 % if context['accepted']:
-                    <strong>Zgoda</strong><br/>
+                    <br/><strong>Zgoda</strong><br/>
                     <ul>
                         % for store in context['accepted']:
-                            <li><a href="/web#id=${store[0].id}&model=bestja_stores.store_in_project">${ store[0].store.name_get()[0][1] }</a></li>
+                            <li><a href="/web#id=${store['store_obj'].id}&model=bestja_stores.store_in_project">${ store['store_obj'].store.name_get()[0][1] }</a></li>
                         % endfor
                     </ul>
                 % endif
