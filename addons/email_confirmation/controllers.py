@@ -1,5 +1,8 @@
 # -*- coding: utf-8 -*-
 import logging
+import re
+import werkzeug
+
 from openerp.addons.auth_signup.res_users import SignupError
 from openerp.addons.auth_signup.controllers.main import AuthSignupHome
 from openerp import http, SUPERUSER_ID
@@ -88,6 +91,7 @@ class AuthSignupHome(AuthSignupHome):
         values = {key: qcontext.get(key) for key in ('login', 'name', 'password')}
         assert all(values.values()), "The form was not properly filled in."
         assert values.get('password') == qcontext.get('confirm_password'), "Podane hasła się różnią."
+        assert re.match('[^ ]+ [^ ]+', qcontext.get('name')), "Podaj pełne imię i nazwisko."
         request.env['res.users'].sudo().with_context(
             redirect=qcontext.get('redirect'),
             no_reset_password=True,

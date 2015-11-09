@@ -33,7 +33,7 @@
             <field name="date_end" eval="time.strftime('%Y-%m-28')"/>
             <field name="kind">cyclic</field>
             <field name="hours">40</field>
-            <field name="interval">1</field>
+            <field name="interval" eval="1"/>
             <field name="weekday" eval="[(6, 0, [ref('monday'), ref('tuesday'), ref('wednesday'), ref('thursday'), ref('friday')])]"/>
             <field name="daypart" eval="[(6, 0, [ref('bestja_volunteer.morning'), ref('bestja_volunteer.afternoon'), ref('bestja_volunteer.evening')])]"/>
             <field name="project" ref="bestja_project.project_horse"/>

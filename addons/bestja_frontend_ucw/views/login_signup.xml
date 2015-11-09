@@ -57,7 +57,7 @@
                     <!-- This change prevent original translation, should be done by translation -->
                     <label for="name" class="control-label">Imię i nazwisko</label>
                     <input type="text" name="name" t-att-value="name" id="name" class="form-control" placeholder="e.g. John Doe"
-                        required="required" autofocus="autofocus" />
+                        required="required" title="Podaj pełne imię i nazwisko" pattern="[^ ]+ [^ ]+" autofocus="autofocus" />
                 </div>
             </xpath>
         </template>
@@ -93,7 +93,7 @@
                     <button type="submit" class="btn btn-primary pull-left">Zmień hasło</button>
                 </div>
             </div>
-            
+
         </template>
         <template id="reset_password_button" inherit_id="auth_signup.reset_password">
             <xpath expr="//div[@class='clearfix oe_login_buttons']" position="replace">
