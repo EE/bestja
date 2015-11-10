@@ -370,7 +370,7 @@ class StoreInProject(models.Model):
         Is current user authorized to moderate (accept/reject) the store?
         """
         if self.state == 'waiting_bank':
-            self.user_can_moderate = self.is_bank()
+            self.user_can_moderate = self.is_bank() and self.project.organization_level == 2
         elif self.state == 'waiting_partner':
             self.user_can_moderate = self.is_owner() or self.is_bank()
         elif self.state == 'activated':
@@ -418,7 +418,12 @@ class StoreInProject(models.Model):
     @api.one
     @api.depends('project.organization')
     def _compute_organization(self):
-        self.organization = self.sudo().project.organization
+        if isinstance(self.id, models.NewId):
+            # can't use sudo with draft models,
+            # changing enviroment loses their values
+            self.organization = self.project.organization
+        else:
+            self.organization = self.sudo().project.organization
 
     @api.one
     def _compute_show_all_stores(self):

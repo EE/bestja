@@ -63,7 +63,7 @@ class ChainImportWizard(models.TransientModel):
 
             rejected = (status == ChainImportWizard.STATUS_OPTIONS[1])
 
-            store = self.env['bestja_stores.store_in_project'].search([
+            stores = self.env['bestja_stores.store_in_project'].search([
                 ('store.chain_id', '=', chain_id),
                 ('top_project', '=', self.project.id),
                 ('store.chain', '=', self.chain.id),
@@ -77,7 +77,7 @@ class ChainImportWizard(models.TransientModel):
                     ('chain', '=', self.chain.id),
                 ])
 
-            if store:
+            for store in stores:
                 if rejected:
                     store.sudo().write({
                         'state': 'deactivated',
