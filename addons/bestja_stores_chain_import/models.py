@@ -1,4 +1,5 @@
-from openerp import models, fields, api, exceptions
+# -*- coding: utf-8 -*-
+from openerp import models, fields
 
 
 class StoreInProject(models.Model):
@@ -11,3 +12,10 @@ class StoreInProject(models.Model):
 
     chain_decision = fields.Selection(DECISIONS, string=u"Decyzja sieci")
     time_decision = fields.Datetime(string=u"Data importu")
+    rejection_reason = fields.Text(string=u"Powód odrzucenia")
+    rejection_replacement_id = fields.Char(
+        string=u"Proponowany w zamian (ID sieci)",
+        groups="bestja_base.instance_admin",
+    )
+    rejection_replacement_address = fields.Char(string=u"Proponowany w zamian (adres)")
+    rejection_replacement_city = fields.Char(string=u"Proponowany w zamian (miasto)")

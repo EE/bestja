@@ -84,6 +84,9 @@ class ChainImportWizard(models.TransientModel):
                         'chain_decision': 'deactivated',
                         'time_deactivated': fields.Datetime.now(),
                         'time_decision': fields.Datetime.now(),
+                        'rejection_reason': reason,
+                        'rejection_replacement_id': replacement_id,
+                        'rejection_replacement_address': replacement_name,
                     })
                 else:
                     store.sudo().write({

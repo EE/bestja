@@ -8,6 +8,9 @@
                     <group string="Decyzja sieci" attrs="{'invisible': [('chain_decision', '=', False)]}">
                         <field name="chain_decision" readonly="1"/>
                         <field name="time_decision" readonly="1"/>
+                        <field name="rejection_reason" readonly="1" attrs="{'invisible': [('chain_decision', '=', 'rejected')]}"/>
+                        <field name="rejection_replacement_id" readonly="1" attrs="{'invisible': [('chain_decision', '=', 'rejected')]}"/>
+                        <field name="rejection_replacement_address" readonly="1"  attrs="{'invisible': [('chain_decision', '=', 'rejected')]}"/>
                     </group>
                 </separator>
             </field>
