@@ -86,9 +86,12 @@ class AuthSignupHome(AuthSignupHome):
 
         return request.render('auth_signup.reset_password', qcontext)
 
+    def get_values(self, qcontext):
+        return {key: qcontext.get(key) for key in ('login', 'name', 'password')}
+
     def do_signup(self, qcontext):
         """ overriden to include redirect """
-        values = {key: qcontext.get(key) for key in ('login', 'name', 'password')}
+        values = self.get_values(qcontext)
         assert all(values.values()), "The form was not properly filled in."
         assert values.get('password') == qcontext.get('confirm_password'), "Podane hasła się różnią."
         assert re.match('[^ ]+ [^ ]+', qcontext.get('name')), "Podaj pełne imię i nazwisko."
