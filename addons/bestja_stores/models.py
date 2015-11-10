@@ -237,6 +237,7 @@ class StoreInProject(models.Model):
         'bestja.project',
         required=True,
         default=_default_project,
+        string="Projekt",
         domain='''[
             ('use_stores', '=', True),
             ('organization', '=', organization),
@@ -257,6 +258,7 @@ class StoreInProject(models.Model):
         required=True,
         domain='''[
             ('level', '>=', 1),
+            ('projects.top_parent', '=?', top_project),
             '|',
                 ('coordinator', '=', uid),
             '|',
@@ -282,6 +284,9 @@ class StoreInProject(models.Model):
     address = fields.Char(related='store.address', readonly=True)
     city = fields.Char(related='store.city', readonly=True)
     user_can_moderate = fields.Boolean(compute="_compute_user_can_moderate")
+    user_is_federation = fields.Boolean(compute="_compute_is_federation")
+    user_is_owner = fields.Boolean(compute="_compute_is_owner")
+    user_is_bank = fields.Boolean(compute="_compute_is_bank")
 
     @api.model
     def _needaction_domain_get(self):
@@ -306,11 +311,39 @@ class StoreInProject(models.Model):
         (organization level 1) overseeing current project?
         """
         self.ensure_one()
-        authorised_uids = [
+        authorised_uids_1 = [
+            self.project.organization.coordinator.id,
+            self.project.manager.id,
+        ]
+        authorised_uids_2 = [
             self.project.parent.organization.coordinator.id,
             self.project.parent.manager.id,
         ]
-        return self.env.uid in authorised_uids and self.project.organization_level == 2
+        return (self.env.uid in authorised_uids_1 and self.project.organization_level == 1) or \
+            (self.env.uid in authorised_uids_2 and self.project.organization_level == 2)
+
+    @api.one
+    @api.depends('project', 'project.parent')
+    def _compute_is_bank(self):
+        self.user_is_bank = self.is_bank()
+
+    @api.multi
+    def is_federation(self):
+        """
+        Does the current user have privileges to act as federation
+        (organization level 0) overseeing current project?
+        """
+        self.ensure_one()
+        authorised_uids = [
+            self.project.top_parent.organization.coordinator.id,
+            self.project.top_parent.manager.id,
+        ]
+        return self.env.uid in authorised_uids and self.project.top_parent.organization_level == 0
+
+    @api.one
+    @api.depends('project', 'project.parent')
+    def _compute_is_federation(self):
+        self.user_is_federation = self.is_federation()
 
     @api.multi
     def is_owner(self):
@@ -326,6 +359,11 @@ class StoreInProject(models.Model):
         return self.env.uid in authorised_uids
 
     @api.one
+    @api.depends('project')
+    def _compute_is_owner(self):
+        self.user_is_owner = self.is_owner()
+
+    @api.one
     @api.depends('project', 'project.parent')
     def _compute_user_can_moderate(self):
         """
@@ -333,8 +371,10 @@ class StoreInProject(models.Model):
         """
         if self.state == 'waiting_bank':
             self.user_can_moderate = self.is_bank()
-        elif self.state in ['waiting_partner', 'activated']:
+        elif self.state == 'waiting_partner':
             self.user_can_moderate = self.is_owner() or self.is_bank()
+        elif self.state == 'activated':
+            self.user_can_moderate = self.is_owner() or self.is_bank() or self.is_federation()
         else:
             self.user_can_moderate = False
 
@@ -344,10 +384,10 @@ class StoreInProject(models.Model):
             raise exceptions.AccessError("Nie masz uprawnień aby aktywować ten sklep!")
 
         self.sudo().state = 'activated'
-        if self.is_bank():
-            self.sudo().activated_by = self.project.parent.organization
-        elif self.is_owner():
+        if self.is_owner():
             self.sudo().activated_by = self.project.organization
+        elif self.is_bank():
+            self.sudo().activated_by = self.project.parent.organization
         else:
             # This shouldn't really happen, but we can't forbid super user
             # from doing anything, so theoretically speaking it might...
@@ -378,7 +418,7 @@ class StoreInProject(models.Model):
     @api.one
     @api.depends('project.organization')
     def _compute_organization(self):
-        self.organization = self.project.organization
+        self.organization = self.sudo().project.organization
 
     @api.one
     def _compute_show_all_stores(self):
@@ -392,9 +432,15 @@ class StoreInProject(models.Model):
 
     @api.one
     def _inverse_organization(self):
-        # Changing organization should only have client side consequences.
-        # (it is used in project field's domain).
-        pass
+        """
+        If project is readonly the onchange('organization') below is not enough.
+        """
+        if self.project and self.project.organization != self.organization:
+            organization_project = self.env['bestja.project'].search([
+                ('organization', '=', self.organization.id),
+                ('top_parent', '=', self.project.top_parent.id),
+            ])
+            self.project = organization_project.id
 
     @api.onchange('organization')
     def _onchange_organization(self):
@@ -457,8 +503,11 @@ class StoreInProject(models.Model):
 
     @api.multi
     def write(self, vals):
-        if 'project' in vals or 'store' in vals:
-            raise exceptions.ValidationError("Pola projekt i sklep nie mogą być modyfikowane!")
+        if 'store' in vals:
+            raise exceptions.ValidationError("Pole sklep nie może być modyfikowane!")
+
+        if ('project' in vals or 'organization' in vals) and not self.is_bank() and not self.is_federation():
+            raise exceptions.ValidationError("Nie masz uprawnień żeby modyfikować pola projekt i organizacja!")
         return super(StoreInProject, self).write(vals)
 
     @api.one

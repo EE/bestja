@@ -6,8 +6,8 @@
             <field name="arch" type="xml">
                 <separator name="section_days" position="before">
                     <group string="Decyzja sieci" attrs="{'invisible': [('chain_decision', '=', False)]}">
-                        <field name="chain_decision"/>
-                        <field name="time_decision"/>
+                        <field name="chain_decision" readonly="1"/>
+                        <field name="time_decision" readonly="1"/>
                     </group>
                 </separator>
             </field>
