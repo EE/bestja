@@ -83,7 +83,11 @@ class Store(models.Model):
         string=u"Domyślny partner",
     )
     user_can_moderate = fields.Boolean(compute="_compute_user_can_moderate")
+    user_is_responsible = fields.Boolean(compute="_compute_user_is_responsible")
+    user_is_federation = fields.Boolean(compute="_compute_user_is_federation")
+    user_is_partner = fields.Boolean(compute="_compute_user_is_partner")
     in_projects = fields.One2many('bestja_stores.store_in_project', inverse_name='store')
+    active = fields.Boolean(default=True)
 
     @api.one
     def set_accepted(self):
@@ -101,6 +105,12 @@ class Store(models.Model):
             recipients=self.default_partner.coordinator,
             sender=self.env.user,
         )
+
+    @api.one
+    def archive(self):
+        if not self.user_is_responsible and not self.user_is_federation and not self.user_is_partner:
+            raise exceptions.AccessError("Nie masz uprawnień żeby archiwizować ten sklep!")
+        self.sudo().active = False
 
     @api.one
     @api.constrains('default_partner', 'responsible')
@@ -124,6 +134,26 @@ class Store(models.Model):
             self.responsible.coordinator.id == self.env.uid
             and self.responsible != self.default_partner
         )
+
+    @api.one
+    @api.depends('responsible', 'responsible.coordinator')
+    def _compute_user_is_responsible(self):
+        """
+        Is current user coordinator of a Bank responsible for this store.
+        """
+        self.user_is_responsible = (self.responsible.coordinator.id == self.env.uid)
+
+    @api.one
+    @api.depends('responsible', 'responsible.parent')
+    def _compute_user_is_federation(self):
+        self.user_is_federation = (
+            self.responsible.parent.coordinator.id == self.env.uid and self.responsible.parent.level == 0
+        )
+
+    @api.one
+    @api.depends('default_partner', 'default_partner.coordinator')
+    def _compute_user_is_partner(self):
+        self.user_is_partner = (self.default_partner.coordinator.id == self.env.uid)
 
     @api.multi
     def _is_permitted(self):
