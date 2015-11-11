@@ -483,6 +483,9 @@ class StoreInProject(models.Model):
         Change project to a one from the same project hierarchy,
         but from the right organization.
         """
+        if not self.organization:
+            return  # Leave the previous project information
+
         if isinstance(self.project.id, models.NewId):
             # self.project is in draft mode, which unfortunately means
             # we can't access its id (and we need it!).
