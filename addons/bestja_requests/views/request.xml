@@ -97,11 +97,12 @@
                     <button string="Kontynuuj ▶" class="oe_edit_only" type="object" name="continue_action" attrs="{'invisible': [('id', '!=', False)]}"/>
                     <div attrs="{'invisible': [('id', '=', False)]}">
                         <separator string="Lista potrzeb"/>
-                        <field name="items">
+                        <field name="items" context="{'default_request': active_id}">
                             <tree editable="true">
                                 <field name="template_item" options="{'no_create': True, 'no_open': True}"/>
                                 <field name="quantity"/>
                                 <field name="template" invisible="1"/>
+                                <field name="request" invisible="1"/>
                             </tree>
                         </field>
                         <group string="Dodatkowe informacje">
