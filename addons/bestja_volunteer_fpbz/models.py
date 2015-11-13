@@ -36,3 +36,11 @@ class Offer(models.Model):
     drivers_license = fields.Many2one('volunteer.drivers_license', string=u"Prawa jazdy")
     sanepid = fields.Boolean(string=u"Badania sanepidu")
     forklift = fields.Boolean(string=u"Uprawnienia na wózek widłowy")
+
+
+class Application(models.Model):
+    _inherit = 'offers.application'
+
+    drivers_license = fields.Many2many(related='user.drivers_license', related_sudo=True)
+    sanepid = fields.Date(related='user.sanepid', related_sudo=True)
+    forklift = fields.Date(related='user.forklift', related_sudo=True)
