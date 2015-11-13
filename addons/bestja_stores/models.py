@@ -233,7 +233,8 @@ class StoreInProject(models.Model):
         'ir.needaction_mixin',
         'message_template.mixin',
     ]
-    _protected_fields = ['state', 'activated_by', 'time_deactivated']
+    _protected_fields = ['state', 'proposed_by', 'time_deactivated']
+    _order = 'state'
 
     STATES = [
         ('waiting_bank', "oczekuje na bank"),
@@ -241,6 +242,8 @@ class StoreInProject(models.Model):
         ('rejected', "odrzucony"),
         ('activated', "aktywowany"),
         ('deactivated', "dezaktywowany"),
+        ('proposed', "proponowany"),
+        ('chain', "wysłany do sieci"),
     ]
 
     def _default_project(self):
@@ -299,7 +302,7 @@ class StoreInProject(models.Model):
         ]''',
         string=u"Organizacja",
     )
-    activated_by = fields.Many2one('organization', string=u"Organizacja aktywująca")
+    proposed_by = fields.Many2one('organization', oldname='activated_by', string=u"Organizacja potwierdzająca")
     top_project = fields.Many2one(
         'bestja.project',
         related='project.top_parent',
@@ -317,6 +320,10 @@ class StoreInProject(models.Model):
     user_is_federation = fields.Boolean(compute="_compute_is_federation")
     user_is_owner = fields.Boolean(compute="_compute_is_owner")
     user_is_bank = fields.Boolean(compute="_compute_is_bank")
+
+    @api.multi
+    def display_state(self):
+        return dict(StoreInProject.STATES).get(self.state)
 
     @api.model
     def _needaction_domain_get(self):
@@ -403,30 +410,34 @@ class StoreInProject(models.Model):
             self.user_can_moderate = self.is_bank() and self.project.organization_level == 2
         elif self.state == 'waiting_partner':
             self.user_can_moderate = self.is_owner() or self.is_bank()
-        elif self.state == 'activated':
+        elif self.state in ('proposed', 'chain', 'activated'):
             self.user_can_moderate = self.is_owner() or self.is_bank() or self.is_federation()
         else:
             self.user_can_moderate = False
 
     @api.one
-    def set_activated(self):
+    def set_proposed(self):
         if not self.user_can_moderate:
-            raise exceptions.AccessError("Nie masz uprawnień aby aktywować ten sklep!")
+            raise exceptions.AccessError("Nie masz uprawnień aby proponować ten sklep!")
 
-        self.sudo().state = 'activated'
+        self.sudo().state = 'proposed'
         if self.is_owner():
-            self.sudo().activated_by = self.project.organization
+            self.sudo().proposed_by = self.project.organization
         elif self.is_bank():
-            self.sudo().activated_by = self.project.parent.organization
+            self.sudo().proposed_by = self.project.parent.organization
         else:
             # This shouldn't really happen, but we can't forbid super user
             # from doing anything, so theoretically speaking it might...
-            self.sudo().activated_by = False
+            self.sudo().proposed_by = False
 
     @api.one
     def set_deactivated(self):
         if not self.user_can_moderate:
             raise exceptions.AccessError("Nie masz uprawnień aby dezaktywować ten sklep!")
+        self.send(
+            template='bestja_stores.msg_in_project_deactivated',
+            recipients=self.top_project.responsible_user,
+        )
         self.sudo().state = 'deactivated'
         self.sudo().time_deactivated = fields.Datetime.now()
 
@@ -435,8 +446,8 @@ class StoreInProject(models.Model):
         if not self.user_can_moderate:
             raise exceptions.AccessError("Nie masz uprawnień aby dezaktywować ten sklep!")
 
-        if self.state == 'activated':
-            raise exceptions.AccessError("Uprzednio aktywowany sklep nie może zostać odrzucony!")
+        if self.state in ('proposed', 'chain', 'activated'):
+            raise exceptions.AccessError("Uprzednio proponowany sklep nie może zostać odrzucony!")
 
         if self.state == 'waiting_bank':
             self.send(
@@ -527,8 +538,8 @@ class StoreInProject(models.Model):
         record = super(StoreInProject, self).create(vals)
         if record.organization.level == 1 and record.is_owner():
             # Middle organization adding for itself
-            record.sudo().state = 'activated'
-            record.sudo().activated_by = record.project.organization.id
+            record.sudo().state = 'proposed'
+            record.sudo().proposed_by = record.project.organization.id
         elif record.organization.level == 2:
             if record.is_bank():
                 # Middle organization adding for its child

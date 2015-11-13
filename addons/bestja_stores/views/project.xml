@@ -18,7 +18,7 @@
                         <div attrs="{'invisible': [('id', '=', False)]}">
                             <p>Dodaj sklepy, w których chcesz organizować zbiórkę.</p>
                             <field name="stores" context="{'default_project': active_id, 'form_view_ref': 'bestja_stores.in_project_form_project_modal'}">
-                                <tree colors="green:state == 'activated';orange:state in ('waiting_bank','waiting_partner');red:state == 'rejected';gray:state == 'deactivated'">
+                                <tree colors="green:state == 'activated';orange:state in ('waiting_bank','waiting_partner');red:state == 'rejected';gray:state == 'deactivated';blue:state == 'proposed';purple:state == 'chain'">
                                     <field name="name"/>
                                     <field name="address"/>
                                     <field name="city"/>

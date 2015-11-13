@@ -17,7 +17,7 @@
         <record id="msg_store_accepted" model="message_template">
             <field name="subject">Sklep zaakceptowany</field>
             <field name="body"><![CDATA[
-                Sklep ${record.name} został zaakceptowany przez ${record.responsible.name}. Możesz aktywować sklep do zbiórki.
+                Sklep ${record.name} został zaakceptowany przez ${record.responsible.name}. Możesz zaproponować sklep do zbiórki.
                 <br/>
                 <br/>
                 Zespół
@@ -44,6 +44,15 @@
                 Zespół
                 <br/>
                 ${site_name}
+            ]]></field>
+            <field name="model">bestja_stores.store_in_project</field>
+        </record>
+
+        <record id="msg_in_project_deactivated" model="message_template">
+            <field name="subject">Sklep projektowy dezaktywowany</field>
+            <field name="body"><![CDATA[
+                Sklep ${record.store.name} został dezaktywowany. Wcześniej miał on status <b>${record.display_state()}</b>
+                i był przypisany do organizacji <a href="${ link_to(record.project.organization) }">${record.project.organization.name}</a>.
             ]]></field>
             <field name="model">bestja_stores.store_in_project</field>
         </record>

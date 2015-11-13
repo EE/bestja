@@ -1,0 +1,34 @@
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="chain_import_wizard_form">
+            <field name="name">bestja.stores.state_wizard</field>
+            <field name="model">bestja.stores.state_wizard</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <label for="stores"/>
+                        <div style="height: 190px; overflow:scroll;">
+                            <field name="stores" readonly="1"/>
+                        </div>
+                        <field name="state"/>
+                    </group>
+                    <footer>
+                        <button name="change_state" type="object" string="Zmień status" class="oe_highlight"/>
+                        lub
+                        <button special="cancel" string="Anuluj" class="oe_link"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <!-- Add the menu to the contextual menu for res.users -->
+        <act_window id="stores_in_project_state_wizard"
+                    name="Zmień status"
+                    groups="bestja_base.instance_admin"
+                    src_model="bestja_stores.store_in_project"
+                    res_model="bestja.stores.state_wizard"
+                    view_mode="form"
+                    target="new"
+                    key2="client_action_multi"/>
+    </data>
+</openerp>

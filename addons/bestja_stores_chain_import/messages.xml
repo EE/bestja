@@ -9,7 +9,7 @@
                 <br/>
 
                 % if context['rejected']:
-                    <strong>Brak zgody</strong> (te sklepy zostały automatycznie dezaktywowane)
+                    <strong>Brak zgody</strong> (sklepy zostały automatycznie dezaktywowane)
                     <ul>
                         % for store in context['rejected']:
                             <li>
@@ -40,7 +40,7 @@
                 % endif
 
                 % if context['accepted']:
-                    <br/><strong>Zgoda</strong><br/>
+                    <br/><strong>Zgoda</strong><br/> (sklepy zostały automatycznie aktywowane)
                     <ul>
                         % for store in context['accepted']:
                             <li><a href="/web#id=${store['store_obj'].id}&model=bestja_stores.store_in_project">${ store['store_obj'].store.name_get()[0][1] }</a></li>

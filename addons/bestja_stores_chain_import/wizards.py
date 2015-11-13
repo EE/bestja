@@ -67,7 +67,7 @@ class ChainImportWizard(models.TransientModel):
                 ('store.chain_id', '=', chain_id),
                 ('top_project', '=', self.project.id),
                 ('store.chain', '=', self.chain.id),
-                ('state', '=', 'activated'),
+                ('state', 'in', ['chain', 'activated']),
             ])
 
             replacement_obj = None
@@ -90,6 +90,7 @@ class ChainImportWizard(models.TransientModel):
                     })
                 else:
                     store.sudo().write({
+                        'state': 'activated',
                         'chain_decision': 'activated',
                         'time_decision': fields.Datetime.now(),
                     })

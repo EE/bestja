@@ -6,7 +6,7 @@
             <field name="view_mode">tree,form</field>
             <field name="context">{
                 'search_default_my_stores': True,
-                'search_default_activated': True,
+                'search_default_accepted': True,
             }</field>
             <field name="domain">[
                 '|',
@@ -18,7 +18,7 @@
         </record>
 
         <record model="ir.actions.act_window" id="action_stores_in_waiting">
-            <field name="name">Sklepy do aktywacji</field>
+            <field name="name">Sklepy do potwierdzenia</field>
             <field name="res_model">bestja_stores.store_in_project</field>
             <field name="view_mode">tree,form</field>
             <field name="context">{
@@ -49,16 +49,22 @@
                             ('project.parent.parent.organization.coordinator', '=', uid),
                     ]"/>
                     <group string="Status">
+                        <filter name="accepted" string="Zakceptowane"
+                        domain="[('state', 'in', ['activated', 'chain', 'deactivated', 'proposed'])]"/>
+                        <filter name="activated" string="Aktywowane"
+                        domain="[('state', '=', 'activated')]"/>
+                        <filter name="chain" string="Wysłane do sieci"
+                        domain="[('state', '=', 'chain')]"/>
+                        <filter name="deactivated" string="Dezaktywowane"
+                        domain="[('state', '=', 'deactivated')]"/>
+                        <filter name="proposed" string="Proponowane"
+                        domain="[('state', '=', 'proposed')]"/>
+                        <filter name="rejected" string="Odrzucone"
+                        domain="[('state', '=', 'rejected')]"/>
                         <filter name="waiting_bank" string="Oczekujące na bank"
                         domain="[('state', '=', 'waiting_bank')]"/>
                         <filter name="waiting_partner" string="Oczekujące na partnera"
                         domain="[('state', '=', 'waiting_partner')]"/>
-                        <filter name="rejected" string="Odrzucone"
-                        domain="[('state', '=', 'rejected')]"/>
-                        <filter name="activated" string="Aktywowane"
-                        domain="[('state', '=', 'activated')]"/>
-                        <filter name="deactivated" string="Dezaktywowane"
-                        domain="[('state', '=', 'deactivated')]"/>
                     </group>
                 </search>
             </field>
@@ -68,12 +74,12 @@
             <field name="name">bestja_stores.store_in_project_tree</field>
             <field name="model">bestja_stores.store_in_project</field>
             <field name="arch" type="xml">
-                <tree colors="green:state == 'activated';orange:state in ('waiting_bank','waiting_partner');red:state == 'rejected';gray:state == 'deactivated'">
+                <tree colors="green:state == 'activated';orange:state in ('waiting_bank','waiting_partner');red:state == 'rejected';gray:state == 'deactivated';blue:state == 'proposed';purple:state == 'chain'">
                     <field name="name"/>
                     <field name="address"/>
                     <field name="city"/>
                     <field name="organization"/>
-                    <field name="activated_by"/>
+                    <field name="proposed_by"/>
                     <field name="state"/>
                 </tree>
             </field>
@@ -90,7 +96,7 @@
                         <field name="user_is_federation" invisible="1"/>
                         <field name="top_project" invisible="1"/>
                         <field name="id" invisible="1"/>
-                        <button name="set_activated" string="Aktywuj" type="object" class="oe_highlight" attrs="{'invisible': [
+                        <button name="set_proposed" string="Potwierdź" type="object" class="oe_highlight" attrs="{'invisible': [
                             '|',
                                 ('state', 'not in', ['waiting_bank', 'waiting_partner']),
                                 ('user_can_moderate', '=', False),
@@ -102,7 +108,7 @@
                         ]}"/>
                         <button name="set_deactivated" string="Deaktywuj" type="object" attrs="{'invisible': [
                             '|',
-                                ('state', '!=', 'activated'),
+                                ('state', 'not in', ['proposed', 'chain', 'activated']),
                                 ('user_can_moderate', '=', False),
                         ]}"/>
                     </header>
