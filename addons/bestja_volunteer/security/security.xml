@@ -4,6 +4,7 @@
             <field name="name">Instance admin has access to all users.</field>
             <field name="model_id" ref="model_res_users"/>
             <field name="groups" eval="[(4, ref('bestja_base.instance_admin'))]"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
         </record>
 
         <record id="users_self_rule" model="ir.rule">

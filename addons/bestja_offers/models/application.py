@@ -2,6 +2,7 @@
 
 from datetime import date
 from urllib import quote_plus
+import operator
 
 from openerp import models, fields, api, exceptions
 
@@ -18,9 +19,6 @@ class Application(models.Model):
     """
     _name = 'offers.application'
     _inherit = ['message_template.mixin']
-    _inherits = {
-        'res.users': 'user'
-    }
 
     STATES = [
         ('new', 'Nowa aplikacja'),
@@ -89,6 +87,22 @@ class Application(models.Model):
     rejected_reason = fields.Many2one('offers.application.rejected')
     notes = fields.Text()
 
+    # Fields from user model
+    name = fields.Char(related='user.name', related_sudo=True)
+    occupation = fields.Many2one('volunteer.occupation', related='user.occupation', related_sudo=True)
+    phone = fields.Char(related='user.phone', related_sudo=True)
+    email = fields.Char(related='user.user_email', related_sudo=True)
+    city_gov = fields.Char(related='user.city_gov', related_sudo=True)
+    city = fields.Char(related='user.city', related_sudo=True)
+    different_addresses = fields.Boolean(related='user.different_addresses', related_sudo=True)
+    skills = fields.Many2many('volunteer.skill', related='user.skills', related_sudo=True)
+    languages = fields.Many2many('volunteer.language', related='user.languages', related_sudo=True)
+    wishes = fields.Many2many('volunteer.wish', related='user.wishes', related_sudo=True)
+    curriculum_vitae = fields.Binary(related='user.curriculum_vitae', related_sudo=True)
+    cv_filename = fields.Char(related='user.cv_filename', related_sudo=True)
+    image = fields.Binary(related='user.image', related_sudo=True)
+    image_medium = fields.Binary(related='user.image_medium', related_sudo=True)
+
     _sql_constraints = [
         ('user_offer_uniq', 'unique("user", "offer")', 'User can apply for an offer only once!')
     ]
@@ -107,11 +121,11 @@ class Application(models.Model):
         return record
 
     @api.one
-    @api.depends('birthdate')
+    @api.depends('user.birthdate')
     def _compute_age(self):
-        if self.birthdate:
+        if self.user.birthdate:
             days_in_year = 365.25  # accounting for a leap year
-            birthdate = fields.Date.from_string(self.birthdate)
+            birthdate = fields.Date.from_string(self.user.birthdate)
             self.age = int((date.today() - birthdate).days / days_in_year)
         else:
             self.age = False
@@ -189,6 +203,18 @@ class Application(models.Model):
             'type': 'ir.actions.act_window',
             'context': self.env.context,
             'target': 'new',
+        }
+
+    @api.multi
+    def show_profile(self):
+        return {
+            'name': 'Profil użytkownika',
+            'view_mode': 'form',
+            'res_model': 'res.users',
+            'type': 'ir.actions.act_window',
+            'context': self.env.context,
+            'target': 'self',
+            'res_id': self.user.id,
         }
 
     @api.one
@@ -286,6 +312,38 @@ class Application(models.Model):
             resolution,
             quote_plus(self.current_meeting),
         )
+
+    @api.model
+    def _get_access_link(self, mail, partner):
+        """
+        Link to object in e-mail should depend on the recipient - coordinators and managers should get internal links,
+        while normal users should only see public offers.
+        """
+        if mail.mail_message_id.res_id:
+            offer = self.env['offers.application'].sudo().browse([mail.mail_message_id.res_id]).offer
+            recipient_ids = (r.user_ids.ids for r in mail.recipient_ids)
+            recipient_ids = reduce(operator.add, recipient_ids)  # Flaten the list
+            print(recipient_ids, offer.project.manager.id, offer.organization.coordinator.id)
+            if offer.project.manager.id not in recipient_ids and offer.organization.coordinator.id not in recipient_ids:
+                return offer.get_public_url()
+        # we are sending this to coordinator / manager, give an internal link
+        return super(Application, self)._get_access_link(mail, partner)
+
+    @api.model
+    def message_redirect_action(self):
+        """
+        Similar to _get_access_link, but for links in Odoo inbox.
+        """
+        params = self.env.context.get('params')
+        if params and params.get('res_id'):
+            offer = self.env['offers.application'].sudo().browse([params.get('res_id')]).offer
+            if offer.project.manager != self.env.user and offer.organization.coordinator != self.env.user:
+                return {
+                    'type': 'ir.actions.act_url',
+                    'url': offer.get_public_url(),
+                    'target': 'self',
+                }
+        return super(Application, self).message_redirect_action()
 
 
 class UserWithApplications(models.Model):

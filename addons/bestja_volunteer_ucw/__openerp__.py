@@ -18,6 +18,8 @@ Hides a couple of fields, and adds a new "UW status" field.
         'data/uw_status.xml',
         'views/volunteer.xml',
         'views/offer.xml',
+        'messages.xml',
+        'views/application.xml',
         'security/ir.model.access.csv',
     ],
 }

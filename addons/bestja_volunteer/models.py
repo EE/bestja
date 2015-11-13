@@ -133,6 +133,7 @@ class Volunteer(models.Model):
         ondelete='restrict',
         string=u"kraj",
     )
+    user_role = fields.Char(compute="_compute_user_role", string="Rola użytkownika")
 
     #######################################
     # Fields permissions code begins here #
@@ -269,6 +270,24 @@ class Volunteer(models.Model):
     #######################################
     # / Fields permissions code ends here #
     #######################################
+
+    @api.one
+    @api.depends('groups_id')
+    def _compute_user_role(self):
+        """
+        Human redable information about current user's roles.
+        """
+        roles = []
+        current_user_env = self.sudo(user=self.id)
+        if current_user_env.user_has_groups('bestja_base.instance_admin'):
+            roles.append(u"Administrator")
+
+        if current_user_env.user_has_groups('bestja_organization.coordinators'):
+            roles.append(u"Koordynator organizacji")
+        elif current_user_env.user_has_groups('bestja_project.managers'):
+            roles.append(u"Menadżer projektów")
+
+        self.user_role = u", ".join(roles)
 
     @api.one
     @api.depends('partner_id.email')
@@ -409,13 +428,13 @@ class Volunteer(models.Model):
         than it should be empty.
         """
         if not self.different_addresses:
-            self.street_gov = None
-            self.street_number_gov = None
-            self.apt_number_gov = None
-            self.zip_code_gov = None
-            self.city_gov = None
-            self.country_gov = None
-            self.voivodeship_gov = None
+            self.street = None
+            self.street_number = None
+            self.apt_number = None
+            self.zip_code = None
+            self.city = None
+            self.country = None
+            self.voivodeship = None
 
     @api.onchange('country', 'country_gov')
     def _onchange_country(self):

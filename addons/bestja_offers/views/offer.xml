@@ -104,9 +104,10 @@
                             </group>
                             <separator/>
                             <group col="2">
-                                <field name="hours" attrs="{'invisible': [('kind', 'not in', ['periodic', 'cyclic'])]}"/>
-                                <field name="weekday" widget="many2many_checkboxes" class="horizontal_checkboxes" attrs="{'invisible': [('kind', 'not in', ['periodic', 'cyclic'])]}" />
-                                <field name="daypart" widget="many2many_checkboxes" class="horizontal_checkboxes" attrs="{'invisible': [('kind', 'not in', ['periodic', 'cyclic'])]}"/>
+                                <field name="date" attrs="{'invisible': [('kind', '!=', 'single')]}"/>
+                                <field name="hours" attrs="{'invisible': [('kind', '!=', 'cyclic')]}"/>
+                                <field name="weekday" widget="many2many_checkboxes" class="horizontal_checkboxes" attrs="{'invisible': [('kind', '!=', 'cyclic')]}" />
+                                <field name="daypart" widget="many2many_checkboxes" class="horizontal_checkboxes" attrs="{'invisible': [('kind', 'not in', ['single', 'cyclic'])]}"/>
                                 <field name="interval" class="oe_inline" attrs="{'invisible': [('kind', '!=', 'cyclic')]}"/>
                             </group>
                             <separator />

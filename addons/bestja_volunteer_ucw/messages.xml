@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="bestja_volunteer.welcome_msg" model="message_template">
+            <field name="subject">Witamy w społeczności wolontariuszy! Czas zacząć działać!</field>
+            <field name="body"><![CDATA[
+                <p>Dziękujemy, że jesteś z nami!</p>
+
+                <p>Wierzymy, że aktywni ludzie - właśnie tacy jak Ty zmieniają rzeczywistość na lepszą.</p>
+
+                <p>Co możesz zrobić:</p>
+
+                <p><strong><a href="${base_url}/web">Uzupełnić profil</a></strong><br/>
+                Dzięki temu będziemy mogli dobierać oferty zgodnie z Twoimi zainteresowaniami.</p>
+
+                <p><strong><a href="${base_url}/offers/category/">Oferty wolontariatu</a></strong><br/>
+                Zobacz, ile ciekawych ofert przygotowaliśmy dla Ciebie. Jeśli coś Cię zainteresuje, zgłoś się przez nasz serwis. Skontaktujemy się z Tobą!</p>
+
+                <p><strong><a href="${base_url}/page/for_organizations">Rejestracja organizacji</a></strong><br/>
+                Jeśli reprezentujesz organizację, która chce z nami współpracować zrejestruj organizację. Zweryfikujemy zgłoszenie i się z Tobą skontaktujemy.</p>
+
+                <p>Zacznij działać!<br/>
+                Zespół<br/>
+                ${site_name}</p>
+            ]]></field>
+        </record>
+    </data>
+</openerp>

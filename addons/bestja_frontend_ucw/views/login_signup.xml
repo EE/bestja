@@ -57,7 +57,7 @@
                     <!-- This change prevent original translation, should be done by translation -->
                     <label for="name" class="control-label">Imię i nazwisko</label>
                     <input type="text" name="name" t-att-value="name" id="name" class="form-control" placeholder="e.g. John Doe"
-                        required="required" autofocus="autofocus" />
+                        required="required" title="Podaj pełne imię i nazwisko" pattern="[^ ]+ [^ ]+" autofocus="autofocus" />
                 </div>
             </xpath>
         </template>
@@ -67,6 +67,15 @@
                     <label for="password" class="control-label">Password</label>
                     <input type="password" name="password" id="password" class="form-control" placeholder="Co najmniej 6 znaków i jedna wielka litera"
                            required="required" t-att-autofocus="'autofocus' if only_passwords else None"/>
+                </div>
+            </xpath>
+        </template>
+        <template id="pass_confirm_placeholder" inherit_id="auth_signup.fields">
+            <xpath expr="//div[@class='form-group field-confirm_password']" position="replace">
+                <div class="form-group field-confirm_password">
+                    <label for="confirm_password" class="control-label">Confirm Password</label>
+                    <input type="password" name="confirm_password" id="confirm_password" class="form-control" placeholder="Tak dla pewności"
+                           required="required"/>
                 </div>
             </xpath>
         </template>
@@ -93,7 +102,7 @@
                     <button type="submit" class="btn btn-primary pull-left">Zmień hasło</button>
                 </div>
             </div>
-            
+
         </template>
         <template id="reset_password_button" inherit_id="auth_signup.reset_password">
             <xpath expr="//div[@class='clearfix oe_login_buttons']" position="replace">

@@ -13,6 +13,14 @@
                 <p>Witaj,</p>
                 <p>Aby zakończyć rejestrację w systemie <a href="${object.signup_url}">kliknij tu aby aktywować konto</a>.</p>
                 <p>Zignoruj tę wiadomość, jeśli nie rejestrowałeś/aś się do serwisu.</p>
+                <br/>
+                <br/>
+                Zespół
+                <br/>
+                ${object.company_id.name}
+
+                <br/>-- <br/>
+Wiadomość wysłana przez <a href='${object.company_id.website}'>${object.company_id.name}</a> poprzez aplikację (C) 2015 GooDoo.ee.
                 ]]>
             </field>
         </record>
@@ -23,6 +31,14 @@
             <field name="body_html"><![CDATA[
                 <p>Witaj,</p>
                 <p>Poprosiłeś/aś nas o zmianę hasła. <a href="${object.signup_url}">Kliknij tu aby zmienić hasło</a>.</p>
+                <br/>
+                <br/>
+                Zespół
+                <br/>
+                ${object.company_id.name}
+
+                <br/>-- <br/>
+                Wiadomość wysłana przez <a href='${object.company_id.website}'>${object.company_id.name}</a> poprzez aplikację (C) 2015 GooDoo.ee.
             ]]></field>
         </record>
 

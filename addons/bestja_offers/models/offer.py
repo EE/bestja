@@ -22,14 +22,13 @@ class Offer(models.Model):
         ('template', "szablon"),
     ]
     KIND_CHOICES = [
-        ('periodic', 'okresowa'),
+        ('single', 'jednorazowa'),
         ('cyclic', 'cykliczna'),
         ('flexible', 'elastyczna')
     ]
     LOCALIZATION_CHOICES = [
         ('assigned', 'Oferta ma przypisaną lokalizację.'),
-        ('no_localization', 'Oferta nie ma przypisanej lokalizacji, np. kierowca.'),
-        ('remote', 'To jest praca zdalna, np. grafik.')
+        ('remote', 'Praca zdalna')
     ]
     INTERVAL_CHOICES = [
         (1, 'tydzień'),
@@ -83,9 +82,10 @@ class Offer(models.Model):
     date_end = fields.Date(string=u"Termin ważności")
     remaining_days = fields.Integer(string=u"Wygasa za", compute='_remaining_days')
     kind = fields.Selection(KIND_CHOICES, required=True, string=u"rodzaj akcji")
+    date = fields.Date(string=u"data wydarzenia")
     interval = fields.Selection(INTERVAL_CHOICES, string=u"powtarzaj co")
     daypart = fields.Many2many('volunteer.daypart', string=u"pora dnia")
-    hours = fields.Integer(string=u"liczba h/tyg.")
+    hours = fields.Integer(string=u"liczba godzin")
     weekday = fields.Many2many('offers.weekday', string=u"dzień tygodnia")
     comments_time = fields.Text(string=u"Uwagi dotyczące terminu")
     applications = fields.One2many('offers.application', 'offer', string=u"Aplikacje")
@@ -105,18 +105,20 @@ class Offer(models.Model):
             raise exceptions.ValidationError("Liczba wakatów musi być większa od 0!")
 
     @api.one
-    @api.constrains('kind', 'weekday', 'daypart', 'interval')
+    @api.constrains('kind', 'weekday', 'daypart', 'interval', 'date')
     def _check_time(self):
-        if not self.kind == 'flexible':
+        if self.kind == 'cyclic':
             if not self.weekday:
                 raise exceptions.ValidationError("Wypełnij pole dnia tygodnia!")
             if not self.daypart:
                 raise exceptions.ValidationError("Wypełnij pole pory dnia!")
-            if self.kind == 'cyclic' and not self.interval:
+            if not self.interval:
                 raise exceptions.ValidationError("Wypełnij pole \"powtarzaj w\"!")
+        if self.kind == 'single' and not self.date:
+            raise exceptions.ValidationError("Wypełnij pole daty wydarzenia!")
 
     @api.one
-    @api.constrains('location_name', 'address', 'city', 'latitude', 'longitude')
+    @api.constrains('localization', 'location_name', 'address', 'city', 'latitude', 'longitude')
     def _check_location(self):
         if self.localization != 'assigned':
             return
@@ -135,12 +137,14 @@ class Offer(models.Model):
         """
         Clear fields that are irrelevant to the new kind.
         """
-        if self.kind not in ('periodic', 'cyclic'):
-            self.weekday = None
-            self.hours = 0
+        if self.kind not in ('single', 'cyclic'):
             self.daypart = None
         if self.kind != 'cyclic':
             self.interval = None
+            self.hours = 0
+            self.weekday = None
+        if self.kind != 'single':
+            self.date = None
 
     @api.onchange('localization')
     def _onchange_localization(self):
@@ -152,6 +156,8 @@ class Offer(models.Model):
             self.address = False
             self.city = False
             self.district = False
+            self.latitude = False
+            self.longitude = False
 
     @api.one
     @api.depends('applications', 'applications.state')

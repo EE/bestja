@@ -1,0 +1,17 @@
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="bestja_application_form">
+            <field name="model">offers.application</field>
+            <field name="inherit_id" ref="bestja_offers.bestja_application_form"/>
+            <field name="arch" type="xml">
+                <!-- Hide phone and age -->
+                <div class="app_phone" position="attributes">
+                    <attribute name="groups">bestja_base.instance_admin</attribute>
+                </div>
+                <div class="app_age" position="attributes">
+                    <attribute name="groups">bestja_base.instance_admin</attribute>
+                </div>
+            </field>
+        </record>
+    </data>
+</openerp>

@@ -19,21 +19,21 @@
             infowindow.open(map, marker);
         });
         return map;
-    };
+    }
 
-    var $locationElement = $('#bestja_offers_offer_location');
+    var $canvas = $('#offer-map-canvas');
 
-    createGoogleMap(
-        document.getElementById('offer-map-canvas'),
-        {
-            center: {
-                lat: $locationElement.data('lat'),
-                lng: $locationElement.data('lng')
+    if($canvas.length) {
+        createGoogleMap(
+            $canvas.get(0),
+            {
+                center: {
+                    lat: $canvas.data('lat'),
+                    lng: $canvas.data('lng')
+                },
+                zoom: 15
             },
-            zoom: 15
-        },
-        // TODO this is only mock. Get data from backend.
-        'Laboratorium EE<br />Szpitalna 8A / 3 <br />(testowy adres)'
-    );
-
+            $canvas.data('desc')
+        );
+    }
 })();
