@@ -13,7 +13,7 @@
                     <ul>
                         % for store in context['rejected']:
                             <li>
-                                <a href="/web#id=${store['store_obj'].id}&model=bestja_stores.store_in_project">${ store['store_obj'].store.name_get()[0][1] }</a>
+                                <a href="${base_url}/web#id=${store['store_obj'].id}&model=bestja_stores.store_in_project">${ store['store_obj'].store.name_get()[0][1] }</a>
                                 % if store['reason'] or store['replacement_obj']:
                                     -
                                 % endif
@@ -27,7 +27,7 @@
                                 % if store['replacement_name']:
                                     sklep proponowany w zamian:
                                         % if store['replacement_obj']:
-                                            <a href="/web#id=${ store['replacement_obj'].id }&model=bestja_stores.store">${ store['replacement_name'] }</a>
+                                            <a href="${base_url}/web#id=${ store['replacement_obj'].id }&model=bestja_stores.store">${ store['replacement_name'] }</a>
                                         % else:
                                             ${ store['replacement_name'] }
                                         % endif
@@ -43,7 +43,7 @@
                     <br/><strong>Zgoda</strong><br/>
                     <ul>
                         % for store in context['accepted']:
-                            <li><a href="/web#id=${store['store_obj'].id}&model=bestja_stores.store_in_project">${ store['store_obj'].store.name_get()[0][1] }</a></li>
+                            <li><a href="${base_url}/web#id=${store['store_obj'].id}&model=bestja_stores.store_in_project">${ store['store_obj'].store.name_get()[0][1] }</a></li>
                         % endfor
                     </ul>
                 % endif
