@@ -17,6 +17,11 @@
             <field name="domain">[
                 ('create_uid', '=', uid)
             ]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Kliknij żeby zadać pytanie na temat obsługi systemu.
+                </p>
+            </field>
         </record>
 
         <record model="ir.actions.act_window" id="action_all">
