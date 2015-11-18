@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="msg_question_new" model="message_template">
+            <field name="subject">Nowe pytanie</field>
+            <field name="body"><![CDATA[
+                <p>Zadano nowe pytanie w systemie pytań. Udziel odpowiedzi na karcie pytania:</p>
+                <br/>
+                ${record.question}
+            ]]></field>
+            <field name="model">bestja.question</field>
+        </record>
+
+        <record id="msg_question_answeared" model="message_template">
+            <field name="subject">Odpowiedź na pytanie</field>
+            <field name="body"><![CDATA[
+                <p>Odpowiedź na Twoje pytanie została udzielona:</p>
+                <br/>
+                ${record.answear|safe}
+            ]]></field>
+            <field name="model">bestja.question</field>
+        </record>
+    </data>
+</openerp>

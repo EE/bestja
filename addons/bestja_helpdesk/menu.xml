@@ -1,0 +1,8 @@
+<openerp>
+    <data>
+        <menuitem parent="bestja_base.menu_bestja" id="menu_helpdesk" name="Pomoc" sequence="11"/>
+        <menuitem parent="menu_helpdesk" id="menu_helpdesk_faq" action="action_faq" sequence="1"/>
+        <menuitem parent="menu_helpdesk" id="menu_helpdesk_ask" action="action_ask" sequence="2"/>
+         <menuitem parent="menu_helpdesk" id="menu_helpdesk_answear" action="action_all" groups="bestja_base.instance_admin" sequence="3"/>
+    </data>
+</openerp>

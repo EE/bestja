@@ -31,6 +31,7 @@
         'bestja_frontend_fpbz',
         'bestja_page_fixtures_fpbz',
         'bestja_intro',
+        'bestja_helpdesk',
     ],
     'data': [
         'data.xml',
