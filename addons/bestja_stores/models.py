@@ -262,9 +262,14 @@ class StoreInProject(models.Model):
         string=u"Sklep",
     )
     show_all_stores = fields.Boolean(
-        string=u"pokazuj wszystkie sklepy",
+        string=u"pokaż wszystkie sklepy Banku",
         compute='_compute_show_all_stores',
-        inverse='_inverse_show_all_stores',
+        inverse='_inverse_show_stores',
+    )
+    hide_used_stores = fields.Boolean(
+        string=u"ukryj wykorzystane w tej zbiórce",
+        compute='_compute_hide_used_stores',
+        inverse='_inverse_show_stores',
     )
     project = fields.Many2one(
         'bestja.project',
@@ -320,6 +325,7 @@ class StoreInProject(models.Model):
     user_is_federation = fields.Boolean(compute="_compute_is_federation")
     user_is_owner = fields.Boolean(compute="_compute_is_owner")
     user_is_bank = fields.Boolean(compute="_compute_is_bank")
+    duplicated = fields.Char(compute="_compute_duplicated", string="Duplikat sklepu")
 
     @api.multi
     def display_state(self):
@@ -416,6 +422,23 @@ class StoreInProject(models.Model):
             self.user_can_moderate = False
 
     @api.one
+    @api.depends('top_project', 'store')
+    def _compute_duplicated(self):
+        """
+        "duplikat" if there are previous StoresInProject in this project linked to the same store,
+        empty otherwise. Used as a column for the XLS export.
+        """
+        stores = self.search([
+            ('top_project', '=', self.top_project.id),
+            ('state', 'not in', ['rejected', 'deactivated']),
+            ('store', '=', self.store.id),
+        ])
+        if len(stores) > 1 and stores[0].id != self.id:
+            self.duplicated = "duplikat"
+        else:
+            self.duplicated = ""
+
+    @api.one
     def set_proposed(self):
         if not self.user_can_moderate:
             raise exceptions.AccessError("Nie masz uprawnień aby proponować ten sklep!")
@@ -471,7 +494,11 @@ class StoreInProject(models.Model):
         self.show_all_stores = False
 
     @api.one
-    def _inverse_show_all_stores(self):
+    def _compute_hide_used_stores(self):
+        self.show_all_stores = True
+
+    @api.one
+    def _inverse_show_stores(self):
         # The field is used for temporary purposes,
         # no need to store its value
         pass
@@ -514,9 +541,9 @@ class StoreInProject(models.Model):
             ])
             self.project = organization_project.id
 
-    @api.onchange('show_all_stores')
+    @api.onchange('show_all_stores', 'hide_used_stores')
     def _onchange_show_all_stores(self):
-        if self.show_all_stores:
+        if self.show_all_stores and self.hide_used_stores:
             store_domain = """[
                 ('state', '=', 'accepted'),
                 ('id', '__free_for_project__', project),
@@ -524,7 +551,15 @@ class StoreInProject(models.Model):
                     ('responsible', '=', organization),
                     ('responsible.children', '=', organization),
             ]"""
+        elif self.show_all_stores:
+            store_domain = """[
+                ('state', '=', 'accepted'),
+                '|',
+                    ('responsible', '=', organization),
+                    ('responsible.children', '=', organization),
+            ]"""
         else:
+            self.hide_used_stores = True
             store_domain = self._fields['store'].domain
 
         return {
@@ -532,6 +567,21 @@ class StoreInProject(models.Model):
                 'store': store_domain,
             }
         }
+
+    @api.one
+    @api.constrains('project', 'store')
+    def _check_free_for_project(self):
+        """
+        Check if chosen store is free to be used in this project.
+        """
+        if self.is_bank() or self.is_federation():
+            return  # Bank can overwrite this
+        is_free = self.store.search_count([
+            ('id', '=', self.store.id),
+            ('id', '__free_for_project__', self.project.id),
+        ])
+        if not is_free:
+            raise exceptions.ValidationError("Wybrany sklep jest już wykorzystany w tym projekcie!")
 
     @api.model
     def create(self, vals):
@@ -604,6 +654,9 @@ class StoreInProject(models.Model):
                 """CREATE UNIQUE INDEX unique_store_project
                     ON bestja_stores_store_in_project(project,store)
                     WHERE (state NOT IN ('rejected', 'deactivated'));""")
+        # Custom error message
+        self.pool._sql_error['unique_store_project'] = \
+            "Ten sklep jest już przypisany w tym projekcie do tej organizacji!"
         return todo_end
 
 
