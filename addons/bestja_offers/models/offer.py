@@ -63,7 +63,8 @@ class Offer(models.Model):
     organization = fields.Many2one(
         'organization',
         string=u"Organizacja",
-        related='project.organization'
+        related='project.organization',
+        store=True,
     )
     organization_image = fields.Binary(related='organization.image')
     skills = fields.Many2many('volunteer.skill', required=True)

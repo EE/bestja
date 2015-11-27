@@ -1,0 +1,33 @@
+<openerp>
+    <data>
+        <record id="offer_access_rule" model="ir.rule">
+            <field name="name">Offer can be accessed by coordinator and managers of parent organizations.</field>
+            <field name="model_id" ref="bestja_offers.model_offer"/>
+            <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+            <field name="domain_force">[
+                '|',
+                    ('project.organization.parent.coordinator', '=', user.id),
+                '|',
+                    ('project.organization.parent.parent.coordinator', '=', user.id),
+                '|',
+                    ('project.parent.manager', '=', user.id),
+                    ('project.parent.parent.manager', '=', user.id),
+            ]</field>
+        </record>
+
+        <record id="offer_application_rule" model="ir.rule">
+            <field name="name">Application can be accessed by coordinator and managers of parent organizations.</field>
+            <field name="model_id" ref="bestja_offers.model_offers_application"/>
+            <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+            <field name="domain_force">[
+                '|',
+                    ('offer.project.organization.parent.coordinator', '=', user.id),
+                '|',
+                    ('offer.project.organization.parent.parent.coordinator', '=', user.id),
+                '|',
+                    ('offer.project.parent.manager', '=', user.id),
+                    ('offer.project.parent.parent.manager', '=', user.id),
+            ]</field>
+        </record>
+    </data>
+</openerp>

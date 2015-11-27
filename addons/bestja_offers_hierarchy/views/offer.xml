@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record model="ir.actions.act_window" id="action_list_offers_partners">
+            <field name="name">Oferty moich organizacji</field>
+            <field name="res_model">offer</field>
+            <field name="view_mode">kanban,tree,form,graph</field>
+            <field name="context" eval="{'search_default_current': True}" />
+            <field name="domain">[
+                ('state', '!=', 'template'),
+                '|',
+                    ('project.organization.parent.coordinator.id', '=', uid),
+                '|',
+                    ('project.organization.parent.parent.coordinator.id', '=', uid),
+                '|',
+                    ('project.parent.manager.id', '=', uid),
+                    ('project.parent.parent.manager.id', '=', uid),
+            ]</field>
+        </record>
+
+        <record model="ir.ui.view" id="action_graph_offers">
+            <field name="name">offer.graph</field>
+            <field name="model">offer</field>
+            <field name="arch" type="xml">
+                <graph type="pivot" create="false">
+                    <field name="organization"/>
+                    <field name="one" type="measure"/>
+                    <field name="stored_application_count" type="measure"/>
+                    <field name="stored_accepted_application_count" type="measure"/>
+                </graph>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="bestja_offer_search">
+            <field name="model">offer</field>
+            <field name="inherit_id" ref="bestja_offers.bestja_offer_search"/>
+            <field name="arch" type="xml">
+                <group position="before">
+                    <field name="top_project" domain="[('parent', '=', False)]" string="Główny projekt"/>
+                </group>
+            </field>
+        </record>
+    </data>
+</openerp>
