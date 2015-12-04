@@ -1,13 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
+        <record model="ir.ui.view" id="question_form">
+            <field name="name">bestja.question.form</field>
+            <field name="model">bestja.question</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <field name="user_is_admin" invisible="1"/>
+                        <field name="user_is_asker" invisible="1"/>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1 class="oe_inline">
+                                <field name="name"/>
+                            </h1>
+                        </div>
+                        <div style="clear:both">
+                            <label for="question" class="oe_edit_only"/>
+                            <field name="question"/>
+                        </div>
+
+                        <group col="2">
+                            <field name="category"/>
+                            <field name="create_uid" string="Osoba pytająca" readonly="1" attrs="{'invisible': [('create_uid', '=', False)]}" groups="bestja_base.instance_admin"/>
+                            <field name="create_date" string="Data" readonly="1" attrs="{'invisible': [('user_is_asker', '=', False), ('user_is_admin', '=', False)]}"/>
+                            <field name="is_faq" string="Najczęściej Zadawane Pytanie" groups="bestja_base.instance_admin"/>
+                        </group>
+
+                        <div attrs="{'invisible': [('answear', '=', False), ('user_is_admin', '=', False)]}">
+                            <separator string="Odpowiedź"/>
+                            <field name="answear" attrs="{'readonly': [('user_is_admin', '=', False)]}"/>
+                        </div>
+                        <field name="screenshot" widget="image" attrs="{'readonly': [('user_is_admin', '=', False)], 'invisible': [('screenshot', '=', False), ('user_is_admin', '=', False)]}"/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="question_tree">
+            <field name="name">bestja.question.tree</field>
+            <field name="model">bestja.question</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="category"/>
+                    <field name="create_uid" string="Osoba pytająca" groups="bestja_base.instance_admin"/>
+                    <field name="create_date" string="Data pytania" groups="bestja_base.instance_admin"/>
+                    <field name="is_answeared"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="question_tree_faq">
+            <field name="name">bestja.question.tree.faq</field>
+            <field name="model">bestja.question</field>
+            <field name="priority">50</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="question_search">
+            <field name="name">bestja.question.search</field>
+            <field name="model">bestja.question</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name" string="Nazwa"/>
+                    <field name="category" string="Nazwa"/>
+                    <filter name="my_questions" string="Moje"
+                        domain="[('create_uid', '=', uid)]"/>
+                    <filter name="unansweared_questions" string="Bez odpowiedzi"
+                        domain="[('is_answeared', '=', False)]"/>
+                    <filter name="answeared_questions" string="Z odpowiedzią"
+                        domain="[('is_answeared', '=', False)]"/>
+                    <group string="Group By">
+                        <filter name="group_by_category" string="Kategoria"
+                                context="{'group_by': 'category'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
         <record model="ir.actions.act_window" id="action_faq">
             <field name="name">Najczęstsze pytania</field>
             <field name="res_model">bestja.question</field>
             <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="question_tree_faq"/>
             <field name="domain">[
                 ('is_faq', '=', True)
             ]</field>
+            <field name="context">{
+                'search_default_group_by_category': True,
+            }</field>
         </record>
 
         <record model="ir.actions.act_window" id="action_ask">
@@ -31,70 +117,6 @@
             <field name="context">{
                 'search_default_unansweared_questions': True,
             }</field>
-        </record>
-
-
-        <record model="ir.ui.view" id="question_form">
-            <field name="name">bestja.question.form</field>
-            <field name="model">bestja.question</field>
-            <field name="arch" type="xml">
-                <form>
-                    <sheet>
-                        <field name="user_is_admin" invisible="1"/>
-                        <field name="user_is_asker" invisible="1"/>
-                        <div class="oe_title">
-                            <label for="name" class="oe_edit_only"/>
-                            <h1 class="oe_inline">
-                                <field name="name"/>
-                            </h1>
-                        </div>
-                        <div style="clear:both">
-                            <label for="question" class="oe_edit_only"/>
-                            <field name="question"/>
-                        </div>
-
-                        <group col="2">
-                            <field name="create_uid" string="Osoba pytająca" readonly="1" groups="bestja_base.instance_admin"/>
-                            <field name="create_date" string="Data" readonly="1" attrs="{'invisible': [('user_is_asker', '=', False), ('user_is_admin', '=', False)]}"/>
-                            <field name="is_faq" string="Najczęściej Zadawane Pytanie" groups="bestja_base.instance_admin"/>
-                        </group>
-
-                        <div attrs="{'invisible': [('answear', '=', False), ('user_is_admin', '=', False)]}">
-                            <separator string="Odpowiedź"/>
-                            <field name="answear" attrs="{'readonly': [('user_is_admin', '=', False)]}"/>
-                        </div>
-                    </sheet>
-                </form>
-            </field>
-        </record>
-
-        <record model="ir.ui.view" id="question_tree">
-            <field name="name">bestja.question.tree</field>
-            <field name="model">bestja.question</field>
-            <field name="arch" type="xml">
-                <tree>
-                    <field name="name"/>
-                    <field name="create_uid" string="Osoba pytająca" groups="bestja_base.instance_admin"/>
-                    <field name="create_date" string="Data pytania" groups="bestja_base.instance_admin"/>
-                    <field name="is_answeared"/>
-                </tree>
-            </field>
-        </record>
-
-        <record model="ir.ui.view" id="question_search">
-            <field name="name">bestja.question.search</field>
-            <field name="model">bestja.question</field>
-            <field name="arch" type="xml">
-                <search>
-                    <field name="name" string="Nazwa"/>
-                    <filter name="my_questions" string="Moje"
-                        domain="[('create_uid', '=', uid)]"/>
-                    <filter name="unansweared_questions" string="Bez odpowiedzi"
-                        domain="[('is_answeared', '=', False)]"/>
-                    <filter name="answeared_questions" string="Z odpowiedzią"
-                        domain="[('is_answeared', '=', False)]"/>
-                </search>
-            </field>
         </record>
     </data>
 </openerp>

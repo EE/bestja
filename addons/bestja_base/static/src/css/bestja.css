@@ -148,3 +148,7 @@ have horizontal space for one button only */
 .oe_mail .oe_view_nocontent {
     display: none;
 }
+
+.oe_form_field_image img[name=screenshot] {
+    max-width: 100%;
+}

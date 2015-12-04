@@ -1,2 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_question_all,access_question_all,model_bestja_question,base.group_user,1,1,1,1
+access_question_category_users,question_category_users,model_bestja_question_category,base.group_user,1,0,0,0
+access_question_category_admin,question_category_admin,model_bestja_question_category,bestja_base.instance_admin,1,1,1,1

@@ -2,6 +2,12 @@
 from openerp import models, fields, api
 
 
+class QuestionCategory(models.Model):
+    _name = 'bestja.question.category'
+
+    name = fields.Char(required=True, string=u"Nazwa")
+
+
 class Question(models.Model):
     _name = 'bestja.question'
     _inherit = [
@@ -12,8 +18,10 @@ class Question(models.Model):
     _protected_fields = ['answear', 'is_faq']
     _permitted_groups = ['bestja_base.instance_admin']
 
-    name = fields.Char(required=True, string=u"Temat")
-    question = fields.Text(required=True, string=u"Pytanie")
+    name = fields.Char(required=True, string=u"Pytanie")
+    category = fields.Many2one('bestja.question.category', required=True, string=u"Kategoria")
+    question = fields.Text(string=u"Szczegóły pytania")
+    screenshot = fields.Binary(string="Zrzut ekranu")
     answear = fields.Html(string=u"Odpowiedź")
     is_faq = fields.Boolean(string="Najczęściej zadawane pytanie", default=False)
     is_answeared = fields.Boolean(compute='_compute_is_answeared', store=True, string=u"Odpowiedziano")
