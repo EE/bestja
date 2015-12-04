@@ -7,7 +7,7 @@
                         <div class="container-fluid">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <h1 class="text-center mt48 mb48 section_title" t-if="offers">Oferty wolontariatu: <t t-esc="organization.city"/></h1>
+                                    <h1 class="text-center mt48 mb48 section_title" t-if="offers">Oferty wolontariatu (obszar działania: <t t-esc="organization.name"/>)</h1>
                                     <h2 class="text-center mt48 mb48 section_title" t-if="not offers">Brak dostępnych ofert</h2>
                                     <h2 class="text-center mt48 mb48 empty_offer_title" t-if="not offers">
                                         <a href="/#choose_place_title">Zobacz oferty z innych miast</a>

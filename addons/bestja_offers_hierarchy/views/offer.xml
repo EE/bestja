@@ -4,14 +4,18 @@
         <record model="ir.actions.act_window" id="action_list_offers_partners">
             <field name="name">Oferty moich organizacji</field>
             <field name="res_model">offer</field>
-            <field name="view_mode">kanban,tree,form,graph</field>
+            <field name="view_mode">tree,kanban,form,graph</field>
             <field name="context" eval="{'search_default_current': True}" />
             <field name="domain">[
                 ('state', '!=', 'template'),
                 '|',
+                    ('project.organization.coordinator.id', '=', uid),
+                '|',
                     ('project.organization.parent.coordinator.id', '=', uid),
                 '|',
                     ('project.organization.parent.parent.coordinator.id', '=', uid),
+                '|',
+                    ('project.manager.id', '=', uid),
                 '|',
                     ('project.parent.manager.id', '=', uid),
                     ('project.parent.parent.manager.id', '=', uid),

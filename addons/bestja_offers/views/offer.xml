@@ -75,6 +75,7 @@
                         <field name="vacancies"/>
                         <label for="project"/>
                         <div><field name="project" class="oe_inline"/> <span class="oe_grey oe_edit_only">Wybierz lub utwórz nowy projekt</span></div>
+                        <field name="organization" readonly="1"/>
                         <field name="date_end"/>
                     </group>
                     <notebook colspan="4">
@@ -146,6 +147,7 @@
                 <tree>
                     <field name="name"/>
                     <field name="project"/>
+                    <field name="organization"/>
                     <field name="state"/>
                 </tree>
             </field>
