@@ -106,7 +106,7 @@
                                 ('state', 'not in', ['waiting_bank', 'waiting_partner']),
                                 ('user_can_moderate', '=', False),
                         ]}"/>
-                        <button name="set_deactivated" string="Deaktywuj" type="object" attrs="{'invisible': [
+                        <button name="set_deactivated" string="Dezaktywuj" type="object" attrs="{'invisible': [
                             '|',
                                 ('state', 'not in', ['proposed', 'chain', 'activated']),
                                 ('user_can_moderate', '=', False),
