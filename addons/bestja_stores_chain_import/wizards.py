@@ -75,7 +75,7 @@ class ChainImportWizard(models.TransientModel):
                 replacement_obj = self.env['bestja_stores.store'].search([
                     ('chain_id', '=', replacement_id),
                     ('chain', '=', self.chain.id),
-                ])
+                ], limit=1)
 
             for store in stores:
                 if rejected:
