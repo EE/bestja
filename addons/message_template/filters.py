@@ -19,4 +19,4 @@ ALLOWED_STYLES = [
 
 
 def bleach(text):
-    return clean(text, tags=ALLOWED_TAGS, attributes=ALLOWED_ATTRIBUTES, styles=ALLOWED_STYLES)
+    return clean(text, tags=ALLOWED_TAGS, attributes=ALLOWED_ATTRIBUTES, styles=ALLOWED_STYLES, strip=True)
