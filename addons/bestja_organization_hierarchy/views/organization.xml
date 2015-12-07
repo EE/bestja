@@ -3,10 +3,11 @@
     <data>
         <record model="ir.actions.act_window" id="bestja_organization.action_organization">
             <field name="domain">[
-                ('active', '=?', False),
                 '|',
                     ('coordinator.id', '=', uid),
-                    ('parent.coordinator.id', '=', uid),
+                    '&amp;',
+                        ('parent.coordinator.id', '=', uid),
+                        ('active', '=', True),
             ]</field>
         </record>
 
@@ -24,6 +25,9 @@
                 <button name="set_rejected" position="attributes">
                     <attribute name="groups"/>
                 </button>
+                <button name="set_archived" position="attributes">
+                    <attribute name="groups"/>
+                </button>
                 <group name="address">
                     <field name="parent" options="{'no_create': True}"/>
                 </group>
@@ -39,6 +43,6 @@
                     <field name="parent"/>
                 </search>
             </field>
-        </record> 
+        </record>
     </data>
 </openerp>

@@ -19,6 +19,7 @@ class Organization(models.Model):
         ('pending', "oczekująca na akceptację"),
         ('approved', "zaakceptowana"),
         ('rejected', "odrzucona"),
+        ('archived', "zarchiwizowana"),
     ]
 
     name = fields.Char(string=u"Nazwa", required=True)
@@ -184,6 +185,11 @@ class Organization(models.Model):
             recipients=self.coordinator,
             sender=self.env.user,
         )
+
+    @api.one
+    def set_archived(self):
+        self.state = 'archived'
+        self.coordinator._sync_coordinators_group()
 
     @api.one
     def _send_registration_messages(self):
