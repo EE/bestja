@@ -24,7 +24,7 @@ class ProjectMessage(models.TransientModel):
         required=True,
         default=lambda self: self.env.context['active_id'],
     )
-    content = fields.Text(string=u"Treść", required=True)
+    content = fields.Html(string=u"Treść", required=True)
     recipients = fields.Many2many(
         'recipients.choices',
         string=u"Odbiorcy",
@@ -39,6 +39,7 @@ class ProjectMessage(models.TransientModel):
     @api.one
     def send(self, recipients):
         # Check permissions
+        print(self.project, self.env.user)
         self.project.check_access_rights('write')
         self.project.check_access_rule('write')
 

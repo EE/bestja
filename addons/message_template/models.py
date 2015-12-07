@@ -4,6 +4,8 @@ from urlparse import urljoin
 from openerp import models, fields, api, tools
 from openerp.addons.email_template.email_template import mako_template_env
 
+from . import filters
+
 
 class MessageTemplate(models.Model):
     _name = 'message_template'
@@ -41,6 +43,7 @@ class MessageTemplate(models.Model):
             'base_url': base_url,
             'link_to': link_to,
             'site_name': self.env.user.company_id.name,
+            'bleach': filters.bleach,
         }
         body_template = mako_template_env.from_string(tools.ustr(self.body))
         body_rendered = body_template.render(template_context)

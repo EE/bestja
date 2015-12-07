@@ -5,9 +5,9 @@
             <field name="subject">Jesteś teraz menedżerem projektu</field>
             <field name="body"><![CDATA[
                 Gratulacje!
-                Jesteś teraz menedżerem projektu ${record.name}. 
+                Jesteś teraz menedżerem projektu ${record.name}.
 
-                Aby ustalić jego harmonogram oraz przydzielić zadania wolontariuszom przejdź do karty projektu 
+                Aby ustalić jego harmonogram oraz przydzielić zadania wolontariuszom przejdź do karty projektu
 
                 <li><a href="${link_to(record)}">Projekt</a></li>
                 <br/>
@@ -35,7 +35,7 @@
         <record id="msg_project_message" model="message_template">
             <field name="subject">Wiadomość projektowa</field>
             <field name="body"><![CDATA[
-                ${context.message}
+                ${bleach(context.message)|safe}
             ]]></field>
             <field name="model">bestja.project</field>
         </record>
@@ -58,7 +58,7 @@
         <record id="msg_task_changed" model="message_template">
             <field name="subject">Zadanie zostało anulowane</field>
             <field name="body"><![CDATA[
-                Niestety zadanie „${record.name}” w projekcie ${record.project.name} zostało anulowane, ale nie ma tego złego! 
+                Niestety zadanie „${record.name}” w projekcie ${record.project.name} zostało anulowane, ale nie ma tego złego!
                 Niebawem zaangażujemy Cię w nowe zadania!
             ]]></field>
             <field name="model">bestja.task</field>
