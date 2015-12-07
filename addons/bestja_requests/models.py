@@ -218,6 +218,23 @@ class Request(models.Model):
     )
     user_can_moderate = fields.Boolean(compute="_compute_user_can_moderate")
 
+    @api.multi
+    def add_all_items(self):
+        """
+        Button which adds all items from the current template to the report
+        """
+        template_items = self.env['bestja_requests.template_item'].search([
+            ('id', 'not in', [item.template_item.id for item in self.items]),
+            ('template', '=', self.sudo().project.parent.request_template.id)
+        ])
+
+        for template_item in template_items:
+            self.env['bestja_requests.item'].create({
+                'request': self.id,
+                'template_item': template_item.id,
+                'quantity': 0,
+            })
+
     @api.one
     @api.depends('parent_project')
     def _compute_user_can_moderate(self):

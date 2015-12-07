@@ -105,6 +105,7 @@
                                 <field name="request" invisible="1"/>
                             </tree>
                         </field>
+                        <button string="dodaj wszystkie możliwe elementy" class="oe_link oe_edit_only" type="object" name="add_all_items"/>
                         <group string="Dodatkowe informacje">
                             <field name="manager" readonly="1"/>
                             <field name="manager_phone" readonly="1"/>
