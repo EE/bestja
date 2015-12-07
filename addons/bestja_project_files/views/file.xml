@@ -22,7 +22,7 @@
             <field name="inherit_id" ref="bestja_files.bestja_file_tree"/>
 
             <field name="arch" type="xml">
-                <field name="category" position="after">
+                <field name="name" position="after">
                     <field name="organization"/>
                 </field>
             </field>
@@ -34,8 +34,8 @@
             <field name="inherit_id" ref="bestja_files.bestja_file_search"/>
             <field name="arch" type="xml">
                 <group>
-                    <filter name="group_by_project" string="Projekt"
-                                context="{'group_by': 'project'}"/>
+                    <filter name="group_by_project" string="Projekt i kategoria"
+                                context="{'group_by': ['project', 'category']}"/>
                 </group>
                 <search>
                     <field name="project" string="Project"/>
@@ -63,6 +63,7 @@
             <field name="search_view_id" ref="bestja_project_file_search"/>
             <field name="context">{
                 'search_default_project': active_id,
+                'search_default_group_by_category': True,
             }</field>
             <field name="domain">[
                 ('project', '!=', False),

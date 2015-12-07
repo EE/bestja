@@ -5,6 +5,7 @@ from openerp import models, fields
 
 class FileCategory(models.Model):
     _name = 'bestja.file_category'
+    _order = 'name'
 
     name = fields.Char(required=True, string=u"Nazwa")
 

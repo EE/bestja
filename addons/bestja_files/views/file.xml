@@ -5,6 +5,9 @@
             <field name="name">Pliki ogólne</field>
             <field name="res_model">bestja.file</field>
             <field name="view_mode">tree,form</field>
+            <field name="context">{
+                'search_default_group_by_category': True,
+            }</field>
         </record>
         <record model="ir.ui.view" id="bestja_file_form">
             <field name="name">bestja.file.form</field>
@@ -38,7 +41,6 @@
             <field name="arch" type="xml">
                 <tree>
                     <field name="name"/>
-                    <field name="category"/>
                     <field name="create_date" string="data dodania"/>
                     <field name="write_date" string="data aktualizacji"/>
                 </tree>
