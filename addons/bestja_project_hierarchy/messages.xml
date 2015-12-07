@@ -7,9 +7,7 @@
                 Dołącz do projektu ${record.project.name} organizowanego przez ${record.project.organization.name} w terminie ${record.project.dates_european}.
                 <br/>
                 <br/>
-                Zespół
-                <br/>
-                ${site_name}
+                ${record.description}
             ]]></field>
             <field name="model">bestja.project.invitation</field>
         </record>
