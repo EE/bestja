@@ -36,16 +36,16 @@ class Wizard(models.TransientModel):
 
 class SetSentWizard(models.TransientModel):
     _name = 'bestja.set_sent_report_wizard'
-    
+
     def _default_reports(self):
         return self.env['bestja.detailed_report'].browse(self.env.context.get('active_ids'))
-    
+
     detailed_report = fields.Many2one(
         'bestja.detailed_report',
         default=_default_reports,
         string=u"Raport:",
     )
-    
+
     @api.one
     def set_detailed_report_sent(self):
         self.detailed_report.set_sent()

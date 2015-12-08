@@ -22,6 +22,7 @@ project managers can use to send their requests.
         'views/request.xml',
         'views/request_item.xml',
         'views/project.xml',
+        'views/wizards.xml',
         'menu.xml',
         'messages.xml',
         'security/ir.model.access.csv',
