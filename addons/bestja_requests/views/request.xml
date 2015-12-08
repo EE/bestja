@@ -24,18 +24,16 @@
             <field name="name">Nadesłane raporty</field>
             <field name="res_model">bestja_requests.request</field>
             <field name="view_mode">tree,form,graph</field>
-            <field name="context" eval="{'search_default_pending': True}" />
+            <field name="context">{
+                'search_default_parent_project': active_id,
+                'search_default_pending': True,
+            }</field>
             <field name="domain">[
                 ('state', '!=', 'draft'),
                 '|',
                     ('parent_project.organization.coordinator', '=', uid),
                     ('parent_project.manager', '=', uid),
             ]</field>
-            <field name="help" type="html">
-                <p>
-                    W tym folderze będą przechowywane wszystkie raporty potrzeb, które prześlą Ci inne organizacje.
-                </p>
-            </field>
         </record>
 
         <record model="ir.ui.view" id="request_search">

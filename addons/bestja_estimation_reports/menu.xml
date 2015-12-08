@@ -2,8 +2,7 @@
     <data>
         <menuitem parent="bestja_base.menu_bestja" id="menu_estimation_reports" name="Raporty szacunkowe" sequence="16" groups="bestja_project.managers"/>
         <menuitem parent="menu_estimation_reports" id="menu_estimation_reports_profile" action="action_bestja_estimation_reports" sequence="1" groups="bestja_project_hierarchy.managers_level1,bestja_project_hierarchy.managers_level2"/>
-        <menuitem parent="menu_estimation_reports" id="menu_estimation_reports_sent1" action="action_bestja_estimation_report_sent" sequence="2" groups="bestja_project_hierarchy.managers_level1"/>
-        <menuitem parent="menu_estimation_reports" id="menu_estimation_reports_sent0" action="action_bestja_estimation_report_sent_top" sequence="2" groups="bestja_project_hierarchy.managers_level0"/>
+        <menuitem parent="menu_estimation_reports" id="menu_estimation_reports_sent1" action="action_sent_project_chooser" sequence="2" groups="bestja_project_hierarchy.managers_level0,bestja_project_hierarchy.managers_level1"/>
         <menuitem parent="menu_estimation_reports" id="menu_estimation_reports_summary" action="action_bestja_estimation_report_summary" sequence="3" groups="bestja_project_hierarchy.managers_level0,bestja_project_hierarchy.managers_level1"/>
     </data>
 </openerp>

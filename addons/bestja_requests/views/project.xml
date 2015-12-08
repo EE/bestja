@@ -48,5 +48,41 @@
                 </p>
             </field>
         </record>
+
+        <record id="sent_project_chooser_kanban" model="ir.ui.view">
+             <field name="name">bestja.requests.sent_project_chooser</field>
+             <field name="model">bestja.project</field>
+             <field name="priority">30</field>
+             <field name="arch" type="xml">
+                 <kanban class="oe_background_grey" create="false">
+                     <field name="name"/>
+                     <templates>
+                         <t t-name="kanban-box">
+                            <div class="oe_kanban_card">
+                               <a name="%(action_received_requests)d" type="action"><field name="name"/></a>
+                            </div>
+                         </t>
+                     </templates>
+                 </kanban>
+             </field>
+         </record>
+
+        <record model="ir.actions.act_window" id="action_sent_project_chooser">
+            <field name="name">Nadesłane raporty</field>
+            <field name="res_model">bestja.project</field>
+            <field name="view_mode">kanban</field>
+            <field name="view_id" ref="sent_project_chooser_kanban"/>
+            <field name="domain">[
+            ('request_template', '!=', False),
+            '|',
+                ('organization.coordinator', '=', uid),
+                ('manager', '=', uid),
+            ]</field>
+            <field name="help" type="html">
+                <p>
+                    W tym folderze będą przechowywane wszystkie raporty potrzeb, które prześlą Ci inne organizacje.
+                </p>
+            </field>
+        </record>
     </data>
 </openerp>

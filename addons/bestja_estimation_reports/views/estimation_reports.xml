@@ -7,7 +7,7 @@
             <field name="view_mode">form</field>
             <field name="target">new</field>
         </record>
-        
+
         <record model="ir.ui.view" id="add_to_summary_wizard_form">
             <field name="name">bestja.add_to_summary_wizard</field>
             <field name="model">bestja.add_to_summary_wizard</field>
@@ -26,7 +26,7 @@
                 </form>
             </field>
         </record>
-        
+
         <record model="ir.ui.view" id="bestja_estimation_report">
             <field name="name">bestja.estimation_report.form</field>
             <field name="model">bestja.estimation_report</field>
@@ -37,7 +37,7 @@
                         <button name="%(action_add_to_summary_wizard)d" type="action" string="Dodaj do zestawienia" states="draft"/>
                     </header>
                     <div class="oe_edit_only oe_grey" attrs="{'invisible': [('id', '!=', False)]}">Wybierz projekt i dzień, do którego chcesz stworzyć raport szacunkowy.</div>
-                    <group class="oe_title"> 
+                    <group class="oe_title">
                         <field name="project" options="{'no_create': True}" attrs="{'readonly': [('id', '!=', False)]}" class="oe_inline"/>
                         <field name="date" options="{'no_create': True}" attrs="{'readonly': [('id', '!=', False)]}" class="oe_inline"/>
                         <field name="state" readonly="1" class="state oe_inline" attrs="{'invisible': [('id', '=', False)]}"/>
@@ -51,7 +51,7 @@
                         <div>
                             <p>Wpisz podaną przez koordynatora danego sklepu ilość żywności zebranej w konkretnym dniu.</p>
                             <p>Możesz zapisać raport i wrócić do niego w dowolnym momencie. Po kliknięciu przycisku "Dodaj do zestawienia" nie ma możliwości zmiany wprowadzonych danych.
-                               Dlatego przed wysłaniem raportu należy upewnić się, że wszystkie komórki zawierają prawidłowe dane. 
+                               Dlatego przed wysłaniem raportu należy upewnić się, że wszystkie komórki zawierają prawidłowe dane.
                             </p>
                             <p>
                                Wyniki zbiórki ze sklepów będą widoczne w raportach grupowych.
@@ -72,7 +72,7 @@
                 </form>
             </field>
         </record>
-        
+
         <record model="ir.actions.act_window" id="action_bestja_estimation_reports">
             <field name="name">Moje raporty szacunkowe</field>
             <field name="res_model">bestja.estimation_report</field>
@@ -101,7 +101,7 @@
                 </tree>
             </field>
         </record>
-        
+
         <!-- For sent reports -->
         <record model="ir.ui.view" id="bestja_estimation_reports_sent_tree">
             <field name="name">bestja.estimation_reports.tree</field>
@@ -114,43 +114,53 @@
                 </tree>
             </field>
         </record>
+
         <record model="ir.actions.act_window" id="action_bestja_estimation_report_sent">
             <field name="name">Nadesłane raporty</field>
             <field name="res_model">bestja.estimation_report</field>
             <field name="view_mode">tree,form</field>
             <field name="view_id" ref="bestja_estimation_reports_sent_tree"/>
-            <field name="context" eval="{'search_default_sent': True}" />
+            <field name="context">{
+                'search_default_parent_project': active_id,
+                'search_default_sent': True,
+            }</field>
             <field name="domain">[
                 ('state', '!=', 'draft'),
                 '|',
-                    ('responsible_organization.coordinator', '=', uid),
-                '|',
                     ('parent_project.organization.coordinator', '=', uid),
-                '|',
                     ('parent_project.manager', '=', uid),
-                '|',
-                    ('parent_project.parent.organization.coordinator', '=', uid),
-                    ('parent_project.parent.manager', '=', uid),
-                    
             ]</field>
-            <field name="help" type="html">
-                <p>
-                    W tym folderze będą przechowywane wszystkie raporty szacunkowe, które prześlą Ci inne organizacje.
-                </p>
-            </field>
         </record>
-        <record model="ir.actions.act_window" id="action_bestja_estimation_report_sent_top">
+
+        <record id="sent_project_chooser_kanban" model="ir.ui.view">
+             <field name="name">bestja.requests.sent_project_chooser</field>
+             <field name="model">bestja.project</field>
+             <field name="priority">30</field>
+             <field name="arch" type="xml">
+                 <kanban class="oe_background_grey" create="false">
+                     <field name="name"/>
+                     <templates>
+                         <t t-name="kanban-box">
+                            <div class="oe_kanban_card">
+                               <a name="%(action_bestja_estimation_report_sent)d" type="action"><field name="name"/></a>
+                            </div>
+                         </t>
+                     </templates>
+                 </kanban>
+             </field>
+         </record>
+
+        <record model="ir.actions.act_window" id="action_sent_project_chooser">
             <field name="name">Nadesłane raporty</field>
-            <field name="res_model">bestja.estimation_report</field>
-            <field name="view_mode">tree,form</field>
-            <field name="view_id" ref="bestja_estimation_reports_sent_tree"/>
-            <field name="context" eval="{'search_default_sent': True}" />
+            <field name="res_model">bestja.project</field>
+            <field name="view_mode">kanban</field>
+            <field name="view_id" ref="sent_project_chooser_kanban"/>
             <field name="domain">[
-                ('state', '!=', 'draft'),
-                '|',
-                    ('parent_project.organization.coordinator', '=', uid),
-                    ('parent_project.manager', '=', uid),
-                    
+            ('use_estimation_reports', '=', True),
+            ('organization_level', '&lt;=', 1),
+            '|',
+                ('organization.coordinator', '=', uid),
+                ('manager', '=', uid),
             ]</field>
             <field name="help" type="html">
                 <p>
@@ -158,7 +168,7 @@
                 </p>
             </field>
         </record>
-        
+
         <record model="ir.ui.view" id="estimation_report_search">
             <field name="name">bestja.estimation_report.search</field>
             <field name="model">bestja.estimation_report</field>
@@ -166,6 +176,7 @@
                 <search>
                     <field name="organization"/>
                     <field name="project"/>
+                    <field name="parent_project"/>
                     <filter name="draft" string="Szkic"
                                 domain="[('state', '=', 'draft')]"/>
                     <filter name="sent" string="Dodane do zestawienia"

@@ -12,7 +12,7 @@
             </field>
         </record>
         <record model="ir.actions.act_window" id="action_detailed_reports_cities_summary">
-            <field name="name">Raport po partnerach</field>
+            <field name="name">Raport po miastach</field>
             <field name="res_model">bestja.report_entry</field>
             <field name="view_mode">graph</field>
             <field name="view_id" ref="report_entry_graph_cities"/>
