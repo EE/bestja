@@ -6,14 +6,14 @@
             <field name="view_mode">form</field>
             <field name="target">new</field>
         </record>
-        
+
         <record model="ir.ui.view" id="set_sent_wizard_form">
             <field name="name">bestja.set_sent_report_wizard</field>
             <field name="model">bestja.set_sent_report_wizard</field>
             <field name="arch" type="xml">
                 <form string="Czy na pewno chcesz wysłać raport szczegółowy?">
                     <div>
-                    Wysłanie raportu spowoduje, że w przypadku akceptacji przez organizację nadrzędną, 
+                    Wysłanie raportu spowoduje, że w przypadku akceptacji przez organizację nadrzędną,
                     nie będziesz miał możliwości edycji tego raportu.
                     </div>
                     <group>
@@ -26,7 +26,30 @@
                 </form>
             </field>
         </record>
-        
+
+        <record model="ir.actions.act_window" id="action_import_wizard">
+            <field name="name">Importuj grupy z pliku CSV</field>
+            <field name="res_model">bestja_detailed_reports.import_wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <record model="ir.ui.view" id="import_wizard_form">
+            <field name="name">bestja_detailed_reports.import_wizard form</field>
+            <field name="model">bestja_detailed_reports.import_wizard</field>
+            <field name="arch" type="xml">
+                <form string="Wskaż plik do importu">
+                    <field name="detailed_report" invisible="1"/>
+                    <field name="import_file"/>
+
+                    <footer>
+                        <button name="start_import" type="object" string="Importuj" class="oe_highlight"/> lub
+                        <button special="cancel" string="Anuluj"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
         <record model="ir.ui.view" id="accept_detailed_report_wizard_form">
             <field name="name">accept_report.wizard</field>
             <field name="model">bestja.accept_or_reject_report_wizard</field>

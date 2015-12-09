@@ -38,13 +38,12 @@
                     </group>
                     <button string="Kontynuuj ▶" class="oe_edit_only" type="object" name="continue_action" attrs="{'invisible': [('id', '!=', False)]}"/>
                     <div attrs="{'invisible': [('id', '=', False)]}">
-                        <div class="oe_title">
+                        <div>
                             <label for="state" class="oe_inline"/><field name="state" readonly="1" class="state oe_inline"/>
                             <br/>
                             <label for="final_version" groups="bestja_project_hierarchy.managers_level1,bestja_project_hierarchy.managers_level0"/>
                             <field name="final_version" attrs="{'invisible': [('id', '=', False)]}" groups="bestja_project_hierarchy.managers_level1,bestja_project_hierarchy.managers_level0"/>
                         </div>
-                        <br/><br/><br/>
                         <div>
                             <p>Aby dodać grupy towarowe pojedynczo, naciśnij "dodaj grupę towarową" i wybierz ją z listy. Aby dodać wszystkie grupy, naciśnij "dodaj wszystkie grupy".</p>
                             <p>Możesz zapisać raport, aby do niego wrócić. Po kliknięciu przycisku "Wyślij raport" nie ma możliwości zmiany wprowadzonych danych. Dlatego przed wysłaniem raportu należy upewnić się, że wszystkie komórki zawierają prawidłowe dane.</p>
@@ -58,7 +57,11 @@
                                 <field name="responsible_organization" invisible="1"/>
                             </tree>
                         </field>
-                        <button string="dodaj wszystkie grupy" class="oe_link oe_edit_only" type="object" name="add_all_commodity_groups"/>
+                        <div class="oe_edit_only">
+                            <button string="dodaj wszystkie grupy" class="oe_link" type="object" name="add_all_commodity_groups"/>
+                            |
+                            <button string="importuj grupy z pliku CSV" type="action" name="%(action_import_wizard)d" class="oe_link"/>
+                        </div>
                     </div>
                     <div attrs="{'invisible': [('id', '=', False)]}" class="oe_right oe_inline">
                         <field name="tonnage" readonly="1" class="oe_right"/>
