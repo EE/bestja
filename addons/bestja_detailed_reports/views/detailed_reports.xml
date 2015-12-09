@@ -62,6 +62,7 @@
                             |
                             <button string="importuj grupy z pliku CSV" type="action" name="%(action_import_wizard)d" class="oe_link"/>
                         </div>
+                        <br/>
                     </div>
                     <div attrs="{'invisible': [('id', '=', False)]}" class="oe_right oe_inline">
                         <field name="tonnage" readonly="1" class="oe_right"/>
