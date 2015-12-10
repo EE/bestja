@@ -192,7 +192,7 @@
                                     '|',
                                         '&amp;',
                                             ('state', '=', 'sent'),
-                                            ('project.organization.level', '=', 0),
+                                            ('project.organization.level', '=', 2),
                                         '&amp;',
                                             ('state', '=', 'accepted'),
                                             ('project.organization.level', '=', 1),
