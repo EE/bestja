@@ -72,7 +72,7 @@ class ImportWizard(models.TransientModel):
     @api.multi
     def start_import(self):
         csv_content = self.import_file.decode('base64')
-        dialect = csv.Sniffer().sniff(csv_content)  # Try to guess the format
+        dialect = csv.Sniffer().sniff(csv_content, delimiters=[';'])  # Try to guess the format
         rows = csv.reader(StringIO(csv_content), dialect)
 
         groups = defaultdict(float)
@@ -90,7 +90,7 @@ class ImportWizard(models.TransientModel):
 
             code = row[0].strip().split('_')[0]
             try:
-                tonnage = float(row[1])
+                tonnage = float(row[1].replace(',', '.'))
             except:
                 raise exceptions.ValidationError(
                     "Problem w linii {}. Upewnij się, że podana liczba jest poprawna".format(line_no)
