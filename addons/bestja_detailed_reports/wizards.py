@@ -71,8 +71,6 @@ class ImportWizard(models.TransientModel):
 
     @api.multi
     def start_import(self):
-        locale.setlocale(locale.LC_NUMERIC, 'en_US')  # Number format
-
         csv_content = self.import_file.decode('base64')
         dialect = csv.Sniffer().sniff(csv_content)  # Try to guess the format
         rows = csv.reader(StringIO(csv_content), dialect)
@@ -119,4 +117,3 @@ class ImportWizard(models.TransientModel):
                     'commodity': commodity_group.id,
                     'tonnage': tonnage,
                 })
-        locale.resetlocale(locale.LC_NUMERIC)
