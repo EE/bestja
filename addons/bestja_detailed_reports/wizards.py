@@ -79,10 +79,10 @@ class ImportWizard(models.TransientModel):
 
         for line_no, row in enumerate(rows, start=1):
             try:
-                row = [unicode(cell, 'utf-8') for cell in row]
+                row = [unicode(cell, 'utf-8-sig') for cell in row]
             except UnicodeDecodeError:
                 raise exceptions.ValidationError(
-                    """Problem z kodowaniem znaku w linii {}.
+                    u"""Problem z kodowaniem znaku w linii {}.
                     Upewnij się, że plik CSV używa kodowania UTF-8""".format(line_no)
                 )
             if len(row) < 2:
@@ -93,7 +93,7 @@ class ImportWizard(models.TransientModel):
                 tonnage = float(row[1].replace(',', '.'))
             except:
                 raise exceptions.ValidationError(
-                    "Problem w linii {}. Upewnij się, że podana liczba jest poprawna".format(line_no)
+                    u"Problem w linii {}. Upewnij się, że podana liczba jest poprawna".format(line_no)
                 )
             groups[code] += tonnage
 
