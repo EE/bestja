@@ -316,15 +316,17 @@ class Application(models.Model):
     @api.model
     def _get_access_link(self, mail, partner):
         """
-        Link to object in e-mail should depend on the recipient - coordinators and managers should get internal links,
-        while normal users should only see public offers.
+        Link to object in e-mail should depend on the recipient - administrators, coordinators and managers should
+        get internal links, while normal users should only see public offers.
         """
         if mail.mail_message_id.res_id:
             offer = self.env['offers.application'].sudo().browse([mail.mail_message_id.res_id]).offer
             recipient_ids = (r.user_ids.ids for r in mail.recipient_ids)
             recipient_ids = reduce(operator.add, recipient_ids)  # Flaten the list
-            print(recipient_ids, offer.project.manager.id, offer.organization.coordinator.id)
-            if offer.project.manager.id not in recipient_ids and offer.organization.coordinator.id not in recipient_ids:
+            admin_ids = self.env.ref('bestja_base.instance_admin').users.ids
+            recipient_is_admin = bool(set(admin_ids) & set(recipient_ids))
+            if not recipient_is_admin and offer.project.manager.id not in recipient_ids \
+                    and offer.organization.coordinator.id not in recipient_ids:
                 return offer.get_public_url()
         # we are sending this to coordinator / manager, give an internal link
         return super(Application, self)._get_access_link(mail, partner)
@@ -337,7 +339,7 @@ class Application(models.Model):
         params = self.env.context.get('params')
         if params and params.get('res_id'):
             offer = self.env['offers.application'].sudo().browse([params.get('res_id')]).offer
-            if offer.project.manager != self.env.user and offer.organization.coordinator != self.env.user:
+            if not self.user_has_groups('bestja_base.instance_admin') and offer.project.manager != self.env.user and offer.organization.coordinator != self.env.user:
                 return {
                     'type': 'ir.actions.act_url',
                     'url': offer.get_public_url(),
