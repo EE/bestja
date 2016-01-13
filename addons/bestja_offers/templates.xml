@@ -86,12 +86,7 @@
                                             <t t-if="offer.interval">
                                                 <t t-if="offer.hours">
                                                     <span t-field="offer.hours"/>h </t>
-                                                <t t-if="offer.interval == 1">
-                                                    co tydzień
-                                                </t>
-                                                <t t-if="offer.interval != 1">
-                                                    co <span t-field="offer.interval"/> tygodnie
-                                                </t><br/>
+                                                    co <span t-field="offer.interval"/><br/>
                                             </t>
 
                                             <t t-if="offer.date">
