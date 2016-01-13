@@ -91,11 +91,6 @@ class Application(models.Model):
                 recipients=self.user,
                 record_name=self.offer.name,
             )
-            # send info to coordinator about new application
-            application.send(
-                template='bestja_application_moderation.msg_new_application_admin',
-                recipients=self.sudo().offer.project.responsible_user,
-            )
         else:
             super(Application, self).action_post_accepted()
 

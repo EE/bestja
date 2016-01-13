@@ -15,7 +15,7 @@
             <field name="model">offers.application</field>
         </record>
         <record id="msg_new_application_admin" model="message_template">
-            <field name="subject">Zgłoszenie</field>
+            <field name="subject">Zgłoszenie do moderacji</field>
             <field name="body"><![CDATA[
                 Nowe zgłoszenie do "${record.offer.name}".
             ]]></field>
