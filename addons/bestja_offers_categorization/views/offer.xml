@@ -9,6 +9,11 @@
                 <field name="date_end" position="before">
                     <field name="categories" options="{'no_create': True, 'no_open': True}" widget="many2many_tags"/>
                 </field>
+                <field name="comments" position="after">
+                    <label for="image"/>
+                    <field name="image" class="oe_inline"/>
+                    <span class="oe_grey">Wymiary 300x300px. Zostanie wyświetlona na liście ofert</span>
+                </field>
             </field>
         </record>
     </data>

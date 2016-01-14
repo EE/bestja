@@ -21,3 +21,4 @@ class Offer(models.Model):
     _inherit = 'offer'
 
     categories = fields.Many2many('bestja.offer_category', required=True, string=u"kategorie")
+    image = fields.Binary(string="Ilustracja")

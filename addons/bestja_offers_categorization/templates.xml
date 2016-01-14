@@ -25,17 +25,32 @@
                                         <div class="tile-content">
                                             <div class="one">
                                                 <div class="well text-center date_of_the_offer">
-                                                    <p class="offers_day_of_the_week">
-                                                        <span t-field="offer.project.date_start" t-field-options='{"format": "EEEE"}'/>
-                                                    </p>
-                                                    <p class="offers_the_day">
-                                                        <strong>
-                                                            <span t-field="offer.project.date_start" t-field-options='{"format": "d"}'/>
-                                                        </strong>
-                                                    </p>
-                                                    <p class="offers_the_month">
-                                                        <span t-field="offer.project.date_start" t-field-options='{"format": "MMM"}'/>
-                                                    </p>
+                                                    <t t-if="offer.date">
+                                                        <p class="offers_day_of_the_week">
+                                                            <span t-field="offer.date" t-field-options='{"format": "EEEE"}'/>
+                                                        </p>
+                                                        <p class="offers_the_day">
+                                                            <strong>
+                                                                <span t-field="offer.date" t-field-options='{"format": "d"}'/>
+                                                            </strong>
+                                                        </p>
+                                                        <p class="offers_the_month">
+                                                            <span t-field="offer.date" t-field-options='{"format": "MMM"}'/>
+                                                        </p>
+                                                    </t>
+                                                    <t t-if="not offer.date">
+                                                        <p class="offers_day_of_the_week">
+                                                            <span t-field="offer.project.date_start" t-field-options='{"format": "EEEE"}'/>
+                                                        </p>
+                                                        <p class="offers_the_day">
+                                                            <strong>
+                                                                <span t-field="offer.project.date_start" t-field-options='{"format": "d"}'/>
+                                                            </strong>
+                                                        </p>
+                                                        <p class="offers_the_month">
+                                                            <span t-field="offer.project.date_start" t-field-options='{"format": "MMM"}'/>
+                                                        </p>
+                                                    </t>
                                                 </div>
                                             </div>
                                             <div class="two">
@@ -48,22 +63,38 @@
                                     <div class="tile second">
                                         <div class="tile-content">
                                             <div class="two">
-                                                <img class="img img-responsive"
-                                                 src="http://lorempixel.com/g/300/300"/>
+                                                <t t-if="offer.image">
+                                                    <img class="img img-responsive" t-attf-src="/website/image/offer/{{ offer.id }}/image/300x300"/>
+                                                </t>
                                             </div>
                                             <div class="three">
                                                 <div class="well text-center date_of_the_offer">
-                                                    <p class="offers_day_of_the_week">
-                                                        <span t-field="offer.project.date_start" t-field-options='{"format": "EEEE"}'/>
-                                                    </p>
-                                                    <p class="offers_the_day">
-                                                        <strong>
-                                                            <span t-field="offer.project.date_start" t-field-options='{"format": "d"}'/>
-                                                        </strong>
-                                                    </p>
-                                                    <p class="offers_the_month">
-                                                        <span t-field="offer.project.date_start" t-field-options='{"format": "MMM"}'/>
-                                                    </p>
+                                                    <t t-if="offer.date">
+                                                        <p class="offers_day_of_the_week">
+                                                            <span t-field="offer.date" t-field-options='{"format": "EEEE"}'/>
+                                                        </p>
+                                                        <p class="offers_the_day">
+                                                            <strong>
+                                                                <span t-field="offer.date" t-field-options='{"format": "d"}'/>
+                                                            </strong>
+                                                        </p>
+                                                        <p class="offers_the_month">
+                                                            <span t-field="offer.date" t-field-options='{"format": "MMM"}'/>
+                                                        </p>
+                                                    </t>
+                                                    <t t-if="not offer.date">
+                                                        <p class="offers_day_of_the_week">
+                                                            <span t-field="offer.project.date_start" t-field-options='{"format": "EEEE"}'/>
+                                                        </p>
+                                                        <p class="offers_the_day">
+                                                            <strong>
+                                                                <span t-field="offer.project.date_start" t-field-options='{"format": "d"}'/>
+                                                            </strong>
+                                                        </p>
+                                                        <p class="offers_the_month">
+                                                            <span t-field="offer.project.date_start" t-field-options='{"format": "MMM"}'/>
+                                                        </p>
+                                                    </t>
                                                 </div>
                                             </div>
                                         </div>
@@ -88,11 +119,8 @@
                                             </small>
                                         </p>
                                         <div class="offer_where">
-                                            <p class="offer_place">
+                                            <p class="offer_place" t-if="offer.city">
                                                 <t t-esc="offer.city"/>
-                                            </p>
-                                            <p class="offer_how_long" t-if="offer.hours">
-                                                <t t-esc="offer.hours"/> h
                                             </p>
                                         </div>
                                     </div>
