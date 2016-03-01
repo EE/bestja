@@ -40,8 +40,8 @@
             <field name="name">ochrona środowiska</field>
         </record>
 
-        <record id="wish_projekty" model="volunteer.wish">
-            <field name="name">tworzenie i koordynowanie projektów</field>
+        <record id="wish_humanitarne" model="volunteer.wish">
+            <field name="name">pomoc humanitarna i rozwojowa</field>
         </record>
 
         <record id="wish_projekty_miedzynarodowe" model="volunteer.wish">

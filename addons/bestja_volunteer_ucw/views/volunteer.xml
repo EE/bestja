@@ -27,6 +27,11 @@
                 <page name="personal_data" position="attributes">
                     <attribute name="attrs">{'invisible': [('user_access_level', 'not in', ['owner', 'admin'])]}</attribute>
                 </page>
+
+                <!-- limit access to CV area -->
+                <div name="profile_cv" position="attributes">
+                    <attribute name="attrs">{'invisible': [('user_access_level', 'not in', ['owner', 'admin'])]}</attribute>
+                </div>
             </field>
         </record>
     </data>

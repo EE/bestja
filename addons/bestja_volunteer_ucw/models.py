@@ -24,7 +24,8 @@ class Volunteer(models.Model):
             'email', 'phone', 'birthdate', 'place_of_birth',
             'citizenship', 'street_gov', 'street_number_gov', 'apt_number_gov', 'zip_code_gov', 'city_gov',
             'voivodeship_gov', 'country_gov', 'different_addresses', 'street', 'street_number', 'apt_number',
-            'zip_code', 'city', 'voivodeship', 'country', 'document_id_kind', 'document_id'
+            'zip_code', 'city', 'voivodeship', 'country', 'document_id_kind', 'document_id', 'curriculum_vitae',
+            'cv_filename',
         })
 
 

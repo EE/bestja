@@ -24,18 +24,20 @@
                                     <field name="languages" widget="many2many_tags" options="{'no_create': True, 'no_open': True}"/>
                                 </group>
 
-                                <separator string="CV"/>
-                                <div class="oe_edit_only oe_grey">Dodając CV pozwalasz nam się lepiej poznać i zaoferować oferty specjalnie dla Ciebie.</div>
-                                <group col="2">
-                                    <label for="curriculum_vitae"/>
-                                    <div>
-                                        <field name="curriculum_vitae" filename="cv_filename" class="no_clear_button medium_input"/>
-                                        <div class="oe_grey oe_edit_only">Dodaj swoje CV (max. wielkość pliku do <strong>25 MB</strong>)</div>
+                                <div name="profile_cv">
+                                    <separator string="CV"/>
+                                    <div class="oe_edit_only oe_grey">Dodając CV pozwalasz nam się lepiej poznać i zaoferować oferty specjalnie dla Ciebie.</div>
+                                    <group col="2">
+                                        <label for="curriculum_vitae"/>
+                                        <div>
+                                            <field name="curriculum_vitae" filename="cv_filename" class="no_clear_button medium_input"/>
+                                            <div class="oe_grey oe_edit_only">Dodaj swoje CV (max. wielkość pliku do <strong>25 MB</strong>)</div>
+                                        </div>
+                                    </group>
+                                    <div style="display:none">
+                                        <!-- Using display:none instead of invisible="1", because the later when used in modal window doesn't seem to render an input at all - and as a consequence the name is not saved -->
+                                        <field name="cv_filename"/>
                                     </div>
-                                </group>
-                                <div style="display:none">
-                                    <!-- Using display:none instead of invisible="1", because the later when used in modal window doesn't seem to render an input at all - and as a consequence the name is not saved -->
-                                    <field name="cv_filename"/>
                                 </div>
                             </page>
                             <page string="Zainteresowania" attrs="{'invisible': [('user_access_level', 'not in', ['owner', 'admin', 'privileged'])]}">
