@@ -11,12 +11,15 @@ class RecipientsChoices(models.Model):
     )
     id_name = fields.Char(
         required=True,
-        default='members',
     )
 
 
 class ProjectMessage(models.TransientModel):
     _name = 'bestja.project.message_wizard'
+
+    @api.model
+    def default_recipients(self):
+        return self.env.ref('bestja_project.members')
 
     project = fields.Many2one(
         'bestja.project',
@@ -28,6 +31,7 @@ class ProjectMessage(models.TransientModel):
     recipients = fields.Many2many(
         'recipients.choices',
         string=u"Odbiorcy",
+        default=default_recipients,
     )
 
     @api.one

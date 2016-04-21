@@ -144,7 +144,7 @@
                                 <div class="col-lg-7 col-md-8 col-sm-11 col-xs-12 offer_content">
                                     <div t-if="offer.description">
                                         <h3>Na czym będzie polegała Twoja praca</h3>
-                                        <p>Celem projektu jest: <span t-field="offer.description"></span></p>
+                                        <p><span t-field="offer.description"></span></p>
                                     </div>
                                     <div id="offer_expectations" t-if="offer.expectations">
                                         <h3>Czego oczekujemy</h3>

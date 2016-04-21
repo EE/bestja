@@ -46,12 +46,6 @@ class Volunteer(models.Model):
         'message_template.mixin'
     ]
 
-    EMAIL_NOTIFICATIONS = [
-        ('always', 'Tak, chcę otrzymywać wszystkie powiadomienia'),
-        ('none', 'Nie chcę otrzymywać żadnych powiadomień'),
-    ]
-
-    notify_email = fields.Selection(EMAIL_NOTIFICATIONS, default='always', help=None)
     wishes = fields.Many2many(
         'volunteer.wish',
         string=u"zainteresowania",
@@ -470,7 +464,13 @@ class Volunteer(models.Model):
 class Partner(models.Model):
     _inherit = 'res.partner'
 
+    EMAIL_NOTIFICATIONS = [
+        ('always', 'Tak, chcę otrzymywać wszystkie powiadomienia'),
+        ('none', 'Nie chcę otrzymywać żadnych powiadomień'),
+    ]
+
     email = fields.Char(groups='base.group_system')  # hide email
+    notify_email = fields.Selection(EMAIL_NOTIFICATIONS, default='always', help=None)
 
     @api.multi
     def check_access_rule(self, operation):

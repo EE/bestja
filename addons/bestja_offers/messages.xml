@@ -96,7 +96,7 @@
                 Oferta: ${record.offer.name}<br/>
                 Termin: ${record.current_meeting}<br/>
                 W celu umówienia innego terminu, skontaktuj się z
-                <a href="${link_to(record.user)}">wolontariuszem</a> odpowiadając na tę wiadomość.<br/>
+                <a href="${link_to(record)}">wolontariuszem</a> odpowiadając na tę wiadomość.<br/>
             ]]></field>
             <field name="model">offers.application</field>
         </record>

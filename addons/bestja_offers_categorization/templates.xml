@@ -66,6 +66,9 @@
                                                 <t t-if="offer.image">
                                                     <img class="img img-responsive" t-attf-src="/website/image/offer/{{ offer.id }}/image/300x300"/>
                                                 </t>
+                                                <t t-if="not offer.image and offer.organization_image">
+                                                    <img class="img img-responsive" t-attf-src="/website/image/offer/{{ offer.id }}/organization_image/300x300"/>
+                                                </t>
                                             </div>
                                             <div class="three">
                                                 <div class="well text-center date_of_the_offer">

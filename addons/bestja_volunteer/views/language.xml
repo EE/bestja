@@ -13,7 +13,7 @@
             <field name="arch" type="xml">
                 <tree editable="1" top="1">
                     <field name="name"/>
-                    <field name="create_uid" readonly="1" string="Dodane przez"/>
+                    <field name="create_uid" groups="bestja_base.instance_admin" readonly="1" string="Dodane przez"/>
                 </tree>
             </field>
         </record>

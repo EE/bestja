@@ -49,7 +49,7 @@
         </record>
 
         <record id="wish_kultura" model="volunteer.wish">
-            <field name="name">dzałanie w kulturze i sztuce</field>
+            <field name="name">działanie w kulturze i sztuce</field>
         </record>
 
         <record id="wish_warsztaty" model="volunteer.wish">
