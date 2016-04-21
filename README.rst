@@ -16,9 +16,5 @@ the GooDoo ecosystem.
 Installation
 ------------
 
-Generally GooDoo is based on Odoo 8.0 compatible modules, however
-there are some constraints on which version of Odoo can be
-used. `Commit 2067a20 <https://github.com/odoo/odoo/commit/2067a20>`__
-introduced `a regression <https://github.com/odoo/odoo/issues/5319>`__
-in GooDoo, therefore an earlier version of Odoo should be used until
-this is fixed.
+GooDoo modules require Odoo 8 to run. Python dependencies
+are listed in the ``requirements.txt`` file.
