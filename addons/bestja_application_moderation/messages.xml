@@ -8,8 +8,6 @@
                 Wkrótce otrzymasz szczegóły dalszego postępowania.
                 <br/>
                 <br/>
-                Zespół
-                <br/>
                 ${site_name}
             ]]></field>
             <field name="model">offers.application</field>

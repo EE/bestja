@@ -12,8 +12,6 @@
                 <li><a href="${link_to(record)}">Projekt</a></li>
                 <br/>
                 <br/>
-                Zespół
-                <br/>
                 ${site_name}
             ]]></field>
             <field name="model">bestja.project</field>
@@ -24,8 +22,6 @@
             <field name="body"><![CDATA[
                 Twoje obowiązki menadżera projektu ${record.name} zostały przekazane innej osobie.
                 <br/>
-                <br/>
-                Zespół
                 <br/>
                 ${site_name}
             ]]></field>
@@ -47,8 +43,6 @@
 
                 Poznaj szczegóły i zacznij działać - niech Moc będzie z Tobą!
                 <br/>
-                <br/>
-                Zespół
                 <br/>
                 ${site_name}
             ]]></field>
@@ -72,8 +66,6 @@
                 Dziękujemy za Twoje zaangażowanie. Zabezpiecz się przed nudą - nowe projekty czekają na Ciebie!
                 <br/>
                 <br/>
-                Zespół
-                <br/>
                 ${site_name}
             ]]></field>
             <field name="model">bestja.task</field>
@@ -84,8 +76,6 @@
             <field name="body"><![CDATA[
                 Zadanie „${record.name}” realizowane przez ${record.user.name} zostało zakończone. Może masz już pomysł na zaangażowanie innych? Stwórz kolejne zadanie
                 <br/>
-                <br/>
-                Zespół
                 <br/>
                 ${site_name}
             ]]></field>

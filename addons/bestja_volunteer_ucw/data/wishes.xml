@@ -56,7 +56,7 @@
             <field name="name">prowadzenie warsztatów</field>
         </record>
 
-        <record id="wish_nauka" model="volunteer.wish">
+        <record id="wish_projekty_nauka" model="volunteer.wish">
             <field name="name">udział w projektach naukowych i badawczych</field>
         </record>
 

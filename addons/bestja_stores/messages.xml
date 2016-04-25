@@ -7,8 +7,6 @@
                 Organizacja ${record.default_partner.name} dodała nowy sklep. Zobacz szczegóły i zaakceptuj sklep.
                 <br/>
                 <br/>
-                Zespół
-                <br/>
                 ${site_name}
             ]]></field>
             <field name="model">bestja_stores.store</field>
@@ -19,8 +17,6 @@
             <field name="body"><![CDATA[
                 Sklep ${record.name} został zaakceptowany przez ${record.responsible.name}. Możesz zaproponować sklep do zbiórki.
                 <br/>
-                <br/>
-                Zespół
                 <br/>
                 ${site_name}
             ]]></field>
@@ -40,8 +36,6 @@
             <field name="body"><![CDATA[
                 Sklep ${record.store.name} nie został aktywowany do ${record.project.name}.
                 <br/>
-                <br/>
-                Zespół
                 <br/>
                 ${site_name}
             ]]></field>

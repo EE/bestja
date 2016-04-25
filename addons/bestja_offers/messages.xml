@@ -9,8 +9,6 @@
                 Wkrótce otrzymasz szczegóły zadania!
                 <br/>
                 <br/>
-                Zespół
-                <br/>
                 ${site_name}
             ]]></field>
             <field name="model">offers.application</field>
@@ -25,8 +23,6 @@
 
                 Przejdź do rekrutacji, aby zaakceptować lub odrzucić aplikację.
                 <br/>
-                <br/>
-                Zespół
                 <br/>
                 ${site_name}
             ]]></field>
@@ -46,9 +42,8 @@
                 Zachęcamy do obejrzenia innych ofert dla wolontariuszy. Na pewno znajdziesz coś dla siebie.
                 <br/>
                 <br/>
-                Zespół
-                <br/>
-                ${site_name}
+                Pozdrawiam<br/>
+                ${record.env.user.name}
             ]]></field>
             <field name="model">offers.application</field>
         </record>
