@@ -286,7 +286,7 @@ h6{
 /* End of Navbar font modification */
 /* End of Common css */
 .for_organizations_first_section{
-    background: #9A0082 url('http://bestja.d3.laboratorium.ee/img/1920/dlaorganizacji.jpg') no-repeat 50% 0%;
+    background: #9A0082 url('/bestja_frontend_ucw/static/src/img/content/dlaorganizacji.jpg') no-repeat 50% 0%;
     color: #FFFFFF;
 }
 
@@ -452,7 +452,7 @@ div.carousel .carousel-indicators .active {
 }
 
 .carry_out_section{
-    background: #9A0082 url('http://bestja.d3.laboratorium.ee/img/1920/stronaglowna2.jpg') no-repeat 50% 100%;
+    background: #9A0082 url('/bestja_frontend_ucw/static/src/img/content/stronaglowna2.jpg') no-repeat 50% 100%;
     color: #FFFFFF;
 }
 
@@ -519,7 +519,7 @@ div.carousel .carousel-indicators .active {
 
 /* About us */
 .first_section_about_us{
-    background: #9A0082 url('http://bestja.d3.laboratorium.ee/img/1920/onas.jpg') no-repeat 50% 0%;
+    background: #9A0082 url('/bestja_frontend_ucw/static/src/img/content/onas.jpg') no-repeat 50% 0%;
     background-size: auto 100%;
     color: #FFFFFF;
 }
@@ -550,17 +550,17 @@ div.carousel .carousel-indicators .active {
 
 /* Become volunteeer*/
 .become_volunteer_first_section{
-    background: #9A0082 url('http://bestja.d3.laboratorium.ee/img/1920/zostan_wolontariuszem1.jpg') no-repeat 50% 0%;
+    background: #9A0082 url('/bestja_frontend_ucw/static/src/img/content/zostan_wolontariuszem1.jpg') no-repeat 50% 0%;
     color: #FFFFFF;
 }
 
 .become_volunteer_qualifications_section{
-    background: #9A0082 url('http://bestja.d3.laboratorium.ee/img/1920/zostan_wolontariuszem2.jpg') no-repeat 50% 0%;
+    background: #9A0082 url('/bestja_frontend_ucw/static/src/img/content/zostan_wolontariuszem2.jpg') no-repeat 50% 0%;
     color: #FFFFFF;
 }
 
 .become_volunteer_join_us_section{
-    background: #9A0082 url('http://bestja.d3.laboratorium.ee/img/1920/zostan_wolontariuszem3.jpg') no-repeat 50% 0%;
+    background: #9A0082 url('/bestja_frontend_ucw/static/src/img/content/zostan_wolontariuszem3.jpg') no-repeat 50% 0%;
     color: #FFFFFF;
 }
 
