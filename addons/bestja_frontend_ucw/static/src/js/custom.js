@@ -16,11 +16,11 @@ jQuery(window).ready(function () {
 
     $(".category_link").hover(function () {
         $('img', this).attr("src", function (index, attr) {
-            return attr.replace("off", "on");
+            return attr.replace("_off.jpg", "_on.jpg");
         });
     }, function () {
         $('img', this).attr("src", function (index, attr) {
-            return attr.replace("on", "off");
+            return attr.replace("_on.jpg", "_off.jpg");
         });
     });
 
