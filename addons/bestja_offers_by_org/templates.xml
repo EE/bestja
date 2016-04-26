@@ -38,7 +38,7 @@
                                                 </div>
                                             </div>
                                             <div class="two">
-                                                <img class="img img-responsive shadow pictogram" src="http://bestja.d3.laboratorium.ee/ucw/img/offers_pictograms/grid-ico1-offers-list.svg"/>
+                                                <img class="img img-responsive shadow pictogram" src="/bestja_offers_by_org/static/src/img/grid-ico1-offers-list.svg"/>
                                             </div>
                                         </div>
                                     </div>
@@ -48,7 +48,7 @@
                                         <div class="tile-content">
                                             <div class="two">
                                                 <img t-if="not offer.organization_image" class="img img-responsive"
-                                                 src="http://bestja.d3.laboratorium.ee/ucw/img/offers_pictograms/grid-ico1-offers-list.svg"/>
+                                                 src="/bestja_offers_by_org/static/src/img/grid-ico1-offers-list.svg"/>
                                                 <img t-if="offer.organization_image" class="img img-responsive"
                                                  t-attf-src="/website/image/offer/{{ offer.id }}/organization_image/300x300" alt="" />
                                             </div>

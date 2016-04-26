@@ -10,10 +10,10 @@
                             <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
                                 <div class="footer_logo">
                                     <a href="/">
-                                        <img src="http://bestja.d3.laboratorium.ee/ucw/img/logo-UCW.png" alt=""/>
+                                        <img src="/bestja_page_fixtures_ucw/static/src/img/logo-UCW.png" alt=""/>
                                     </a>
                                     <a href="/">
-                                        <img src="http://bestja.d3.laboratorium.ee/ucw/img/logo_UCW_exp_h100.png"
+                                        <img src="/bestja_page_fixtures_ucw/static/src/img/logo_UCW_exp_h100.png"
                                              class="pull-right" alt="Logo Uniwersyteckiego Centrum Wolontariatu"/>
                                     </a>
                                 </div>

@@ -47,7 +47,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-3 hidden-xs hidden-sm">
-                                    <img src="http://bestja.d3.laboratorium.ee/img/cytat1_222x222px.jpg"/>
+                                    <img src="/bestja_page_fixtures_ucw/static/src/img/cytat1_222x222px.jpg"/>
                                 </div>
                             </div>
                         </div>
@@ -170,7 +170,7 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-3 col-md-offset-1 hidden-xs hidden-sm text-right">
-                                    <img src="http://bestja.d3.laboratorium.ee/img/cytat2_222x222px.jpg"/>
+                                    <img src="/bestja_page_fixtures_ucw/static/src/img/cytat2_222x222px.jpg"/>
                                 </div>
                                 <div class="col-md-8 col-sm-12">
                                     <div class="quote_picture_on_left">

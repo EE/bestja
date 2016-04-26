@@ -85,10 +85,10 @@
                                         <div class="col-sm-12 mb16">
                                             <a class="category_link" href="/offers/category/edukacyjny">
                                                 <img class="shadow img_category"
-                                                     src="http://bestja.d3.laboratorium.ee/img/chcewiedziecwiecej_off.jpg"/>
-                                                <img class="img_category_hover" src="http://bestja.d3.laboratorium.ee/img/chcewiedziecwiecej_on.jpg"/>
+                                                     src="/bestja_frontend_ucw/static/src/img/content/chcewiedziecwiecej_off.jpg"/>
+                                                <img class="img_category_hover" src="/bestja_frontend_ucw/static/src/img/content/chcewiedziecwiecej_on.jpg"/>
                                                 <img class="category_pictogram"
-                                                     src="http://bestja.d3.laboratorium.ee/ucw/img/category_pictograms/grid-ico1.svg"/>
+                                                     src="/bestja_frontend_ucw/static/src/img/content/grid-ico1.svg"/>
                                             </a>
                                         </div>
                                         <div class="col-sm-12">
@@ -103,10 +103,10 @@
                                         <div class="col-sm-12 mb16">
                                             <a class="category_link" href="/offers/category/akcyjny">
                                                 <img class="shadow img_category"
-                                                     src="http://bestja.d3.laboratorium.ee/img/chcedzialac_off.jpg"/>
-                                                <img class="img_category_hover" src="http://bestja.d3.laboratorium.ee/img/chcedzialac_on.jpg"/>
+                                                     src="/bestja_frontend_ucw/static/src/img/content/chcedzialac_off.jpg"/>
+                                                <img class="img_category_hover" src="/bestja_frontend_ucw/static/src/img/content/chcedzialac_on.jpg"/>
                                                 <img class="category_pictogram"
-                                                     src="http://bestja.d3.laboratorium.ee/ucw/img/category_pictograms/grid-ico2.svg"/>
+                                                     src="/bestja_frontend_ucw/static/src/img/content/grid-ico2.svg"/>
                                             </a>
                                         </div>
                                         <div class="col-sm-12">
@@ -121,10 +121,10 @@
                                         <div class="col-sm-12 mb16">
                                             <a class="category_link" href="/offers/category/pomocowy">
                                                 <img class="shadow img_category"
-                                                     src="http://bestja.d3.laboratorium.ee/img/chcepomagac_off.jpg"/>
-                                                <img class="img_category_hover" src="http://bestja.d3.laboratorium.ee/img/chcepomagac_on.jpg"/>
+                                                     src="/bestja_frontend_ucw/static/src/img/content/chcepomagac_off.jpg"/>
+                                                <img class="img_category_hover" src="/bestja_frontend_ucw/static/src/img/content/chcepomagac_on.jpg"/>
                                                 <img class="category_pictogram"
-                                                     src="http://bestja.d3.laboratorium.ee/ucw/img/category_pictograms/grid-ico3.svg"/>
+                                                     src="/bestja_frontend_ucw/static/src/img/content/grid-ico3.svg"/>
                                             </a>
                                         </div>
                                         <div class="col-sm-12">
@@ -139,10 +139,10 @@
                                         <div class="col-sm-12 mb16">
                                             <a class="category_link" href="/offers/category/projektowy">
                                                 <img class="shadow img_category"
-                                                     src="http://bestja.d3.laboratorium.ee/img/chcsierozwijac_off.jpg"/>
-                                                <img class="img_category_hover" src="http://bestja.d3.laboratorium.ee/img/chcsierozwijac_on.jpg"/>
+                                                     src="/bestja_frontend_ucw/static/src/img/content/chcsierozwijac_off.jpg"/>
+                                                <img class="img_category_hover" src="/bestja_frontend_ucw/static/src/img/content/chcsierozwijac_on.jpg"/>
                                                 <img class="category_pictogram"
-                                                     src="http://bestja.d3.laboratorium.ee/ucw/img/category_pictograms/grid-ico4.svg"/>
+                                                     src="/bestja_frontend_ucw/static/src/img/content/grid-ico4.svg"/>
                                             </a>
                                         </div>
                                         <div class="col-sm-12">
@@ -216,7 +216,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-3 hidden-xs hidden-sm">
-                                    <img src="http://bestja.d3.laboratorium.ee/img/cytat1_222x222px.jpg"/>
+                                    <img src="/bestja_frontend_ucw/static/src/img/content/cytat1_222x222px.jpg"/>
                                 </div>
                             </div>
                         </div>
