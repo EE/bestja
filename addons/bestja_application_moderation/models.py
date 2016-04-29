@@ -20,7 +20,7 @@ class Application(models.Model):
 
     @api.one
     def _send_message_new(self):
-        if self.preliminary:
+        if self.preliminary and not self.sudo().offer.is_owned_by_moderator():
             # when application has just been created
             # send message to admin about new application
             self.send_group(
@@ -64,12 +64,7 @@ class Application(models.Model):
         # if the project is managed / coordinated by admin,
         # automatically move the application to the second
         # stage of recruitment.
-        coordinator = record_sudo.offer.organization.coordinator
-        manager = record_sudo.offer.project.manager
-        group = 'bestja_offers_moderation.offers_moderator'
-
-        if self.sudo(coordinator.id).user_has_groups(group) or \
-                (manager and self.sudo(manager.id).user_has_groups(group)):
+        if record_sudo.offer.is_owned_by_moderator():
             record_sudo.preliminary = False
         return record
 
@@ -102,3 +97,18 @@ class Application(models.Model):
             )
         else:
             super(Application, self).action_post_unaccepted()
+
+
+class Offer(models.Model):
+    _inherit = 'offer'
+
+    @api.multi
+    def is_owned_by_moderator(self):
+        self.ensure_one()
+
+        coordinator = self.sudo().organization.coordinator
+        manager = self.sudo().project.manager
+        group = 'bestja_offers_moderation.offers_moderator'
+
+        return self.sudo(coordinator.id).user_has_groups(group) or \
+            (manager and self.sudo(manager.id).user_has_groups(group))
