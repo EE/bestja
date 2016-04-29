@@ -112,6 +112,10 @@ class Project(models.Model):
                     template='bestja_project.msg_manager',
                     recipients=self.manager,
                 )
+                self.send(
+                    template='bestja_project.msg_new_manager',
+                    recipients=self.members,
+                )
         return val
 
     @api.one

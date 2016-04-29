@@ -28,6 +28,18 @@
             <field name="model">bestja.project</field>
         </record>
 
+        <record id="msg_new_manager" model="message_template">
+            <field name="subject">Nowy menedżer projektu</field>
+            <field name="body"><![CDATA[
+                Przed chwilą zmienił się manager w projekcie ${record.name} w którym uczestniczysz.<br/>
+                Nowym managerem jest <a href="${link_to(record.manager)}">${record.manager.name}</a>.
+                <br/>
+                <br/>
+                ${site_name}
+            ]]></field>
+            <field name="model">bestja.project</field>
+        </record>
+
         <record id="msg_project_message" model="message_template">
             <field name="subject">Wiadomość projektowa</field>
             <field name="body"><![CDATA[
