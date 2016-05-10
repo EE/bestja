@@ -227,7 +227,7 @@
                             <field name="wishes" readonly="1" nolabel="1" widget="many2many_tags"/>
                         </group>
 
-                        <group string="Curriculum vitae" attrs="{'invisible': [('curriculum_vitae', '=', False)]}">
+                        <group name="app_cv" string="Curriculum vitae" attrs="{'invisible': [('curriculum_vitae', '=', False)]}">
                             <field name="curriculum_vitae" filename="cv_filename" readonly="1" nolabel="1"/>
                             <field name="cv_filename" invisible="1"/>
                         </group>

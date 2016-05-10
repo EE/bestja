@@ -36,6 +36,8 @@ class Application(models.Model):
     phone = fields.Char(groups='bestja_base.instance_admin')
     email = fields.Char(groups='bestja_base.instance_admin')
     age = fields.Integer(groups='bestja_base.instance_admin')
+    curriculum_vitae = fields.Binary(groups='bestja_base.instance_admin')
+    cv_filename = fields.Char(groups='bestja_base.instance_admin')
 
 
 class Project(models.Model):
