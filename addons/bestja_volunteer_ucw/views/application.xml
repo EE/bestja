@@ -11,9 +11,9 @@
                 <div class="app_age" position="attributes">
                     <attribute name="groups">bestja_base.instance_admin</attribute>
                 </div>
-                <div class="app_cv" position="attributes">
+                <group name="app_cv" position="attributes">
                     <attribute name="groups">bestja_base.instance_admin</attribute>
-                </div>
+                </group>
             </field>
         </record>
     </data>
