@@ -71,4 +71,4 @@ class HierarchicalProjectMessage(models.TransientModel):
         for recipient in self.recipients:
             if recipient.id_name == 'child_managers':
                 recipients = [child.responsible_user for child in self.sudo().project.children]
-                self.send(recipients=recipients)
+                self.send(recipients=[recipients, ])

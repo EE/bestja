@@ -43,7 +43,6 @@ class ProjectMessage(models.TransientModel):
     @api.one
     def send(self, recipients):
         # Check permissions
-        print(self.project, self.env.user)
         self.project.check_access_rights('write')
         self.project.check_access_rule('write')
 
