@@ -12,6 +12,7 @@ class FileCategory(models.Model):
 
 class File(models.Model):
     _name = 'bestja.file'
+    _inherit = ['message_template.mixin']
 
     name = fields.Char(required=True, string=u"Nazwa")
     category = fields.Many2one('bestja.file_category', string=u"Kategoria")

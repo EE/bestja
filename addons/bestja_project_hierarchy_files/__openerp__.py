@@ -17,6 +17,7 @@ associated with parent repositories.
     ],
     'data': [
         'security/security.xml',
+        'messages.xml',
     ],
     'auto_install': True,
 }

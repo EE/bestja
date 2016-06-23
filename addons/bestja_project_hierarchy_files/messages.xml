@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="msg_new_file" model="message_template">
+            <field name="subject">Nowy plik do projektu ${record.project.name}</field>
+            <field name="body"><![CDATA[
+                Do projektu "${record.project.name}" został dodany nowy plik o nazwie ${record.filename}.
+            ]]></field>
+            <field name="model">bestja.file</field>
+        </record>
+    </data>
+</openerp>
