@@ -33,6 +33,10 @@ class ProjectMessage(models.TransientModel):
         string=u"Odbiorcy",
         default=default_recipients,
     )
+    subject = fields.Char(
+        required=True,
+        string=u"Temat",
+    )
 
     @api.one
     def send_button(self):
@@ -47,7 +51,10 @@ class ProjectMessage(models.TransientModel):
         self.project.check_access_rule('write')
 
         for recipient in recipients:
-            self.project.with_context(message=self.content).send(
+            self.project.with_context(
+                message=self.content,
+                subject=self.subject,
+            ).send(
                 template='bestja_project.msg_project_message',
                 recipients=recipient,
                 sender=self.env.user,

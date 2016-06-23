@@ -41,7 +41,7 @@
         </record>
 
         <record id="msg_project_message" model="message_template">
-            <field name="subject">Wiadomość projektowa</field>
+            <field name="subject">Wiadomość projektowa: ${context.subject}</field>
             <field name="body"><![CDATA[
                 ${bleach(context.message)|safe}
             ]]></field>
