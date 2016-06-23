@@ -19,7 +19,7 @@ Module containing reports of products obtained during projects.
     ],
     'data': [
         'views/project.xml',
-        'views/wizards.xml', 
+        'views/wizards.xml',
         # to make sure that wizards are loaded before detailed_reports.xml
         'views/detailed_reports.xml',
         'views/detailed_reports_summary.xml',
@@ -28,5 +28,6 @@ Module containing reports of products obtained during projects.
         'security/ir.model.access.csv',
         'security/security.xml',
         'messages.xml',
+        'templates.xml',
     ],
 }
