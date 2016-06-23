@@ -14,8 +14,8 @@ class ProjectInvitation(models.Model):
     _order = 'state desc, accepted_time desc, id'
 
     STATES = [
-        ('pending', "oczekujące"),
-        ('accepted', "zaakceptowane"),
+        ('pending', u"oczekujące"),
+        ('accepted', u"zaakceptowane"),
     ]
 
     name = fields.Char(related='project.name')

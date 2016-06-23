@@ -16,25 +16,25 @@ class Offer(models.Model):
     _inherit = ['message_template.mixin']
     _order = 'id desc'
     STATES = [
-        ('unpublished', "nieopublikowana"),
-        ('published', "opublikowana"),
-        ('archive', "archiwalna"),
-        ('template', "szablon"),
+        ('unpublished', u"nieopublikowana"),
+        ('published', u"opublikowana"),
+        ('archive', u"archiwalna"),
+        ('template', u"szablon"),
     ]
     KIND_CHOICES = [
-        ('single', 'jednorazowa'),
-        ('cyclic', 'cykliczna'),
-        ('flexible', 'elastyczna')
+        ('single', u'jednorazowa'),
+        ('cyclic', u'cykliczna'),
+        ('flexible', u'elastyczna')
     ]
     LOCALIZATION_CHOICES = [
-        ('assigned', 'Oferta ma przypisaną lokalizację.'),
-        ('remote', 'Praca zdalna')
+        ('assigned', u'Oferta ma przypisaną lokalizację.'),
+        ('remote', u'Praca zdalna')
     ]
     INTERVAL_CHOICES = [
-        (1, 'tydzień'),
-        (2, '2 tygodnie'),
-        (3, '3 tygodnie'),
-        (4, '4 tygodnie'),
+        (1, u'tydzień'),
+        (2, u'2 tygodnie'),
+        (3, u'3 tygodnie'),
+        (4, u'4 tygodnie'),
     ]
 
     @api.model

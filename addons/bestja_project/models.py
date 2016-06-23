@@ -134,9 +134,9 @@ class Task(models.Model):
     _inherit = ['message_template.mixin']
     _order = 'state desc'
     STATES = [
-        ('new', "nowe"),
-        ('in_progress', "w trakcie realizacji"),
-        ('done', "zrealizowane"),
+        ('new', u"nowe"),
+        ('in_progress', u"w trakcie realizacji"),
+        ('done', u"zrealizowane"),
     ]
 
     name = fields.Char(required=True, string=u"Nazwa zadania")

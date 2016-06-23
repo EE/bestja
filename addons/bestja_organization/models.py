@@ -16,10 +16,10 @@ class Organization(models.Model):
     _permitted_groups = ['bestja_base.instance_admin']
 
     STATES = [
-        ('pending', "oczekująca na akceptację"),
-        ('approved', "zaakceptowana"),
-        ('rejected', "odrzucona"),
-        ('archived', "zarchiwizowana"),
+        ('pending', u"oczekująca na akceptację"),
+        ('approved', u"zaakceptowana"),
+        ('rejected', u"odrzucona"),
+        ('archived', u"zarchiwizowana"),
     ]
 
     name = fields.Char(string=u"Nazwa", required=True)

@@ -106,10 +106,10 @@ class DetailedReport(models.Model):
     _protected_fields = ['state']
     _order = 'write_uid desc'
     STATES = [
-        ('sent', "wysłany"),
-        ('accepted', "zaakceptowany"),
-        ('draft', "szkic"),
-        ('rejected', "odrzucony"),
+        ('sent', u"wysłany"),
+        ('accepted', u"zaakceptowany"),
+        ('draft', u"szkic"),
+        ('rejected', u"odrzucony"),
     ]
 
     project = fields.Many2one(

@@ -168,10 +168,10 @@ class Request(models.Model):
     ]
     _order = 'write_uid desc'
     STATES = [
-        ('draft', 'szkic'),
-        ('pending', 'oczekujące'),
-        ('accepted', 'zaakceptowane'),
-        ('rejected', 'odrzucone'),
+        ('draft', u'szkic'),
+        ('pending', u'oczekujące'),
+        ('accepted', u'zaakceptowane'),
+        ('rejected', u'odrzucone'),
     ]
     _protected_fields = ['state']
 

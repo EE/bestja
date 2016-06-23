@@ -38,8 +38,8 @@ class Users(models.Model):
     _inherit = "res.users"
 
     STATES = [
-        ('active', 'aktywny'),
-        ('not_activated', 'nieaktywowany')
+        ('active', u'aktywny'),
+        ('not_activated', u'nieaktywowany')
     ]
 
     active_state = fields.Selection(STATES, default='active', store=True, string=u"Stan")

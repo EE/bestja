@@ -2,12 +2,12 @@
 from openerp import models, fields, api, exceptions
 
 
-class ChainImportWizard(models.TransientModel):
+class StoreStateWizard(models.TransientModel):
     _name = 'bestja.stores.state_wizard'
 
     STATES = [
-        ('activated', "aktywowany"),
-        ('chain', "wysłany do sieci"),
+        ('activated', u"aktywowany"),
+        ('chain', u"wysłany do sieci"),
     ]
 
     def _default_stores(self):

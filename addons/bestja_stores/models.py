@@ -20,9 +20,9 @@ class Store(models.Model):
     _protected_fields = ['state']
 
     STATES = [
-        ('pending', "oczekujący"),
-        ('accepted', "zaakceptowany"),
-        ('rejected', "odrzucony"),
+        ('pending', u"oczekujący"),
+        ('accepted', u"zaakceptowany"),
+        ('rejected', u"odrzucony"),
     ]
 
     @api.model
@@ -237,13 +237,13 @@ class StoreInProject(models.Model):
     _order = 'state'
 
     STATES = [
-        ('waiting_bank', "oczekuje na bank"),
-        ('waiting_partner', "oczekuje na partnera"),
-        ('rejected', "odrzucony"),
-        ('activated', "aktywowany"),
-        ('deactivated', "dezaktywowany"),
-        ('proposed', "proponowany"),
-        ('chain', "wysłany do sieci"),
+        ('waiting_bank', u"oczekuje na bank"),
+        ('waiting_partner', u"oczekuje na partnera"),
+        ('rejected', u"odrzucony"),
+        ('activated', u"aktywowany"),
+        ('deactivated', u"dezaktywowany"),
+        ('proposed', u"proponowany"),
+        ('chain', u"wysłany do sieci"),
     ]
 
     def _default_project(self):

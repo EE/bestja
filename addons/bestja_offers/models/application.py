@@ -21,11 +21,11 @@ class Application(models.Model):
     _inherit = ['message_template.mixin']
 
     STATES = [
-        ('new', 'Nowa aplikacja'),
-        ('meeting', 'Pierwsze spotkanie'),
-        ('meeting2', 'Drugie spotkanie'),
-        ('accepted', 'Zaakceptowano'),
-        ('rejected', 'Odmówiono'),
+        ('new', u'Nowa aplikacja'),
+        ('meeting', u'Pierwsze spotkanie'),
+        ('meeting2', u'Drugie spotkanie'),
+        ('accepted', u'Zaakceptowano'),
+        ('rejected', u'Odmówiono'),
     ]
     STATES_DICT = dict(STATES)
 
@@ -34,16 +34,16 @@ class Application(models.Model):
         'meeting2',
     ]
     QUALITY_CHOICES = [
-        ('0', 'Brak oceny'),
-        ('1', 'Słaba'),
-        ('2', 'Średnia'),
-        ('3', 'Dobra'),
-        ('4', 'Doskonała')
+        ('0', u'Brak oceny'),
+        ('1', u'Słaba'),
+        ('2', u'Średnia'),
+        ('3', u'Dobra'),
+        ('4', u'Doskonała')
     ]
     MEETING_STATES = [
-        ('pending', 'Oczekujące'),
-        ('accepted', 'Potwierdzone'),
-        ('rejected', 'Odrzucone'),
+        ('pending', u'Oczekujące'),
+        ('accepted', u'Potwierdzone'),
+        ('rejected', u'Odrzucone'),
     ]
 
     # The way to specify all possible groups for particular grouping in kanban

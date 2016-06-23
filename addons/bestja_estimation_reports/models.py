@@ -116,8 +116,8 @@ class EstimationReport(models.Model):
     ]
     _protected_fields = ['state']
     STATES = [
-        ('sent', 'dodany do zestawienia'),
-        ('draft', 'szkic'),
+        ('sent', u'dodany do zestawienia'),
+        ('draft', u'szkic'),
     ]
     project = fields.Many2one(
         'bestja.project',
