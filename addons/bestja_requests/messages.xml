@@ -23,7 +23,7 @@
         <record id="msg_call_for_requests" model="message_template">
             <field name="subject">Przyślij raport potrzeb</field>
             <field name="body"><![CDATA[
-                Przyślij raport potrzeb do projektu ${record.name} poprzez menu "Moje raporty potrzeb".
+                Przyślij raport potrzeb do projektu ${record.name} poprzez menu "Moje raporty".
                 <br/>
                 <br/>
                 ${site_name}

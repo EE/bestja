@@ -72,7 +72,7 @@
         </record>
 
         <record model="ir.actions.act_window" id="action_bestja_detailed_reports">
-            <field name="name">Moje raporty szczegółowe</field>
+            <field name="name">Moje raporty</field>
             <field name="res_model">bestja.detailed_report</field>
             <field name="view_mode">tree,form</field>
             <field name="domain">[

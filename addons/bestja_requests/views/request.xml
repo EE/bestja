@@ -2,7 +2,7 @@
 <openerp>
     <data>
         <record model="ir.actions.act_window" id="action_my_requests">
-            <field name="name">Moje raporty potrzeb</field>
+            <field name="name">Moje raporty</field>
             <field name="res_model">bestja_requests.request</field>
             <field name="view_mode">tree,form</field>
             <field name="domain">[
