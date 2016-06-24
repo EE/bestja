@@ -6,6 +6,7 @@
         <menuitem parent="menu_detailed_reports" id="menu_detailed_reports_summary" action="action_bestja_detailed_report_summary" sequence="3" groups="bestja_project_hierarchy.managers_level0,bestja_project_hierarchy.managers_level1"/>
 
         <record model="ir.actions.act_url" id="action_url_web_list">
+            <field name="name">Podsumowania</field>
             <field name="url">/detailed</field>
             <field name="target">self</field>
         </record>

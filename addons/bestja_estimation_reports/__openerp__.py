@@ -26,5 +26,6 @@ per shops in towns/cities obtained during projects.
         'security/ir.model.access.csv',
         'security/security.xml',
         'menu.xml',
+        'templates.xml',
     ],
 }

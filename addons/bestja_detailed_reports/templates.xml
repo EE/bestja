@@ -30,9 +30,9 @@
                         <t t-foreach="bank_sums" t-as="bank">
                             <t t-set="total" t-value="total + bank[3]"/>
                             <tr>
-                                <td><a t-attf-href="/detailed/{{ project.id }}/{{ bank[0] }}" t-esc="bank[1]"/></td>
+                                <th><a t-attf-href="/detailed/{{ project.id }}/{{ bank[0] }}" t-esc="bank[1]"/></th>
                                 <td t-esc="bank[2]"/>
-                                <td t-esc="bank[3]"/>
+                                <td><t t-esc="bank[3]"/> kg</td>
                             </tr>
                         </t>
                         <t t-if="total">

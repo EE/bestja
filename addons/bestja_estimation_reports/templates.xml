@@ -1,0 +1,102 @@
+<openerp>
+    <data>
+        <template id="projects_list" name="Podsumowania wyników szacunkowych">
+            <t t-call="website.layout">
+                <div class="container">
+                    <h1>Podsumowanie szacunkowych wyników zbiórek</h1>
+                    <t t-set="year" t-value="None"/>
+                    <t t-foreach="projects" t-as="project">
+                        <t t-if="project.date_start[:4] != year">
+                            <t t-set="year" t-value="project.date_start[:4]"/>
+                            <h2 t-esc="year"/>
+                        </t>
+                        <a t-attf-href="/estimated/{{ project.id }}"><h3 t-esc="project.name"/></a>
+                    </t>
+                </div>
+            </t>
+        </template>
+
+        <template id="by_bank" name="Podsumowania po bankach">
+            <t t-call="website.layout">
+                <div class="container">
+                    <a href="/estimated"><i class="fa fa-arrow-left" aria-hidden="true"></i> Powrót</a>
+
+                    <h1>Podsumowanie szacunkowe zbiórki "<t t-esc="project.name"/>"</h1>
+                    <table class="table table-striped">
+                        <tr>
+                            <th>Bank Żywności</th>
+                            <th t-foreach="days" t-as="day">
+                                <t t-esc="day[0]"/>
+                            </th>
+                            <th>Suma</th>
+                        </tr>
+                        <t t-set="total" t-value="0"/>
+                        <tr t-foreach="bank_sums" t-as="bank">
+                            <t t-set="total_line" t-value="0"/>
+                            <th><a t-attf-href="/estimated/{{ project.id }}/{{ bank['id'] }}" t-esc="bank['name']"/></th>
+                            <td t-foreach="days" t-as="day">
+                                <t t-set="tonnage" t-value="bank['tonnages'][day[0]]"/>
+                                <t t-esc="tonnage"/> kg
+                                <t t-set="total_line" t-value="total_line + tonnage"/>
+                                <t t-set="total" t-value="total + tonnage"/>
+                            </td>
+                            <td><t t-esc="total_line"/> kg</td>
+                        </tr>
+                        <t t-if="total">
+                            <tr>
+                                <td/>
+                                <td t-foreach="days" t-as="day"/>
+                                <td>Suma: <strong><t t-esc="total"/></strong></td>
+                            </tr>
+                        </t>
+                    </table>
+                    <t t-if="not bank_sums">
+                        Nie ma jeszcze wyników dla tej zbiórki...
+                    </t>
+                </div>
+            </t>
+        </template>
+
+        <template id="by_org" name="Podsumowania po organizacjach">
+            <t t-call="website.layout">
+                <div class="container">
+                    <a t-attf-href="/estimated/{{ project.id }}"><i class="fa fa-arrow-left" aria-hidden="true"></i> Powrót</a>
+
+                    <h1>Podsumowanie szacunkowe zbiórki "<t t-esc="project.name"/>" w banku "<t t-esc="organization.name"/>"</h1>
+
+                    <table class="table table-striped">
+                        <tr>
+                            <th>Organizacja</th>
+                            <th t-foreach="days" t-as="day">
+                                <t t-esc="day[0]"/>
+                            </th>
+                            <th>Suma</th>
+                        </tr>
+                        <t t-set="total" t-value="0"/>
+                        <tr t-foreach="org_sums" t-as="org">
+                            <t t-set="total_line" t-value="0"/>
+                            <th t-esc="org['name']"/>
+                            <td t-foreach="days" t-as="day">
+                                <t t-set="tonnage" t-value="org['tonnages'][day[0]]"/>
+                                <t t-esc="tonnage"/> kg
+                                <t t-set="total_line" t-value="total_line + tonnage"/>
+                                <t t-set="total" t-value="total + tonnage"/>
+                            </td>
+                            <td><t t-esc="total_line"/> kg</td>
+                        </tr>
+                        <t t-if="total">
+                            <tr>
+                                <td/>
+                                <td t-foreach="days" t-as="day"/>
+                                <td>Suma: <strong><t t-esc="total"/></strong></td>
+                            </tr>
+                        </t>
+                    </table>
+                    <t t-if="not org_sums">
+                        Nie ma jeszcze wyników dla tej zbiórki...
+                    </t>
+                </div>
+            </t>
+        </template>
+    </data>
+</openerp>

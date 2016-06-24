@@ -6,7 +6,6 @@ from werkzeug import exceptions
 class DetailedStats(http.Controller):
     @http.route('/detailed', auth='user', website=True)
     def projects_list(self):
-        print http.request.env.user
         if not http.request.env.user.sudo(http.request.env.user). \
                 user_has_groups('bestja_project.managers'):
             return exceptions.Forbidden()
