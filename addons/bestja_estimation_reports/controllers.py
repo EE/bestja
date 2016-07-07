@@ -8,9 +8,20 @@ from werkzeug import exceptions
 class DetailedStats(http.Controller):
     @http.route('/estimated', auth='user', website=True)
     def projects_list(self):
+        user_bank_id = None
         if not http.request.env.user.sudo(http.request.env.user). \
-                user_has_groups('bestja_project.managers'):
-            return exceptions.Forbidden()
+                user_has_groups(
+                    'bestja_project_hierarchy.managers_level0,bestja_project_hierarchy.managers_level1'
+                ):
+            user_organization = http.request.env['organization'].sudo().search([
+                ('level', '=', 2),
+                '|',  # noqa
+                    ('coordinator', '=', http.request.env.user.id),
+                    ('projects.manager', '=', http.request.env.user.id)
+            ])
+            if not user_organization:
+                return exceptions.Forbidden()
+            user_bank_id = user_organization.parent.id
 
         projects = http.request.env['bestja.project'].sudo().search([
             ('organization_level', '=', 0),
@@ -20,6 +31,7 @@ class DetailedStats(http.Controller):
 
         return http.request.render('bestja_estimation_reports.projects_list', {
             'projects': projects,
+            'user_bank_id': user_bank_id,
         })
 
     def group_data_by_organization(self, data):
@@ -60,7 +72,9 @@ class DetailedStats(http.Controller):
     @http.route('/estimated/<int:project>', auth='user', website=True)
     def by_bank(self, project):
         if not http.request.env.user.sudo(http.request.env.user). \
-                user_has_groups('bestja_project.managers'):
+                user_has_groups(
+                    'bestja_project_hierarchy.managers_level0,bestja_project_hierarchy.managers_level1'
+                ):
             return exceptions.Forbidden()
 
         days = self.get_store_days(project)
@@ -87,8 +101,19 @@ class DetailedStats(http.Controller):
     @http.route('/estimated/<int:project>/<int:organization>', auth='user', website=True)
     def by_org(self, project, organization):
         if not http.request.env.user.sudo(http.request.env.user). \
-                user_has_groups('bestja_project.managers'):
-            return exceptions.Forbidden()
+                user_has_groups(
+                    'bestja_project_hierarchy.managers_level0,bestja_project_hierarchy.managers_level1'
+                ):
+            # is the current user a manager/coordinator of an organization
+            # unserneeth the choosen 1st level organization
+            is_curent_manager = http.request.env['organization'].sudo().search_count([
+                ('parent', '=', organization),
+                '|',  # noqa
+                    ('coordinator', '=', http.request.env.user.id),
+                    ('projects.manager', '=', http.request.env.user.id)
+            ])
+            if not is_curent_manager:
+                return exceptions.Forbidden()
 
         days = self.get_store_days(project)
 
