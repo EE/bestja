@@ -53,6 +53,7 @@ class DetailedStats(http.Controller):
                 })
                 last_id = current_id
             day_tonnages[date] = tonnage
+        sums.sort(key=lambda x: sum(x['tonnages'].values()), reverse=True)
         return sums
 
     def get_store_days(self, project_id):
@@ -88,7 +89,7 @@ class DetailedStats(http.Controller):
             JOIN bestja_estimation_report as report ON (entry.estimation_report = report.id)
             WHERE entry.top_project = %s AND report.state = 'sent'
             GROUP BY responsible.id, responsible.name, day.date
-            ORDER BY sum_tonnage DESC, responsible.name ASC, day.date ASC
+            ORDER BY responsible.name ASC, day.date ASC
         """, [project, ])
         bank_sums = http.request.env.cr.fetchall()
 
@@ -127,7 +128,7 @@ class DetailedStats(http.Controller):
             WHERE entry.top_project = %s AND entry.responsible_organization = %s
                 AND report.state = 'sent'
             GROUP BY organization.id, organization.name, day.date
-            ORDER BY sum_tonnage DESC, organization.name ASC, day.date ASC
+            ORDER BY organization.name ASC, day.date ASC
         """, [project, organization])
         org_sums = http.request.env.cr.fetchall()
 
