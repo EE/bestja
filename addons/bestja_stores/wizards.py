@@ -49,3 +49,68 @@ class StoreStateWizard(models.TransientModel):
                 raise exceptions.ValidationError("Wybrano nieprawidłowy status")
 
             store.sudo().state = self.state
+
+
+class StoreToProjectWizard(models.TransientModel):
+    _name = 'bestja.stores.to_project_wizard'
+
+    def _default_stores(self):
+        return self.env['bestja_stores.store'].browse(self.env.context.get('active_ids'))
+
+    @api.one
+    @api.depends('project', 'stores')
+    def _compute_ignore_stores(self):
+        stores = self.env['bestja_stores.store'].search([
+            ('id', 'in', self.stores.ids),
+            '|',
+            ('state', '!=', 'accepted'),
+            '!',
+                ('id', '__free_for_project__', self.project.id),
+        ])
+        self.ignore_stores = [(6, 0, stores.ids)]
+
+    stores = fields.Many2many(
+        'bestja_stores.store',
+        string=u"Wybrane sklepy",
+        required=True,
+        default=_default_stores,
+        relation='bestja_to_project_wizard_stores_rel',
+    )
+
+    ignore_stores = fields.Many2many(
+        'bestja_stores.store',
+        string=u"Pominięte sklepy",
+        help=u"Te sklepy są już dodane do projektu lub nie zostały jeszcze zaakceptowane i zostaną pominięte.",
+        compute=_compute_ignore_stores
+    )
+
+    project = fields.Many2one(
+        'bestja.project',
+        required=True,
+        string="Projekt",
+        domain='''[
+            ('use_stores', '=', True),
+            ('date_stop', '>=', current_date),
+            '|',
+                ('organization.coordinator', '=', uid),
+            '|',
+                ('manager', '=', uid),
+            '|',
+                ('parent.organization.coordinator', '=', uid),
+                ('parent.manager', '=', uid),
+        ]''',
+    )
+
+    @api.multi
+    def add_in_project(self):
+        stores = self.env['bestja_stores.store'].search([
+            ('id', 'in', self.stores.ids),
+            ('state', '=', 'accepted'),
+            ('id', '__free_for_project__', self.project.id),
+        ])
+        for store in stores:
+            store_in_project = self.env['bestja_stores.store_in_project'].create({
+                'store': store.id,
+                'project': self.project.id,
+            })
+            store_in_project.add_days();

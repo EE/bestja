@@ -1,0 +1,50 @@
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="to_project_wizard_view">
+            <field name="name">bestja.stores.to_project_wizard</field>
+            <field name="model">bestja.stores.to_project_wizard</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <label for="stores"/>
+                        <div style="height: 190px; overflow:scroll;">
+                            <field name="stores" readonly="1">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="state"/>
+                                    <field name="responsible"/>
+                                </tree>
+                            </field>
+                        </div>
+                        <field name="project"/>
+                        <label for="ignore_stores" attrs="{'invisible': [('ignore_stores', '=', [(6, False, [])])]}"/>
+                        <div style="height: 190px; overflow:scroll;"  attrs="{'invisible': [('ignore_stores', '=', [(6, False, [])])]}">
+                            <field name="ignore_stores" readonly="1">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="state"/>
+                                    <field name="responsible"/>
+                                </tree>
+                            </field>
+                        </div>
+                    </group>
+                    <footer>
+                        <button name="add_in_project" type="object" string="Dodaj do projektu" class="oe_highlight"/>
+                        lub
+                        <button special="cancel" string="Anuluj" class="oe_link"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <!-- Add the menu to the contextual menu for res.users -->
+        <act_window id="to_project_wizard_window"
+                    name="Dodaj do projektu"
+                    groups="bestja_project_hierarchy.managers_level1,bestja_project_hierarchy.managers_level2"
+                    src_model="bestja_stores.store"
+                    res_model="bestja.stores.to_project_wizard"
+                    view_mode="form"
+                    target="new"
+                    key2="client_action_multi"/>
+    </data>
+</openerp>

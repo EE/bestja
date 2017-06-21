@@ -17,6 +17,7 @@ Add stores to hierarchical projects.
         'views/store.xml',
         'views/project.xml',
         'views/in_project_state_wizard.xml',
+        'views/store_to_project_wizard.xml',
         'menu.xml',
         'data/chains.xml',
         'messages.xml',
