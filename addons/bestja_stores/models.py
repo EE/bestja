@@ -18,6 +18,7 @@ class Store(models.Model):
         'message_template.mixin',
     ]
     _protected_fields = ['state']
+    _permitted_groups = ['bestja_base.instance_admin']
 
     STATES = [
         ('pending', u"oczekujący"),
@@ -82,7 +83,6 @@ class Store(models.Model):
         required=True,
         string=u"Domyślny partner",
     )
-    user_can_moderate = fields.Boolean(compute="_compute_user_can_moderate")
     user_is_responsible = fields.Boolean(compute="_compute_user_is_responsible")
     user_is_federation = fields.Boolean(compute="_compute_user_is_federation")
     user_is_partner = fields.Boolean(compute="_compute_user_is_partner")
@@ -126,17 +126,6 @@ class Store(models.Model):
 
     @api.one
     @api.depends('responsible', 'responsible.coordinator')
-    def _compute_user_can_moderate(self):
-        """
-        Is current user authorized to moderate (accept/reject) the store?
-        """
-        self.user_can_moderate = (
-            self.responsible.coordinator.id == self.env.uid
-            and self.responsible != self.default_partner
-        )
-
-    @api.one
-    @api.depends('responsible', 'responsible.coordinator')
     def _compute_user_is_responsible(self):
         """
         Is current user coordinator of a Bank responsible for this store.
@@ -155,34 +144,24 @@ class Store(models.Model):
     def _compute_user_is_partner(self):
         self.user_is_partner = (self.default_partner.coordinator.id == self.env.uid)
 
-    @api.multi
-    def _is_permitted(self):
-        """
-        Allow authorized users to modify protected fields
-        """
-        permitted = super(Store, self)._is_permitted()
-        return permitted or self.user_can_moderate
-
     @api.model
     def _needaction_domain_get(self):
         """
         Show pending count in menu.
         """
+        if not self.user_has_groups('bestja_base.instance_admin'):
+            return False
         return [
             ('state', '=', 'pending'),
-            ('responsible.coordinator', '=', self.env.uid),
         ]
 
     @api.model
     def create(self, vals):
         record = super(Store, self).create(vals)
-        if record.responsible.coordinator.id == self.env.uid:
-            record.sudo().state = 'accepted'
-        else:
-            record.send(
-                template='bestja_stores.msg_store_from_partner',
-                recipients=record.responsible.coordinator,
-            )
+        record.send_group(
+            template='bestja_stores.msg_new_store',
+            group='bestja_base.instance_admin',
+        )
         return record
 
     @api.model

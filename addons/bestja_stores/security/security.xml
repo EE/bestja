@@ -1,5 +1,18 @@
 <openerp>
     <data>
+        <record id="store_admin_rule" model="ir.rule">
+            <field name="name">Stores can be modified by admins.</field>
+            <field name="model_id" ref="model_bestja_stores_store"/>
+            <field name="groups" eval="[(4, ref('bestja_base.instance_admin'))]"/>
+            <field name="domain_force">[
+                (1, '=', 1),
+            ]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
         <record id="store_default_coordinator_rule" model="ir.rule">
             <field name="name">Stores can be modified by coordinators of their default partners.</field>
             <field name="model_id" ref="model_bestja_stores_store"/>
