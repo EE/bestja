@@ -297,7 +297,7 @@ class StoreInProject(models.Model):
     days = fields.One2many('bestja_stores.day', inverse_name='store')
     state = fields.Selection(STATES, default='waiting_bank', required=True, string=u"Status aktywacji")
     time_deactivated = fields.Datetime(string=u"Czas dezaktywacji")
-    name = fields.Char(related='store.name', readonly=True)
+    name = fields.Char(related='store.name', store=True, readonly=True)
     address = fields.Char(related='store.address', readonly=True)
     city = fields.Char(related='store.city', readonly=True)
     user_can_moderate = fields.Boolean(compute="_compute_user_can_moderate")
