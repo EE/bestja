@@ -112,6 +112,10 @@
                         <field name="address"/>
                         <field name="city"/>
                         <field name="voivodeship" options="{'no_create': True}"/>
+                        <label for="postal_code"/>
+                        <div>
+                        <field name="postal_code" class="short_input"/><span class="oe_grey oe_edit_only">format 00-000</span>
+                        </div>
                     </group>
                 </form>
             </field>

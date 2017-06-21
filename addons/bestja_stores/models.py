@@ -51,6 +51,7 @@ class Store(models.Model):
     )
     address = fields.Char(required=True, string=u"Ulica i numer")
     city = fields.Char(required=True, string=u"Miasto")
+    postal_code = fields.Char(size=6, required=True, string=u"Kod pocztowy")
     voivodeship = fields.Many2one('volunteer.voivodeship', required=True, string=u"Województwo")
     responsible = fields.Many2one(
         'organization',
