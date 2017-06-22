@@ -34,6 +34,7 @@
             <field name="model">bestja_stores.store_in_project</field>
             <field name="arch" type="xml">
                 <search>
+                    <field name="name"/>
                     <filter name="my_stores" string="Moje sklepy"
                     domain="[
                         '|',
@@ -79,7 +80,8 @@
                     <field name="address"/>
                     <field name="city"/>
                     <field name="organization"/>
-                    <field name="proposed_by"/>
+                    <field name="proposed_by" string="org. potwierdzająca"/>
+                    <field name="create_date" string="data dodania"/>
                     <field name="state"/>
                 </tree>
             </field>
