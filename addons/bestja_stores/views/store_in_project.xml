@@ -147,7 +147,7 @@
                             <field name="time_to_default" placeholder="HH:MM"/>
                         </tree>
                     </field>
-                    <button name="add_days" type="object" string="Dodaj wszystkie dni zbiórki" attrs="{'invisible': ['|', ('days', '!=', []), ('state', 'in', ['rejected', 'deactivated'])]}"/>
+                    <button name="add_days_dummy" type="object" string="Dodaj wszystkie dni zbiórki" attrs="{'invisible': ['|', ('days', '!=', []), ('state', 'in', ['rejected', 'deactivated'])]}"/>
                 </form>
             </field>
         </record>
@@ -164,7 +164,7 @@
                 <field name="project" position="attributes">
                     <attribute name="invisible">1</attribute>
                 </field>
-                <button name="add_days" position="attributes">
+                <button name="add_days_dummy" position="attributes">
                     <attribute name="invisible">1</attribute>
                 </button>
             </field>

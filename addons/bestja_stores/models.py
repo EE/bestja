@@ -578,6 +578,10 @@ class StoreInProject(models.Model):
                 record.sudo().state = 'waiting_bank'
         else:
             raise exceptions.AccessError("Nie masz uprawnień aby przypisać ten sklep!")
+
+        if not record.days:
+            # No days defined. Add the default set.
+            record.add_days()
         return record
 
     @api.multi
@@ -618,6 +622,14 @@ class StoreInProject(models.Model):
                 'time_to': previous_day.time_to or "18:00",
             })
             day += delta
+
+    @api.one
+    def add_days_dummy(self):
+        """
+        Action for a "Add days" button. But we add days on create anyway, so it
+        doesn't actually have to do anything.
+        """
+        pass
 
     @api.one
     def name_get(self):
