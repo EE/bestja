@@ -54,6 +54,7 @@
                         <button name="set_approved" string="Zaakceptuj" states="pending,rejected" type="object" groups="bestja_base.instance_admin" class="oe_highlight"/>
                         <button name="set_rejected" string="Odrzuć" states="pending" type="object" groups="bestja_base.instance_admin"/>
                         <button name="set_archived" string="Archiwizuj" states="approved" type="object" groups="bestja_base.instance_admin"/>
+                        <button name="set_approved" string="Przywróc z archiwum" states="archived" type="object" groups="bestja_base.instance_admin"/>
                     </header>
                     <field name="image_medium" widget="image" class="oe_left oe_avatar"/>
                     <div class="oe_title">
@@ -135,6 +136,8 @@
                 <search>
                     <field name="name"/>
                     <field name="city"/>
+                    <filter name="archived" string="Archiwalne"
+                                domain="[('active', '=?', False), ('state', '=', 'archived')]"/>
                 </search>
             </field>
         </record>
