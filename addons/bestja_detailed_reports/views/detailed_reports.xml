@@ -123,7 +123,6 @@
             <field name="view_id" ref="bestja_detailed_reports_sent_tree"/>
             <field name="context">{
                 'search_default_parent_project': active_id,
-                'search_default_sent_and_or_accepted': True,
             }</field>
             <field name="domain">[
                 ('state', '!=', 'draft'),
