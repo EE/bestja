@@ -217,6 +217,10 @@ class Organization(models.Model):
         if 'coordinator' in vals:
             self.coordinator._sync_coordinators_group()
             old_coordinator._sync_coordinators_group()
+            self.send(
+                template='bestja_organization.msg_coordinator',
+                recipients=self.coordinator,
+            )
         return val
 
     @api.multi

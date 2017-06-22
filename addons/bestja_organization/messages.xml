@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
+        <record id="msg_coordinator" model="message_template">
+            <field name="subject">Jesteś teraz koordynatorem organizacji</field>
+            <field name="body"><![CDATA[
+                Gratulacje!
+                Jesteś teraz koordynatorem organizacji <a href="${link_to(record)}">${record.name}</a>.
+                <br/>
+                <br/>
+                ${site_name}
+            ]]></field>
+            <field name="model">organization</field>
+        </record>
+
         <record id="msg_registered" model="message_template">
             <field name="subject">Twoja organizacja została zgłoszona</field>
             <field name="body"><![CDATA[
