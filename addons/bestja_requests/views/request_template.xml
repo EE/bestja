@@ -25,6 +25,7 @@
             <field name="model">bestja_requests.template</field>
             <field name="arch" type="xml">
                 <form>
+                    <field name="id" invisible="1"/>
                     <div class="oe_title">
                         <label for="name" class="oe_edit_only"/>
                         <h1 class="oe_inline">
@@ -32,7 +33,7 @@
                         </h1>
                     </div>
                     <group>
-                        <field name="organization" options="{'no_create': True}"/>
+                        <field name="organization" options="{'no_create': True}" attrs="{'readonly': [('id', '!=', False)]}"/>
                     </group>
                     <field name="items">
                         <tree editable="true">

@@ -46,7 +46,7 @@ class RequestTemplateItem(models.Model):
         string=u"szablon",
         ondelete='cascade',
     )
-
+    items = fields.One2many('bestja_requests.item', inverse_name='template_item')
 
 class RequestTemplate(models.Model):
     _name = 'bestja_requests.template'
