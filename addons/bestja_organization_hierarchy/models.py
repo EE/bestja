@@ -7,7 +7,6 @@ from openerp import models, fields, api, exceptions, SUPERUSER_ID
 class Organization(models.Model):
     _inherit = 'organization'
     _parent_name = 'parent'
-    _order = 'parent_left'
     _parent_store = True
 
     def _allowed_parents(self):

@@ -12,6 +12,7 @@ class Organization(models.Model):
         'ir.needaction_mixin',
         'message_template.mixin',
     ]
+    _order = 'name'
     _protected_fields = ['state', 'coordinator']
     _permitted_groups = ['bestja_base.instance_admin']
 
