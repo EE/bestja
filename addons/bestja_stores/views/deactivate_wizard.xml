@@ -1,0 +1,33 @@
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="deactivate_wizard_form">
+            <field name="name">bestja.stores.deactivate_wizard</field>
+            <field name="model">bestja.stores.deactivate_wizard</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <label for="stores"/>
+                        <div style="height: 190px; overflow:scroll;">
+                            <field name="stores" readonly="1"/>
+                        </div>
+                    </group>
+                    <footer>
+                        <button name="deactivate" type="object" string="Dezaktywuj" class="oe_highlight"/>
+                        lub
+                        <button special="cancel" string="Anuluj" class="oe_link"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <!-- Add the menu to the contextual menu for res.users -->
+        <act_window id="deactivate_state_wizard"
+                    name="Dezaktywuj"
+                    groups="bestja_project.managers"
+                    src_model="bestja_stores.store_in_project"
+                    res_model="bestja.stores.deactivate_wizard"
+                    view_mode="form"
+                    target="new"
+                    key2="client_action_multi"/>
+    </data>
+</openerp>

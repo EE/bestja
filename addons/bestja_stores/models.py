@@ -335,15 +335,15 @@ class StoreInProject(models.Model):
         """
         self.ensure_one()
         authorised_uids_1 = [
-            self.project.organization.coordinator.id,
-            self.project.manager.id,
+            self.sudo().project.organization.coordinator.id,
+            self.sudo().project.manager.id,
         ]
         authorised_uids_2 = [
-            self.project.parent.organization.coordinator.id,
-            self.project.parent.manager.id,
+            self.sudo().project.parent.organization.coordinator.id,
+            self.sudo().project.parent.manager.id,
         ]
-        return (self.env.uid in authorised_uids_1 and self.project.organization_level == 1) or \
-            (self.env.uid in authorised_uids_2 and self.project.organization_level == 2)
+        return (self.env.uid in authorised_uids_1 and self.sudo().project.organization_level == 1) or \
+            (self.env.uid in authorised_uids_2 and self.sudo().project.organization_level == 2)
 
     @api.one
     @api.depends('project', 'project.parent')
@@ -358,10 +358,10 @@ class StoreInProject(models.Model):
         """
         self.ensure_one()
         authorised_uids = [
-            self.project.top_parent.organization.coordinator.id,
-            self.project.top_parent.manager.id,
+            self.sudo().project.top_parent.organization.coordinator.id,
+            self.sudo().project.top_parent.manager.id,
         ]
-        return self.env.uid in authorised_uids and self.project.top_parent.organization_level == 0
+        return self.env.uid in authorised_uids and self.sudo().project.top_parent.organization_level == 0
 
     @api.one
     @api.depends('project', 'project.parent')
@@ -376,8 +376,8 @@ class StoreInProject(models.Model):
         """
         self.ensure_one()
         authorised_uids = [
-            self.project.organization.coordinator.id,
-            self.project.manager.id,
+            self.sudo().project.organization.coordinator.id,
+            self.sudo().project.manager.id,
         ]
         return self.env.uid in authorised_uids
 
@@ -393,7 +393,7 @@ class StoreInProject(models.Model):
         Is current user authorized to moderate (accept/reject) the store?
         """
         if self.state == 'waiting_bank':
-            self.user_can_moderate = self.is_bank() and self.project.organization_level == 2
+            self.user_can_moderate = self.is_bank() and self.sudo().project.organization_level == 2
         elif self.state == 'waiting_partner':
             self.user_can_moderate = self.is_owner() or self.is_bank()
         elif self.state in ('proposed', 'chain', 'activated'):
