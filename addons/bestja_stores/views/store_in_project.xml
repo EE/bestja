@@ -80,8 +80,8 @@
                     <field name="address"/>
                     <field name="city"/>
                     <field name="organization"/>
-                    <field name="proposed_by" string="org. potwierdzająca"/>
-                    <field name="create_date" string="data dodania"/>
+                    <field name="proposed_time"/>
+                    <field name="proposed_by" string="potwierdzający"/>
                     <field name="state"/>
                 </tree>
             </field>

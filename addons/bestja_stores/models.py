@@ -288,6 +288,7 @@ class StoreInProject(models.Model):
         string=u"Organizacja",
     )
     proposed_by = fields.Many2one('organization', oldname='activated_by', string=u"Organizacja potwierdzająca")
+    proposed_time = fields.Datetime(string=u"Czas potwierdzenia")
     top_project = fields.Many2one(
         'bestja.project',
         related='project.top_parent',
@@ -424,6 +425,7 @@ class StoreInProject(models.Model):
             raise exceptions.AccessError("Nie masz uprawnień aby proponować ten sklep!")
 
         self.sudo().state = 'proposed'
+        self.sudo().proposed_time = fields.Datetime.now()
         if self.is_owner():
             self.sudo().proposed_by = self.project.organization
         elif self.is_bank():
@@ -569,6 +571,7 @@ class StoreInProject(models.Model):
         if record.organization.level == 1 and record.is_owner():
             # Middle organization adding for itself
             record.sudo().state = 'proposed'
+            record.sudo().proposed_time = fields.Datetime.now()
             record.sudo().proposed_by = record.project.organization.id
         elif record.organization.level == 2:
             if record.is_bank():
