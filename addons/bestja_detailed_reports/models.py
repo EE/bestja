@@ -169,6 +169,18 @@ class DetailedReport(models.Model):
     final_version = fields.Boolean(string="Finalna wersja:")
     user_can_moderate = fields.Boolean(compute="_compute_user_can_moderate")
 
+    @api.model
+    def create(self, vals):
+        record = super(DetailedReport, self).create(vals)
+        if record.organization.level == 1 and not record.report_entries: # banks need just this one group
+            self.env['bestja.report_entry'].create({
+                'commodity': self.env.ref('bestja_detailed_reports.rozne').id,
+                'detailed_report': record.id,
+                'tonnage': 0.0,
+                'responsible_organization': record.responsible_organization.id,
+            })
+        return record
+
     @api.one
     @api.depends('parent_project', 'project')
     def _compute_responsible_project(self):
