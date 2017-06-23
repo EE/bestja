@@ -17,7 +17,7 @@
                             <label for="attachment"/>
                             <div>
                                 <field name="attachment" filename="filename" class="no_clear_button"/>
-                                <div class="oe_grey oe_text_right oe_edit_only">Max. wielkość pliku do <strong>25 MB</strong></div>
+                                <div class="oe_grey oe_text_right oe_edit_only">Max. wielkość pliku do <strong>300 MB</strong></div>
                             </div>
                             <field name="filename" invisible="1"/>
                         </group>
