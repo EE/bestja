@@ -149,7 +149,7 @@
                             <field name="time_to_default" placeholder="HH:MM"/>
                         </tree>
                     </field>
-                    <button name="add_days_dummy" type="object" string="Dodaj wszystkie dni zbiórki" attrs="{'invisible': ['|', ('days', '!=', []), ('state', 'in', ['rejected', 'deactivated'])]}"/>
+                    <button name="add_days_dummy" type="object" string="Dodaj wszystkie dni zbiórki" attrs="{'invisible': ['|', '&amp;', ('days', '!=', []), ('days', '!=', [(6, False, [])]), ('state', 'in', ['rejected', 'deactivated'])]}"/>
                 </form>
             </field>
         </record>
