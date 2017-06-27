@@ -287,8 +287,9 @@ class StoreInProject(models.Model):
         ]''',
         string=u"Organizacja",
     )
+    organization_name = fields.Char(related='organization.name', store=True, readonly=True, string=u"Nazwa organizacji")
     proposed_by = fields.Many2one('organization', oldname='activated_by', string=u"Organizacja potwierdzająca")
-    proposed_time = fields.Datetime(string=u"Czas potwierdzenia")
+    proposed_time = fields.Datetime(string=u"Czas zaproponowania")
     top_project = fields.Many2one(
         'bestja.project',
         related='project.top_parent',
@@ -301,7 +302,7 @@ class StoreInProject(models.Model):
     time_deactivated = fields.Datetime(string=u"Czas dezaktywacji")
     name = fields.Char(related='store.name', store=True, readonly=True)
     address = fields.Char(related='store.address', readonly=True)
-    city = fields.Char(related='store.city', readonly=True)
+    city = fields.Char(related='store.city', store=True, readonly=True)
     user_can_moderate = fields.Boolean(compute="_compute_user_can_moderate")
     user_is_federation = fields.Boolean(compute="_compute_is_federation")
     user_is_owner = fields.Boolean(compute="_compute_is_owner")

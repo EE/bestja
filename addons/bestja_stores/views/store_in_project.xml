@@ -79,9 +79,9 @@
                     <field name="name"/>
                     <field name="address"/>
                     <field name="city"/>
-                    <field name="organization"/>
+                    <field name="organization_name" string="Organizacja"/>
                     <field name="proposed_time"/>
-                    <field name="proposed_by" string="potwierdzający"/>
+                    <field name="proposed_by" string="Potwierdzający"/>
                     <field name="state"/>
                 </tree>
             </field>

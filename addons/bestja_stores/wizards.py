@@ -143,4 +143,3 @@ class StoreToProjectWizard(models.TransientModel):
                 'store': store.id,
                 'project': self.project.id,
             })
-            store_in_project.add_days();
