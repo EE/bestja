@@ -123,11 +123,7 @@ class StoreToProjectWizard(models.TransientModel):
             ('date_stop', '>=', current_date),
             '|',
                 ('organization.coordinator', '=', uid),
-            '|',
                 ('manager', '=', uid),
-            '|',
-                ('parent.organization.coordinator', '=', uid),
-                ('parent.manager', '=', uid),
         ]''',
     )
 
