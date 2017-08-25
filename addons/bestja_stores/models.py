@@ -287,7 +287,7 @@ class StoreInProject(models.Model):
         ]''',
         string=u"Organizacja",
     )
-    organization_name = fields.Char(related='organization.name', related_sudo=True, store=True, readonly=True, string=u"Nazwa organizacji")
+    organization_name = fields.Char(related='organization.name', related_sudo=True, readonly=True, string=u"Nazwa organizacji")
     proposed_by = fields.Many2one('organization', oldname='activated_by', string=u"Organizacja potwierdzająca")
     proposed_time = fields.Datetime(string=u"Czas zaproponowania")
     top_project = fields.Many2one(
